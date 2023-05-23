@@ -1,0 +1,1367 @@
+---
+permalink: switch-cisco-92300/setup-worksheet-92300yc.html 
+sidebar: sidebar 
+keywords: cable worksheet, Cisco NX 92300YC 
+summary: Se si desidera documentare le piattaforme supportate, è necessario completare il foglio di lavoro vuoto per il cablaggio utilizzando il foglio di lavoro di esempio completo come guida. 
+---
+= Completa il foglio di lavoro per il cablaggio di Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si desidera documentare le piattaforme supportate, scaricare un PDF di questa pagina e completare il foglio di lavoro relativo al cablaggio.
+
+Il foglio di lavoro di esempio relativo ai cavi fornisce esempi di assegnazione delle porte consigliate dagli switch ai controller. Il foglio di lavoro vuoto fornisce un modello che è possibile utilizzare per la configurazione del cluster.
+
+
+
+== Esempio di foglio di lavoro per il cablaggio
+
+La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Switch del cluster A 2+| Switch del cluster B 
+
+
+| Porta dello switch | Utilizzo di nodi e porte | Porta dello switch | Utilizzo di nodi e porte 
+
+
+ a| 
+1
+ a| 
+Nodo 10/25 GbE
+ a| 
+1
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+2
+ a| 
+Nodo 10/25 GbE
+ a| 
+2
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+3
+ a| 
+Nodo 10/25 GbE
+ a| 
+3
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+4
+ a| 
+Nodo 10/25 GbE
+ a| 
+4
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+5
+ a| 
+Nodo 10/25 GbE
+ a| 
+5
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+6
+ a| 
+Nodo 10/25 GbE
+ a| 
+6
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+7
+ a| 
+Nodo 10/25 GbE
+ a| 
+7
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+8
+ a| 
+Nodo 10/25 GbE
+ a| 
+8
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+9
+ a| 
+Nodo 10/25 GbE
+ a| 
+9
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+10
+ a| 
+Nodo 10/25 GbE
+ a| 
+10
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+11
+ a| 
+Nodo 10/25 GbE
+ a| 
+11
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+12
+ a| 
+Nodo 10/25 GbE
+ a| 
+12
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+13
+ a| 
+Nodo 10/25 GbE
+ a| 
+13
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+14
+ a| 
+Nodo 10/25 GbE
+ a| 
+14
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+15
+ a| 
+Nodo 10/25 GbE
+ a| 
+15
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+16
+ a| 
+Nodo 10/25 GbE
+ a| 
+16
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+17
+ a| 
+Nodo 10/25 GbE
+ a| 
+17
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+18
+ a| 
+Nodo 10/25 GbE
+ a| 
+18
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+19
+ a| 
+Nodo 10/25 GbE
+ a| 
+19
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+20
+ a| 
+Nodo 10/25 GbE
+ a| 
+20
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+21
+ a| 
+Nodo 10/25 GbE
+ a| 
+21
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+22
+ a| 
+Nodo 10/25 GbE
+ a| 
+22
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+23
+ a| 
+Nodo 10/25 GbE
+ a| 
+23
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+24
+ a| 
+Nodo 10/25 GbE
+ a| 
+24
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+25
+ a| 
+Nodo 10/25 GbE
+ a| 
+25
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+26
+ a| 
+Nodo 10/25 GbE
+ a| 
+26
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+27
+ a| 
+Nodo 10/25 GbE
+ a| 
+27
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+28
+ a| 
+Nodo 10/25 GbE
+ a| 
+28
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+29
+ a| 
+Nodo 10/25 GbE
+ a| 
+29
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+30
+ a| 
+Nodo 10/25 GbE
+ a| 
+30
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+31
+ a| 
+Nodo 10/25 GbE
+ a| 
+31
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+32
+ a| 
+Nodo 10/25 GbE
+ a| 
+32
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+33
+ a| 
+Nodo 10/25 GbE
+ a| 
+33
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+34
+ a| 
+Nodo 10/25 GbE
+ a| 
+34
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+35
+ a| 
+Nodo 10/25 GbE
+ a| 
+35
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+36
+ a| 
+Nodo 10/25 GbE
+ a| 
+36
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+37
+ a| 
+Nodo 10/25 GbE
+ a| 
+37
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+38
+ a| 
+Nodo 10/25 GbE
+ a| 
+38
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+39
+ a| 
+Nodo 10/25 GbE
+ a| 
+39
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+40
+ a| 
+Nodo 10/25 GbE
+ a| 
+40
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+41
+ a| 
+Nodo 10/25 GbE
+ a| 
+41
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+42
+ a| 
+Nodo 10/25 GbE
+ a| 
+42
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+43
+ a| 
+Nodo 10/25 GbE
+ a| 
+43
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+44
+ a| 
+Nodo 10/25 GbE
+ a| 
+44
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+45
+ a| 
+Nodo 10/25 GbE
+ a| 
+45
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+46
+ a| 
+Nodo 10/25 GbE
+ a| 
+46
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+47
+ a| 
+Nodo 10/25 GbE
+ a| 
+47
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+48
+ a| 
+Nodo 10/25 GbE
+ a| 
+48
+ a| 
+Nodo 10/25 GbE
+
+
+
+ a| 
+49
+ a| 
+Nodo 40/100 GbE
+ a| 
+49
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+50
+ a| 
+Nodo 40/100 GbE
+ a| 
+50
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+51
+ a| 
+Nodo 40/100 GbE
+ a| 
+51
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+52
+ a| 
+Nodo 40/100 GbE
+ a| 
+52
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+53
+ a| 
+Nodo 40/100 GbE
+ a| 
+53
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+54
+ a| 
+Nodo 40/100 GbE
+ a| 
+54
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+55
+ a| 
+Nodo 40/100 GbE
+ a| 
+55
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+56
+ a| 
+Nodo 40/100 GbE
+ a| 
+56
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+57
+ a| 
+Nodo 40/100 GbE
+ a| 
+57
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+58
+ a| 
+Nodo 40/100 GbE
+ a| 
+58
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+59
+ a| 
+Nodo 40/100 GbE
+ a| 
+59
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+60
+ a| 
+Nodo 40/100 GbE
+ a| 
+60
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+61
+ a| 
+Nodo 40/100 GbE
+ a| 
+61
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+62
+ a| 
+Nodo 40/100 GbE
+ a| 
+62
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+63
+ a| 
+Nodo 40/100 GbE
+ a| 
+63
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+64
+ a| 
+Nodo 40/100 GbE
+ a| 
+64
+ a| 
+Nodo 40/100 GbE
+
+
+
+ a| 
+65
+ a| 
+100 GbE ISL alla porta B dello switch 65
+ a| 
+65
+ a| 
+100 GbE ISL per lo switch Di Una porta 65
+
+
+
+ a| 
+66
+ a| 
+100 GbE ISL alla porta B dello switch 66
+ a| 
+66
+ a| 
+100 GbE ISL per lo switch Di Una porta 65
+
+|===
+
+
+== Foglio di lavoro di cablaggio vuoto
+
+È possibile utilizzare il foglio di lavoro dei cavi vuoto per documentare le piattaforme supportate come nodi in un cluster. La sezione _connessioni cluster supportate_ di https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Switch del cluster A 2+| Switch del cluster B 
+
+
+| Porta dello switch | Utilizzo di nodo/porta | Porta dello switch | Utilizzo di nodo/porta 
+
+
+ a| 
+1
+ a| 
+ a| 
+1
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+2
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+3
+ a| 
+
+
+
+ a| 
+4
+ a| 
+ a| 
+4
+ a| 
+
+
+
+ a| 
+5
+ a| 
+ a| 
+5
+ a| 
+
+
+
+ a| 
+6
+ a| 
+ a| 
+6
+ a| 
+
+
+
+ a| 
+7
+ a| 
+ a| 
+7
+ a| 
+
+
+
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+
+
+
+ a| 
+9
+ a| 
+ a| 
+9
+ a| 
+
+
+
+ a| 
+10
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+11
+ a| 
+ a| 
+11
+ a| 
+
+
+
+ a| 
+12
+ a| 
+ a| 
+12
+ a| 
+
+
+
+ a| 
+13
+ a| 
+ a| 
+13
+ a| 
+
+
+
+ a| 
+14
+ a| 
+ a| 
+14
+ a| 
+
+
+
+ a| 
+15
+ a| 
+ a| 
+15
+ a| 
+
+
+
+ a| 
+16
+ a| 
+ a| 
+16
+ a| 
+
+
+
+ a| 
+17
+ a| 
+ a| 
+17
+ a| 
+
+
+
+ a| 
+18
+ a| 
+ a| 
+18
+ a| 
+
+
+
+ a| 
+19
+ a| 
+ a| 
+19
+ a| 
+
+
+
+ a| 
+20
+ a| 
+ a| 
+20
+ a| 
+
+
+
+ a| 
+21
+ a| 
+ a| 
+21
+ a| 
+
+
+
+ a| 
+22
+ a| 
+ a| 
+22
+ a| 
+
+
+
+ a| 
+23
+ a| 
+ a| 
+23
+ a| 
+
+
+
+ a| 
+24
+ a| 
+ a| 
+24
+ a| 
+
+
+
+ a| 
+25
+ a| 
+ a| 
+25
+ a| 
+
+
+
+ a| 
+26
+ a| 
+ a| 
+26
+ a| 
+
+
+
+ a| 
+27
+ a| 
+ a| 
+27
+ a| 
+
+
+
+ a| 
+28
+ a| 
+ a| 
+28
+ a| 
+
+
+
+ a| 
+29
+ a| 
+ a| 
+29
+ a| 
+
+
+
+ a| 
+30
+ a| 
+ a| 
+30
+ a| 
+
+
+
+ a| 
+31
+ a| 
+ a| 
+31
+ a| 
+
+
+
+ a| 
+32
+ a| 
+ a| 
+32
+ a| 
+
+
+
+ a| 
+33
+ a| 
+ a| 
+33
+ a| 
+
+
+
+ a| 
+34
+ a| 
+ a| 
+34
+ a| 
+
+
+
+ a| 
+35
+ a| 
+ a| 
+35
+ a| 
+
+
+
+ a| 
+36
+ a| 
+ a| 
+36
+ a| 
+
+
+
+ a| 
+37
+ a| 
+ a| 
+37
+ a| 
+
+
+
+ a| 
+38
+ a| 
+ a| 
+38
+ a| 
+
+
+
+ a| 
+39
+ a| 
+ a| 
+39
+ a| 
+
+
+
+ a| 
+40
+ a| 
+ a| 
+40
+ a| 
+
+
+
+ a| 
+41
+ a| 
+ a| 
+41
+ a| 
+
+
+
+ a| 
+42
+ a| 
+ a| 
+42
+ a| 
+
+
+
+ a| 
+43
+ a| 
+ a| 
+43
+ a| 
+
+
+
+ a| 
+44
+ a| 
+ a| 
+44
+ a| 
+
+
+
+ a| 
+45
+ a| 
+ a| 
+45
+ a| 
+
+
+
+ a| 
+46
+ a| 
+ a| 
+46
+ a| 
+
+
+
+ a| 
+47
+ a| 
+ a| 
+47
+ a| 
+
+
+
+ a| 
+48
+ a| 
+ a| 
+48
+ a| 
+
+
+
+ a| 
+49
+ a| 
+ a| 
+49
+ a| 
+
+
+
+ a| 
+50
+ a| 
+ a| 
+50
+ a| 
+
+
+
+ a| 
+51
+ a| 
+ a| 
+51
+ a| 
+
+
+
+ a| 
+52
+ a| 
+ a| 
+52
+ a| 
+
+
+
+ a| 
+53
+ a| 
+ a| 
+53
+ a| 
+
+
+
+ a| 
+54
+ a| 
+ a| 
+54
+ a| 
+
+
+
+ a| 
+55
+ a| 
+ a| 
+55
+ a| 
+
+
+
+ a| 
+56
+ a| 
+ a| 
+56
+ a| 
+
+
+
+ a| 
+57
+ a| 
+ a| 
+57
+ a| 
+
+
+
+ a| 
+58
+ a| 
+ a| 
+58
+ a| 
+
+
+
+ a| 
+59
+ a| 
+ a| 
+59
+ a| 
+
+
+
+ a| 
+60
+ a| 
+ a| 
+60
+ a| 
+
+
+
+ a| 
+61
+ a| 
+ a| 
+61
+ a| 
+
+
+
+ a| 
+62
+ a| 
+ a| 
+62
+ a| 
+
+
+
+ a| 
+63
+ a| 
+ a| 
+63
+ a| 
+
+
+
+ a| 
+64
+ a| 
+ a| 
+64
+ a| 
+
+
+
+ a| 
+65
+ a| 
+Da ISL a switch B porta 65
+ a| 
+65
+ a| 
+ISL per lo switch Di Una porta 65
+
+
+
+ a| 
+66
+ a| 
+Da ISL a switch B porta 66
+ a| 
+66
+ a| 
+ISL per lo switch Di Una porta 66
+
+|===

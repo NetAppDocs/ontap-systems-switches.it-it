@@ -1,0 +1,34 @@
+---
+section: switch-netapp-cn1610
+title: NetApp CN1610
+entries:
+- title: Panoramica
+  url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
+- title: Workflow di installazione e configurazione
+  url: "/switch-netapp-cn1610/install-overview-cn1610.html"
+- title: Documentazione richiesta
+  url: "/switch-netapp-cn1610/required-documentation-cn1610.html"
+- title: Installare e configurare
+  entries:
+  - title: Installare l'hardware
+    url: "/switch-netapp-cn1610/install-hardware-cn1610.html"
+  - title: Installare il software FASTPATH
+    url: "/switch-netapp-cn1610/install-fastpath-software.html"
+  - title: Installare un RCF
+    url: "/switch-netapp-cn1610/install-rcf-file.html"
+  - title: Installare FASTPATH e RCF per ONTAP 8.3.1 e versioni successive
+    url: "/switch-netapp-cn1610/install-fastpath-rcf-831.html"
+  - title: Configurare lo switch
+    url: "/switch-netapp-cn1610/configure-hardware-cn1610.html"
+- title: Migrare gli switch
+  entries:
+  - title: Opzioni di migrazione
+    url: "/switch-netapp-cn1610/migrate-overview.html"
+  - title: Migrazione da un cluster senza switch
+    url: "/switch-netapp-cn1610/migrate-switched-netapp-cn1610.html"
+  - title: Migrare a un cluster con switch a due nodi
+    url: "/switch-netapp-cn1610/migrate-fas22xx-systems.html"
+- title: Sostituire gli interruttori
+  entries:
+  - title: Sostituire gli switch del cluster con connessioni senza switch
+    url: "/switch-netapp-cn1610/migrate-to-switchless-cluster-interconnect.html"

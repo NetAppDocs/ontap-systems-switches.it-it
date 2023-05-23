@@ -1,0 +1,30 @@
+---
+permalink: switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
+summary: Panoramica della configurazione software o degli switch NVIDIA SN2100. 
+---
+= Workflow di installazione del software per switch NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per installare e configurare il software per uno switch NVIDIA SN2100, attenersi alla seguente procedura:
+
+. link:install-cumulus-mode-sn2100-cluster.html["Installare Cumulus Linux in modalità Cumulus"] oppure link:install-onie-mode-sn2100-cluster.html["Installare Cumulus Linux in modalità ONIE"].
++
+È possibile installare il sistema operativo Cumulus Linux (CL) quando lo switch esegue Cumulus Linux o ONIE.
+
+. link:install-rcf-sn2100-cluster.html["Installare lo script del file di configurazione di riferimento (RCF)"].
++
+Sono disponibili due script RCF per le applicazioni di clustering e storage. La procedura per ciascuno di essi è la stessa.
+
+. link:install-snmpv3-sn2100-cluster.html["Configurare SNMPv3 per la raccolta dei log dello switch"].
++
+Questa versione include il supporto per SNMPv3 per la raccolta dei log degli switch e per Switch Health Monitoring (SHM).
+
+
+
+Le procedure utilizzano Network Command Line Utility (NCLU), un'interfaccia a riga di comando che garantisce l'accesso completo a Cumulus Linux. Il comando net è l'utility wrapper utilizzata per eseguire azioni da un terminale.

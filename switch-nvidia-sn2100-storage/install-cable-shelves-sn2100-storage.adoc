@@ -1,0 +1,28 @@
+---
+permalink: switch-nvidia-sn2100/install-cable-shelves-sn2100-storage.html 
+sidebar: sidebar 
+keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
+summary: 'Se si dispone di un sistema in cui gli shelf di dischi NS224 devono essere cablati come storage collegato allo switch (non come storage collegato direttamente), utilizzare le informazioni fornite qui.' 
+---
+= Cablare gli shelf NS224 come storage collegato allo switch
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si dispone di un sistema in cui gli shelf di dischi NS224 devono essere cablati come storage collegato allo switch (non come storage collegato direttamente), utilizzare le informazioni fornite qui.
+
+* Cablare gli shelf di dischi NS224 attraverso gli switch di storage:
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Informazioni per il cablaggio degli shelf di dischi NS224 collegati allo switch"^]
+
+* Installare gli switch storage:
++
+https://docs.netapp.com/us-en/ontap-systems-switches/index.html["Documentazione switch AFF e FAS"^]
+
+* Verificare l'hardware supportato, ad esempio switch e cavi storage, per il modello di piattaforma in uso:
++
+https://hwu.netapp.com/["NetApp Hardware Universe"^]
+
+

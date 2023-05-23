@@ -1,0 +1,49 @@
+---
+permalink: switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html 
+sidebar: sidebar 
+keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
+summary: 'Panoramica dell"installazione e della configurazione degli switch condivisi Cisco Nexus 9336C-FX2' 
+---
+= Panoramica dell'installazione e della configurazione degli switch condivisi Cisco Nexus 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lo switch condiviso Cisco Nexus 9336C-FX2 fa parte della piattaforma Cisco Nexus 9000 e può essere installato in un cabinet di sistema NetApp. Gli switch condivisi consentono di combinare funzionalità di cluster e storage in una configurazione di switch condivisa, supportando l'utilizzo di file di configurazione di riferimento di cluster e storage condivisi.
+
+
+
+== Panoramica della configurazione iniziale
+
+Per configurare inizialmente uno switch Cisco Nexus 9336C-FX2 su sistemi che eseguono ONTAP, attenersi alla seguente procedura:
+
+. link:cable-9336c-shared.html["Completare il foglio di lavoro per il cablaggio"].
++
+Utilizzare le immagini dei cavi per completare il cablaggio tra i controller e gli switch.
+
+. link:install-9336c-shared.html["Installare lo switch"].
+. link:setup-and-configure-9336c-shared.html["Configurare lo switch"].
+. link:install-switch-and-passthrough-panel-9336c-shared.html["Installare lo switch nel cabinet NetApp"].
++
+A seconda della configurazione, è possibile installare lo switch Cisco Nexus 9336C-FX2 e il pannello pass-through in un cabinet NetApp con le staffe standard incluse con lo switch.
+
+. link:prepare-nxos-rcf-9336c-shared.html["Preparazione all'installazione di NX-OS e RCF"].
+. link:install-nxos-software-9336c-shared.html["Installare il software NX-OS"].
+. link:install-nxos-rcf-9336c-shared.html["Installare il file di configurazione RCF"].
++
+Installare l'RCF dopo aver configurato lo switch Nexus 9336C-FX2 per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.
+
+
+
+
+
+== Ulteriori informazioni
+
+Prima di iniziare l'installazione o la manutenzione, verificare quanto segue:
+
+* link:configure-reqs-9336c-shared.html["Requisiti di configurazione"]
+* link:components-9336c-shared.html["Componenti e numeri di parte"]
+* link:required-documentation-9336c-shared.html["Documentazione richiesta"]
+

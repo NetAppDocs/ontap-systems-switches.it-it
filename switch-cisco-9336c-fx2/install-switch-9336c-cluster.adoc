@@ -1,0 +1,51 @@
+---
+permalink: switch-cisco-9336c-fx2/install-switch-9336c-cluster.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
+summary: Seguire questa procedura per installare lo switch Cisco Nexus 9336C-FX2. 
+---
+= Installare lo switch cluster 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Seguire questa procedura per configurare lo switch Cisco Nexus 9336C-FX2.
+
+.Di cosa hai bisogno
+* Accesso a un server HTTP, FTP o TFTP nel sito di installazione per scaricare le release NX-OS e RCF (Reference Configuration file) applicabili.
+* Versione NX-OS applicabile, scaricata da https://software.cisco.com/download/home["Download del software Cisco"^] pagina.
+* Licenze applicabili, informazioni di rete e configurazione e cavi.
+* Completato link:setup-worksheet-9336c-cluster.html["fogli di lavoro per il cablaggio"].
+* RCF di rete cluster e rete di gestione NetApp applicabili scaricati dal NetApp Support Site all'indirizzo http://mysupport.netapp.com/["mysupport.netapp.com"^]. Tutti gli switch della rete cluster e di gestione Cisco vengono forniti con la configurazione standard predefinita di fabbrica di Cisco. Questi switch hanno anche la versione corrente del software NX-OS, ma non hanno gli RCF caricati.
+* link:required-documentation-9336c-cluster.html["Documentazione richiesta su switch e ONTAP"].
+
+
+.Fasi
+. Rack di switch e controller della rete di gestione e della rete del cluster.
++
+[cols="1,2"]
+|===
+| Se si sta installando... | Quindi... 
+
+
+ a| 
+Cisco Nexus 9336C-FX2 in un cabinet di sistema NetApp
+ a| 
+Per istruzioni sull'installazione dello switch in un cabinet NetApp, consultare la guida _Installazione di uno switch cluster Cisco Nexus 9336C-FX2 e il pannello pass-through in un cabinet NetApp.
+
+
+
+ a| 
+Apparecchiatura in un rack Telco
+ a| 
+Consultare le procedure fornite nelle guide all'installazione dell'hardware dello switch e le istruzioni di installazione e configurazione di NetApp.
+
+|===
+. Collegare gli switch della rete cluster e della rete di gestione ai controller utilizzando i fogli di lavoro di cablaggio completi.
+. Accendere la rete del cluster e gli switch e i controller della rete di gestione.
+
+
+.Quali sono le prossime novità?
+Passare a. link:setup-switch-9336c-cluster.html["Configurare lo switch Cisco Nexus 9336C-FX2"].

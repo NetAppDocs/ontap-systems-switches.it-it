@@ -1,0 +1,587 @@
+---
+permalink: switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html 
+sidebar: sidebar 
+keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2 
+summary: Se si desidera documentare le piattaforme supportate, è necessario completare il foglio di lavoro vuoto per il cablaggio utilizzando il foglio di lavoro di esempio completo come guida. 
+---
+= Completare il foglio di lavoro per il cablaggio di Cisco Nexus 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si desidera documentare le piattaforme supportate, scaricare un PDF di questa pagina e completare il foglio di lavoro relativo al cablaggio.
+
+Il foglio di lavoro di esempio relativo ai cavi fornisce esempi di assegnazione delle porte consigliate dagli switch ai controller. Il foglio di lavoro vuoto fornisce un modello che è possibile utilizzare per la configurazione del cluster.
+
+
+
+== Esempio di foglio di lavoro per il cablaggio
+
+La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Switch del cluster A 2+| Switch del cluster B 
+
+
+| Porta dello switch | Utilizzo di nodi e porte | Porta dello switch | Utilizzo di nodi e porte 
+
+
+ a| 
+1
+ a| 
+Nodo 4 x 10 GbE 1
+ a| 
+1
+ a| 
+Nodo 4 x 10 GbE 1
+
+
+
+ a| 
+2
+ a| 
+Nodo 4 x 10 GbE 2
+ a| 
+2
+ a| 
+Nodo 4 x 10 GbE 2
+
+
+
+ a| 
+3
+ a| 
+Nodo 4 x 10 GbE 3
+ a| 
+3
+ a| 
+Nodo 4 x 10 GbE 3
+
+
+
+ a| 
+4
+ a| 
+Nodo 4 x 25 GbE 4
+ a| 
+4
+ a| 
+Nodo 4 x 25 GbE 4
+
+
+
+ a| 
+5
+ a| 
+Nodo 4 x 25 GbE 5
+ a| 
+5
+ a| 
+Nodo 4 x 25 GbE 5
+
+
+
+ a| 
+6
+ a| 
+Nodo 4 x 25 GbE 6
+ a| 
+6
+ a| 
+Nodo 4 x 25 GbE 6
+
+
+
+ a| 
+7
+ a| 
+Nodo 4 x 100 GbE 7
+ a| 
+7
+ a| 
+Nodo 4 x 100 GbE 7
+
+
+
+ a| 
+8
+ a| 
+Nodo 4 x 100 GbE 8
+ a| 
+8
+ a| 
+Nodo 4 x 100 GbE 8
+
+
+
+ a| 
+9
+ a| 
+Nodo 4 x 100 GbE 9
+ a| 
+9
+ a| 
+Nodo 4 x 100 GbE 9
+
+
+
+ a| 
+10
+ a| 
+Nodo 4x100GbE 10
+ a| 
+10
+ a| 
+Nodo 4x100GbE 10
+
+
+
+ a| 
+11
+ a| 
+Nodo 4x100GbE 11
+ a| 
+11
+ a| 
+Nodo 4x100GbE 11
+
+
+
+ a| 
+12
+ a| 
+Nodo 4x100GbE 12
+ a| 
+12
+ a| 
+Nodo 4x100GbE 12
+
+
+
+ a| 
+13
+ a| 
+Nodo 4x100GbE 13
+ a| 
+13
+ a| 
+Nodo 4x100GbE 13
+
+
+
+ a| 
+14
+ a| 
+Nodo 4x100GbE 14
+ a| 
+14
+ a| 
+Nodo 4x100GbE 14
+
+
+
+ a| 
+15
+ a| 
+Nodo 4x100GbE 15
+ a| 
+15
+ a| 
+Nodo 4x100GbE 15
+
+
+
+ a| 
+16
+ a| 
+Nodo 4x100GbE 16
+ a| 
+16
+ a| 
+Nodo 4x100GbE 16
+
+
+
+ a| 
+17
+ a| 
+Nodo 4x100GbE 17
+ a| 
+17
+ a| 
+Nodo 4x100GbE 17
+
+
+
+ a| 
+18
+ a| 
+Nodo 4x100GbE 18
+ a| 
+18
+ a| 
+Nodo 4x100GbE 18
+
+
+
+ a| 
+19
+ a| 
+Nodo 4x100GbE 19
+ a| 
+19
+ a| 
+Nodo 4x100GbE 19
+
+
+
+ a| 
+20
+ a| 
+Nodo 4x100GbE 20
+ a| 
+20
+ a| 
+Nodo 4x100GbE 20
+
+
+
+ a| 
+21
+ a| 
+Nodo 4x100GbE 21
+ a| 
+21
+ a| 
+Nodo 4x100GbE 21
+
+
+
+ a| 
+22
+ a| 
+Nodo 4x100GbE 22
+ a| 
+22
+ a| 
+Nodo 4x100GbE 22
+
+
+
+ a| 
+23
+ a| 
+Nodo 4x100GbE 23
+ a| 
+23
+ a| 
+Nodo 4x100GbE 23
+
+
+
+ a| 
+24
+ a| 
+Nodo 4x100GbE 24
+ a| 
+24
+ a| 
+Nodo 4x100GbE 24
+
+
+
+ a| 
+da 25 a 34
+ a| 
+Riservato
+ a| 
+da 25 a 34
+ a| 
+Riservato
+
+
+
+ a| 
+35
+ a| 
+100G ISL alla porta B dello switch 35
+ a| 
+35
+ a| 
+100G ISL per cambiare una porta 35
+
+
+
+ a| 
+36
+ a| 
+100G ISL alla porta B dello switch 36
+ a| 
+36
+ a| 
+100G ISL per cambiare una porta 36
+
+|===
+
+
+== Foglio di lavoro di cablaggio vuoto
+
+È possibile utilizzare il foglio di lavoro dei cavi vuoto per documentare le piattaforme supportate come nodi in un cluster. La sezione _connessioni cluster supportate_ di https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Switch del cluster A 2+| Switch del cluster B 
+
+
+ a| 
+1
+ a| 
+ a| 
+1
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+2
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+3
+ a| 
+
+
+
+ a| 
+4
+ a| 
+ a| 
+4
+ a| 
+
+
+
+ a| 
+5
+ a| 
+ a| 
+5
+ a| 
+
+
+
+ a| 
+6
+ a| 
+ a| 
+6
+ a| 
+
+
+
+ a| 
+7
+ a| 
+ a| 
+7
+ a| 
+
+
+
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+
+
+
+ a| 
+9
+ a| 
+ a| 
+9
+ a| 
+
+
+
+ a| 
+10
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+11
+ a| 
+ a| 
+11
+ a| 
+
+
+
+ a| 
+12
+ a| 
+ a| 
+12
+ a| 
+
+
+
+ a| 
+13
+ a| 
+ a| 
+13
+ a| 
+
+
+
+ a| 
+14
+ a| 
+ a| 
+14
+ a| 
+
+
+
+ a| 
+15
+ a| 
+ a| 
+15
+ a| 
+
+
+
+ a| 
+16
+ a| 
+ a| 
+16
+ a| 
+
+
+
+ a| 
+17
+ a| 
+ a| 
+17
+ a| 
+
+
+
+ a| 
+18
+ a| 
+ a| 
+18
+ a| 
+
+
+
+ a| 
+19
+ a| 
+ a| 
+19
+ a| 
+
+
+
+ a| 
+20
+ a| 
+ a| 
+20
+ a| 
+
+
+
+ a| 
+21
+ a| 
+ a| 
+21
+ a| 
+
+
+
+ a| 
+22
+ a| 
+ a| 
+22
+ a| 
+
+
+
+ a| 
+23
+ a| 
+ a| 
+23
+ a| 
+
+
+
+ a| 
+24
+ a| 
+ a| 
+24
+ a| 
+
+
+
+ a| 
+da 25 a 34
+ a| 
+Riservato
+ a| 
+da 25 a 34
+ a| 
+Riservato
+
+
+
+ a| 
+35
+ a| 
+100G ISL alla porta B dello switch 35
+ a| 
+35
+ a| 
+100G ISL per cambiare una porta 35
+
+
+
+ a| 
+36
+ a| 
+100G ISL alla porta B dello switch 36
+ a| 
+36
+ a| 
+100G ISL per cambiare una porta 36
+
+|===
+Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"] per ulteriori informazioni sulle porte dello switch.

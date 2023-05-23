@@ -1,0 +1,61 @@
+---
+permalink: switch-nvidia-sn2100/components-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: nvidia SN2100 switches 
+summary: Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete cluster supportati. È possibile utilizzare switch di gestione aggiuntivi, opzionali. 
+---
+= Componenti e codici ricambio per switch NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per l'installazione e la manutenzione dello switch NVIDIA SN2100, consultare l'elenco dei componenti e i codici del cabinet e del kit di guide.
+
+
+
+== Dettagli del cabinet
+
+Lo switch NVIDIA SN2100 (X190006) viene installato nel cabinet doppio/singolo NVIDIA con le staffe standard incluse con lo switch.
+
+
+
+== Dettagli del kit ferroviario
+
+La seguente tabella elenca il codice e la descrizione degli switch e dei kit di guide SN2100:
+
+[cols="1,2"]
+|===
+| Codice del ricambio | Descrizione 
+
+
+ a| 
+X190006-PE
+ a| 
+Switch cluster, NVIDIA SN2100, 16 PUNTI 100GbE, PTSX
+
+
+
+ a| 
+X190006-PI
+ a| 
+Switch cluster, NVIDIA SN2100, 16 PUNTI 100GbE, PSIN
+
+
+
+ a| 
+X-MTEF-KIT-D
+ a| 
+Kit di guide, NVIDIA Dual Switch fianco a fianco
+
+
+
+ a| 
+X-MTEF-KIT-E
+ a| 
+Kit di guide, NVIDIA Single Switch a breve profondità
+
+|===
+
+NOTE: Consultare la documentazione NVIDIA per ulteriori informazioni su https://docs.nvidia.com/networking/display/sn2000pub/Installation["Installazione dello switch SN2100 e del kit guida"^].

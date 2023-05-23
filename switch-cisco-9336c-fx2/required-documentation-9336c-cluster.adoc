@@ -1,0 +1,139 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2/required-documentation-9336c-cluster.html 
+keywords: shared storage cluster switch 
+summary: 'Per l"installazione e la manutenzione dello switch Cisco Nexus 9336C-FX2, consultare la documentazione relativa a switch e controller specifici per la configurazione degli switch Cisco 9336-FX2 e del cluster ONTAP.' 
+---
+= Requisiti della documentazione per gli switch Cisco Nexus 9336C-FX2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Per l'installazione e la manutenzione dello switch Cisco Nexus 9336C-FX2, consultare la documentazione relativa a switch e controller specifici per la configurazione degli switch Cisco 9336-FX2 e del cluster ONTAP.
+
+
+
+== Documentazione dello switch
+
+Per configurare gli switch Cisco Nexus 9336C-FX2, è necessaria la seguente documentazione disponibile sul https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Supporto degli switch Cisco Nexus serie 9000"^] pagina:
+
+[cols="1,2"]
+|===
+| Titolo del documento | Descrizione 
+
+
+ a| 
+_Guida all'installazione dell'hardware della serie Nexus 9000_
+ a| 
+Fornisce informazioni dettagliate sui requisiti del sito, sui dettagli dell'hardware dello switch e sulle opzioni di installazione.
+
+
+
+ a| 
+_Cisco Nexus 9000 Series Software Configuration Guide_ (scegliere la guida per la release NX-OS installata sugli switch)
+ a| 
+Fornisce le informazioni di configurazione iniziale dello switch necessarie prima di poter configurare lo switch per il funzionamento ONTAP.
+
+
+
+ a| 
+_Guida all'aggiornamento e al downgrade del software per Cisco Nexus serie 9000 NX-OS_ (scegliere la guida per la release NX-OS installata sugli switch)
+ a| 
+Fornisce informazioni su come eseguire il downgrade dello switch al software dello switch supportato da ONTAP, se necessario.
+
+
+
+ a| 
+_Cisco Nexus serie 9000 NX-OS Command Reference Master Index_
+ a| 
+Fornisce collegamenti ai vari riferimenti ai comandi forniti da Cisco.
+
+
+
+ a| 
+_Riferimento MIB Cisco Nexus 9000_
+ a| 
+Descrive i file MIB (Management Information base) per i centralini Nexus 9000.
+
+
+
+ a| 
+_Guida ai messaggi del sistema NX-OS serie Nexus 9000_
+ a| 
+Descrive i messaggi di sistema per gli switch Cisco Nexus serie 9000, quelli che sono informativi e altri che possono aiutare a diagnosticare problemi con collegamenti, hardware interno o software di sistema.
+
+
+
+ a| 
+_Note sulla versione di Cisco Nexus 9000 Series NX-OS (scegliere le note per la release NX-OS installata sugli switch)_
+ a| 
+Descrive le funzioni, i bug e le limitazioni di Cisco Nexus serie 9000.
+
+
+
+ a| 
+Conformità alle normative e informazioni sulla sicurezza per Cisco Nexus serie 9000
+ a| 
+Fornisce informazioni legali, sulla conformità e sulla sicurezza degli switch Nexus serie 9000 a livello internazionale.
+
+|===
+
+
+== Documentazione sui sistemi ONTAP
+
+Per configurare un sistema ONTAP, sono necessari i seguenti documenti per la versione del sistema operativo in uso dal https://docs.netapp.com/ontap-9/index.jsp["Centro documentazione di ONTAP 9"^].
+
+[cols="1,2"]
+|===
+| Nome | Descrizione 
+
+
+ a| 
+_Istruzioni di installazione e configurazione_ specifiche del controller
+ a| 
+Descrive come installare l'hardware NetApp.
+
+
+
+ a| 
+Documentazione ONTAP
+ a| 
+Fornisce informazioni dettagliate su tutti gli aspetti delle release di ONTAP.
+
+
+
+ a| 
+https://hwu.netapp.com["Hardware Universe"^]
+ a| 
+Fornisce informazioni sulla compatibilità e sulla configurazione dell'hardware NetApp.
+
+|===
+
+
+== Kit di guide e documentazione del cabinet
+
+Per installare uno switch Cisco 9336-FX2 in un cabinet NetApp, consultare la seguente documentazione hardware.
+
+[cols="1,2"]
+|===
+| Nome | Descrizione 
+
+
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Cabinet di sistema 42U, guida dettagliata"^]
+ a| 
+Descrive le FRU associate all'armadio del sistema 42U e fornisce istruzioni per la manutenzione e la sostituzione delle FRU.
+
+
+
+ a| 
+link:install-switch-and-passthrough-panel-9336c-cluster.html["Installare uno switch Cisco 9336-FX2 in un cabinet NetApp"^]
+ a| 
+Descrive come installare uno switch Cisco Nexus 9336C-FX2 in un cabinet NetApp a quattro montanti.
+
+|===

@@ -1,0 +1,198 @@
+---
+permalink: switch-bes-53248/configure-install-initial.html 
+sidebar: sidebar 
+keywords: switches initial setup,initial setup,efos download 
+summary: 'È possibile utilizzare questa procedura per eseguire l"installazione iniziale dello switch del cluster BES-53248.' 
+---
+= Configurare lo switch del cluster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Seguire questa procedura per eseguire una configurazione iniziale dello switch del cluster BES-53248.
+
+.Prima di iniziare
+* Viene installato l'hardware, come descritto in link:install-hardware-bes53248.html["Installare l'hardware"].
+* Hai esaminato quanto segue:
++
+** link:configure-reqs-bes53248.html["Requisiti di configurazione"]
+** link:components-bes53248.html["Componenti e numeri di parte"]
+** link:required-documentation-bes53248.html["Requisiti di documentazione"]
+
+
+
+
+.A proposito degli esempi
+Gli esempi delle procedure di configurazione utilizzano la seguente nomenclatura di switch e nodi:
+
+* I nomi degli switch NetApp sono `cs1` e. `cs2`. L'aggiornamento inizia dal secondo switch, _cs2._
+* I nomi LIF del cluster sono `node1_clus1` e. `node1_clus2` per il node1, e. `node2_clus1` e. `node2_clus2` per il node2.
+* Il nome IPSpace è Cluster.
+* Il `cluster1::>` prompt indica il nome del cluster.
+* Le porte del cluster su ciascun nodo sono denominate `e0a` e. `e0b`. Vedere https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^] per le porte cluster effettivamente supportate sulla piattaforma.
+* I collegamenti inter-switch (ISL) supportati per gli switch NetApp sono le porte 0/55 e 0/56.
+* Le connessioni dei nodi supportate per gli switch NetApp sono le porte da 0/1 a 0/16 con licenza predefinita.
+* Gli esempi utilizzano due nodi, ma è possibile includere fino a 24 nodi in un cluster.
+
+
+.Fasi
+. Collegare la porta seriale a una porta host o seriale.
+. Collegare la porta di gestione (la porta RJ-45 sul lato sinistro dello switch) alla stessa rete in cui si trova il server TFTP.
+. Nella console, impostare le impostazioni seriali lato host:
++
+** 115200 baud
+** 8 bit di dati
+** 1 bit di stop
+** parità: nessuna
+** controllo di flusso: nessuno
+
+
+. Accedere allo switch come `admin` E premere *Invio* quando viene richiesta una password. Il nome predefinito dello switch è *routing*. Quando richiesto, immettere `enable`. In questo modo è possibile accedere alla modalità EXEC privilegiata per la configurazione dello switch.
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+User: *admin*
+Password:
+(Routing)> *enable*
+Password:
+(Routing)#
+----
+====
+. Modificare il nome dello switch in *cs2*.
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(Routing)# *hostname cs2*
+(cs2)#
+----
+====
+. Per impostare un indirizzo IP statico, utilizzare `serviceport protocol`, `network protocol`, e. `serviceport ip` comandi come mostrato nell'esempio.
++
+serviceport è impostato su Usa DHCP per impostazione predefinita. L'indirizzo IP, la subnet mask e l'indirizzo del gateway predefinito vengono assegnati automaticamente.
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *serviceport protocol none*
+(cs2)# *network protocol none*
+(cs2)# *serviceport ip ipaddr netmask gateway*
+----
+====
+. Verificare i risultati utilizzando il comando:
++
+`show serviceport`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show serviceport*
+Interface Status............................... Up
+IP Address..................................... 172.19.2.2
+Subnet Mask.................................... 255.255.255.0
+Default Gateway................................ 172.19.2.254
+IPv6 Administrative Mode....................... Enabled
+IPv6 Prefix is ................................ fe80::dac4:97ff:fe71:123c/64
+IPv6 Default Router............................ fe80::20b:45ff:fea9:5dc0
+Configured IPv4 Protocol....................... DHCP
+Configured IPv6 Protocol....................... None
+IPv6 AutoConfig Mode........................... Disabled
+Burned In MAC Address.......................... D8:C4:97:71:12:3C
+----
+====
+. Configurare il dominio e il server dei nomi:
++
+`configure`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *configure*
+(cs2) (Config)# *ip domain name company.com*
+(cs2) (Config)# *ip name server 10.10.99.1 10.10.99.2*
+(cs2) (Config)# *exit*
+(cs2) (Config)#
+----
+====
+. Configurare il server NTP.
++
+.. Configurare il fuso orario e la sincronizzazione dell'ora (SNTP):
++
+`sntp`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)#
+(cs2) (Config)# *sntp client mode unicast*
+(cs2) (Config)# *sntp server 10.99.99.5*
+(cs2) (Config)# *clock timezone -7*
+(cs2) (Config)# *exit*
+(cs2) (Config)#
+----
+====
++
+
+NOTE: Per EFOS versione 3.10.0.3 e successive, utilizzare il comando `ntp`.
+
+.. Configurare l'ora manualmente:
++
+`clock`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *config*
+(cs2) (Config)# *no sntp client mode*
+(cs2) (Config)# *clock summer-time recurring 1 sun mar 02:00 1 sun nov 02:00 offset 60 zone EST*
+(cs2) (Config)# *clock timezone -5 zone EST*
+(cs2) (Config)# *clock set 07:00:00
+(cs2) (Config)# *clock set 10/20/2020*
+
+(cs2) (Config)# *show clock*
+
+07:00:11 EST(UTC-5:00) Oct 20 2020
+No time source
+
+(cs2) (Config)# *exit*
+
+(cs2)# *write memory*
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
+
+
+
+
+.Quali sono le prossime novità?
+link:configure-efos-software.html["Installare il software EFOS"].

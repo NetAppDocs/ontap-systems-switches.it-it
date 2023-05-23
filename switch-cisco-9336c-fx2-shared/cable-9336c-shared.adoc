@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html 
+keywords: shared storage cluster switch cable 
+summary: Utilizzare le immagini dei cavi per completare il cablaggio tra i controller e gli switch. 
+---
+= Completare il foglio di lavoro per il cablaggio di Cisco Nexus 9336C-FX2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilizzare le seguenti immagini di cablaggio per completare il cablaggio tra i controller e gli switch.
+
+
+
+== Cavo di storage NS224 collegato allo switch
+
+Se si desidera collegare lo storage NS224 come switch-attached, seguire lo schema dello switch-attached:
+
+image:9336c_image1.jpg["Collegato allo switch"]
+
+Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"] per ulteriori informazioni sulle porte dello switch.
+
+
+
+== Cavo di storage NS224 come collegamento diretto
+
+Se si desidera collegare lo storage NS224 come collegamento diretto invece di utilizzare le porte di storage dello switch condiviso, seguire il diagramma a collegamento diretto:
+
+image:9336c_image2.jpg["Collegamento diretto"]
+
+Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"] per ulteriori informazioni sulle porte dello switch.
+
+
+
+== Foglio di lavoro per il cablaggio di Cisco Nexus 9336C-FX2
+
+Se si desidera documentare le piattaforme supportate, è necessario completare il foglio di lavoro dei cavi vuoto utilizzando un foglio di lavoro di esempio completo come guida.
+
+La definizione di porta di esempio su ciascuna coppia di switch è la seguente:image:cabling_worksheet.jpg["Foglio di lavoro sul cablaggio"]
+
+Dove:
+
+* 100G ISL per cambiare una porta 35
+* 100G ISL per cambiare una porta 36
+* 100G ISL alla porta B dello switch 35
+* 100G ISL alla porta B dello switch 36
+
+
+
+
+== Foglio di lavoro di cablaggio vuoto
+
+È possibile utilizzare il foglio di lavoro dei cavi vuoto per documentare le piattaforme supportate come nodi in un cluster. La tabella delle connessioni cluster supportate di Hardware Universe definisce le porte del cluster utilizzate dalla piattaforma.
+
+image:blank_cabling_worksheet.jpg["Foglio di lavoro di cablaggio vuoto"]
+
+Dove:
+
+* 100G ISL per cambiare una porta 35
+* 100G ISL per cambiare una porta 36
+* 100G ISL alla porta B dello switch 35
+* 100G ISL alla porta B dello switch 36
+

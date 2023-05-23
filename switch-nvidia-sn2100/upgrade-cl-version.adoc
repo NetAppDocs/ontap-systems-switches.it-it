@@ -1,0 +1,452 @@
+---
+permalink: switch-nvidia-sn2100/upgrade-cl-version.html 
+sidebar: sidebar 
+keywords: nvidia SN2100 switches 
+summary: Completare i seguenti passaggi per aggiornare la versione di Cumulus Linux. 
+---
+= Aggiornare le versioni di Cumulus Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Completare la seguente procedura per aggiornare la versione di Cumulus Linux secondo necessità.
+
+.Di cosa hai bisogno
+* Conoscenza di livello intermedio di Linux.
+* Familiarità con la modifica di base del testo, le autorizzazioni dei file UNIX e il monitoraggio dei processi. Sono preinstallati diversi editor di testo, tra cui `vi` e. `nano`.
+* Accesso a una shell Linux o UNIX. Se si utilizza Windows, utilizzare un ambiente Linux come strumento della riga di comando per interagire con Cumulus Linux.
+* Il requisito della velocità di trasmissione è impostato su 115200 sullo switch della console seriale per l'accesso alla console dello switch NVIDIA SN2100, come segue:
++
+** 115200 baud
+** 8 bit di dati
+** 1 bit di stop
+** parità: nessuna
+** controllo di flusso: nessuno
+
+
+
+
+.A proposito di questa attività
+Tenere presente quanto segue:
+
+
+NOTE: Ogni volta che Cumulus Linux viene aggiornato, l'intera struttura del file system viene cancellata e ricostruita. La configurazione esistente verrà cancellata. È necessario salvare e registrare la configurazione dello switch prima di aggiornare Cumulus Linux.
+
+
+CAUTION: La password predefinita per l'account utente cumulus è *cumulus*. La prima volta che si accede a Cumulus Linux, è necessario modificare questa password predefinita. È necessario aggiornare gli script di automazione prima di installare una nuova immagine. Cumulus Linux offre opzioni della riga di comando per modificare automaticamente la password predefinita durante il processo di installazione.
+
+.Fasi
+[role="tabbed-block"]
+====
+.Da Cumulus Linux 4.4.x a Cumulus Linux 5.x.
+--
+. Controllare la versione corrente di Cumulus Linux e le porte collegate:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *net show system*
+Hostname......... cumulus
+Build............ *Cumulus Linux 4.4.3*
+Uptime........... 0:08:20.860000
+Model............ Mlnx X86
+CPU.............. x86_64 Intel Atom C2558 2.40GHz
+Memory........... 8GB
+Disk............. 14.7GB
+ASIC............. Mellanox Spectrum MT52132
+Ports............ 16 x 100G-QSFP28
+Part Number...... MSN2100-CB2FC
+Serial Number.... MT2105T05177
+Platform Name.... x86_64-mlnx_x86-r0
+Product Name..... MSN2100
+ONIE Version..... 2019.11-5.2.0020-115200
+Base MAC Address. 04:3F:72:43:92:80
+Manufacturer..... Mellanox
+
+admin@sw1:mgmt:~$ *net show interface*
+
+State  Name    Spd   MTU    Mode        LLDP                    Summary
+-----  ------  ----  -----  ----------  ----------------------  --------------------
+.
+.
+UP     swp1    100G  9216   Trunk/L2    node1 (e5b)             Master: bridge(UP)
+UP     swp2    100G  9216   Trunk/L2    node2 (e5b)             Master: bridge(UP)
+UP     swp3    100G  9216   Trunk/L2    SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp4    100G  9216   Trunk/L2    SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp5    100G  9216   Trunk/L2    SHFFG1826000102 (e0b)   Master: bridge(UP)
+UP     swp6    100G  9216   Trunk/L2    SHFFG1826000102 (e0b)   Master: bridge(UP))
+.
+.
+----
+. Scarica l'immagine di Cumulux Linux 5.x:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *sudo onie-install -a -i http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin/*
+[sudo] password for cumulus:
+Fetching installer: http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin
+Downloading URL: http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin
+######################################################################### 100.0%
+Success: HTTP download complete.
+EFI variables are not supported on this system
+Warning: SecureBoot is not available.
+Image is signed.
+.
+.
+.
+Staging installer image...done.
+WARNING:
+WARNING: Activating staged installer requested.
+WARNING: This action will wipe out all system data.
+WARNING: Make sure to back up your data.
+WARNING:
+Are you sure (y/N)? *y*
+Activating staged installer...done.
+Reboot required to take effect.
+----
+. Riavviare lo switch:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *sudo onie-install -a -i http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin/*
+ *sudo reboot*
+----
+. Modificare la password:
++
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password:
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *<new_password>*
+Retype new password: *<new_password>*
+Linux cumulus 5.10.0-cl-1-amd64 #1 SMP Debian 5.10.162-1+cl5.4.0u1 (2023-01-20) x86_64
+
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+ZTP in progress. To disable, do 'ztp -d'
+----
+. Controllare la versione di Cumulus Linux: `nv show system`
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show system*
+           operational    applied
+---------- -------------- ----------
+hostname   cumulus        cumulus
+build      Cumulus Linux 5.4.0
+uptime     14:07:08
+timezone   Etc/UTC
+----
+. Modificare il nome host:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv set system hostname sw1*
+cumulus@cumulus:mgmt:~$ *nv config apply*
+Warning: The following files have been changed since the last save, and they WILL be overwritten.
+- /etc/nsswitch.conf
+- /etc/synced/synced.conf
+.
+.
+----
+. Disconnettersi e accedere nuovamente allo switch per visualizzare il nome aggiornato dello switch al prompt:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *exit*
+logout
+
+Debian GNU/Linux 10 cumulus ttyS0
+
+cumulus login: *cumulus*
+Password:
+Last login: Tue Dec 15 21:43:13 UTC 2020 on ttyS0
+Linux cumulus 5.10.0-cl-1-amd64 #1 SMP Debian 5.10.162-1+cl5.4.0u1 (2023-01-20) x86_64
+
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+
+ZTP in progress. To disable, do 'ztp -d'
+
+cumulus@sw1:mgmt:~$
+----
+. Impostare l'indirizzo IP:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip address 10.231.80.206*
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip gateway 10.231.80.1*
+cumulus@sw1:mgmt:~$ *nv config apply*
+applied [rev_id: 2]
+cumulus@sw1:mgmt:~$ *ip route show vrf mgmt*
+default via 10.231.80.1 dev eth0 proto kernel
+unreachable default metric 4278198272
+10.231.80.0/22 dev eth0 proto kernel scope link src 10.231.80.206
+127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
+----
+. Creare un nuovo utente e aggiungerlo a. `sudo` gruppo. Questo utente diventa effettivo solo dopo il riavvio della sessione console/SSH.
++
+`sudo adduser --ingroup netedit admin`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser --ingroup netedit admin*
+[sudo] password for cumulus:
+Adding user 'admin' ...
+Adding new user 'admin' (1001) with group `netedit' ...
+Creating home directory '/home/admin' ...
+Copying files from '/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for admin
+Enter the new value, or press ENTER for the default
+Full Name []:
+Room Number []:
+Work Phone []:
+Home Phone []:
+Other []:
+Is the information correct? [Y/n] *y*
+
+cumulus@sw1:mgmt:~$ *sudo adduser admin sudo*
+[sudo] password for cumulus:
+Adding user `admin' to group `sudo' ...
+Adding user admin to group sudo
+Done.
+cumulus@sw1:mgmt:~$ *exit*
+logout
+Connection to 10.233.204.71 closed.
+
+[admin@cycrh6svl01 ~]$ ssh admin@10.233.204.71
+admin@10.233.204.71's password:
+Linux sw1 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.1u1 (2021-09-09) x86_64
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+For support and online technical documentation, visit
+http://www.cumulusnetworks.com/support
+
+The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
+admin@sw1:mgmt:~$
+----
+. Aggiungere ulteriori gruppi di utenti a cui l'utente amministratore può accedere `nv` comandi:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
+     [sudo] password for cumulus:
+     Adding user `admin' to group `nvshow' ...
+     Adding user admin to group nvshow
+     Done.
+----
++
+Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["NVIDIA User account (account utente NVIDIA)"^] per ulteriori informazioni.
+
+
+
+--
+.Da Cumulus Linux 5.x a Cumulus Linux 5.x.
+--
+. Controllare la versione corrente di Cumulus Linux e le porte collegate:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *nv show system*
+                    operational          applied
+------------------- -------------------- -----------------
+hostname            cumulus              cumulus
+build               Cumulus Linux 5.3.0
+uptime              6 days, 8:37:36
+timezone            Etc/UTC
+
+admin@sw1:mgmt:~$ *nv show interface*
+Interface     MTU   Speed State Remote Host         Remote Port- Type      Summary
+------------- ----- ----- ----- ------------------- ------------ --------- -------------
++ cluster_isl 9216  200G  up                                      bond
++ eth0        1500  100M  up    mgmt-sw1            Eth105/1/14   eth       IP Address: 10.231.80 206/22
+  eth0                                                                      IP Address: fd20:8b1e:f6ff:fe31:4a0e/64
++ lo          65536       up                                      loopback  IP Address: 127.0.0.1/8
+  lo                                                                        IP Address: ::1/128
++ swp1s0      9216 10G    up cluster01                e0b         swp
+.
+.
+.
++ swp15      9216 100G    up sw2                      swp15       swp
++ swp16      9216 100G    up sw2                      swp16       swp
+----
+. Scarica l'immagine di Cumulux Linux 5.4.0:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *sudo onie-install -a -i http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin/*
+[sudo] password for cumulus:
+Fetching installer: http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin
+Downloading URL: http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin
+######################################################################### 100.0%
+Success: HTTP download complete.
+EFI variables are not supported on this system
+Warning: SecureBoot is not available.
+Image is signed.
+.
+.
+.
+Staging installer image...done.
+WARNING:
+WARNING: Activating staged installer requested.
+WARNING: This action will wipe out all system data.
+WARNING: Make sure to back up your data.
+WARNING:
+Are you sure (y/N)? *y*
+Activating staged installer...done.
+Reboot required to take effect.
+----
+. Riavviare lo switch:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *sudo reboot*
+----
+. Modificare la password:
++
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password:
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *<new_password>*
+Retype new password: *<new_password>*
+Linux cumulus 5.10.0-cl-1-amd64 #1 SMP Debian 5.10.162-1+cl5.4.0u1 (2023-01-20) x86_64
+
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+ZTP in progress. To disable, do 'ztp -d'
+----
+. Controllare la versione di Cumulus Linux: `nv show system`
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show system*
+operational    applied
+-------------- ----------------
+hostname       cumulus cumulus
+build          Cumulus Linux 5.4.0
+uptime         14:07:08
+timezone       Etc/UTC
+----
+. Modificare il nome host:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv set system hostname sw1*
+cumulus@cumulus:mgmt:~$ *nv config apply*
+Warning: The following files have been changed since the last save, and they WILL be overwritten.
+- /etc/nsswitch.conf
+- /etc/synced/synced.conf
+.
+.
+----
+. Disconnettersi e accedere nuovamente allo switch per visualizzare il nome aggiornato dello switch al prompt:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *exit*
+logout
+
+Debian GNU/Linux 10 cumulus ttyS0
+
+cumulus login: *cumulus*
+Password:
+Last login: Tue Dec 15 21:43:13 UTC 2020 on ttyS0
+Linux cumulus 5.10.0-cl-1-amd64 #1 SMP Debian 5.10.162-1+cl5.4.0u1 (2023-01-20) x86_64
+
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+
+ZTP in progress. To disable, do 'ztp -d'
+
+cumulus@sw1:mgmt:~$
+----
+. Impostare l'indirizzo IP:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip address 10.231.80.206*
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip gateway 10.231.80.1*
+cumulus@sw1:mgmt:~$ *nv config apply*
+applied [rev_id: 2]
+cumulus@sw1:mgmt:~$ *ip route show vrf mgmt*
+default via 10.231.80.1 dev eth0 proto kernel
+unreachable default metric 4278198272
+10.231.80.0/22 dev eth0 proto kernel scope link src 10.231.80.206
+127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
+----
+. Creare un nuovo utente e aggiungerlo a. `sudo` gruppo. Questo utente diventa effettivo solo dopo il riavvio della sessione console/SSH.
++
+`sudo adduser --ingroup netedit admin`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser --ingroup netedit admin*
+[sudo] password for cumulus:
+Adding user 'admin' ...
+Adding new user 'admin' (1001) with group `netedit' ...
+Creating home directory '/home/admin' ...
+Copying files from '/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for admin
+Enter the new value, or press ENTER for the default
+Full Name []:
+Room Number []:
+Work Phone []:
+Home Phone []:
+Other []:
+Is the information correct? [Y/n] *y*
+
+cumulus@sw1:mgmt:~$ *sudo adduser admin sudo*
+[sudo] password for cumulus:
+Adding user `admin' to group `sudo' ...
+Adding user admin to group sudo
+Done.
+cumulus@sw1:mgmt:~$ *exit*
+logout
+Connection to 10.233.204.71 closed.
+
+[admin@cycrh6svl01 ~]$ ssh admin@10.233.204.71
+admin@10.233.204.71's password:
+Linux sw1 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.1u1 (2021-09-09) x86_64
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+For support and online technical documentation, visit
+http://www.cumulusnetworks.com/support
+
+The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
+admin@sw1:mgmt:~$
+----
+. Aggiungere ulteriori gruppi di utenti a cui l'utente amministratore può accedere `nv` comandi:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
+     [sudo] password for cumulus:
+     Adding user `admin' to group `nvshow' ...
+     Adding user admin to group nvshow
+     Done.
+----
++
+Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["NVIDIA User account (account utente NVIDIA)"^] per ulteriori informazioni.
+
+
+
+--
+====
+.Quali sono le prossime novità?
+link:install-rcf-sn2100-cluster.html["Installare lo script del file di configurazione di riferimento (RCF)"].

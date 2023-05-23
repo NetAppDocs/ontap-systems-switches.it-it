@@ -1,0 +1,82 @@
+---
+permalink: switch-bes-53248/configure-reqs-bes53248.html 
+sidebar: sidebar 
+keywords: bes, cluster, switch, port, assignment, table, configure, bes-53428 cluster switch port assignments - bes-53428 switches 
+summary: È possibile utilizzare la tabella di assegnazione delle porte dello switch del cluster BES-53248 come guida per configurare il cluster. 
+---
+= Requisiti di configurazione per gli switch cluster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per l'installazione e la manutenzione dello switch BES-53248, consultare i requisiti di configurazione e supporto EFOS e ONTAP.
+
+
+
+== Supporto EFOS e ONTAP
+
+Vedere https://hwu.netapp.com/Switch/Index["NetApp Hardware Universe"^] e. https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Matrice di compatibilità degli switch Broadcom"^] Per informazioni sulla compatibilità EFOS e ONTAP con gli switch BES-53248. Il supporto di EFOS e ONTAP può variare in base al tipo di macchina specifico dello switch BES-53248. Per informazioni dettagliate su tutti i tipi di switch BES-52348, vedere link:components-bes53248.html["Componenti e codici ricambio per switch cluster BES-53248"].
+
+
+
+== Requisiti di configurazione
+
+Per configurare un cluster, è necessario il numero e il tipo di cavi e connettori dei cavi appropriati per gli switch del cluster. A seconda del tipo di switch del cluster che si sta configurando inizialmente, è necessario connettersi alla porta della console dello switch con il cavo della console incluso.
+
+
+
+=== Assegnazioni delle porte dello switch del cluster
+
+È possibile utilizzare la tabella delle assegnazioni delle porte degli switch del cluster BES-53248 supportata da Broadcom come guida alla configurazione del cluster.
+
+[cols="1,2"]
+|===
+| Porte dello switch | Utilizzo delle porte 
+
+
+ a| 
+01-16
+ a| 
+Nodi di porta cluster 10/25GbE, configurazione di base
+
+
+
+ a| 
+17-48
+ a| 
+Nodi di porte cluster 10/25GbE, con licenze
+
+
+
+ a| 
+49-54
+ a| 
+Nodi di porta cluster 40/100GbE, con licenze, aggiunti da destra a sinistra
+
+
+
+ a| 
+55-56
+ a| 
+Porte ISL (Inter-Switch link) cluster da 100 GbE, configurazione di base
+
+|===
+Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"] per ulteriori informazioni sulle porte dello switch.
+
+
+
+=== Limite di velocità del gruppo di porte
+
+* Sugli switch cluster BES-53248, le porte 48 10/25GbE (SFP28/SFP+) sono combinate in 12 gruppi a 4 porte come segue: Porte 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 e 45-48.
+* La velocità della porta SFP28/SFP+ deve essere la stessa (10 GbE o 25 GbE) su tutte le porte del gruppo a 4 porte.
+
+
+
+
+=== Requisiti aggiuntivi
+
+* Se si acquistano licenze aggiuntive, vedere link:configure-licenses.html["Attivare le nuove porte delle licenze"] per ulteriori informazioni su come attivarle.
+* Se SSH è attivo, è necessario riattivarlo manualmente dopo aver eseguito il comando `erase startup-config` e riavviare lo switch.
+

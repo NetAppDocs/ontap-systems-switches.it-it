@@ -1,0 +1,26 @@
+---
+permalink: switch-bes-53248/upgrade-switch-overview.html 
+sidebar: sidebar 
+keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
+summary: Prima di configurare gli switch del cluster BES-53248, esaminare una panoramica del processo e della nomenclatura. 
+---
+= Panoramica del processo di aggiornamento per gli switch BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di configurare gli switch del cluster BES-53248 per un aggiornamento, consultare la panoramica della configurazione.
+
+Per aggiornare uno switch cluster BES-53248, attenersi alla seguente procedura:
+
+. link:replace-upgrade.html["Preparare lo switch del cluster BES-53248 per l'aggiornamento"]. Preparare il controller, quindi installare il software EFOS, le licenze e il file di configurazione di riferimento (RCF). Infine, verificare la configurazione.
+. link:configure-efos-software.html["Installare il software EFOS"]. Scaricare e installare il software Ethernet Fabric OS (EFOS) sullo switch cluster BES-53248.
+. link:configure-licenses.html["Installare le licenze per gli switch cluster BES-53248"]. Facoltativamente, aggiungere nuove porte acquistando e installando ulteriori licenze. Il modello di base dello switch è concesso in licenza per 16 porte 10GbE o 25GbE e due porte 100GbE.
+. link:configure-install-rcf.html["Installazione del file di configurazione di riferimento (RCF)"]. Installare o aggiornare l'RCF sullo switch del cluster BES-53248, quindi verificare le porte per una licenza aggiuntiva dopo l'applicazione dell'RCF.
+. link:configure-health-monitor.html["Installare il file di configurazione di Cluster Switch Health Monitor (CSHM)"]. Installare il file di configurazione applicabile per il monitoraggio dello stato dello switch del cluster.
+. link:configure-ssh.html["Abilitare SSH sugli switch cluster BES-53248"]. Se si utilizzano le funzioni di monitoraggio dello stato di salute dello switch del cluster (CSHM) e di raccolta dei log, attivare SSH sugli switch.
+. link:configure-log-collection.html["Attivare la funzione di raccolta dei log"]. Utilizzare questa funzione per raccogliere i file di log relativi allo switch in ONTAP.
+. link:replace-verify.html["Verificare la configurazione"]. Utilizzare i comandi consigliati per verificare le operazioni dopo un aggiornamento dello switch del cluster BES-53248.
+

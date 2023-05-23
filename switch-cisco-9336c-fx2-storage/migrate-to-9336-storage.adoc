@@ -1,0 +1,709 @@
+---
+permalink: switch-cisco-9336c-fx2-storage/migrate-to-9336-storage.html 
+sidebar: sidebar 
+keywords: migrating to a cluster with Cisco Nexus 9336C-FX2 cluster switches, how to migrate 
+summary: È possibile migrare senza interruzioni gli switch cluster Cisco meno recenti per un cluster ONTAP agli switch di rete del cluster Cisco Nexus 9336C-FX2. 
+---
+= Migrare da uno switch Cisco meno recente a uno switch cluster Cisco Nexus 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile migrare gli switch cluster Cisco meno recenti per un cluster ONTAP agli switch di rete storage Cisco Nexus 9336C-FX2. Si tratta di una procedura senza interruzioni.
+
+
+
+== Verifica dei requisiti
+
+Assicurarsi che:
+
+* Alcune porte degli switch Nexus 9336C-FX2 sono configurate per funzionare a 10 GbE o 40 GbE.
+* La connettività 10 GbE e 40 GbE dai nodi agli switch del cluster Nexus 9336C-FX2 è stata pianificata, migrata e documentata.
+* Il cluster funziona correttamente (non dovrebbero esserci errori nei log o problemi simili).
+* La personalizzazione iniziale degli switch Cisco Nexus 9336C-FX2 è completa, in modo che:
++
+** Gli switch 9336C-FX2 utilizzano la versione software più recente consigliata.
+** I file di configurazione di riferimento (RCF) sono stati applicati agli switch.
+** Qualsiasi personalizzazione del sito, ad esempio DNS, NTP, SMTP, SNMP, E SSH, sono configurati sui nuovi switch.
+
+
+* È possibile accedere alla tabella di compatibilità degli switch in https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^] Per le versioni supportate di ONTAP, NX-OS e RCF.
+* Sono state esaminate le guide all'aggiornamento e al software appropriate disponibili sul sito Web di Cisco per le procedure di aggiornamento e downgrade dello switch Cisco all'indirizzo https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Supporto degli switch Cisco Nexus serie 9000"^] pagina.
+
+
+
+
+== Migrare gli switch
+
+.A proposito degli esempi
+Gli esempi di questa procedura utilizzano due nodi. Questi nodi utilizzano due porte di interconnessione cluster 10GbE e0a e e0b. Vedere https://hwu.netapp.com/["Hardware Universe"^] per verificare le porte cluster corrette sulle piattaforme.
+
+
+NOTE: Gli output dei comandi possono variare a seconda delle diverse versioni di ONTAP.
+
+Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+
+* I nomi dei due switch Cisco esistenti sono *cs1* e *cs2*
+* I nuovi switch in cluster Nexus 9336C-FX2 sono *cs1-New* e *cs2-New*.
+* I nomi dei nodi sono *node1* e *node2*.
+* I nomi LIF del cluster sono *node1_clus1* e *node1_clus2* per il nodo 1, e *node2_clus1* e *node2_clus2* per il nodo 2.
+* Il prompt *cluster1::*>* indica il nome del cluster.
+
+
+Durante questa procedura, fare riferimento al seguente esempio:
+
+image::../media/Initial_setup.png[Configurazione iniziale dello switch]
+
+.A proposito di questa attività
+La procedura richiede l'utilizzo di entrambi i comandi ONTAP e. https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Switch Nexus serie 9000"^] Comandi; vengono utilizzati i comandi ONTAP, se non diversamente indicato.
+
+Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue la migrazione di tutte le LIF del cluster allo switch del partner operativo durante l'esecuzione delle operazioni sullo switch di destinazione.
+
+
+
+=== Fase 1: Preparazione per la migrazione
+
+. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=xh`
++
+dove _x_ è la durata della finestra di manutenzione in ore.
+
++
+
+NOTE: Il messaggio AutoSupport informa il supporto tecnico di questa attività di manutenzione in modo che la creazione automatica del caso venga soppressa durante la finestra di manutenzione.
+
+. Impostare il livello di privilegio su Advanced (avanzato), immettendo *y* quando viene richiesto di continuare:
++
+`set -privilege advanced`
+
++
+Viene visualizzato il prompt Advanced (*>).
+
+
+
+
+
+=== Fase 2: Configurare le porte e il cablaggio
+
+. Sui nuovi switch, verificare che l'ISL sia cablato e funzionante tra gli switch cs1-New e cs2-New:
++
+`show port-channel summary`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1-new# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
+
+cs2-new# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
+----
+====
+. Visualizzare le porte del cluster su ciascun nodo connesso agli switch del cluster esistenti:
++
+`network device-discovery show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1      /cdp
+            e0a    cs1                       Ethernet1/1        N5K-C5596UP
+            e0b    cs2                       Ethernet1/2        N5K-C5596UP
+node2      /cdp
+            e0a    cs1                       Ethernet1/1        N5K-C5596UP
+            e0b    cs2                       Ethernet1/2        N5K-C5596UP
+----
+====
+. Determinare lo stato amministrativo o operativo di ciascuna porta del cluster.
++
+.. Verificare che tutte le porte del cluster siano funzionanti:
++
+`network port show -ipspace Cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+----
+====
+.. Verificare che tutte le interfacce del cluster (LIFF) si trovino sulle porte home:
++
+`network interface show -vserver Cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical      Status     Network            Current     Current Is
+Vserver     Interface    Admin/Oper Address/Mask       Node        Port    Home
+----------- -----------  ---------- ------------------ ----------- ------- ----
+Cluster
+            node1_clus1  up/up      169.254.209.69/16  node1       e0a     true
+            node1_clus2  up/up      169.254.49.125/16  node1       e0b     true
+            node2_clus1  up/up      169.254.47.194/16  node2       e0a     true
+            node2_clus2  up/up      169.254.19.183/16  node2       e0b     true
+----
+====
+.. Verificare che il cluster visualizzi le informazioni per entrambi gli switch del cluster:
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs1                         cluster-network    10.233.205.92    N5K-C5596UP
+      Serial Number: FOXXXXXXXGS
+       Is Monitored: true
+             Reason: None
+   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                     9.3(4)
+     Version Source: CDP
+
+cs2                         cluster-network     10.233.205.93   N5K-C5596UP
+      Serial Number: FOXXXXXXXGD
+       Is Monitored: true
+             Reason: None
+   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                     9.3(4)
+     Version Source: CDP
+----
+====
+
+
+. Disattiva l'autorevert sulle LIF del cluster.
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
+----
+====
+. Sullo switch del cluster cs2, spegnere le porte collegate alle porte del cluster dei nodi:
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs2(config)# *interface eth1/1-1/2*
+cs2(config-if-range)# *shutdown*
+----
+====
+. Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch del cluster cs1. Questa operazione potrebbe richiedere alcuni secondi.
++
+`network interface show -vserver Cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical       Status     Network            Current    Current Is
+Vserver     Interface     Admin/Oper Address/Mask       Node       Port    Home
+----------- ------------- ---------- ------------------ ---------- ------- ----
+Cluster
+            node1_clus1   up/up      169.254.3.4/16     node1      e0a     true
+            node1_clus2   up/up      169.254.3.5/16     node1      e0a     false
+            node2_clus1   up/up      169.254.3.8/16     node2      e0a     true
+            node2_clus2   up/up      169.254.3.9/16     node2      e0a     false
+----
+====
+. Verificare che il cluster funzioni correttamente:
++
+`cluster show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> cluster show
+Node       Health  Eligibility   Epsilon
+---------- ------- ------------- -------
+node1      true    true          false
+node2      true    true          false
+----
+====
+. Spostare tutti i cavi di connessione del nodo del cluster dal vecchio switch cs2 al nuovo switch cs2-new.
++
+*I cavi di connessione del nodo del cluster sono stati spostati nel nuovo switch cs2*
+
++
+image::../media/new_switch_cs1.png[I cavi di connessione del nodo del cluster sono stati spostati nel nuovo switch cs2]
+
+. Verificare lo stato delle connessioni di rete trasferite a cs2-New:
++
+`network port show -ipspace Cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+----
+====
++
+Tutte le porte del cluster spostate devono essere in alto.
+
+. Controllare le informazioni sulle porte del cluster:
++
+`network device-discovery show -protocol cdp`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface      Platform
+----------- ------ ------------------------- -------------  --------------
+node1      /cdp
+            e0a    cs1                       Ethernet1/1    N5K-C5596UP
+            e0b    cs2-new                   Ethernet1/1/1  N9K-C9336C-FX2
+
+node2      /cdp
+            e0a    cs1                       Ethernet1/2    N5K-C5596UP
+            e0b    cs2-new                   Ethernet1/1/2  N9K-C9336C-FX2
+----
+====
++
+Verificare che le porte del cluster spostate vedano lo switch cs2-new come il neighbor.
+
+. Verificare le connessioni delle porte dello switch dal punto di vista dello switch cs2-new:
++
+[listing, subs="+quotes"]
+----
+cs2-new# *show interface brief*
+cs2-new# *show cdp neighbors*
+----
+. Sullo switch del cluster cs1, spegnere le porte collegate alle porte del cluster dei nodi. Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia del passo 7.
++
+[listing, subs="+quotes"]
+----
+cs1(config)# *interface eth1/1-1/2*
+cs1(config-if-range)# *shutdown*
+----
++
+Tutte le LIF del cluster passano al nuovo switch cs2.
+
+. Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch cs2-new. Questa operazione potrebbe richiedere alcuni secondi:
++
+`network interface show -vserver Cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical      Status     Network            Current     Current Is
+Vserver     Interfac     Admin/Oper Address/Mask       Node        Port    Home
+----------- ------------ ---------- ------------------ ----------- ------- ----
+Cluster
+            node1_clus1  up/up      169.254.3.4/16     node1       e0b     false
+            node1_clus2  up/up      169.254.3.5/16     node1       e0b     true
+            node2_clus1  up/up      169.254.3.8/16     node2       e0b     false
+            node2_clus2  up/up      169.254.3.9/16     node2       e0b     true
+----
+====
+. Verificare che il cluster funzioni correttamente:
++
+`cluster show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node       Health  Eligibility   Epsilon
+---------- ------- ------------- -------
+node1      true    true          false
+node2      true    true          false
+----
+====
+. Spostare i cavi di connessione del nodo del cluster da cs1 al nuovo switch cs1-new.
++
+*I cavi di connessione del nodo del cluster sono stati spostati nel nuovo switch cs1*
+
++
+image::../media/new_switch_cs2.png[I cavi di connessione del nodo del cluster sono stati spostati nel nuovo switch cs1]
+
+. Verificare lo stato delle connessioni di rete trasferite a cs1-New:
++
+`network port show -ipspace Cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+----
+====
++
+Tutte le porte del cluster spostate devono essere in alto.
+
+. Controllare le informazioni sulle porte del cluster:
++
+`network device-discovery show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface       Platform
+----------- ------ ------------------------- --------------  --------------
+node1      /cdp
+            e0a    cs1-new                   Ethernet1/1/1   N9K-C9336C-FX2
+            e0b    cs2-new                   Ethernet1/1/2   N9K-C9336C-FX2
+
+node2      /cdp
+            e0a    cs1-new                   Ethernet1/1/1   N9K-C9336C-FX2
+            e0b    cs2-new                   Ethernet1/1/2   N9K-C9336C-FX2
+----
+====
++
+Verificare che le porte del cluster spostate vedano lo switch cs1-new come il neighbor.
+
+. Verificare le connessioni delle porte dello switch dal punto di vista dello switch cs1-new:
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1-new# *show interface brief*
+cs1-new# *show cdp neighbors*
+----
+====
+. Verificare che l'ISL tra cs1-new e cs2-new sia ancora operativo:
++
+`show port-channel summary`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1-new# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
+
+cs2-new# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
+----
+====
+
+
+
+
+=== Fase 3: Verificare la configurazione
+
+. Abilitare il ripristino automatico sulle LIF del cluster.
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
+----
+====
+. Verificare che le LIF del cluster siano ripristinate alle porte home (questa operazione potrebbe richiedere un minuto):
++
+`network interface show -vserver Cluster`
+
++
+Se le LIF del cluster non sono tornate alla porta home, ripristinarle manualmente:
+
++
+`network interface revert -vserver Cluster -lif *`
+
+. Verificare che il cluster funzioni correttamente:
++
+`cluster show`
+
+. Eseguire il ping delle interfacce del cluster remoto per verificare la connettività:
++
+`cluster ping-cluster -node <name>`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node node2*
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1     e0a
+Cluster node1_clus2 169.254.49.125 node1     e0b
+Cluster node2_clus1 169.254.47.194 node2     e0a
+Cluster node2_clus2 169.254.19.183 node2     e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+    Local 169.254.19.183 to Remote 169.254.209.69
+    Local 169.254.19.183 to Remote 169.254.49.125
+    Local 169.254.47.194 to Remote 169.254.209.69
+    Local 169.254.47.194 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+====
+. Abilitare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch.
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.8 e versioni successive
+--
+Attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch, utilizzando i due comandi seguenti: `system switch ethernet log setup-password` e. `system switch ethernet log enable-collection`
+
+*NOTA:* è necessaria la password per l'utente *admin* sugli switch.
+
+Inserire: `system switch ethernet log setup-password`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+cs1-new
+cs2-new
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs1-new*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: <password of switch's admin user>
+Enter the password again: <password of switch's admin user>
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs2-new*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: <password of switch's admin user>
+Enter the password again: <password of switch's admin user>
+----
+Seguito da: `system switch ethernet log enable-collection`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system  switch ethernet log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
+*NOTA:* se uno di questi comandi restituisce un errore, contattare il supporto NetApp.
+
+--
+.ONTAP release 9.5P16, 9.6P12 e 9.7P10 e versioni successive delle patch
+--
+Attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch, utilizzando i comandi seguenti: `system cluster-switch log setup-password` e. `system cluster-switch log enable-collection`
+
+*NOTA:* è necessaria la password per l'utente *admin* sugli switch.
+
+Inserire: `system cluster-switch log setup-password`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+cs1-new
+cs2-new
+
+cluster1::*> *system cluster-switch log setup-password*
+
+Enter the switch name: *cs1-new*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: <password of switch's admin user>
+Enter the password again: <password of switch's admin user>
+
+cluster1::*> *system cluster-switch log setup-password*
+
+Enter the switch name: *cs2-new*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: <password of switch's admin user>
+Enter the password again: <password of switch's admin user>
+----
+Seguito da: `system cluster-switch log enable-collection`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
+*NOTA:* se uno di questi comandi restituisce un errore, contattare il supporto NetApp.
+
+--
+====
+. [[step6]]se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=END`
+

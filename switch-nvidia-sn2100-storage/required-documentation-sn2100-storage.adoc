@@ -1,0 +1,63 @@
+---
+permalink: switch-nvidia-sn2100/required-documentation-sn2100-storage.html 
+sidebar: sidebar 
+keywords: nvidia SN2100 switches 
+summary: 'Per l"installazione e la manutenzione dello switch NVIDIA SN2100, consultare tutta la documentazione consigliata.' 
+---
+= Requisiti della documentazione per gli switch NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per l'installazione e la manutenzione dello switch NVIDIA SN2100, consultare tutta la documentazione consigliata.
+
+La seguente tabella elenca la documentazione disponibile per gli switch NVIDIA SN2100.
+
+[cols="1,2"]
+|===
+| Titolo | Descrizione 
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["_Configurazione e configurazione degli switch NVIDIA SN2100_"^]
+ a| 
+Descrive come configurare e configurare gli switch NVIDIA SN2100, inclusa l'installazione di Cumulus Linux e degli RCF applicabili.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html["_Eseguire la migrazione da uno switch cluster Cisco a uno switch cluster NVIDIA SN2100_"^]
+ a| 
+Descrive come eseguire la migrazione da ambienti che utilizzano switch cluster Cisco a ambienti che utilizzano switch cluster NVIDIA SN2100.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html["_Migrare da uno switch di storage Cisco a uno switch di storage NVIDIA_"^]
+ a| 
+Descrive come eseguire la migrazione da ambienti che utilizzano switch di storage Cisco a ambienti che utilizzano switch di storage NVIDIA SN2100.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html["_Eseguire la migrazione a un cluster con switch a due nodi con switch cluster NVIDIA SN2100_"^]
+ a| 
+Descrive come migrare a un ambiente con switch a due nodi utilizzando gli switch cluster NVIDIA SN2100.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html["_Sostituire uno switch cluster NVIDIA SN2100_"^]
+ a| 
+Descrive la procedura per sostituire uno switch NVIDIA SN2100 difettoso in un cluster e scaricare Cumulus Linux e il file di configurazione di riferimento.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-storage.html["_Sostituire uno switch di storage NVIDIA SN2100_"^]
+ a| 
+Descrive la procedura per sostituire uno switch di storage NVIDIA SN2100 difettoso e scaricare Cumulus Linux e il file di configurazione di riferimento.
+
+|===

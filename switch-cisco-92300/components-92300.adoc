@@ -1,0 +1,68 @@
+---
+permalink: switch-cisco-92300/components-92300.html 
+sidebar: sidebar 
+keywords: cisco nexus 92300YC 
+summary: Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete cluster supportati. È possibile utilizzare switch di gestione aggiuntivi, opzionali. 
+---
+= Componenti per switch Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per l'installazione e la manutenzione dello switch Cisco Nexus 92300YC, assicurarsi di esaminare tutti i componenti e i numeri di parte dello switch. Vedere https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per ulteriori informazioni.
+
+La seguente tabella elenca il codice ricambio e la descrizione dello switch, delle ventole e degli alimentatori 92300YC:
+
+[cols="1,2"]
+|===
+| Codice del ricambio | Descrizione 
+
+
+ a| 
+190003
+ a| 
+Cisco 92300YC, CLSW, 48Pt10/25 GB, 18Pt100G, PTSX (PTSX = Port Side Exhaust)
+
+
+
+ a| 
+190003R
+ a| 
+Cisco 92300YC, CLSW, 48Pt10/25 GB, 18Pt100G, PSIN (PSIN = Port Side Intake)
+
+
+
+ a| 
+X-NXA-FAN-35CFM-B.
+ a| 
+Ventola, flusso d'aria di aspirazione laterale della porta Cisco N9K
+
+
+
+ a| 
+X-NXA-FAN-35CFM-F.
+ a| 
+Ventola, flusso d'aria di scarico lato porta Cisco N9K
+
+
+
+ a| 
+X-NXA-PAC-650W-B.
+ a| 
+Alimentatore, Cisco 650 W - presa lato porta
+
+
+
+ a| 
+X-NXA-PAC-650 W-F.
+ a| 
+Alimentatore, Cisco 650 W - scarico lato porta
+
+|===
+Dettagli sul flusso d'aria dello switch Cisco Nexus 92300YC:
+
+* Flusso d'aria di scarico lato porta (aria standard) -- l'aria fredda entra nel telaio attraverso i moduli della ventola e dell'alimentatore nel corridoio freddo e viene erogata attraverso l'estremità della porta del telaio nel corridoio caldo. Flusso d'aria di scarico lato porta con colorazione blu.
+* Flusso d'aria di aspirazione lato porta (aria inversa) -- l'aria fredda entra nel telaio attraverso l'estremità della porta nel corridoio freddo e si scarica attraverso i moduli della ventola e dell'alimentatore nel corridoio caldo. Flusso d'aria di aspirazione lato porta con colorazione bordeaux.
+

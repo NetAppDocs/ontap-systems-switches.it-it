@@ -1,0 +1,87 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-storage/components-9336c-storage.html 
+keywords: shared storage cluster switch 
+summary: A partire da ONTAP 9.9.1, è possibile utilizzare gli switch Cisco Nexus 9336C-FX2 per combinare funzionalità di storage e cluster in uno scenario di switch condiviso. 
+---
+= Componenti e codici ricambio per switch storage Cisco Nexus 9336C-FX2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Per l'installazione e la manutenzione dello switch Cisco Nexus 9336C-FX2, consultare l'elenco dei componenti e dei codici dei componenti.
+
+La seguente tabella elenca il codice ricambio e la descrizione dello switch, delle ventole e degli alimentatori 9336C-FX2:
+
+[cols="1,2"]
+|===
+| Codice del ricambio | Descrizione 
+
+
+ a| 
+X190200-CS-PE
+ a| 
+N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190200-CS-PI
+ a| 
+N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190210-FE-PE
+ a| 
+N9K-9336C, FTE, PTSX, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190210-FE-PI
+ a| 
+N9K-9336C, FTE, PSIN, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190002
+ a| 
+Kit di accessori X190001/X190003
+
+
+
+ a| 
+X-NXA-PAC-1100W-PE2
+ a| 
+N9K-9336C AC 1100 W PSU - flusso d'aria di scarico laterale
+
+
+
+ a| 
+X-NXA-PAC-1100W-PI2
+ a| 
+N9K-9336C AC 1100 W PSU - flusso d'aria di aspirazione lato porta
+
+
+
+ a| 
+X-NXA-FAN-65CFM-PE
+ a| 
+N9K-9336C 65CFM, flusso d'aria di scarico lato porta
+
+
+
+ a| 
+X-NXA-FAN-65CFM-PI
+ a| 
+N9K-9336C 65CFM, flusso d'aria di aspirazione lato porta
+
+|===

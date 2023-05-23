@@ -1,0 +1,841 @@
+---
+permalink: switch-cisco-3232c/migrate-from-two-node-switchless-cluster.html 
+sidebar: sidebar 
+keywords: migrate, two-node cluster, switchless, cisco nexus 3232c 
+summary: Se si dispone di un cluster senza switch a due nodi, è possibile eseguire la migrazione senza interruzioni a un cluster con switch a due nodi che include switch di rete del cluster Cisco Nexus 3232C. 
+---
+= Migrare da un cluster senza switch a due nodi a un cluster con gli switch di cluster Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si dispone di un cluster _switchless_ a due nodi, è possibile migrare a un cluster _switched_ a due nodi che include gli switch di rete del cluster Cisco Nexus 3232C. Si tratta di una procedura senza interruzioni.
+
+
+
+== Verifica dei requisiti
+
+.Requisiti di migrazione
+Prima della migrazione, assicurarsi di rivedere link:migrate-requirements-3232c.html["Requisiti di migrazione"].
+
+.Di cosa hai bisogno
+Assicurarsi che:
+
+* Le porte sono disponibili per le connessioni dei nodi. Gli switch del cluster utilizzano le porte ISL (Inter-Switch link) e1/31-32.
+* Si dispone di cavi appropriati per le connessioni cluster:
++
+** I nodi con connessioni cluster da 10 GbE richiedono moduli ottici QSFP con cavi in fibra breakout o cavi breakout in rame da QSFP a SFP+.
+** I nodi con connessioni cluster da 40/100 GbE richiedono moduli ottici QSFP/ QSFP28 con cavi in fibra o cavi a collegamento diretto in rame QSFP/QSFP28.
+** Gli switch del cluster richiedono il cablaggio ISL appropriato: 2 cavi QSFP28 a collegamento diretto in fibra o rame.
+
+
+* Le configurazioni sono configurate e funzionano correttamente.
++
+I due nodi devono essere connessi e funzionanti in un'impostazione di cluster senza switch a due nodi.
+
+* Tutte le porte del cluster si trovano nello stato *up*.
+* Lo switch cluster Cisco Nexus 3232C è supportato.
+* La configurazione di rete del cluster esistente presenta quanto segue:
++
+** Un'infrastruttura di cluster Nexus 3232C ridondante e completamente funzionale su entrambi gli switch
+** Le ultime versioni di RCF e NX-OS sugli switch
+** Connettività di gestione su entrambi gli switch
+** Accesso da console a entrambi gli switch
+** Tutte le interfacce logiche del cluster (LIFF) in stato *up* senza essere state migrate
+** Personalizzazione iniziale dello switch
+** Tutte le porte ISL abilitate e cablate
+
+
+
+
+
+
+== Migrare gli switch
+
+.A proposito degli esempi
+Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+
+* Switch in cluster Nexus 3232C, C1 e C2.
+* I nodi sono n1 e n2.
+
+
+Gli esempi di questa procedura utilizzano due nodi, ciascuno dei quali utilizza due porte di interconnessione cluster e4a e e4e da 40 GbE. Il link:https://hwu.netapp.com/["_Hardware Universe_"^] contiene informazioni dettagliate sulle porte del cluster delle piattaforme.
+
+* n1_clus1 è la prima interfaccia logica del cluster (LIF) ad essere collegata allo switch del cluster C1 per il nodo n1.
+* n1_clus2 è il primo LIF del cluster ad essere collegato allo switch del cluster C2 per il nodo n1.
+* n2_clus1 è il primo LIF del cluster ad essere collegato allo switch del cluster C1 per il nodo n2.
+* n2_clus2 è il secondo cluster LIF da collegare allo switch del cluster C2 per il nodo n2.
+* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili su https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] pagina.
+
+
+[NOTE]
+====
+La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 3000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
+
+====
+
+
+=== Fase 1: Visualizzazione e migrazione delle porte fisiche e logiche
+
+. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
++
+`system node autosupport invoke -node * -type all - message MAINT=xh`
+
++
+_x_ è la durata della finestra di manutenzione in ore.
+
++
+[NOTE]
+====
+Il messaggio AutoSupport informa il supporto tecnico di questa attività di manutenzione in modo che la creazione automatica del caso venga soppressa durante la finestra di manutenzione.
+
+====
+. Determinare lo stato amministrativo o operativo di ciascuna interfaccia del cluster:
++
+.. Visualizzare gli attributi della porta di rete:
++
+`network port show -role cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network port show –role cluster
+  (network port show)
+Node: n1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e4a       Cluster      Cluster          up   9000 auto/40000  -
+e4e       Cluster      Cluster          up   9000 auto/40000  -        -
+Node: n2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e4a       Cluster      Cluster          up   9000 auto/40000  -
+e4e       Cluster      Cluster          up   9000 auto/40000  -
+4 entries were displayed.
+----
+====
+.. Visualizzare le informazioni sulle interfacce logiche e sui relativi nodi principali designati:
++
+`network interface show -role cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface show -role cluster
+ (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ---
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e4a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e4e     true
+            n2_clus1   up/up      10.10.0.3/24       n2            e4a     true
+            n2_clus2   up/up      10.10.0.4/24       n2            e4e     true
+
+4 entries were displayed.
+----
+====
+.. Verificare che il rilevamento cluster senza switch sia abilitato utilizzando il comando Advanced Privilege:
++
+`network options detect-switchless-cluster show``
+
++
+.Mostra esempio
+[%collapsible]
+====
+L'output dell'esempio seguente mostra che il rilevamento cluster senza switch è abilitato:
+
+[listing]
+----
+cluster::*> network options detect-switchless-cluster show
+Enable Switchless Cluster Detection: true
+----
+====
+
+
+. Verificare che gli RCF e l'immagine appropriati siano installati sui nuovi switch 3232C e personalizzare il sito, ad esempio aggiungendo utenti, password e indirizzi di rete.
++
+È necessario preparare entrambi gli switch in questa fase. Se è necessario aggiornare il software RCF e delle immagini, attenersi alla seguente procedura:
+
++
+.. Accedere alla pagina _Cisco Ethernet Switches_ sul sito del supporto NetApp.
++
+http://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^]
+
+.. Annotare lo switch e le versioni software richieste nella tabella riportata in tale pagina.
+.. Scaricare la versione appropriata di RCF.
+.. Fare clic su *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza, quindi seguire le istruzioni nella pagina *Download* per scaricare RCF.
+.. Scaricare la versione appropriata del software dell'immagine.
++
+https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Pagina di download del file di configurazione di riferimento di Cisco Cluster and Management Network Switch"^]
+
+
+
+. Fare clic su *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza, quindi seguire le istruzioni nella pagina *Download* per scaricare RCF.
+. Sugli switch Nexus 3232C C1 e C2, disattivare tutte le porte rivolte ai nodi C1 e C2, ma non disattivare le porte ISL e1/31-32.
++
+Per ulteriori informazioni sui comandi Cisco, consultare le guide elencate nella https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 Series NX-OS Command References"^].
+
++
+.Mostra esempio
+[%collapsible]
+====
+Nell'esempio seguente vengono mostrate le porte da 1 a 30 disattivate sugli switch cluster Nexus 3232C C1 e C2 utilizzando una configurazione supportata in RCF `NX3232_RCF_v1.0_24p10g_24p100g.txt`:
+
+[listing]
+----
+C1# copy running-config startup-config
+[########################################] 100% Copy complete.
+C1# configure
+C1(config)# int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30
+C1(config-if-range)# shutdown
+C1(config-if-range)# exit
+C1(config)# exit
+C2# copy running-config startup-config
+[########################################] 100% Copy complete.
+C2# configure
+C2(config)# int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30
+C2(config-if-range)# shutdown
+C2(config-if-range)# exit
+C2(config)# exit
+----
+====
+. Collegare le porte 1/31 e 1/32 di C1 alle stesse porte di C2 utilizzando i cavi supportati.
+. Verificare che le porte ISL siano operative su C1 e C2:
++
+`show port-channel summary`
+
++
+Per ulteriori informazioni sui comandi Cisco, consultare le guide elencate nella https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 Series NX-OS Command References"^].
+
++
+.Mostra esempio
+[%collapsible]
+====
+L'esempio seguente mostra Cisco `show port-channel summary` Comando utilizzato per verificare il funzionamento delle porte ISL su C1 e C2:
+
+[listing]
+----
+C1# show port-channel summary
+Flags: D - Down         P - Up in port-channel (members)
+       I - Individual   H - Hot-standby (LACP only)        s - Suspended    r - Module-removed
+       S - Switched     R - Routed
+       U - Up (port-channel)
+       M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+      Port-
+Group Channel      Type   Protocol  Member Ports
+-------------------------------------------------------------------------------
+1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
+
+C2# show port-channel summary
+Flags: D - Down         P - Up in port-channel (members)
+       I - Individual   H - Hot-standby (LACP only)        s - Suspended    r - Module-removed
+       S - Switched     R - Routed
+       U - Up (port-channel)
+       M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+
+Group Port-        Type   Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
+----
+====
+. Visualizzare l'elenco dei dispositivi vicini sullo switch.
++
+Per ulteriori informazioni sui comandi Cisco, consultare le guide elencate nella https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 Series NX-OS Command References"^].
+
++
+.Mostra esempio
+[%collapsible]
+====
+Nell'esempio riportato di seguito viene illustrato il comando Cisco `show cdp neighbors` utilizzato per visualizzare i dispositivi vicini sullo switch:
+
+[listing]
+----
+C1# show cdp neighbors
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,                   s - Supports-STP-Dispute
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+C2                 Eth1/31        174    R S I s     N3K-C3232C  Eth1/31
+C2                 Eth1/32        174    R S I s     N3K-C3232C  Eth1/32
+Total entries displayed: 2
+C2# show cdp neighbors
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,                   s - Supports-STP-Dispute
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+C1                 Eth1/31        178    R S I s     N3K-C3232C  Eth1/31
+C1                 Eth1/32        178    R S I s     N3K-C3232C  Eth1/32
+Total entries displayed: 2
+----
+====
+. Visualizzare la connettività della porta del cluster su ciascun nodo:
++
+`network device-discovery show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+L'esempio seguente mostra la connettività della porta del cluster visualizzata per una configurazione del cluster senza switch a due nodi:
+
+[listing]
+----
+cluster::*> network device-discovery show
+            Local  Discovered
+Node        Port   Device              Interface        Platform
+----------- ------ ------------------- ---------------- ----------------
+n1         /cdp
+            e4a    n2                  e4a              FAS9000
+            e4e    n2                  e4e              FAS9000
+n2         /cdp
+            e4a    n1                  e4a              FAS9000
+            e4e    n1                  e4e              FAS9000
+----
+====
+. Migrare le LIF n1_clus1 e n2_clus1 alle porte fisiche dei nodi di destinazione:
++
+`network interface migrate -vserver cluster -lif _lif-name_ source-node _source-node-name_ -destination-port _destination-port-name_`
+
++
+.Mostra esempio
+[%collapsible]
+====
+È necessario eseguire il comando per ciascun nodo locale, come illustrato nell'esempio seguente:
+
+[listing]
+----
+cluster::*> network interface migrate -vserver cluster -lif n1_clus1 -source-node n1
+–destination-node n1 -destination-port e4e
+cluster::*> network interface migrate -vserver cluster -lif n2_clus1 -source-node n2
+–destination-node n2 -destination-port e4e
+----
+====
+
+
+
+
+=== Fase 2: Spegnere i file LIF riassegnati e scollegare i cavi
+
+. Verificare che le interfacce del cluster siano migrate correttamente:
++
+`network interface show -role cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+Nell'esempio seguente viene mostrato lo stato "is Home" per i LIF n1_clus1 e n2_clus1 è diventato "false" dopo il completamento della migrazione:
+
+[listing]
+----
+cluster::*> network interface show -role cluster
+ (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e4e     false
+            n1_clus2   up/up      10.10.0.2/24       n1            e4e     true
+            n2_clus1   up/up      10.10.0.3/24       n2            e4e     false
+            n2_clus2   up/up      10.10.0.4/24       n2            e4e     true
+ 4 entries were displayed.
+----
+====
+. Chiudere le porte del cluster per le LIF n1_clus1 e n2_clus1, migrate al passaggio 9:
++
+`network port modify -node _node-name_ -port _port-name_ -up-admin false`
+
++
+.Mostra esempio
+[%collapsible]
+====
+È necessario eseguire il comando per ciascuna porta, come illustrato nell'esempio seguente:
+
+[listing]
+----
+cluster::*> network port modify -node n1 -port e4a -up-admin false
+cluster::*> network port modify -node n2 -port e4a -up-admin false
+----
+====
+. Eseguire il ping delle interfacce del cluster remoto ed eseguire un controllo del server RPC:
++
+`cluster ping-cluster -node _node-name_`
+
++
+.Mostra esempio
+[%collapsible]
+====
+L'esempio seguente mostra il nodo n1 sottoposto a ping e lo stato RPC indicato in seguito:
+
+[listing]
+----
+cluster::*> cluster ping-cluster -node n1
+
+Host is n1 Getting addresses from network interface table...
+Cluster n1_clus1 n1        e4a    10.10.0.1
+Cluster n1_clus2 n1        e4e    10.10.0.2
+Cluster n2_clus1 n2        e4a    10.10.0.3
+Cluster n2_clus2 n2        e4e    10.10.0.4
+Local = 10.10.0.1 10.10.0.2
+Remote = 10.10.0.3 10.10.0.4
+Cluster Vserver Id = 4294967293 Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s) ................
+Detected 9000 byte MTU on 32 path(s):
+    Local 10.10.0.1 to Remote 10.10.0.3
+    Local 10.10.0.1 to Remote 10.10.0.4
+    Local 10.10.0.2 to Remote 10.10.0.3
+    Local 10.10.0.2 to Remote 10.10.0.4
+Larger than PMTU communication succeeds on 4 path(s) RPC status:
+1 paths up, 0 paths down (tcp check)
+1 paths up, 0 paths down (ucp check)
+----
+====
+. Scollegare il cavo da e4a sul nodo n1.
++
+Si può fare riferimento alla configurazione in esecuzione e collegare la prima porta 40 GbE sullo switch C1 (porta 1/7 in questo esempio) a e4a su n1 utilizzando il cablaggio supportato per gli switch Nexus 3232C.
+
+
+
+
+
+=== Fase 3: Abilitare le porte del cluster
+
+. Scollegare il cavo da e4a sul nodo n2.
++
+È possibile fare riferimento alla configurazione in esecuzione e collegare e4a alla successiva porta 40 GbE disponibile su C1, porta 1/8, utilizzando i cavi supportati.
+
+. Abilitare tutte le porte rivolte al nodo su C1.
++
+Per ulteriori informazioni sui comandi Cisco, consultare le guide elencate nella https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 Series NX-OS Command References"^].
+
++
+.Mostra esempio
+[%collapsible]
+====
+L'esempio seguente mostra le porte da 1 a 30 abilitate sugli switch cluster Nexus 3232C C1 e C2 utilizzando la configurazione supportata in RCF `NX3232_RCF_v1.0_24p10g_26p100g.txt`:
+
+[listing]
+----
+C1# configure
+C1(config)# int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30
+C1(config-if-range)# no shutdown
+C1(config-if-range)# exit
+C1(config)# exit
+----
+====
+. Abilitare la prima porta del cluster, e4a, su ciascun nodo:
++
+`network port modify -node _node-name_ -port _port-name_ -up-admin true`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network port modify -node n1 -port e4a -up-admin true
+cluster::*> network port modify -node n2 -port e4a -up-admin true
+----
+====
+. Verificare che i cluster siano attivi su entrambi i nodi:
++
+`network port show -role cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network port show –role cluster
+  (network port show)
+Node: n1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e4a       Cluster      Cluster          up   9000 auto/40000  -
+e4e       Cluster      Cluster          up   9000 auto/40000  -        -
+
+Node: n2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e4a       Cluster      Cluster          up   9000 auto/40000  -
+e4e       Cluster      Cluster          up   9000 auto/40000  -
+
+4 entries were displayed.
+----
+====
+. Per ciascun nodo, ripristinare tutte le LIF di interconnessione del cluster migrate:
++
+`network interface revert -vserver cluster -lif _lif-name_`
+
++
+.Mostra esempio
+[%collapsible]
+====
+È necessario ripristinare ogni LIF alla porta home singolarmente, come mostrato nell'esempio seguente:
+
+[listing]
+----
+cluster::*> network interface revert -vserver cluster -lif n1_clus1
+cluster::*> network interface revert -vserver cluster -lif n2_clus1
+----
+====
+. Verificare che tutte le LIF siano ora ripristinate alle porte home:
++
+`network interface show -role cluster`
+
++
+Il `Is Home` la colonna deve visualizzare un valore di `true` per tutte le porte elencate in `Current Port` colonna. Se il valore visualizzato è `false`, la porta non è stata ripristinata.
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface show -role cluster
+ (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e4a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e4e     true
+            n2_clus1   up/up      10.10.0.3/24       n2            e4a     true
+            n2_clus2   up/up      10.10.0.4/24       n2            e4e     true
+4 entries were displayed.
+----
+====
+
+
+
+
+=== Fase 4: Abilitare i LIF riassegnati
+
+. Visualizzare la connettività della porta del cluster su ciascun nodo:
++
+`network device-discovery show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network device-discovery show
+            Local  Discovered
+Node        Port   Device              Interface        Platform
+----------- ------ ------------------- ---------------- ----------------
+n1         /cdp
+            e4a    C1                  Ethernet1/7      N3K-C3232C
+            e4e    n2                  e4e              FAS9000
+n2         /cdp
+            e4a    C1                  Ethernet1/8      N3K-C3232C
+            e4e    n1                  e4e              FAS9000
+----
+====
+. Migrare il clus2 alla porta e4a sulla console di ciascun nodo:
++
+`network interface migrate cluster -lif _lif-name_ -source-node _source-node-name_ -destination-node _destination-node-name_ -destination-port _destination-port-name_`
+
++
+.Mostra esempio
+[%collapsible]
+====
+È necessario migrare ciascun LIF alla propria porta home singolarmente, come illustrato nell'esempio seguente:
+
+[listing]
+----
+cluster::*> network interface migrate -vserver cluster -lif n1_clus2 -source-node n1
+–destination-node n1 -destination-port e4a
+cluster::*> network interface migrate -vserver cluster -lif n2_clus2 -source-node n2 –destination-node n2 -destination-port e4a
+----
+====
+. Chiudere il cluster di porte clus2 LIF su entrambi i nodi:
++
+`network port modify`
+
++
+.Mostra esempio
+[%collapsible]
+====
+Nell'esempio riportato di seguito vengono illustrate le porte specificate impostate su `false`, spegnendo le porte su entrambi i nodi:
+
+[listing]
+----
+cluster::*> network port modify -node n1 -port e4e -up-admin false
+cluster::*> network port modify -node n2 -port e4e -up-admin false
+----
+====
+. Verificare lo stato LIF del cluster:
++
+`network interface show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface show -role cluster
+ (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e4a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e4a     false
+            n2_clus1   up/up      10.10.0.3/24       n2            e4a     true
+            n2_clus2   up/up      10.10.0.4/24       n2            e4a     false
+4 entries were displayed.
+----
+====
+. Scollegare il cavo da e4e sul nodo n1.
++
+Fare riferimento alla configurazione in esecuzione e collegare la prima porta 40 GbE sullo switch C2 (porta 1/7 in questo esempio) a e4e sul nodo n1, utilizzando il cablaggio appropriato per il modello di switch Nexus 3232C.
+
+. Scollegare il cavo da e4e sul nodo n2.
++
+Fare riferimento alla configurazione in esecuzione e collegare e4e alla successiva porta 40 GbE disponibile sulla porta C2 1/8, utilizzando il cablaggio appropriato per il modello di switch Nexus 3232C.
+
+. Abilitare tutte le porte rivolte al nodo su C2.
++
+.Mostra esempio
+[%collapsible]
+====
+L'esempio seguente mostra le porte da 1 a 30 abilitate sugli switch cluster Nexus 3132Q-V C1 e C2 utilizzando una configurazione supportata in RCF `NX3232C_RCF_v1.0_24p10g_26p100g.txt`:
+
+[listing]
+----
+C2# configure
+C2(config)# int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30
+C2(config-if-range)# no shutdown
+C2(config-if-range)# exit
+C2(config)# exit
+----
+====
+. Abilitare la seconda porta del cluster, e4e, su ciascun nodo:
++
+`network port modify`
+
++
+.Mostra esempio
+[%collapsible]
+====
+L'esempio seguente mostra la seconda porta del cluster e4e attivata su ciascun nodo:
+
+[listing]
+----
+cluster::*> network port modify -node n1 -port e4e -up-admin true
+cluster::*> network port modify -node n2 -port e4e -up-admin true
+----
+====
+. Per ciascun nodo, ripristinare tutte le LIF di interconnessione del cluster migrate: `network interface revert`
++
+.Mostra esempio
+[%collapsible]
+====
+Nell'esempio seguente vengono riportati i file LIF migrati alle porte home.
+
+[listing]
+----
+cluster::*> network interface revert -vserver Cluster -lif n1_clus2
+cluster::*> network interface revert -vserver Cluster -lif n2_clus2
+----
+====
+. Verificare che tutte le porte di interconnessione del cluster siano ora ripristinate alle porte home:
++
+`network interface show -role cluster`
+
++
+Il `Is Home` la colonna deve visualizzare un valore di `true` per tutte le porte elencate in `Current Port` colonna. Se il valore visualizzato è `false`, la porta non è stata ripristinata.
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface show -role cluster
+ (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e4a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e4e     true
+            n2_clus1   up/up      10.10.0.3/24       n2            e4a     true
+            n2_clus2   up/up      10.10.0.4/24       n2            e4e     true
+4 entries were displayed.
+----
+====
+. Verificare che tutte le porte di interconnessione del cluster si trovino in `up` stato:
++
+`network port show -role cluster`
+
+. Visualizzare i numeri di porta dello switch del cluster attraverso i quali ciascuna porta del cluster è collegata a ciascun nodo: `network device-discovery show`
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network device-discovery show
+            Local  Discovered
+Node        Port   Device              Interface        Platform
+----------- ------ ------------------- ---------------- ----------------
+n1          /cdp
+            e4a    C1                  Ethernet1/7      N3K-C3232C
+            e4e    C2                  Ethernet1/7      N3K-C3232C
+n2          /cdp
+            e4a    C1                  Ethernet1/8      N3K-C3232C
+            e4e    C2                  Ethernet1/8      N3K-C3232C
+----
+====
+. Switch del cluster rilevati e monitorati:
++
+`system cluster-switch show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> system cluster-switch show
+
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+C1                          cluster-network    10.10.1.101      NX3232CV
+Serial Number: FOX000001
+Is Monitored: true
+Reason:
+Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I6(1)
+Version Source: CDP
+
+C2                          cluster-network     10.10.1.102      NX3232CV
+Serial Number: FOX000002
+Is Monitored: true
+Reason:
+Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I6(1)
+Version Source: CDP 2 entries were displayed.
+----
+====
+. Verificare che il rilevamento cluster senza switch ha modificato l'opzione cluster senza switch su Disabled (disattivata):
++
+`network options switchless-cluster show`
+
+. Eseguire il ping delle interfacce del cluster remoto ed eseguire un controllo del server RPC:
++
+`cluster ping-cluster -node _node-name_`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> cluster ping-cluster -node n1
+Host is n1 Getting addresses from network interface table...
+Cluster n1_clus1 n1        e4a    10.10.0.1
+Cluster n1_clus2 n1        e4e    10.10.0.2
+Cluster n2_clus1 n2        e4a    10.10.0.3
+Cluster n2_clus2 n2        e4e    10.10.0.4
+Local = 10.10.0.1 10.10.0.2
+Remote = 10.10.0.3 10.10.0.4
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s) ................
+Detected 9000 byte MTU on 32 path(s):
+    Local 10.10.0.1 to Remote 10.10.0.3
+    Local 10.10.0.1 to Remote 10.10.0.4
+    Local 10.10.0.2 to Remote 10.10.0.3
+    Local 10.10.0.2 to Remote 10.10.0.4
+Larger than PMTU communication succeeds on 4 path(s) RPC status:
+1 paths up, 0 paths down (tcp check)
+1 paths up, 0 paths down (ucp check)
+----
+====
+. Abilitare la funzione di raccolta dei log dello switch del cluster per la raccolta dei file di log relativi allo switch:
++
+`system cluster-switch log setup-password`
+
++
+`system cluster-switch log enable-collection`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> system cluster-switch log setup-password
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+C1
+C2
+
+cluster::*> system cluster-switch log setup-password
+
+Enter the switch name: C1
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster::*> system cluster-switch log setup-password
+
+Enter the switch name: C2
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster::*> system cluster-switch log enable-collection
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] y
+
+Enabling cluster switch log collection.
+
+cluster::*>
+----
+====
++
+[NOTE]
+====
+Se uno di questi comandi restituisce un errore, contattare il supporto NetApp.
+
+====
+. Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+

@@ -1,0 +1,67 @@
+---
+permalink: switch-cisco-92300/setup-install-cshm-file.html 
+sidebar: sidebar 
+keywords: 'install, applicable, configuration, file, cluster, switch, health, monitor, nexus, ontap, install the cluster switch health monitor (csm) configuration file for 92300yc switches - cisco nexus 9336c-fx2' 
+summary: È possibile utilizzare questa procedura per installare il file di configurazione applicabile per il monitoraggio dello stato degli switch del cluster Nexus 92300YC. 
+---
+= Installare il file di configurazione di Cluster Switch Health Monitor (CSHM)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Seguire questa procedura per installare il file di configurazione applicabile per il monitoraggio dello stato degli switch del cluster Nexus 92300YC.
+
+In ONTAP release 9.5P7 e precedenti e 9.6P2 e precedenti, è necessario scaricare separatamente il file di configurazione dello stato dello switch del cluster. In ONTAP release 9.5P8 e successive, 9.6P3 e successive, e 9.7 e successive, il file di configurazione del monitor dello stato dello switch del cluster viene fornito in bundle con ONTAP.
+
+.Di cosa hai bisogno
+Prima di configurare lo switch Health monitor per gli switch cluster 92300YC, assicurarsi che il cluster ONTAP sia attivo e in esecuzione.
+
+
+NOTE: È inoltre necessario abilitare SSH per l'utilizzo di tutte le funzioni disponibili in CSHM.
+
+.Fasi
+. Scaricare il file zip di configurazione dello switch del cluster Health monitor in base alla versione di release di ONTAP corrispondente. Questo file è disponibile in https://mysupport.netapp.com/NOW/cgi-bin/software/["Download del software NetApp"^] pagina.
++
+.. Nella pagina di download del software, selezionare *Switch Health Monitor Configuration Files*
+.. Selezionare piattaforma = *ONTAP* e fare clic su *Go!*
+.. Nella pagina Cambia file di configurazione del monitor dello stato di salute per ONTAP, fare clic su *Visualizza e scarica*
+.. Nella pagina file di configurazione del monitor dello stato dello switch per ONTAP - Descrizione, fare clic su *Download* per il modello di switch cluster applicabile, ad esempio *Cisco Nexus 92300YC*
+.. Nella pagina Contratto di licenza con l'utente finale, fare clic su *Accetta*
+.. Nella ONTAP pagina Download - file di configurazione del monitor dello stato dello switch, selezionare il file di configurazione appropriato, ad esempio *Cisco_Nexus_92300YC.zip*
+
+
+. Caricare il file zip applicabile sul server Web interno in cui l'indirizzo IP è X.X.X.X.
++
+Per un indirizzo IP interno del server Web 192.168.2.20 e supponendo che esista una directory /usr/download, è possibile caricare il file zip sul server Web utilizzando SCP:
+
++
+[listing]
+----
+% scp Cisco_Nexus_92300YC.zip admin@192.168.2.20:/usr/download/Cisco_Nexus_92300YC.zip
+----
+. Accedere all'impostazione della modalità avanzata da uno dei sistemi ONTAP nel cluster, utilizzando il comando set-Privilege Advanced:
++
+[listing]
+----
+cluster1::> set -privilege advanced
+----
+. Eseguire il comando switch Health monitor configure system cluster-switch configure-Health-monitor -node * -package-url X.X.X/location_to_download_zip_file:
++
+[listing]
+----
+cluster1::> system cluster-switch configure-health-monitor -node * -package-url 192.168.2.20/usr/download/Cisco_Nexus_92300YC.zip
+----
+. Verificare che l'output del comando contenga la stringa di testo "Downloaded package processed successfully" (pacchetto scaricato elaborato correttamente). In caso di errore, contattare il supporto NetApp.
+. Eseguire il programma cluster-switch del sistema di comando sul sistema ONTAP e assicurarsi che gli switch del cluster vengano rilevati con il campo monitorato impostato su "vero".
++
+[listing]
+----
+cluster1::> system cluster-switch show
+----
++
+
+NOTE: Se in qualsiasi momento si ripristina una versione precedente di ONTAP, sarà necessario installare nuovamente il file di configurazione CSHM per abilitare il monitoraggio dello stato degli switch cluster 92300YC.
+
+

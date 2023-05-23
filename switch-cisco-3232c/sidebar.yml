@@ -1,0 +1,50 @@
+---
+section: switch-cisco-3232c
+title: Cisco Nexus 3232C
+entries:
+- title: Panoramica
+  entries:
+  - title: Panoramica della configurazione
+    url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
+  - title: Requisiti di configurazione
+    url: "/switch-cisco-3232c/configure-reqs-3232c.html"
+  - title: Documentazione richiesta
+    url: "/switch-cisco-3232c/required-documentation-3232c.html"
+  - title: Requisiti Smart Call Home
+    url: "/switch-cisco-3232c/smart-call-home-3232c.html"
+- title: Installare l'hardware
+  entries:
+  - title: Completare il foglio di lavoro per il cablaggio
+    url: "/switch-cisco-3232c/setup_worksheet_3232c.html"
+  - title: Configurare lo switch
+    url: "/switch-cisco-3232c/setup-switch.html"
+  - title: Installare lo switch nel cabinet NetApp
+    url: "/switch-cisco-3232c/install-cisco-nexus-3232c.html"
+- title: Configurare il software
+  entries:
+  - title: Preparazione all'installazione di NX-OS e RCF
+    url: "/switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html"
+  - title: Installare il software NX-OS
+    url: "/switch-cisco-3232c/install-nx-os-software-3232c.html"
+  - title: Installare il file di configurazione RCF
+    url: "/switch-cisco-3232c/install-rcf-3232c.html"
+- title: Migrare gli switch
+  entries:
+  - title: Requisiti di migrazione
+    url: "/switch-cisco-3232c/migrate-requirements-3232c.html"
+  - title: Migrazione da switch cluster CN1610
+    url: "/switch-cisco-3232c/migrate-cn1610-cluster-switches.html"
+  - title: Migrazione dallo switch cluster Cisco Nexus 5596
+    url: "/switch-cisco-3232c/migrate-from-cisco-nexus-5596.html"
+  - title: Migrazione da un cluster senza switch a due nodi
+    url: "/switch-cisco-3232c/migrate-from-two-node-switchless-cluster.html"
+- title: Sostituire gli interruttori
+  entries:
+  - title: Sostituire lo switch del cluster
+    url: "/switch-cisco-3232c/replace-cluster-switch.html"
+  - title: Sostituire lo switch di storage
+    url: "/switch-cisco-3232c/replace-storage-switch.html"
+  - title: Sostituire gli switch del cluster con connessioni senza switch
+    url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
+- title: Aggiornare gli switch
+  url: "/switch-cisco-3232c/upgrade-3232c-storage-switches.html"

@@ -1,0 +1,354 @@
+---
+permalink: switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: install cumulus onie mode, sn2100 SN2100 switches setup, cumulus linux, onie mode 
+summary: 'Il sistema operativo Cumulus Linux (CL) può essere installato quando lo switch esegue Cumulus Linux o ONIE.' 
+---
+= Installare Cumulus Linux in modalità ONIE
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Seguire questa procedura per installare il sistema operativo Cumulus Linux (CL) quando lo switch è in esecuzione in modalità ONIE.
+
+
+NOTE: Il sistema operativo Cumulus Linux (CL) può essere installato quando lo switch esegue ONIE o Cumulus Linux (vedere link:install-cumulus-mode-sn2100-cluster.html["Installare in modalità Cumulus"]).
+
+.A proposito di questa attività
+È possibile installare Cumulus Linux utilizzando Open Network Install Environment (ONIE) che consente il rilevamento automatico di un'immagine del programma di installazione di rete. Questo semplifica il modello di sistema per la protezione degli switch con una scelta di sistemi operativi, come Cumulus Linux. Il modo più semplice per installare Cumulus Linux con ONIE consiste nel rilevamento HTTP locale.
+
+
+NOTE: Se l'host è abilitato per IPv6, assicurarsi che sia in esecuzione un server Web. Se l'host è abilitato per IPv4, assicurarsi che sia in esecuzione DHCP oltre a un server Web.
+
+Questa procedura illustra come aggiornare Cumulus Linux dopo l'avvio dell'amministratore in ONIE.
+
+.Fasi
+[role="tabbed-block"]
+====
+.Cumulus Linux 4.4.3
+--
+. Scaricare il file di installazione di Cumulus Linux nella directory principale del server Web. Rinominare il file in: `onie-installer`.
+. Collegare l'host alla porta Ethernet di gestione dello switch utilizzando un cavo Ethernet.
+. Accendere lo switch.
++
+Lo switch scarica il programma di installazione dell'immagine ONIE e si avvia. Al termine dell'installazione, nella finestra del terminale viene visualizzato il prompt di accesso di Cumulus Linux.
+
++
+
+NOTE: Ogni volta che Cumulus Linux viene installato, l'intera struttura del file system viene cancellata e ricostruita.
+
+. Riavviare lo switch SN2100:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *sudo reboot*
+----
+. Premere il tasto *Esc* nella schermata di GNU GRUB per interrompere il normale processo di avvio, selezionare *ONIE* e premere *Invio*.
+. Nella schermata successiva, selezionare *ONIE: Install OS*.
+. Il processo di ricerca del programma di installazione di ONIE esegue la ricerca dell'installazione automatica. Premere *Invio* per interrompere temporaneamente il processo.
+. Quando il processo di rilevamento si è arrestato:
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *onie-stop*
+discover: installer mode detected.
+Stopping: discover...start-stop-daemon: warning: killing process 427:
+No such process done.
+----
+. Se il servizio DHCP è in esecuzione sulla rete, verificare che l'indirizzo IP, la subnet mask e il gateway predefinito siano assegnati correttamente:
++
+`ifconfig eth0`
+
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *ifconfig eth0*
+eth0   Link encap:Ethernet  HWaddr B8:CE:F6:19:1D:F6
+       inet addr:10.233.204.71  Bcast:10.233.205.255  Mask:255.255.254.0
+       inet6 addr: fe80::bace:f6ff:fe19:1df6/64 Scope:Link
+       UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+       RX packets:21344 errors:0 dropped:2135 overruns:0 frame:0
+       TX packets:3500 errors:0 dropped:0 overruns:0 carrier:0
+       collisions:0 txqueuelen:1000
+       RX bytes:6119398 (5.8 MiB)  TX bytes:472975 (461.8 KiB)
+       Memory:dfc00000-dfc1ffff
+
+ONIE:/ # *route*
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+
+default         10.233.204.1    0.0.0.0         UG    0      0      0   eth0
+10.233.204.0    *               255.255.254.0   U     0      0      0   eth0
+----
+. Se lo schema di indirizzamento IP viene definito manualmente, procedere come segue:
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *ifconfig eth0 10.233.204.71 netmask 255.255.254.0*
+ONIE:/ # *route add default gw 10.233.204.1*
+----
+. Ripetere il passaggio 9 per verificare che le informazioni statiche siano inserite correttamente.
+. Installare Cumulus Linux:
++
+[listing]
+----
+# onie-nos-install http://<web-server>/<path>/cumulus-linux-4.4.3-mlx-amd64.bin
+----
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *route*
+
+  Kernel IP routing table
+
+  ONIE:/ # *onie-nos-install http://_<web-server>/<path>_/cumulus-linux-4.4.3-mlx-amd64.bin*
+
+  Stopping: discover... done.
+  Info: Attempting http://10.60.132.97/x/eng/testbedN,svl/nic/files/cumulus-linux-4.4.3-mlx-amd64.bin ...
+  Connecting to 10.60.132.97 (10.60.132.97:80)
+  installer            100% |*******************************|   552M  0:00:00 ETA
+  ...
+  ...
+----
+. Una volta completata l'installazione, accedere allo switch.
++
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password: *cumulus*
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *<new_password>*
+Retype new password: *<new_password>*
+----
+. Verificare la versione di Cumulus Linux: `net show version`
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net show version*
+NCLU_VERSION=1.0-cl4.4.3u4
+DISTRIB_ID="Cumulus Linux"
+DISTRIB_RELEASE=*4.4.3*
+DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.3”*
+----
+
+
+--
+.Cumulus Linux 5.x
+--
+. Scaricare il file di installazione di Cumulus Linux nella directory principale del server Web. Rinominare il file in: `onie-installer`.
+. Collegare l'host alla porta Ethernet di gestione dello switch utilizzando un cavo Ethernet.
+. Accendere lo switch.
++
+Lo switch scarica il programma di installazione dell'immagine ONIE e si avvia. Al termine dell'installazione, nella finestra del terminale viene visualizzato il prompt di accesso di Cumulus Linux.
+
++
+
+NOTE: Ogni volta che Cumulus Linux viene installato, l'intera struttura del file system viene cancellata e ricostruita.
+
+. Riavviare lo switch SN2100:
++
+[listing]
+----
+cumulus@cumulus:mgmt:~$ sudo reboot
+.
+.
+GNU GRUB version 2.06-3
++-------------------------------------------------------------------------+
+| Cumulus-Linux GNU/Linux                                                 |
+| Advanced options for Cumulus-Linux GNU/Linux                            |
+| ONIE                                                                    |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
++-------------------------------------------------------------------------+
+----
+. Premere il tasto Esc nella schermata di GNU GRUB per interrompere il normale processo di avvio, selezionare ONIE e premere Invio.
++
+[listing]
+----
+.
+.
+Loading ONIE ...
+
+GNU GRUB version 2.02
++-------------------------------------------------------------------------+
+| ONIE: Install OS                                                        |
+| ONIE: Rescue                                                            |
+| ONIE: Uninstall OS                                                      |
+| ONIE: Update ONIE                                                       |
+| ONIE: Embed ONIE                                                        |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
++-------------------------------------------------------------------------+
+----
++
+Selezionare ONIE: *Install OS.*
+
+. Il processo di ricerca del programma di installazione di ONIE esegue la ricerca dell'installazione automatica. Premere *Invio* per interrompere temporaneamente il processo.
+. Quando il processo di rilevamento si è arrestato:
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *onie-stop*
+discover: installer mode detected.
+Stopping: discover...start-stop-daemon: warning: killing process 427:
+No such process done.
+----
+. Configurare l'indirizzo IP, la subnet mask e il gateway predefinito:
++
+`ifconfig eth0`
+
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *ifconfig eth0*
+eth0   Link encap:Ethernet  HWaddr B8:CE:F6:19:1D:F6
+       inet addr:10.233.204.71  Bcast:10.233.205.255  Mask:255.255.254.0
+       inet6 addr: fe80::bace:f6ff:fe19:1df6/64 Scope:Link
+       UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+       RX packets:21344 errors:0 dropped:2135 overruns:0 frame:0
+       TX packets:3500 errors:0 dropped:0 overruns:0 carrier:0
+       collisions:0 txqueuelen:1000
+       RX bytes:6119398 (5.8 MiB)  TX bytes:472975 (461.8 KiB)
+       Memory:dfc00000-dfc1ffff
+ONIE:/ #
+ONIE:/ # *ifconfig eth0 10.228.140.27 netmask 255.255.248.0*
+ONIE:/ # *ifconfig eth0*
+eth0   Link encap:Ethernet HWaddr B8:CE:F6:5E:05:E6
+       inet addr:10.228.140.27 Bcast:10.228.143.255 Mask:255.255.248.0
+       inet6 addr: fd20:8b1e:b255:822b:bace:f6ff:fe5e:5e6/64 Scope:Global
+       inet6 addr: fe80::bace:f6ff:fe5e:5e6/64 Scope:Link
+       UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+       RX packets:18813 errors:0 dropped:1418 overruns:0 frame:0
+       TX packets:491 errors:0 dropped:0 overruns:0 carrier:0
+       collisions:0 txqueuelen:1000
+       RX bytes:1339596 (1.2 MiB) TX bytes:49379 (48.2 KiB)
+       Memory:dfc00000-dfc1ffff
+ONIE:/ # *route add default gw 10.228.136.1*
+ONIE:/ # *route*
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+
+default         10.228.136.1    0.0.0.0         UG    0      0      0   eth0
+10.228.136.1    *               255.255.248.0   U     0      0      0   eth0
+----
+. Installare Cumulus Linux 5.4:
++
+`# onie-nos-install http://<web-server>/<path>/cumulus-linux-5.4-mlx-amd64.bin`
+
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *route*
+
+  Kernel IP routing table
+
+  ONIE:/ # *onie-nos-install http://_<web-server>/<path>_/cumulus-linux-5.4-mlx-amd64.bin*
+
+  Stopping: discover... done.
+  Info: Attempting http://10.60.132.97/x/eng/testbedN,svl/nic/files/cumulus-linux-5.4-mlx-amd64.bin ...
+  Connecting to 10.60.132.97 (10.60.132.97:80)
+  installer            100% |*******************************|   552M  0:00:00 ETA
+  ...
+  ...
+----
+. Una volta completata l'installazione, accedere allo switch.
++
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password: *cumulus*
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *<new_password>*
+Retype new password: *<new_password>*
+----
+. Verificare la versione di Cumulus Linux: `nv show system`
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show system*
+operational         applied              description
+------------------- -------------------- ---------------------
+hostname            cumulus              cumulus
+build               Cumulus Linux 5.4.0  system build version
+uptime              6 days, 13:37:36     system uptime
+timezone            Etc/UTC              system time zone
+----
+. Creare un nuovo utente e aggiungerlo a. `sudo` gruppo. Questo utente diventa effettivo solo dopo il riavvio della sessione console/SSH.
++
+`sudo adduser --ingroup netedit admin`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser --ingroup netedit admin*
+[sudo] password for cumulus:
+Adding user 'admin' ...
+Adding new user 'admin' (1001) with group `netedit' ...
+Creating home directory '/home/admin' ...
+Copying files from '/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for admin
+Enter the new value, or press ENTER for the default
+Full Name []:
+Room Number []:
+Work Phone []:
+Home Phone []:
+Other []:
+Is the information correct? [Y/n] *y*
+
+cumulus@sw1:mgmt:~$ *sudo adduser admin sudo*
+[sudo] password for cumulus:
+Adding user `admin' to group `sudo' ...
+Adding user admin to group sudo
+Done.
+cumulus@sw1:mgmt:~$ *exit*
+logout
+Connection to 10.233.204.71 closed.
+
+[admin@cycrh6svl01 ~]$ ssh admin@10.233.204.71
+admin@10.233.204.71's password:
+Linux sw1 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.1u1 (2021-09-09) x86_64
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+For support and online technical documentation, visit
+http://www.cumulusnetworks.com/support
+
+The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
+admin@sw1:mgmt:~$
+----
+. Aggiungere ulteriori gruppi di utenti a cui l'utente amministratore può accedere `nv` comandi:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *sudo adduser admin nvshow*
+     [sudo] password for cumulus:
+     Adding user `admin' to group `nvshow' ...
+     Adding user admin to group nvshow
+     Done.
+----
++
+Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["NVIDIA User account (account utente NVIDIA)"^] per ulteriori informazioni.
+
+
+
+--
+====
+.Quali sono le prossime novità?
+link:install-rcf-sn2100-cluster.html["Installare lo script del file di configurazione di riferimento (RCF)"].

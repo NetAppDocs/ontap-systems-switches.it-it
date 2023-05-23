@@ -1,0 +1,132 @@
+---
+permalink: switch-cisco-9336c-fx2-storage/install-switch-and-passthrough-panel-9336c-storage.html 
+sidebar: sidebar 
+keywords: install, cisco, nexus, switch, pass-through, panel, netapp, cabinet, bracket, switch, install a cisco nexus 9336c-fx2 switch and pass-through panel in a netapp cabinet - cisco nexus 9336c-fx2 
+summary: È possibile installare lo switch Cisco Nexus 9336C-FX2 e il pannello pass-through in un cabinet NetApp con le staffe standard incluse con lo switch. 
+---
+= Installare uno switch Cisco Nexus 9336C-FX2 in un cabinet NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A seconda della configurazione, potrebbe essere necessario installare lo switch Cisco Nexus 9336C-FX2 e il pannello pass-through in un cabinet NetApp. Le staffe standard sono incluse con lo switch.
+
+.Di cosa hai bisogno
+* Per ogni switch, è necessario fornire le otto viti da 10-32 o 12-24 e i dadi a clip per montare le staffe e le guide di scorrimento sui montanti anteriori e posteriori dell'armadio.
+* Per installare lo switch in un cabinet NetApp, è necessario utilizzare il kit guide standard Cisco.
+
+
+
+NOTE: I cavi di collegamento non sono inclusi nel kit pass-through e devono essere inclusi con gli switch. Se non sono stati forniti con gli switch, è possibile ordinarli presso NetApp (codice X1558A-R6).
+
+.Documentazione richiesta
+Esaminare i requisiti di preparazione iniziale, il contenuto del kit e le precauzioni di sicurezza nel https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Guida all'installazione dell'hardware di Cisco Nexus serie 9000"^].
+
+.Fasi
+. Installare il pannello di chiusura pass-through nel cabinet NetApp.
++
+Il kit pannello pass-through è disponibile presso NetApp (codice X8784-R6).
+
++
+Il kit di pannelli pass-through NetApp contiene il seguente hardware:
+
++
+** Un pannello di chiusura pass-through
+** Quattro viti 10-32 x 0,75
+** Quattro dadi a clip da 10-32
++
+... Determinare la posizione verticale degli interruttori e del pannello di chiusura nell'armadio.
++
+In questa procedura, il pannello di chiusura verrà installato in U40.
+
+... Installare due dadi a clip su ciascun lato nei fori quadrati appropriati per le guide anteriori dell'armadio.
+... Centrare il pannello verticalmente per evitare l'ingresso nello spazio rack adiacente, quindi serrare le viti.
+... Inserire i connettori femmina di entrambi i cavi di collegamento da 48 pollici dalla parte posteriore del pannello e attraverso il gruppo spazzole.
++
+image::../media/cisco_9148_jumper_cords.gif[cavi di collegamento cisco 9148]
+
++
+_(1) connettore femmina del cavo di collegamento._
+
+
+
+
+
+. Installare le staffe per il montaggio in rack sullo chassis dello switch Nexus 9336C-FX2.
++
+.. Posizionare una staffa anteriore per il montaggio su rack su un lato dello chassis dello switch in modo che l'orecchio di montaggio sia allineato con la piastra anteriore dello chassis (lato alimentatore o ventola), quindi utilizzare quattro viti M4 per fissare la staffa allo chassis.
++
+image::../media/3132q_front_bracket.gif[staffa anteriore]
+
+.. Ripetere il punto <<SUBSTEP_9F2E2DDAEE084FE5853D1A6C6D945941,2a>> con l'altra staffa anteriore per il montaggio in rack sull'altro lato dello switch.
+.. Installare la staffa per il montaggio su rack posteriore sul telaio dello switch.
+.. Ripetere il punto <<SUBSTEP_53A502380D6D4F058F62ED5ED5FC2000,2c>> con l'altra staffa posteriore per il montaggio su rack sull'altro lato dello switch.
+
+
+. Montare i dadi a clip nelle posizioni dei fori quadrati per tutti e quattro i montanti IEA.
++
+image::../media/ru_locations_for_3132q_v.gif[posizioni ru per 3132q v]
+
++
+I due switch 9336C-FX2 saranno sempre montati nella parte superiore 2U del cabinet RU41 e 42.
+
+. Installare le guide di scorrimento nel cabinet.
++
+.. Posizionare la prima guida scorrevole in corrispondenza del contrassegno RU42 sul lato posteriore del montante posteriore sinistro, inserire le viti con il tipo di filettatura corrispondente, quindi serrare le viti con le dita.
++
+image::../media/3132q_v_slider_rails.gif[3132q v guide di scorrimento]
+
++
+_(1) mentre si fa scorrere delicatamente la guida scorrevole, allinearla ai fori delle viti nel rack._
+
++
+_(2) serrare le viti delle guide di scorrimento ai montanti dell'armadietto._
+
+.. Ripetere il punto <<SUBSTEP_81651316D3F84964A76BC80A9DE48C0E,4a>> per il montante posteriore destro.
+.. Ripetere i passaggi <<SUBSTEP_81651316D3F84964A76BC80A9DE48C0E,4a>> e. <<SUBSTEP_593967A423024594B9A41A04703DC458,4b>> Nelle posizioni RU41 del cabinet.
+
+
+. Installare lo switch nell'armadio.
++
+
+NOTE: Questa fase richiede due persone: Una per supportare lo switch dalla parte anteriore e un'altra per guidare lo switch nelle guide di scorrimento posteriori.
+
++
+.. Posizionare la parte posteriore dell'interruttore su RU41.
++
+image::../media/3132q_v_positioning.gif[Posizionamento del 3232C in U39-40]
+
++
+_(1) quando lo chassis viene spinto verso i montanti posteriori, allineare le due guide posteriori per il montaggio su rack con le guide di scorrimento._
+
++
+_(2) far scorrere delicatamente lo switch fino a quando le staffe anteriori per il montaggio su rack non sono a filo con i montanti anteriori._
+
+.. Collegare lo switch al cabinet.
++
+image::../media/3132q_attaching.gif[3132q fissaggio]
+
++
+_(1) con una persona che tiene la parte anteriore del telaio a livello, l'altra deve serrare completamente le quattro viti posteriori ai montanti del cabinet._
+
+.. Con il telaio ora supportato senza assistenza, serrare completamente le viti anteriori sui montanti.
+.. Ripetere i passaggi <<SUBSTEP_4F538C8C55E34C5FB5D348391088A0FE,5a>> attraverso <<SUBSTEP_EB8FE2FED2CA4120B709CC753C0F50FC,5c>> Per il secondo switch nella posizione RU42.
++
+
+NOTE: Utilizzando lo switch completamente installato come supporto, non è necessario tenere la parte anteriore del secondo switch durante il processo di installazione.
+
+
+
+. Una volta installati gli switch, collegare i cavi di collegamento alle prese di alimentazione dello switch.
+. Collegare le spine maschio di entrambi i cavi di collegamento alle prese PDU più vicine disponibili.
++
+
+NOTE: Per mantenere la ridondanza, i due cavi devono essere collegati a diverse PDU.
+
+. Collegare la porta di gestione di ogni switch 9336C-FX2 a uno degli switch di gestione (se ordinati) o collegarli direttamente alla rete di gestione.
++
+La porta di gestione è la porta in alto a destra situata sul lato PSU dello switch. Il cavo CAT6 per ogni switch deve essere instradato attraverso il pannello pass-through dopo l'installazione degli switch per connettersi agli switch di gestione o alla rete di gestione.
+
+
