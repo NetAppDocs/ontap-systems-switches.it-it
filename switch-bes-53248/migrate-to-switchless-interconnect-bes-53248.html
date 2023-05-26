@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="it">
   <head class="at-element-marker">
-  <title>Componenti e codici ricambio per switch cluster Cisco Nexus 9336C-FX2</title>
+  <title>Sostituire gli switch del cluster Broadcom BES-53248 con connessioni senza switch</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Componenti e codici ricambio per switch cluster Cisco Nexus 9336C-FX2" />
+  <meta property="og:title" content="Sostituire gli switch del cluster Broadcom BES-53248 con connessioni senza switch" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/it-it/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" />
-	<meta property="og:description" content="A partire da ONTAP 9.9.1, è possibile utilizzare gli switch Cisco Nexus 9336C-FX2 per combinare funzionalità di storage e cluster in uno scenario di switch c..." />
+	<meta property="og:url" content="https://docs.netapp.com/it-it/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" />
+	<meta property="og:description" content="È possibile migrare da un cluster con una rete cluster commutata a uno in cui due nodi sono collegati direttamente per ONTAP 9.3 e versioni successive." />
   <meta property="og:image" content="https://docs.netapp.com/it-it/ontap-systems-switches/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="A partire da ONTAP 9.9.1, è possibile utilizzare gli switch Cisco Nexus 9336C-FX2 per combinare funzionalità di storage e cluster in uno scenario di switch c...">
-  <meta name="keywords" content=" shared storage cluster switch"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="È possibile migrare da un cluster con una rete cluster commutata a uno in cui due nodi sono collegati direttamente per ONTAP 9.3 e versioni successive.">
+  <meta name="keywords" content=" migrate, switchless cluster interconnect, broadcom bes-53248 switch"><!-- Icons -->
   <link rel="icon" href="/it-it/ontap-systems-switches/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -32,17 +32,17 @@
   <link rel="stylesheet" href="/it-it/ontap-systems-switches/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/it-it/ontap-systems-switches/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
-  <link rel="canonical" href="https://docs.netapp.com/it-it/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" />
-  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" />
-  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" />
-  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" />
-  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" />
-  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" />
-  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" />
-  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" />
-  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" />
-  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" />
-  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" />
+  <link rel="canonical" href="https://docs.netapp.com/it-it/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" />
   <link rel='stylesheet' href='/it-it/ontap-systems-switches/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     function addAdobeLaunch(adobeId) {
       var head = document.getElementsByTagName('head')[0];
@@ -177,7 +177,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-switches.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html&page-title=Componenti e codici ricambio per switch cluster Cisco Nexus 9336C-FX2" class="page-nav-contribute-link" role="button"><img src="/it-it/ontap-systems-switches/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-switches/blob/main/switch-cisco-9336c-fx2/components-9336c-cluster.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/ontap-systems-switches/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/ontap-systems-switches/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-switches.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html&page-title=Sostituire gli switch del cluster Broadcom BES-53248 con connessioni senza switch" class="page-nav-contribute-link" role="button"><img src="/it-it/ontap-systems-switches/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-switches/blob/main/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/ontap-systems-switches/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/ontap-systems-switches/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">IN QUESTA PAGINA</div>
@@ -297,23 +297,23 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/it-it/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+          <a href="https://docs.netapp.com/it-it/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ja-jp/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/ko-kr/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-cn/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-tw/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/de-de/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+          <a href="https://docs.netapp.com/de-de/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/es-es/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+          <a href="https://docs.netapp.com/es-es/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/fr-fr/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+          <a href="https://docs.netapp.com/fr-fr/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
         </li></ul>
     </div>
     <!-- End Language Selector -->
@@ -578,6 +578,8 @@
 
 
 
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
 
 
         </li>
@@ -630,8 +632,6 @@
 
 
 
-    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
-  
 
 
 
@@ -2382,7 +2382,7 @@
       data-pdf-exists="true" 
       data-pdf-filename="Sostituire gli switch del cluster con connessioni senza switch"
       data-li-level="4#" 
-      class=" "
+      class="  active "
     ><a class="na-navbar-padding" href="/it-it/ontap-systems-switches/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html">
         Sostituire gli switch del cluster con connessioni senza switch
       </a></li></ul></li></ul></li><li 
@@ -2421,7 +2421,7 @@
       data-pdf-exists="true" 
       data-pdf-filename="Componenti e numeri di parte"
       data-li-level="4#" 
-      class="  active "
+      class=" "
     ><a class="na-navbar-padding" href="/it-it/ontap-systems-switches/switch-cisco-9336c-fx2/components-9336c-cluster.html">
         Componenti e numeri di parte
       </a></li><li 
@@ -3942,14 +3942,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Componenti e codici ricambio per switch cluster Cisco Nexus 9336C-FX2</h1>
+  <h1 class="n-doc__component-detail-heading">Sostituire gli switch del cluster Broadcom BES-53248 con connessioni senza switch</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2023-05-23 19:10:12 +0000">05/23/2023</time>
+    <time datetime="2023-05-26 12:57:38 +0000">05/26/2023</time>
     
   
 
@@ -3959,98 +3959,509 @@
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>Per l&#8217;installazione e la manutenzione dello switch Cisco Nexus 9336C-FX2, consultare l&#8217;elenco dei componenti e dei codici dei componenti.</p>
+<p>È possibile migrare da un cluster con una rete cluster commutata a uno in cui due nodi sono collegati direttamente per ONTAP 9.3 e versioni successive.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="verifica-dei-requisiti">Verifica dei requisiti</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title">Linee guida</div>
+<p>Consultare le seguenti linee guida:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La migrazione a una configurazione cluster senza switch a due nodi è un&#8217;operazione senza interruzioni. La maggior parte dei sistemi dispone di due porte di interconnessione cluster dedicate su ciascun nodo, ma è possibile utilizzare questa procedura anche per i sistemi con un numero maggiore di porte di interconnessione cluster dedicate su ciascun nodo, ad esempio quattro, sei o otto.</p>
+</li>
+<li>
+<p>Non è possibile utilizzare la funzione di interconnessione del cluster senza switch con più di due nodi.</p>
+</li>
+<li>
+<p>Se si dispone di un cluster a due nodi esistente che utilizza switch di interconnessione cluster e utilizza ONTAP 9.3 o versione successiva, è possibile sostituire gli switch con connessioni dirette back-to-back tra i nodi.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Di cosa hai bisogno</div>
+<ul>
+<li>
+<p>Un cluster integro costituito da due nodi collegati da switch di cluster. I nodi devono eseguire la stessa release di ONTAP.</p>
+</li>
+<li>
+<p>Ciascun nodo con il numero richiesto di porte cluster dedicate, che forniscono connessioni di interconnessione cluster ridondanti per supportare la configurazione del sistema. Ad esempio, esistono due porte ridondanti per un sistema con due porte di interconnessione cluster dedicate su ciascun nodo.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="migrare-gli-switch">Migrare gli switch</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title">A proposito di questa attività</div>
+<p>La seguente procedura rimuove gli switch del cluster in un cluster a due nodi e sostituisce ogni connessione allo switch con una connessione diretta al nodo partner.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../media/tnsc_clusterswitches_and_direct_connections.PNG" alt="Switch del cluster sostituiti con connessioni dirette">
+</div>
 </div>
 <div class="paragraph">
-<p>La seguente tabella elenca il codice ricambio e la descrizione dello switch, delle ventole e degli alimentatori 9336C-FX2:</p>
+<div class="title">A proposito degli esempi</div>
+<p>Gli esempi della seguente procedura mostrano i nodi che utilizzano "e0a" e "e0b" come porte del cluster. I nodi potrebbero utilizzare porte cluster diverse in base al sistema.</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
+<div class="sect2">
+<h3 id="fase-1-preparazione-per-la-migrazione">Fase 1: Preparazione per la migrazione</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Impostare il livello di privilegio su Advanced (avanzato), immettendo <code>y</code> quando viene richiesto di continuare:</p>
+<div class="paragraph">
+<p><code>set -privilege advanced</code></p>
+</div>
+<div class="paragraph">
+<p>Il prompt avanzato <code>*&gt;</code> viene visualizzato.</p>
+</div>
+</li>
+<li>
+<p>ONTAP 9.3 e versioni successive supportano il rilevamento automatico dei cluster senza switch, attivato per impostazione predefinita.</p>
+<div class="paragraph">
+<p>È possibile verificare che il rilevamento dei cluster senza switch sia attivato eseguendo il comando Advanced Privilege:</p>
+</div>
+<div class="paragraph">
+<p><code>network options detect-switchless-cluster show</code></p>
+</div>
+<details>
+<summary class="title">Mostra esempio</summary>
+<div class="content">
+<div class="paragraph">
+<p>Il seguente esempio di output mostra se l&#8217;opzione è attivata.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network options detect-switchless-cluster show
+   (network options detect-switchless-cluster show)
+Enable Switchless Cluster Detection: true</pre>
+</div>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>Se "Enable Switchless Cluster Detection" (attiva rilevamento cluster senza switch) è <code>false</code>, Contattare il supporto NetApp.</p>
+</div>
+</li>
+<li>
+<p>Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:</p>
+<div class="paragraph">
+<p><code>system node autosupport invoke -node * -type all -message MAINT=&lt;number_of_hours&gt;h</code></p>
+</div>
+<div class="paragraph">
+<p>dove <code>h</code> indica la durata della finestra di manutenzione in ore. Il messaggio informa il supporto tecnico di questa attività di manutenzione in modo che possa eliminare la creazione automatica del caso durante la finestra di manutenzione.</p>
+</div>
+<div class="paragraph">
+<p>Nell&#8217;esempio seguente, il comando sospende la creazione automatica del caso per due ore:</p>
+</div>
+<details>
+<summary class="title">Mostra esempio</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; system node autosupport invoke -node * -type all -message MAINT=2h</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fase-2-configurare-le-porte-e-il-cablaggio">Fase 2: Configurare le porte e il cablaggio</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Organizzare le porte del cluster su ciascun switch in gruppi in modo che le porte del cluster nel gruppo 1 vadano allo switch del cluster 1 e le porte del cluster nel gruppo 2 vadano allo switch2 del cluster. Questi gruppi sono richiesti più avanti nella procedura.</p>
+</li>
+<li>
+<p>Identificare le porte del cluster e verificare lo stato e lo stato del collegamento:</p>
+<div class="paragraph">
+<p><code>network port show -ipspace Cluster</code></p>
+</div>
+<div class="paragraph">
+<p>Nell&#8217;esempio seguente per i nodi con porte cluster "e0a" e "e0b", un gruppo viene identificato come "node1:e0a" e "node2:e0a" e l&#8217;altro come "node1:e0b" e "node2:e0b". I nodi potrebbero utilizzare porte cluster diverse in quanto variano in base al sistema.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../media/tnsc_clusterswitch_connections.PNG" alt="Connessioni dello switch del cluster tra il nodo 1 e il nodo 2">
+</div>
+</div>
+<div class="paragraph">
+<p>Verificare che il valore delle porte sia di <code>up</code> Per la colonna "link" e un valore di <code>healthy</code> Per la colonna "Health Status" (Stato salute).</p>
+</div>
+<details>
+<summary class="title">Mostra esempio</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>cluster::&gt; network port show -ipspace Cluster
+Node: node1
+                                                                 Ignore
+                                             Speed(Mbps) Health  Health
+Port  IPspace   Broadcast Domain Link  MTU   Admin/Oper	 Status  Status
+----- --------- ---------------- ----- ----- ----------- ------- -------
+e0a   Cluster   Cluster          up    9000  auto/10000  healthy false
+e0b   Cluster   Cluster          up    9000  auto/10000  healthy false
+
+Node: node2
+                                                                 Ignore
+                                             Speed(Mbps) Health  Health
+Port  IPspace   Broadcast Domain Link  MTU   Admin/Oper	 Status  Status
+----- --------- ---------------- ----- ----- ----------- ------- -------
+e0a   Cluster   Cluster          up    9000  auto/10000  healthy false
+e0b   Cluster   Cluster          up    9000  auto/10000  healthy false
+4 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Verificare che tutte le LIF del cluster si trovino sulle porte home.</p>
+<div class="paragraph">
+<p>Verificare che la colonna "is-home" sia <code>true</code> Per ciascuna LIF del cluster:</p>
+</div>
+<div class="paragraph">
+<p><code>network interface show -vserver Cluster -fields is-home</code></p>
+</div>
+<details>
+<summary class="title">Mostra esempio</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; net int show -vserver Cluster -fields is-home
+(network interface show)
+vserver  lif          is-home
+-------- ------------ --------
+Cluster  node1_clus1  true
+Cluster  node1_clus2  true
+Cluster  node2_clus1  true
+Cluster  node2_clus2  true
+4 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>Se sono presenti LIF del cluster che non si trovano sulle porte home, ripristinare tali LIF alle porte home:</p>
+</div>
+<div class="paragraph">
+<p><code>network interface revert -vserver Cluster -lif *</code></p>
+</div>
+</li>
+<li>
+<p>Disattivare l&#8217;autorevert per le LIF del cluster:</p>
+<div class="paragraph">
+<p><code>network interface modify -vserver Cluster -lif * -auto-revert false</code></p>
+</div>
+</li>
+<li>
+<p>Verificare che tutte le porte elencate nella fase precedente siano collegate a uno switch di rete:</p>
+<div class="paragraph">
+<p><code>network device-discovery show -port <em>cluster_port</em></code></p>
+</div>
+<div class="paragraph">
+<p>La colonna "dispositivo rilevato" deve essere il nome dello switch del cluster a cui è collegata la porta.</p>
+</div>
+<details>
+<summary class="title">Mostra esempio</summary>
+<div class="content">
+<div class="paragraph">
+<p>L&#8217;esempio seguente mostra che le porte del cluster "e0a" e "e0b" sono collegate correttamente agli switch del cluster "cs1" e "cs2".</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::&gt; network device-discovery show -port e0a|e0b
+  (network device-discovery show)
+Node/     Local  Discovered
+Protocol  Port   Device (LLDP: ChassisID)  Interface  Platform
+--------- ------ ------------------------- ---------- ----------
+node1/cdp
+          e0a    cs1                       0/11       BES-53248
+          e0b    cs2                       0/12       BES-53248
+node2/cdp
+          e0a    cs1                       0/9        BES-53248
+          e0b    cs2                       0/9        BES-53248
+4 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Verificare la connettività del cluster:</p>
+<div class="paragraph">
+<p><code>cluster ping-cluster -node local</code></p>
+</div>
+</li>
+<li>
+<p>Verificare che il cluster funzioni correttamente:</p>
+<div class="paragraph">
+<p><code>cluster ring show</code></p>
+</div>
+<div class="paragraph">
+<p>Tutte le unità devono essere master o secondarie.</p>
+</div>
+</li>
+<li>
+<p>Impostare la configurazione senza switch per le porte del gruppo 1.</p>
+<div class="admonitionblock important">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">Codice del ricambio</th>
-<th class="tableblock halign-left valign-top">Descrizione</th>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/important.svg" alt="Importante">
+</td>
+<td class="content">
+Per evitare potenziali problemi di rete, è necessario scollegare le porte dal raggruppo1 e ricollegarle il più rapidamente possibile, ad esempio <strong>in meno di 20 secondi</strong>.
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>X190200-CS-PE</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>X190200-CS-PI</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>X190210-FE-PE</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>N9K-9336C, FTE, PTSX, 36PT10/25/40/100GQSFP28</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>X190210-FE-PI</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>N9K-9336C, FTE, PSIN, 36PT10/25/40/100GQSFP28</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>X190002</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Kit di accessori X190001/X190003</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>X-NXA-PAC-1100W-PE2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>N9K-9336C AC 1100 W PSU - flusso d&#8217;aria di scarico laterale</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>X-NXA-PAC-1100W-PI2</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>N9K-9336C AC 1100 W PSU - flusso d&#8217;aria di aspirazione lato porta</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>X-NXA-FAN-65CFM-PE</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>N9K-9336C 65CFM, flusso d&#8217;aria di scarico lato porta</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>X-NXA-FAN-65CFM-PI</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>N9K-9336C 65CFM, flusso d&#8217;aria di aspirazione lato porta</p>
-</div></div></td>
-</tr>
-</tbody>
 </table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Scollegare tutti i cavi dalle porte del raggruppo1 contemporaneamente.</p>
+<div class="paragraph">
+<p>Nell&#8217;esempio seguente, i cavi vengono scollegati dalla porta "e0a" su ciascun nodo e il traffico del cluster continua attraverso lo switch e la porta "e0b" su ciascun nodo:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../media/tnsc_clusterswitch1_disconnected.PNG" alt="ClusterSwitch1 disconnesso">
+</div>
+</div>
+</li>
+<li>
+<p>Collegare le porte del gruppo 1 da una parte all&#8217;altro.</p>
+<div class="paragraph">
+<p>Nell&#8217;esempio seguente, "e0a" sul nodo 1 è collegato a "e0a" sul nodo 2:</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../media/tnsc_ports_e0a_direct_connection.PNG" alt="Connessione diretta tra le porte &quot;e0a&quot;">
+</div>
+</div>
+</li>
+<li>
+<p>L&#8217;opzione di rete del cluster senza switch passa da <code>false</code> a. <code>true</code>. Questa operazione potrebbe richiedere fino a 45 secondi. Verificare che l&#8217;opzione switchless sia impostata su <code>true</code>:</p>
+<div class="paragraph">
+<p><code>network options switchless-cluster show</code></p>
+</div>
+<div class="paragraph">
+<p>Il seguente esempio mostra che il cluster senza switch è abilitato:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::*&gt; network options switchless-cluster show
+Enable Switchless Cluster: true</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Verificare che la rete del cluster non venga interrotta:</p>
+<div class="paragraph">
+<p><code>cluster ping-cluster -node local</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/important.svg" alt="Importante">
+</td>
+<td class="content">
+Prima di passare alla fase successiva, è necessario attendere almeno due minuti per confermare una connessione back-to-back funzionante sul gruppo 1.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Impostare la configurazione senza switch per le porte del gruppo 2.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/important.svg" alt="Importante">
+</td>
+<td class="content">
+Per evitare potenziali problemi di rete, è necessario scollegare le porte dal gruppo 2 e ricollegarle il più rapidamente possibile, ad esempio <strong>in meno di 20 secondi</strong>.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Scollegare tutti i cavi dalle porte del raggruppo2 contemporaneamente.</p>
+<div class="paragraph">
+<p>Nell&#8217;esempio seguente, i cavi vengono scollegati dalla porta "e0b" su ciascun nodo e il traffico del cluster continua attraverso la connessione diretta tra le porte "e0a":</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../media/tnsc_clusterswitch2_disconnected.PNG" alt="ClusterSwitch2 disconnesso">
+</div>
+</div>
+</li>
+<li>
+<p>Collegare le porte del group2 in modo che si inserano nella parte posteriore.</p>
+<div class="paragraph">
+<p>Nell&#8217;esempio seguente, "e0a" sul nodo 1 è collegato a "e0a" sul nodo 2 e "e0b" sul nodo 1 è collegato a "e0b" sul nodo 2:</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../media/tnsc_node1_and_node2_direct_connection.PNG" alt="Connessione diretta tra le porte sul nodo 1 e sul nodo 2">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fase-3-verificare-la-configurazione">Fase 3: Verificare la configurazione</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Verificare che le porte su entrambi i nodi siano collegate correttamente:</p>
+<div class="paragraph">
+<p><code>network device-discovery show -port <em>cluster_port</em></code></p>
+</div>
+<details>
+<summary class="title">Mostra esempio</summary>
+<div class="content">
+<div class="paragraph">
+<p>L&#8217;esempio seguente mostra che le porte del cluster "e0a" e "e0b" sono collegate correttamente alla porta corrispondente sul partner del cluster:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::&gt; net device-discovery show -port e0a|e0b
+  (network device-discovery show)
+Node/      Local  Discovered
+Protocol   Port   Device (LLDP: ChassisID)  Interface  Platform
+---------- ------ ------------------------- ---------- ----------
+node1/cdp
+           e0a    node2                     e0a        AFF-A300
+           e0b    node2                     e0b        AFF-A300
+node1/lldp
+           e0a    node2 (00:a0:98:da:16:44) e0a        -
+           e0b    node2 (00:a0:98:da:16:44) e0b        -
+node2/cdp
+           e0a    node1                     e0a        AFF-A300
+           e0b    node1                     e0b        AFF-A300
+node2/lldp
+           e0a    node1 (00:a0:98:da:87:49) e0a        -
+           e0b    node1 (00:a0:98:da:87:49) e0b        -
+8 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Riattivare il ripristino automatico per le LIF del cluster:</p>
+<div class="paragraph">
+<p><code>network interface modify -vserver Cluster -lif * -auto-revert true</code></p>
+</div>
+</li>
+<li>
+<p>Verificare che tutte le LIF siano a casa. Questa operazione potrebbe richiedere alcuni secondi.</p>
+<div class="paragraph">
+<p><code>network interface show -vserver Cluster -lif <em>lif_name</em></code></p>
+</div>
+<details>
+<summary class="title">Mostra esempio</summary>
+<div class="content">
+<div class="paragraph">
+<p>I LIF sono stati ripristinati se la colonna "is Home" è <code>true</code>, come illustrato per <code>node1_clus2</code> e. <code>node2_clus2</code> nel seguente esempio:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster::&gt; network interface show -vserver Cluster -fields curr-port,is-home
+vserver  lif           curr-port is-home
+-------- ------------- --------- -------
+Cluster  node1_clus1   e0a       true
+Cluster  node1_clus2   e0b       true
+Cluster  node2_clus1   e0a       true
+Cluster  node2_clus2   e0b       true
+4 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+<div class="paragraph">
+<p>Se i LIFS del cluster non sono tornati alle porte home, ripristinarli manualmente:</p>
+</div>
+<div class="paragraph">
+<p><code>network interface revert -vserver Cluster -lif <em>lif_name</em></code></p>
+</div>
+</li>
+<li>
+<p>Controllare lo stato del cluster dei nodi dalla console di sistema di uno dei nodi:</p>
+<div class="paragraph">
+<p><code>cluster show</code></p>
+</div>
+<details>
+<summary class="title">Mostra esempio</summary>
+<div class="content">
+<div class="paragraph">
+<p>L&#8217;esempio seguente mostra epsilon su entrambi i nodi da visualizzare <code>false</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Node  Health  Eligibility Epsilon
+----- ------- ----------- --------
+node1 true    true        false
+node2 true    true        false
+2 entries were displayed.</pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Verificare la connettività tra le porte del cluster:</p>
+<div class="paragraph">
+<p><code>cluster ping-cluster local</code></p>
+</div>
+</li>
+<li>
+<p>Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:</p>
+<div class="paragraph">
+<p><code>system node autosupport invoke -node * -type all -message MAINT=END</code></p>
+</div>
+<div class="paragraph">
+<p>Per ulteriori informazioni, vedere <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows_-_ONTAP_9" target="_blank" rel="noopener">"Articolo della Knowledge base di NetApp 1010449: Come eliminare la creazione automatica del caso durante le finestre di manutenzione pianificate"</a>.</p>
+</div>
+</li>
+<li>
+<p>Modificare nuovamente il livello di privilegio in admin:</p>
+<div class="paragraph">
+<p><code>set -privilege admin</code></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
 
     </article>
     <!-- Page Container -->
