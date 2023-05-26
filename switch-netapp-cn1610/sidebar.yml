@@ -30,5 +30,7 @@ entries:
     url: "/switch-netapp-cn1610/migrate-fas22xx-systems.html"
 - title: Sostituire gli interruttori
   entries:
+  - title: Sostituire uno switch cluster NetApp CN1610
+    url: "/switch-netapp-cn1610/replace-cn1610-switch.html"
   - title: Sostituire gli switch del cluster con connessioni senza switch
     url: "/switch-netapp-cn1610/migrate-to-switchless-cluster-interconnect.html"

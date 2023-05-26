@@ -54,3 +54,5 @@ entries:
     url: "/switch-bes-53248/replace-switch-reqs.html"
   - title: Sostituire lo switch BES-53248
     url: "/switch-bes-53248/replace-switch.html"
+  - title: Sostituire gli switch del cluster con connessioni senza switch
+    url: "/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html"
