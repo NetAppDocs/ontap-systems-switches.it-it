@@ -257,30 +257,16 @@ cluster1-04          true    true          false
 cluster1::*>
 ----
 ====
-. Se non si dispone già di un backup corrente dello switch, è possibile salvare la configurazione corrente dello switch copiando l'output del seguente comando in un file di log:
+. Se non è già stato fatto, salvare una copia della configurazione corrente dello switch copiando l'output del seguente comando in un file di testo:
 +
 `show running-config`
 
 . Pulire la configurazione sullo switch cs2 ed eseguire una configurazione di base.
 +
 
-CAUTION: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. L'accesso allo switch SSH viene preservato se è possibile disattivare il provisioning automatico PowerOn (POAP) (richiede NX-OS 9.2P1 o versione successiva). Come ulteriore precauzione, connettersi allo switch utilizzando la console seriale se non è possibile accedere a SSH dopo il riavvio dello switch.
+CAUTION: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Per configurare nuovamente lo switch, è necessario essere collegati alla porta della console seriale dello switch.
 
 +
-.. SSH nello switch.
-+
-Procedere solo quando tutte le LIF del cluster sono state rimosse dalle porte dello switch e lo switch è pronto per cancellare la configurazione.
-
-.. Accedere alla modalità privilegio:
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)> *enable*
-----
-====
 .. Pulire la configurazione:
 +
 .Mostra esempio
@@ -293,35 +279,6 @@ Procedere solo quando tutte le LIF del cluster sono state rimosse dalle porte de
 Warning: This command will erase the startup-configuration.
 
 Do you wish to proceed anyway? (y/n)  [n]  *y*
-----
-====
-.. Disattiva POAP:
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *system no poap*
-----
-====
-+
-Vedere https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/103x/configuration/fundamentals/cisco-nexus-9000-nx-os-fundamentals-configuration-guide-103x/m-using-poap.html?bookSearch=true#id_85315["Utilizzo del provisioning automatico PowerOn"^] per ulteriori dettagli.
-
-.. Verificare che il POAP sia disattivato al successivo ricaricamento:
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)#  *show boot*
-Current Boot Variables:
- sup-1
-NXOS variable = bootflash:/nxos.9.2.1.125.bin
-Boot POAP Disabled
-
-POAP permanently disabled using 'system no poap'
 ----
 ====
 .. Riavviare lo switch:
@@ -337,7 +294,6 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 ----
 ====
-.. Accedere nuovamente allo switch utilizzando SSH per completare l'installazione di RCF.
 
 
 . Copiare l'RCF nella flash di avvio dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS Command Reference"^] guide.

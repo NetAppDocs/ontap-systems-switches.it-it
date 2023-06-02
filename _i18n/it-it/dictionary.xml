@@ -1592,12 +1592,7 @@
   <block id="835044aeea65c8864816e5160f4d5f92" category="list-text">Verificare che le porte del cluster siano migrate alle porte ospitate sullo switch del cluster cs1. Questa operazione potrebbe richiedere alcuni secondi.</block>
   <block id="1715d07a24988d9207de94794a6f01cc" category="list-text">Verificare che il cluster funzioni correttamente:</block>
   <block id="c291fea66565616d9e881666325c1ee2" category="list-text">Se non si dispone già di un backup corrente dello switch, è possibile salvare la configurazione corrente dello switch copiando l'output del seguente comando in un file di log:</block>
-  <block id="455129a1d85d80f79e8d763a25910c74" category="admonition">Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. L'accesso allo switch SSH viene preservato se è possibile disattivare il provisioning automatico PowerOn (POAP) (richiede NX-OS 9.2P1 o versione successiva). Come ulteriore precauzione, connettersi allo switch utilizzando la console seriale se non è possibile accedere a SSH dopo il riavvio dello switch.</block>
   <block id="2df26e386d021172b261bcb47e157019" category="list-text">Pulire la configurazione:</block>
-  <block id="a5247127c3e0a3fcdf9f80746c33cb54" category="list-text">Disattiva POAP:</block>
-  <block id="b64ae68f672b168b4456ea13b494a759" category="inline-link">Utilizzo del provisioning automatico PowerOn</block>
-  <block id="01197fee3250d671fd8c51972b5f4745" category="paragraph">Vedere<block ref="ff53901c2c0b0d51a17df0925879b1a5" category="inline-link-rx"></block> per ulteriori dettagli.</block>
-  <block id="b8363a3557b5e1732a20eb45a96853b7" category="list-text">Verificare che il POAP sia disattivato al successivo ricaricamento:</block>
   <block id="b0c43589a498f27ca141cd4db101283e" category="inline-link">Cisco Nexus 3000 Series NX-OS Command Reference</block>
   <block id="8b205e91662e46037aa9052c6d1ff328" category="list-text">Copiare l'RCF nella flash di avvio dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> guide.</block>
   <block id="eb22df33c22805be63e48e35c956a5be" category="paragraph">Questo esempio mostra l'utilizzo di TFTP per copiare un RCF nella flash di avvio sullo switch cs2:</block>
@@ -2615,7 +2610,6 @@
   <block id="f0db4a1725ddf2683998fa54fd370447" category="paragraph">La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 9000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.</block>
   <block id="440845b85a76fb369b328d5783d80025" category="admonition">Prima di installare una nuova versione del software dello switch e gli RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. È necessario essere collegati allo switch mediante la console seriale. Questa attività ripristina la configurazione della rete di gestione.</block>
   <block id="4877628f2f5c2ea44515bef28ca09a0b" category="list-text">Verificare che tutte le porte del cluster siano *up* con uno stato integro:</block>
-  <block id="3f8f6d237f18036be3a3fb24642d16ba" category="list-text">Se non è già stato fatto, salvare la configurazione corrente dello switch copiando l'output del seguente comando in un file di log:</block>
   <block id="ace72d025aa2c5badb322c055f22cb6b" category="inline-link">Cisco Nexus 9000 Series NX-OS Command Reference</block>
   <block id="280f0e29cdb68937737865cc2fb4331a" category="list-text">Copiare l'RCF nella flash di avvio dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in<block ref="dba0e49fdfeab9433bb71da6c505aa34" category="inline-link-rx"></block> guide.</block>
   <block id="3f6787ea7175edfe255a564e4a1b6b07" category="paragraph">Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in<block ref="dba0e49fdfeab9433bb71da6c505aa34" category="inline-link-rx"></block> guide.</block>
@@ -4491,4 +4485,7 @@
   <block id="b047f062da383f17811a9e72a79d23f4" category="list-text">Se la LIF del cluster del primo nodo è attiva e viene ripristinata alla porta home, ripetere i passaggi 25 e 26 per visualizzare le porte del cluster e ripristinare le LIF del cluster sugli altri nodi del cluster.</block>
   <block id="31c3fc1c4fe98b31f2904808ddd9be0b" category="list-text">Visualizza le informazioni sui nodi nel cluster.</block>
   <block id="bf1b3c61d401b2f6c4dbbf5853555319" category="list-text">Verificare che il file di configurazione di avvio e il file di configurazione in esecuzione siano corretti sullo switch sostituito. Questo file di configurazione deve corrispondere all'output del passaggio 1.</block>
+  <block id="d23e0ef648ea8ae58d49d4170d37c221" category="list-text">Se non è già stato fatto, salvare una copia della configurazione corrente dello switch copiando l'output del seguente comando in un file di testo:</block>
+  <block id="0fb51802ddab454289d99db889475b22" category="admonition">Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Per configurare nuovamente lo switch, è necessario essere collegati alla porta della console seriale dello switch.</block>
+  <block id="a91911d2b8a6bd2699aa77eb38d533f1" category="paragraph">Per installare l'hardware BES-53248, consultare la documentazione di Broadcom.</block>
 </blocks>
