@@ -3949,7 +3949,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-23 19:10:12 +0000">05/23/2023</time>
+    <time datetime="2023-06-02 06:56:34 +0000">06/02/2023</time>
     
   
 
@@ -4280,7 +4280,7 @@ cluster1::*&gt;</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Se non si dispone già di un backup corrente dello switch, è possibile salvare la configurazione corrente dello switch copiando l&#8217;output del seguente comando in un file di log:</p>
+<p>Se non è già stato fatto, salvare una copia della configurazione corrente dello switch copiando l&#8217;output del seguente comando in un file di testo:</p>
 <div class="paragraph">
 <p><code>show running-config</code></p>
 </div>
@@ -4294,32 +4294,13 @@ cluster1::*&gt;</pre>
 <img src="/us-en/ontap-systems-switches/images/caution.svg" alt="Avvertenza">
 </td>
 <td class="content">
-Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. L&#8217;accesso allo switch SSH viene preservato se è possibile disattivare il provisioning automatico PowerOn (POAP) (richiede NX-OS 9.2P1 o versione successiva). Come ulteriore precauzione, connettersi allo switch utilizzando la console seriale se non è possibile accedere a SSH dopo il riavvio dello switch.
+Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Per configurare nuovamente lo switch, è necessario essere collegati alla porta della console seriale dello switch.
 </td>
 </tr>
 </table>
 </div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
-<li>
-<p>SSH nello switch.</p>
-<div class="paragraph">
-<p>Procedere solo quando tutte le LIF del cluster sono state rimosse dalle porte dello switch e lo switch è pronto per cancellare la configurazione.</p>
-</div>
-</li>
-<li>
-<p>Accedere alla modalità privilegio:</p>
-<details>
-<summary class="title">Mostra esempio</summary>
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre>(cs2)&gt; <strong>enable</strong></pre>
-</div>
-</div>
-</div>
-</details>
-</li>
 <li>
 <p>Pulire la configurazione:</p>
 <details>
@@ -4332,41 +4313,6 @@ Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impost
 Warning: This command will erase the startup-configuration.
 
 Do you wish to proceed anyway? (y/n)  [n]  <strong>y</strong></pre>
-</div>
-</div>
-</div>
-</details>
-</li>
-<li>
-<p>Disattiva POAP:</p>
-<details>
-<summary class="title">Mostra esempio</summary>
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre>(cs2)# <strong>system no poap</strong></pre>
-</div>
-</div>
-</div>
-</details>
-<div class="paragraph">
-<p>Vedere <a href="https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/103x/configuration/fundamentals/cisco-nexus-9000-nx-os-fundamentals-configuration-guide-103x/m-using-poap.html?bookSearch=true#id_85315" target="_blank" rel="noopener">"Utilizzo del provisioning automatico PowerOn"</a> per ulteriori dettagli.</p>
-</div>
-</li>
-<li>
-<p>Verificare che il POAP sia disattivato al successivo ricaricamento:</p>
-<details>
-<summary class="title">Mostra esempio</summary>
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre>(cs2)#  <strong>show boot</strong>
-Current Boot Variables:
- sup-1
-NXOS variable = bootflash:/nxos.9.2.1.125.bin
-Boot POAP Disabled
-
-POAP permanently disabled using 'system no poap'</pre>
 </div>
 </div>
 </div>
@@ -4386,9 +4332,6 @@ Are you sure you would like to reset the system? (y/n) <strong>y</strong></pre>
 </div>
 </div>
 </details>
-</li>
-<li>
-<p>Accedere nuovamente allo switch utilizzando SSH per completare l&#8217;installazione di RCF.</p>
 </li>
 </ol>
 </div>
