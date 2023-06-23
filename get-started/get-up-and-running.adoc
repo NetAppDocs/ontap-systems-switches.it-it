@@ -26,21 +26,21 @@ Installare i controller AFF/FAS nel rack o nell'armadietto. Accedere alle istruz
  a| 
  a| 
 .Sistemi AFF
-* https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
-* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AFF A220"]
-* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"]
-* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"]
-* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"]
-* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"]
+* https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AFF A220"^]
+* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"^]
+* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"^]
+* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"^]
+* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"^]
 
  a| 
 .Sistemi FAS
-* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["FAS500f"]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"]
+* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["FAS500f"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"^]
 
  a| 
 
@@ -161,19 +161,19 @@ Dopo aver configurato gli switch e installato il software richiesto, accedere al
  a| 
 .Sistemi AFF
 * https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
-* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AFF A220"]
-* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"]
-* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"]
-* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"]
-* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"]
+* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AFF A220"^]
+* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"^]
+* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"^]
+* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"^]
+* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"^]
 
  a| 
 .Sistemi FAS
-* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["FAS500f"]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"]
+* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["FAS500f"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"]
 
  a| 
@@ -184,6 +184,6 @@ Dopo aver configurato gli switch e installato il software richiesto, accedere al
 Dopo aver installato e configurato i controller e gli switch AFF/FAS, è necessario completare la configurazione dello storage in ONTAP. Accedere alle seguenti istruzioni in base alla configurazione di implementazione.
 
 [role="quick-margin-list"]
-* Per le implementazioni ONTAP, vedere https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurare ONTAP"].
-* Per le implementazioni di ONTAP con MetroCluster, vedere https://docs.netapp.com/us-en/ontap-metrocluster/["Configurare MetroCluster con ONTAP"].
+* Per le implementazioni ONTAP, vedere https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurare ONTAP"^].
+* Per le implementazioni di ONTAP con MetroCluster, vedere https://docs.netapp.com/us-en/ontap-metrocluster/["Configurare MetroCluster con ONTAP"^].
 
