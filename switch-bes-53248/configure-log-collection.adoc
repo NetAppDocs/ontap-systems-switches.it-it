@@ -16,18 +16,11 @@ summary: 'La funzione di raccolta dei log del monitor di stato dello switch del 
 
 IMPORTANT: Per attivare la funzione di raccolta dei log, è necessario eseguire ONTAP versione 9.12.1 e successive e EFOS 3.8.0.2 e successive.
 
-Assicurarsi di aver configurato l'ambiente utilizzando lo switch cluster BES-53248 *CLI*.
+Verificare di aver configurato l'ambiente utilizzando lo switch cluster BES-53248 *CLI*.
 
 .Fasi
-. Attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch utilizzando i seguenti comandi:
-+
-`system switch ethernet log setup-password` e.
-
-+
-`system switch ethernet log enable-collection`
-
-+
-.. Inserire: `system switch ethernet log setup-password`
+. Creare una password per la funzione di raccolta dei log dello switch Ethernet Health monitor:
+`system switch ethernet log setup-password`
 +
 .Mostra esempio
 [%collapsible]
@@ -44,8 +37,7 @@ Choose from the following list:
 cluster1::*> *system switch ethernet log setup-password*
 
 Enter the switch name: *cs1*
-RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] *y*
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
 
 Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
@@ -53,61 +45,46 @@ Enter the password again: *<enter switch password>*
 cluster1::*> *system switch ethernet log setup-password*
 
 Enter the switch name: *cs2*
-RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] *y*
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
 
 Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-.. Inserire: `system switch ethernet log enable-collection`
+. Attivare la funzione di raccolta dei log dello switch Ethernet.
++
+`system switch ethernet log modify -device _<switch-name>_ -log-request true`
+
 +
 .Mostra esempio
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *system  switch ethernet log enable-collection*
+cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
 
-Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] *y*
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
 
 Enabling cluster switch log collection.
 
-cluster1::*>
+cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
 ----
 ====
-
-
-. Avviare la funzione di raccolta dei log dello switch:
 +
-`system switch ethernet log collect -device *`
-
-+
-Attendere 10 minuti, quindi verificare che la raccolta dei log sia stata eseguita correttamente utilizzando il comando:
+Attendere 10 minuti, quindi verificare che la raccolta dei log venga completata utilizzando il comando:
 
 +
 `system switch ethernet log show`
 
 +
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> system switch ethernet log show
-Log Collection Enabled: true
 
-Index  Switch                       Log Timestamp        Status
------- ---------------------------- -------------------  ---------
-1      cs1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete
-2      cs2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
-----
+CAUTION: Se uno di questi comandi restituisce un errore o se la raccolta dei log non viene completata, contattare il supporto NetApp.
 
-CAUTION: Se uno di questi comandi restituisce un errore, contattare il supporto NetApp.
+
 
 .Quali sono le prossime novità?
 Se si sta aggiornando lo switch, passare a. link:replace-verify.html["Verificare la configurazione dell'aggiornamento"].
-
-====
-

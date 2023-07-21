@@ -561,14 +561,44 @@ Se le LIF del cluster non sono tornate alla porta home, ripristinarle manualment
 +
 `cluster show`
 
-. Eseguire il ping delle interfacce del cluster remoto per verificare la connettività:
-+
+. Verificare la connettività delle interfacce del cluster remoto:
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9.1 e versioni successive
+--
+È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+
+`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTA:* attendere alcuni secondi prima di eseguire il comando show per visualizzare i dettagli.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2_clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.Tutte le release di ONTAP
+--
+Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+
 `cluster ping-cluster -node <name>`
 
-+
-.Mostra esempio
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *cluster ping-cluster -node node2*
@@ -596,8 +626,9 @@ RPC status:
 2 paths up, 0 paths down (tcp check)
 2 paths up, 0 paths down (udp check)
 ----
+--
 ====
-. Abilitare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch.
+. [[step5]]attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch.
 
 
 [role="tabbed-block"]
