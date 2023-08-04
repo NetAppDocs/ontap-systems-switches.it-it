@@ -353,4 +353,5 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 ----
 ====
+. Ripetere i passaggi da 1 a 8 per installare il software NX-OS sullo switch CS1.
 

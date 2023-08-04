@@ -99,7 +99,7 @@ L'esempio seguente mostra che le porte rivolte al nodo da 1 a 34 sono disattivat
 ----
 cs1# *config*
 Enter configuration commands, one per line. End with CNTL/Z.
-cs1(config)# *interface e/1-34*
+cs1(config)# *interface e1/1-34*
 cs1(config-if-range)# *shutdown*
 ----
 ====
