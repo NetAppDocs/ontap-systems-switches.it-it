@@ -4501,8 +4501,6 @@
   <block id="55c09ca9257750665c75e5b587165519" category="paragraph"><block ref="e802bd77f148cffa22d9aa9e7d79d65d" prefix="" category="inline-code"></block></block>
   <block id="e1d0dd82b8f2058c2b4c4d59c2f80125" category="paragraph">Attendere 10 minuti, quindi verificare che la raccolta dei log venga completata utilizzando il comando:</block>
   <block id="0eedc6e86bf0684694a5f74d12cd17d7" category="admonition">Se uno di questi comandi restituisce un errore o se la raccolta dei log non viene completata, contattare il supporto NetApp.</block>
-  <block id="cada8434ff5f9181d7ae07ce2a2c1336" category="list-text">Alcune porte degli switch BES-53248 sono configurate per funzionare a 10 GbE o 40 GbE.</block>
-  <block id="9b8afb051b3fda2a9f3dcd0edcc95d79" category="list-text">La connettività 10 GbE e 40 GbE dai nodi agli switch cluster BES-53248 è stata pianificata, migrata e documentata.</block>
   <block id="df3b6dd54dfaeb972568b29147c67103" category="list-text">La personalizzazione iniziale degli switch BES-53248 è completa, in modo che:</block>
   <block id="8f7a04d5740dbba56b463f7bc775e27a" category="list-text">Gli switch BES-53248 utilizzano la versione più recente del software EFOS.</block>
   <block id="2f16d56c4dbd9373c09b2be5c94c8c4a" category="list-text">NetApp CN1610: Porte da 0/1 a 0/12 (10 GbE)</block>
@@ -4513,24 +4511,16 @@
   <block id="10eb67b70ef8150836466766bdd3f2f8" category="list-text">Visualizzare le porte del cluster su ciascun nodo connesso agli switch del cluster esistenti:</block>
   <block id="fc7a60af0bed9304a4ca478877f91450" category="list-text">Verificare che tutte le porte del cluster siano<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> con un<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block> stato:</block>
   <block id="0be9e89f86499b3770f2ce9bad1ba0eb" category="list-text">[[step5]]Disattiva il ripristino automatico sulle LIF del cluster.</block>
-  <block id="04b62972586827d401a3dea129d172c9" category="list-text">Sullo switch cluster CL1, spegnere le porte collegate alle porte del cluster dei nodi:</block>
   <block id="d9f832c61b11e8d4b59ef0ae25ac9dd6" category="list-text">Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch del cluster CL1. Questa operazione potrebbe richiedere alcuni secondi.</block>
-  <block id="eba3ff5e6602b380a875b5adacf6e6fd" category="list-text">Spostare tutti i cavi di connessione del nodo del cluster dal vecchio switch CS2 al nuovo switch cs2.</block>
   <block id="8884e29d4b490f2084dae5227ca847a4" category="list-text">Verificare lo stato delle connessioni di rete trasferite a cs2:</block>
   <block id="308cecb0e156959b9d08b434ef110588" category="paragraph">Tutte le porte del cluster spostate devono essere<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>.</block>
-  <block id="e2a6925a1c6094f573b02dac570783d1" category="list-text">Verificare le connessioni delle porte dello switch dal punto di vista dello switch cs2 utilizzando i comandi:</block>
-  <block id="ad38a12ff64b2cba000c16daea86aee6" category="list-text">Sullo switch cluster CL2, spegnere le porte collegate alle porte del cluster dei nodi.</block>
   <block id="48281ee704bfb0f055c15fe754705f5a" category="paragraph">Tutte le LIF del cluster passano allo switch cs2.</block>
   <block id="18a308037b50cae9759f1f49af5aed58" category="list-text">Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch cs2. Questa operazione potrebbe richiedere alcuni secondi:</block>
   <block id="f20b906cc8acf5d97550e7a24fd7c69b" category="list-text">Spostare i cavi di connessione del nodo del cluster da CL1 al nuovo switch cs1.</block>
   <block id="b7557e0e7f48313d82756b7481c1b1f6" category="list-text">Verificare lo stato delle connessioni di rete trasferite a cs1:</block>
-  <block id="a19beb91ec2195c2db049b5e003334f4" category="list-text">Verificare le connessioni delle porte dello switch dal punto di vista dello switch cs1 utilizzando i comandi:</block>
   <block id="ce16551695d7120d532abead22bee8c2" category="list-text">Verificare che l'ISL tra cs1 e cs2 sia ancora operativo:</block>
   <block id="b48ac462b57bcb2860eecd434bd2c80f" category="paragraph">A partire da ONTAP 9.8, utilizzare il comando:<block ref="b4720f8aa09f4e4b3a04e78c558b6c90" prefix=" " category="inline-code"></block></block>
-  <block id="4ae8d24c72dd765a4920ac53c2dafe90" category="open-title">ONTAP 9.4 e versioni precedenti</block>
-  <block id="7c0f7899f6a5609732991b637b6b77d8" category="paragraph">Per ONTAP 9.4 e versioni precedenti, utilizzare il comando:<block ref="f055904a9fc3a4f0bc33aca13ecd2b2d" prefix=" " category="inline-code"></block></block>
   <block id="3e1fd1b016d89d236712e513bee2a170" category="list-text">Creare una password per la funzione di raccolta dei log di Health monitor dello switch Ethernet.</block>
-  <block id="300c1f24adf38203b39051c2816bed96" category="admonition">Per attivare la funzione di raccolta dei log, è necessario eseguire ONTAP 9.12.1 e versioni successive e EFOS 3.8.0.2 e versioni successive.</block>
   <block id="079e7a1f80c26ff7b477dcbf014e4e70" category="list-text">Attivare la funzione di raccolta dei log dello switch Ethernet Health monitor:</block>
   <block id="aae263170b5a7f23d3045f8a2b09091f" category="paragraph">Attendere 10 minuti, quindi verificare che la raccolta dei log sia completa:</block>
   <block id="c9a1a82d3af3d53e5132a5ce6181fc18" category="list-text">Alcune porte degli switch Nexus 9336C-FX2 sono configurate per funzionare a 10 GbE o 40 GbE.</block>
@@ -4606,4 +4596,20 @@
   <block id="ae6de81182adfafa064980e2532e7279" category="sidebar">Upgrade_Switches_bes53248</block>
   <block id="267f0a6ee7bf547701400bdefcf3e255" category="sidebar">Migrare_switch_bes53248</block>
   <block id="368764dd3898433d38cff5ab40e268b0" category="sidebar">REPLACE_Switches_bes53248</block>
+  <block id="b839c7212b07af22047708d290e9fc06" category="list-text">Alcune delle porte degli switch BES-53248 sono configurate per funzionare a 10GbE.</block>
+  <block id="c4a4e384df3331fa768c173d158b0aa5" category="list-text">La connettività 10GbE GbE dai nodi agli switch cluster BES-53248 è stata pianificata, migrata e documentata.</block>
+  <block id="67b660e2046176252fca76261bc42667" category="list-text">Sullo switch del cluster CL2, chiudere le porte collegate alle porte del cluster dei nodi:</block>
+  <block id="e6530d0201fae7d6787fd28d58724819" category="list-text">Spostare tutti i cavi di connessione dei nodi del cluster dal vecchio switch CL2 al nuovo switch CS2.</block>
+  <block id="74473ad9515a4da22aa5f01542722c5b" category="list-text">Verificare che le connessioni della porta dello switch siano integre dal punto di vista dello switch CS2 utilizzando i comandi:</block>
+  <block id="ca6f53e4266e008816889d83576a5877" category="list-text">Sullo switch del cluster CL1, chiudere le porte collegate alle porte del cluster dei nodi.</block>
+  <block id="1dd6b9d779d28215b5d204a1be9c8b6a" category="list-text">Verificare che le connessioni della porta dello switch siano integre dal punto di vista dello switch CS1 utilizzando i comandi:</block>
+  <block id="dae02701a0a247e1012b9b2832c32464" category="list-text">Eliminare gli switch CN1610 sostituiti dalla tabella degli switch del quadro strumenti, se non vengono rimossi automaticamente:</block>
+  <block id="c8b9229aed88be3704b6c26029b7ae94" category="paragraph">Per ONTAP 9.7 e versioni precedenti, utilizzare il comando:<block ref="f055904a9fc3a4f0bc33aca13ecd2b2d" prefix=" " category="inline-code"></block></block>
+  <block id="b8590eb7d6b7365e1a0bee47b03d5b4f" category="admonition">Per attivare la funzione di raccolta dei registri, è necessario eseguire ONTAP 9.10.1P15, 9.11.1P12 o 9.12.1 e versioni successive ed EFOS 3.8.0.2 e versioni successive.</block>
+  <block id="e88b6a67743cc664a0a237ba8d94eefc" category="sidebar">switch-cisco-9336c-fx2-cluster</block>
+  <block id="517242a1c337699950aef05a38af45a0" category="sidebar">switch-nvidia-sn2100-cluster</block>
+  <block id="3ed3b1cc0917edd8fddcdd478bb581fb" category="sidebar">switch-cisco-9336c-fx2-storage</block>
+  <block id="701d9aab459b808d17f39aa5c50f97df" category="sidebar">switch-nvidia-sn2100-storage</block>
+  <block id="a5f4f9ed92853ea6128046eb985ff5a7" category="sidebar">cisco-9336c-fx2-condivisa</block>
+  <block id="759d203c3eb13a684379c7413a7ea760" category="sidebar">cisco-9336c-fx2-cluster</block>
 </blocks>

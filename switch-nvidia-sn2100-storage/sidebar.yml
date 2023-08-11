@@ -1,6 +1,7 @@
 ---
 section: switch-nvidia-sn2100-storage
 title: NVIDIA SN2100
+pdf-filename: switch-nvidia-sn2100-storage
 entries:
 - title: Panoramica
   pdf-filename: Panoramica_sn2100-storage
