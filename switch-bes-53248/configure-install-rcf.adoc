@@ -756,7 +756,7 @@ cluster1::*>
 ----
 --
 ====
-. [[step17]]sullo switch del cluster cs1, spegnere le porte collegate alle porte del cluster dei nodi.
+. [[step18]]sullo switch del cluster CS1, chiudere le porte collegate alle porte del cluster dei nodi.
 +
 Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia:
 

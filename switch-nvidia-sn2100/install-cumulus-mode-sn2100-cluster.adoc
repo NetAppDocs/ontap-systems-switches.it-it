@@ -260,9 +260,9 @@ CAUTION: Non utilizzare caratteri di sottolineatura (_), apostrofo (') o non ASC
 +
 [listing, subs="+quotes"]
 ----
-cumulus@cumulus:mgmt:~$ *nv add hostname sw1*
-cumulus@cumulus:mgmt:~$ *nv add interface eth0 ip address 10.233.204.71*
-cumulus@cumulus:mgmt:~$ *nv add interface eth0 ip gateway 10.233.204.1*
+cumulus@cumulus:mgmt:~$ *nv set system hostname sw1*
+cumulus@cumulus:mgmt:~$ *nv set interface eth0 ip address 10.233.204.71/24*
+cumulus@cumulus:mgmt:~$ *nv set interface eth0 ip gateway 10.233.204.1*
 cumulus@cumulus:mgmt:~$ *nv pending*
 cumulus@cumulus:mgmt:~$ *nv commit*
 ----

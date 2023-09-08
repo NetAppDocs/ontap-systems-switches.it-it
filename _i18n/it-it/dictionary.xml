@@ -326,7 +326,6 @@
   <block id="711d7f6899df1dfa47e13a5fbedae706" category="paragraph">Ogni porta dovrebbe visualizzare "up" per<block ref="97e7c9a7d06eac006a28bf05467fcc8b" prefix=" " category="inline-code"></block> e "sano" per<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block>.</block>
   <block id="b9342006c263bb81a72635a40bccef85" category="list-text">Verificare che tutte le LIF del cluster siano "up" e operative:<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
   <block id="a5d7c0c5e08447fc2eab20dfb2acee00" category="paragraph">Ogni LIF del cluster dovrebbe visualizzare "true" per<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> e hanno un<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> di "up/up"</block>
-  <block id="09b4c6d12807ef628dddcedb95f59fba" category="list-text">Verificare che<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> È abilitato su tutte le LIF del cluster:<block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix=" " category="inline-code"></block></block>
   <block id="49de00b8e8c6586fcca9fad09c76b9ed" category="list-text">Scollegare il cavo dalla porta del cluster e0a sul nodo 1, quindi collegare e0a alla porta 1 sullo switch del cluster cs1, utilizzando il cablaggio appropriato supportato dagli switch BES-53248.</block>
   <block id="b2ca5d9b00c09954ba621c25b7a4bdbf" category="paragraph">Il<block ref="141c10db18cf1753fa5fc05f553c33ff" category="inline-link-rx"></block> contiene ulteriori informazioni sul cablaggio.</block>
   <block id="4117e035e1d5632e3f6a3311cd104041" category="list-text">Scollegare il cavo dalla porta del cluster e0a sul nodo 2, quindi collegare e0a alla porta 2 sullo switch del cluster cs1, utilizzando il cablaggio appropriato supportato dagli switch BES-53248.</block>
@@ -772,7 +771,6 @@
   <block id="bc18114517d63d4db943371546b0e1ae" category="list-text">Verificare lo stato delle porte del cluster sul cluster.</block>
   <block id="818dbe7dc43a870c6906959f7d426ba7" category="list-text">Verificare che le porte e0b siano funzionanti e funzionanti in tutti i nodi del cluster:<block ref="856f897c52a15ad9c779d1f7b82c2593" prefix=" " category="inline-code"></block></block>
   <block id="5d1ccfeff69430937e33ed02e46dbd94" category="list-text">Verificare lo stato dello switch dal cluster.</block>
-  <block id="7780adb3deb169c3e834888c0fec0145" category="list-text">[[step17]]sullo switch del cluster cs1, spegnere le porte collegate alle porte del cluster dei nodi.</block>
   <block id="ef1ee64e66c476fc0def572853f98a6d" category="paragraph">Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia:</block>
   <block id="7fc0653470d537d0d0fc3997f25d581b" category="list-text">Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch cs2. Questa operazione potrebbe richiedere alcuni secondi.<block ref="fb5130635551fff679ab6d902eaff8d9" prefix=" " category="inline-code"></block></block>
   <block id="b0553791d0540be1d52514a1a47621f6" category="list-text">Ripetere i passaggi da 4 a 14 sullo switch cs1.</block>
@@ -4362,8 +4360,6 @@
   <block id="9f1444ca3aac0720c37a8103593b319f" category="sidebar">Installare e configurare</block>
   <block id="354a428ae5bd694cfeccb15e5faecafb" category="sidebar">Installare un RCF</block>
   <block id="c13171629fe31c1238a32f1e3650b982" category="sidebar">Installare FASTPATH e RCF per ONTAP 8.3.1 e versioni successive</block>
-  <block id="c728d9401bdb127c12220b6c83da42da" category="sidebar">Opzioni di migrazione</block>
-  <block id="dddf7ccc3477ae39c351d20ccb2691ab" category="sidebar">Migrazione da un cluster senza switch</block>
   <block id="7bd0358c3b996edfe19bd3da912bde62" category="sidebar">Switch condivisi Cisco Nexus 9336C-FX2</block>
   <block id="eac9e7086f92a026c0dbe06001206204" category="sidebar">Guida all'installazione e alla configurazione degli switch condivisi Cisco</block>
   <block id="467a501ced0eaaee20142a975e074f95" category="sidebar">Migrare da una configurazione commutata con lo storage DAT aggiungendo due nuovi switch condivisi</block>
@@ -4613,4 +4609,5 @@
   <block id="a5f4f9ed92853ea6128046eb985ff5a7" category="sidebar">cisco-9336c-fx2-condivisa</block>
   <block id="759d203c3eb13a684379c7413a7ea760" category="sidebar">cisco-9336c-fx2-cluster</block>
   <block id="111cada5d22121a7e11aef39f4aca355" category="list-text">Sullo switch del cluster CS2, visualizzare le porte connesse alle porte del cluster dei nodi.</block>
+  <block id="325c324b922ed6e1b216f99766068e43" category="list-text">[[step18]]sullo switch del cluster CS1, chiudere le porte collegate alle porte del cluster dei nodi.</block>
 </blocks>
