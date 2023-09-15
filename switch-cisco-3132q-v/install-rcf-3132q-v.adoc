@@ -21,7 +21,6 @@ Seguire questa procedura per installare RCF dopo aver configurato lo switch Nexu
 * Backup corrente della configurazione dello switch.
 * Un cluster completamente funzionante (nessun errore nei log o problemi simili).
 * Il file di configurazione di riferimento corrente (RCF).
-* Una configurazione di boot in RCF che rifletta le immagini di boot desiderate, necessaria se si installa solo NX-OS e si mantiene la versione corrente di RCF. Se è necessario modificare la configurazione di avvio per riflettere le immagini di avvio correnti, è necessario farlo prima di riapplicare RCF in modo che venga creata un'istanza della versione corretta in caso di riavvio futuro.
 * Una connessione console allo switch, necessaria per l'installazione di RCF.
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]. Consultare la tabella di compatibilità degli switch per le versioni ONTAP e RCF supportate. Si noti che esistono dipendenze di comando tra la sintassi del comando in RCF e quella presente nelle versioni di NX-OS.
 * https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switch Cisco Nexus serie 3000"^]. Consultare le guide all'aggiornamento e al software appropriate disponibili sul sito Web di Cisco per la documentazione completa sulle procedure di aggiornamento e downgrade dello switch Cisco.
@@ -383,6 +382,10 @@ Quando si controlla l'output per verificare che l'RCF sia corretto, assicurarsi 
 ** Personalizzazioni
 +
 L'output varia in base alla configurazione del sito. Controllare le impostazioni della porta e fare riferimento alle note di rilascio per eventuali modifiche specifiche all'RCF installato.
+
++
+
+NOTE: Per informazioni su come portare le porte 10GbE in linea dopo un aggiornamento dell'RCF, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem%2FSwitches%2FCisco%2F10GbE_ports_on_Cisco_3132Q_cluster_switch_do_not_come_online["Le porte 10GbE su uno switch cluster Cisco 3132Q non sono disponibili in linea"^].
 
 
 
