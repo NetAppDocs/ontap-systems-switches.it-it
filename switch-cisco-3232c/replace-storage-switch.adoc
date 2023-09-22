@@ -66,9 +66,9 @@ Il messaggio AutoSupport informa il supporto tecnico di questa attività di manu
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-storage::*> storage port show -port-type ENET
+storage::*> *storage port show -port-type ENET*
                                       Speed                     VLAN
 Node               Port Type  Mode    (Gb/s) State    Status      ID
 ------------------ ---- ----- ------- ------ -------- --------- ----
@@ -92,9 +92,9 @@ node2
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-storage::*> network device-discovery show
+storage::*> *network device-discovery show*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------- ----------------
@@ -124,9 +124,9 @@ node2/lldp
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-S1# show lldp neighbors
+S1# *show lldp neighbors*
 Capability codes:
   (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
   (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
@@ -153,9 +153,9 @@ SHFGD2008000022         Eth1/8          120        S           e0a
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-storage::*> storage shelf port show -fields remote-device,remote-port
+storage::*> *storage shelf port show -fields remote-device,remote-port*
 
 shelf  id  remote-port  remote-device
 -----  --  -----------  -------------
@@ -177,7 +177,7 @@ shelf  id  remote-port  remote-device
 
 === Fase 3: Verificare tutte le configurazioni del dispositivo sullo switch NS2
 
-. Controllare nuovamente lo stato di salute delle porte del nodo di storage:
+. Verificare lo stato di integrità delle porte del nodo di storage:
 +
 `storage port show -port-type ENET`
 
@@ -185,9 +185,9 @@ shelf  id  remote-port  remote-device
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-storage::*> storage port show -port-type ENET
+storage::*> *storage port show -port-type ENET*
                                       Speed                       VLAN
 Node               Port Type  Mode    (Gb/s) State    Status        ID
 ------------------ ---- ----- ------- ------ -------- ------------ ---
@@ -211,9 +211,9 @@ node2
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-storage::*> network device-discovery show
+storage::*> *network device-discovery show*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  --------
@@ -247,9 +247,9 @@ node2/lldp
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-storage::*> storage shelf port show -fields remote-device,remote-port
+storage::*> *storage shelf port show -fields remote-device,remote-port*
 shelf id remote-port remote-device
 ----- -- ----------- -------------
 3.20  0  Ethernet1/5 S1

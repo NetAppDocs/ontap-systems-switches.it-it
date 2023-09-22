@@ -16,6 +16,9 @@ NetApp offre cluster, storage e switch condivisi che offrono comunicazioni inter
 Gli switch "front-end" forniscono connettività allo storage host, mentre gli switch cluster "back-end" forniscono connessioni tra due o più controller NetApp.
 
 
+NOTE: Sono supportati solo gli switch validati NetApp (ordinati da NetApp).
+
+
 
 == Switch del cluster
 

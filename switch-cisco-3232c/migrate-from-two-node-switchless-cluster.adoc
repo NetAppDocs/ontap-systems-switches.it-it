@@ -102,9 +102,9 @@ Il messaggio AutoSupport informa il supporto tecnico di questa attività di manu
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port show –role cluster
+cluster::*> *network port show -role cluster*
   (network port show)
 Node: n1
                                                                        Ignore
@@ -131,9 +131,9 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
  (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -157,9 +157,9 @@ Cluster
 ====
 L'output dell'esempio seguente mostra che il rilevamento cluster senza switch è abilitato:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network options detect-switchless-cluster show
+cluster::*> *network options detect-switchless-cluster show*
 Enable Switchless Cluster Detection: true
 ----
 ====
@@ -194,7 +194,7 @@ Per ulteriori informazioni sui comandi Cisco, consultare le guide elencate nella
 ====
 Nell'esempio seguente vengono mostrate le porte da 1 a 30 disattivate sugli switch cluster Nexus 3232C C1 e C2 utilizzando una configurazione supportata in RCF `NX3232_RCF_v1.0_24p10g_24p100g.txt`:
 
-[listing]
+[listing, subs="+quotes"]
 ----
 C1# copy running-config startup-config
 [########################################] 100% Copy complete.
@@ -226,9 +226,9 @@ Per ulteriori informazioni sui comandi Cisco, consultare le guide elencate nella
 ====
 L'esempio seguente mostra Cisco `show port-channel summary` Comando utilizzato per verificare il funzionamento delle porte ISL su C1 e C2:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-C1# show port-channel summary
+C1# *show port-channel summary*
 Flags: D - Down         P - Up in port-channel (members)
        I - Individual   H - Hot-standby (LACP only)        s - Suspended    r - Module-removed
        S - Switched     R - Routed
@@ -264,9 +264,9 @@ Per ulteriori informazioni sui comandi Cisco, consultare le guide elencate nella
 ====
 Nell'esempio riportato di seguito viene illustrato il comando Cisco `show cdp neighbors` utilizzato per visualizzare i dispositivi vicini sullo switch:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-C1# show cdp neighbors
+C1# *show cdp neighbors*
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater,
                   V - VoIP-Phone, D - Remotely-Managed-Device,                   s - Supports-STP-Dispute
@@ -294,9 +294,9 @@ Total entries displayed: 2
 ====
 L'esempio seguente mostra la connettività della porta del cluster visualizzata per una configurazione del cluster senza switch a due nodi:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network device-discovery show
+cluster::*> *network device-discovery show*
             Local  Discovered
 Node        Port   Device              Interface        Platform
 ----------- ------ ------------------- ---------------- ----------------
@@ -310,7 +310,7 @@ n2         /cdp
 ====
 . Migrare le LIF n1_clus1 e n2_clus1 alle porte fisiche dei nodi di destinazione:
 +
-`network interface migrate -vserver cluster -lif _lif-name_ source-node _source-node-name_ -destination-port _destination-port-name_`
+`network interface migrate -vserver _vserver-name_ -lif _lif-name_ source-node _source-node-name_ -destination-port _destination-port-name_`
 
 +
 .Mostra esempio
@@ -318,12 +318,12 @@ n2         /cdp
 ====
 È necessario eseguire il comando per ciascun nodo locale, come illustrato nell'esempio seguente:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface migrate -vserver cluster -lif n1_clus1 -source-node n1
-–destination-node n1 -destination-port e4e
-cluster::*> network interface migrate -vserver cluster -lif n2_clus1 -source-node n2
-–destination-node n2 -destination-port e4e
+cluster::*> *network interface migrate -vserver cluster -lif n1_clus1 -source-node n1
+-destination-node n1 -destination-port e4e*
+cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-node n2
+-destination-node n2 -destination-port e4e*
 ----
 ====
 
@@ -342,9 +342,9 @@ cluster::*> network interface migrate -vserver cluster -lif n2_clus1 -source-nod
 ====
 Nell'esempio seguente viene mostrato lo stato "is Home" per i LIF n1_clus1 e n2_clus1 è diventato "false" dopo il completamento della migrazione:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
  (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -367,10 +367,10 @@ Cluster
 ====
 È necessario eseguire il comando per ciascuna porta, come illustrato nell'esempio seguente:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e4a -up-admin false
-cluster::*> network port modify -node n2 -port e4a -up-admin false
+cluster::*> *network port modify -node n1 -port e4a -up-admin false*
+cluster::*> *network port modify -node n2 -port e4a -up-admin false*
 ----
 ====
 . Eseguire il ping delle interfacce del cluster remoto ed eseguire un controllo del server RPC:
@@ -383,9 +383,9 @@ cluster::*> network port modify -node n2 -port e4a -up-admin false
 ====
 L'esempio seguente mostra il nodo n1 sottoposto a ping e lo stato RPC indicato in seguito:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster::*> *cluster ping-cluster -node n1*
 
 Host is n1 Getting addresses from network interface table...
 Cluster n1_clus1 n1        e4a    10.10.0.1
@@ -432,13 +432,13 @@ Per ulteriori informazioni sui comandi Cisco, consultare le guide elencate nella
 ====
 L'esempio seguente mostra le porte da 1 a 30 abilitate sugli switch cluster Nexus 3232C C1 e C2 utilizzando la configurazione supportata in RCF `NX3232_RCF_v1.0_24p10g_26p100g.txt`:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-C1# configure
-C1(config)# int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30
-C1(config-if-range)# no shutdown
-C1(config-if-range)# exit
-C1(config)# exit
+C1# *configure*
+C1(config)# *int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30*
+C1(config-if-range)# *no shutdown*
+C1(config-if-range)# *exit*
+C1(config)# *exit*
 ----
 ====
 . Abilitare la prima porta del cluster, e4a, su ciascun nodo:
@@ -449,10 +449,10 @@ C1(config)# exit
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e4a -up-admin true
-cluster::*> network port modify -node n2 -port e4a -up-admin true
+cluster::*> *network port modify -node n1 -port e4a -up-admin true*
+cluster::*> *network port modify -node n2 -port e4a -up-admin true*
 ----
 ====
 . Verificare che i cluster siano attivi su entrambi i nodi:
@@ -463,9 +463,9 @@ cluster::*> network port modify -node n2 -port e4a -up-admin true
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port show –role cluster
+cluster::*> *network port show -role cluster*
   (network port show)
 Node: n1
                                                                        Ignore
@@ -496,10 +496,10 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -
 ====
 È necessario ripristinare ogni LIF alla porta home singolarmente, come mostrato nell'esempio seguente:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface revert -vserver cluster -lif n1_clus1
-cluster::*> network interface revert -vserver cluster -lif n2_clus1
+cluster::*> *network interface revert -vserver cluster -lif n1_clus1*
+cluster::*> *network interface revert -vserver cluster -lif n2_clus1*
 ----
 ====
 . Verificare che tutte le LIF siano ora ripristinate alle porte home:
@@ -513,9 +513,9 @@ Il `Is Home` la colonna deve visualizzare un valore di `true` per tutte le porte
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
  (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -542,9 +542,9 @@ Cluster
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network device-discovery show
+cluster::*> *network device-discovery show*
             Local  Discovered
 Node        Port   Device              Interface        Platform
 ----------- ------ ------------------- ---------------- ----------------
@@ -566,11 +566,12 @@ n2         /cdp
 ====
 È necessario migrare ciascun LIF alla propria porta home singolarmente, come illustrato nell'esempio seguente:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface migrate -vserver cluster -lif n1_clus2 -source-node n1
-–destination-node n1 -destination-port e4a
-cluster::*> network interface migrate -vserver cluster -lif n2_clus2 -source-node n2 –destination-node n2 -destination-port e4a
+cluster::*> *network interface migrate -vserver cluster -lif n1_clus2 -source-node n1
+-destination-node n1 -destination-port e4a*
+cluster::*> *network interface migrate -vserver cluster -lif n2_clus2 -source-node n2
+-destination-node n2 -destination-port e4a*
 ----
 ====
 . Chiudere il cluster di porte clus2 LIF su entrambi i nodi:
@@ -583,10 +584,10 @@ cluster::*> network interface migrate -vserver cluster -lif n2_clus2 -source-nod
 ====
 Nell'esempio riportato di seguito vengono illustrate le porte specificate impostate su `false`, spegnendo le porte su entrambi i nodi:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e4e -up-admin false
-cluster::*> network port modify -node n2 -port e4e -up-admin false
+cluster::*> *network port modify -node n1 -port e4e -up-admin false*
+cluster::*> *network port modify -node n2 -port e4e -up-admin false*
 ----
 ====
 . Verificare lo stato LIF del cluster:
@@ -597,9 +598,9 @@ cluster::*> network port modify -node n2 -port e4e -up-admin false
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
  (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -627,13 +628,13 @@ Fare riferimento alla configurazione in esecuzione e collegare e4e alla successi
 ====
 L'esempio seguente mostra le porte da 1 a 30 abilitate sugli switch cluster Nexus 3132Q-V C1 e C2 utilizzando una configurazione supportata in RCF `NX3232C_RCF_v1.0_24p10g_26p100g.txt`:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-C2# configure
-C2(config)# int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30
-C2(config-if-range)# no shutdown
-C2(config-if-range)# exit
-C2(config)# exit
+C2# *configure*
+C2(config)# *int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30*
+C2(config-if-range)# *no shutdown*
+C2(config-if-range)# *exit*
+C2(config)# *exit*
 ----
 ====
 . Abilitare la seconda porta del cluster, e4e, su ciascun nodo:
@@ -646,10 +647,10 @@ C2(config)# exit
 ====
 L'esempio seguente mostra la seconda porta del cluster e4e attivata su ciascun nodo:
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e4e -up-admin true
-cluster::*> network port modify -node n2 -port e4e -up-admin true
+cluster::*> *network port modify -node n1 -port e4e -up-admin true*
+cluster::*> *network port modify -node n2 -port e4e -up-admin true*s
 ----
 ====
 . Per ciascun nodo, ripristinare tutte le LIF di interconnessione del cluster migrate: `network interface revert`
@@ -659,10 +660,10 @@ cluster::*> network port modify -node n2 -port e4e -up-admin true
 ====
 Nell'esempio seguente vengono riportati i file LIF migrati alle porte home.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface revert -vserver Cluster -lif n1_clus2
-cluster::*> network interface revert -vserver Cluster -lif n2_clus2
+cluster::*> *network interface revert -vserver Cluster -lif n1_clus2*
+cluster::*> *network interface revert -vserver Cluster -lif n2_clus2*
 ----
 ====
 . Verificare che tutte le porte di interconnessione del cluster siano ora ripristinate alle porte home:
@@ -676,9 +677,9 @@ Il `Is Home` la colonna deve visualizzare un valore di `true` per tutte le porte
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
  (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -700,9 +701,9 @@ Cluster
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network device-discovery show
+cluster::*> *network device-discovery show*
             Local  Discovered
 Node        Port   Device              Interface        Platform
 ----------- ------ ------------------- ---------------- ----------------
@@ -722,9 +723,9 @@ n2          /cdp
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> system cluster-switch show
+cluster::*> *system cluster-switch show*
 
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- ---------------
@@ -755,9 +756,9 @@ Version Source: CDP 2 entries were displayed.
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1 Getting addresses from network interface table...
 Cluster n1_clus1 n1        e4a    10.10.0.1
 Cluster n1_clus2 n1        e4e    10.10.0.2
@@ -791,37 +792,37 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 .Mostra esempio
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> system cluster-switch log setup-password
+cluster::*> *system cluster-switch log setup-password*
 Enter the switch name: <return>
 The switch name entered is not recognized.
 Choose from the following list:
 C1
 C2
 
-cluster::*> system cluster-switch log setup-password
+cluster::*> *system cluster-switch log setup-password*
 
-Enter the switch name: C1
+Enter the switch name: *C1*
 RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] y
+Do you want to continue? {y|n}::[n] *y*
 
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 
-cluster::*> system cluster-switch log setup-password
+cluster::*> *system cluster-switch log setup-password*
 
-Enter the switch name: C2
+Enter the switch name: *C2*
 RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] y
+Do you want to continue? {y|n}:: [n] *y*
 
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 
-cluster::*> system cluster-switch log enable-collection
+cluster::*> *system cluster-switch log enable-collection*
 
 Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] y
+{y|n}: [n] *y*
 
 Enabling cluster switch log collection.
 
