@@ -4636,4 +4636,8 @@
   <block id="669c1a3fa77bc8a049e5cd4a16e5cff8" category="paragraph">Verificare di aver configurato l'ambiente utilizzando lo switch cluster 9336C-FX2 *CLI*.</block>
   <block id="680284a2e0d6a86aafc85099ca58d7af" category="list-text">Creare una password per la funzione di raccolta dei log dello switch Ethernet Health monitor:</block>
   <block id="1f40996ca4617ab17127143171aa4ea4" category="sidebar">Installare il file di configurazione SHM</block>
+  <block id="3fc74bed2ec666d227e966120d5c4160" category="inline-link">Bug 1570339</block>
+  <block id="a9881d2bc89c135aee3c1490acc55259" category="inline-link">Errori CRC sulle porte T6 dopo la conversione da 40GbE a 100GbE</block>
+  <block id="835174c5c468acf2b423cff0eb23994f" category="admonition">Se si modifica la velocità delle porte del cluster e0a e E1a nei sistemi AFF A800 o AFF C800, è possibile che vengano ricevuti pacchetti non validi dopo la conversione della velocità. Vedere <block ref="f867b947e44d8d6bccd25f3219f3d6d9" category="inline-link-rx"></block> E l'articolo della Knowledge base<block ref="2a93cc61bbc3892324bc1b6369d71212" category="inline-link-rx"></block> come guida.</block>
+  <block id="5958c0f6bda471fafb31ea3acb4b20da" category="admonition">Se si modifica la velocità delle porte del cluster e0a e E1a nei sistemi AFF A800 o AFF C800, è possibile che vengano ricevuti pacchetti non validi dopo la conversione della velocità. Vedere<block ref="f867b947e44d8d6bccd25f3219f3d6d9" category="inline-link-rx"></block> E l'articolo della Knowledge base<block ref="2a93cc61bbc3892324bc1b6369d71212" category="inline-link-rx"></block> come guida.</block>
 </blocks>
