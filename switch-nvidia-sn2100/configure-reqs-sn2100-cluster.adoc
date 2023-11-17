@@ -29,7 +29,14 @@ Per le linee guida relative al cablaggio, vedere link:cabling-considerations-sn2
 
 Lo switch NVIDIA SN2100 è uno switch 10/25/40/100GbE con Cumulus Linux. Lo switch supporta quanto segue:
 
-* ONTAP 9.10.1P3. Lo switch SN2100 serve applicazioni cluster e storage in ONTAP 9.10.1P3 su diverse coppie di switch.
-* Versione del sistema operativo Cumulus Linux (CL). Per scaricare il software SN2100 Cumulus, accedere a. https://enterprise-support.nvidia.com/s/["NVIDIA Enterprise Support Portal"^]. Per accedere al software Cumulus, è necessario disporre delle credenziali di accesso. Per informazioni aggiornate sulla compatibilità, consultare https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switch Ethernet NVIDIA"^] pagina informativa.
+* ONTAP 9.10.1P3.
++
+Lo switch SN2100 serve applicazioni cluster e storage in ONTAP 9.10.1P3 su diverse coppie di switch.
+
+* Versione del sistema operativo Cumulus Linux (CL).
++
+Per scaricare il software SN2100 Cumulus da NVIDIA, è necessario disporre delle credenziali di accesso per accedere al portale di supporto di NVIDIA Enterprise. Consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/Switches/Nvidia/How_To_Register_With_NVIDIA_For_Enterprise_Support_Portal_Access["Come registrarsi con NVIDIA per Enterprise Support Portal Access"^].
+Per informazioni aggiornate sulla compatibilità, consultare https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switch Ethernet NVIDIA"^] pagina informativa.
+
 * È possibile installare Cumulus Linux quando lo switch esegue Cumulus Linux o ONIE.
 

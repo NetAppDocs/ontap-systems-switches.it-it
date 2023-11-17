@@ -1808,10 +1808,7 @@
   <block id="234133fd4f1ed6a8d213d73b1ffcbefe" category="paragraph">Per le linee guida relative al cablaggio, vedere <block ref="81e27480a79c2bb77194c038c9737157" category="inline-link-macro-rx"></block>.</block>
   <block id="936c629e80045932a8ce12daf69dd2f2" category="section-title">Supporto di ONTAP e Linux</block>
   <block id="1e247ada2e98c5879849d746a52a4241" category="paragraph">Lo switch NVIDIA SN2100 è uno switch 10/25/40/100GbE con Cumulus Linux. Lo switch supporta quanto segue:</block>
-  <block id="f555c61f64386d2582939da4025ebe47" category="list-text">ONTAP 9.10.1P3. Lo switch SN2100 serve applicazioni cluster e storage in ONTAP 9.10.1P3 su diverse coppie di switch.</block>
-  <block id="d40bf069d92679bf05879cf7f6cbe2cd" category="inline-link">NVIDIA Enterprise Support Portal</block>
   <block id="0b12903428200835d01a68c020062f58" category="inline-link">Switch Ethernet NVIDIA</block>
-  <block id="cb8e85c2970ddd5692a09be2e61dcc13" category="list-text">Versione del sistema operativo Cumulus Linux (CL). Per scaricare il software SN2100 Cumulus, accedere a.<block ref="778b7445002ab4132f3edc7cada5c78a" category="inline-link-rx"></block>. Per accedere al software Cumulus, è necessario disporre delle credenziali di accesso. Per informazioni aggiornate sulla compatibilità, consultare<block ref="f6aa36fb7711a9179cbd2c4c52b8d6ef" category="inline-link-rx"></block> pagina informativa.</block>
   <block id="6bb3008abc00d2a0fe4d634f0b89831e" category="list-text">È possibile installare Cumulus Linux quando lo switch esegue Cumulus Linux o ONIE.</block>
   <block id="4d76f023f4fff5f776ba26426c03d7a6" category="doc">Componenti e codici ricambio per switch NVIDIA SN2100</block>
   <block id="1fec389edf7d6a599779f9d24434c21c" category="paragraph">Per l'installazione e la manutenzione dello switch NVIDIA SN2100, consultare l'elenco dei componenti e i codici del cabinet e del kit di guide.</block>
@@ -4640,4 +4637,11 @@
   <block id="a9881d2bc89c135aee3c1490acc55259" category="inline-link">Errori CRC sulle porte T6 dopo la conversione da 40GbE a 100GbE</block>
   <block id="835174c5c468acf2b423cff0eb23994f" category="admonition">Se si modifica la velocità delle porte del cluster e0a e E1a nei sistemi AFF A800 o AFF C800, è possibile che vengano ricevuti pacchetti non validi dopo la conversione della velocità. Vedere <block ref="f867b947e44d8d6bccd25f3219f3d6d9" category="inline-link-rx"></block> E l'articolo della Knowledge base<block ref="2a93cc61bbc3892324bc1b6369d71212" category="inline-link-rx"></block> come guida.</block>
   <block id="5958c0f6bda471fafb31ea3acb4b20da" category="admonition">Se si modifica la velocità delle porte del cluster e0a e E1a nei sistemi AFF A800 o AFF C800, è possibile che vengano ricevuti pacchetti non validi dopo la conversione della velocità. Vedere<block ref="f867b947e44d8d6bccd25f3219f3d6d9" category="inline-link-rx"></block> E l'articolo della Knowledge base<block ref="2a93cc61bbc3892324bc1b6369d71212" category="inline-link-rx"></block> come guida.</block>
+  <block id="ca995ae3d3a6595199bfe5303faa0e3f" category="admonition">Mentre<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> viene utilizzato nell'esempio, è possibile utilizzare il metodo di trasferimento file preferito.</block>
+  <block id="1c1e9c46d2bfa104a5c2592705b2220b" category="list-text">ONTAP 9.10.1P3.</block>
+  <block id="daef330b681b8e827e3f464410c634c4" category="paragraph">Lo switch SN2100 serve applicazioni cluster e storage in ONTAP 9.10.1P3 su diverse coppie di switch.</block>
+  <block id="2aaabdd096fa4df43267fa963dadeac8" category="list-text">Versione del sistema operativo Cumulus Linux (CL).</block>
+  <block id="fdb970c02e151be8ab0a83ca880cb56a" category="inline-link">Come registrarsi con NVIDIA per Enterprise Support Portal Access</block>
+  <block id="e524be73a3787217a070c244dbdccb8e" category="paragraph">Per scaricare il software SN2100 Cumulus da NVIDIA, è necessario disporre delle credenziali di accesso per accedere al portale di supporto di NVIDIA Enterprise. Consultare l'articolo della Knowledge base<block ref="d8e3d3a02615584c2a7ac4c59cc440b8" category="inline-link-rx"></block>.
+Per informazioni aggiornate sulla compatibilità, consultare<block ref="f6aa36fb7711a9179cbd2c4c52b8d6ef" category="inline-link-rx"></block> pagina informativa.</block>
 </blocks>
