@@ -384,7 +384,6 @@
   <block id="9486f276b196ea9042dc3f0bfb576743" category="summary">L'aggiornamento degli switch del cluster BES-53248 inizia con la preparazione del controller per l'aggiornamento, l'installazione del software EFOS, delle licenze e del file di configurazione di riferimento (RCF). Dopo l'installazione, è possibile ripristinare la configurazione del controller in un ambiente di aggiornamento senza interruzioni e senza interruzioni.</block>
   <block id="9302ce88c481ebfe72d64373c7b0d0e5" category="doc">Aggiornare lo switch cluster BES-53248</block>
   <block id="db3a43c92e9a5ccc39b5fabb1bd97719" category="paragraph">Per aggiornare lo switch cluster BES-53248, procedere come segue.</block>
-  <block id="ca46577f8687df3ceb14eb4b66cfa89e" category="paragraph">Questa procedura si applica a un cluster funzionante e consente un aggiornamento senza interruzioni (NDU) e un ambiente senza interruzioni (NDO).</block>
   <block id="8ac36f1d8b0fc917225a100d2cd4a4c3" category="paragraph">Prima di installare il software EFOS, le licenze e il file RCF su uno switch cluster NetApp BES-53248 esistente, assicurarsi che:</block>
   <block id="8e95d65cfa987ac59e9edd2e01c3a5f8" category="list-text">Il cluster è un cluster completamente funzionante (nessun messaggio di log degli errori o altri problemi).</block>
   <block id="39268a4fe5b4dbf6e58a5a1147276955" category="list-text">Il cluster non contiene schede di interfaccia di rete (NIC) del cluster difettose.</block>
@@ -1520,7 +1519,6 @@
   <block id="0d5a52d62bb26b9e7ae6a509e4469dc1" category="inline-link-macro">Preparazione all'installazione di NX-OS e RCF</block>
   <block id="903eb4ad98b740ebeb449655751eb804" category="paragraph"><block ref="92ff606cd08828782a7061b88d8a96a2" category="inline-link-macro-rx"></block>.</block>
   <block id="52b4047fc43b6917cd24a0ee369e839c" category="summary">È possibile installare RCF dopo aver configurato lo switch Nexus 3232C per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione RCF.</block>
-  <block id="5a5a12d4dbaeac060e4d6b7c5760ca7c" category="paragraph">Seguire questa procedura per installare RCF dopo aver configurato lo switch Nexus 3232C per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.</block>
   <block id="8d4b5bf22d2dde04a178ea3a0409a1ea" category="list-text">Il file di configurazione di riferimento corrente (RCF).</block>
   <block id="03c93e08ed4f9a68f6b404202d454262" category="list-text">Una configurazione di boot in RCF che rifletta le immagini di boot desiderate, necessaria se si installa solo NX-OS e si mantiene la versione corrente di RCF. Se è necessario modificare la configurazione di avvio per riflettere le immagini di avvio correnti, è necessario farlo prima di riapplicare RCF in modo che venga creata un'istanza della versione corretta in caso di riavvio futuro.</block>
   <block id="a0f6e8eb6b5f6a47b9079727da7ff23a" category="list-text">Una connessione console allo switch, necessaria per l'installazione di RCF.</block>
@@ -4195,7 +4193,6 @@
   <block id="5df649542c57202f02bfbe07032d6c7c" category="paragraph">Seguire questa procedura per sostituire gli switch del cluster CN1610 esistenti con gli switch del cluster Cisco Nexus 3132Q-V.</block>
   <block id="a5ef8c2d5ef6762246ebb7d49927df91" category="paragraph">Esaminare i requisiti di NetApp CN1610 in <block ref="e02fb67277400e729fb31d4ea6e688c9" category="inline-link-macro-rx"></block>.</block>
   <block id="bc01d49ccd216cbb296208344af71590" category="list-text">Gli switch Nexus 3132Q-V in sostituzione degli switch CN1610 sono C1 e C2.</block>
-  <block id="eb29e2026f68e263827bc6648e470d91" category="list-text">n1_clus4 è il secondo LIF collegato allo switch del cluster 1 (CL1 o C1) per il nodo n1. I nodi sono n1, n2, n3 e n4.</block>
   <block id="d07ea0336757dc6c738f1426bdf8deba" category="list-text">Gli altri due nodi utilizzano due cavi in fibra di interconnessione cluster da 40/100 GbE: E4a e e4e.</block>
   <block id="c5996a9ce6852df92e273664ad819c84" category="paragraph">Il <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> contiene informazioni sui cavi in fibra del cluster sulle piattaforme.</block>
   <block id="149b4d7bd84f0ce5c4d69945fa307e44" category="list-text">Lo switch del cluster CL2 deve essere sostituito da C2</block>
@@ -4668,4 +4665,9 @@ Per informazioni aggiornate sulla compatibilità, consultare<block ref="f6aa36fb
   <block id="2672a0c9ba5986c403c26e013c160859" category="list-text">Verificare che i nodi del cluster si trovino nelle VLAN del cluster corrette utilizzando i seguenti comandi:</block>
   <block id="89706bbdab62cd83048f38305d846f95" category="paragraph"><block ref="7d4adecb4116bbfb7ed1130103f872a7" prefix="" category="inline-code"></block></block>
   <block id="12bc122b0d9a4c902fdf52bfcc13ddc2" category="paragraph"><block ref="c01eca2c804c6a35b8aa8d87eceefe5d" prefix="" category="inline-code"></block></block>
+  <block id="5cb232b7121572a8cd994eb78f5bf42e" category="inline-link">Come preparare ONTAP per un aggiornamento dello switch cluster</block>
+  <block id="2c6ae2b5ab15a868c020423af475ce29" category="paragraph">Questa procedura si applica a un cluster funzionante e consente un aggiornamento senza interruzioni (NDU) e un ambiente senza interruzioni (NDO). Consultare l'articolo della Knowledge base<block ref="af19c072276b7cd7ef0c29b032a9fe34" category="inline-link-rx"></block>.</block>
+  <block id="3bf967e4da79afd8ac10997dbbfb40be" category="paragraph">Seguire questa procedura per installare l'RCF dopo aver configurato lo switch Nexus 3232C per la prima volta.</block>
+  <block id="ce8d24a452c1c94c4680d7ce098325a9" category="inline-link">Come cancellare la configurazione su uno switch Cisco Interconnect mantenendo la connettività remota</block>
+  <block id="e5f3c3d2c754cc48938d50b1782093ac" category="paragraph">È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF. Consultare l'articolo della Knowledge base<block ref="c3cf8dee5fd4e009c0e2b38bfb97fe4d" category="inline-link-rx"></block> Per ulteriori informazioni sull'aggiornamento dell'RCF.</block>
 </blocks>

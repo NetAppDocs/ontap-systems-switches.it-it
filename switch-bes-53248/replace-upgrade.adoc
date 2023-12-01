@@ -13,7 +13,7 @@ summary: 'L"aggiornamento degli switch del cluster BES-53248 inizia con la prepa
 [role="lead"]
 Per aggiornare lo switch cluster BES-53248, procedere come segue.
 
-Questa procedura si applica a un cluster funzionante e consente un aggiornamento senza interruzioni (NDU) e un ambiente senza interruzioni (NDO).
+Questa procedura si applica a un cluster funzionante e consente un aggiornamento senza interruzioni (NDU) e un ambiente senza interruzioni (NDO). Consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/hardware/How_to_prepare_ONTAP_for_a_cluster_switch_upgrade["Come preparare ONTAP per un aggiornamento dello switch cluster"^].
 
 
 
