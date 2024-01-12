@@ -34,264 +34,264 @@ La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
  a| 
 1
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 1
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 2
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 2
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 3
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 3
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 4
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 4
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 5
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 5
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 6
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 6
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 7
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 7
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 8
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 8
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 9
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 9
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 10
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 10
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 11
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 11
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 12
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 12
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 13
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 13
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 14
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 14
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 15
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 15
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 16
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 16
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 17
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 17
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 18
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
  a| 
 18
  a| 
-Nodo 4X10G/40G/100G
+4 x 10GbE/4 x 25GbE o nodo 40/100GbE
 
 
 
  a| 
 19
  a| 
-Nodo 40G/100G 19
+40g/100GbE nodo 19
  a| 
 19
  a| 
-Nodo 40G/100G 19
+40g/100GbE nodo 19
 
 
 
  a| 
 20
  a| 
-Nodo 40G/100G 20
+40g/100GbE nodo 20
  a| 
 20
  a| 
-Nodo 40G/100G 20
+40g/100GbE nodo 20
 
 
 
  a| 
 21
  a| 
-Nodo 40G/100G 21
+40g/100GbE nodo 21
  a| 
 21
  a| 
-Nodo 40G/100G 21
+40g/100GbE nodo 21
 
 
 
  a| 
 22
  a| 
-Nodo 40G/100G 22
+40g/100GbE nodo 22
  a| 
 22
  a| 
-Nodo 40G/100G 22
+40g/100GbE nodo 22
 
 
 
  a| 
 23
  a| 
-Nodo 40G/100G 23
+40g/100GbE nodo 23
  a| 
 23
  a| 
-Nodo 40G/100G 23
+40g/100GbE nodo 23
 
 
 
  a| 
 24
  a| 
-Nodo 40G/100G 24
+40g/100GbE nodo 24
  a| 
 24
  a| 
-Nodo 40G/100G 24
+40g/100GbE nodo 24
 
 
 
@@ -309,22 +309,22 @@ Riservato
  a| 
 31
  a| 
-100G ISL alla porta B dello switch 31
+100GbE ISL alla porta B dello switch 31
  a| 
 31
  a| 
-100G ISL per cambiare una porta 31
+100GbE ISL per commutare Una porta 31
 
 
 
  a| 
 32
  a| 
-100G ISL alla porta B dello switch 32
+100GbE ISL alla porta B dello switch 32
  a| 
 32
  a| 
-100G ISL per cambiare una porta 32
+100GbE ISL per commutare Una porta 32
 
 |===
 
@@ -571,21 +571,21 @@ Riservato
  a| 
 31
  a| 
-100G ISL alla porta B dello switch 31
+100GbE ISL alla porta B dello switch 31
  a| 
 31
  a| 
-100G ISL per cambiare una porta 31
+100GbE ISL per commutare Una porta 31
 
 
 
  a| 
 32
  a| 
-100G ISL alla porta B dello switch 32
+100GbE ISL alla porta B dello switch 32
  a| 
 32
  a| 
-100G ISL per cambiare una porta 32
+100GbE ISL per commutare Una porta 32
 
 |===

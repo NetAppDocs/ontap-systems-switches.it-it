@@ -98,198 +98,198 @@ Nodo 4 x 25 GbE 6
  a| 
 7
  a| 
-Nodo 4 x 100 GbE 7
+100GbE nodo 7
  a| 
 7
  a| 
-Nodo 4 x 100 GbE 7
+100GbE nodo 7
 
 
 
  a| 
 8
  a| 
-Nodo 4 x 100 GbE 8
+100GbE nodo 8
  a| 
 8
  a| 
-Nodo 4 x 100 GbE 8
+100GbE nodo 8
 
 
 
  a| 
 9
  a| 
-Nodo 4 x 100 GbE 9
+100GbE nodo 9
  a| 
 9
  a| 
-Nodo 4 x 100 GbE 9
+100GbE nodo 9
 
 
 
  a| 
 10
  a| 
-Nodo 4x100GbE 10
+100GbE nodo 10
  a| 
 10
  a| 
-Nodo 4x100GbE 10
+100GbE nodo 10
 
 
 
  a| 
 11
  a| 
-Nodo 4x100GbE 11
+100GbE nodo 11
  a| 
 11
  a| 
-Nodo 4x100GbE 11
+100GbE nodo 11
 
 
 
  a| 
 12
  a| 
-Nodo 4x100GbE 12
+100GbE nodo 12
  a| 
 12
  a| 
-Nodo 4x100GbE 12
+100GbE nodo 12
 
 
 
  a| 
 13
  a| 
-Nodo 4x100GbE 13
+100GbE nodo 13
  a| 
 13
  a| 
-Nodo 4x100GbE 13
+100GbE nodo 13
 
 
 
  a| 
 14
  a| 
-Nodo 4x100GbE 14
+100GbE nodo 14
  a| 
 14
  a| 
-Nodo 4x100GbE 14
+100GbE nodo 14
 
 
 
  a| 
 15
  a| 
-Nodo 4x100GbE 15
+100GbE nodo 15
  a| 
 15
  a| 
-Nodo 4x100GbE 15
+100GbE nodo 15
 
 
 
  a| 
 16
  a| 
-Nodo 4x100GbE 16
+100GbE nodo 16
  a| 
 16
  a| 
-Nodo 4x100GbE 16
+100GbE nodo 16
 
 
 
  a| 
 17
  a| 
-Nodo 4x100GbE 17
+100GbE nodo 17
  a| 
 17
  a| 
-Nodo 4x100GbE 17
+100GbE nodo 17
 
 
 
  a| 
 18
  a| 
-Nodo 4x100GbE 18
+100GbE nodo 18
  a| 
 18
  a| 
-Nodo 4x100GbE 18
+100GbE nodo 18
 
 
 
  a| 
 19
  a| 
-Nodo 4x100GbE 19
+100GbE nodo 19
  a| 
 19
  a| 
-Nodo 4x100GbE 19
+100GbE nodo 19
 
 
 
  a| 
 20
  a| 
-Nodo 4x100GbE 20
+100GbE nodo 20
  a| 
 20
  a| 
-Nodo 4x100GbE 20
+100GbE nodo 20
 
 
 
  a| 
 21
  a| 
-Nodo 4x100GbE 21
+100GbE nodo 21
  a| 
 21
  a| 
-Nodo 4x100GbE 21
+100GbE nodo 21
 
 
 
  a| 
 22
  a| 
-Nodo 4x100GbE 22
+100GbE nodo 22
  a| 
 22
  a| 
-Nodo 4x100GbE 22
+100GbE nodo 22
 
 
 
  a| 
 23
  a| 
-Nodo 4x100GbE 23
+100GbE nodo 23
  a| 
 23
  a| 
-Nodo 4x100GbE 23
+100GbE nodo 23
 
 
 
  a| 
 24
  a| 
-Nodo 4x100GbE 24
+100GbE nodo 24
  a| 
 24
  a| 
-Nodo 4x100GbE 24
+100GbE nodo 24
 
 
 
@@ -307,22 +307,22 @@ Riservato
  a| 
 35
  a| 
-100G ISL alla porta B dello switch 35
+100GbE ISL alla porta B dello switch 35
  a| 
 35
  a| 
-100G ISL per cambiare una porta 35
+100GbE ISL per commutare Una porta 35
 
 
 
  a| 
 36
  a| 
-100G ISL alla porta B dello switch 36
+100GbE ISL alla porta B dello switch 36
  a| 
 36
  a| 
-100G ISL per cambiare una porta 36
+100GbE ISL per commutare Una porta 36
 
 |===
 
@@ -566,22 +566,22 @@ Riservato
  a| 
 35
  a| 
-100G ISL alla porta B dello switch 35
+100GbE ISL alla porta B dello switch 35
  a| 
 35
  a| 
-100G ISL per cambiare una porta 35
+100GbE ISL per commutare Una porta 35
 
 
 
  a| 
 36
  a| 
-100G ISL alla porta B dello switch 36
+100GbE ISL alla porta B dello switch 36
  a| 
 36
  a| 
-100G ISL per cambiare una porta 36
+100GbE ISL per commutare Una porta 36
 
 |===
 Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"] per ulteriori informazioni sulle porte dello switch.

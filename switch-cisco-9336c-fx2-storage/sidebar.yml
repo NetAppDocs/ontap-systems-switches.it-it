@@ -19,8 +19,6 @@ entries:
 - title: Installare l'hardware
   pdf-filename: Install_hardware_9336c-FX2-storage
   entries:
-  - title: Completare il foglio di lavoro per il cablaggio
-    url: "/switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html"
   - title: Installare lo switch
     url: "/switch-cisco-9336c-fx2-storage/install-9336c-storage.html"
   - title: Configurare lo switch
