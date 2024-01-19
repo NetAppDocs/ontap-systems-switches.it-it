@@ -39,7 +39,6 @@ Verificare che la configurazione soddisfi i seguenti requisiti:
 ** Un cluster NetApp ridondante e completamente funzionale che utilizza switch NetApp CN1610.
 ** Connettività di gestione e accesso alla console sia per gli switch CN1610 NetApp che per i nuovi switch.
 ** Tutte le LIF del cluster in stato up con le LIF del cluster si trovano sulle porte home.
-** Porte ISL abilitate e cablate tra gli switch NetApp CN1610 e tra i nuovi switch.
 
 
 * Alcune porte sono configurate sugli switch Cisco 9336C-FX2 per funzionare a 40 GbE o 100 GbE.
@@ -66,6 +65,9 @@ Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e n
 
 
 
+
+
+NOTE: Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue la migrazione di tutte le LIF del cluster allo switch del partner operativo durante l'esecuzione delle operazioni sullo switch di destinazione.
 
 
 

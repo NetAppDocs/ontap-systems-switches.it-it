@@ -98,198 +98,198 @@ Nodo 4 x 25 GbE 6
  a| 
 7
  a| 
-100GbE nodo 7
+40/100GbE nodo 7
  a| 
 7
  a| 
-100GbE nodo 7
+40/100GbE nodo 7
 
 
 
  a| 
 8
  a| 
-100GbE nodo 8
+40/100GbE nodo 8
  a| 
 8
  a| 
-100GbE nodo 8
+40/100GbE nodo 8
 
 
 
  a| 
 9
  a| 
-100GbE nodo 9
+40/100GbE nodo 9
  a| 
 9
  a| 
-100GbE nodo 9
+40/100GbE nodo 9
 
 
 
  a| 
 10
  a| 
-100GbE nodo 10
+40/100GbE nodo 10
  a| 
 10
  a| 
-100GbE nodo 10
+40/100GbE nodo 10
 
 
 
  a| 
 11
  a| 
-100GbE nodo 11
+40/100GbE nodo 11
  a| 
 11
  a| 
-100GbE nodo 11
+40/100GbE nodo 11
 
 
 
  a| 
 12
  a| 
-100GbE nodo 12
+40/100GbE nodo 12
  a| 
 12
  a| 
-100GbE nodo 12
+40/100GbE nodo 12
 
 
 
  a| 
 13
  a| 
-100GbE nodo 13
+40/100GbE nodo 13
  a| 
 13
  a| 
-100GbE nodo 13
+40/100GbE nodo 13
 
 
 
  a| 
 14
  a| 
-100GbE nodo 14
+40/100GbE nodo 14
  a| 
 14
  a| 
-100GbE nodo 14
+40/100GbE nodo 14
 
 
 
  a| 
 15
  a| 
-100GbE nodo 15
+40/100GbE nodo 15
  a| 
 15
  a| 
-100GbE nodo 15
+40/100GbE nodo 15
 
 
 
  a| 
 16
  a| 
-100GbE nodo 16
+40/100GbE nodo 16
  a| 
 16
  a| 
-100GbE nodo 16
+40/100GbE nodo 16
 
 
 
  a| 
 17
  a| 
-100GbE nodo 17
+40/100GbE nodo 17
  a| 
 17
  a| 
-100GbE nodo 17
+40/100GbE nodo 17
 
 
 
  a| 
 18
  a| 
-100GbE nodo 18
+40/100GbE nodo 18
  a| 
 18
  a| 
-100GbE nodo 18
+40/100GbE nodo 18
 
 
 
  a| 
 19
  a| 
-100GbE nodo 19
+40/100GbE nodo 19
  a| 
 19
  a| 
-100GbE nodo 19
+40/100GbE nodo 19
 
 
 
  a| 
 20
  a| 
-100GbE nodo 20
+40/100GbE nodo 20
  a| 
 20
  a| 
-100GbE nodo 20
+40/100GbE nodo 20
 
 
 
  a| 
 21
  a| 
-100GbE nodo 21
+40/100GbE nodo 21
  a| 
 21
  a| 
-100GbE nodo 21
+40/100GbE nodo 21
 
 
 
  a| 
 22
  a| 
-100GbE nodo 22
+40/100GbE nodo 22
  a| 
 22
  a| 
-100GbE nodo 22
+40/100GbE nodo 22
 
 
 
  a| 
 23
  a| 
-100GbE nodo 23
+40/100GbE nodo 23
  a| 
 23
  a| 
-100GbE nodo 23
+40/100GbE nodo 23
 
 
 
  a| 
 24
  a| 
-100GbE nodo 24
+40/100GbE nodo 24
  a| 
 24
  a| 
-100GbE nodo 24
+40/100GbE nodo 24
 
 
 

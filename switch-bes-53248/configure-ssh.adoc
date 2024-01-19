@@ -82,6 +82,10 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
++
+
+WARNING: Assicurarsi che SSH sia disabilitato prima di modificare le chiavi, altrimenti viene riportato un avviso sullo switch.
+
 . Riavviare lo switch:
 +
 `reload`
