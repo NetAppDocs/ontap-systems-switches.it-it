@@ -20,6 +20,9 @@ Prima di installare lo script RCF, assicurarsi che sullo switch siano disponibil
 * Indirizzo IP, subnet mask e gateway predefinito definiti tramite DHCP o configurati manualmente.
 
 
+
+NOTE: È necessario specificare un utente nell'RCF (oltre all'utente amministratore) da utilizzare specificamente per la raccolta dei log.
+
 .Versioni correnti degli script RCF
 Sono disponibili due script RCF per le applicazioni cluster e storage. Scaricare gli RCF da https://mysupport.netapp.com/site/info/nvidia-cluster-switch["qui"^]. La procedura per ciascuno di essi è la stessa.
 

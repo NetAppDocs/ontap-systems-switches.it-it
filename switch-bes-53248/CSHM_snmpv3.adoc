@@ -1,0 +1,142 @@
+---
+permalink: switch-bes-53248/CSHM_snmpv3.html 
+sidebar: sidebar 
+keywords: SNMP,SNMPv3,SNMPv3 setup,BES-53248 Broadcom setup,BES-3248 switches configuration,EFOS 
+summary: 'SNMPv3 può essere utilizzato con il monitor stato switch Ethernet (CSHM).' 
+---
+= Configurare SNMPv3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Seguire questa procedura per configurare SNMPv3, che supporta il monitoraggio dello stato dello switch Ethernet (CSHM).
+
+.A proposito di questa attività
+I seguenti comandi configurano un nome utente SNMPv3 sugli switch Broadcom BES-53248:
+
+* Per *nessuna autenticazione*:
+`net add snmp-server username _SNMPv3_USER_ auth-none`
+* Per l'autenticazione *MD5/SHA*:
+`net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_`
+* Per l'autenticazione *MD5/SHA con crittografia AES/DES*:
+`net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_ [encrypt-aes|encrypt-des] _PRIV-PASSWORD_`
+
+
+Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP:
+`cluster1::*> security login create -user-or-group-name _SNMPv3_USER_ -application snmp -authentication-method usm -remote-switch-ipaddress _ADDRESS_`
+
+Il seguente comando stabilisce il nome utente SNMPv3 con CSHM:
+`cluster1::*> system switch ethernet modify -device _DEVICE_ -snmp-version SNMPv3 -community-or-username _SNMPv3_USER_`
+
+.Fasi
+. Impostare l'utente SNMPv3 sullo switch per l'utilizzo dell'autenticazione e della crittografia:
++
+`net show snmp status`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(sw1)(Config)# *snmp-server user <username> network-admin auth-md5 <password> priv-aes128 <password>*
+
+(cs1)(Config)# *show snmp user snmp*
+
+     Name            Group Name      Auth Priv
+                                     Meth Meth    Remote Engine ID
+----------------- ------------------ ---- ------ -------------------------
+<username>        network-admin      MD5  AES128 8000113d03d8c497710bee
+----
+====
+. Impostare l'utente SNMPv3 sul lato ONTAP:
++
+`security login create -user-or-group-name <username> -application snmp -authentication-method usm -remote-switch-ipaddress 10.231.80.212`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *security login create -user-or-group-name <username> -application snmp -authentication-method usm -remote-switch-ipaddress 10.231.80.212*
+
+Enter the authoritative entity's EngineID [remote EngineID]:
+
+Which authentication protocol do you want to choose (none, md5, sha, sha2-256)
+[none]: *md5*
+
+Enter the authentication protocol password (minimum 8 characters long):
+
+Enter the authentication protocol password again:
+
+Which privacy protocol do you want to choose (none, des, aes128) [none]: *aes128*
+
+Enter privacy protocol password (minimum 8 characters long):
+Enter privacy protocol password again:
+----
+====
+. Configurare CSHM per il monitoraggio con il nuovo utente SNMPv3:
++
+`system switch ethernet show-all -device "sw1" -instance`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet show-all -device "sw1 (b8:59:9f:09:7c:22)" -instance*
+
+                                   Device Name: sw1
+                                    IP Address: 10.228.136.24
+                                  SNMP Version: SNMPv2c
+                                 Is Discovered: true
+DEPRECATED-Community String or SNMPv3 Username: -
+           Community String or SNMPv3 Username: cshm1!
+                                  Model Number: BES-53248
+                                Switch Network: cluster-network
+                              Software Version: 3.9.0.2
+                     Reason For Not Monitoring: None  *<---- should display this if SNMP settings are valid*
+                      Source Of Switch Version: CDP/ISDP
+                                Is Monitored ?: true
+                   Serial Number of the Device: QTFCU3826001C
+                                   RCF Version: v1.8X2 for Cluster/HA/RDMA
+
+cluster1::*>
+cluster1::*> *system switch ethernet modify -device "sw1" -snmp-version SNMPv3 -community-or-username <username>*
+----
+====
+. Verificare che il numero seriale da sottoporre a query con l'utente SNMPv3 appena creato sia lo stesso descritto nel passaggio precedente dopo il completamento del periodo di polling CSHM.
++
+`system switch ethernet polling-interval show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet polling-interval show*
+         Polling Interval (in minutes): 5
+
+cluster1::*> *system switch ethernet show-all -device "sw1" -instance*
+                                   Device Name: sw1
+                                    IP Address: 10.228.136.24
+                                  SNMP Version: SNMPv3
+                                 Is Discovered: true
+DEPRECATED-Community String or SNMPv3 Username: -
+           Community String or SNMPv3 Username: <username>
+                                  Model Number: BES-53248
+                                Switch Network: cluster-network
+                              Software Version: 3.9.0.2
+                     Reason For Not Monitoring: None  *<---- should display this if SNMP settings are valid*
+                      Source Of Switch Version: CDP/ISDP
+                                Is Monitored ?: true
+                   Serial Number of the Device: QTFCU3826001C
+                                   RCF Version: v1.8X2 for Cluster/HA/RDMA
+----
+====
+

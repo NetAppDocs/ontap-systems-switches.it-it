@@ -523,32 +523,12 @@
   <block id="59ed8d797343a87748211be365bd1d90" category="list-text">Generare le chiavi SSH:</block>
   <block id="2986030ac2a2c3716611c3a1bcc0c093" category="paragraph"><block ref="0b8cf6b3656c259d9957a92e154a9d52" prefix="" category="inline-code"></block></block>
   <block id="83a0e3bf9dd48caad05146cc29f81e6b" category="list-text">Verificare che SSH sia attivato:</block>
-  <block id="2e251bbc5cf5abac11349f16ad8e95e7" category="summary">È possibile installare il file di configurazione di Cluster Switch Health Monitor (CSHM), che monitora gli switch del cluster BES-53248.</block>
-  <block id="4db171b1958310050d33a6161ba14156" category="paragraph">Nelle versioni ONTAP 9.5P7 e precedenti e 9.6P2 e precedenti, è necessario scaricare il file CSHM separatamente. Nelle versioni ONTAP 9.5P8 e successive, 9.6P3 e successive, 9.7 e successive, il file CSHM viene fornito con ONTAP.</block>
-  <block id="294206f940bbd4f3ec7f79996b76c616" category="paragraph">Assicurarsi che il cluster ONTAP sia attivo e in esecuzione.</block>
-  <block id="7481f181e296e575db2349974a47cc2c" category="paragraph">Per installare il file di configurazione di Cluster Switch Health Monitor (CSHM), procedere come segue.</block>
   <block id="f4041989c699a535116c689437df5c7f" category="inline-link">Download del software NetApp</block>
-  <block id="40994b29c419b8208b2a2299233e65bc" category="list-text">Scaricare il file zip di CSHM in base alla versione della release di ONTAP corrispondente. Questo file è disponibile nella pagina:<block ref="cb382f539d8e67a00135c8306b3d74b6" category="inline-link-rx"></block></block>
-  <block id="180d45d6eb8919b41d1d751b68ec3336" category="list-text">Nella pagina di download del software, selezionare *Switch Health Monitor Configuration Files*.</block>
-  <block id="390cb4e02a776b0ea4f0d39cda973281" category="list-text">Selezionare piattaforma = *ONTAP* e fare clic su *Go!*.</block>
-  <block id="b968620db21ffac13bf35d77c6fd4614" category="list-text">Nella pagina Cambia file di configurazione del monitor dello stato di salute per ONTAP, fare clic su *Visualizza e scarica*.</block>
-  <block id="9d0ff069783ed268f22d4d924d776da5" category="list-text">Nella pagina file di configurazione del monitor dello stato dello switch per ONTAP - Descrizione, fare clic su *Scarica* per il modello di switch cluster applicabile; ad esempio: *BES-53248 supportato da Broadcom*.</block>
-  <block id="f8f1088542203d1665d06d92000f4391" category="list-text">Nella pagina Contratto di licenza con l'utente finale, fare clic su *Accetta*.</block>
-  <block id="36ca16251e030a0ff50eeef91c11841c" category="list-text">Nella ONTAP pagina Download - file di configurazione del monitor dello stato dello switch, selezionare il file di configurazione appropriato, ad esempio *Broadcom_BES-53248.zip*.</block>
   <block id="3a1759e54cb06a13c2c5b9b85a4c5282" category="list-text">Caricare il file zip applicabile sul server Web interno in cui l'indirizzo IP è X.X.X.X.</block>
-  <block id="108fad13cb4557ce639ff2d509f833b5" category="paragraph">Per un indirizzo IP interno del server Web 192.168.2.20 e supponendo che esista una directory /usr/download, è possibile caricare il file zip sul server Web utilizzando<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block>:</block>
-  <block id="ec633497488ed81a95ccbbbb57302ba3" category="list-text">Accedere all'impostazione della modalità avanzata da uno dei sistemi ONTAP nel cluster, utilizzando il comando<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block>:</block>
-  <block id="add89e2862924c702a738f3d2a28fa51" category="list-text">Eseguire il comando switch Health monitor configure:</block>
   <block id="53c5b9bd181f1473f498076dceb33fdd" category="open-title">Per ONTAP 9.8 e versioni successive</block>
-  <block id="fa29548058837254e54c0910a42e81ed" category="paragraph"><block ref="7d77b5b7ecc6e91232de4d87c6f561de" prefix="" category="inline-code"></block></block>
   <block id="83bd7d6d3bceee06d3d796e3ff2402d4" category="open-title">Per ONTAP 9.4 e versioni successive</block>
-  <block id="57dedb9cbe459a7c90ef4837093192ae" category="paragraph"><block ref="2f9091db6d94c377cc0c7e2fbd67bc1a" prefix="" category="inline-code"></block></block>
-  <block id="25e09b4fadd3fa8202fa95ea688667c1" category="list-text">[[step5]]verificare che l'output del comando contenga la stringa di testo:<block ref="bb932139b2106289945776f4f81d066a" prefix=" " category="inline-code"></block>. In caso di errore, contattare il supporto NetApp.</block>
-  <block id="d28bbd717c002acf43e747edb594c750" category="list-text">Eseguire il comando sul sistema ONTAP e verificare che gli switch del cluster vengano rilevati con il campo monitorato impostato su "vero":</block>
   <block id="f0cf08e440f70a293eae42efda5ddea7" category="paragraph"><block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix="" category="inline-code"></block></block>
   <block id="7ac7aac5a4afd24125250a02a72b3989" category="paragraph"><block ref="694b56ad85eb627acc97ea9295f39018" prefix="" category="inline-code"></block></block>
-  <block id="edcd33ebd5d3817ccdc17b64134c7ec8" category="admonition">Se in qualsiasi momento si ripristina una versione precedente di ONTAP, è necessario installare nuovamente il file di configurazione CSHM per abilitare il monitoraggio dello stato degli switch cluster BES-53248.</block>
-  <block id="914288f821c5d88db21f926b4e94b1b3" category="paragraph">Per utilizzare tutte le funzioni disponibili in CSHM, attivare SSH come descritto in <block ref="e2b4c4f5313b05dff7c4a02a4e9e0df6" category="inline-link-macro-rx"></block>.</block>
   <block id="6e542d7f228623e0d93cb14b578964d6" category="summary">Per l'installazione e la manutenzione dello switch BES-53248, consultare l'elenco dei componenti e dei codici.</block>
   <block id="d243834ab21b34f6cc60b0c0c7b6ef45" category="doc">Componenti e codici ricambio per switch cluster BES-53248</block>
   <block id="1ad47980611dd1ee749c3478e99b4edd" category="paragraph">La seguente tabella elenca il numero di parte, la descrizione e le versioni minime di EFOS e ONTAP per i componenti dello switch cluster BES-53248, inclusi i dettagli del kit per montaggio su rack.</block>
@@ -635,7 +615,6 @@
   <block id="7600489ac65e7f2d69df5731f63b9999" category="list-text">Rimuovere gli switch CN1610 sostituiti se non vengono rimossi automaticamente:</block>
   <block id="48cd97dc0d15293354643e695aa2cd19" category="summary">La funzione di raccolta dei log del monitor di stato dello switch del cluster viene utilizzata per raccogliere i file di log relativi allo switch in ONTAP. Assicurarsi di aver configurato l'ambiente utilizzando la CLI dello switch cluster BES-53248, come descritto in dettaglio qui.</block>
   <block id="810bc3d02021061ba2b8f87b703a66dd" category="paragraph">È possibile utilizzare la funzione di raccolta dei log per raccogliere i file di log relativi allo switch in ONTAP.</block>
-  <block id="ee3c886759b6a2517a47e20c04320ed6" category="admonition">Per attivare la funzione di raccolta dei log, è necessario eseguire ONTAP versione 9.12.1 e successive e EFOS 3.8.0.2 e successive.</block>
   <block id="a4a59b3c291a83932a23dc7f2e6fce7a" category="paragraph"><block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix="" category="inline-code"></block> e.</block>
   <block id="59f5de53d0bcaeeb4e4e9818bbf75f18" category="paragraph"><block ref="ff5aaae616b6f326cad680284f32b588" prefix="" category="inline-code"></block></block>
   <block id="45e50cd7644af8bcb7582afbaff1fd3a" category="list-text">Inserire:<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block></block>
@@ -646,7 +625,6 @@
   <block id="2d2f7e0daa0beffd4746fe421a7731c4" category="paragraph"><block ref="88354d538ba5d4e1746193ec5949ab4b" prefix="" category="inline-code"></block></block>
   <block id="c0f264a6f90e5505b277b8a8526dbfba" category="admonition">Se uno di questi comandi restituisce un errore, contattare il supporto NetApp.</block>
   <block id="4a79c6270afcb7ed4e28cd8c98692b07" category="inline-link-macro">Verificare la configurazione dell'aggiornamento</block>
-  <block id="201928a01eb0d8a784dcd677be49e1a6" category="paragraph">Se si sta aggiornando lo switch, passare a. <block ref="4ea612b493226a65342298638fddee90" category="inline-link-macro-rx"></block>.</block>
   <block id="88045e5af7830d69afafc3e6e7a9cf86" category="summary">È possibile utilizzare questa procedura per eseguire l'installazione iniziale dello switch del cluster BES-53248.</block>
   <block id="67777be64987c8c0fadb924db93389aa" category="paragraph">Seguire questa procedura per eseguire una configurazione iniziale dello switch del cluster BES-53248.</block>
   <block id="923a86c9f908f09f61d33d7831905371" category="inline-link-macro">Installare l'hardware</block>
@@ -4299,7 +4277,6 @@
   <block id="853958821955886a4c9bfc1089defe86" category="sidebar">Workflow di installazione del software</block>
   <block id="5990fb757a59a934aeb2786bac162e97" category="sidebar">Installare il software EFOS</block>
   <block id="e12f54ec861369fe9d4230c607023240" category="sidebar">Installare le licenze</block>
-  <block id="b954609be582bc6760c67ae6e58cd7a9" category="sidebar">Installare il file di configurazione CSHM</block>
   <block id="e7d694813a2146a3ab31b4b907988620" category="sidebar">Abilitare SSH</block>
   <block id="037fd3285f5414c76c57c401fbc5603c" category="sidebar">Abilitare la raccolta dei log</block>
   <block id="742d7720a6bdc19b4810641f0c74ddd3" category="sidebar">Aggiornare gli switch</block>
@@ -4462,11 +4439,9 @@
   <block id="cc0c96fa4e2abab8a22a057701a64895" category="list-text">Spostare le porte del cluster di nodi dal vecchio switch C1 al nuovo switch cs1, utilizzando il cablaggio appropriato supportato da Cisco 9336C-FX2.</block>
   <block id="ba04a36ca69927056bab3bba36362e9b" category="list-text">Sugli switch cs1 e cs2, verificare che tutte le porte del cluster di nodi siano in funzione:</block>
   <block id="d9dbaab2b13b33007de8325a401de04b" category="sidebar">Migrazione da switch cluster CN1610</block>
-  <block id="6c174914ef0e9418a778018f9f416565" category="paragraph">Verificare di aver configurato l'ambiente utilizzando lo switch cluster BES-53248 *CLI*.</block>
   <block id="f82e463abb944d54e7eb997507aada97" category="list-text">Creare una password per la funzione di raccolta dei log dello switch Ethernet Health monitor:<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block></block>
   <block id="3da8b58ec29508478eb281950ce7a85f" category="list-text">Attivare la funzione di raccolta dei log dello switch Ethernet.</block>
   <block id="55c09ca9257750665c75e5b587165519" category="paragraph"><block ref="e802bd77f148cffa22d9aa9e7d79d65d" prefix="" category="inline-code"></block></block>
-  <block id="e1d0dd82b8f2058c2b4c4d59c2f80125" category="paragraph">Attendere 10 minuti, quindi verificare che la raccolta dei log venga completata utilizzando il comando:</block>
   <block id="0eedc6e86bf0684694a5f74d12cd17d7" category="admonition">Se uno di questi comandi restituisce un errore o se la raccolta dei log non viene completata, contattare il supporto NetApp.</block>
   <block id="df3b6dd54dfaeb972568b29147c67103" category="list-text">La personalizzazione iniziale degli switch BES-53248 è completa, in modo che:</block>
   <block id="8f7a04d5740dbba56b463f7bc775e27a" category="list-text">Gli switch BES-53248 utilizzano la versione più recente del software EFOS.</block>
@@ -4501,7 +4476,6 @@
   <block id="d576f6342b019a4a22e71708ae81b0d9" category="paragraph">Per tutte le release di ONTAP, è possibile utilizzare anche<block ref="7eaac8e45910aa8bf3a06f6966ab0656" prefix=" " category="inline-code"></block> comando per controllare la connettività:</block>
   <block id="090015dd47b4cd238b646c5f1dbc231d" category="list-text">[[step5]]attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch.</block>
   <block id="079555d3c02274a2f31c4ed0065d657e" category="doc">Configurare SNMPv3</block>
-  <block id="75e0b0aa735bcccb4bf1267f69cc872e" category="paragraph">Seguire questa procedura per configurare SNMPv3, che supporta il monitoraggio dello stato dello switch (CSHM).</block>
   <block id="1bd553f48f18f76a761092d0bebbe5a4" category="paragraph">Il seguente comando stabilisce il nome utente SNMPv3 con CSHM:<block ref="bc0f2549b8e026bfa298fbc575ba6020" prefix=" " category="inline-code"></block></block>
   <block id="44dd2902e6a8940e811d66f001eb74b8" category="list-text">Ripetere i passaggi da 1 a 8 per installare il software NX-OS sullo switch CS1.</block>
   <block id="52009bb7ee17227f566cd26a02caee56" category="inline-link-macro"><block ref="52009bb7ee17227f566cd26a02caee56" category="inline-link-rx"></block></block>
@@ -4690,4 +4664,39 @@ Per informazioni aggiornate sulla compatibilità, consultare<block ref="f6aa36fb
   <block id="acd5b19e96fe10bf67f0e3b493444cdb" category="paragraph">40/100GbE nodo 23</block>
   <block id="a03b317075029ec2eb6886719507222d" category="paragraph">40/100GbE nodo 24</block>
   <block id="6cc558c5fd7b268022c9cd6a5f86134b" category="admonition">Le eccezioni elencate non influiscono sulle prestazioni e possono essere ignorate in modo sicuro.</block>
+  <block id="b61075ba30803dc13c18190d95bb660c" category="summary">La funzione di raccolta dei log del monitor stato switch Ethernet (CSHM) viene utilizzata per raccogliere i log da switch cluster o di rete di storage in ONTAP.</block>
+  <block id="cc96021e22980976473658b2f1ba6e98" category="doc">Raccolta registro monitoraggio stato switch Ethernet</block>
+  <block id="bf4e0c74d0d64f033de371084e1f1021" category="paragraph">Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione e avvio della raccolta di registri *supporto* dettagliati dal centralino e avvia una raccolta oraria di dati *periodici* raccolti da AutoSupport.</block>
+  <block id="ae4749ec36ab32554e1987f66caacdb7" category="list-text">Per attivare la funzione di raccolta dei registri, è necessario eseguire ONTAP versione 9.12.1 o successiva ed EFOS 3.8.0.2 o successiva.</block>
+  <block id="8d36506446d5ad8477c75d9150e6528f" category="list-text">Il monitoraggio dello stato dello switch deve essere abilitato per lo switch. Verificare questo assicurandosi che<block ref="83bb5774e6e4dc96959b12bfa4334f18" prefix=" " category="inline-code"></block> il campo è impostato su *true* nell'output di<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> comando.</block>
+  <block id="09a5c8e72e479c23dfcdb0045312203a" category="list-text">Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.</block>
+  <block id="51e57b530a227b04924d2803cdc52930" category="list-text">Per avviare la raccolta dei log, eseguire il comando seguente, sostituendo DEVICE con lo switch utilizzato nel comando precedente. Questo avvia entrambi i tipi di raccolta di log: I log dettagliati *Support* e una raccolta oraria di dati *Periodic*.</block>
+  <block id="231cf4c70d866b616c21baddaeed0696" category="paragraph-title">Risoluzione dei problemi</block>
+  <block id="37c0786b751e8b6bed2adbf850ab884e" category="paragraph">Se si verifica uno dei seguenti stati di errore segnalati dalla funzione di raccolta registri (visibile nell'output di<block ref="88354d538ba5d4e1746193ec5949ab4b" prefix=" " category="inline-code"></block>), provare i passi di debug corrispondenti:</block>
+  <block id="f766c25c90ea3bb9aa3798d25e0a5087" category="cell">*Stato errore raccolta log*</block>
+  <block id="2d424e5dd89f6819ff42231c7a18b118" category="cell">*Risoluzione*</block>
+  <block id="018a74682c62c75c7c75d90d5ddf1cbf" category="paragraph">*Chiavi RSA non presenti*</block>
+  <block id="6654dac813e45b08b32b58fbbd49eed9" category="paragraph">Rigenerare le chiavi SSH ONTAP. Contattare l'assistenza NetApp.</block>
+  <block id="5b75a2412f91e51d9c828c1eedc4678f" category="paragraph">*errore password cambio*</block>
+  <block id="5bc4d3730ab537bc31f24f538828bcf8" category="paragraph">Verificare le credenziali, verificare la connettività SSH e rigenerare le chiavi SSH ONTAP. Consultare la documentazione dello switch o contattare il supporto NetApp per le istruzioni.</block>
+  <block id="bd6021089b0b22b779073ce64186e7fd" category="paragraph">*Chiavi ECDSA non presenti per FIPS*</block>
+  <block id="c75d07c4d4aaf4fdb88aab5f0675be1c" category="paragraph">Se la modalità FIPS è attivata, le chiavi ECDSA devono essere generate sullo switch prima di riprovare.</block>
+  <block id="c66550e1243c24f8c299886b45f636e8" category="paragraph">*trovato log preesistente*</block>
+  <block id="ad20b6964df2e6ea3df2b394efc811ed" category="paragraph">Rimuovere il file di raccolta del registro precedente sullo switch.</block>
+  <block id="20c7a250c756306872ccbb15d529b664" category="paragraph">*errore registro dump switch*</block>
+  <block id="282efbd3d7380f8a34d8579ad5d9c11f" category="paragraph">Assicurarsi che l'utente dello switch disponga delle autorizzazioni per la raccolta dei registri. Fare riferimento ai prerequisiti riportati sopra.</block>
+  <block id="b8731468035c2cab5635961a32d46c38" category="summary">SNMPv3 può essere utilizzato con il monitor stato switch Ethernet (CSHM).</block>
+  <block id="86da6292895a71bdd61d82bd76a5649d" category="paragraph">Seguire questa procedura per configurare SNMPv3, che supporta il monitoraggio dello stato dello switch Ethernet (CSHM).</block>
+  <block id="f00216e423dd65c7a8b4a0768c1cf2bc" category="paragraph">I seguenti comandi configurano un nome utente SNMPv3 sugli switch Broadcom BES-53248:</block>
+  <block id="0e428ea0cadb7e39f8fa4eb48dd9ea98" category="paragraph"><block ref="0ae39c023aff4fed8d1a872fd04e3d83" prefix="" category="inline-code"></block></block>
+  <block id="6b9f542dd155c40aa5e4484b5ff61711" category="list-text">Configurare CSHM per il monitoraggio con il nuovo utente SNMPv3:</block>
+  <block id="7645c6b839b29d79d56508ac59b17a0f" category="paragraph"><block ref="e455ca07bfb78eb821e00f72366d7972" prefix="" category="inline-code"></block></block>
+  <block id="d4d693d9dd779d0daf149c2e448b60b2" category="list-text">Verificare che il numero seriale da sottoporre a query con l'utente SNMPv3 appena creato sia lo stesso descritto nel passaggio precedente dopo il completamento del periodo di polling CSHM.</block>
+  <block id="28444591fb832d5dcae593ad2a8f56da" category="admonition">È necessario specificare un utente nell'RCF (oltre all'utente amministratore) da utilizzare specificamente per la raccolta dei log.</block>
+  <block id="f2a9c66f4943798b57467021b65ab75a" category="list-text">È necessario specificare l'utente per la raccolta di log quando viene applicato il file di configurazione di riferimento (RCF). Per impostazione predefinita, questo utente è impostato su 'admin'. Se si desidera utilizzare un altro utente, è necessario specificarlo nella sezione *# SHM User*s di RCF.</block>
+  <block id="41418696440702a63005a485c96de621" category="list-text">L'utente deve avere accesso ai comandi *nv show*. Questo può essere aggiunto eseguendo<block ref="d019363df09b88c795c1354553c6fe8f" prefix=" " category="inline-code"></block> E sostituendo l'utente con l'utente per la raccolta dei log.</block>
+  <block id="f9659d3e6fcf03c716c20b733c8e68fc" category="list-text">Per avviare la raccolta dei log, eseguire il comando seguente, sostituendo DEVICE con lo switch utilizzato nel comando precedente. In questo modo vengono avviati entrambi i tipi di raccolta di log: Il dettagliato<block ref="db5eb84117d06047c97c9a0191b5fffe" prefix=" " category="inline-code"></block> registri e una raccolta oraria di<block ref="cdcc32a064503184053bd2018d1c0e7e" prefix=" " category="inline-code"></block> dati.</block>
+  <block id="b9c519617ddb8983725afb0a6830a2f9" category="paragraph">Rimuovere la directory di raccolta dei log precedente e il file '.tar' che si trova in<block ref="0793027f48f71fa4fc10baf29d75e685" prefix=" " category="inline-code"></block> sull'interruttore.</block>
+  <block id="c2d06740bdd189b6a9e5c66037c2fca6" category="list-text">Verificare che il numero seriale da interrogare con l'utente SNMPv3 appena creato sia lo stesso descritto nel passaggio precedente una volta completato il periodo di polling CSHM.</block>
+  <block id="d185f7c4f8a7ee7fcc5143d7f639a45b" category="sidebar">Configurare SNMPv3 per il monitoraggio</block>
 </blocks>
