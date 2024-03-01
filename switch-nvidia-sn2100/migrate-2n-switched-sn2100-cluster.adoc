@@ -84,16 +84,18 @@ Il prompt avanzato (`*>`).
 
 === Fase 2: Configurare le porte e il cablaggio
 
+[role="tabbed-block"]
+====
+.Cumulus Linux 4,4.x
+--
 . Disattivare tutte le porte rivolte ai nodi (non le porte ISL) su entrambi i nuovi switch del cluster sw1 e sw2.
 +
 Non è necessario disattivare le porte ISL.
 
 +
-.Mostra esempio
-[%collapsible]
-====
 I seguenti comandi disattivano le porte rivolte al nodo sugli switch sw1 e sw2:
 
++
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net add interface swp1s0-3, swp2s0-3, swp3-14 link down*
@@ -104,17 +106,14 @@ cumulus@sw2:~$ *net add interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
-====
 . Verificare che le porte ISL e fisiche dell'ISL tra i due switch SN2100 sw1 e sw2 siano installate sulle porte swp15 e swp16:
 +
 `net show interface`
 
 +
-.Mostra esempio
-[%collapsible]
-====
-L'esempio seguente mostra che le porte ISL sono installate sullo switch sw1:
+I seguenti comandi mostrano che le porte ISL sono attive sugli switch SW1 e SW2:
 
++
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net show interface*
@@ -125,13 +124,7 @@ State  Name       Spd   MTU    Mode        LLDP         Summary
 ...
 UP     swp15      100G  9216   BondMember  sw2 (swp15)  Master: cluster_isl(UP)
 UP     swp16      100G  9216   BondMember  sw2 (swp16)  Master: cluster_isl(UP)
-----
-L'esempio seguente mostra che le porte ISL sono installate sullo switch sw2:
 
-+
-
-[listing, subs="+quotes"]
-----
 cumulus@sw2:~$ *net show interface*
 
 State  Name       Spd   MTU    Mode        LLDP         Summary
@@ -141,8 +134,65 @@ State  Name       Spd   MTU    Mode        LLDP         Summary
 UP     swp15      100G  9216   BondMember  sw1 (swp15)  Master: cluster_isl(UP)
 UP     swp16      100G  9216   BondMember  sw1 (swp16)  Master: cluster_isl(UP)
 ----
+
+
+--
+.Cumulus Linux 5.x
+--
+. Disattiva tutte le porte rivolte ai nodi (non porte ISL) su entrambi i nuovi switch cluster SW1 e SW2.
++
+Non è necessario disattivare le porte ISL.
+
++
+I seguenti comandi disattivano le porte rivolte al nodo sugli switch sw1 e sw2:
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw1:~$ *nv config apply*
+cumulus@sw1:~$ *nv save*
+
+cumulus@sw2:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw2:~$ *nv config apply*
+cumulus@sw2:~$ *nv save*
+----
+. Verificare che le porte ISL e fisiche dell'ISL tra i due switch SN2100 sw1 e sw2 siano installate sulle porte swp15 e swp16:
++
+`nv show interface`
+
++
+I seguenti esempi mostrano che le porte ISL sono attive sugli switch SW1 e SW2:
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv show interface*
+
+Interface     MTU    Speed  State  Remote Host  Remote Port                          Type    Summary
+------------- ------ -----  ------ ------------ ------------------------------------ ------- -------
+...
+...
++ swp14       9216          down                                                     swp
++ swp15       9216   100G   up     ossg-rcf1    Intra-Cluster Switch ISL Port swp15  swp
++ swp16       9216   100G   up     ossg-rcf2    Intra-Cluster Switch ISL Port swp16  swp
+
+
+cumulus@sw2:~$ *nv show interface*
+
+Interface     MTU    Speed  State  Remote Host  Remote Port                          Type    Summary
+------------- ------ -----  ------ ------------ ------------------------------------ ------- -------
+...
+...
++ swp14       9216          down                                                     swp
++ swp15       9216   100G   up     ossg-rcf1    Intra-Cluster Switch ISL Port swp15  swp
++ swp16       9216   100G   up     ossg-rcf2    Intra-Cluster Switch ISL Port swp16  swp
+----
+
+
+--
 ====
-. Verificare che tutte le porte del cluster siano installate:
+. [[step3]] verificare che tutte le porte del cluster siano attive:
 +
 `network port show`
 
@@ -230,28 +280,30 @@ Cluster
 Il https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switch"^] contiene ulteriori informazioni sul cablaggio.
 
 . Scollegare il cavo dalla porta del cluster e3a sul nodo 2, quindi collegare e3a alla porta 4 sullo switch del cluster sw1, utilizzando il cablaggio appropriato supportato dagli switch SN2100.
-. Sullo switch sw1, abilitare tutte le porte rivolte al nodo.
-+
-.Mostra esempio
-[%collapsible]
-====
-Il seguente comando abilita tutte le porte rivolte ai nodi sullo switch sw1:
 
+
+[role="tabbed-block"]
+====
+.Cumulus Linux 4,4.x
+--
+. [[step8]] sullo switch SW1, abilitare tutte le porte rivolte ai nodi.
++
+I seguenti comandi abilitano tutte le porte rivolte ai nodi sullo switch SW1.
+
++
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net del interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@sw1:~$ *net pending*
 cumulus@sw1:~$ *net commit*
 ----
-====
-. Sullo switch sw1, verificare che tutte le porte siano in funzione:
+
+
+. [[step]] sullo switch SW1, verificare che tutte le porte siano attive:
 +
 `net show interface all`
 
 +
-.Mostra esempio
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net show interface all*
@@ -275,8 +327,58 @@ UP     swp15     100G  9216   BondMember  swp15          Master: cluster_isl(UP)
 UP     swp16     100G  9216   BondMember  swp16          Master: cluster_isl(UP)
 ...
 ----
+
+
+--
+.Cumulus Linux 5.x
+--
+. [[step8]] sullo switch SW1, abilitare tutte le porte rivolte ai nodi.
++
+I seguenti comandi abilitano tutte le porte rivolte ai nodi sullo switch SW1.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv unset interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw1:~$ *nv config apply*
+cumulus@sw1:~$ *nv config save*
+----
+
+
+. [[step9]] sullo switch SW1, verificare che tutte le porte siano attive:
++
+`nv show interface`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv show interface*
+
+Interface    State  Speed  MTU    Type      Remote Host                 Remote Port  Summary
+-----------  -----  -----  -----  --------  --------------------------  -----------  ----------
+...
+...
+swp1s0       up     10G    9216   swp       odq-a300-1a                         e0a
+swp1s1       up     10G    9216   swp       odq-a300-1b                         e0a
+swp1s2       down   10G    9216   swp
+swp1s3       down   10G    9216   swp
+swp2s0       down   25G    9216   swp
+swp2s1       down   25G    9216   swp
+swp2s2       down   25G    9216   swp
+swp2s3       down   25G    9216   swp
+swp3         down          9216   swp
+swp4         down          9216   swp
+...
+...
+swp14        down          9216   swp
+swp15        up     100G   9216   swp       ossg-int-rcf10                    swp15
+swp16        up     100G   9216   swp       ossg-int-rcf10                    swp16
+----
+
+
+--
 ====
-. Verificare che tutte le porte del cluster siano installate:
+. [[step10]] verificare che tutte le porte del cluster siano attive:
 +
 `network port show -ipspace Cluster`
 
@@ -331,28 +433,28 @@ node2                true    true          false
 ====
 . Scollegare il cavo dalla porta del cluster e3b sul nodo 1, quindi collegare e3b alla porta 3 sullo switch del cluster sw2, utilizzando il cablaggio appropriato supportato dagli switch SN2100.
 . Scollegare il cavo dalla porta del cluster e3b sul nodo 2, quindi collegare e3b alla porta 4 sullo switch del cluster sw2, utilizzando il cablaggio appropriato supportato dagli switch SN2100.
-. Sullo switch sw2, abilitare tutte le porte rivolte al nodo.
-+
-.Mostra esempio
-[%collapsible]
+
+
+[role="tabbed-block"]
 ====
+.Cumulus Linux 4,4.x
+--
+. [[step14]] sullo switch SW2, abilitare tutte le porte rivolte ai nodi.
++
 I seguenti comandi abilitano le porte rivolte al nodo dello switch sw2:
 
++
 [listing, subs="+quotes"]
 ----
 cumulus@sw2:~$ *net del interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
-====
-. Sullo switch sw2, verificare che tutte le porte siano in funzione:
+. [[STEP15]] sullo switch SW2, verificare che tutte le porte siano attive:
 +
 `net show interface all`
 
 +
-.Mostra esempio
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus@sw2:~$ *net show interface all*
@@ -376,16 +478,16 @@ UP     swp15     100G  9216   BondMember  swp15          Master: cluster_isl(UP)
 UP     swp16     100G  9216   BondMember  swp16          Master: cluster_isl(UP)
 ...
 ----
-====
-. Su entrambi gli switch sw1 e sw2, verificare che entrambi i nodi dispongano di una connessione a ciascuno switch:
+
+
+. [[step16]] su entrambi gli switch SW1 e SW2, verificare che entrambi i nodi abbiano ciascuno una connessione a ciascuno switch:
 +
 `net show lldp`
 
 +
-.Mostra esempio
-[%collapsible]
-====
 L'esempio seguente mostra i risultati appropriati per entrambi gli switch sw1 e sw2:
+
+
 
 [listing, subs="+quotes"]
 ----
@@ -407,10 +509,112 @@ swp4       100G   Trunk/L2    node2              e3b
 swp15      100G   BondMember  sw1                swp15
 swp16      100G   BondMember  sw1                swp16
 ----
-====
-. Visualizzare le informazioni relative ai dispositivi di rete rilevati nel cluster:
+--
+.Cumulus Linux 5.x
+--
+. [[step14]] sullo switch SW2, abilitare tutte le porte rivolte ai nodi.
 +
-`net device-discovery show -protocol lldp`
+I seguenti comandi abilitano le porte rivolte al nodo dello switch sw2:
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *nv unset interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw2:~$ *nv config apply*
+cumulus@sw2:~$ *nv config save*
+----
+. [[STEP15]] sullo switch SW2, verificare che tutte le porte siano attive:
++
+`nv show interface`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *nv show interface*
+
+Interface    State  Speed  MTU    Type      Remote Host                 Remote Port  Summary
+-----------  -----  -----  -----  --------  --------------------------  -----------  ----------
+...
+...
+swp1s0       up     10G    9216   swp       odq-a300-1a                         e0a
+swp1s1       up     10G    9216   swp       odq-a300-1b                         e0a
+swp1s2       down   10G    9216   swp
+swp1s3       down   10G    9216   swp
+swp2s0       down   25G    9216   swp
+swp2s1       down   25G    9216   swp
+swp2s2       down   25G    9216   swp
+swp2s3       down   25G    9216   swp
+swp3         down          9216   swp
+swp4         down          9216   swp
+...
+...
+swp14        down          9216   swp
+swp15        up     100G   9216   swp       ossg-int-rcf10                    swp15
+swp16        up     100G   9216   swp       ossg-int-rcf10                    swp16
+----
+
+
+. [[step16]] su entrambi gli switch SW1 e SW2, verificare che entrambi i nodi abbiano ciascuno una connessione a ciascuno switch:
++
+`nv show interface --view=lldp`
+
++
+I seguenti esempi mostrano i risultati appropriati per entrambi gli interruttori SW1 e SW2:
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv show interface --view=lldp*
+
+Interface    Speed  Type      Remote Host                         Remote Port
+-----------  -----  --------  ----------------------------------  -----------
+...
+...
+swp1s0       10G    swp       odq-a300-1a                         e0a
+swp1s1       10G    swp       odq-a300-1b                         e0a
+swp1s2       10G    swp
+swp1s3       10G    swp
+swp2s0       25G    swp
+swp2s1       25G    swp
+swp2s2       25G    swp
+swp2s3       25G    swp
+swp3                swp
+swp4                swp
+...
+...
+swp14               swp
+swp15        100G   swp       ossg-int-rcf10                      swp15
+swp16        100G   swp       ossg-int-rcf10                      swp16
+
+cumulus@sw2:~$ *nv show interface --view=lldp*
+
+Interface    Speed  Type      Remote Host                         Remote Port
+-----------  -----  --------  ----------------------------------  -----------
+...
+...
+swp1s0       10G    swp       odq-a300-1a                         e0a
+swp1s1       10G    swp       odq-a300-1b                         e0a
+swp1s2       10G    swp
+swp1s3       10G    swp
+swp2s0       25G    swp
+swp2s1       25G    swp
+swp2s2       25G    swp
+swp2s3       25G    swp
+swp3                swp
+swp4                swp
+...
+...
+swp14               swp
+swp15        100G   swp       ossg-int-rcf10                      swp15
+swp16        100G   swp       ossg-int-rcf10                      swp16
+----
+
+
+--
+====
+. [[STEP17]] Visualizza informazioni sui dispositivi di rete rilevati nel cluster:
++
+`network device-discovery show -protocol lldp`
 
 +
 .Mostra esempio
@@ -591,7 +795,7 @@ RPC status:
 2 paths up, 0 paths down (udp check)
 ----
 ====
-. Creare una password per la funzione di raccolta dei log dello switch Ethernet Health monitor:
+. Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.
 +
 `system switch ethernet log setup-password`
 
@@ -625,7 +829,7 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. Attivare la funzione di raccolta dei log dello switch Ethernet.
+. Per avviare la raccolta dei log, eseguire il comando seguente, sostituendo DEVICE con lo switch utilizzato nel comando precedente. Questo avvia entrambi i tipi di raccolta di log: I log dettagliati *Support* e una raccolta oraria di dati *Periodic*.
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 
@@ -635,13 +839,13 @@ Enter the password again: *<enter switch password>*
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
+cluster1::*> *system switch ethernet log modify -device sw1 -log-request true*
 
 Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
 
 Enabling cluster switch log collection.
 
-cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
+cluster1::*> *system switch ethernet log modify -device sw2 -log-request true*
 
 Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
 
@@ -663,15 +867,15 @@ Attendere 10 minuti, quindi verificare che la raccolta dei log sia completa:
 cluster1::*> system switch ethernet log show
 Log Collection Enabled: true
 
-Index  Switch                       Log Timestamp        Status
------- ---------------------------- -------------------  ---------    
-1      cs1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
-2      cs2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
+Index  Switch                       Log Timestamp        Status
+------ ---------------------------- -------------------- ---------
+1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete
+2      sw2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
 ----
 ====
 +
 
-CAUTION: Se uno di questi comandi restituisce un errore o se la raccolta dei log non viene completata, contattare il supporto NetApp.
+CAUTION: Se uno di questi comandi restituisce un errore, contattare il supporto NetApp.
 
 . Modificare nuovamente il livello di privilegio in admin:
 +
