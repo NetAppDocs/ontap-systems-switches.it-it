@@ -112,11 +112,9 @@ Il prompt avanzato (`*>`).
 NOTE: Non è necessario disattivare le porte ISL.
 
 +
-.Mostra esempio
-[%collapsible]
-====
 L'esempio seguente mostra che le porte rivolte al nodo da 1 a 16 sono disattivate sullo switch cs1:
 
++
 [listing, subs="+quotes"]
 ----
 (cs1)# *configure*
@@ -125,7 +123,6 @@ L'esempio seguente mostra che le porte rivolte al nodo da 1 a 16 sono disattivat
 (cs1)(Interface 0/1-0/16)# *exit*
 (cs1)(Config)# *exit*
 ----
-====
 . Verificare che le porte ISL e fisiche dell'ISL tra i due switch BES-53248 cs1 e cs2 siano *up*:
 +
 `show port-channel`
@@ -285,11 +282,9 @@ Il https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] contiene ult
 . Scollegare il cavo dalla porta del cluster e0a sul nodo 2, quindi collegare e0a alla porta 2 sullo switch del cluster cs1, utilizzando il cablaggio appropriato supportato dagli switch BES-53248.
 . Abilitare tutte le porte rivolte ai nodi sullo switch cluster cs1.
 +
-.Mostra esempio
-[%collapsible]
-====
 L'esempio seguente mostra che le porte da 1 a 16 sono attivate sullo switch cs1:
 
++
 [listing, subs="+quotes"]
 ----
 (cs1)# *configure*
@@ -298,7 +293,6 @@ L'esempio seguente mostra che le porte da 1 a 16 sono attivate sullo switch cs1:
 (cs1)(Interface 0/1-0/16)# *exit*
 (cs1)(Config)# *exit*
 ----
-====
 . Verificare che tutte le LIF del cluster siano funzionanti, operative e visualizzate come `true` per `Is Home`:
 +
 `network interface show -vserver Cluster`
@@ -347,11 +341,9 @@ node2                true    true          false
 . Scollegare il cavo dalla porta del cluster e0b sul nodo 2, quindi collegare e0b alla porta 2 sullo switch del cluster cs2, utilizzando il cablaggio appropriato supportato dagli switch BES-53248.
 . Abilitare tutte le porte rivolte ai nodi sullo switch cluster cs2.
 +
-.Mostra esempio
-[%collapsible]
-====
 L'esempio seguente mostra che le porte da 1 a 16 sono attivate sullo switch cs2:
 
++
 [listing, subs="+quotes"]
 ----
 (cs2)# *configure*
@@ -360,7 +352,6 @@ L'esempio seguente mostra che le porte da 1 a 16 sono attivate sullo switch cs2:
 (cs2)(Interface 0/1-0/16)# *exit*
 (cs2)(Config)# *exit*
 ----
-====
 . Verificare che tutte le porte del cluster siano *up*:
 +
 `network port show -ipspace Cluster`

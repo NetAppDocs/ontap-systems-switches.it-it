@@ -1,0 +1,134 @@
+---
+permalink: switch-cisco-9336c-fx2/CSHM_log_collection.html 
+sidebar: sidebar 
+keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
+summary: 'La funzione di raccolta dei log del monitor di stato dello switch del cluster viene utilizzata per raccogliere i file di log relativi allo switch in ONTAP. È necessario assicurarsi di aver configurato l"ambiente utilizzando l"interfaccia a riga di comando dello switch cluster 9336c-FX2, come illustrato in dettaglio qui.' 
+---
+= Raccolta registro monitoraggio stato switch Ethernet
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare la funzione di raccolta dei log per raccogliere i file di log relativi allo switch in ONTAP.
+Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione e avvio della raccolta di registri *supporto* dettagliati dal centralino e avvia una raccolta oraria di dati *periodici* raccolti da AutoSupport.
+
+.Prima di iniziare
+* Verificare di aver configurato l'ambiente utilizzando lo switch cluster 9336C-FX2 *CLI*.
+* Il monitoraggio dello stato dello switch deve essere abilitato per lo switch. Verificare questo assicurandosi che `Is Monitored:` il campo è impostato su *true* nell'output di `system switch ethernet show` comando.
+
+
+.Fasi
+. Creare una password per la funzione di raccolta dei log dello switch Ethernet Health monitor:
++
+`system switch ethernet log setup-password`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: *<return>*
+The switch name entered is not recognized.
+Choose from the following list:
+*cs1*
+*cs2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs1*
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs2*
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+----
+====
+. Per avviare la raccolta dei log, eseguire il comando seguente, sostituendo DEVICE con lo switch utilizzato nel comando precedente. Questo avvia entrambi i tipi di raccolta di log: I log dettagliati *Support* e una raccolta oraria di dati *Periodic*.
++
+`system switch ethernet log modify -device _<switch-name>_ -log-request true`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+----
+====
++
+Attendere 10 minuti, quindi verificare che la raccolta dei log sia completa:
+
++
+`system switch ethernet log show`
+
++
+
+CAUTION: Se uno di questi comandi restituisce un errore o se la raccolta dei log non viene completata, contattare il supporto NetApp.
+
+
+
+.Risoluzione dei problemi
+Se si verifica uno dei seguenti stati di errore segnalati dalla funzione di raccolta registri (visibile nell'output di `system switch ethernet log show`), provare i passi di debug corrispondenti:
+
+|===
+
+
+| *Stato errore raccolta log* | *Risoluzione* 
+
+
+ a| 
+*Chiavi RSA non presenti*
+ a| 
+Rigenerare le chiavi SSH ONTAP. Contattare l'assistenza NetApp.
+
+
+
+ a| 
+*errore password cambio*
+ a| 
+Verificare le credenziali, verificare la connettività SSH e rigenerare le chiavi SSH ONTAP. Per istruzioni, consultare la documentazione dello switch o contattare l'assistenza NetApp.
+
+
+
+ a| 
+*Chiavi ECDSA non presenti per FIPS*
+ a| 
+Se la modalità FIPS è attivata, le chiavi ECDSA devono essere generate sullo switch prima di riprovare.
+
+
+
+ a| 
+*trovato log preesistente*
+ a| 
+Rimuovere il file di raccolta del registro precedente sullo switch.
+
+
+
+ a| 
+*errore registro dump switch*
+ a| 
+Assicurarsi che l'utente dello switch disponga delle autorizzazioni per la raccolta dei registri. Fare riferimento ai prerequisiti riportati sopra.
+
+|===

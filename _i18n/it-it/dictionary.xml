@@ -613,7 +613,6 @@
   <block id="c88bbeb32e8a86a6536b0c77fe7f1ec8" category="list-text">Eseguire il ping delle interfacce del cluster remoto, quindi eseguire un controllo del server di chiamata per la procedura remota:</block>
   <block id="25ea268f832f9b1eec50e6576dee1fa5" category="list-text">Visualizzare le informazioni relative ai dispositivi nella configurazione:</block>
   <block id="7600489ac65e7f2d69df5731f63b9999" category="list-text">Rimuovere gli switch CN1610 sostituiti se non vengono rimossi automaticamente:</block>
-  <block id="48cd97dc0d15293354643e695aa2cd19" category="summary">La funzione di raccolta dei log del monitor di stato dello switch del cluster viene utilizzata per raccogliere i file di log relativi allo switch in ONTAP. Assicurarsi di aver configurato l'ambiente utilizzando la CLI dello switch cluster BES-53248, come descritto in dettaglio qui.</block>
   <block id="810bc3d02021061ba2b8f87b703a66dd" category="paragraph">È possibile utilizzare la funzione di raccolta dei log per raccogliere i file di log relativi allo switch in ONTAP.</block>
   <block id="a4a59b3c291a83932a23dc7f2e6fce7a" category="paragraph"><block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix="" category="inline-code"></block> e.</block>
   <block id="59f5de53d0bcaeeb4e4e9818bbf75f18" category="paragraph"><block ref="ff5aaae616b6f326cad680284f32b588" prefix="" category="inline-code"></block></block>
@@ -2180,7 +2179,6 @@
   <block id="59116f59872c085262f1a68785328de0" category="list-text">Le porte del cluster su ciascun nodo sono collegate agli switch del cluster esistenti nel seguente modo (dal punto di vista dei nodi) utilizzando il comando:</block>
   <block id="f957cdd05b2a3efc40f23d576fbf6ff6" category="list-text">Le porte e gli switch del cluster sono collegati nel seguente modo (dal punto di vista degli switch) utilizzando il comando:</block>
   <block id="9b1967a91ed9266aaf5e0f5505581e7e" category="paragraph"><block ref="cdf610401d84a31ec0b35a9530629e42" prefix="" category="inline-code"></block></block>
-  <block id="3513778183f196c22ad19d3ad8153592" category="list-text">Verificare che la rete del cluster disponga di connettività completa utilizzando il comando:</block>
   <block id="9e23ccbda503c8dd0fa60d4057a41702" category="list-text">Sullo switch c2, spegnere le porte collegate alle porte del cluster dei nodi.</block>
   <block id="aba8d89ac417a82d843ceaf3c6ac2faa" category="list-text">Spostare le porte del cluster di nodi dal vecchio switch c2 al nuovo switch sw2, utilizzando il cablaggio appropriato supportato da NVIDIA SN2100.</block>
   <block id="c8c9eddba7745010ae7d2faeb412c212" category="list-text">Sullo switch sw2, verificare che tutte le porte del cluster di nodi siano in funzione:</block>
@@ -2612,7 +2610,6 @@
   <block id="a8533f5d76b31d23a0cf8a1ecb757967" category="list-text">Visualizzare le porte del cluster su ciascun nodo connesso agli switch del cluster esistenti:</block>
   <block id="1a0894513362fda649e11ba9de926b82" category="list-text">Determinare lo stato amministrativo o operativo di ciascuna porta del cluster.</block>
   <block id="1da3446a4a17fed544e965b2918f91fb" category="list-text">Verificare che tutte le interfacce del cluster (LIFF) si trovino sulle porte home:</block>
-  <block id="819ff57f464e039de1c480b406150b87" category="list-text">Sullo switch del cluster cs2, spegnere le porte collegate alle porte del cluster dei nodi:</block>
   <block id="6285269d7b8b003aed53cad1f3d13717" category="list-text">Spostare tutti i cavi di connessione del nodo del cluster dal vecchio switch cs2 al nuovo switch cs2-new.</block>
   <block id="f8e1e48a80ce2fac4d53a95f1f1ffd18" category="paragraph">*I cavi di connessione del nodo del cluster sono stati spostati nel nuovo switch cs2*</block>
   <block id="e07ca5d2322ee212c9dcb668e9db443a" category="image-alt">I cavi di connessione del nodo del cluster sono stati spostati nel nuovo switch cs2</block>
@@ -2620,16 +2617,12 @@
   <block id="be6163ad0c362d632b28f98dea1fdaaa" category="paragraph">Tutte le porte del cluster spostate devono essere in alto.</block>
   <block id="e0b5dd148b27eba7b37861e24a42cd95" category="list-text">Controllare le informazioni sulle porte del cluster:</block>
   <block id="d0141bcaf704f75f043a7384708a3131" category="paragraph">Verificare che le porte del cluster spostate vedano lo switch cs2-new come il neighbor.</block>
-  <block id="f53f913adacde30730136e7153afce35" category="list-text">Verificare le connessioni delle porte dello switch dal punto di vista dello switch cs2-new:</block>
-  <block id="c4fb5fab435d358d1b3a68ec74352416" category="list-text">Sullo switch del cluster cs1, spegnere le porte collegate alle porte del cluster dei nodi. Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia del passo 7.</block>
   <block id="8c61118abc6e9e30fd4469d362e96e00" category="paragraph">Tutte le LIF del cluster passano al nuovo switch cs2.</block>
-  <block id="8b7e96c4a6ec3f09a7abd139ff295c0f" category="list-text">Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch cs2-new. Questa operazione potrebbe richiedere alcuni secondi:</block>
   <block id="604d674dc95a98cb2db636e889289949" category="list-text">Spostare i cavi di connessione del nodo del cluster da cs1 al nuovo switch cs1-new.</block>
   <block id="2e58f874fe5dd7ef46fee2c92b1e77eb" category="paragraph">*I cavi di connessione del nodo del cluster sono stati spostati nel nuovo switch cs1*</block>
   <block id="7d829570fe05df690649474b2bb97a3b" category="image-alt">I cavi di connessione del nodo del cluster sono stati spostati nel nuovo switch cs1</block>
   <block id="cddcb87f9d8427437485fbaad0309f0d" category="list-text">Verificare lo stato delle connessioni di rete trasferite a cs1-New:</block>
   <block id="2a5fc0afbcb2299e24c73a909b297e93" category="paragraph">Verificare che le porte del cluster spostate vedano lo switch cs1-new come il neighbor.</block>
-  <block id="35d736ae56a7e094d4d2c2786669f8ca" category="list-text">Verificare le connessioni delle porte dello switch dal punto di vista dello switch cs1-new:</block>
   <block id="800c1c0a764eb859a7e53df87ed00481" category="list-text">Verificare che l'ISL tra cs1-new e cs2-new sia ancora operativo:</block>
   <block id="f8a26b1330fe6b7b741993630dd932e2" category="list-text">Verificare che le LIF del cluster siano ripristinate alle porte home (questa operazione potrebbe richiedere un minuto):</block>
   <block id="65201dcfc7c620613613b15eb161d307" category="paragraph">Se le LIF del cluster non sono tornate alla porta home, ripristinarle manualmente:</block>
@@ -4428,17 +4421,12 @@
   <block id="d3be97c754d4396e13d0406452fc2fb0" category="list-text">Hai pianificato, migrato e documentato la connettività da 40 GbE e 100 GbE dai nodi agli switch cluster Cisco 9336C-FX2.</block>
   <block id="9d9d3ff89e1f212fa1f66986336ed0c1" category="list-text">Gli switch del cluster CN1610 esistenti sono _C1_ e _C2_.</block>
   <block id="584cd7559b010eb68304bdb5ed2c60d2" category="list-text">I nuovi switch cluster 9336C-FX2 sono _cs1_ e _cs2_.</block>
-  <block id="bf50ad9c8205601ab87f52d53897d187" category="list-text">Lo switch C2 viene sostituito prima dallo switch cs2, quindi lo switch C1 viene sostituito dallo switch cs1.</block>
-  <block id="336662c525771f82353eb880f4507911" category="list-text">Il cablaggio tra i nodi e C2 viene quindi scollegato da C2 e ricollegato a cs2</block>
   <block id="ba8f22a022d24c1e6a519a5e6a867762" category="list-text">Il cablaggio tra i nodi e C1 viene quindi scollegato da C1 e ricollegato a cs1.</block>
-  <block id="413712aa4f400acdac067e9bcde8736d" category="list-text">Sullo switch C2, spegnere le porte collegate alle porte del cluster dei nodi.</block>
   <block id="d14fe42ffba032ed843b9363b0fb3908" category="list-text">Spostare le porte del cluster di nodi dal vecchio switch C2 al nuovo switch cs2, utilizzando il cablaggio appropriato supportato da Cisco 9336C-FX2.</block>
   <block id="56c5592f9041f8677e5bee9e1ae96f0a" category="list-text">Sullo switch cs2, verificare che tutte le porte del cluster di nodi siano in funzione:</block>
-  <block id="f2c6d0da02e9db5edf3d6c608d708936" category="list-text">Sullo switch C1, spegnere le porte collegate alle porte del cluster dei nodi.</block>
   <block id="cc0c96fa4e2abab8a22a057701a64895" category="list-text">Spostare le porte del cluster di nodi dal vecchio switch C1 al nuovo switch cs1, utilizzando il cablaggio appropriato supportato da Cisco 9336C-FX2.</block>
   <block id="ba04a36ca69927056bab3bba36362e9b" category="list-text">Sugli switch cs1 e cs2, verificare che tutte le porte del cluster di nodi siano in funzione:</block>
   <block id="d9dbaab2b13b33007de8325a401de04b" category="sidebar">Migrazione da switch cluster CN1610</block>
-  <block id="f82e463abb944d54e7eb997507aada97" category="list-text">Creare una password per la funzione di raccolta dei log dello switch Ethernet Health monitor:<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block></block>
   <block id="3da8b58ec29508478eb281950ce7a85f" category="list-text">Attivare la funzione di raccolta dei log dello switch Ethernet.</block>
   <block id="55c09ca9257750665c75e5b587165519" category="paragraph"><block ref="e802bd77f148cffa22d9aa9e7d79d65d" prefix="" category="inline-code"></block></block>
   <block id="0eedc6e86bf0684694a5f74d12cd17d7" category="admonition">Se uno di questi comandi restituisce un errore o se la raccolta dei log non viene completata, contattare il supporto NetApp.</block>
@@ -4452,16 +4440,12 @@
   <block id="10eb67b70ef8150836466766bdd3f2f8" category="list-text">Visualizzare le porte del cluster su ciascun nodo connesso agli switch del cluster esistenti:</block>
   <block id="fc7a60af0bed9304a4ca478877f91450" category="list-text">Verificare che tutte le porte del cluster siano<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> con un<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block> stato:</block>
   <block id="0be9e89f86499b3770f2ce9bad1ba0eb" category="list-text">[[step5]]Disattiva il ripristino automatico sulle LIF del cluster.</block>
-  <block id="d9f832c61b11e8d4b59ef0ae25ac9dd6" category="list-text">Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch del cluster CL1. Questa operazione potrebbe richiedere alcuni secondi.</block>
   <block id="8884e29d4b490f2084dae5227ca847a4" category="list-text">Verificare lo stato delle connessioni di rete trasferite a cs2:</block>
   <block id="308cecb0e156959b9d08b434ef110588" category="paragraph">Tutte le porte del cluster spostate devono essere<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>.</block>
-  <block id="48281ee704bfb0f055c15fe754705f5a" category="paragraph">Tutte le LIF del cluster passano allo switch cs2.</block>
-  <block id="18a308037b50cae9759f1f49af5aed58" category="list-text">Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch cs2. Questa operazione potrebbe richiedere alcuni secondi:</block>
   <block id="f20b906cc8acf5d97550e7a24fd7c69b" category="list-text">Spostare i cavi di connessione del nodo del cluster da CL1 al nuovo switch cs1.</block>
   <block id="b7557e0e7f48313d82756b7481c1b1f6" category="list-text">Verificare lo stato delle connessioni di rete trasferite a cs1:</block>
   <block id="ce16551695d7120d532abead22bee8c2" category="list-text">Verificare che l'ISL tra cs1 e cs2 sia ancora operativo:</block>
   <block id="b48ac462b57bcb2860eecd434bd2c80f" category="paragraph">A partire da ONTAP 9.8, utilizzare il comando:<block ref="b4720f8aa09f4e4b3a04e78c558b6c90" prefix=" " category="inline-code"></block></block>
-  <block id="3e1fd1b016d89d236712e513bee2a170" category="list-text">Creare una password per la funzione di raccolta dei log di Health monitor dello switch Ethernet.</block>
   <block id="079e7a1f80c26ff7b477dcbf014e4e70" category="list-text">Attivare la funzione di raccolta dei log dello switch Ethernet Health monitor:</block>
   <block id="aae263170b5a7f23d3045f8a2b09091f" category="paragraph">Attendere 10 minuti, quindi verificare che la raccolta dei log sia completa:</block>
   <block id="c9a1a82d3af3d53e5132a5ce6181fc18" category="list-text">Alcune porte degli switch Nexus 9336C-FX2 sono configurate per funzionare a 10 GbE o 40 GbE.</block>
@@ -4537,14 +4521,9 @@
   <block id="368764dd3898433d38cff5ab40e268b0" category="sidebar">REPLACE_Switches_bes53248</block>
   <block id="b839c7212b07af22047708d290e9fc06" category="list-text">Alcune delle porte degli switch BES-53248 sono configurate per funzionare a 10GbE.</block>
   <block id="c4a4e384df3331fa768c173d158b0aa5" category="list-text">La connettività 10GbE GbE dai nodi agli switch cluster BES-53248 è stata pianificata, migrata e documentata.</block>
-  <block id="67b660e2046176252fca76261bc42667" category="list-text">Sullo switch del cluster CL2, chiudere le porte collegate alle porte del cluster dei nodi:</block>
   <block id="e6530d0201fae7d6787fd28d58724819" category="list-text">Spostare tutti i cavi di connessione dei nodi del cluster dal vecchio switch CL2 al nuovo switch CS2.</block>
-  <block id="74473ad9515a4da22aa5f01542722c5b" category="list-text">Verificare che le connessioni della porta dello switch siano integre dal punto di vista dello switch CS2 utilizzando i comandi:</block>
-  <block id="ca6f53e4266e008816889d83576a5877" category="list-text">Sullo switch del cluster CL1, chiudere le porte collegate alle porte del cluster dei nodi.</block>
-  <block id="1dd6b9d779d28215b5d204a1be9c8b6a" category="list-text">Verificare che le connessioni della porta dello switch siano integre dal punto di vista dello switch CS1 utilizzando i comandi:</block>
   <block id="dae02701a0a247e1012b9b2832c32464" category="list-text">Eliminare gli switch CN1610 sostituiti dalla tabella degli switch del quadro strumenti, se non vengono rimossi automaticamente:</block>
   <block id="c8b9229aed88be3704b6c26029b7ae94" category="paragraph">Per ONTAP 9.7 e versioni precedenti, utilizzare il comando:<block ref="f055904a9fc3a4f0bc33aca13ecd2b2d" prefix=" " category="inline-code"></block></block>
-  <block id="b8590eb7d6b7365e1a0bee47b03d5b4f" category="admonition">Per attivare la funzione di raccolta dei registri, è necessario eseguire ONTAP 9.10.1P15, 9.11.1P12 o 9.12.1 e versioni successive ed EFOS 3.8.0.2 e versioni successive.</block>
   <block id="517242a1c337699950aef05a38af45a0" category="sidebar">switch-nvidia-sn2100-cluster</block>
   <block id="3ed3b1cc0917edd8fddcdd478bb581fb" category="sidebar">switch-cisco-9336c-fx2-storage</block>
   <block id="701d9aab459b808d17f39aa5c50f97df" category="sidebar">switch-nvidia-sn2100-storage</block>
@@ -4715,4 +4694,49 @@ Per informazioni aggiornate sulla compatibilità, consultare<block ref="f6aa36fb
   <block id="3d49c6a8040af00423280443bbe5d05f" category="paragraph"><block ref="913a5e09220539ba22f04cc8f2d2fe80" prefix="" category="inline-code"></block></block>
   <block id="9d6600c74c6f65eef63f8fe8e301ffef" category="paragraph">I seguenti esempi mostrano i risultati appropriati per entrambi gli interruttori SW1 e SW2:</block>
   <block id="3510e8dd2306d7a2623d6253e5ee079b" category="list-text">[[STEP17]] Visualizza informazioni sui dispositivi di rete rilevati nel cluster:</block>
+  <block id="85ec13bf5591b128daa3a54ae368ba3c" category="paragraph">I seguenti comandi configurano un nome utente SNMPv3 sugli switch Cisco 3232C:</block>
+  <block id="5293a7c2493b5e9fa8261d30e6343464" category="list-text">Per *nessuna autenticazione*:<block ref="4de90a5f2562588942e54211db55bbc8" prefix=" " category="inline-code"></block></block>
+  <block id="5ca43733e44b3aa36045aae712118a0c" category="list-text">Per l'autenticazione *MD5/SHA*:<block ref="8de8efe8209f40424b2f8182df3e0711" prefix=" " category="inline-code"></block></block>
+  <block id="5bdf8576a82b897f01268b182b208da7" category="list-text">Per l'autenticazione *MD5/SHA con crittografia AES/DES*:<block ref="7021d4581846b898d8f652c016aef25f" prefix=" " category="inline-code"></block></block>
+  <block id="3634ec349fe0ac8ede01e576a2ea0f9c" category="paragraph"><block ref="e13e2f89a8f9ef3b183db91662b40273" prefix="" category="inline-code"></block></block>
+  <block id="627d56d1b7897f4dcfcbb018bce61116" category="summary">La funzione di raccolta dei log del monitor di stato dello switch del cluster viene utilizzata per raccogliere i file di log relativi allo switch in ONTAP. È necessario assicurarsi di aver configurato l'ambiente utilizzando l'interfaccia a riga di comando dello switch cluster 9336c-FX2, come illustrato in dettaglio qui.</block>
+  <block id="33bdcda7e2a546866442177b5bcf615d" category="paragraph">È possibile utilizzare la funzione di raccolta dei log per raccogliere i file di log relativi allo switch in ONTAP.
+Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione e avvio della raccolta di registri *supporto* dettagliati dal centralino e avvia una raccolta oraria di dati *periodici* raccolti da AutoSupport.</block>
+  <block id="7e1ba7c75d78333c2b0d49c9ac24ef12" category="list-text">Verificare di aver configurato l'ambiente utilizzando lo switch cluster Cisco 3232C *CLI*.</block>
+  <block id="c48ae1736b44dafa44df6c91e234967b" category="paragraph">Verificare le credenziali, verificare la connettività SSH e rigenerare le chiavi SSH ONTAP. Per istruzioni, consultare la documentazione dello switch o contattare l'assistenza NetApp.</block>
+  <block id="1837f24cc84dcee4cf147fd1cb89460b" category="list-text">L'interruttore C2 viene sostituito per primo dall'interruttore SW2.</block>
+  <block id="d74d5bfd992e4f32cce751a7efe7675a" category="list-text">Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.</block>
+  <block id="64ea4acdf8f09e3b62f8764dea1b5bf4" category="list-text">Il cablaggio tra i nodi e C2 viene quindi scollegato da C2 e ricollegato a SW2.</block>
+  <block id="5f115706079e667394e9c5fb609142bb" category="list-text">L'interruttore C1 è sostituito dall'interruttore SW1.</block>
+  <block id="1b42870c5bc0619ec4b57583bfec41e7" category="list-text">Il cablaggio tra i nodi e C1 viene quindi scollegato da C1 e ricollegato a SW1.</block>
+  <block id="9c4f6f5aa4e55eb8ce92eee32e66b7cd" category="list-text">Sullo switch C2, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster.</block>
+  <block id="670028f02a4239fb83dfde9087341e1c" category="list-text">Sullo switch C1, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster.</block>
+  <block id="3e10fab2ffa4ef18685db0df5ee45e84" category="list-text">Le porte del cluster di ciascun nodo sono collegate agli switch del cluster esistenti nel seguente modo (dal punto di vista dei nodi):</block>
+  <block id="c51f636604f29f6f814bde48e4fd4671" category="list-text">Le porte e gli switch del cluster sono collegati nel seguente modo (dal punto di vista degli switch):</block>
+  <block id="221baa6d0cf86bbc720aa5304522c941" category="list-text">L'interruttore CS2 viene sostituito dall'interruttore CS2-nuovo per primo.</block>
+  <block id="415f7d338cb2daf9bc58ecb9861e7a38" category="list-text">Il cablaggio tra i nodi e CS2 viene quindi scollegato da CS2 e ricollegato a CS2-New.</block>
+  <block id="4c583a66e2c7985bcc194e39f55ceea5" category="list-text">L'interruttore CS1 viene sostituito dall'interruttore CS1-nuovo.</block>
+  <block id="e36cd913095fb9e4f8b81c803f89930b" category="list-text">Il cablaggio tra i nodi e CS1 viene quindi scollegato da CS1 e ricollegato a CS1-New.</block>
+  <block id="c541a676ea1012971e3e092cd0c456bb" category="list-text">Sullo switch cluster CS2, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster:</block>
+  <block id="3e504b88532082c592970766665ca3a1" category="list-text">Verifica che le LIF del cluster abbiano eseguito il failover sulle porte ospitate nello switch del cluster CS1. Questa operazione potrebbe richiedere alcuni secondi.</block>
+  <block id="501db48c47898b7316de60a2bcbe9a16" category="list-text">Confermare i collegamenti della porta dello switch dal punto di vista dello switch CS2-New:</block>
+  <block id="4b9f132828deb041b404e712b378ac77" category="list-text">Nello switch cluster CS1, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster. Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia del passo 7.</block>
+  <block id="32172ed3b8d9ced5da325e5230b7981b" category="list-text">Verificare che le LIF del cluster abbiano eseguito il failover alle porte ospitate nello switch CS2-new. Questa operazione potrebbe richiedere alcuni secondi:</block>
+  <block id="85e04ff5dd770cff5dbbe435ea94a7dd" category="list-text">Confermare i collegamenti della porta dello switch dal punto di vista dello switch CS1-New:</block>
+  <block id="784542320767d69b7e7fc2bfeb64a5b4" category="list-text">Sullo switch cluster CL2, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster:</block>
+  <block id="3cea8e0d831f95709ca648551c2d556d" category="list-text">Verifica che le LIF del cluster abbiano eseguito il failover sulle porte ospitate nello switch del cluster CL1. Questa operazione potrebbe richiedere alcuni secondi.</block>
+  <block id="f32d9ffca62a64cf613fab14376ea4b6" category="list-text">Verificare che i collegamenti della porta dello switch siano integri dal punto di vista dello switch CS2:</block>
+  <block id="d5110a9ac199e8d641d55dc0fc54c741" category="list-text">Sullo switch cluster CL1, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster:</block>
+  <block id="9d24a408b8a659b2d9a8bb0df05e2629" category="paragraph">Tutte le LIF del cluster eseguono il failover allo switch CS2.</block>
+  <block id="ca485f2dd68e04b01569b761e6e09728" category="list-text">Verifica che le LIF del cluster abbiano eseguito il failover alle porte ospitate nello switch CS2. Questa operazione potrebbe richiedere alcuni secondi:</block>
+  <block id="b724af2fef6af61e0edab3f426d0cddd" category="list-text">Verificare che i collegamenti della porta dello switch siano integri dal punto di vista dello switch CS1:</block>
+  <block id="b9ab24854008adedc57cca2a0bf2e4f8" category="paragraph">I seguenti comandi configurano un nome utente SNMPv3 sugli switch Cisco 3132Q-V:</block>
+  <block id="dd6639b00fbb4becd05c71735c5944af" category="list-text">Verificare di aver configurato l'ambiente utilizzando lo switch cluster Cisco 3132Q-V *CLI*.</block>
+  <block id="91863ff015a5297c5c27e15dd6e5e916" category="paragraph">Attendere 10 minuti, quindi verificare che la raccolta del registro sia completata:</block>
+  <block id="03d991029fc10722afd68a8300e08fbf" category="paragraph">I seguenti comandi configurano un nome utente SNMPv3 sugli switch Cisco 9336C-FX2:</block>
+  <block id="e9505b73caa990829220fedbb878ef68" category="list-text">L'interruttore C2 viene sostituito per primo dall'interruttore CS2.</block>
+  <block id="39bba2bddb2bf527b701828442a18b5e" category="list-text">Il cablaggio tra i nodi e C2 viene quindi scollegato da C2 e ricollegato a CS2.</block>
+  <block id="6fa86324fabffaee853e6eeee2824329" category="list-text">L'interruttore C1 è sostituito dall'interruttore CS1.</block>
+  <block id="9f4f9b4efa8b2eb74b227e6e2a18f872" category="list-text">Sullo switch C2, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster.</block>
+  <block id="54c071b600d8be038e07b18d66329aa7" category="list-text">Sullo switch C1, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster.</block>
 </blocks>

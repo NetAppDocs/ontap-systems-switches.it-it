@@ -98,11 +98,13 @@ Questa procedura riguarda il seguente scenario:
 * Il cluster inizia con due nodi collegati a due switch cluster CN1610.
 * Lo switch CN1610 CL2 è sostituito dallo switch BES-53248 cs2:
 +
+** Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.
 ** Scollegare i cavi da tutte le porte del cluster su tutti i nodi collegati a CL2, quindi utilizzare i cavi supportati per ricollegare le porte al nuovo switch del cluster cs2.
 
 
 * Lo switch CN1610 CL1 è sostituito dallo switch BES-53248 cs1:
 +
+** Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.
 ** Scollegare i cavi da tutte le porte del cluster su tutti i nodi collegati a CL1, quindi utilizzare i cavi supportati per ricollegare le porte al nuovo switch del cluster cs1.
 
 
@@ -342,11 +344,8 @@ cluster1::*>
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
-. Sullo switch del cluster CL2, chiudere le porte collegate alle porte del cluster dei nodi:
+. Sullo switch cluster CL2, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster:
 +
-.Mostra esempio
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (CL2)# *configure*
@@ -356,8 +355,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 (CL2)(Config)# *exit*
 (CL2)#
 ----
-====
-. Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch del cluster CL1. Questa operazione potrebbe richiedere alcuni secondi.
+. Verifica che le LIF del cluster abbiano eseguito il failover sulle porte ospitate nello switch del cluster CL1. Questa operazione potrebbe richiedere alcuni secondi.
 +
 `network interface show -vserver Cluster`
 
@@ -450,14 +448,14 @@ node1      /cdp
             e0b    cs2                       0/1               BES-53248
 ----
 ====
-. Verificare che le connessioni della porta dello switch siano integre dal punto di vista dello switch CS2 utilizzando i comandi:
+. Verificare che i collegamenti della porta dello switch siano integri dal punto di vista dello switch CS2:
 +
 [listing, subs="+quotes"]
 ----
 cs2# *show port all*
 cs2# *show isdp neighbors*
 ----
-. Sullo switch del cluster CL1, chiudere le porte collegate alle porte del cluster dei nodi.
+. Sullo switch cluster CL1, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster:
 +
 [listing, subs="+quotes"]
 ----
@@ -469,9 +467,9 @@ cs2# *show isdp neighbors*
 (CL1)#
 ----
 +
-Tutte le LIF del cluster passano allo switch cs2.
+Tutte le LIF del cluster eseguono il failover allo switch CS2.
 
-. Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch cs2. Questa operazione potrebbe richiedere alcuni secondi:
+. Verifica che le LIF del cluster abbiano eseguito il failover alle porte ospitate nello switch CS2. Questa operazione potrebbe richiedere alcuni secondi:
 +
 `network interface show -vserver Cluster`
 
@@ -564,7 +562,7 @@ node2      /cdp
             e0b    cs2                       0/2               BES-53248
 ----
 ====
-. Verificare che le connessioni della porta dello switch siano integre dal punto di vista dello switch CS1 utilizzando i comandi:
+. Verificare che i collegamenti della porta dello switch siano integri dal punto di vista dello switch CS1:
 +
 [listing, subs="+quotes"]
 ----
@@ -711,11 +709,7 @@ RPC status:
 2 paths up, 0 paths down (udp check)
 ----
 ====
-. Creare una password per la funzione di raccolta dei log di Health monitor dello switch Ethernet.
-+
-
-IMPORTANT: Per attivare la funzione di raccolta dei registri, è necessario eseguire ONTAP 9.10.1P15, 9.11.1P12 o 9.12.1 e versioni successive ed EFOS 3.8.0.2 e versioni successive.
-
+. Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.
 +
 `system switch ethernet log setup-password`
 
@@ -749,7 +743,7 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. Attivare la funzione di raccolta dei log dello switch Ethernet Health monitor:
+. Per avviare la raccolta dei log, eseguire il comando seguente, sostituendo DEVICE con lo switch utilizzato nel comando precedente. Questo avvia entrambi i tipi di raccolta di log: I log dettagliati *Support* e una raccolta oraria di dati *Periodic*.
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 

@@ -62,7 +62,24 @@ image::../media/Initial_setup.png[Configurazione iniziale dello switch]
 .A proposito di questa attività
 La procedura richiede l'utilizzo di entrambi i comandi ONTAP e. https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Switch Nexus serie 9000"^] Comandi; vengono utilizzati i comandi ONTAP, se non diversamente indicato.
 
-Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue la migrazione di tutte le LIF del cluster allo switch del partner operativo durante l'esecuzione delle operazioni sullo switch di destinazione.
+Questa procedura riguarda il seguente scenario:
+
+* L'interruttore CS2 viene sostituito dall'interruttore CS2-nuovo per primo.
++
+** Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.
+** Il cablaggio tra i nodi e CS2 viene quindi scollegato da CS2 e ricollegato a CS2-New.
+
+
+* L'interruttore CS1 viene sostituito dall'interruttore CS1-nuovo.
++
+** Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.
+** Il cablaggio tra i nodi e CS1 viene quindi scollegato da CS1 e ricollegato a CS1-New.
+
+
+
+
+
+NOTE: Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue la migrazione di tutte le LIF del cluster allo switch del partner operativo durante l'esecuzione delle operazioni sullo switch di destinazione.
 
 
 
@@ -239,26 +256,16 @@ cs2                         cluster-network     10.233.205.93   N5K-C5596UP
 
 . Disattiva l'autorevert sulle LIF del cluster.
 +
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
-----
-====
-. Sullo switch del cluster cs2, spegnere le porte collegate alle porte del cluster dei nodi:
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
+. Sullo switch cluster CS2, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster:
 +
-.Mostra esempio
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cs2(config)# *interface eth1/1-1/2*
 cs2(config-if-range)# *shutdown*
 ----
-====
-. Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch del cluster cs1. Questa operazione potrebbe richiedere alcuni secondi.
+. Verifica che le LIF del cluster abbiano eseguito il failover sulle porte ospitate nello switch del cluster CS1. Questa operazione potrebbe richiedere alcuni secondi.
 +
 `network interface show -vserver Cluster`
 
@@ -362,14 +369,14 @@ node2      /cdp
 +
 Verificare che le porte del cluster spostate vedano lo switch cs2-new come il neighbor.
 
-. Verificare le connessioni delle porte dello switch dal punto di vista dello switch cs2-new:
+. Confermare i collegamenti della porta dello switch dal punto di vista dello switch CS2-New:
 +
 [listing, subs="+quotes"]
 ----
 cs2-new# *show interface brief*
 cs2-new# *show cdp neighbors*
 ----
-. Sullo switch del cluster cs1, spegnere le porte collegate alle porte del cluster dei nodi. Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia del passo 7.
+. Nello switch cluster CS1, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster. Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia del passo 7.
 +
 [listing, subs="+quotes"]
 ----
@@ -379,7 +386,7 @@ cs1(config-if-range)# *shutdown*
 +
 Tutte le LIF del cluster passano al nuovo switch cs2.
 
-. Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch cs2-new. Questa operazione potrebbe richiedere alcuni secondi:
+. Verificare che le LIF del cluster abbiano eseguito il failover alle porte ospitate nello switch CS2-new. Questa operazione potrebbe richiedere alcuni secondi:
 +
 `network interface show -vserver Cluster`
 
@@ -482,17 +489,13 @@ node2      /cdp
 +
 Verificare che le porte del cluster spostate vedano lo switch cs1-new come il neighbor.
 
-. Verificare le connessioni delle porte dello switch dal punto di vista dello switch cs1-new:
+. Confermare i collegamenti della porta dello switch dal punto di vista dello switch CS1-New:
 +
-.Mostra esempio
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cs1-new# *show interface brief*
 cs1-new# *show cdp neighbors*
 ----
-====
 . Verificare che l'ISL tra cs1-new e cs2-new sia ancora operativo:
 +
 `show port-channel summary`
@@ -542,14 +545,8 @@ Group Port-       Type     Protocol  Member Ports
 
 . Abilitare il ripristino automatico sulle LIF del cluster.
 +
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
-----
-====
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
 . Verificare che le LIF del cluster siano ripristinate alle porte home (questa operazione potrebbe richiedere un minuto):
 +
 `network interface show -vserver Cluster`
