@@ -10,7 +10,7 @@ summary: Utilizzare le immagini dei cavi per completare il cablaggio tra i contr
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -42,7 +42,9 @@ Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"] per ulteriori in
 
 Se si desidera documentare le piattaforme supportate, è necessario completare il foglio di lavoro dei cavi vuoto utilizzando un foglio di lavoro di esempio completo come guida.
 
-La definizione di porta di esempio su ciascuna coppia di switch è la seguente:image:cabling_worksheet.jpg["Foglio di lavoro sul cablaggio"]
+La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
+
+image:cabling_worksheet.jpg["Foglio di lavoro sul cablaggio"]
 
 Dove:
 
