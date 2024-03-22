@@ -1,7 +1,7 @@
 ---
 permalink: switch-cisco-9336c-fx2/configure-ssh.html 
 sidebar: sidebar 
-keywords: ssh, requirement, cluster, switch, health, monitor, chsm, log, collection, feature, bes, enable ssh on 9336c-fx2 cluster switches - 9336c-fx2 switches 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, bes, enable ssh on 9336c-fx2 cluster switches - 9336c-fx2 switches 
 summary: 'SSH è un requisito per l"utilizzo delle funzionalità di monitoraggio dello stato di salute dello switch del cluster (CSHM) e di raccolta dei log. Per abilitare SSH sugli switch del cluster Cisco 9336C-FX2, si generano prima le chiavi SSH e quindi si abilita SSH.' 
 ---
 = Abilitare SSH sugli switch cluster Cisco 9336C-FX2
@@ -115,4 +115,4 @@ SCP server Administrative Mode: ............... Enabled
 
 
 .Quali sono le prossime novità?
-link:configure-log-collection.html["Attivare la funzione di raccolta dei log"].
+link:CSHM_log_collection.html["Abilitare la raccolta dei log"].

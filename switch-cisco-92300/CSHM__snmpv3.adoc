@@ -1,7 +1,7 @@
 ---
-permalink: switch-cisco-3132q-v/CSHM_snmpv3.html 
+permalink: switch-cisco-92300/CSHM_snmpv3.html 
 sidebar: sidebar 
-keywords: SNMP,SNMPv3,SNMPv3 setup,Cisco setup,3132q-v switches configuration,NX-OS 
+keywords: SNMP,SNMPv3,SNMPv3 setup,Cisco setup,Cisco switches configuration,NX-OS 
 summary: 'SNMPv3 può essere utilizzato con il monitor stato switch Ethernet (CSHM).' 
 ---
 = Configurare SNMPv3
@@ -14,7 +14,7 @@ summary: 'SNMPv3 può essere utilizzato con il monitor stato switch Ethernet (CS
 Seguire questa procedura per configurare SNMPv3, che supporta il monitoraggio dello stato dello switch Ethernet (CSHM).
 
 .A proposito di questa attività
-I seguenti comandi configurano un nome utente SNMPv3 sugli switch Cisco 3132Q-V:
+I seguenti comandi configurano un nome utente SNMPv3 sugli switch Cisco 92300YC:
 
 * Per *nessuna autenticazione*:
 `snmp-server user _SNMPv3_USER_ NoAuth`
@@ -110,7 +110,7 @@ cluster1::*> *system switch ethernet show-all -device "sw1" -instance*
                                   SNMP Version: SNMPv2c
                                  Is Discovered: true
    SNMPv2c Community String or SNMPv3 Username: cshm1!
-                                  Model Number: N3K-C3132Q-V
+                                  Model Number: N9K-C92300YC
                                 Switch Network: cluster-network
                               Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 9.3(7)
                      Reason For Not Monitoring: None  *<---- displays when SNMP settings are valid*
@@ -144,7 +144,7 @@ cluster1::*> *system switch ethernet show-all -device "sw1" -instance*
                                   SNMP Version: SNMPv3
                                  Is Discovered: true
    SNMPv2c Community String or SNMPv3 Username: SNMPv3User
-                                  Model Number: N3K-C3132Q-V
+                                  Model Number: N9K-C92300YC
                                 Switch Network: cluster-network
                               Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 9.3(7)
                      Reason For Not Monitoring: None  *<---- displays when SNMP settings are valid*

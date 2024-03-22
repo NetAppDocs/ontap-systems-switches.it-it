@@ -31,8 +31,10 @@ entries:
     url: "/switch-cisco-92300/install-nxos-software.html"
   - title: Installare il file di configurazione RCF
     url: "/switch-cisco-92300/install-the-rcf-file.html"
-  - title: Installare CSHM
-    url: "/switch-cisco-92300/setup-install-cshm-file.html"
+  - title: Abilitare la raccolta dei log
+    url: "/switch-cisco-92300/CSHM_log_collection.html"
+  - title: Configurare SNMPv3 per il monitoraggio
+    url: "/switch-cisco-92300/CSHM_snmpv3.html"
 - title: Migrare gli switch
   pdf-filename: Migrare_switch_92300yc
   entries:

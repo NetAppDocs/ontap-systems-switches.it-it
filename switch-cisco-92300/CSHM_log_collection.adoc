@@ -1,8 +1,8 @@
 ---
-permalink: switch-cisco-3132q-v/CSHM_log_collection.html 
+permalink: switch-cisco-92300/CSHM_log_collection.html 
 sidebar: sidebar 
-keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: 'La funzione di raccolta dei log del monitor di stato dello switch del cluster viene utilizzata per raccogliere i file di log relativi allo switch in ONTAP. È necessario assicurarsi di aver configurato l"ambiente utilizzando l"interfaccia a riga di comando dello switch cluster 92300YC, come illustrato di seguito.' 
+keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,92300YC Cisco setup,92300YC switches configuration,NX-OS 
+summary: 'La funzione di raccolta dei log del monitor stato switch Ethernet (CSHM) viene utilizzata per raccogliere i log da switch cluster o di rete di storage in ONTAP.' 
 ---
 = Raccolta registro monitoraggio stato switch Ethernet
 :allow-uri-read: 
@@ -11,17 +11,10 @@ summary: 'La funzione di raccolta dei log del monitor di stato dello switch del 
 
 
 [role="lead"]
-È possibile utilizzare la funzione di raccolta dei log per raccogliere i file di log relativi allo switch in ONTAP.
-
 Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione e avvio della raccolta di registri *supporto* dettagliati dal centralino e avvia una raccolta oraria di dati *periodici* raccolti da AutoSupport.
 
-.Prima di iniziare
-* Verificare di aver configurato l'ambiente utilizzando lo switch cluster Cisco 3132Q-V *CLI*.
-* Il monitoraggio dello stato dello switch deve essere abilitato per lo switch. Verificare questo assicurandosi che `Is Monitored:` il campo è impostato su *true* nell'output di `system switch ethernet show` comando.
-
-
 .Fasi
-. Creare una password per la funzione di raccolta dei log dello switch Ethernet Health monitor:
+. Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.
 +
 `system switch ethernet log setup-password`
 
@@ -79,7 +72,7 @@ Enabling cluster switch log collection.
 ----
 ====
 +
-Attendere 10 minuti, quindi verificare che la raccolta del registro sia completata:
+Attendere 10 minuti, quindi verificare che la raccolta dei log sia completa:
 
 +
 `system switch ethernet log show`
@@ -90,7 +83,7 @@ CAUTION: Se uno di questi comandi restituisce un errore o se la raccolta dei log
 
 
 
-.Risoluzione dei problemi
+.Risolvere i problemi
 Se si verifica uno dei seguenti stati di errore segnalati dalla funzione di raccolta registri (visibile nell'output di `system switch ethernet log show`), provare i passi di debug corrispondenti:
 
 |===
@@ -109,7 +102,7 @@ Rigenerare le chiavi SSH ONTAP. Contattare l'assistenza NetApp.
  a| 
 *errore password cambio*
  a| 
-Verificare le credenziali, verificare la connettività SSH e rigenerare le chiavi SSH ONTAP. Per istruzioni, consultare la documentazione dello switch o contattare l'assistenza NetApp.
+Verificare le credenziali, verificare la connettività SSH e rigenerare le chiavi SSH ONTAP. Consultare la documentazione dello switch o contattare il supporto NetApp per le istruzioni.
 
 
 

@@ -17,11 +17,11 @@ Seguire questa procedura per configurare SNMPv3, che supporta il monitoraggio de
 I seguenti comandi configurano un nome utente SNMPv3 sugli switch Broadcom BES-53248:
 
 * Per *nessuna autenticazione*:
-`net add snmp-server username _SNMPv3_USER_ auth-none`
+`snmp-server user SNMPv3UserNoAuth NETWORK-OPERATOR noauth`
 * Per l'autenticazione *MD5/SHA*:
-`net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_`
+`snmp-server user SNMPv3UserAuth NETWORK-OPERATOR [auth-md5|auth-sha]`
 * Per l'autenticazione *MD5/SHA con crittografia AES/DES*:
-`net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_ [encrypt-aes|encrypt-des] _PRIV-PASSWORD_`
+`snmp-server user SNMPv3UserAuthEncrypt NETWORK-OPERATOR [auth-md5|auth-sha] [priv-aes128|priv-des]`
 
 
 Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP:
@@ -33,7 +33,7 @@ Il seguente comando stabilisce il nome utente SNMPv3 con CSHM:
 .Fasi
 . Impostare l'utente SNMPv3 sullo switch per l'utilizzo dell'autenticazione e della crittografia:
 +
-`net show snmp status`
+`show snmp status`
 
 +
 .Mostra esempio
