@@ -314,7 +314,6 @@
   <block id="cbb6cd6e1e897787ef4fb19df093fefe" category="list-text">Disattivare tutte le porte attive rivolte ai nodi (non le porte ISL) su entrambi i nuovi switch del cluster cs1 *e* cs2.</block>
   <block id="f411f70731ee6974c5a53e3cc3f81e66" category="admonition">Non è necessario disattivare le porte ISL.</block>
   <block id="24a0cf33327e4a62375221300ce4db6c" category="paragraph">L'esempio seguente mostra che le porte rivolte al nodo da 1 a 16 sono disattivate sullo switch cs1:</block>
-  <block id="af0f02b80aaae2d29a88a56209cd3dd0" category="list-text">Verificare che le porte ISL e fisiche dell'ISL tra i due switch BES-53248 cs1 e cs2 siano *up*:</block>
   <block id="44f09f8a90367de97a8162e8b26612c2" category="paragraph"><block ref="fb611e54c26d602820963ec15ffd0917" prefix="" category="inline-code"></block></block>
   <block id="09a5fb271719ecae04d6c0f573fa3099" category="paragraph">L'esempio seguente mostra che le porte ISL sono *up* sullo switch cs1:</block>
   <block id="f9431300de8d1a48bf2e554ad1605071" category="paragraph">L'esempio seguente mostra che le porte ISL sono *up* sullo switch cs2:</block>
@@ -322,10 +321,6 @@
   <block id="8d0f44b58b6dbbc0ea1d50e9890d99b9" category="paragraph">Questo comando fornisce informazioni sui dispositivi collegati al sistema.</block>
   <block id="9dd93934cbc2b0e8bd1558fefdba5ef1" category="paragraph">Nell'esempio riportato di seguito sono elencati i dispositivi adiacenti sullo switch cs1:</block>
   <block id="1b6af97ed2dc264f0a8d2be382e6228a" category="paragraph">Nell'esempio riportato di seguito sono elencati i dispositivi adiacenti sullo switch cs2:</block>
-  <block id="96725f7c30dba4b02784c4f6b22b76f2" category="list-text">Verificare che tutte le porte del cluster siano "up":</block>
-  <block id="711d7f6899df1dfa47e13a5fbedae706" category="paragraph">Ogni porta dovrebbe visualizzare "up" per<block ref="97e7c9a7d06eac006a28bf05467fcc8b" prefix=" " category="inline-code"></block> e "sano" per<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block>.</block>
-  <block id="b9342006c263bb81a72635a40bccef85" category="list-text">Verificare che tutte le LIF del cluster siano "up" e operative:<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
-  <block id="a5d7c0c5e08447fc2eab20dfb2acee00" category="paragraph">Ogni LIF del cluster dovrebbe visualizzare "true" per<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> e hanno un<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> di "up/up"</block>
   <block id="49de00b8e8c6586fcca9fad09c76b9ed" category="list-text">Scollegare il cavo dalla porta del cluster e0a sul nodo 1, quindi collegare e0a alla porta 1 sullo switch del cluster cs1, utilizzando il cablaggio appropriato supportato dagli switch BES-53248.</block>
   <block id="b2ca5d9b00c09954ba621c25b7a4bdbf" category="paragraph">Il<block ref="141c10db18cf1753fa5fc05f553c33ff" category="inline-link-rx"></block> contiene ulteriori informazioni sul cablaggio.</block>
   <block id="4117e035e1d5632e3f6a3311cd104041" category="list-text">Scollegare il cavo dalla porta del cluster e0a sul nodo 2, quindi collegare e0a alla porta 2 sullo switch del cluster cs1, utilizzando il cablaggio appropriato supportato dagli switch BES-53248.</block>
@@ -333,19 +328,15 @@
   <block id="a2c09169aae3d453a5de75708a6aea92" category="paragraph">L'esempio seguente mostra che le porte da 1 a 16 sono attivate sullo switch cs1:</block>
   <block id="1cd3efec31f045ffb5449349f414844d" category="list-text">Verificare che tutte le LIF del cluster siano funzionanti, operative e visualizzate come<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> per<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block>:</block>
   <block id="28d7612827f82272affeaf30e405e24a" category="paragraph"><block ref="7af866342cc7e87972580d7b709d8820" prefix="" category="inline-code"></block></block>
-  <block id="fcad649cb098b84dccd4a01a3b2eaa7f" category="paragraph">L'esempio seguente mostra che tutte le LIF sono in su su node1 e node2 e questo<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> i risultati sono<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>:</block>
   <block id="37389337e6e35d88b5139f8a3c830f35" category="list-text">Visualizza informazioni sullo stato dei nodi nel cluster:</block>
   <block id="dbae8c204d7835be187f0c26e601f21a" category="paragraph">Nell'esempio seguente vengono visualizzate informazioni sullo stato e sull'idoneità dei nodi nel cluster:</block>
   <block id="c5642fd4b778b82aea74ab00968dce4b" category="list-text">Scollegare il cavo dalla porta del cluster e0b sul nodo 1, quindi collegare e0b alla porta 1 sullo switch del cluster cs2, utilizzando il cablaggio appropriato supportato dagli switch BES-53248.</block>
   <block id="44e579a0b4e1ad763dcbac7dd27eb57a" category="list-text">Scollegare il cavo dalla porta del cluster e0b sul nodo 2, quindi collegare e0b alla porta 2 sullo switch del cluster cs2, utilizzando il cablaggio appropriato supportato dagli switch BES-53248.</block>
   <block id="52912772c11becd9a50cbf825e907f87" category="list-text">Abilitare tutte le porte rivolte ai nodi sullo switch cluster cs2.</block>
   <block id="3d7d92fe9fa50ff07a52fda11ae8d646" category="paragraph">L'esempio seguente mostra che le porte da 1 a 16 sono attivate sullo switch cs2:</block>
-  <block id="cd6df0359bdf1ee77a48901029c8c000" category="list-text">Verificare che tutte le porte del cluster siano *up*:</block>
-  <block id="9f7da2912010ab11954f77bf548cc0d8" category="paragraph">L'esempio seguente mostra che tutte le porte del cluster sono *up* su node1 e node2:</block>
   <block id="ead14aa6f3fe6d3e34996d707ef1d2bf" category="section-title">Fase 3: Verificare la configurazione</block>
   <block id="30530896511238b69b0e6acc7e04d6ce" category="list-text">Verificare che tutte le interfacce siano visualizzate<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> per<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block>:</block>
   <block id="d674fde4628671c3e1078935d12e7997" category="admonition">Il completamento di questa operazione potrebbe richiedere alcuni minuti.</block>
-  <block id="920dd0f6e71089afe68eba9aa2f22c90" category="paragraph">L'esempio seguente mostra che tutte le LIF sono in su su node1 e node2 e questo<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> i risultati sono<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>:</block>
   <block id="90c03200b8f85b5e421787d5bb39a45c" category="list-text">Verificare che entrambi i nodi dispongano di una connessione a ciascuno switch:</block>
   <block id="1464260572606bd5f01302103114d67a" category="paragraph">L'esempio seguente mostra i risultati appropriati per entrambi gli switch:</block>
   <block id="34898bfa473a2408e3c8f536845f48e5" category="list-text">Visualizzare le informazioni relative ai dispositivi di rete rilevati nel cluster:</block>
@@ -364,7 +355,6 @@
   <block id="470e1e7d03d4911b1e5ad8bf036ca8cb" category="inline-link">Articolo della Knowledge base di NetApp: Come eliminare la creazione automatica del caso durante le finestre di manutenzione pianificate</block>
   <block id="1e44ccea9f1ae385026deb840bc9b5f4" category="paragraph">Per ulteriori informazioni, consulta:<block ref="780f810d0519883e7efdd6ef45cf51ed" category="inline-link-rx"></block></block>
   <block id="82c7b5069d64f95a2a115dff1c9ad171" category="inline-link-macro">Installare il file di configurazione di Cluster Switch Health Monitor (CSHM)</block>
-  <block id="291315307e480f559eb88bb2d33ce0be" category="paragraph">Al termine della migrazione, potrebbe essere necessario installare il file di configurazione richiesto per supportare il monitoraggio dello stato di salute dello switch cluster (CSHM) per gli switch cluster BES-53248. Vedere <block ref="22274518ab78de16bd162dd23a69479d" category="inline-link-macro-rx"></block> e. <block ref="42a9a40a2570039f7bbb890cc28e41e6" category="inline-link-macro-rx"></block>.</block>
   <block id="d007743863da413e0445811c05d574db" category="summary">Esaminare la panoramica del software.</block>
   <block id="93d9f7b647768c2633a5b9f8a68e2b52" category="doc">Workflow di installazione del software per switch BES-53248</block>
   <block id="6dd4b5e58bd32b079e19b1dda5c2f1bc" category="paragraph">Per installare e configurare inizialmente il software per uno switch cluster BES-53248, attenersi alla seguente procedura:</block>
@@ -4240,19 +4230,16 @@
   <block id="074078759d58b36d6ae0a8db0cd82e18" category="list-text">Per le release di patch ONTAP 9.5P16, 9.6P12 e 9.7P10 e successive, attivare la funzione di raccolta dei log di Health monitor dello switch Ethernet per la raccolta dei file di log relativi allo switch utilizzando i comandi:</block>
   <block id="91cd808758081ea75f478b14ac3c3471" category="paragraph"><block ref="bbe141170e1456bfc88d5bf7571880dd" prefix="" category="inline-code"></block> e.</block>
   <block id="0c2ad6edfd02a5a2a481f1f6e0a45712" category="list-text">Inserire:<block ref="abefab8d02f9c0ef8226a4fcf49448a1" prefix=" " category="inline-code"></block></block>
-  <block id="3190ff33d621d64996efea42085e5a0e" category="sidebar">NetApp offre cluster, storage e switch condivisi per fornire connettività tra lo storage host e due o più controller AFF/FAS, consentendo di spostare dati e interfacce di rete senza interruzioni nell'infrastruttura storage.</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Inizia subito</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">Novità</block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="sidebar">Avvio rapido</block>
   <block id="626a7cbe056796bcb1c158b143866230" category="sidebar">Note di rilascio di ONTAP</block>
   <block id="732eab758bc032e5cc4992b97650c69b" category="sidebar">Documenti ONTAP correlati</block>
-  <block id="495d87219d733f7402b03ba10a7576fc" category="sidebar">Sistemi hardware AFF/FAS</block>
   <block id="efd44736fee0b29831bc101f834f9425" category="sidebar">Software ONTAP</block>
   <block id="974ad78dc53c253ebfe5b2b8b376f353" category="sidebar">Strumenti e supporto</block>
   <block id="bc8be72fdc9d6054f356bb2b7f80fd12" category="sidebar">Matrice di interoperabilità NetApp</block>
   <block id="668e2078ef1b1722c77cdb5c523a4463" category="sidebar">Knowledge base di NetApp</block>
   <block id="2bae42f280067110dfd52cc69a468364" category="sidebar">Active IQ (accesso richiesto)</block>
-  <block id="831835779ddae8b680a8580d383f130b" category="sidebar">Documenti relativi agli switch AFF e FAS</block>
   <block id="36ce497b37801fafe70bfb196cb463e0" category="sidebar">Scopri di più sugli switch dei sistemi ONTAP</block>
   <block id="b5bfe3d61bf9be292418cb9d21eec19c" category="sidebar">Iniziare a lavorare</block>
   <block id="6e637bf90c8e52e1b5b8fa7b076594de" category="sidebar">Switch di fine disponibilità</block>
@@ -4271,7 +4258,6 @@
   <block id="1f23e03e99812c23b47ad60d475647df" category="sidebar">Aggiornare lo switch</block>
   <block id="c0297ebb85b4b11dd34e1a95ad8ae773" category="sidebar">Migrare gli switch</block>
   <block id="ce140d6d1921435e3df40a72b6d032f4" category="sidebar">Migrazione da switch CN1610</block>
-  <block id="2707e98202897bbf6d508b6f4c5232cc" category="sidebar">Migrare a switch a due nodi</block>
   <block id="703c0fedc12db69e340d7c2f3de0d764" category="sidebar">Sostituire gli interruttori</block>
   <block id="90f9408edf534ae6691bfa241e3cef32" category="sidebar">Sostituire lo switch BES-53248</block>
   <block id="88af8e6a19edbffd16db05ce4d139e3f" category="sidebar">Migrazione da switch cluster CN1610</block>
@@ -4747,4 +4733,44 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
   <block id="7733a6a16b4fa24d09c107d2b3eefb78" category="summary">La funzione di raccolta dei log del monitor di stato dello switch del cluster viene utilizzata per raccogliere i file di log relativi allo switch in ONTAP. È necessario assicurarsi di aver configurato l'ambiente utilizzando l'interfaccia a riga di comando dello switch cluster 92300YC, come illustrato di seguito.</block>
   <block id="e7c823ebcf9c688c2043749093639ce5" category="paragraph">I seguenti comandi configurano un nome utente SNMPv3 sugli switch Cisco 92300YC:</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="paragraph-title">Risolvere i problemi</block>
+  <block id="3e7c0049318f1d54d121bd59293ae3f8" category="summary">Prima di configurare lo switch Cisco 9336C-FX2, leggere le seguenti informazioni.</block>
+  <block id="6f46a467644090d99e7affb0172248d7" category="paragraph">Prima di configurare lo switch Cisco 9336C-FX2, esaminare le seguenti considerazioni.</block>
+  <block id="4c53e24e451af6129456f6303c30d40c" category="section-title">Supporto di porte Ethernet NVIDIA CX6, CX6-DX e CX7 GB</block>
+  <block id="9631cf0fb6580db66010faf0ddf48e5a" category="paragraph">Se si collega una porta dello switch a un controller ONTAP utilizzando le porte NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) o ConnectX-7 (CX7) NIC, è necessario codificare la velocità della porta dello switch.</block>
+  <block id="814d720814ffd5b1d8710ed1cff64233" category="section-title">25GbE requisiti FEC</block>
+  <block id="5179acf3e9761e0b0a93230fb2e3563e" category="section-title">Porte da e0b GbE/FAS2820 e0a</block>
+  <block id="16492a28b092a6c397b2ace11004d3ae" category="paragraph">Le porte FAS2820 e0a e e0b richiedono modifiche alla configurazione FEC per collegarsi alle porte dello switch 9336C-FX2.
+Per le porte switch e0a e e0b, l'impostazione fec è impostata su<block ref="49bb002a2d60e4cc69c3dc5b31861c1e" prefix=" " category="inline-code"></block>.</block>
+  <block id="4f87522819ea00e934b0a0922889948b" category="list-title">Vincoli di velocità del gruppo di porte</block>
+  <block id="ffb3876ecec1241eb99eed3e2c199c30" category="list-text">Le porte 48 10/25GbE (SFP28/SFP+) vengono combinate in 12 gruppi a 4 porte come segue: Porte 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 e 45-48.</block>
+  <block id="3262b02fba07b6c88ff94cf729a2d880" category="list-text">Se le velocità in un gruppo a 4 porte sono diverse, le porte dello switch non funzioneranno correttamente.</block>
+  <block id="44419445a2db4f385ef269ec6901c6f0" category="list-text">Verificare che l'ISL e le porte fisiche sull'ISL tra i due switch BES-53248 CS1 e CS2 siano attive:</block>
+  <block id="d3ca9236c4922d1ced4f46317b142939" category="paragraph">Una volta completata la migrazione, potrebbe essere necessario installare il file di configurazione necessario per supportare il monitor stato switch Ethernet (CSHM) per gli switch cluster BES-53248. Vedere <block ref="69a3b5b5b3e87ce1bcae2811d815d9de" category="inline-link-macro-rx"></block>.</block>
+  <block id="884341494cf0683252982193822b1820" category="summary">Prima di configurare lo switch Broadcom BES-53248, consultare le seguenti informazioni.</block>
+  <block id="07da2741be958e9f66a97df92910bd8a" category="paragraph">Prima di configurare lo switch Broadcom BES-53248, esaminare le seguenti considerazioni.</block>
+  <block id="5ff0ed2baf5dbbaa7302070081cdcb21" category="section-title">Assegnazione degli switch delle porte del cluster</block>
+  <block id="6d2daece992ad0842c43707d5f1dd7e0" category="paragraph">È possibile utilizzare la tabella di assegnazione delle porte degli switch cluster BES-53248 supportata da Broadcom come guida alla configurazione del cluster.</block>
+  <block id="8a97863dc2bb67b8312833e0e1177b9a" category="paragraph">0-16</block>
+  <block id="8f165dca42f321f16043254a0b0519b2" category="section-title">Requisiti FEC</block>
+  <block id="c54cb1d1758401e3642d17bb93a69d93" category="list-text">Per le porte 25g con cavi in rame, vedere la tabella seguente per i dettagli.</block>
+  <block id="195cd18c7f8998650d35b4c351942586" category="paragraph">Se il lato Controller è<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block>, Il lato dell'interruttore è impostato su FEC 25g.</block>
+  <block id="a00291ce16531c65ee398b6881feea1f" category="paragraph">+
+Immagine:../media/FEC_copper_table.jpg[25G porte con cavi in rame]</block>
+  <block id="4acde917814132a561bfa4351ff46435" category="list-text">Per le porte 25g con cavi in fibra ottica, vedere la tabella seguente per i dettagli:</block>
+  <block id="c6539246443696c8a670f430b739b72e" category="image-alt">25g porte con cavi in fibra ottica</block>
+  <block id="6e780ba970adeac360d7606298c46e9e" category="section-title">Implementazione Bootarg</block>
+  <block id="128b15f7c069993f4d8608bed503593c" category="paragraph">Utilizzare il seguente comando per impostare il FEC della porta 25g su uno dei due<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block> oppure<block ref="e05fe30750d3ea262a610d17ebc07019" prefix=" " category="inline-code"></block>, secondo necessità:</block>
+  <block id="82f8a8d293c0abf4e508fba4f90f77de" category="list-text">Quando è impostato su <block ref="9df22f196a33acd0b372fe502de51211" prefix="*" category="inline-code"></block>*:</block>
+  <block id="a2db881e6e788aef3d98248893ac183d" category="list-text">Il<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block> l'impostazione propaga immediatamente l'impostazione all'hardware e non è necessario riavviare il sistema.</block>
+  <block id="69c272de4bab8db62256f54da8bcde70" category="list-text">Se<block ref="ec0f1fb6d4ad0a1c5956dbfae578b508" prefix=" " category="inline-code"></block>, viene eliminato dall'archivio di avvio.</block>
+  <block id="e36b105e2f0954e014a0653c4237275f" category="list-text">Dopo un riavvio, l'<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block> l'impostazione rimane attiva da allora<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block> È l'impostazione FEC predefinita.</block>
+  <block id="4cf5b76257838a13f7eaf6e128780b63" category="list-text">Quando è impostato su <block ref="e05fe30750d3ea262a610d17ebc07019" prefix="*" category="inline-code"></block>*:</block>
+  <block id="33374324ada2340989bc045d67e0bc1e" category="list-text">Il<block ref="e0a64c365feb7b2f913e6a4048472af6" prefix=" " category="inline-code"></block> l'impostazione propaga immediatamente l'impostazione all'hardware e non è necessario riavviare il sistema.</block>
+  <block id="c5a74ce2f4585cd46c311a5822607b9f" category="list-text">Un nuovo<block ref="4b077bb4cc781686a7abd72c8354ba70" prefix=" " category="inline-code"></block> viene creato con il valore impostato su "true".</block>
+  <block id="72477c9fa5c7321db80c98ce8db97acf" category="list-text">Dopo un riavvio,<block ref="e0a64c365feb7b2f913e6a4048472af6" prefix=" " category="inline-code"></block> l'impostazione rimane attiva per l'utilizzo del codice conducente.</block>
+  <block id="6015ba5fcef1f3caa77869608d6c2789" category="doc">Documentazione degli switch per i sistemi hardware ONTAP</block>
+  <block id="25cb4346e07d274b036816fdb6e793af" category="sidebar">NetApp offre cluster, storage e switch condivisi per fornire connettività tra storage host e due o più controller NetApp, consentendoti di trasferire dati e interfacce di rete senza interruzioni nell'infrastruttura storage.</block>
+  <block id="e039aa1be61543fd84f1c4eb5d3e9f6b" category="sidebar">Sistemi hardware ONTAP</block>
+  <block id="9d07d8327ebc12554e974699f677fdb7" category="sidebar">Documentazione di switch per hardware ONTAP</block>
+  <block id="1be807f8d70b208f4d04b385b1c81765" category="sidebar">Migra a due nodi con switch</block>
 </blocks>

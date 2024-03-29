@@ -6,7 +6,7 @@ keywords: switches
 lead: Use the docs on this site to install, upgrade and maintain your cluster, shared storage and MetroCluster switches. 
 summary: Utilizza i documenti di questo sito per installare, aggiornare e gestire il tuo cluster, lo storage condiviso e gli switch MetroCluster. 
 ---
-= Documentazione switch AFF e FAS
+= Documentazione degli switch per i sistemi hardware ONTAP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

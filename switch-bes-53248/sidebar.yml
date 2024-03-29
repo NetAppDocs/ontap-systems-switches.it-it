@@ -51,7 +51,7 @@ entries:
   entries:
   - title: Migrazione da switch CN1610
     url: "/switch-bes-53248/migrate-cn1610.html"
-  - title: Migrare a switch a due nodi
+  - title: Migra a due nodi con switch
     url: "/switch-bes-53248/migrate-to-2n-switched.html"
 - title: Sostituire gli interruttori
   pdf-filename: REPLACE_Switches_bes53248

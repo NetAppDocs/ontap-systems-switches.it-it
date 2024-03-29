@@ -1,7 +1,7 @@
 ---
 indexpage:
   lead: NetApp offre cluster, storage e switch condivisi per fornire connettività
-    tra lo storage host e due o più controller AFF/FAS, consentendo di spostare dati
+    tra storage host e due o più controller NetApp, consentendoti di trasferire dati
     e interfacce di rete senza interruzioni nell'infrastruttura storage.
   tiles:
   - title: Inizia subito
@@ -24,7 +24,7 @@ indexpage:
       url: "/overview-eod.html"
   - title: Documenti ONTAP correlati
     links:
-    - title: Sistemi hardware AFF/FAS
+    - title: Sistemi hardware ONTAP
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: Software ONTAP
       url: https://docs.netapp.com/us-en/ontap/index.html
