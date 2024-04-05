@@ -1,0 +1,35 @@
+---
+permalink: switch-cisco-3132q-v/cabling-considerations-3132q-v.html 
+sidebar: sidebar 
+keywords: 3132Q-V cabling setup, 3132Q-V switches configuration, nx-os 
+summary: Prima di configurare lo switch Cisco 3132Q-V, leggere le seguenti informazioni. 
+---
+= Esaminare le considerazioni relative al cablaggio e alla configurazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di configurare lo switch Cisco 3132Q-V, esaminare le seguenti considerazioni.
+
+
+
+== Supporto di porte Ethernet NVIDIA CX6, CX6-DX e CX7 GB
+
+Se si collega una porta dello switch a un controller ONTAP utilizzando le porte NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) o ConnectX-7 (CX7) NIC, è necessario codificare la velocità della porta dello switch.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# interface Ethernet1/19
+*For 100GbE speed:*
+(cs1)(config-if)# *speed 100000*
+*For 40GbE speed:*
+(cs1)(config-if)# *speed 40000*
+(cs1)(config-if)# no negotiate auto
+(cs1)(config-if)# exit
+(cs1)(config)# exit
+*Save the changes:*
+(cs1)# *copy running-config startup-config*
+----
+Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per ulteriori informazioni sulle porte dello switch.

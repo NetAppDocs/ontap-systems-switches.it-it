@@ -344,7 +344,7 @@ Cluster  node2_clus2   e0b       true
 ----
 ====
 +
-Se i LIFS del cluster non sono tornati alle porte home, ripristinarli manualmente:
+Se uno dei cluster LIFS non è tornato alle porte home, ripristinarli manualmente dal nodo locale:
 
 +
 `network interface revert -vserver Cluster -lif _lif_name_`

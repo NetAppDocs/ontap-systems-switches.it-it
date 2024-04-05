@@ -22,6 +22,8 @@ entries:
     url: "/switch-cisco-3132q-v/setup-switch.html"
   - title: Installare lo switch nel cabinet NetApp
     url: "/switch-cisco-3132q-v/install-cisco-nexus-3132qv.html"
+  - title: Analisi del cablaggio e della configurazione
+    url: "/switch-cisco-3132q-v/cabling-considerations-3132q-v.html"
 - title: Configurare il software
   pdf-filename: Configure_software_3132q-v
   entries:

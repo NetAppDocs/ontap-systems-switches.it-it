@@ -22,6 +22,8 @@ entries:
     url: "/switch-cisco-3232c/setup-switch.html"
   - title: Installare lo switch nel cabinet NetApp
     url: "/switch-cisco-3232c/install-cisco-nexus-3232c.html"
+  - title: Analisi del cablaggio e della configurazione
+    url: "/switch-cisco-3232c/cabling-considerations-3232c.html"
 - title: Configurare il software
   pdf-filename: Configure_software_3232c
   entries:

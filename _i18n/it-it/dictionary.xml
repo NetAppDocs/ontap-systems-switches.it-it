@@ -1602,7 +1602,6 @@
   <block id="87598d75b81250b6e8c0b27babdd90e5" category="list-text">Verificare che tutte le LIF siano a casa. Questa operazione potrebbe richiedere alcuni secondi.</block>
   <block id="e602723d0e5f9bdd1222eae8ea457289" category="paragraph"><block ref="c3b05a86918302a773f398302b53b622" prefix="" category="inline-code"></block></block>
   <block id="038dfaef435585ad7a241ece49eb90ca" category="paragraph">I LIF sono stati ripristinati se la colonna "is Home" è<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>, come illustrato per<block ref="bd152ff09f603987e4c87a156b246966" prefix=" " category="inline-code"></block> e.<block ref="e136e422a5bae645f7cdf8ea4cf1a818" prefix=" " category="inline-code"></block> nel seguente esempio:</block>
-  <block id="ca781b2f6ba431222707604fe0989dc1" category="paragraph">Se i LIFS del cluster non sono tornati alle porte home, ripristinarli manualmente:</block>
   <block id="31d2e20cefb76721dace23dfd9a35896" category="paragraph"><block ref="28a65537759ae55070780c50a3b3b9a6" prefix="" category="inline-code"></block></block>
   <block id="aeb90980ffc18e4c949766c382d409d4" category="list-text">Controllare lo stato del cluster dei nodi dalla console di sistema di uno dei nodi:</block>
   <block id="90d334e25f499d80506823cb341c39d7" category="paragraph">L'esempio seguente mostra epsilon su entrambi i nodi da visualizzare<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>:</block>
@@ -4773,4 +4772,11 @@ Immagine:../media/FEC_copper_table.jpg[25G porte con cavi in rame]</block>
   <block id="e039aa1be61543fd84f1c4eb5d3e9f6b" category="sidebar">Sistemi hardware ONTAP</block>
   <block id="9d07d8327ebc12554e974699f677fdb7" category="sidebar">Documentazione di switch per hardware ONTAP</block>
   <block id="1be807f8d70b208f4d04b385b1c81765" category="sidebar">Migra a due nodi con switch</block>
+  <block id="baeb2b9edd2060971ec4838ea0641d18" category="paragraph">Se uno dei cluster LIFS non è tornato alle porte home, ripristinarli manualmente dal nodo locale:</block>
+  <block id="b6dd8221599de3110a6be11272b8d643" category="summary">Prima di configurare lo switch Cisco 3232C, leggere le seguenti informazioni.</block>
+  <block id="855541c4370cb556c283600de9f0d1df" category="paragraph">Prima di configurare lo switch Cisco 3232C, esaminare le seguenti considerazioni.</block>
+  <block id="249c296c1de730eddbe0ead3fe930200" category="summary">Prima di configurare lo switch Cisco 92300YC, leggere le seguenti informazioni.</block>
+  <block id="709ea8965bb4964023cd6e82df0d3c62" category="paragraph">Prima di configurare lo switch Cisco 92300YC, esaminare le seguenti considerazioni.</block>
+  <block id="ae721238017915904e94acd87eddf78c" category="summary">Prima di configurare lo switch Cisco 3132Q-V, leggere le seguenti informazioni.</block>
+  <block id="eae32a8cbb7853bbc6b25138f2911afa" category="paragraph">Prima di configurare lo switch Cisco 3132Q-V, esaminare le seguenti considerazioni.</block>
 </blocks>
