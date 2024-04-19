@@ -49,7 +49,7 @@ NOTE: La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus
 
 === Fase 1: Controllare lo stato di salute di switch e porte
 
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+. Se AutoSupport è attivato, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 +
 _x_ è la durata della finestra di manutenzione in ore.
@@ -119,7 +119,7 @@ node2
                    e7b  ENET  storage    100 enabled  online        30
 ----
 ====
-. Verificare che non vi siano problemi relativi allo switch di storage o al cablaggio del cluster:
+. Verificare che non vi siano problemi relativi allo switch di storage o al cablaggio:
 +
 `system health alert show -instance`
 
@@ -352,9 +352,9 @@ Module       Image                  Running-Version(pri:alt)           New-Versi
 
 
 Switch will be reloaded for disruptive upgrade.
-Do you want to continue with the installation (y/n)?  [n]  y
+Do you want to continue with the installation (y/n)?  [n] *y*
 input string too long
-Do you want to continue with the installation (y/n)?  [n] y
+Do you want to continue with the installation (y/n)?  [n] *y*
 
 Install is in progress, please wait.
 
@@ -482,7 +482,7 @@ S1
     Version Source: CDP
 
 S2
-                            storage-network    172.17.227.6     NX3232C
+                            storage-network    172.17.227.6    NX3232C
      Serial Number: FOC220443LZ
       Is Monitored: true
             Reason: None

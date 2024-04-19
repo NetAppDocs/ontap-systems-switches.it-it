@@ -4223,7 +4223,6 @@
   <block id="f1e487b54b162363f351d5d209fc59ac" category="paragraph">Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in<block ref="a793a8dbe6bab2f66743aaacba3b8ce6" category="inline-link-rx"></block> guide.</block>
   <block id="8fdae5a227344a83423005f83a057331" category="list-text">Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:</block>
   <block id="442f3bc68fd4ab1c760b482d02f7ca71" category="list-text">Ripetere i passaggi da 1 a 10 sullo switch cs1.</block>
-  <block id="06e9c44ff7df8ac56c0fec0f8ded0121" category="section-title">Fase 3: Riavviare e verificare la configurazione</block>
   <block id="af4d9c4c765c5c1d9c279c35191c82da" category="paragraph"><block ref="e39b44798f52b1532971ab295180e1b0" prefix="" category="inline-code"></block></block>
   <block id="5fe6445fb6ef9ed5befc4ee396bb9ea8" category="list-text">Per ONTAP 9.8 e versioni successive, attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch utilizzando i comandi seguenti:</block>
   <block id="074078759d58b36d6ae0a8db0cd82e18" category="list-text">Per le release di patch ONTAP 9.5P16, 9.6P12 e 9.7P10 e successive, attivare la funzione di raccolta dei log di Health monitor dello switch Ethernet per la raccolta dei file di log relativi allo switch utilizzando i comandi:</block>
@@ -4779,4 +4778,6 @@ Immagine:../media/FEC_copper_table.jpg[25G porte con cavi in rame]</block>
   <block id="709ea8965bb4964023cd6e82df0d3c62" category="paragraph">Prima di configurare lo switch Cisco 92300YC, esaminare le seguenti considerazioni.</block>
   <block id="ae721238017915904e94acd87eddf78c" category="summary">Prima di configurare lo switch Cisco 3132Q-V, leggere le seguenti informazioni.</block>
   <block id="eae32a8cbb7853bbc6b25138f2911afa" category="paragraph">Prima di configurare lo switch Cisco 3132Q-V, esaminare le seguenti considerazioni.</block>
+  <block id="e3e32349be8562dbe95d6af1fcba4bbe" category="list-text">Se AutoSupport è attivato, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:<block ref="80cae18d0d871afff6b1bcabf727d6da" prefix=" " category="inline-code"></block></block>
+  <block id="abd1e059b59ee3b3be9267c9c1319923" category="list-text">Verificare che non vi siano problemi relativi allo switch di storage o al cablaggio:</block>
 </blocks>

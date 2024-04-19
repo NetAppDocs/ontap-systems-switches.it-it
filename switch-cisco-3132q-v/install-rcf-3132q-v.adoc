@@ -621,12 +621,6 @@ cluster1::*>
 ----
 ====
 . Ripetere i passaggi da 1 a 10 sullo switch cs1.
-
-
-
-
-=== Fase 3: Riavviare e verificare la configurazione
-
 . Abilitare il ripristino automatico sulle LIF del cluster.
 +
 .Mostra esempio
@@ -639,15 +633,17 @@ cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert True
 ====
 . Riavviare lo switch cs1. Questa operazione consente di attivare le LIF del cluster per ripristinare le porte home. È possibile ignorare gli eventi di "interruzione delle porte del cluster" riportati sui nodi durante il riavvio dello switch.
 +
-.Mostra esempio
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cs1# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
-====
+
+
+
+
+=== Fase 3: Verificare la configurazione
+
 . Verificare che le porte dello switch collegate alle porte del cluster siano in funzione.
 +
 `show interface brief | grep up`
