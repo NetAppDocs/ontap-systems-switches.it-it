@@ -2606,7 +2606,6 @@
   <block id="be6163ad0c362d632b28f98dea1fdaaa" category="paragraph">Tutte le porte del cluster spostate devono essere in alto.</block>
   <block id="e0b5dd148b27eba7b37861e24a42cd95" category="list-text">Controllare le informazioni sulle porte del cluster:</block>
   <block id="d0141bcaf704f75f043a7384708a3131" category="paragraph">Verificare che le porte del cluster spostate vedano lo switch cs2-new come il neighbor.</block>
-  <block id="8c61118abc6e9e30fd4469d362e96e00" category="paragraph">Tutte le LIF del cluster passano al nuovo switch cs2.</block>
   <block id="604d674dc95a98cb2db636e889289949" category="list-text">Spostare i cavi di connessione del nodo del cluster da cs1 al nuovo switch cs1-new.</block>
   <block id="2e58f874fe5dd7ef46fee2c92b1e77eb" category="paragraph">*I cavi di connessione del nodo del cluster sono stati spostati nel nuovo switch cs1*</block>
   <block id="7d829570fe05df690649474b2bb97a3b" category="image-alt">I cavi di connessione del nodo del cluster sono stati spostati nel nuovo switch cs1</block>
@@ -4695,10 +4694,8 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
   <block id="415f7d338cb2daf9bc58ecb9861e7a38" category="list-text">Il cablaggio tra i nodi e CS2 viene quindi scollegato da CS2 e ricollegato a CS2-New.</block>
   <block id="4c583a66e2c7985bcc194e39f55ceea5" category="list-text">L'interruttore CS1 viene sostituito dall'interruttore CS1-nuovo.</block>
   <block id="e36cd913095fb9e4f8b81c803f89930b" category="list-text">Il cablaggio tra i nodi e CS1 viene quindi scollegato da CS1 e ricollegato a CS1-New.</block>
-  <block id="c541a676ea1012971e3e092cd0c456bb" category="list-text">Sullo switch cluster CS2, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster:</block>
   <block id="3e504b88532082c592970766665ca3a1" category="list-text">Verifica che le LIF del cluster abbiano eseguito il failover sulle porte ospitate nello switch del cluster CS1. Questa operazione potrebbe richiedere alcuni secondi.</block>
   <block id="501db48c47898b7316de60a2bcbe9a16" category="list-text">Confermare i collegamenti della porta dello switch dal punto di vista dello switch CS2-New:</block>
-  <block id="4b9f132828deb041b404e712b378ac77" category="list-text">Nello switch cluster CS1, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster. Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia del passo 7.</block>
   <block id="32172ed3b8d9ced5da325e5230b7981b" category="list-text">Verificare che le LIF del cluster abbiano eseguito il failover alle porte ospitate nello switch CS2-new. Questa operazione potrebbe richiedere alcuni secondi:</block>
   <block id="85e04ff5dd770cff5dbbe435ea94a7dd" category="list-text">Confermare i collegamenti della porta dello switch dal punto di vista dello switch CS1-New:</block>
   <block id="784542320767d69b7e7fc2bfeb64a5b4" category="list-text">Sullo switch cluster CL2, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster:</block>
@@ -4780,4 +4777,11 @@ Immagine:../media/FEC_copper_table.jpg[25G porte con cavi in rame]</block>
   <block id="eae32a8cbb7853bbc6b25138f2911afa" category="paragraph">Prima di configurare lo switch Cisco 3132Q-V, esaminare le seguenti considerazioni.</block>
   <block id="e3e32349be8562dbe95d6af1fcba4bbe" category="list-text">Se AutoSupport è attivato, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:<block ref="80cae18d0d871afff6b1bcabf727d6da" prefix=" " category="inline-code"></block></block>
   <block id="abd1e059b59ee3b3be9267c9c1319923" category="list-text">Verificare che non vi siano problemi relativi allo switch di storage o al cablaggio:</block>
+  <block id="54be17cb6ddfe931b6d4ca0454c7bcc8" category="admonition">La disattivazione dell'indirizzamento automatico garantisce che ONTAP esegua il failover delle LIF del cluster solo in caso di arresto delle porte dello switch.</block>
+  <block id="3947ff32e82f86e7176dc28b3ee33db0" category="list-text">Sullo switch del cluster CS2, chiudere le porte collegate alle porte del cluster di *tutti* i nodi per eseguire il failover delle LIF del cluster:</block>
+  <block id="022c00ee7f7e6672d82cc079623d6e22" category="list-text">Sullo switch del cluster CS1, chiudere le porte collegate alle porte del cluster di *tutti* i nodi per eseguire il failover delle LIF del cluster.</block>
+  <block id="e6eb1709bc8131372d63990293ab75f8" category="paragraph">Tutte le LIF del cluster eseguono il failover sullo switch da CS2 nuovi.</block>
+  <block id="af7a19b4dbadf7641102bf88598cfd8b" category="paragraph">+
+Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione e avvio della raccolta di registri *supporto* dettagliati dal centralino e avvia una raccolta oraria di dati *periodici* raccolti da AutoSupport.</block>
+  <block id="a13c9d4c750715a8b993a3fec916189f" category="list-text">È necessario specificare l'utente per la raccolta di log quando viene applicato il file di configurazione di riferimento (RCF). Per impostazione predefinita, questo utente è impostato su _admin_. Se si desidera utilizzare un altro utente, è necessario specificarlo nella sezione *# SHM User*s di RCF.</block>
 </blocks>

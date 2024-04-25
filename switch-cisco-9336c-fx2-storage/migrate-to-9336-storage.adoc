@@ -258,7 +258,11 @@ cs2                         cluster-network     10.233.205.93   N5K-C5596UP
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. Sullo switch cluster CS2, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster:
++
+
+NOTE: La disattivazione dell'indirizzamento automatico garantisce che ONTAP esegua il failover delle LIF del cluster solo in caso di arresto delle porte dello switch.
+
+. Sullo switch del cluster CS2, chiudere le porte collegate alle porte del cluster di *tutti* i nodi per eseguire il failover delle LIF del cluster:
 +
 [listing, subs="+quotes"]
 ----
@@ -376,7 +380,7 @@ Verificare che le porte del cluster spostate vedano lo switch cs2-new come il ne
 cs2-new# *show interface brief*
 cs2-new# *show cdp neighbors*
 ----
-. Nello switch cluster CS1, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster. Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia del passo 7.
+. Sullo switch del cluster CS1, chiudere le porte collegate alle porte del cluster di *tutti* i nodi per eseguire il failover delle LIF del cluster.
 +
 [listing, subs="+quotes"]
 ----
@@ -384,7 +388,7 @@ cs1(config)# *interface eth1/1-1/2*
 cs1(config-if-range)# *shutdown*
 ----
 +
-Tutte le LIF del cluster passano al nuovo switch cs2.
+Tutte le LIF del cluster eseguono il failover sullo switch da CS2 nuovi.
 
 . Verificare che le LIF del cluster abbiano eseguito il failover alle porte ospitate nello switch CS2-new. Questa operazione potrebbe richiedere alcuni secondi:
 +
