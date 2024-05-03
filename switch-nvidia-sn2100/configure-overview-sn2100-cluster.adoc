@@ -25,7 +25,7 @@ Le istruzioni sono disponibili nella _Guida all'installazione dello switch NVIDI
 
 . link:configure-sn2100-cluster.html["Configurare lo switch"].
 +
-Le istruzioni sono disponibili nella documentazione di NVIDIA.
+Le istruzioni sono disponibili nella documentazione NVIDIA.
 
 . link:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"].
 +
@@ -43,7 +43,11 @@ Seguire le procedure di cablaggio se si dispone di un sistema in cui gli shelf d
 +
 Sono disponibili due script RCF per le applicazioni di clustering e storage. La procedura per ciascuno di essi è la stessa.
 
-. link:install-snmpv3-sn2100-cluster.html["Configurare SNMPv3 per la raccolta dei log dello switch"].
+. link:CSHM_log_collection.html["Abilitare la raccolta dei log"].
++
+Utilizzare questa funzione per raccogliere i file di log relativi allo switch in ONTAP.
+
+. link:CSHM_snmpv3.html["Configurare SNMPv3 per il monitoraggio"].
 +
 Questa versione include il supporto per SNMPv3 per la raccolta dei log degli switch e per Switch Health Monitoring (SHM).
 

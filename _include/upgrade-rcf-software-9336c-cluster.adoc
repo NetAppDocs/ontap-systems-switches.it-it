@@ -1,52 +1,10 @@
-= Verifica dei requisiti
+= Passaggio 1: Preparazione per l'aggiornamento
 :allow-uri-read: 
 
 
 
 
-== Verifica dei requisiti
-
-.Di cosa hai bisogno
-* Backup corrente della configurazione dello switch.
-* Un cluster completamente funzionante (nessun errore nei log o problemi simili).
-* Il file RCF corrente.
-* Una connessione console allo switch, necessaria per l'installazione di RCF.
-
-
-.Documentazione consigliata
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Pagina switch Ethernet Cisco"^] Consultare la tabella di compatibilità degli switch per le versioni ONTAP e RCF supportate. Si noti che esistono dipendenze di comando tra la sintassi del comando in RCF e quella presente nelle versioni di NX-OS.
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switch Cisco Nexus serie 3000"^]. Consultare le guide all'aggiornamento e al software appropriate disponibili sul sito Web di Cisco per la documentazione completa sulle procedure di aggiornamento e downgrade dello switch Cisco.
-
-
-
-
-== Installare RCF
-
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
-
-* I nomi dei due switch Cisco sono cs1 e cs2.
-* I nomi dei nodi sono cluster1-01, cluster1-02, cluster1-03 e cluster1-04.
-* I nomi LIF del cluster sono cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2 , cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 e cluster1-04_clus2.
-* Il `cluster1::*>` prompt indica il nome del cluster.
-
-
-Gli esempi di questa procedura utilizzano due nodi. Questi nodi utilizzano due porte di interconnessione cluster 10GbE e0a e e0b. Vedere https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"] per verificare le porte cluster corrette sulle piattaforme.
-
-
-NOTE: Gli output dei comandi possono variare a seconda delle diverse versioni di ONTAP.
-
-.A proposito di questa attività
-La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 9000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
-
-Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue la migrazione di tutte le LIF del cluster allo switch del partner operativo durante l'esecuzione delle operazioni sullo switch di destinazione.
-
-
-CAUTION: Prima di installare una nuova versione del software dello switch e gli RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. È necessario essere collegati allo switch mediante la console seriale. Questa attività ripristina la configurazione della rete di gestione.
-
-
-
-=== Fase 1: Preparazione per l'installazione
+=== Passaggio 1: Preparazione per l'aggiornamento
 
 . Visualizzare le porte del cluster su ciascun nodo collegato agli switch del cluster:
 +
@@ -189,32 +147,22 @@ cluster1::*>
 
 . Disattiva l'autorevert sulle LIF del cluster.
 +
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
-----
-====
+`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*`
+
 
 
 
 
 === Fase 2: Configurare le porte
 
-. Sullo switch del cluster cs2, spegnere le porte collegate alle porte del cluster dei nodi.
+. Sullo switch del cluster cs1, spegnere le porte collegate alle porte del cluster dei nodi.
 +
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cs2(config)# *interface eth1/1/1-2,eth1/7-8*
-cs2(config-if-range)# *shutdown*
-----
-====
-. Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch del cluster cs1. Questa operazione potrebbe richiedere alcuni secondi.
+`cs1(config)# *interface eth1/1/1-2,eth1/7-8*`
+
++
+`cs1(config-if-range)# *shutdown*`
+
+. Verifica che le LIF del cluster abbiano eseguito il failover sulle porte ospitate nello switch del cluster CS1. Questa operazione potrebbe richiedere alcuni secondi.
 +
 `network interface show -role cluster`
 
@@ -264,55 +212,64 @@ cluster1::*>
 ====
 . Se non è già stato fatto, salvare una copia della configurazione corrente dello switch copiando l'output del seguente comando in un file di testo:
 +
-[listing]
-----
-show running-config
-----
-. Pulire la configurazione sullo switch cs2 ed eseguire una configurazione di base.
-+
-
-CAUTION: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Per configurare nuovamente lo switch, è necessario essere collegati alla porta della console seriale dello switch.
+`show running-config`
 
 +
-.. Pulire la configurazione:
+.. Registrare eventuali aggiunte personalizzate tra il file running-config corrente e il file RCF in uso (ad esempio una configurazione SNMP per l'organizzazione).
+.. Per NX-OS 10,2 e versioni successive, utilizzare il `show diff running-config` Comando per confrontare con il file RCF salvato nel bootflash.  In caso contrario, utilizzare uno strumento di confronto/diff in terza parte.
+
+
+. Salvare i dettagli della configurazione di base nel file write_erase.cfg sul bootflash.
++
+`switch# show run | i "username admin password" > bootflash:write_erase.cfg`
+
++
+`switch# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+
++
+`switch# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+
++
+`switch# show run | section "switchname" >> bootflash:write_erase.cfg`
+
+. Utilizzare il comando write erase per cancellare la configurazione salvata corrente:
++
+`switch# write erase`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] y`
+
+. Copiare la configurazione di base salvata in precedenza nella configurazione di avvio.
++
+`switch# copy write_erase.cfg startup-config`
+
+. Riavviare lo switch:
++
+`switch# reload`
+
++
+`This command will reboot the system. (y/n)?  [n] y`
+
+. Dopo che l'indirizzo IP di gestione è nuovamente raggiungibile, accedere allo switch tramite SSH.
++
+Potrebbe essere necessario aggiornare le voci del file host relative alle chiavi SSH.
+
+. Copiare l'RCF nella memoria di avvio dello switch CS1 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
++
+Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS Command Reference"^] guide.
+
 +
 .Mostra esempio
 [%collapsible]
 ====
-[listing, subs="+quotes"]
-----
-(cs2)# *write erase*
-
-Warning: This command will erase the startup-configuration.
-
-Do you wish to proceed anyway? (y/n)  [n]  *y*
-----
-====
-.. Riavviare lo switch:
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *reload*
-
-Are you sure you would like to reset the system? (y/n) *y*
-
-----
-====
-
-
-. Copiare l'RCF nella flash di avvio dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS Command Reference"^] guide.
-+
-.Mostra esempio
-[%collapsible]
-====
-Questo esempio mostra l'utilizzo di TFTP per copiare un RCF nella flash di avvio sullo switch cs2:
+Questo esempio mostra l'utilizzo di TFTP per copiare un RCF nel bootflash dello switch CS1:
 
 [listing, subs="+quotes"]
 ----
-cs2# *copy tftp: bootflash: vrf management*
+cs1# *copy tftp: bootflash: vrf management*
 Enter source filename: *Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt*
 Enter hostname for the tftp server: *172.22.201.50*
 Trying to connect to tftp server......Connection to Server Established.
@@ -328,11 +285,11 @@ Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in
 .Mostra esempio
 [%collapsible]
 ====
-Questo esempio mostra il file RCF `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` in fase di installazione sullo switch cs2:
+Questo esempio mostra il file RCF `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` in fase di installazione sull'interruttore cs1:
 
 [listing]
 ----
-cs2# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
+cs1# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
 ----
 ====
 . Esaminare l'output dello striscione da `show banner motd` comando. Leggere e seguire queste istruzioni per garantire la corretta configurazione e il corretto funzionamento dello switch.
@@ -342,7 +299,7 @@ cs2# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-comma
 ====
 [listing]
 ----
-cs2# show banner motd
+cs1# show banner motd
 
 ******************************************************************************
 * NetApp Reference Configuration File (RCF)
@@ -393,33 +350,27 @@ L'output varia in base alla configurazione del sito. Controllare le impostazioni
 
 
 
-. Dopo aver verificato che le versioni RCF e le impostazioni dello switch siano corrette, copiare il file running-config nel file startup-config.
+. Riapplicare eventuali aggiunte personalizzate precedentemente identificate alla configurazione dello switch.
+. Dopo aver verificato che le versioni di RCF, le aggiunte personalizzate e le impostazioni dello switch siano corrette, copiare il file running-config nel file startup-config.
 +
 Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS Command Reference"^] guide.
 
 +
-.Mostra esempio
-[%collapsible]
-====
-[listing]
-----
-cs2# copy running-config startup-config [########################################] 100% Copy complete
-----
-====
-. Riavviare lo switch cs2. È possibile ignorare gli eventi "`cluster ports down`" riportati sui nodi durante il riavvio dello switch.
+`cs1# copy running-config startup-config`
+
 +
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cs2# *reload*
-This command will reboot the system. (y/n)?  [n] *y*
-----
-====
+`[########################################] 100% Copy complete`
+
+. Riavviare l'interruttore CS1. È possibile ignorare gli avvisi "`cluster switch Health monitor'" e gli eventi "`cluster ports down'" riportati sui nodi durante il riavvio dello switch.
++
+`cs1# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
 . Verificare lo stato delle porte del cluster sul cluster.
 +
-.. Verificare che le porte e0d siano in buone condizioni su tutti i nodi del cluster:
+.. Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:
 +
 `network port show -role cluster`
 
@@ -465,7 +416,10 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-.. Verificare lo stato dello switch dal cluster (potrebbe non essere visualizzato lo switch cs2, poiché le LIF non sono presenti su e0d).
+.. Verificare lo stato dello switch dal cluster.
++
+`network device-discovery show -protocol cdp`
+
 +
 .Mostra esempio
 [%collapsible]
@@ -521,46 +475,6 @@ A seconda della versione RCF precedentemente caricata sullo switch, sulla consol
 ====
 
 
-. Sullo switch del cluster cs1, spegnere le porte collegate alle porte del cluster dei nodi.
-+
-.Mostra esempio
-[%collapsible]
-====
-Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia:
-
-[listing, subs="+quotes"]
-----
-cs1(config)# *interface eth1/1/1-2,eth1/7-8*
-cs1(config-if-range)# *shutdown*
-----
-====
-. Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch cs2. Questa operazione potrebbe richiedere alcuni secondi.
-+
-`network interface show -role cluster`
-
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface show -role cluster*
-            Logical            Status     Network            Current             Current Is
-Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
------------ ------------------ ---------- ------------------ ------------------- ------- ----
-Cluster
-            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0d     false
-            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0d     true
-            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0d     false
-            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0d     true
-            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0b     false
-            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
-            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     false
-            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
-8 entries were displayed.
-cluster1::*>
-----
-====
 . Verificare che il cluster funzioni correttamente:
 +
 `cluster show`
@@ -582,33 +496,16 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Ripetere i passaggi da 4 a 11 sullo switch cs1.
+. Ripetere i passaggi da 1 a 18 sull'interruttore CS2.
 . Abilitare il ripristino automatico sulle LIF del cluster.
 +
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*
-----
-====
-. Riavviare lo switch cs1. Questa operazione consente di attivare le LIF del cluster per ripristinare le porte home. È possibile ignorare gli eventi "`cluster ports down`" riportati sui nodi durante il riavvio dello switch.
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cs1# *reload*
-This command will reboot the system. (y/n)?  [n] *y*
-----
-====
+`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`
 
 
 
 
-=== Fase 3: Verificare la configurazione
+
+=== Fase 3: Verificare la configurazione della rete cluster e lo stato del cluster
 
 . Verificare che le porte dello switch collegate alle porte del cluster siano *up*.
 +
@@ -651,8 +548,8 @@ Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
 Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
 node1              Eth1/1         133    H           FAS2980       e0a
 node2              Eth1/2         133    H           FAS2980       e0a
-cs2                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
-cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+cs1                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs1                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
 
 Total entries displayed: 4
 ----
@@ -867,6 +764,12 @@ Cluster
 cluster1::*>
 ----
 ====
++
+In caso di mancato ritorno delle LIF del cluster alle porte home, puoi ripristinarle manualmente dal nodo locale:
+
++
+`network interface revert -vserver vserver_name -lif lif_name`
+
 . Verificare che il cluster funzioni correttamente:
 +
 `cluster show`
