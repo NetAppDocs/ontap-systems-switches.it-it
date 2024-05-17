@@ -21,7 +21,7 @@ Seguire questa procedura per installare RCF dopo aver configurato lo switch Nexu
 * Backup corrente della configurazione dello switch.
 * Un cluster completamente funzionante (nessun errore nei log o problemi simili).
 * Il file di configurazione di riferimento corrente (RCF).
-* Una connessione console allo switch, necessaria per l'installazione di RCF.
+* Una connessione console allo switch, necessaria per l'installazione di RCF. Questo requisito è facoltativo se si è utilizzato l'articolo della Knowledge base https://kb.netapp.com/on-prem/Switches/Broadcom-KBs/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Broadcom mantenendo la connettività remota"] per cancellare la configurazione, in anticipo.
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]. Consultare la tabella di compatibilità degli switch per le versioni ONTAP e RCF supportate. Si noti che esistono dipendenze di comando tra la sintassi del comando in RCF e quella presente nelle versioni di NX-OS.
 * https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switch Cisco Nexus serie 3000"^]. Consultare le guide all'aggiornamento e al software appropriate disponibili sul sito Web di Cisco per la documentazione completa sulle procedure di aggiornamento e downgrade dello switch Cisco.
 
@@ -268,7 +268,7 @@ cluster1::*>
 . Pulire la configurazione sullo switch cs2 ed eseguire una configurazione di base.
 +
 
-CAUTION: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Per configurare nuovamente lo switch, è necessario essere collegati alla porta della console seriale dello switch.
+CAUTION: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Per configurare nuovamente lo switch, è necessario essere collegati alla porta seriale della console dello switch. Questo requisito è facoltativo se si è utilizzato l'articolo della Knowledge base https://kb.netapp.com/on-prem/Switches/Broadcom-KBs/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Broadcom mantenendo la connettività remota"] per cancellare la configurazione, in anticipo.
 
 +
 .. Pulire la configurazione:

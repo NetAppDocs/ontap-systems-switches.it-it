@@ -531,4 +531,4 @@ exit
 NOTE: Per le porte ad alta velocità comprese tra 0/49 e 0/54, rimuovere il commento da ciascuna porta, ma rimuovere solo una linea *speed* nell'RCF per ciascuna di queste porte: *Speed 100G full-duplex* o *speed 40G full-duplex* come mostrato nell'esempio. Per le porte a bassa velocità comprese tra 0/17 e 0/48, rimuovere i commenti dall'intera sezione a 8 porte quando è stata attivata una licenza appropriata.
 
 .Quali sono le prossime novità?
-link:configure-install-rcf.html["Installazione del file di configurazione di riferimento (RCF)"].
+link:configure-install-rcf.html["Installazione del file di configurazione di riferimento (RCF)"] oppure link:upgrade-rcf.html["Aggiornare l'RCF"].

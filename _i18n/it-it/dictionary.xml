@@ -213,26 +213,17 @@
   <block id="b3ff3b45f32605868a96adebb4c90952" category="cell">*Fasi di alto livello*</block>
   <block id="f006b7ce8707168edc6de44d5892d3b3" category="paragraph">Procedura per l'aggiornamento di EFOS tra due versioni (non) conformi a FIPS</block>
   <block id="dec3c0c9392c8aad6548083f4fbd795e" category="paragraph">3.4.x.x</block>
-  <block id="5824a30a230e44f8b3be21a090441338" category="paragraph">Installare la nuova immagine EFOS utilizzando <block ref="054cf74bb649684ec8445a10762e16dc" category="inline-xref-macro-rx"></block>. Le informazioni di configurazione e licenza vengono conservate.</block>
   <block id="86068e8f997360c7719398195b4d7266" category="paragraph">3.4.4.6 (o versione successiva 3.4.x.x)</block>
   <block id="40613ace69e06cacd37d3181d20fb498" category="paragraph">3.7.x.x o versioni successive non conformi a FIPS</block>
-  <block id="cb8136d5c2de953a01444b14faab6427" category="paragraph">Aggiorna EFOS utilizzando <block ref="054cf74bb649684ec8445a10762e16dc" category="inline-xref-macro-rx"></block>. Ripristinare le impostazioni predefinite dello switch e applicare il file RCF per EFOS 3.7.x.x o versioni successive.</block>
-  <block id="2a5da3dc464dcae3334b4e71e011fe58" category="paragraph">Eseguire il downgrade di EFOS con <block ref="054cf74bb649684ec8445a10762e16dc" category="inline-xref-macro-rx"></block>. Ripristinare le impostazioni predefinite dello switch e applicare il file RCF per EFOS 3.4.x.x.</block>
-  <block id="d2c6831efb28e06a242f5c20fd506290" category="paragraph">Installare la nuova immagine EFOS utilizzando <block ref="054cf74bb649684ec8445a10762e16dc" category="inline-xref-macro-rx"></block>. Le informazioni di configurazione e licenza vengono conservate.</block>
   <block id="71ed00a3a2145967178b8429c44dd605" category="paragraph">3.7.x.x o successivo conforme a FIPS</block>
   <block id="30a8444e655e4e0bf64147ad36bf643d" category="paragraph">Procedura per l'aggiornamento a/da una versione EFOS conforme a FIPS</block>
   <block id="80b55ca217bc15869588b0a1c2c982e5" category="paragraph">Non conforme a FIPS</block>
   <block id="f3f7e5eecbbda44d56a585304c3a8d15" category="paragraph">Conforme a FIPS</block>
-  <block id="e0adb31d2d1cc5200e7116fdbdfab87c" category="paragraph">Installazione dell'immagine EFOS con <block ref="c306cecb30107650b346d91b7d7c74b6" category="inline-xref-macro-rx"></block>. La configurazione dello switch e le informazioni sulla licenza andranno perse.</block>
   <block id="f854d13ce34c20dd774e2f26c0bcbec7" category="paragraph">Per verificare se la versione di EFOS in uso è conforme a FIPS o non conforme a FIPS, utilizzare<block ref="861d2504fbcbe4985de13f1d87bfc483" prefix=" " category="inline-code"></block> comando. Negli esempi seguenti, *IP_switch_a1* utilizza EFOS conforme a FIPS e *IP_switch_a2* utilizza EFOS non conforme a FIPS.</block>
-  <block id="155fd6818143cef882d5eb7ac134f393" category="list-text">Sull'interruttore IP_switch_a1:</block>
-  <block id="457ab5c73d8f159a9a225c9b9c6605c3" category="list-text">Sullo switch IP_switch_a2:</block>
   <block id="1a4c52cc090c463e0a3949fd93af9ca2" category="section-title">Installare il software</block>
   <block id="0fa8ca6cfd731f93388f2f318c1fb1d3" category="paragraph">Utilizzare uno dei seguenti metodi:</block>
-  <block id="12194155bd1a6bf8c65d4df180867dc2" category="list-text"><block ref="054cf74bb649684ec8445a10762e16dc" category="inline-xref-macro-rx"></block>. Utilizzare per la maggior parte dei casi (vedere la tabella precedente).</block>
   <block id="420b291d479da153c96fd1143e9d0e2f" category="list-text"><block ref="c306cecb30107650b346d91b7d7c74b6" category="inline-xref-macro-rx"></block>. Utilizzare se una versione di EFOS è conforme a FIPS e l'altra non è conforme a FIPS.</block>
   <block id="fa6c2d2a92519a714fe25ca830427ee1" category="section-title">Metodo 1: Installare EFOS</block>
-  <block id="c8f4b1cb79eab369a5f6ce4fa892a0d4" category="paragraph">Per installare o aggiornare il software EFOS, procedere come segue.</block>
   <block id="7f824481c3b83fffcad8abfa0af8b312" category="inline-link">BES-53248 Cluster Switch NDU non ha eseguito l'aggiornamento a EFOS 3.7.0.4 e versioni successive</block>
   <block id="cec6ec2be042120b7ff4b5d0f1e40dee" category="admonition">Si noti che dopo l'aggiornamento degli switch cluster BES-53248 da EFOS 3.3.x.x o 3.4.x.x a EFOS 3.7.0.4 o 3.8.0.2, i collegamenti Inter-Switch (ISL) e il canale della porta sono contrassegnati nello stato *down*. Consulta questo articolo della Knowledge base:<block ref="eb6085a70a8e8bb2aba905d5e75797ab" category="inline-link-rx"></block> per ulteriori dettagli.</block>
   <block id="ba9e418ff064efca86945643e9b87680" category="list-text">Collegare lo switch del cluster BES-53248 alla rete di gestione.</block>
@@ -267,8 +258,6 @@
   <block id="49215cf233256204aa5b6259719da694" category="paragraph"><block ref="6db371c6b710567f9ba5b5a3491f792a" prefix="" category="inline-code"></block></block>
   <block id="fead9f0c9e5b3f33cc2bdfbb331d335c" category="paragraph">Il software installa e riavvia lo switch. Lasciare che lo switch si riavvii normalmente nella nuova versione di EFOS.</block>
   <block id="0deffd557577017ec52052f85fe4ead6" category="list-text">Verificare che il nuovo software dello switch sia installato:</block>
-  <block id="a84f79c234a674f8c78ce3dcf3107d96" category="list-text">Completare l'installazione.</block>
-  <block id="5e643b8081f2634d16caa993dcd72b96" category="paragraph">Lo switch si riavvia senza alcuna configurazione applicata e ripristina le impostazioni predefinite.</block>
   <block id="e8ab0c1581dc0dcc64441ffb1b729ce5" category="summary">Se si dispone di un cluster senza switch a due nodi, è possibile eseguire la migrazione senza interruzioni a un cluster con switch a due nodi che include switch di cluster BES-53248 supportati da Broadcom</block>
   <block id="446e9d64184ff722494a9a706bbd9d06" category="doc">Migrare a un ambiente cluster NetApp con switch</block>
   <block id="aa7dd6235ef36f2c7e4cd4edddab41eb" category="paragraph">Se si dispone di un ambiente di cluster _switchless_ a due nodi esistente, è possibile eseguire la migrazione a un ambiente di cluster _switched_ a due nodi utilizzando gli switch di cluster BES-53248 supportati da Broadcom, che consentono di scalare oltre due nodi nel cluster.</block>
@@ -363,9 +352,6 @@
   <block id="e5e0ceddda654af2c9e3c1386537e4f7" category="paragraph">Facoltativamente, aggiungere nuove porte acquistando e installando ulteriori licenze. Il modello di base dello switch è concesso in licenza per 16 porte 10GbE o 25GbE e due porte 100GbE.</block>
   <block id="2ad05b5c21ff6c71199a379622544a42" category="inline-link-macro">Installazione del file di configurazione di riferimento (RCF)</block>
   <block id="ce4c0c35cac0cafac061a49da52f93cd" category="list-text"><block ref="74dd19c11d43cfa2dd387ecf7d984746" category="inline-link-macro-rx"></block>.</block>
-  <block id="33446f9dc3d57cc65d0607602cea0067" category="paragraph">Installare o aggiornare l'RCF sullo switch del cluster BES-53248, quindi verificare le porte per una licenza aggiuntiva dopo l'applicazione dell'RCF.</block>
-  <block id="4b0084dedd91a320badd9ce702d9bae0" category="list-text"><block ref="22274518ab78de16bd162dd23a69479d" category="inline-link-macro-rx"></block>.</block>
-  <block id="92ea1bc6f68e93d2d5fc9ac24486d4d4" category="paragraph">Installare il file di configurazione applicabile per il monitoraggio dello stato dello switch del cluster.</block>
   <block id="850f5123d6e90a3f43933cb2bcb88fe1" category="inline-link-macro">Abilitare SSH sugli switch cluster BES-53248</block>
   <block id="b983f14988f359bc65d91f081089597f" category="list-text"><block ref="e2b4c4f5313b05dff7c4a02a4e9e0df6" category="inline-link-macro-rx"></block>.</block>
   <block id="874b218fc41a6956a440db02a0f0cc5a" category="paragraph">Se si utilizzano le funzioni di monitoraggio dello stato di salute dello switch del cluster (CSHM) e di raccolta dei log, attivare SSH sugli switch.</block>
@@ -491,16 +477,7 @@
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">Sito di supporto NetApp</block>
   <block id="df9f9e9d2170bb250eb3337384525b86" category="list-text"><block ref="df9f9e9d2170bb250eb3337384525b86" category="inline-link-rx"></block></block>
   <block id="16d074a2c9c574f7e8d9dbc312b16d88" category="summary">Prima di configurare gli switch del cluster BES-53248, esaminare una panoramica del processo e della nomenclatura.</block>
-  <block id="88f691a35f81286a7d66711e46b06131" category="doc">Panoramica del processo di aggiornamento per gli switch BES-53248</block>
-  <block id="0867fdc983f276ab739c1a2e0644bf50" category="paragraph">Prima di configurare gli switch del cluster BES-53248 per un aggiornamento, consultare la panoramica della configurazione.</block>
-  <block id="b06548a0889dce32164f213e9970635b" category="paragraph">Per aggiornare uno switch cluster BES-53248, attenersi alla seguente procedura:</block>
-  <block id="13245046fe2d94c1d4961bdcba461d50" category="inline-link-macro">Preparare lo switch del cluster BES-53248 per l'aggiornamento</block>
-  <block id="da7beeed4ab89cc55ff6349392f658e3" category="list-text"><block ref="5536623af9419125f786cfdead7f8ae8" category="inline-link-macro-rx"></block>. Preparare il controller, quindi installare il software EFOS, le licenze e il file di configurazione di riferimento (RCF). Infine, verificare la configurazione.</block>
-  <block id="d309c85c035ebe6965714d23ddf04e40" category="inline-link-macro">Verificare la configurazione</block>
-  <block id="0e93fc9c17472331b04bdca0f2249c2f" category="list-text"><block ref="a4b91c11cab7f3883fa50fb982cb12cb" category="inline-link-macro-rx"></block>. Utilizzare i comandi consigliati per verificare le operazioni dopo un aggiornamento dello switch del cluster BES-53248.</block>
   <block id="418e7af0f19846dd2ad5f09dfc7d56a0" category="summary">È possibile utilizzare i comandi forniti qui per verificare che tutti siano operativi dopo un aggiornamento dello switch del cluster BES-53248.</block>
-  <block id="9a75d8eb81c880a703c72f7186f35288" category="doc">Verificare la configurazione dopo un aggiornamento dello switch del cluster BES-53248</block>
-  <block id="86c895079394cccb544aa969f3eeef5d" category="paragraph">È possibile utilizzare i comandi consigliati per verificare le operazioni dopo un aggiornamento dello switch del cluster BES-53248.</block>
   <block id="0a75413eb77e6b93cdf29f72fafdcd64" category="list-text">Visualizzare le informazioni sulle porte di rete del cluster utilizzando il comando:</block>
   <block id="afe95fe1267fcb98a96c300f333cefef" category="paragraph"><block ref="97e7c9a7d06eac006a28bf05467fcc8b" prefix="" category="inline-code"></block> deve avere il valore<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> e.<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block> deve essere<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block>.</block>
   <block id="7668c4617f543fa5b89a9bee8a3a7a61" category="paragraph">L'esempio seguente mostra l'output del comando:</block>
@@ -543,7 +520,6 @@
   <block id="382b0f5185773fa0f67a8ed8056c7759" category="paragraph">N/A.</block>
   <block id="4f4750a84cf4db2252cb74295c5da46c" category="admonition">Prendere nota delle seguenti informazioni relative ai tipi di macchina:</block>
   <block id="3ea4bf9da7622edeeae1bf80e9c5cded" category="cell">Tipo di macchina</block>
-  <block id="c98b57720d007eea3bac1ec42393b6b2" category="cell">Versione EFOS</block>
   <block id="0455dc0ebc07890a363b2b109cd487c0" category="paragraph">BES-53248A1</block>
   <block id="f9f7608c20cdacdffa7dd544e72cdb37" category="paragraph">BES-53248A2</block>
   <block id="ed69a268691ed57ce7cc6feb524edfde" category="paragraph">BES-53248A3</block>
@@ -613,7 +589,6 @@
   <block id="1e786bcf52dae89f093e36aba3d46024" category="paragraph">Attendere 10 minuti, quindi verificare che la raccolta dei log sia stata eseguita correttamente utilizzando il comando:</block>
   <block id="2d2f7e0daa0beffd4746fe421a7731c4" category="paragraph"><block ref="88354d538ba5d4e1746193ec5949ab4b" prefix="" category="inline-code"></block></block>
   <block id="c0f264a6f90e5505b277b8a8526dbfba" category="admonition">Se uno di questi comandi restituisce un errore, contattare il supporto NetApp.</block>
-  <block id="4a79c6270afcb7ed4e28cd8c98692b07" category="inline-link-macro">Verificare la configurazione dell'aggiornamento</block>
   <block id="88045e5af7830d69afafc3e6e7a9cf86" category="summary">È possibile utilizzare questa procedura per eseguire l'installazione iniziale dello switch del cluster BES-53248.</block>
   <block id="67777be64987c8c0fadb924db93389aa" category="paragraph">Seguire questa procedura per eseguire una configurazione iniziale dello switch del cluster BES-53248.</block>
   <block id="923a86c9f908f09f61d33d7831905371" category="inline-link-macro">Installare l'hardware</block>
@@ -651,9 +626,6 @@
   <block id="46180f667842fa1595248c425401bc35" category="paragraph"><block ref="e2d5a00791bce9a01f99bc6fd613a39d" prefix="" category="inline-code"></block></block>
   <block id="8c886a759ea380875a589702bd1cdd92" category="list-text">Configurare il server NTP.</block>
   <block id="20456234bfe7cb1be10155bbffc67c27" category="list-text">Configurare il fuso orario e la sincronizzazione dell'ora (SNTP):</block>
-  <block id="c1153c185fedbfeda743da4308b381a6" category="paragraph"><block ref="40a61a57278f7a619526d0eb4a09a9f1" prefix="" category="inline-code"></block></block>
-  <block id="0429fa776d68090e46718ac7e32390ef" category="admonition">Per EFOS versione 3.10.0.3 e successive, utilizzare il comando<block ref="c09633a606c51a161b16f8bf38f5ebb1" prefix=" " category="inline-code"></block>.</block>
-  <block id="7daa1f3bd2e50f13bfebdb7a7895f251" category="list-text">Configurare l'ora manualmente:</block>
   <block id="049c9cde4c991381b8a286f75afc69c5" category="paragraph"><block ref="05531b19bb846b18c09f979eeb429ad3" prefix="" category="inline-code"></block></block>
   <block id="bb59d83c000dfcf9402cc7fe83382189" category="summary">Prima di configurare gli switch del cluster BES-53248, esaminare la panoramica della configurazione.</block>
   <block id="5397dcc92d377f4ebfbca5756b92d81f" category="doc">Panoramica dell'installazione e della configurazione degli switch BES-53248</block>
@@ -670,7 +642,6 @@
   <block id="a62b8b622fa4ab9cba37776a261a9067" category="inline-link-macro">Documentazione richiesta</block>
   <block id="30bc59659410cfda61387b34e1612b7c" category="list-text"><block ref="30bc59659410cfda61387b34e1612b7c" category="inline-link-macro-rx"></block></block>
   <block id="245b6d4f01047a24b306b9ff15a6f528" category="summary">È possibile installare il file di configurazione di riferimento (RCF) dopo aver configurato lo switch del cluster BES-53248 e aver applicato le nuove licenze.</block>
-  <block id="b8df928a1a67f132ebda54d2c7fee7dc" category="paragraph">Se si sta aggiornando un RCF da una versione precedente, è necessario ripristinare le impostazioni dello switch Broadcom ed eseguire la configurazione di base per riapplicare l'RCF. Questa operazione deve essere eseguita ogni volta che si desidera aggiornare o modificare un RCF. Vedere<block ref="ca0e22b4f868295e6cf32a824edc5c13" category="inline-link-rx"></block> per ulteriori informazioni.</block>
   <block id="7b93b1b58c897d187f4ffbd20253248f" category="list-text">Backup corrente della configurazione dello switch.</block>
   <block id="3f13e146c0acc26cac7163c687a6dcb7" category="list-text">Un cluster completamente funzionante (nessun errore nei log o problemi simili).</block>
   <block id="fecbf70623c5c07c3f3c4c8793d5061b" category="list-text">Il file RCF corrente, disponibile da<block ref="b4c2fb45a290e6214474529bd84dd3bc" category="inline-link-rx"></block> pagina.</block>
@@ -691,13 +662,8 @@
   <block id="1a5fbb9c78227a044a7d11a646c64e2a" category="admonition">Gli output dei comandi possono variare a seconda delle diverse versioni di ONTAP.</block>
   <block id="ce86a637b15bcd24602c029445c6ecb5" category="paragraph">La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Broadcom switch; i comandi ONTAP vengono utilizzati se non diversamente indicato.</block>
   <block id="5ea8c6e5f4563fff82293f272dc6f6ed" category="paragraph">Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue la migrazione di tutte le LIF del cluster allo switch del partner operativo, eseguendo al contempo le operazioni sullo switch di destinazione.</block>
-  <block id="331d3619bd86486daa8ae20287b042b0" category="inline-link">KB: Come cancellare la configurazione su uno switch di interconnessione Broadcom mantenendo la connettività remota</block>
-  <block id="2ad76ee2dd44393b128aa703e18c0180" category="admonition">Prima di installare una nuova versione del software dello switch e gli RCF, utilizzare<block ref="0dbbaa06eaeff384c85940b756e5a890" category="inline-link-rx"></block>. Se è necessario cancellare completamente le impostazioni dello switch, sarà necessario eseguire nuovamente la configurazione di base. È necessario essere collegati allo switch mediante la console seriale, poiché una cancellazione completa della configurazione ripristina la configurazione della rete di gestione.</block>
   <block id="2d0ac6e4c3a1c97979e887d423ec0f95" category="section-title">Fase 1: Preparazione per l'installazione</block>
-  <block id="655ebdf839055b53c81fe98843842372" category="list-text">Visualizzare le porte del cluster su ciascun nodo collegato agli switch del cluster:<block ref="633709925611b54d23e52bde1cb56811" prefix=" " category="inline-code"></block></block>
   <block id="1b75649d1b9ec0a73e309fd9b384b32a" category="list-text">Controllare lo stato amministrativo e operativo di ciascuna porta del cluster.</block>
-  <block id="9d7316571cefaae2ca32e98fc9e57981" category="list-text">Verificare che tutte le porte del cluster siano funzionanti:<block ref="229e8d1240617e0b97c680c36bbc9564" prefix=" " category="inline-code"></block></block>
-  <block id="404e35375d78f3af8db8d2ab71618ce7" category="list-text">Verificare che tutte le interfacce del cluster (LIF) siano sulla porta home:<block ref="fb5130635551fff679ab6d902eaff8d9" prefix=" " category="inline-code"></block></block>
   <block id="40bdb15fb49f18cee766c49c83713e34" category="list-text">Verificare che il cluster visualizzi le informazioni relative a entrambi gli switch del cluster.</block>
   <block id="9e25219bfef39dc2d94805b599244f8d" category="open-title">ONTAP 9.8 e versioni successive</block>
   <block id="a76ff2554d27751da451d7ba735995b2" category="paragraph">A partire da ONTAP 9.8, utilizzare il comando:<block ref="c57378c3b3bb81c6b42a2b31a30ddda7" prefix=" " category="inline-code"></block></block>
@@ -708,10 +674,7 @@
   <block id="5567fb27456995b9005b168c9dd39c7e" category="list-text">Sullo switch del cluster cs2, spegnere le porte collegate alle porte del cluster dei nodi.</block>
   <block id="0e6faba2ce2d4a2a73875d111bfcdded" category="list-text">Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch del cluster cs1. Questa operazione potrebbe richiedere alcuni secondi.</block>
   <block id="a2d27af8ce0592e36b8a208c0cb93d3e" category="paragraph"><block ref="fb5130635551fff679ab6d902eaff8d9" prefix="" category="inline-code"></block></block>
-  <block id="a3b40857ce7fb3046b527517e75db42e" category="list-text">Verificare che il cluster funzioni correttamente:<block ref="639161158d7426b3865ce9c5a6f648b3" prefix=" " category="inline-code"></block></block>
-  <block id="7da2d511ceda949386786cd3a9b0904c" category="list-text">Se non è già stato fatto, salvare la configurazione corrente dello switch copiando l'output del seguente comando in un file di log:<block ref="d064a73c32d00bf384204782a696a298" prefix=" " category="inline-code"></block></block>
   <block id="9c730a9c4f4050cfce1db6d8dec1413d" category="list-text">Pulire la configurazione sullo switch cs2 ed eseguire una configurazione di base.</block>
-  <block id="c32a2c4a7520ad02a1a78600f2a6b3bd" category="admonition">Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Per cancellare le impostazioni dello switch, è necessario essere collegati allo switch utilizzando la console seriale.</block>
   <block id="044db7e4b2e2480e0b918af88e09b16c" category="list-text">SSH nello switch.</block>
   <block id="b216a46caec0572ad44c6c3b8b20e09c" category="paragraph">Procedere solo quando tutte le LIF del cluster sono state rimosse dalle porte dello switch e lo switch è pronto per cancellare la configurazione.</block>
   <block id="48ca6f7074b4cd6ad17a0b10e124e059" category="list-text">Accedere alla modalità privilegio:</block>
@@ -733,21 +696,10 @@
   <block id="3f1cea616a4c65689c504a5493308910" category="list-text">Salvare la configurazione in esecuzione in modo che diventi la configurazione di avvio quando si riavvia lo switch:</block>
   <block id="05811097becdf827e7905c7085aac958" category="paragraph"><block ref="2dddacc5e6efaad8de6eb5a7e2c10d11" prefix="" category="inline-code"></block></block>
   <block id="c2ffb99c5a52b59acece851636a61ed8" category="list-text">Riavviare lo switch e verificare che la configurazione in esecuzione sia corretta:</block>
-  <block id="2a886bfc4f98f8b2263d47853859d640" category="list-text">Verificare le porte sullo switch cs2:<block ref="3ecfeafb159bbded4fdecd6f5a860f4a" prefix=" " category="inline-code"></block></block>
   <block id="bc18114517d63d4db943371546b0e1ae" category="list-text">Verificare lo stato delle porte del cluster sul cluster.</block>
-  <block id="818dbe7dc43a870c6906959f7d426ba7" category="list-text">Verificare che le porte e0b siano funzionanti e funzionanti in tutti i nodi del cluster:<block ref="856f897c52a15ad9c779d1f7b82c2593" prefix=" " category="inline-code"></block></block>
   <block id="5d1ccfeff69430937e33ed02e46dbd94" category="list-text">Verificare lo stato dello switch dal cluster.</block>
   <block id="ef1ee64e66c476fc0def572853f98a6d" category="paragraph">Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia:</block>
-  <block id="7fc0653470d537d0d0fc3997f25d581b" category="list-text">Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch cs2. Questa operazione potrebbe richiedere alcuni secondi.<block ref="fb5130635551fff679ab6d902eaff8d9" prefix=" " category="inline-code"></block></block>
-  <block id="b0553791d0540be1d52514a1a47621f6" category="list-text">Ripetere i passaggi da 4 a 14 sullo switch cs1.</block>
-  <block id="9cb99e0cdd58aac4297608fa8d8ef89b" category="list-text">Abilitare il ripristino automatico sulle LIF del cluster:<block ref="478474aa0db28144d5db02c478cd5215" prefix=" " category="inline-code"></block></block>
   <block id="e23c199f14d9e7bf9dbb9da03bf726a2" category="list-text">Riavviare lo switch cs1. Questa operazione consente di attivare le LIF del cluster per ripristinare le porte home. È possibile ignorare gli eventi di "interruzione delle porte del cluster" riportati sui nodi durante il riavvio dello switch.</block>
-  <block id="d9c15a3fe5ea0c8a95b7c30c068a97e8" category="list-text">Sullo switch cs1, verificare che le porte dello switch collegate alle porte del cluster siano *up*.</block>
-  <block id="5f424e43ea12971db12c054ce8992c88" category="list-text">Verificare che l'ISL tra gli switch cs1 e cs2 funzioni correttamente:<block ref="f366ffdad905090c14aaf5084fbd75f1" prefix=" " category="inline-code"></block></block>
-  <block id="f688ff7107bf9d836f9cd01490f96a85" category="list-text">Verificare che le LIF del cluster siano tornate alla porta home:<block ref="fb5130635551fff679ab6d902eaff8d9" prefix=" " category="inline-code"></block></block>
-  <block id="c1d6313b7fd8031407df0653209f4d42" category="list-text">Eseguire il ping delle interfacce del cluster remoto per verificare la connettività:<block ref="6d931e460f3e419ca5bc874e47132b6d" prefix=" " category="inline-code"></block></block>
-  <block id="4b3087862136b477f2ba4eb874340862" category="inline-link-macro">Installare il file di configurazione CSHM</block>
-  <block id="bf45031df0d96fabfb6aa0760a792168" category="paragraph"><block ref="c0636b750594571560d8b9710bfd1581" category="inline-link-macro-rx"></block>.</block>
   <block id="8e4984bab9d1ed958d954b97ee853c52" category="summary">È possibile utilizzare la tabella di assegnazione delle porte dello switch del cluster BES-53248 come guida per configurare il cluster.</block>
   <block id="b5a925fc7db2ad87d052b8e842aaca5c" category="doc">Requisiti di configurazione per gli switch cluster BES-53248</block>
   <block id="647742b7ed5a74255a1cd295f9fd2fc9" category="paragraph">Per l'installazione e la manutenzione dello switch BES-53248, consultare i requisiti di configurazione e supporto EFOS e ONTAP.</block>
@@ -4241,7 +4193,6 @@
   <block id="037fd3285f5414c76c57c401fbc5603c" category="sidebar">Abilitare la raccolta dei log</block>
   <block id="742d7720a6bdc19b4810641f0c74ddd3" category="sidebar">Aggiornare gli switch</block>
   <block id="71f5771dab663d80ba4dad1627e3386a" category="sidebar">Panoramica sull'aggiornamento</block>
-  <block id="1f23e03e99812c23b47ad60d475647df" category="sidebar">Aggiornare lo switch</block>
   <block id="c0297ebb85b4b11dd34e1a95ad8ae773" category="sidebar">Migrare gli switch</block>
   <block id="ce140d6d1921435e3df40a72b6d032f4" category="sidebar">Migrazione da switch CN1610</block>
   <block id="703c0fedc12db69e340d7c2f3de0d764" category="sidebar">Sostituire gli interruttori</block>
@@ -4496,7 +4447,6 @@
   <block id="a5f4f9ed92853ea6128046eb985ff5a7" category="sidebar">cisco-9336c-fx2-condivisa</block>
   <block id="759d203c3eb13a684379c7413a7ea760" category="sidebar">cisco-9336c-fx2-cluster</block>
   <block id="111cada5d22121a7e11aef39f4aca355" category="list-text">Sullo switch del cluster CS2, visualizzare le porte connesse alle porte del cluster dei nodi.</block>
-  <block id="325c324b922ed6e1b216f99766068e43" category="list-text">[[step18]]sullo switch del cluster CS1, chiudere le porte collegate alle porte del cluster dei nodi.</block>
   <block id="427c15bca394e9d3b5f203c35b96c743" category="inline-link">Le porte 10GbE su uno switch cluster Cisco 3132Q non sono disponibili in linea</block>
   <block id="20f0f9c709341c54050214259fc6c790" category="admonition">Per informazioni su come portare le porte 10GbE in linea dopo un aggiornamento dell'RCF, consultare l'articolo della Knowledge base<block ref="917fe6fdad3ed920883f4190398d0805" category="inline-link-rx"></block>.</block>
   <block id="bc2be245d88ec44ff572954ca52f5e47" category="list-text">Ripetere i passaggi da 7 a 15 sull'interruttore CS1.</block>
@@ -4512,7 +4462,6 @@
   <block id="2bc32577d8d84ba98d84472c4916dd0f" category="admonition">Sono supportati solo gli switch back-end validati da NetApp (ordinati da NetApp).</block>
   <block id="d69d8c23518c3e983c5799321eb27404" category="list-text">Pulire la configurazione sull'interruttore CS2 e riavviare lo switch.</block>
   <block id="a3d5cbedb318ff78ae8c3f9bced7661b" category="list-text">Eseguire una configurazione di base dello switch. Vedere <block ref="ab35665c267fa570f19ad0ebf8386ab4" category="inline-link-macro-rx"></block> per ulteriori informazioni.</block>
-  <block id="0c6a7aa3a0bb7908809929a56822600c" category="paragraph"><block ref="c09633a606c51a161b16f8bf38f5ebb1" prefix="" category="inline-code"></block></block>
   <block id="6ab23d04af2dab64aaf06d089d134151" category="summary">SSH è un requisito per l'utilizzo delle funzionalità di monitoraggio dello stato di salute dello switch del cluster (CSHM) e di raccolta dei log. Per abilitare SSH sugli switch del cluster Cisco 9336C-FX2, si generano prima le chiavi SSH e quindi si abilita SSH.</block>
   <block id="f213e7d15465742733b22d11eff1d4ac" category="doc">Abilitare SSH sugli switch cluster Cisco 9336C-FX2</block>
   <block id="a8d8d025a84c64f53b535b4e606fd65a" category="summary">È possibile utilizzare questa procedura per installare il file di configurazione applicabile per il monitoraggio dello stato degli switch cluster degli switch cluster Nexus 92300YC.</block>
@@ -4611,7 +4560,6 @@ Per informazioni aggiornate sulla compatibilità, consultare<block ref="f6aa36fb
   <block id="b61075ba30803dc13c18190d95bb660c" category="summary">La funzione di raccolta dei log del monitor stato switch Ethernet (CSHM) viene utilizzata per raccogliere i log da switch cluster o di rete di storage in ONTAP.</block>
   <block id="cc96021e22980976473658b2f1ba6e98" category="doc">Raccolta registro monitoraggio stato switch Ethernet</block>
   <block id="bf4e0c74d0d64f033de371084e1f1021" category="paragraph">Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione e avvio della raccolta di registri *supporto* dettagliati dal centralino e avvia una raccolta oraria di dati *periodici* raccolti da AutoSupport.</block>
-  <block id="ae4749ec36ab32554e1987f66caacdb7" category="list-text">Per attivare la funzione di raccolta dei registri, è necessario eseguire ONTAP versione 9.12.1 o successiva ed EFOS 3.8.0.2 o successiva.</block>
   <block id="8d36506446d5ad8477c75d9150e6528f" category="list-text">Il monitoraggio dello stato dello switch deve essere abilitato per lo switch. Verificare questo assicurandosi che<block ref="83bb5774e6e4dc96959b12bfa4334f18" prefix=" " category="inline-code"></block> il campo è impostato su *true* nell'output di<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> comando.</block>
   <block id="09a5c8e72e479c23dfcdb0045312203a" category="list-text">Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.</block>
   <block id="51e57b530a227b04924d2803cdc52930" category="list-text">Per avviare la raccolta dei log, eseguire il comando seguente, sostituendo DEVICE con lo switch utilizzato nel comando precedente. Questo avvia entrambi i tipi di raccolta di log: I log dettagliati *Support* e una raccolta oraria di dati *Periodic*.</block>
@@ -4861,4 +4809,136 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
   <block id="29f6f46414f36869e8e3f9f19d16b6db" category="sidebar">Switch cluster - Cisco Nexus 92300YC</block>
   <block id="22daf846f579c427af282aa33d7c2a7b" category="sidebar">Interruttore quadro strumenti - NetApp CN1610</block>
   <block id="c6244de2d0f92f3ce9f4386189743190" category="sidebar">Installare o aggiornare il file di configurazione RCF</block>
+  <block id="43822bbc5cba6f539b9e148db3e66253" category="list-text">Per attivare la funzione di raccolta dei registri, è necessario eseguire ONTAP versione 9.10.1P15, 9.11.1P12 o 9.12.1 o successiva ed EFOS 3.8.0.2 o successiva.</block>
+  <block id="61ea9adabe3d3953231005a1aab3ccec" category="list-text">Questa procedura è adatta solo per installazioni nuove.</block>
+  <block id="d4c258fac915d5c338b912794cc1c695" category="inline-link-macro">Lo switch del cluster BES-53248 è configurato</block>
+  <block id="6ee97c9329502ce9ff2bde6cc6c19e8b" category="list-text">Assicurarsi che <block ref="835f4e0c80f21b931f2846012ad4929b" category="inline-link-macro-rx"></block>.</block>
+  <block id="ed39ed87f91510597e18583c6bbad14b" category="paragraph">Per installare il software EFOS, utilizzare uno dei seguenti metodi:</block>
+  <block id="2144846395ec7d6eeab2db818f342900" category="list-text"><block ref="054cf74bb649684ec8445a10762e16dc" category="inline-xref-macro-rx"></block>. Utilizzare per la maggior parte dei casi.</block>
+  <block id="41c3dd16a52577e3671b863ffe4382da" category="list-text"><block ref="de28dd00e65e0f7ced07976f012b8537" category="inline-xref-macro-rx"></block>. Utilizzare se una versione di EFOS è conforme a FIPS e l'altra non è conforme a FIPS.</block>
+  <block id="51ced220069348bd0dc7e6c1238c785d" category="paragraph">Per installare il software EFOS, procedere come segue.</block>
+  <block id="89f45a36ecc7ccb65d0b71d3e6f1ba09" category="list-text">Accedere alla porta seriale della console dello switch o connettersi con SSH.</block>
+  <block id="41475efa0dfa947b805c666219657c3b" category="paragraph">Consultare la tabella seguente per informazioni sui protocolli di copia supportati:</block>
+  <block id="dce365633ffb688b7532470dfaf4e118" category="cell">*Protocollo*</block>
+  <block id="38a72c51a3963b28372cd4c0d2414578" category="cell">*Prerequisito*</block>
+  <block id="78575e4cb2b2b81a7d4f14d70b6bbc5f" category="paragraph">TFTP (Trivial file Transfer Protocol)</block>
+  <block id="6adf97f83acf6453d4a6a4b1070f3754" category="paragraph">Nessuno</block>
+  <block id="53a1623539c6c538ab60036036a93076" category="paragraph">SFTP (SSH file Transfer Protocol)</block>
+  <block id="32792c3213d3d286b6aa76d5f482f15c" category="paragraph">Il pacchetto software deve supportare una gestione sicura</block>
+  <block id="c728a49363c9a93a43a7e7f232b5a54a" category="paragraph">FTP</block>
+  <block id="8ffca1456a2308a5556a750be1ecbac0" category="paragraph">Password obbligatoria</block>
+  <block id="d545db6c43757bcfeea7c7ed920aea68" category="paragraph">XMODEM</block>
+  <block id="119cdbc123568564f622e475ff3f58d1" category="paragraph">YMODEM</block>
+  <block id="576f462ea08a2257512b7ff5c9023048" category="paragraph">ZMODEM</block>
+  <block id="bbf0c87c662c1a48734c004baa48a867" category="paragraph">Protocollo SCP (Secure Copy Protocol)</block>
+  <block id="293c9ea246ff9985dc6f62a650f78986" category="paragraph">HTTP</block>
+  <block id="024bdcc33ab0c7765e6424ef59d67ded" category="paragraph">Trasferimenti di file basati su CLI supportati su piattaforme selezionate quando è disponibile un'utilità WGET nativa</block>
+  <block id="0e8433f9a404f1f3ba601c14b026d321" category="paragraph">HTTPS</block>
+  <block id="22555900248572659217c1157207aa25" category="list-text">Completare l'installazione.
+Per riconfigurare l'interruttore, procedere come segue:</block>
+  <block id="cc83c245da410495a294f033719b1669" category="list-text"><block ref="cc83c245da410495a294f033719b1669" category="inline-link-macro-rx"></block></block>
+  <block id="27f5a81d534f36d81d8bfa46ffcc98b6" category="inline-link-macro">Installare il file RCF</block>
+  <block id="63ff5d824660caf9ce09ed598928fe5c" category="list-text"><block ref="63ff5d824660caf9ce09ed598928fe5c" category="inline-link-macro-rx"></block></block>
+  <block id="0ad0656927b565ff563d073b0158ec24" category="list-text"><block ref="0ad0656927b565ff563d073b0158ec24" category="inline-link-macro-rx"></block></block>
+  <block id="c4cd7ec23f215e2259f91b6eb6e7cbc1" category="list-text"><block ref="c4cd7ec23f215e2259f91b6eb6e7cbc1" category="inline-link-macro-rx"></block></block>
+  <block id="c9b585775824e55a30043dda98e9474d" category="list-text">Ripetere i passaggi da 1 a 7 sullo switch partner.</block>
+  <block id="bf1b66556c566052042b226a812473ef" category="section-title">Metodo 2: Installare EFOS in modalità ONIE</block>
+  <block id="edcd5785dd2625c4e179630f5ad5a2d1" category="list-text">Collegare a una console collegata alla porta seriale dello switch.</block>
+  <block id="ec51d53028e13521b0bcc87f27df0182" category="list-text">Configurare l'interfaccia Ethernet della porta di gestione dello switch e aggiungere il routing utilizzando<block ref="83b48af5a7c8e30877952cf47e8b4b86" prefix=" " category="inline-code"></block> e.<block ref="f9064d09db65e8b9ef109bf98ec0a7df" prefix=" " category="inline-code"></block></block>
+  <block id="204b0f515feca07e238d07748be2b4e3" category="list-text">Accedere e verificare che il nuovo software dello switch sia installato:</block>
+  <block id="a207fb9399afa79821bb5dc81994c122" category="list-text">Completare l'installazione.
+Lo switch viene riavviato senza alcuna configurazione applicata e viene ripristinato i valori predefiniti. Per riconfigurare l'interruttore, procedere come segue:</block>
+  <block id="163c95e139774086e604f88f7e2f31d3" category="list-text"><block ref="163c95e139774086e604f88f7e2f31d3" category="inline-link-macro-rx"></block></block>
+  <block id="04204be9eff305a81c8050c2ee21ed34" category="list-text">Ripetere i passaggi da 1 a 8 sullo switch partner.</block>
+  <block id="1495155f2e7e92d92ddf31be3469d984" category="doc">Completare l'aggiornamento dello switch cluster BES-53248</block>
+  <block id="0ba1ff2c4fedf820129253f3d3d33058" category="paragraph">Seguire questa procedura per completare l'aggiornamento degli switch cluster BES-54328, se applicabile.</block>
+  <block id="a7c2dadcda7e0fed9bab7be4dbeee8e1" category="paragraph">Se si utilizza la funzione Cluster Switch Health Monitor (CSHM), configurare SNMPv3, che supporta il monitoraggio dello stato degli switch Ethernet (CSHM).</block>
+  <block id="f12b130ec6b41e346b4897399bd58a0a" category="list-text">Una connessione console allo switch, necessaria quando si installa RCF da uno stato predefinito di fabbrica. Questo requisito è facoltativo se si è utilizzato l'articolo della Knowledge base<block ref="18b4271d2bf70dbfb01e42cb4850cea6" category="inline-link-rx"></block> per cancellare la configurazione, in anticipo.</block>
+  <block id="20e5ec5f7186bff24f7aeef0c34a7edc" category="admonition">Prima di installare una nuova versione del software dello switch e RCF, consultare l'articolo della Knowledge base<block ref="18b4271d2bf70dbfb01e42cb4850cea6" category="inline-link-rx"></block>. Se è necessario cancellare completamente le impostazioni dello switch, sarà necessario eseguire nuovamente la configurazione di base. È necessario essere collegati allo switch mediante la console seriale, poiché una cancellazione completa della configurazione ripristina la configurazione della rete di gestione.</block>
+  <block id="931f6baff129e20df5671f8bc1d4b734" category="paragraph">A partire da ONTAP 9.8, utilizzare il comando:</block>
+  <block id="6b2c1c0049f24229e25a98be6fc4cad8" category="paragraph">Per ONTAP 9.7 e versioni precedenti, utilizzare il comando:</block>
+  <block id="607f5df94d55ac7cd1cf1f272dce228a" category="list-text">Sullo switch CS2, confermare l'elenco delle porte connesse ai nodi nel cluster.</block>
+  <block id="ca7e92a8adf1dd10095b105db166abd5" category="list-text">Sullo switch del cluster cs2, spegnere le porte collegate alle porte del cluster dei nodi. Ad esempio, se le porte da 0/1 a 0/16 sono connesse ai nodi ONTAP:</block>
+  <block id="3f8f6d237f18036be3a3fb24642d16ba" category="list-text">Se non è già stato fatto, salvare la configurazione corrente dello switch copiando l'output del seguente comando in un file di log:</block>
+  <block id="06979c3713aa3aeced436d07f8a7f491" category="inline-link">Come cancellare la configurazione su uno switch di interconnessione Broadcom mantenendo la connettività remota</block>
+  <block id="95f2309cfe6b7eb97bd6262a781bc35f" category="admonition">Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Per cancellare le impostazioni dello switch, è necessario essere collegati allo switch utilizzando la console seriale. Questo requisito è facoltativo se si è utilizzato l'articolo della Knowledge base<block ref="2fe5b19007217601835da141e61bc389" category="inline-link-rx"></block> per cancellare la configurazione, in anticipo.</block>
+  <block id="a06f5fd344edc3dfa37e6cd6a9038bea" category="admonition">La cancellazione della configurazione non comporta l'eliminazione delle licenze.</block>
+  <block id="6aab0531f59d8d6201be4ff8e2f439e4" category="list-text">Sullo switch del cluster CS2, visualizzare le porte connesse alle porte del cluster dei nodi. Ad esempio, se le porte da 0/1 a 0/16 sono connesse ai nodi ONTAP:</block>
+  <block id="2884d0bd5c4a24a14803d348c555239b" category="list-text">Verificare le porte sullo switch cs2:</block>
+  <block id="830739b4c4588cbb074488a2da891df6" category="list-text">Verificare che le porte e0b siano funzionanti e funzionanti in tutti i nodi del cluster:</block>
+  <block id="ddf0a90f40df6847590a41aa428624b4" category="list-text">Verificare lo stato dello switch dal cluster:</block>
+  <block id="9ebce7922b93715c124d60ce7c926372" category="list-text">[[step20]]sullo switch del cluster CS1, chiudere le porte collegate alle porte del cluster dei nodi.</block>
+  <block id="fecf525cfc746908a3cff346b0550128" category="list-text">Ripetere i passaggi da 4 a 19 sull'interruttore CS1.</block>
+  <block id="a55c3354b5879046f976811535a4a4f1" category="list-text">Sullo switch CS1, verificare che le porte dello switch collegate alle porte del cluster siano *up*:</block>
+  <block id="bcd3582716db1fbcec6c5c8132dc4253" category="list-text">Verificare che l'ISL tra gli switch cs1 e cs2 funzioni correttamente:</block>
+  <block id="322cf54023dcfab56a26576123959d58" category="inline-link-macro">Abilitare SSH per la raccolta dei log</block>
+  <block id="252e043223f3383251c64110f5cb451c" category="paragraph"><block ref="bbee108d14640a71df38e987fd21df1f" category="inline-link-macro-rx"></block>.</block>
+  <block id="7b0ac22c525a61eb6a12e2267bf6ddea" category="doc">Verificare la rete del cluster ONTAP dopo un aggiornamento del software EFOS o RCF degli switch del cluster BES-53248</block>
+  <block id="45f43daecf76cec34b1fa9cb5925aa48" category="paragraph">È possibile utilizzare i seguenti comandi per verificare l'integrità della rete cluster ONTAP dopo un aggiornamento del software EFOS o RCF per gli switch cluster BES-53248.</block>
+  <block id="d5c56d6c3abbb7dd20246c17ec16d101" category="inline-link-macro">Aggiornare l'RCF</block>
+  <block id="3ff8146e3852dfcba1cfd255ac4f5576" category="paragraph"><block ref="74dd19c11d43cfa2dd387ecf7d984746" category="inline-link-macro-rx"></block> oppure <block ref="885efaf124d7da00a7a60364582f6275" category="inline-link-macro-rx"></block>.</block>
+  <block id="73df015a045bb065c0d7de000247497b" category="paragraph">Installare l'RCF sullo switch del cluster BES-53248, quindi verificare la presenza di una licenza aggiuntiva nelle porte dopo l'applicazione dell'RCF.</block>
+  <block id="5466a6c78d1b1065210a875746df2c05" category="list-text"><block ref="e1494265509459a484f1e852428137bf" category="inline-link-macro-rx"></block>.</block>
+  <block id="18e822da210e93da8992e6b3c462671f" category="open-title">EFOS 3.10.0.3 e versioni successive</block>
+  <block id="85e9fe702698c7a1eb1de4500bc3fca4" category="paragraph">Configurare il fuso orario e la sincronizzazione dell'ora (NTP):</block>
+  <block id="3cc87411e9c51d2b281718c8673c3219" category="open-title">EFOS 3.9.0.2 e versioni precedenti</block>
+  <block id="331ed1afdbcefe4f9a3a6e853403e180" category="list-text">[[step10]]configurare manualmente l'ora se non è stato configurato un server NTP nel passaggio precedente.</block>
+  <block id="f3a1b5499cd7f03f4eab2cdd770b6593" category="paragraph">Configurare manualmente l'ora.</block>
+  <block id="dc4251add178848c0334d3df799034e7" category="list-text">[[step11]]salvare la configurazione in esecuzione nella configurazione di avvio:</block>
+  <block id="1233ecfc62f0bed40d830afa17eec2c7" category="paragraph"><block ref="1233ecfc62f0bed40d830afa17eec2c7" category="inline-link-macro-rx"></block></block>
+  <block id="83125f7f126ff0a8e1d1c0a2e18662a8" category="summary">Per aggiornare il software EFOS (Ethernet Fabric OS) sullo switch del cluster BES-53248, procedere come segue.</block>
+  <block id="8693d3f8c9b18790ed498b6f024a5669" category="doc">Aggiornare il software EFOS</block>
+  <block id="9aae29728e49aa150331311d8f2d4df9" category="paragraph">Per aggiornare il software EFOS sullo switch del cluster BES-53248, procedere come segue.</block>
+  <block id="81f6f81478c921fde89ee0a4441fbf63" category="section-title">Preparatevi per l'aggiornamento</block>
+  <block id="b77bb747835895c243c9fc71c68a5e83" category="paragraph">Aggiornare la nuova immagine EFOS utilizzando <block ref="ef39ef0db8f90225e050a355164f1d24" category="inline-xref-macro-rx"></block>.
+Le informazioni di configurazione e licenza vengono conservate.</block>
+  <block id="04a6b97bd94d4e52a9f639f5a0960a69" category="paragraph">Aggiorna EFOS utilizzando <block ref="ef39ef0db8f90225e050a355164f1d24" category="inline-xref-macro-rx"></block>.
+Ripristinare le impostazioni predefinite dello switch e applicare il file RCF per EFOS 3.7.x.x o versioni successive.</block>
+  <block id="edde443605ffbf95902d76dfbe93b870" category="paragraph">Eseguire il downgrade di EFOS con <block ref="ef39ef0db8f90225e050a355164f1d24" category="inline-xref-macro-rx"></block>.
+Ripristinare le impostazioni predefinite dello switch e applicare il file RCF per EFOS 3.4.x.x.</block>
+  <block id="baf326335bf06b9a6e6b6839779e2b1e" category="paragraph">Aggiornare la nuova immagine EFOS utilizzando <block ref="ef39ef0db8f90225e050a355164f1d24" category="inline-xref-macro-rx"></block>. Le informazioni di configurazione e licenza vengono conservate.</block>
+  <block id="aa235a8446ff4b510ab9a5855f98d6d9" category="paragraph">Aggiornamento dell'immagine EFOS utilizzando <block ref="c306cecb30107650b346d91b7d7c74b6" category="inline-xref-macro-rx"></block>. La configurazione dello switch e le informazioni sulla licenza andranno perse.</block>
+  <block id="42ffe10b64b5b0da385108e29b8144d6" category="list-text">Sullo switch IP_switch_A1 (EFOS conforme a FIPS):</block>
+  <block id="de24d11a8cef99f43f0c509c78fc93d5" category="list-text">Sullo switch IP_switch_A2 (EFOS non conforme a FIPS):</block>
+  <block id="d8cdb5f817637d602a7c3e58e1ebf00f" category="section-title">Aggiornare il software</block>
+  <block id="8028d9081a7d3d098ccc71d8b54cfbce" category="list-text"><block ref="ef39ef0db8f90225e050a355164f1d24" category="inline-xref-macro-rx"></block>. Utilizzare per la maggior parte dei casi (vedere la tabella precedente).</block>
+  <block id="56e7024dc2e812be7449228dc66597d9" category="admonition">Aggiornare EFOS su uno switch alla volta per garantire il funzionamento continuo della rete cluster.</block>
+  <block id="c3e2e765c3744c1b19452b2f233fdd15" category="section-title">Metodo 1: Aggiornamento EFOS</block>
+  <block id="c117ec58c236a456904edaa76f1cc5a9" category="paragraph">Per aggiornare il software EFOS, procedere come segue.</block>
+  <block id="061be1b61be0d3e5b21e6a5912639344" category="admonition">Se sono state installate licenze, verificare il relativo stato.</block>
+  <block id="84d3d1386241334d40a809878bbb05d9" category="list-text">Ripetere i passi da 5 a 10 sull'interruttore CS1.</block>
+  <block id="83b8a0042e3650c5af884c9601f53043" category="inline-link-macro">Ripristinare la porta home di un LIF</block>
+  <block id="870c6c263570c51afc056f510d552e1f" category="paragraph">Per ulteriori dettagli, vedere <block ref="b9ea844d3dd5520c7767de46f1c99a2b" category="inline-link-macro-rx"></block>.</block>
+  <block id="d0dc5dfd4c3b3be079653b7f0ac8d844" category="paragraph">Se una versione di EFOS è conforme a FIPS e l'altra non è conforme a FIPS, eseguire le seguenti operazioni. Questi passaggi possono essere utilizzati per aggiornare l'immagine EFOS 3,7.x.x non conforme a FIPS o FIPS da ONIE in caso di mancato avvio dello switch.</block>
+  <block id="a08c787811582244c8a31fa9f2a81a73" category="admonition">Se si aggiorna EFOS utilizzando l'installazione ONIE OS, la configurazione viene ripristinata ai valori predefiniti e le licenze vengono eliminate. È necessario impostare lo switch e installare le licenze e un RCF supportato per riportare lo switch al normale funzionamento.</block>
+  <block id="e0f231e3aef671569a97ee03f6d28992" category="paragraph">Durante l'avvio, selezionare ONIE quando viene visualizzato il prompt:</block>
+  <block id="e8896ba5c856367d7f285702fa9161e6" category="list-text">Completare l'installazione. Lo switch viene riavviato senza alcuna configurazione applicata e viene ripristinato i valori predefiniti. Completare i seguenti passaggi per riconfigurare l'interruttore:</block>
+  <block id="11c8d833dc677f2da3e3a05f17e029da" category="list-text"><block ref="11c8d833dc677f2da3e3a05f17e029da" category="inline-link-macro-rx"></block></block>
+  <block id="b75ec32f89267a27b5a0e0b014097f77" category="list-text">Ripetere i passi da 2 a 8 sull'interruttore CS1.</block>
+  <block id="3c3cc1e0aab8ce76690b98739e732e64" category="doc">Panoramica del processo di aggiornamento per gli switch cluster BES-53248</block>
+  <block id="95731780fd3171c29b73f348e1722fda" category="paragraph">Seguire questa procedura per aggiornare il software EFOS e i file di configurazione di riferimento (RCF) sugli switch cluster Broadcom BES-54328, se pertinente.</block>
+  <block id="80327dfe904174acefb3b256fa29ed5a" category="inline-link-macro">Aggiornare la versione EFOS</block>
+  <block id="fea95d28df6c953ffdb2096099ec83e5" category="list-text"><block ref="fea95d28df6c953ffdb2096099ec83e5" category="inline-link-macro-rx"></block></block>
+  <block id="b5a0d9a2c85a70413f40021328666fac" category="inline-link-macro">Aggiornare la versione RCF</block>
+  <block id="b0d7a2164137f2036f3af1efcfb1968f" category="list-text"><block ref="b0d7a2164137f2036f3af1efcfb1968f" category="inline-link-macro-rx"></block></block>
+  <block id="63fb347e8fe40dad0a57cfdb5a947748" category="paragraph">Aggiornare l'RCF sullo switch del cluster BES-53248, quindi verificare la presenza di una licenza aggiuntiva nelle porte dopo l'applicazione dell'RCF.</block>
+  <block id="9f2e5f2b82e93a9ed81759ba8e3c2f05" category="inline-link-macro">Verificare la rete del cluster ONTAP dopo l'aggiornamento</block>
+  <block id="ee9cd451d5dc1debab0286f89e5c8301" category="list-text"><block ref="ee9cd451d5dc1debab0286f89e5c8301" category="inline-link-macro-rx"></block></block>
+  <block id="4034571f0d4fb637512f42a4b084fea4" category="paragraph">Verificare lo stato della rete cluster ONTAP dopo un aggiornamento del software EFOS o RCF per gli switch del cluster BES-53248.</block>
+  <block id="cb44b77c34c82f85b755698a3c58dcba" category="summary">È possibile aggiornare il file di configurazione di riferimento (RCF) dopo aver configurato lo switch del cluster BES-53248 e dopo aver applicato le nuove licenze.</block>
+  <block id="f14d39745f2925af01d4497aa53d6677" category="doc">Aggiornamento del file di configurazione di riferimento (RCF)</block>
+  <block id="b3cf863b5b827b3b617adf0a1317606a" category="paragraph">È possibile aggiornare il file di configurazione di riferimento (RCF) dopo l'aggiornamento dello switch cluster EFOS BES-53248 e dopo l'applicazione di eventuali nuove licenze.</block>
+  <block id="833aa928a446532020e8ea26e29a32b7" category="section-title">Passaggio 1: Preparazione per l'aggiornamento</block>
+  <block id="31e544384f3325abd25b797e025ef614" category="list-text">Sullo switch CS2, chiudere le porte collegate alle porte del cluster dei nodi. Ad esempio, se le porte da 0/1 a 0/16 sono connesse ai nodi ONTAP:</block>
+  <block id="05299bd158481c8acf552dc1d004ab41" category="paragraph"><block ref="db837131dc56fab41bddc52d5aff8865" prefix="" category="inline-code"></block></block>
+  <block id="4a00b51f01daee860d41dd95bb500266" category="list-text">Verificare sullo switch che le modifiche siano state apportate.</block>
+  <block id="f35806549fff4250f43cb0acde28b920" category="list-text">Riavviare lo switch e verificare che la configurazione in esecuzione sia corretta.</block>
+  <block id="7271f66e0cb527adb71302d7377910b7" category="list-text">[[step21]]ripetere i passaggi da 1 a 20 sull'interruttore CS1.</block>
+  <block id="9b241cba96d2cafd3c0f5c9f7bf12560" category="list-text">. Verificare che le LIF del cluster siano tornate alla porta home:</block>
+  <block id="de4042aa676f131e04bcf7d15edc5af9" category="list-text">Una connessione console allo switch, necessaria per l'installazione di RCF. Questo requisito è facoltativo se si è utilizzato l'articolo della Knowledge base<block ref="f179a3654c26841201eb04f568431742" category="inline-link-rx"></block> per cancellare la configurazione, in anticipo.</block>
+  <block id="ced0e2e58f0a61a7676c9c092295acb0" category="admonition">Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Per configurare nuovamente lo switch, è necessario essere collegati alla porta seriale della console dello switch. Questo requisito è facoltativo se si è utilizzato l'articolo della Knowledge base<block ref="f179a3654c26841201eb04f568431742" category="inline-link-rx"></block> per cancellare la configurazione, in anticipo.</block>
+  <block id="ae0a7918183889538c2a432f5a54afa6" category="sidebar">Switch di aggiornamento</block>
+  <block id="6bdce5afe823363897535ce22aa832a0" category="sidebar">Aggiornare la versione EFOS</block>
+  <block id="4dc6f468164162b89152d6960a79b9d0" category="sidebar">Aggiornare la versione RCF</block>
+  <block id="24778145f75ec14966b06f3682e616c4" category="sidebar">Verifica del cluster dopo l'aggiornamento</block>
 </blocks>

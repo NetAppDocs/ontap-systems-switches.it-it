@@ -14,7 +14,7 @@ summary: 'La funzione di raccolta dei log del monitor stato switch Ethernet (CSH
 Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione e avvio della raccolta di registri *supporto* dettagliati dal centralino e avvia una raccolta oraria di dati *periodici* raccolti da AutoSupport.
 
 .Prima di iniziare
-* Per attivare la funzione di raccolta dei registri, è necessario eseguire ONTAP versione 9.12.1 o successiva ed EFOS 3.8.0.2 o successiva.
+* Per attivare la funzione di raccolta dei registri, è necessario eseguire ONTAP versione 9.10.1P15, 9.11.1P12 o 9.12.1 o successiva ed EFOS 3.8.0.2 o successiva.
 * Il monitoraggio dello stato dello switch deve essere abilitato per lo switch. Verificare questo assicurandosi che `Is Monitored:` il campo è impostato su *true* nell'output di `system switch ethernet show` comando.
 
 
@@ -88,7 +88,7 @@ CAUTION: Se uno di questi comandi restituisce un errore o se la raccolta dei log
 
 
 
-.Risoluzione dei problemi
+.Risolvere i problemi
 Se si verifica uno dei seguenti stati di errore segnalati dalla funzione di raccolta registri (visibile nell'output di `system switch ethernet log show`), provare i passi di debug corrispondenti:
 
 |===

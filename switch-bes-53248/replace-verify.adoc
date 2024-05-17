@@ -4,20 +4,22 @@ sidebar: sidebar
 keywords: command, verify, operational, bes, cluster, switch, upgrade, verify the configuration after a cluster switch upgrade - bes-53428 switches 
 summary: È possibile utilizzare i comandi forniti qui per verificare che tutti siano operativi dopo un aggiornamento dello switch del cluster BES-53248. 
 ---
-= Verificare la configurazione dopo un aggiornamento dello switch del cluster BES-53248
+= Verificare la rete del cluster ONTAP dopo un aggiornamento del software EFOS o RCF degli switch del cluster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-È possibile utilizzare i comandi consigliati per verificare le operazioni dopo un aggiornamento dello switch del cluster BES-53248.
+È possibile utilizzare i seguenti comandi per verificare l'integrità della rete cluster ONTAP dopo un aggiornamento del software EFOS o RCF per gli switch cluster BES-53248.
 
 .Fasi
 . Visualizzare le informazioni sulle porte di rete del cluster utilizzando il comando:
 +
-`network port show -ipspace Cluster`
-
+[source, cli]
+----
+network port show -ipspace Cluster
+----
 +
 `Link` deve avere il valore `up` e. `Health Status` deve essere `healthy`.
 
@@ -50,8 +52,10 @@ e0b    Cluster      Cluster          up   9000  auto/10000 healthy  false
 ====
 . Per ogni LIF, verificare che `Is Home` è `true` e. `Status Admin/Oper` è `up` su entrambi i nodi, utilizzando il comando:
 +
-`network interface show -vserver Cluster`
-
+[source, cli]
+----
+network interface show -vserver Cluster
+----
 +
 .Mostra esempio
 [%collapsible]

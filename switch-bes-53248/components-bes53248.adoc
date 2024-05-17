@@ -82,7 +82,7 @@ IMPORTANT: Prendere nota delle seguenti informazioni relative ai tipi di macchin
 
 [cols="50,50"]
 |===
-| Tipo di macchina | Versione EFOS 
+| Tipo di macchina | Versione minima di EFOS 
 
 
  a| 
