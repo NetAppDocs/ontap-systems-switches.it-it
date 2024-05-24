@@ -682,7 +682,6 @@
   <block id="3dcdf9c7761ce642c5fe2fe73d425b75" category="list-text">Salvare la configurazione in esecuzione nella configurazione di avvio:</block>
   <block id="b48ffac2fb8952951818ab2ce539c1d3" category="list-text">Riavviare lo switch:</block>
   <block id="d03fee12ab01ee4f556908abcba26347" category="list-text">Accedere nuovamente allo switch utilizzando SSH per completare l'installazione di RCF.</block>
-  <block id="a8935c8fdc41e9990bb4a300a40c1700" category="list-text">Se sullo switch sono state installate licenze porta aggiuntive, è necessario modificare l'RCF per configurare le porte aggiuntive con licenza. Vedere <block ref="4d3fc05ce7b1ba9afd520aecf6c7f3bb" category="inline-link-macro-rx"></block> per ulteriori informazioni.</block>
   <block id="63f7338fc9ee539e34242e8d03110038" category="list-text">Copiare l'RCF nella flash di avvio dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.</block>
   <block id="b211f67e6e9195c32683368a53542802" category="paragraph">Questo esempio mostra l'utilizzo di SFTP per copiare un RCF nella flash di avvio sullo switch cs2:</block>
   <block id="830bcf54c3049ac10bbbb40fb1258902" category="list-text">Verificare che lo script sia stato scaricato e salvato con il nome file assegnato:</block>
@@ -2462,7 +2461,6 @@
   <block id="bbb9faab95e3e9af13430c6529221602" category="summary">Questa procedura consente di installare il software NX-OS sullo switch cluster Nexus 9336C-FX2.</block>
   <block id="95eabbd5952ae314a23d3393bf46b6da" category="paragraph">Seguire questa procedura per installare il software NX-OS sullo switch del cluster Nexus 9336C-FX2.</block>
   <block id="454d8bacc17503d670940b88fdf44b2a" category="inline-link">Switch Cisco Nexus serie 9000</block>
-  <block id="7314883bd7a56822f06716c652fae68d" category="list-text">Le guide appropriate per il software e l'aggiornamento sono disponibili sul sito Web di Cisco per le procedure di aggiornamento e downgrade dello switch Cisco. Vedere<block ref="5845557b3f8314af89ad3b7e98ed4cae" category="inline-link-rx"></block>.</block>
   <block id="9a8538babc11f558b2ad3ccfd58400b4" category="list-text">Utilizzare il comando ping per verificare la connettività al server che ospita il software NX-OS e RCF.</block>
   <block id="b2a5b007a4aa6394d7e47b0deaa528d3" category="list-text">Copia il software NX-OS e le immagini EPLD sullo switch Nexus 9336C-FX2.</block>
   <block id="8f5d4c5edc1ac35d440165e075268f86" category="list-text">Verificare la nuova versione del software NX-OS dopo il riavvio dello switch:</block>
@@ -3008,7 +3006,6 @@
   <block id="516362c97fc00136adc7a7ad2b7ad6da" category="doc">Workflow di installazione del software per switch cluster Cisco Nexus 9336C-FX2</block>
   <block id="97a8a7ac4811fc17c5e935133726b9b2" category="list-text"><block ref="ac6f2160356afb2413aaa23f35f53bc6" category="inline-link-macro-rx"></block>.</block>
   <block id="c708c2593bcd41581b44e90e9da63a0a" category="list-text"><block ref="0370fdc61d5498b1c37c4960eb5bef3d" category="inline-link-macro-rx"></block>.</block>
-  <block id="10e3581692b8c6e1da3364026ad637f0" category="list-text"><block ref="1112ea12139746af7574c945e24cdc23" category="inline-link-macro-rx"></block>.</block>
   <block id="7a298dae32d29d6d4880c0d03618ae87" category="list-text">Il kit pannello pass-through, disponibile presso NetApp (codice X8784-R6).</block>
   <block id="828eeccf398aa5a5516c86cf77b98e41" category="list-text">Per ogni switch, otto viti da 10-32 o 12-24 e dadi a clip per montare le staffe e le guide di scorrimento sui montanti anteriori e posteriori dell'armadio.</block>
   <block id="19a356d6227c782e9f5da9f11a646795" category="list-text">Kit di guide standard Cisco per installare lo switch in un cabinet NetApp.</block>
@@ -4786,7 +4783,6 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
   <block id="7e857aa8a0b068cc27d4b48a1e11e878" category="list-text"><block ref="7e857aa8a0b068cc27d4b48a1e11e878" category="inline-link-macro-rx"></block></block>
   <block id="32559ee483b61b36141f9b9e0f4bbfff" category="paragraph">Consultare la tabella di compatibilità degli switch per le versioni ONTAP e RCF supportate sul sito di supporto NetApp. Si noti che possono esistere dipendenze di comando tra la sintassi di comando nell'RCF e la sintassi trovata nelle versioni specifiche di NX-OS.</block>
   <block id="ad0d19783ccfa19f931108b838e4b7e4" category="list-text"><block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block></block>
-  <block id="6b76d59cad5464650213d5b0a1dd84d7" category="paragraph">Per la documentazione completa sulle procedure di aggiornamento e di downgrade degli switch Cisco, consultare le guide appropriate per il software e l'aggiornamento disponibili sul sito Web Cisco.</block>
   <block id="8fa9b99093c5cdfb4cebad0008ba3e8d" category="paragraph">Gli esempi di questa procedura utilizzano quattro nodi. Questi nodi utilizzano due porte di interconnessione cluster 10GbE e0a e e0b. Vedere<block ref="e98f5e4074ae8b028a5791870586403d" category="inline-link-rx"></block> per verificare le porte cluster corrette sulle piattaforme.</block>
   <block id="79509ba15c2970f327dd8610e3b4628c" category="paragraph-title">Comandi utilizzati</block>
   <block id="1ad593dd61af4356ce9ba12d276c4336" category="section-title">Opzione 1: Installare il file RCF su un nuovo switch</block>
@@ -4941,4 +4937,22 @@ Ripristinare le impostazioni predefinite dello switch e applicare il file RCF pe
   <block id="6bdce5afe823363897535ce22aa832a0" category="sidebar">Aggiornare la versione EFOS</block>
   <block id="4dc6f468164162b89152d6960a79b9d0" category="sidebar">Aggiornare la versione RCF</block>
   <block id="24778145f75ec14966b06f3682e616c4" category="sidebar">Verifica del cluster dopo l'aggiornamento</block>
+  <block id="77486b34dc8c8bacbe90fd1ff1bd8f61" category="inline-link-macro">Installare o aggiornare il software NX-OS</block>
+  <block id="0a41823d2a109b5dbd6f2fa1f8fe6689" category="paragraph"><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block></block>
+  <block id="6b10db39cfed2551fdc8db011f0b1110" category="paragraph">Per la documentazione completa sulle procedure di aggiornamento e di downgrade degli switch Cisco, consultare le guide appropriate per il software e l'aggiornamento disponibili sul sito Web di Cisco.</block>
+  <block id="893355f35b6d198e6a02f43764951a73" category="paragraph">Seguire questa procedura per installare o aggiornare il software NX-OS sullo switch cluster Nexus 9336C-FX2.</block>
+  <block id="f29158c7335be7b7fe0a46dd82de6ed4" category="list-text"><block ref="f29158c7335be7b7fe0a46dd82de6ed4" category="inline-link-macro-rx"></block></block>
+  <block id="72372752f11bdb84bf66a4ce05081de7" category="paragraph">Consultare la tabella di compatibilità degli switch per le versioni supportate di ONTAP e NX-OS.</block>
+  <block id="948f862fde95b79124df1918e756eb9e" category="inline-link-macro">Guide all'aggiornamento e al downgrade del software</block>
+  <block id="fb7a0f4817a9ebc7c1050442a67a2dc1" category="list-text"><block ref="fb7a0f4817a9ebc7c1050442a67a2dc1" category="inline-link-macro-rx"></block></block>
+  <block id="cfaaf5dbf06a0559b7026ab59fba9fd1" category="inline-link-macro">Upgrade di Cisco Nexus 9000 e 3000 e matrice ISSU</block>
+  <block id="a3380d044e745afdb22a3e808fb74586" category="list-text"><block ref="a3380d044e745afdb22a3e808fb74586" category="inline-link-macro-rx"></block></block>
+  <block id="7d48e882dc8cfcd3a44f3f59ba949595" category="paragraph">Fornisce informazioni su Disruptive Upgrade/Downgrade del software Cisco NX-OS sugli switch della serie Nexus 9000
+in base alle release attuali e a quelle di destinazione.</block>
+  <block id="d6221baaf45cc1f4ed9ce13f32541fa8" category="paragraph">Nella pagina, selezionare *Disruptive Upgrade* (aggiornamento distruttivo) e selezionare la release corrente e la release di destinazione dall'elenco a discesa.</block>
+  <block id="103347887335950e25df4c7b93bdd950" category="paragraph"><block ref="103347887335950e25df4c7b93bdd950" category="inline-link-macro-rx"></block></block>
+  <block id="cf3a2d2c139bf5c9cc87fe714bfff3b1" category="list-text">Tenere presente quanto segue:</block>
+  <block id="3ee80345befd8ba67ee5e3200beb2fd8" category="list-text">Se sullo switch sono state installate licenze porta aggiuntive, è necessario modificare l'RCF per configurare le porte aggiuntive con licenza. Vedere <block ref="029ce138066352981401c2da3f4be7ea" category="inline-link-macro-rx"></block> per ulteriori informazioni.</block>
+  <block id="febb316f33bb4f57154038c792c90fc0" category="list-text">Registrare eventuali personalizzazioni effettuate nell'RCF precedente e applicarle al nuovo RCF. Ad esempio, l'impostazione delle velocità delle porte o la modalità FEC con codifica rigida.</block>
+  <block id="888174b5389281588448ee75f7ac8835" category="sidebar">Installa o aggiorna il software NX-OS</block>
 </blocks>

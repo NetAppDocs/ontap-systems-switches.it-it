@@ -427,7 +427,12 @@ Are you sure you would like to reset the system? (y/n) *y*
 ----
 
 
-. Se sullo switch sono state installate licenze porta aggiuntive, è necessario modificare l'RCF per configurare le porte aggiuntive con licenza. Vedere link:configure-licenses.html#activate-newly-licensed-ports["Attivare le nuove porte con licenza"^] per ulteriori informazioni.
+. Tenere presente quanto segue:
++
+.. Se sullo switch sono state installate licenze porta aggiuntive, è necessario modificare l'RCF per configurare le porte aggiuntive con licenza. Vedere link:configure-licenses.html#activate-newly-licensed-ports["Attivare le nuove porte con licenza"] per ulteriori informazioni.
+.. Registrare eventuali personalizzazioni effettuate nell'RCF precedente e applicarle al nuovo RCF. Ad esempio, l'impostazione delle velocità delle porte o la modalità FEC con codifica rigida.
+
+
 . Copiare l'RCF nella flash di avvio dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
 +
 Questo esempio mostra l'utilizzo di SFTP per copiare un RCF nella flash di avvio sullo switch cs2:

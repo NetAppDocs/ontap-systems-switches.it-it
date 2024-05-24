@@ -20,7 +20,7 @@ Consultare la tabella di compatibilità degli switch per le versioni ONTAP e RCF
 
 * link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switch Cisco Nexus serie 3000"^]
 +
-Per la documentazione completa sulle procedure di aggiornamento e di downgrade degli switch Cisco, consultare le guide appropriate per il software e l'aggiornamento disponibili sul sito Web Cisco.
+Per la documentazione completa sulle procedure di aggiornamento e di downgrade degli switch Cisco, consultare le guide appropriate per il software e l'aggiornamento disponibili sul sito Web di Cisco.
 
 
 
