@@ -8,6 +8,7 @@
 
 Assicurarsi che:
 
+* Il numero di serie dello switch è stato verificato per garantire la migrazione dello switch corretto.
 * Alcune porte degli switch Nexus 9336C-FX2 sono configurate per funzionare a 10 GbE o 40 GbE.
 * La connettività 10 GbE e 40 GbE dai nodi agli switch del cluster Nexus 9336C-FX2 è stata pianificata, migrata e documentata.
 * Il cluster funziona correttamente (non dovrebbero esserci errori nei log o problemi simili).

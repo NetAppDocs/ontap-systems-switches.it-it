@@ -19,6 +19,7 @@ Per sostituire uno switch Nexus 9336C-FX2 difettoso in una rete cluster, procede
 
 Prima di sostituire lo switch, assicurarsi che:
 
+* È stato verificato il numero di serie dello switch per assicurarsi che venga sostituito l'interruttore corretto.
 * Sul cluster e sull'infrastruttura di rete esistenti:
 +
 ** Il cluster esistente viene verificato come completamente funzionale, con almeno uno switch del cluster completamente connesso.

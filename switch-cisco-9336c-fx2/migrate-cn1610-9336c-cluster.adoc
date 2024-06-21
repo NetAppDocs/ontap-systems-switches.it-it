@@ -17,7 +17,7 @@ summary: È possibile eseguire la migrazione senza interruzioni degli switch di 
 
 == Verifica dei requisiti
 
-Quando si sostituiscono gli switch cluster NetApp CNC 1610 con gli switch cluster Cisco 9336C-FX2, è necessario conoscere alcune informazioni di configurazione, le connessioni delle porte e i requisiti di cablaggio.
+Quando si sostituiscono gli switch cluster NetApp CNC 1610 con gli switch cluster Cisco 9336C-FX2, è necessario conoscere alcune informazioni di configurazione, le connessioni delle porte e i requisiti di cablaggio. Inoltre, verificare il numero di serie dello switch per assicurarsi che venga migrato lo switch corretto.
 
 .Switch supportati
 Sono supportati i seguenti switch del cluster:
