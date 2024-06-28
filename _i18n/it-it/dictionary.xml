@@ -4224,7 +4224,6 @@
   <block id="54c5d11b3c2b9f724bf75585437334a6" category="sidebar">Migrare dal cluster SAT con switch</block>
   <block id="07d35609271d556894601ed6d4518ed5" category="sidebar">Migrazione da switch CN5596</block>
   <block id="ac0586dfb2126d95d9be6378c5f70512" category="sidebar">Migrazione da cluster senza switch a cluster con switch</block>
-  <block id="4e8b0737e5a683e7ada812ad2005b768" category="sidebar">Sostituire gli switch CN3132Q-V.</block>
   <block id="393a5f0f5f1f070aac964741815cca76" category="doc">Sostituire gli switch del cluster Broadcom BES-53248 con connessioni senza switch</block>
   <block id="a2ba7bf1b1a10d50fd13725865eabc47" category="list-text">Eseguire il test della funzione di raccolta dei log dello switch:</block>
   <block id="10b9ce0440e39e291f451f5b535309cd" category="summary">È possibile sostituire senza interruzioni uno switch del cluster NetApp CN1610 difettoso eseguendo una sequenza specifica di attività.</block>
@@ -4957,4 +4956,16 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="2d6eb81058fa2415eb5247e2c14c5452" category="inline-link">Come cancellare la configurazione su uno switch Cisco Interconnect mantenendo la connettività remota</block>
   <block id="9fa76c217cee95f26808d0c64f43dcda" category="list-text">Quando si installa l'RCF, è necessario collegare la console all'interruttore. Questo requisito è facoltativo se si è utilizzato l'articolo della Knowledge base<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> per cancellare la configurazione, in anticipo.</block>
   <block id="83ad3b6efa173a2560e396a36d6ac2f0" category="admonition">Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Per configurare nuovamente lo switch, è *necessario* essere collegati alla porta seriale della console dello switch. Tuttavia, questo requisito è facoltativo se si è utilizzato l'articolo della Knowledge base<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> per cancellare la configurazione, in anticipo.</block>
+  <block id="bf2e41df1fe93346157f93aa59a48dd6" category="section-title">Attivare la registrazione della console</block>
+  <block id="a1f2e4cbaec8fa16860e427a059b89aa" category="paragraph">NetApp consiglia vivamente di attivare la registrazione della console sui dispositivi in uso e di eseguire le seguenti operazioni quando si sostituisce lo switch:</block>
+  <block id="7a15fb36e18a42514f358533c9af4dae" category="list-text">Lasciare attivato AutoSupport durante la manutenzione.</block>
+  <block id="c0aa3599fdcfc9e5e35fab592ea612f0" category="inline-link">SU92: Come eliminare la creazione automatica dei casi durante le finestre di manutenzione programmata</block>
+  <block id="5c0d62310efa13f4e4c4ae41a7330f95" category="list-text">Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione del caso per tutta la durata della manutenzione. Consultare questo articolo della Knowledge base<block ref="9889375293ffeecac54c58b8cad125b2" category="inline-link-rx"></block> per ulteriori dettagli.</block>
+  <block id="fb42fce84a1f5a648367e2e027a6c941" category="inline-link">Come configurare Putty per una connettività ottimale ai sistemi ONTAP</block>
+  <block id="1d01c6e5d28fb955441f4f9d1b4678b7" category="list-text">Attivare la registrazione della sessione per qualsiasi sessione CLI. Per istruzioni su come attivare la registrazione della sessione, consultare la sezione "registrazione dell'output della sessione" in questo articolo della Knowledge base<block ref="969f6e4e41456399a13556dea44fc607" category="inline-link-rx"></block>.</block>
+  <block id="05e512c6037fe1bb54e099238cc8ce62" category="section-title">Le porte non si collegano a causa delle risorse TCAM</block>
+  <block id="f45e0e2e020e174164fe5413760ef4e4" category="paragraph">Sullo switch 9336C-FX2, le risorse TCAM (Content Addressable Memory) ternarie configurate nella configurazione utilizzata dallo switch sono esaurite.</block>
+  <block id="50c3c6ae36d53e402b88d9a6222029a0" category="inline-link">Le porte non si collegano su Cisco Nexus 9336C-FX2 a causa delle risorse TCAM</block>
+  <block id="293da448e2520766812e980a00821699" category="paragraph">Consultare l'articolo della Knowledge base<block ref="882efca0483fcef9d53236590b1d74e9" category="inline-link-rx"></block> per ulteriori informazioni su come risolvere questo problema.</block>
+  <block id="73f7e96895a0ddf72a3e199ac5ae2247" category="sidebar">Sostituire gli interruttori da 3132Q V.</block>
 </blocks>
