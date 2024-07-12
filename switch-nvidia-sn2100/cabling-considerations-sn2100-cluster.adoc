@@ -47,7 +47,7 @@ Nodi di porta cluster 40/100GbE
  a| 
 swp15-16
  a| 
-Porte ISL (Inter-Switch link) 40 GbE
+100GbE porte Inter-Switch link (ISL)
 
 |===
 Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per ulteriori informazioni sulle porte dello switch.

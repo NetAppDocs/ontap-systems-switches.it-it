@@ -1778,7 +1778,6 @@
   <block id="e451d063f2ca2617078b2305ef087f02" category="paragraph">swp3-14</block>
   <block id="c19b9518d51b517376f0fe9109f66e90" category="paragraph">Nodi di porta cluster 40/100GbE</block>
   <block id="044141a7c2076e2a8d84961a043b480a" category="paragraph">swp15-16</block>
-  <block id="45a21206fd2396fdd6a59132a2a6d3a7" category="paragraph">Porte ISL (Inter-Switch link) 40 GbE</block>
   <block id="c462eb588f6f13a8e04bee80aae30ba8" category="paragraph">Vedere<block ref="c043e01cdc55399f824e6d1e4eb8a5b5" category="inline-link-rx"></block> per ulteriori informazioni sulle porte dello switch.</block>
   <block id="509e4d6df8b93cb5deb86271a6326df2" category="section-title">Ritardi di collegamento con connessioni ottiche</block>
   <block id="50137c9f3120823f7ba1d1983c48e011" category="paragraph">Se si verificano ritardi di collegamento superiori a cinque secondi, Cumulus Linux 5.4 e versioni successive includono il supporto per il collegamento rapido. È possibile configurare i collegamenti utilizzando<block ref="0c14f6e7a82b0926c666f7fac383436a" prefix=" " category="inline-code"></block> eseguire il comando come segue:</block>
@@ -4968,4 +4967,37 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="50c3c6ae36d53e402b88d9a6222029a0" category="inline-link">Le porte non si collegano su Cisco Nexus 9336C-FX2 a causa delle risorse TCAM</block>
   <block id="293da448e2520766812e980a00821699" category="paragraph">Consultare l'articolo della Knowledge base<block ref="882efca0483fcef9d53236590b1d74e9" category="inline-link-rx"></block> per ulteriori informazioni su come risolvere questo problema.</block>
   <block id="73f7e96895a0ddf72a3e199ac5ae2247" category="sidebar">Sostituire gli interruttori da 3132Q V.</block>
+  <block id="dd821578b18dec3b3c49fbc2a36950e0" category="paragraph">100GbE porte Inter-Switch link (ISL)</block>
+  <block id="c2f363b557f11042735dbadbfbd534d3" category="summary">È possibile utilizzare questa procedura per installare il file di configurazione applicabile per il monitoraggio dello stato degli switch cluster degli switch cluster NVIDIA SN2100.</block>
+  <block id="1972298f5ec1d5e6b5fe96dd4ba6f4d3" category="doc">Installare il file di configurazione di Ethernet Switch Health Monitor</block>
+  <block id="65c65b976cfab8bcc3a5fa282181ca5b" category="paragraph">Seguire questa procedura per installare il file di configurazione applicabile per il monitoraggio dello stato dello switch Ethernet degli switch cluster NVIDIA. I modelli supportati sono:</block>
+  <block id="164a0cea1831b06a7fa67aab2e9a5d98" category="admonition">Questa procedura di installazione si applica a ONTAP 9.10.1 e versioni successive.</block>
+  <block id="dd7fa1380804217cf2f3af00bb585752" category="list-text">Verificare che sia necessario scaricare il file di configurazione eseguendo<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> e verificando se è visualizzato *ALTRO* per il modello in uso.</block>
+  <block id="3953f2c946249817a198b9dd2d604aa4" category="paragraph">Se il modello mostra ancora *ALTRO* dopo aver applicato il file di configurazione, contattare il supporto NetApp.</block>
+  <block id="294206f940bbd4f3ec7f79996b76c616" category="list-text">Assicurarsi che il cluster ONTAP sia attivo e in esecuzione.</block>
+  <block id="c2c0a6bc429d35a2d508307c899f4398" category="list-text">Abilitare SSH per utilizzare tutte le funzioni disponibili in CSHM.</block>
+  <block id="0cfea6e2910f570cd17c24fb74c90378" category="inline-link">Switch Ethernet NVIDIA</block>
+  <block id="363c0c7cf08dfd2752b66f1fc2506a0a" category="list-text">Scaricare il file zip di configurazione dello switch Ethernet Health monitor in base alla versione di ONTAP corrispondente. Questo file è disponibile nella<block ref="308b26f7678235b6ac179b42eaa22162" category="inline-link-rx"></block> pagina .</block>
+  <block id="68de66680b1bf357acb893d8dfe0f0bc" category="list-text">Nella pagina di download del software NVIDIA SN2100, selezionare *Nvidia CSHM file*.</block>
+  <block id="6b98b47c20b7ca9e9919fa3a77bf7814" category="list-text">Nella pagina attenzione/da leggere, selezionare la casella di controllo per accettare.</block>
+  <block id="c36caaf00f9a67804cb39871b93b4fb1" category="list-text">Nella pagina Contratto di licenza con l'utente finale, selezionare la casella di controllo Accetto e fare clic su *Accetta e continua*.</block>
+  <block id="e5e0b87b73538c14eb1223ba2685b479" category="list-text">Nella pagina file Nvidia CSHM - Download, selezionare il file di configurazione appropriato. Sono disponibili i seguenti file:</block>
+  <block id="4b96de8aec25594d2021f91d86aa38cb" category="open-title">ONTAP 9.15.1 e versioni successive</block>
+  <block id="b834fb250d0f1e06556ff2af9ce370ff" category="list-text">X190006-PE.zip</block>
+  <block id="33ab7322815a985fdb6cbba64b9ffda9" category="list-text">X190006-PI.zip</block>
+  <block id="9fc9e8ea7a5cdfe68b4528fb16936bf1" category="open-title">ONTAP da 9.11.1 a 9.14.1</block>
+  <block id="00032ac6acd20eb8310604aa0ac6a200" category="list-text">X190006-PE_PRIOR_9.15.1.zip</block>
+  <block id="6a9e7f50780a2f2b4e2b5999c1b1ae2b" category="list-text">X190006-PI_PRIOR_9.15.1.zip</block>
+  <block id="3e5315d19591c6790a6c062127cf9a8e" category="list-text">[[step2]]caricare il file zip applicabile sul server Web interno.</block>
+  <block id="e319ecf1cb942a0710da7d0d525af1db" category="list-text">Accedi alle impostazioni della modalità avanzata da uno dei sistemi ONTAP nel cluster.</block>
+  <block id="4072831dc74599297a173c0e1d86b538" category="list-text">Eseguire il comando di configurazione dello switch Health monitor.</block>
+  <block id="bdfd509ce621aa984c1f0a9cdf92ae88" category="list-text">Verificare che l'output del comando termini con il seguente testo per la versione di ONTAP in uso:</block>
+  <block id="ff62e28086747c31b6e4bbd897aaaf54" category="paragraph">Il monitoraggio dello stato dello switch Ethernet ha installato il file di configurazione.</block>
+  <block id="3f54ec95c3fc7563a38988f9c2a7a823" category="paragraph">SHM ha installato il file di configurazione.</block>
+  <block id="ab8296c5ef7a7b056b384680f89a9379" category="open-title">ONTAP 9.10.1</block>
+  <block id="74d14036e96594d67869316b84c6d566" category="paragraph">Pacchetto scaricato CSHM elaborato correttamente.</block>
+  <block id="89c6b3e5f896b8d329ae4e4fe91cc812" category="paragraph">In caso di errore, contattare il supporto NetApp.</block>
+  <block id="a6fd16052b19595c024aa4e5bcb0b366" category="list-text">[[step6]]attendere fino a due volte l'intervallo di polling del monitor dello stato dello switch Ethernet, rilevato eseguendo<block ref="c9e6cd6140c9d8677df821c7cce2aac1" prefix=" " category="inline-code"></block>, prima di completare il passaggio successivo.</block>
+  <block id="c947c5faccdddd0a9a87be7895f50511" category="list-text">Eseguire il comando<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> sul sistema ONTAP e assicurarsi che gli switch del cluster vengano rilevati con il campo monitorato impostato su *vero* e il campo del numero di serie non visualizzi *Sconosciuto*.</block>
+  <block id="b954609be582bc6760c67ae6e58cd7a9" category="sidebar">Installare il file di configurazione CSHM</block>
 </blocks>
