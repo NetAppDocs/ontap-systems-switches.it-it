@@ -422,7 +422,7 @@ Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in
 cs2# copy running-config startup-config [########################################] 100% Copy complete
 ----
 ====
-. Riavviare lo switch cs2. È possibile ignorare gli eventi di "interruzione delle porte del cluster" riportati sui nodi durante il riavvio dello switch.
+. Riavviare l'interruttore CS2. È possibile ignorare entrambi gli eventi "cluster ports down" riportati sui nodi durante il riavvio dello switch e l'output dell'errore `% Invalid command at '^' marker` .
 +
 .Mostra esempio
 [%collapsible]
@@ -433,7 +433,7 @@ cs2# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
 ====
-. Applicare lo stesso RCF e salvare la configurazione in esecuzione per una seconda volta.
+. Applicare lo stesso RCF e salvare la configurazione in esecuzione per una seconda volta. Ciò è necessario in quanto l'RCF utilizza QoS e richiede una riconfigurazione del TCAM che comporta il caricamento dell'RCF due volte con lo switch riavviato tra di loro.
 +
 .Mostra esempio
 [%collapsible]
