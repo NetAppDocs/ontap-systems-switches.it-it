@@ -13,6 +13,64 @@ summary: È possibile installare RCF dopo aver configurato lo switch Nexus 9336C
 [role="lead"]
 Dopo aver configurato per la prima volta lo switch Nexus 9336C-FX2, installare il file di configurazione di riferimento (RCF). La versione RCF viene aggiornata quando sullo switch è installata una versione esistente del file RCF.
 
+.Configurazioni RCF disponibili
+Nella tabella seguente sono descritti gli RCF disponibili per diverse configurazioni. Scegliere l'RCF applicabile alla propria configurazione.
+
+Per informazioni dettagliate sull'utilizzo di porte e VLAN specifiche, fare riferimento alla sezione banner e note importanti nell'RCF.
+
+[cols="1,2"]
+|===
+| Nome RCF | Descrizione 
+
+
+ a| 
+2 cluster-ha-breakout
+ a| 
+Supporta due cluster ONTAP con almeno otto nodi, compresi i nodi che utilizzano porte ha e cluster condivisi.
+
+
+
+ a| 
+4 cluster-ha-breakout
+ a| 
+Supporta quattro cluster ONTAP con almeno quattro nodi, inclusi i nodi che utilizzano porte ha e cluster condivisi.
+
+
+
+ a| 
+1-Cluster-ha
+ a| 
+Tutte le porte sono configurate per 40 GbE/100GbE GbE. Supporta il traffico ha/cluster condiviso sulle porte. Richiesto per i sistemi AFF A320, AFF A250 e FAS500f. Inoltre, tutte le porte possono essere utilizzate come porte cluster dedicate.
+
+
+
+ a| 
+1 cluster-ha-breakout
+ a| 
+Le porte sono configurate per breakout 4x10GbE, breakout 4x25GbE (RCF 1,6+ su switch 100GbE) e 40/100GbE. Supporta il traffico ha/cluster condiviso sulle porte per i nodi che utilizzano porte ha/cluster condivisi: Sistemi AFF A320, AFF A250 e FAS500f. Inoltre, tutte le porte possono essere utilizzate come porte cluster dedicate.
+
+
+
+ a| 
+Storage ha-cluster
+ a| 
+Le porte sono configurate per 40/100GbE GbE per Cluster+ha, 4x10GbE breakout per il cluster e 4x25GbE breakout per Cluster+ha e 100GbE GbE per ogni coppia ha storage.
+
+
+
+ a| 
+Cluster
+ a| 
+Due versioni di RCF con diverse allocazioni di 4 porte 10 GbE (breakout) e porte 40/100GbE. Tutti i nodi FAS/AFF sono supportati, ad eccezione dei sistemi AFF A320, AFF A250 e FAS500f.
+
+
+
+ a| 
+Storage
+ a| 
+Tutte le porte sono configurate per connessioni storage NVMe da 100GbE GB.
+
+|===
 .Documentazione consigliata
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco (NSS)"^]
 +
@@ -403,6 +461,9 @@ NetApp consiglia di utilizzare System Manager per configurare nuovi cluster.
 System Manager offre un workflow semplice e facile per la configurazione e la configurazione del cluster, che include l'assegnazione di un indirizzo IP di gestione dei nodi, l'inizializzazione del cluster, la creazione di un Tier locale, la configurazione dei protocolli e il provisioning dello storage iniziale.
 
 Passare a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurare ONTAP su un nuovo cluster con Gestione di sistema"] per le istruzioni di installazione.
+
+.Quali sono le prossime novità?
+link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["Abilitare SSH"].
 
 
 
@@ -1266,3 +1327,6 @@ RPC status:
 ----
 ====
 
+
+.Quali sono le prossime novità?
+link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["Abilitare SSH"].

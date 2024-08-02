@@ -400,4 +400,4 @@ cs1          0/56    179         R             BES-53248   0/56
 
 
 .Quali sono le prossime novità?
-Vedere link:configure-log-collection.html["Attivare la funzione di raccolta dei log"] per i passaggi necessari per attivare la raccolta di log dello switch di stato del cluster utilizzata per la raccolta dei file di log relativi allo switch.
+link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].

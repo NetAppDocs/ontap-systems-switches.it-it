@@ -1,5 +1,5 @@
 ---
-permalink: switch-nvidia-sn2100/components-sn2100-storage.html 
+permalink: switch-nvidia-sn2100-storage/components-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
 summary: 'Per l"installazione e la manutenzione dello switch NVIDIA SN2100, consultare l"elenco dei componenti e i codici del cabinet e del kit di guide.' 

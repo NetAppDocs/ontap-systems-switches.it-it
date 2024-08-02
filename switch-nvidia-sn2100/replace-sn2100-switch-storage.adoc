@@ -221,89 +221,12 @@ shelf   id    remote-port     remote-device
 cluster1::*>
 ----
 ====
-. Creare una password per la funzione di raccolta dei log dello switch Ethernet Health monitor:
+. Modificare nuovamente il livello di privilegio in admin:
 +
-`system switch ethernet log setup-password`
+`set -privilege admin`
 
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log setup-password*
-Enter the switch name: *<return>*
-The switch name entered is not recognized.
-Choose from the following list:
-*sw1*
-*nsw2*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *csw1*
-Would you like to specify a user other than admin for log collection? {y|n}: *n*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *nsw2*
-Would you like to specify a user other than admin for log collection? {y|n}: *n*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-----
-====
-. Attivare la funzione di raccolta dei log dello switch Ethernet.
-+
-`system switch ethernet log modify -device _<switch-name>_ -log-request true`
-
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
-
-Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-
-cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
-
-Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-----
-====
-+
-Attendere 10 minuti, quindi verificare che la raccolta dei log sia completa:
-
-+
-`system switch ethernet log show`
-
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> system switch ethernet log show
-Log Collection Enabled: true
-
-Index  Switch                       Log Timestamp        Status
------- ---------------------------- -------------------  ---------    
-1      sw1  (b8:ce:f6:19:1b:42)     4/29/2022 03:05:25   complete   
-2      nsw2 (b8:ce:f6:19:1b:96)     4/29/2022 03:07:42   complete
-----
-====
-+
-
-CAUTION: Se uno di questi comandi restituisce un errore o se la raccolta dei log non viene completata, contattare il supporto NetApp.
-
-. Modificare nuovamente il livello di privilegio in admin: `set -privilege admin`
 . Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
++
 `system node autosupport invoke -node * -type all -message MAINT=END`
+
 

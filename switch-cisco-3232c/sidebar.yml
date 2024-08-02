@@ -33,10 +33,6 @@ entries:
     url: "/switch-cisco-3232c/install-nx-os-software-3232c.html"
   - title: Installare il file di configurazione RCF
     url: "/switch-cisco-3232c/install-rcf-3232c.html"
-  - title: Abilitare la raccolta dei log
-    url: "/switch-cisco-3232c/CSHM_log_collection.html"
-  - title: Configurare SNMPv3 per il monitoraggio
-    url: "/switch-cisco-3232c/CSHM_snmpv3.html"
 - title: Migrare gli switch
   pdf-filename: Migrare_switch_3232c
   entries:

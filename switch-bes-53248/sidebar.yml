@@ -33,10 +33,6 @@ entries:
     url: "/switch-bes-53248/configure-install-rcf.html"
   - title: Abilitare SSH per la raccolta dei log
     url: "/switch-bes-53248/configure-ssh.html"
-  - title: Abilitare la raccolta dei log
-    url: "/switch-bes-53248/CSHM_log_collection.html"
-  - title: Configurare SNMPv3 per il monitoraggio
-    url: "/switch-bes-53248/CSHM_snmpv3.html"
 - title: Switch di aggiornamento
   pdf-filename: Upgrade_Switches_bes53248
   entries:

@@ -356,3 +356,6 @@ NetApp consiglia di utilizzare System Manager per configurare nuovi cluster.
 System Manager offre un workflow semplice e facile per la configurazione e la configurazione del cluster, che include l'assegnazione di un indirizzo IP di gestione dei nodi, l'inizializzazione del cluster, la creazione di un Tier locale, la configurazione dei protocolli e il provisioning dello storage iniziale.
 
 Passare a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurare ONTAP su un nuovo cluster con Gestione di sistema"] per le istruzioni di installazione.
+
+.Quali sono le prossime novità?
+link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["Abilitare SSH"].

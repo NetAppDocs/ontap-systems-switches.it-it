@@ -25,6 +25,9 @@ A partire da ONTAP 9.9.1, è possibile utilizzare gli switch Cisco Nexus 9336C-F
 Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete supportati.
 
 
+NOTE: Lo switch Ethernet Health monitor non supporta ONTAP 9.13.1P8 e versioni precedenti e 9.14.1P3 e precedenti o NX-OS 10,3(4a)(M).
+
+
 
 == Requisiti di configurazione
 

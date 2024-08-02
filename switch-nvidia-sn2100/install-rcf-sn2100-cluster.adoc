@@ -605,4 +605,4 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 --
 ====
 .Quali sono le prossime novità?
-link:CSHM_log_collection.html["Abilitare la raccolta dei log"]
+link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].

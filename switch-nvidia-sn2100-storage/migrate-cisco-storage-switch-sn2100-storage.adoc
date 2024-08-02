@@ -1,5 +1,5 @@
 ---
-permalink: switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html 
+permalink: switch-nvidia-sn2100-storage/migrate-cisco-storage-switch-sn2100-storage.html 
 sidebar: sidebar 
 keywords: migrating to a storage switch with NVIDIA SN2100 storage switches, how to migrate 
 summary: È possibile migrare senza interruzioni gli switch Cisco meno recenti per un cluster ONTAP agli switch storage NVIDIA SN2100. 
@@ -332,6 +332,12 @@ node2      /lldp
             e5b    sw2  (b8:ce:f6:19:1a:7e)  swp2            -
 ----
 ====
+
+
+
+
+=== Fase 3: Verificare la configurazione
+
 . Verificare la configurazione finale:
 +
 `storage port show`
@@ -425,100 +431,6 @@ swp6       100G   Trunk/L2  SHFFG1826000102        e0b
 ====
 
 
-
-
-=== Fase 3: Completare la procedura
-
-. Attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch, utilizzando i due comandi:
-+
-`system switch ethernet log setup-password` e. `system switch ethernet log enable-collection`
-
-+
-Inserire: `system switch ethernet log setup-password`
-
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log setup-password*
-Enter the switch name: <return>
-The switch name entered is not recognized.
-Choose from the following list:
-*sw1*
-*sw2*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *sw1*
-RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] *y*
-
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *sw2*
-RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] *y*
-
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-----
-====
-+
-Seguito da:
-
-+
-`system switch ethernet log enable-collection`
-
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system  switch ethernet log enable-collection*
-
-Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-
-cluster1::*>
-----
-====
-+
-
-NOTE: Se uno di questi comandi restituisce un errore, contattare il supporto NetApp.
-
-. Avviare la funzione di raccolta dei log dello switch:
-+
-`system switch ethernet log collect -device *`
-
-+
-Attendere 10 minuti, quindi verificare che la raccolta dei log sia stata eseguita correttamente utilizzando il comando:
-
-+
-`system switch ethernet log show`
-
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log show*
-Log Collection Enabled: true
-
-Index  Switch                       Log Timestamp        Status
------- ---------------------------- -------------------  ---------    
-1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
-2      sw2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
-----
-====
 . Modificare nuovamente il livello di privilegio in admin:
 +
 `set -privilege admin`
@@ -528,3 +440,6 @@ Index  Switch                       Log Timestamp        Status
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
+
+.Quali sono le prossime novità?
+link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].

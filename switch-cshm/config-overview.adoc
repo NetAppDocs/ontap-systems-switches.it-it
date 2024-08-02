@@ -1,0 +1,18 @@
+---
+permalink: switch-cshm/config-overview.html 
+sidebar: sidebar 
+keywords: cshm, cluster, storage, switch logs, debugging, collection 
+summary: 'Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug.' 
+---
+= Panoramica della configurazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug.
+
+* link:config-log-collection.html["Configurare la raccolta di log"]
+* link:config-snmpv3.html["Opzionale: Configurare SNMPv3"]
+

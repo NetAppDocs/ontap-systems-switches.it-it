@@ -11,7 +11,7 @@ summary: 'SSH è un requisito per l"utilizzo delle funzionalità di monitoraggio
 
 
 [role="lead"]
-Se si utilizzano le funzioni di Cluster Switch Health Monitor (CSHM) e di raccolta dei log, è necessario generare le chiavi SSH e attivare SSH sugli switch del cluster.
+Se si utilizzano le funzioni Ethernet Switch Health Monitor (CSHM) e di raccolta dei log, è necessario generare le chiavi SSH e quindi abilitare SSH sugli switch del cluster.
 
 .Fasi
 . Verificare che SSH sia disattivato:
@@ -119,4 +119,4 @@ SCP server Administrative Mode: ............... Enabled
 
 
 .Quali sono le prossime novità?
-link:CSHM_log_collection.html["Abilitare la raccolta dei log"].
+link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].

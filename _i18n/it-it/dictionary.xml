@@ -195,7 +195,6 @@
   <block id="824a761c1584c25f025a384b7b387c56" category="paragraph"><block ref="9ac424c0d7b432975df36a19daf50c9c" prefix="" category="inline-code"></block></block>
   <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">Quali sono le prossime novità?</block>
   <block id="d2f12128e27dfad7c1136524f6c54833" category="inline-link-macro">Attivare la funzione di raccolta dei log</block>
-  <block id="141ad7787ee693ca0f1ac7233dc01003" category="paragraph">Vedere <block ref="42a9a40a2570039f7bbb890cc28e41e6" category="inline-link-macro-rx"></block> per i passaggi necessari per attivare la raccolta di log dello switch di stato del cluster utilizzata per la raccolta dei file di log relativi allo switch.</block>
   <block id="086e3414d27dd4eda456c29fa97b5f6c" category="summary">Per installare il software Ethernet Fabric OS (EFOS) sullo switch cluster BES-53248, procedere come segue.</block>
   <block id="5898eff5c659f32cf3b2f42bd746d0c5" category="doc">Installare il software EFOS</block>
   <block id="ae80de4c0477a1c32fdc86bbe008ce88" category="paragraph">Il software EFOS include una serie di funzionalità di rete avanzate e protocolli per lo sviluppo di sistemi di infrastruttura Ethernet e IP. Questa architettura software è adatta a qualsiasi dispositivo organizzativo di rete che utilizzi applicazioni che richiedono un'ispezione completa dei pacchetti o la separazione.</block>
@@ -484,7 +483,6 @@
   <block id="3c022231e0cbfc41bbc1b30213e131b9" category="list-text">Per ogni LIF, verificare che<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> è<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> e.<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> è<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> su entrambi i nodi, utilizzando il comando:</block>
   <block id="8fec23cbf2521bfa83f3bf91968bd207" category="list-text">Verificare che il<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block> di ogni nodo è<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> utilizzando il comando:</block>
   <block id="e90d5ac1532bae79aa9f467efd13168c" category="summary">SSH è un requisito per l'utilizzo delle funzionalità di monitoraggio dello stato di salute dello switch del cluster (CSHM) e di raccolta dei log. Per attivare SSH sugli switch cluster BES-53248, generare prima le chiavi SSH e quindi attivare SSH.</block>
-  <block id="daea8eb1258bdbf2a8abd64259813601" category="paragraph">Se si utilizzano le funzioni di Cluster Switch Health Monitor (CSHM) e di raccolta dei log, è necessario generare le chiavi SSH e attivare SSH sugli switch del cluster.</block>
   <block id="5c60227e684a42ed2c4295981335965a" category="list-text">Verificare che SSH sia disattivato:</block>
   <block id="ddf98c782f1bf15e46a4c740b56426ff" category="paragraph"><block ref="031cb810fe7e12b44d30ad57badb18f9" prefix="" category="inline-code"></block></block>
   <block id="59ed8d797343a87748211be365bd1d90" category="list-text">Generare le chiavi SSH:</block>
@@ -580,10 +578,8 @@
   <block id="25ea268f832f9b1eec50e6576dee1fa5" category="list-text">Visualizzare le informazioni relative ai dispositivi nella configurazione:</block>
   <block id="7600489ac65e7f2d69df5731f63b9999" category="list-text">Rimuovere gli switch CN1610 sostituiti se non vengono rimossi automaticamente:</block>
   <block id="810bc3d02021061ba2b8f87b703a66dd" category="paragraph">È possibile utilizzare la funzione di raccolta dei log per raccogliere i file di log relativi allo switch in ONTAP.</block>
-  <block id="a4a59b3c291a83932a23dc7f2e6fce7a" category="paragraph"><block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix="" category="inline-code"></block> e.</block>
   <block id="59f5de53d0bcaeeb4e4e9818bbf75f18" category="paragraph"><block ref="ff5aaae616b6f326cad680284f32b588" prefix="" category="inline-code"></block></block>
   <block id="45e50cd7644af8bcb7582afbaff1fd3a" category="list-text">Inserire:<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block></block>
-  <block id="525f3369fb72855c79a534b59acc786f" category="list-text">Inserire:<block ref="ff5aaae616b6f326cad680284f32b588" prefix=" " category="inline-code"></block></block>
   <block id="08bbd0d99ede937b797f43a6882fa2ad" category="list-text">Avviare la funzione di raccolta dei log dello switch:</block>
   <block id="7d908ecde47d258b97a045e33c75a0b9" category="paragraph"><block ref="b451b0d8328beaede20a596982f32f14" prefix="" category="inline-code"></block></block>
   <block id="1e786bcf52dae89f093e36aba3d46024" category="paragraph">Attendere 10 minuti, quindi verificare che la raccolta dei log sia stata eseguita correttamente utilizzando il comando:</block>
@@ -636,7 +632,6 @@
   <block id="0d43ac9863e3c78b4df62b7cf3843813" category="paragraph">Le istruzioni sono disponibili nella _Guida all'installazione dello switch cluster BES-53248 supportata da Broadcom_.</block>
   <block id="921a3f90728cb9d30beb8ec9a74ab1f2" category="list-text"><block ref="5d9dfcd78fc81899f18975b4b56b3ae1" category="inline-link-macro-rx"></block>.</block>
   <block id="bddd350f57f122b08e2cb443bea291f8" category="paragraph">Eseguire una configurazione iniziale dello switch del cluster BES-53248.</block>
-  <block id="52e2edab7e3825b54d082dec1bec95c2" category="paragraph">Utilizzare le funzioni di raccolta dei log per raccogliere i file di log relativi allo switch in ONTAP.</block>
   <block id="0f68b904e33d9ac04605aecc958bcf52" category="section-title">Ulteriori informazioni</block>
   <block id="16bd9f785cf803befb40588a09dc4b7f" category="paragraph">Prima di iniziare l'installazione o la manutenzione, verificare quanto segue:</block>
   <block id="a62b8b622fa4ab9cba37776a261a9067" category="inline-link-macro">Documentazione richiesta</block>
@@ -780,9 +775,6 @@
   <block id="4abcd2a6fe57e9f246dd326cae0ddb1b" category="list-text">Visualizzare le informazioni sui LIF:<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
   <block id="8e7dcc2f49cf13de0316cb76b4708706" category="list-text">Ping delle LIF del cluster remoto:<block ref="1e494d7a0d114db00b18964bfb9147db" prefix=" " category="inline-code"></block></block>
   <block id="916ba5b1774eaf295926db30f3bad132" category="list-text">Verificare che il<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> Il comando è attivato su tutte le LIF del cluster:<block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix=" " category="inline-code"></block></block>
-  <block id="db50b67ff76e736ef5a920a3cd2b9395" category="list-text">Per ONTAP 9.8 e versioni successive, attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch, utilizzando i comandi seguenti:<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block></block>
-  <block id="fed5c0ebbd302d8836d54ddd5217900f" category="list-text">Per le release di patch ONTAP 9.5P16, 9.6P12 e 9.7P10 e successive, attivare la funzione di raccolta dei log di Health monitor dello switch Ethernet per la raccolta dei file di log relativi allo switch, utilizzando i comandi:<block ref="bbe141170e1456bfc88d5bf7571880dd" prefix=" " category="inline-code"></block></block>
-  <block id="555ae4c875fa89d4ec7409f2113b1b71" category="paragraph"><block ref="abefab8d02f9c0ef8226a4fcf49448a1" prefix="" category="inline-code"></block></block>
   <block id="e1627dc3d6778455a12628ffd4b63310" category="summary">È possibile sostituire senza interruzioni uno switch storage Cisco Nexus 3232C difettoso eseguendo una sequenza specifica di attività.</block>
   <block id="c135d7464a0e32101b9aa41ea71ba6c9" category="doc">Sostituire uno switch di storage Cisco Nexus 3232C</block>
   <block id="c58866006fc4628763ae7455e65da20d" category="paragraph">Per sostituire uno switch storage Cisco Nexus 3232C difettoso, procedere come segue. Si tratta di una procedura senza interruzioni.</block>
@@ -962,8 +954,6 @@
   <block id="d26ec5166584f3719f955e387fc62cc0" category="paragraph"><block ref="e253a16317ae42c5957dd99b77483706" prefix="" category="inline-code"></block></block>
   <block id="04ffa3d209a81069a0e1768fc464d963" category="section-title">Fase 3: Completare la procedura</block>
   <block id="ea07c00f9576f4476947cdd532e4de56" category="list-text">Verificare che siano monitorati gli switch del cluster corretti:</block>
-  <block id="055b5822d0b3ee471e58a1ade8da9c16" category="list-text">Abilitare la funzione di raccolta dei log dello switch del cluster per la raccolta dei file di log relativi allo switch:</block>
-  <block id="e70a9461d84eea1517aa3881f4d10089" category="paragraph"><block ref="bbe141170e1456bfc88d5bf7571880dd" prefix="" category="inline-code"></block></block>
   <block id="5a9c1ae57a80076b39ad53020fd29eed" category="summary">Il software Cisco NX-OS e i file di configurazione di riferimento (RCF) possono essere aggiornati sugli switch di storage Cisco Nexus 3232C.</block>
   <block id="29165d4eb3f784e35d52698213cb1586" category="doc">Aggiorna uno switch di storage Cisco Nexus 3232C</block>
   <block id="aaee942f01ab7b858b2f2b63c62fe972" category="paragraph">Seguire questa procedura per aggiornare il software Cisco NX-OS e i file di configurazione di riferimento (RCF) sugli switch Cisco Nexus 3232C.</block>
@@ -1153,7 +1143,6 @@
   <block id="26f6491fcc908bd549c7f4064a11e2b0" category="paragraph"><block ref="fa49d5ecd63dc0afeae5cdf40805aaa2" prefix="" category="inline-code"></block></block>
   <block id="00145d7363dbe1c988b2f36e4a46e418" category="paragraph">È necessario eliminare entrambi i dispositivi singolarmente, come illustrato nell'esempio seguente:</block>
   <block id="f3a80053e3cfef55fa0b842eef2e42b2" category="paragraph">L'esempio seguente mostra che gli switch del cluster C1 e C2 sono monitorati:</block>
-  <block id="394596a44b79db45aaa7767781512a67" category="list-text">[[quaranta]]attivare la funzione di raccolta dei log del monitor di stato dello switch del cluster per la raccolta dei file di log relativi allo switch:</block>
   <block id="63990467755c5a4c3727faca4f024adb" category="summary">Quando si sostituiscono gli switch del cluster CN1610 con gli switch del cluster Cisco Nexus 3232C, è necessario conoscere alcune informazioni di configurazione, le connessioni delle porte e i requisiti di cablaggio.</block>
   <block id="ccc7541015670d615a3ac3ca54f328a2" category="doc">Requisiti di migrazione per gli switch cluster Cisco Nexus 3232C</block>
   <block id="095f3ce4df6c9efa0ac2ac584751cd57" category="paragraph">Prima di migrare a switch cluster Cisco Nexus 3232C. esaminare le informazioni di configurazione, le connessioni delle porte e i requisiti di cablaggio.</block>
@@ -1403,7 +1392,6 @@
   <block id="7c16b3b3191c66111f174fa6cd64c257" category="paragraph">Configurare le opzioni IP avanzate? (sì/no)</block>
   <block id="b935eabb00c8caa6dfe6647bdaafc35a" category="paragraph">Abilitare il servizio telnet? (sì/no)</block>
   <block id="6d14a8e490695648948359a710cebca6" category="paragraph">Servizio SSH abilitato? (sì/no)</block>
-  <block id="d6ac208fad263d998215866318843863" category="admonition">SSH è consigliato quando si utilizza Cluster Switch Health Monitor (CSHM) per le funzioni di raccolta dei log. SSHv2 è consigliato anche per una maggiore sicurezza.</block>
   <block id="3d90c6152fdf514dd518f0c70696daea" category="paragraph">Inserire il tipo di chiave SSH che si desidera generare (dsa/rsa/rsa1).</block>
   <block id="417f3f52e38fe2acd47723c457b82543" category="paragraph">L'impostazione predefinita è *rsa*.</block>
   <block id="b8c04c996282a145eee5749f6beb8fda" category="paragraph">Inserire il numero di bit della chiave (1024-2048).</block>
@@ -1674,7 +1662,6 @@
   <block id="7eb75e0ba4663fc1aeea935cb2011f2c" category="open-title">Cumulus Linux 5.x</block>
   <block id="0440c59cc67785ca7939ff4e3eba86ed" category="admonition">Nel passaggio 3 *aggiornamento del file MOTD* precedente, il comando<block ref="79a5f2bb850da898bd092e3a61bda06c" prefix=" " category="inline-code"></block> è eseguito. Questo consente di verificare il nome file RCF, la versione RCF, le porte da utilizzare e altre informazioni importanti nel banner RCF.</block>
   <block id="506c2c0c7f5b70af3df68c45c46f45a7" category="paragraph">Ad esempio:</block>
-  <block id="bb7e017ac6c32d611fa82da8bd557945" category="inline-link-macro">Configurare la raccolta dei log degli switch</block>
   <block id="2e48063923d7005a1d5b4c086c0a902a" category="summary">Lo switch NVIDIA SN2100 è uno switch Ethernet 10/25/40/100 GbE con Cumulus Linux. Lo switch SN2100 serve applicazioni cluster e storage in ONTAP 9.10.1 su diverse coppie di switch.</block>
   <block id="e868bded76541295e018b74bb15a7920" category="doc">Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100</block>
   <block id="17bac2b43f841c260ed0b0ae5bac894f" category="paragraph">NVIDIA SN2100 è uno switch cluster che consente di creare cluster ONTAP con più di due nodi.</block>
@@ -1693,9 +1680,6 @@
   <block id="c9c417af7a858dfc220fb9facdaa5893" category="paragraph">È possibile installare il sistema operativo Cumulus Linux (CL) quando lo switch esegue Cumulus Linux o ONIE.</block>
   <block id="8dcb8ce87423e2f4276589483a457d92" category="list-text"><block ref="464fe9c0adfef54cfb4c6fe21ef12b08" category="inline-link-macro-rx"></block>.</block>
   <block id="526990b43ff7cafabc1a3c5dda4e8c9b" category="paragraph">Sono disponibili due script RCF per le applicazioni di clustering e storage. La procedura per ciascuno di essi è la stessa.</block>
-  <block id="aa0ae6c76f83fc6d32395967e66e1a57" category="list-text"><block ref="eb6455edffdd82039a8793f500a86be5" category="inline-link-macro-rx"></block>.</block>
-  <block id="2764c65a7d4c079147d8cf98e461cb33" category="paragraph">Questa versione include il supporto per SNMPv3 per la raccolta dei log degli switch e per Switch Health Monitoring (SHM).</block>
-  <block id="21429d09c1e8e6c38145050f75f1ba07" category="paragraph">Le procedure utilizzano Network Command Line Utility (NCLU), un'interfaccia a riga di comando che garantisce l'accesso completo a Cumulus Linux. Il comando net è l'utility wrapper utilizzata per eseguire azioni da un terminale.</block>
   <block id="1b634b8feab38e3bbd4e434301816457" category="list-text"><block ref="1b634b8feab38e3bbd4e434301816457" category="inline-link-macro-rx"></block></block>
   <block id="e831ca446f09bd354bf76a86391af038" category="list-text"><block ref="e831ca446f09bd354bf76a86391af038" category="inline-link-macro-rx"></block></block>
   <block id="fc89f8ef8daa08e9ffc121c5d5609d54" category="list-text"><block ref="fc89f8ef8daa08e9ffc121c5d5609d54" category="inline-link-macro-rx"></block></block>
@@ -1896,7 +1880,6 @@
   <block id="ed64494543dce6caed7867c9a52bd281" category="list-text">Verificare la configurazione finale:</block>
   <block id="6a4d86e98be7e5b289b38a5117298bfb" category="paragraph">Ogni porta deve visualizzare Enabled per<block ref="46a2a41cc6e552044816a2d04634545d" prefix=" " category="inline-code"></block> e abilitato per<block ref="ec53a8c4f07baed5d8825072c89799be" prefix=" " category="inline-code"></block>.</block>
   <block id="8d0dff1640d6ac34ade7a221ca7afd7c" category="paragraph"><block ref="1ceaaa038adb55e1c0c3cdbf411efa2d" prefix="" category="inline-code"></block></block>
-  <block id="90d3d6f2a43b64c3635afa64281a95b3" category="list-text">Attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch, utilizzando i due comandi:</block>
   <block id="8761a71b0c01f0356000c0994d4fb203" category="paragraph"><block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix="" category="inline-code"></block> e.<block ref="ff5aaae616b6f326cad680284f32b588" prefix=" " category="inline-code"></block></block>
   <block id="c757279318295752ba90c940af04f05e" category="list-text">Seguito da:<block ref="ff5aaae616b6f326cad680284f32b588" prefix=" " category="inline-code"></block></block>
   <block id="1a29ca4be6c9125e8ac9fccfa8df289c" category="summary">Sostituzione di uno switch di storage NVIDIA SN2100 difettoso in una procedura senza interruzioni.</block>
@@ -2176,7 +2159,6 @@
   <block id="31f5d9c51b1172585d012a33be1bef72" category="list-text">Applicare lo script python RCF *MSN2100-RCF-v1.8-Cluster*:</block>
   <block id="458ab89f862895d8f5ce855c654868d6" category="paragraph">Lo script RCF completa le istruzioni elencate sopra.</block>
   <block id="101f004ff19ed2b05722d5518355aec8" category="paragraph"><block ref="a2261d8cf22fcce07337ff5c78acfa87" prefix="" category="inline-code"></block></block>
-  <block id="30f9c944a64a6b31bf05a611bd36086b" category="paragraph"><block ref="e36cf1c10b90ef103d062c93e8279128" category="inline-link-macro-rx"></block>.</block>
   <block id="ab6d5128f9157c50983044e5975424b6" category="summary">Per installare l'hardware BES-53248, consultare la documentazione di NVIDIA.</block>
   <block id="075c996896263b024562469c19a4924a" category="list-text">Esaminare <block ref="8adcaf2938909956d74b09b30e6da648" category="inline-link-macro-rx"></block>.</block>
   <block id="26579e78de73f5546f69f3f79a7b8f48" category="paragraph"><block ref="d639995fde516a3ba2e60963b02aecc1" category="inline-link-macro-rx"></block>.</block>
@@ -2265,7 +2247,6 @@
   <block id="516d8e9da45554d526faa978810dc178" category="inline-link-macro">Installare lo script del file di configurazione di riferimento</block>
   <block id="02c867e49effa332687b835abcbc2abe" category="list-text"><block ref="ef1c46298c43687118873cf83b7acf6b" category="inline-link-macro-rx"></block>.</block>
   <block id="c945ea7b3efde1e618122f92507cc502" category="paragraph">Sono disponibili due script RCF per le applicazioni di clustering e storage.</block>
-  <block id="c429557b3b11e35c09d4c091bc095bbd" category="list-text"><block ref="09a98bef759f1f04f7d518542e1b74bb" category="inline-link-macro-rx"></block>.</block>
   <block id="360d0c63a0ad1a96000d716977ec9b5a" category="list-text"><block ref="360d0c63a0ad1a96000d716977ec9b5a" category="inline-link-macro-rx"></block></block>
   <block id="6f29ea203d7917d9d35a7a8e4664773a" category="list-text"><block ref="6f29ea203d7917d9d35a7a8e4664773a" category="inline-link-macro-rx"></block></block>
   <block id="b4874fc318a2d2906865491ec45c2419" category="list-text"><block ref="b4874fc318a2d2906865491ec45c2419" category="inline-link-macro-rx"></block></block>
@@ -2291,15 +2272,12 @@
   <block id="ef44963f41cab6cd9db7a1c9e6197076" category="inline-link-macro">Installare lo switch</block>
   <block id="be822dc3c2f09a2076f72c87018d7d7b" category="list-text"><block ref="8e341dc1e80127ca0dc2c12db6d0237a" category="inline-link-macro-rx"></block>.</block>
   <block id="1fc245f373dd47304db35c4ef2df408e" category="inline-link-macro">Configurare lo switch</block>
-  <block id="e8831472105c8c0531f42bc39d32f613" category="list-text"><block ref="17076ab60a08d2531d3ed2402e1393ec" category="inline-link-macro-rx"></block>.</block>
   <block id="d33665f1bbad937646d20fe1a9b8ace8" category="inline-link-macro">Installare lo switch nel cabinet NetApp</block>
-  <block id="eec1cb97c2d9b50587b39148509bdfbd" category="list-text"><block ref="e635379a5d7f0e2ce1a042bff79838b6" category="inline-link-macro-rx"></block>.</block>
   <block id="279268b426208b389290aef165bbd309" category="paragraph">A seconda della configurazione, è possibile installare lo switch Cisco Nexus 9336C-FX2 e il pannello pass-through in un cabinet NetApp con le staffe standard incluse con lo switch.</block>
   <block id="04d079026b4a7b63a084b7ab24426723" category="list-text"><block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="71c348679ba0f5e78ca75e0fe9d0d2c9" category="list-text"><block ref="9b0c8f45dcf821cab50389f012ecc68f" category="inline-link-macro-rx"></block>.</block>
   <block id="45082651a479febeab25b63e58d36d5e" category="inline-link-macro">Installare il file di configurazione RCF</block>
   <block id="b7f670881100cb5015f24ab017668ff1" category="list-text"><block ref="1310b35f96fb7b8136de7cec708b0834" category="inline-link-macro-rx"></block>.</block>
-  <block id="47af580397d4becd89e7a33361eb8cbd" category="paragraph">Installare l'RCF dopo aver configurato lo switch Nexus 9336C-FX2 per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.</block>
   <block id="963382b42eb000171ee5f8379237c25e" category="list-text"><block ref="963382b42eb000171ee5f8379237c25e" category="inline-link-macro-rx"></block></block>
   <block id="88abf51732f30f17b65def4d1747e28f" category="list-text"><block ref="88abf51732f30f17b65def4d1747e28f" category="inline-link-macro-rx"></block></block>
   <block id="08712014b627ff0e1c01c2b7e6c49149" category="list-text"><block ref="08712014b627ff0e1c01c2b7e6c49149" category="inline-link-macro-rx"></block></block>
@@ -2555,14 +2533,7 @@
   <block id="f8a26b1330fe6b7b741993630dd932e2" category="list-text">Verificare che le LIF del cluster siano ripristinate alle porte home (questa operazione potrebbe richiedere un minuto):</block>
   <block id="65201dcfc7c620613613b15eb161d307" category="paragraph">Se le LIF del cluster non sono tornate alla porta home, ripristinarle manualmente:</block>
   <block id="88fb2189d22d2886ab33f16fdca0bb5b" category="paragraph"><block ref="7eaac8e45910aa8bf3a06f6966ab0656" prefix="" category="inline-code"></block></block>
-  <block id="c341f6ea60d7e8508c7d6cd8d529fd71" category="paragraph">Attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch, utilizzando i due comandi seguenti:<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block> e.<block ref="ff5aaae616b6f326cad680284f32b588" prefix=" " category="inline-code"></block></block>
-  <block id="372aff3164b35ebb97a99a633d4262a4" category="paragraph">*NOTA:* è necessaria la password per l'utente *admin* sugli switch.</block>
-  <block id="29da462071497c41049a1b6586d7faad" category="paragraph">*NOTA:* se uno di questi comandi restituisce un errore, contattare il supporto NetApp.</block>
-  <block id="265709bb11a2395ee04486f312f63d67" category="open-title">ONTAP release 9.5P16, 9.6P12 e 9.7P10 e versioni successive delle patch</block>
-  <block id="97bf148f014d7e2cb04d1c101e0683ee" category="paragraph">Attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch, utilizzando i comandi seguenti:<block ref="bbe141170e1456bfc88d5bf7571880dd" prefix=" " category="inline-code"></block> e.<block ref="abefab8d02f9c0ef8226a4fcf49448a1" prefix=" " category="inline-code"></block></block>
   <block id="f596e32c8f97761d44eedfe73defefd2" category="paragraph">Inserire:<block ref="bbe141170e1456bfc88d5bf7571880dd" prefix=" " category="inline-code"></block></block>
-  <block id="87bd9bfab267dc2d9909cf27c375995d" category="paragraph">Seguito da:<block ref="abefab8d02f9c0ef8226a4fcf49448a1" prefix=" " category="inline-code"></block></block>
-  <block id="ec5ea2f0318e4d906c296f5576b9c026" category="list-text">[[step6]]se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
   <block id="0dbd44ca48760058c465f203895f8233" category="summary">Switch Cisco 9336-FX2`</block>
   <block id="470cefaa9702bc5da534dfcfab6d903d" category="doc">Panoramica e requisiti: Switch Cisco Nexus 9336C-FX2</block>
   <block id="c7bc672c5005e17eaf6387fbc19b5add" category="paragraph">Per l'installazione e la manutenzione dello switch Cisco Nexus 9336C-FX2, consultare i requisiti di configurazione e la documentazione.</block>
@@ -2574,7 +2545,6 @@
   <block id="e2ddd363542b38c0aea13e72b5ddee3b" category="paragraph"><block ref="e2ddd363542b38c0aea13e72b5ddee3b" category="inline-link-macro-rx"></block></block>
   <block id="28bf994f815d27dac3c1004bf80f120f" category="summary">Panoramica della configurazione software per gli switch storage Cisco Nexus 9336C-FX2</block>
   <block id="f9e6915ed9211156a642e6217fe3d08c" category="doc">Workflow di installazione del software per switch storage Cisco Nexus 9336C-FX2</block>
-  <block id="e6114e0791403a90626370a1211acf4f" category="paragraph">Per installare e configurare il software per uno switch Cisco Nexus 9336C-FX2, attenersi alla seguente procedura:</block>
   <block id="2436c6df17686f19f38ce6d35e26f6d3" category="summary">Il software Cisco NX-OS e i file di configurazione di riferimento devono essere installati sugli switch cluster Cisco Nexus 9336C-FX2.</block>
   <block id="c17578df3a8103b0b9f77304ee468668" category="doc">Preparare l'installazione del software NX-OS e RCF</block>
   <block id="75f5ca2695f30fa3987540c3aa6c3b02" category="list-text">I nomi dei nodi sono cluster1-01 e cluster1-02.</block>
@@ -2679,7 +2649,6 @@
   <block id="dfc123ec927caaa85a7ce9bf4c66fe70" category="list-text">Scollegare il cavo dalla porta del cluster e0b sul nodo 1, quindi collegare e0b alla porta 1 sullo switch del cluster cs2, utilizzando il cablaggio appropriato supportato dagli switch 92300YC.</block>
   <block id="a5ba084a16f4288f9dbb11676c16a481" category="list-text">Scollegare il cavo dalla porta del cluster e0b sul nodo 2, quindi collegare e0b alla porta 2 sullo switch del cluster cs2, utilizzando il cablaggio appropriato supportato dagli switch 92300YC.</block>
   <block id="5092d42ca2315a935e2e3c56036b8a27" category="paragraph">L'esempio seguente mostra che le porte da 1/1 a 1/64 sono attivate sullo switch cs2:</block>
-  <block id="53564612bada3c4cb7f13055cbf73c80" category="list-text">Per ONTAP 9.4 e versioni successive, attivare la funzione di raccolta dei log del monitor dello stato dello switch del cluster per la raccolta dei file di log relativi allo switch, utilizzando i comandi seguenti:</block>
   <block id="06f7473ee7b667cf7e6c7384b4e91957" category="doc">Componenti per switch Cisco Nexus 92300YC</block>
   <block id="ed6ae629414abab8b0e9b2e8deadb8c2" category="paragraph">Per l'installazione e la manutenzione dello switch Cisco Nexus 92300YC, assicurarsi di esaminare tutti i componenti e i numeri di parte dello switch. Vedere<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> per ulteriori informazioni.</block>
   <block id="e6f7afb7cbc9cb091c28d87f1b64c273" category="paragraph">La seguente tabella elenca il codice ricambio e la descrizione dello switch, delle ventole e degli alimentatori 92300YC:</block>
@@ -2815,7 +2784,6 @@
   <block id="1aaeb527f308dd42bbc5d35f0f59358b" category="list-text"><block ref="8b831959a634cc7821f2f066cbf13103" category="inline-link-macro-rx"></block>. Prepararsi all'installazione del software NX-OS e del file di configurazione di riferimento (RCF).</block>
   <block id="b5b10cb0dbd484e42a569d248c83e32e" category="list-text"><block ref="e98d73ae63150166bf4e60effb4ddb59" category="inline-link-macro-rx"></block>. Installare il software NX-OS sullo switch Nexus 92300YC. NX-OS è un sistema operativo di rete per la serie Nexus di switch Ethernet e la serie MDS di switch Fibre Channel (FC) storage area network forniti da Cisco Systems.</block>
   <block id="ce68eaea6d3aebc9dac3b36567521e43" category="list-text"><block ref="e53cf8a4f7691294ee3c87b6f9b478ef" category="inline-link-macro-rx"></block>. Installare RCF dopo aver configurato lo switch Nexus 92300YC per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.</block>
-  <block id="a3ac2e6a4177299d1c4fcbfcf6f0ebdf" category="list-text"><block ref="7548ef470ae7a4b5446d2e75f973e9c7" category="inline-link-macro-rx"></block>. Installare il file di configurazione applicabile per il monitoraggio dello stato degli switch del cluster Nexus 92300YC.</block>
   <block id="38fea660043776dff31d488d6f77d9bd" category="list-text"><block ref="38fea660043776dff31d488d6f77d9bd" category="inline-link-macro-rx"></block></block>
   <block id="94f89641c24a2c5acf155cedb6b917d3" category="list-text"><block ref="94f89641c24a2c5acf155cedb6b917d3" category="inline-link-macro-rx"></block></block>
   <block id="953b08a76549ddb5339056aaf68e6af4" category="list-text"><block ref="953b08a76549ddb5339056aaf68e6af4" category="inline-link-macro-rx"></block></block>
@@ -2862,8 +2830,6 @@
   <block id="de5961cc4ba4008f669b392dba74a8da" category="list-text">Verificare che l'ISL tra cs1 e cs2 funzioni correttamente:<block ref="2f9f4462a41014889ceaf0991f774466" prefix=" " category="inline-code"></block></block>
   <block id="97283617aa91dff9f5c3768547ba0d7c" category="list-text">Verificare che le LIF del cluster siano tornate alla porta home:<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
   <block id="0ecc223c2f66f6abde60759dd3185d04" category="list-text">Eseguire il ping delle interfacce del cluster remoto per verificare la connettività:<block ref="6d931e460f3e419ca5bc874e47132b6d" prefix=" " category="inline-code"></block></block>
-  <block id="97cb97536848aa999492d6cd929b1702" category="paragraph">Seguito da: <block ref="ff5aaae616b6f326cad680284f32b588" prefix="" category="inline-code"></block></block>
-  <block id="afa8e0a19468b9b0551aac700a287731" category="paragraph">Seguito da: <block ref="abefab8d02f9c0ef8226a4fcf49448a1" prefix="" category="inline-code"></block></block>
   <block id="f7ee6f50613eb8c232914988eb2db3eb" category="paragraph">Nodo 10/25 GbE</block>
   <block id="8e296a067a37563370ded05f5a3bf3ec" category="paragraph">25</block>
   <block id="4e732ced3463d06de0ca9a15b6153677" category="paragraph">26</block>
@@ -2964,7 +2930,6 @@
   <block id="2ca6c35163b41af4781ba855a6b85807" category="paragraph">Port-Channel deve indicare PO1(su) e Member Ports deve indicare eth1/65(P) e eth1/66(P).</block>
   <block id="71cccccb91d24cff628cd9adf4d43435" category="paragraph">Questo esempio abilita le porte ISL 1/65 e 1/66 e visualizza il riepilogo del canale delle porte sullo switch cs1:</block>
   <block id="a822b78ac2d194698a9d1955fb85cb3f" category="list-text">Verificare che la porta e0b sia attiva su tutti i nodi:</block>
-  <block id="00f618bdb0daf68aeb2d205ea0709450" category="list-text">Per ONTAP 9.4 e versioni successive, attivare la funzione di raccolta dei log di monitoraggio dello stato dello switch del cluster per la raccolta dei file di log relativi allo switch, utilizzando gthe commamds:</block>
   <block id="6dd41d8a8ed57c2ab7e587572c2bf8c5" category="doc">Sostituire gli switch cluster Cisco Nexus 92300YC con connessioni senza switch</block>
   <block id="17a362f8ddaca58854249da2fdd79c74" category="summary">Per l'installazione e la manutenzione dello switch Cisco Nexus 92300YC, consultare tutta la documentazione consigliata.</block>
   <block id="4ebdda488f805c9ab0a258700a488e0b" category="doc">Requisiti della documentazione per gli switch Cisco Nexus 92300YC</block>
@@ -3003,8 +2968,6 @@
   <block id="80f16525d7b1d7efe562fab354c53efe" category="paragraph">Se lo si desidera, è possibile <block ref="a8c82b142f94f7d62d6e984faba746ca" category="inline-link-macro-rx"></block>. In caso contrario, passare a. <block ref="7be1885a02922674638042ed6280ba6b" category="inline-link-macro-rx"></block>.</block>
   <block id="515ffb6be2470ab747f049a501eb9867" category="summary">Panoramica della configurazione software per gli switch cluster Cisco Nexus 9336C-FX2</block>
   <block id="516362c97fc00136adc7a7ad2b7ad6da" category="doc">Workflow di installazione del software per switch cluster Cisco Nexus 9336C-FX2</block>
-  <block id="97a8a7ac4811fc17c5e935133726b9b2" category="list-text"><block ref="ac6f2160356afb2413aaa23f35f53bc6" category="inline-link-macro-rx"></block>.</block>
-  <block id="c708c2593bcd41581b44e90e9da63a0a" category="list-text"><block ref="0370fdc61d5498b1c37c4960eb5bef3d" category="inline-link-macro-rx"></block>.</block>
   <block id="7a298dae32d29d6d4880c0d03618ae87" category="list-text">Il kit pannello pass-through, disponibile presso NetApp (codice X8784-R6).</block>
   <block id="828eeccf398aa5a5516c86cf77b98e41" category="list-text">Per ogni switch, otto viti da 10-32 o 12-24 e dadi a clip per montare le staffe e le guide di scorrimento sui montanti anteriori e posteriori dell'armadio.</block>
   <block id="19a356d6227c782e9f5da9f11a646795" category="list-text">Kit di guide standard Cisco per installare lo switch in un cabinet NetApp.</block>
@@ -3033,13 +2996,6 @@
   <block id="27261319977efbc3c013b30ed0fd35b8" category="paragraph">Per ulteriori informazioni sulla configurazione iniziale dello switch, consultare la seguente guida:<block ref="79f039529d1e022f29fed5c2eaec0b69" category="inline-link-rx"></block>.</block>
   <block id="b456d34c399e9d9889e4c0ac830ecb7a" category="summary">Panoramica dell'installazione e della configurazione degli switch cluster Cisco Nexus 9336C-FX2</block>
   <block id="a48d2f73b54f1c12d4039724748b5d7a" category="paragraph">Lo switch cluster Cisco Nexus 9336C-FX2 fa parte della piattaforma Cisco Nexus 9000 e può essere installato in un cabinet di sistema NetApp. Gli switch del cluster consentono di creare cluster ONTAP con più di due nodi.</block>
-  <block id="a771ca743240361107a098e245c07a8f" category="list-text"><block ref="56a03b023ba50fb49738eaf20203f57a" category="inline-link-macro-rx"></block>. Il foglio di lavoro di esempio relativo ai cavi fornisce esempi di assegnazione delle porte consigliate dagli switch ai controller. Il foglio di lavoro vuoto fornisce un modello che è possibile utilizzare per la configurazione del cluster.</block>
-  <block id="85843daa811e19650413adc4735dd291" category="list-text"><block ref="0bc8e83d3cd2eebf0c2c5d2a7b54cc6c" category="inline-link-macro-rx"></block>. Configurare l'hardware dello switch.</block>
-  <block id="fe77cad75f931bef2bc4e855d0b466d3" category="list-text"><block ref="93d08ab8d6c80a25299648349a7a616c" category="inline-link-macro-rx"></block>. Configurare lo switch Cisco Nexus 9336C-FX2.</block>
-  <block id="85d49ca380d8605809c6e0bbb69c7e45" category="list-text"><block ref="8aff4253487da8e8b254faac9934a250" category="inline-link-macro-rx"></block>. A seconda della configurazione, è possibile installare lo switch Cisco Nexus 9336C-FX2 e il pannello pass-through in un cabinet NetApp con le staffe standard incluse con lo switch.</block>
-  <block id="bc3be428265316fb3f905478d1d132c4" category="list-text"><block ref="ac6f2160356afb2413aaa23f35f53bc6" category="inline-link-macro-rx"></block>. Seguire le procedure preliminari per l'installazione del software Cisco NX-OS e dei file di configurazione di riferimento (RCF).</block>
-  <block id="aadce27f222c3a0138f2dcc26384ca83" category="list-text"><block ref="0370fdc61d5498b1c37c4960eb5bef3d" category="inline-link-macro-rx"></block>. Installare il software NX-OS sullo switch di cluster Nexus 9336C-FX2.</block>
-  <block id="cfe1fb7230e74efe48eb8f55052aacf4" category="list-text"><block ref="1112ea12139746af7574c945e24cdc23" category="inline-link-macro-rx"></block>. Installare l'RCF dopo aver configurato lo switch Nexus 9336C-FX2 per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.</block>
   <block id="a41964b84efbb7866cc12a9e798a3453" category="list-text"><block ref="a41964b84efbb7866cc12a9e798a3453" category="inline-link-macro-rx"></block></block>
   <block id="169e5eca6121ce7f69a705f99619e75c" category="list-text"><block ref="169e5eca6121ce7f69a705f99619e75c" category="inline-link-macro-rx"></block></block>
   <block id="19183173bd336c4a7349920f4bc23f03" category="list-text"><block ref="19183173bd336c4a7349920f4bc23f03" category="inline-link-macro-rx"></block></block>
@@ -3616,7 +3572,6 @@
   <block id="46e7e5cd9eac445088b34742b48c3e78" category="paragraph">Utilizzare le immagini dei cavi per completare il cablaggio tra i controller e gli switch.</block>
   <block id="fd5531349e673e037070aacc3a802f37" category="list-text"><block ref="2d5ab056fce0957a1995d7dbefe2460c" category="inline-link-macro-rx"></block>.</block>
   <block id="95d266841a36bd621358bb2987e0ecdd" category="list-text"><block ref="068ae9dc6825f9dcbe393c782d23d120" category="inline-link-macro-rx"></block>.</block>
-  <block id="eac119f90bf735cc1cb17268d9240728" category="list-text"><block ref="66c8d67023ba728df76220c253a81713" category="inline-link-macro-rx"></block>.</block>
   <block id="cdb75160db01dcaff8578367832cc1a8" category="list-text"><block ref="cd3d2c6d0c8a0c43f0a0e10375ad6bbc" category="inline-link-macro-rx"></block>.</block>
   <block id="2aff03c3dbc05dcd1a7473fdae46a518" category="list-text"><block ref="ac0177a37e0d6a9d48948f0f0ce18138" category="inline-link-macro-rx"></block>.</block>
   <block id="6b60b7ab5a3f661e97c0ea00594d9f2a" category="list-text"><block ref="6b60b7ab5a3f661e97c0ea00594d9f2a" category="inline-link-macro-rx"></block></block>
@@ -3710,14 +3665,9 @@
   <block id="53c275e60a3964cc951d091cfc9d800d" category="list-text">[[step12]]verificare che tutte le porte del cluster fisico siano in funzione:</block>
   <block id="d9c7fb52065c9f285a012f315313eb5e" category="list-text">[[step13]]verifica che tutte le LIF del cluster siano in grado di comunicare:</block>
   <block id="9354d16e8675ab0de41f89b86b5aae21" category="list-text">[[step14]]Conferma la seguente configurazione di rete del cluster:</block>
-  <block id="ecf7f1372c92c494288fb60fab64253c" category="list-text">[[step15]]attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch, utilizzando i seguenti comandi:</block>
-  <block id="d02e46aca2a59543c305eb64a888f4d8" category="list-text"><block ref="4c369a14a87bb8ef3687b310e1cb6b61" prefix="" category="inline-code"></block></block>
-  <block id="47c9a5350c58460bee8ad418789973be" category="list-text">[[step16]]spostare le porte di storage dal vecchio switch sh2 al nuovo switch news2.</block>
   <block id="da9b9083935bcd0e31bcb793c35eec52" category="list-text">Verificare che lo storage collegato alla coppia ha 1, switch shared news2 sia integro.</block>
   <block id="c11677f97d3ee2a98d058ccf0190a185" category="list-text">Verificare che lo storage collegato alla coppia ha 2, switch shared news2 sia integro:</block>
-  <block id="7aefac9ba220e57e297ebc26fbcee4e7" category="list-text">[[step19]]verificare che gli shelf siano cablati correttamente:</block>
   <block id="31fa17eadf22890247f9b117b5591678" category="paragraph"><block ref="2a56be163fc199ace3546fc94a295c05" prefix="" category="inline-code"></block></block>
-  <block id="c2a284bf2fca5ec22fc7906608176420" category="list-text">[[step20]]rimuovere il vecchio switch sh2.</block>
   <block id="c99d140356a40ad59a42b6a0463510af" category="list-text">Ripetere questi passaggi per lo switch sh1 e per il nuovo switch news1.</block>
   <block id="3ebdfe501befb632f105d0771d49b2ed" category="doc">Migrazione da un cluster senza switch con storage direct-attached</block>
   <block id="aaa9a0d5919f5957251180d5a620f385" category="paragraph">È possibile migrare da un cluster senza switch con storage direct-attached aggiungendo due nuovi switch condivisi.</block>
@@ -4159,10 +4109,6 @@
   <block id="8fdae5a227344a83423005f83a057331" category="list-text">Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:</block>
   <block id="442f3bc68fd4ab1c760b482d02f7ca71" category="list-text">Ripetere i passaggi da 1 a 10 sullo switch cs1.</block>
   <block id="af4d9c4c765c5c1d9c279c35191c82da" category="paragraph"><block ref="e39b44798f52b1532971ab295180e1b0" prefix="" category="inline-code"></block></block>
-  <block id="5fe6445fb6ef9ed5befc4ee396bb9ea8" category="list-text">Per ONTAP 9.8 e versioni successive, attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch utilizzando i comandi seguenti:</block>
-  <block id="074078759d58b36d6ae0a8db0cd82e18" category="list-text">Per le release di patch ONTAP 9.5P16, 9.6P12 e 9.7P10 e successive, attivare la funzione di raccolta dei log di Health monitor dello switch Ethernet per la raccolta dei file di log relativi allo switch utilizzando i comandi:</block>
-  <block id="91cd808758081ea75f478b14ac3c3471" category="paragraph"><block ref="bbe141170e1456bfc88d5bf7571880dd" prefix="" category="inline-code"></block> e.</block>
-  <block id="0c2ad6edfd02a5a2a481f1f6e0a45712" category="list-text">Inserire:<block ref="abefab8d02f9c0ef8226a4fcf49448a1" prefix=" " category="inline-code"></block></block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Inizia subito</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">Novità</block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="sidebar">Avvio rapido</block>
@@ -4224,7 +4170,6 @@
   <block id="07d35609271d556894601ed6d4518ed5" category="sidebar">Migrazione da switch CN5596</block>
   <block id="ac0586dfb2126d95d9be6378c5f70512" category="sidebar">Migrazione da cluster senza switch a cluster con switch</block>
   <block id="393a5f0f5f1f070aac964741815cca76" category="doc">Sostituire gli switch del cluster Broadcom BES-53248 con connessioni senza switch</block>
-  <block id="a2ba7bf1b1a10d50fd13725865eabc47" category="list-text">Eseguire il test della funzione di raccolta dei log dello switch:</block>
   <block id="10b9ce0440e39e291f451f5b535309cd" category="summary">È possibile sostituire senza interruzioni uno switch del cluster NetApp CN1610 difettoso eseguendo una sequenza specifica di attività.</block>
   <block id="a1e78a31e3c2a02f46648b1bf5b89e82" category="doc">Sostituire uno switch cluster NetApp CN1610</block>
   <block id="66683ae2f7c6fa1c2c22df9a8db5475e" category="paragraph">Seguire questa procedura per sostituire uno switch NetApp CN1610 difettoso in una rete cluster. Si tratta di una procedura senza interruzioni (NDU).</block>
@@ -4337,7 +4282,6 @@
   <block id="cc0c96fa4e2abab8a22a057701a64895" category="list-text">Spostare le porte del cluster di nodi dal vecchio switch C1 al nuovo switch cs1, utilizzando il cablaggio appropriato supportato da Cisco 9336C-FX2.</block>
   <block id="ba04a36ca69927056bab3bba36362e9b" category="list-text">Sugli switch cs1 e cs2, verificare che tutte le porte del cluster di nodi siano in funzione:</block>
   <block id="d9dbaab2b13b33007de8325a401de04b" category="sidebar">Migrazione da switch cluster CN1610</block>
-  <block id="3da8b58ec29508478eb281950ce7a85f" category="list-text">Attivare la funzione di raccolta dei log dello switch Ethernet.</block>
   <block id="55c09ca9257750665c75e5b587165519" category="paragraph"><block ref="e802bd77f148cffa22d9aa9e7d79d65d" prefix="" category="inline-code"></block></block>
   <block id="0eedc6e86bf0684694a5f74d12cd17d7" category="admonition">Se uno di questi comandi restituisce un errore o se la raccolta dei log non viene completata, contattare il supporto NetApp.</block>
   <block id="df3b6dd54dfaeb972568b29147c67103" category="list-text">La personalizzazione iniziale degli switch BES-53248 è completa, in modo che:</block>
@@ -4367,7 +4311,6 @@
   <block id="69989c059c3ab289002892286db94917" category="paragraph">*NOTA:* attendere alcuni secondi prima di eseguire il comando show per visualizzare i dettagli.</block>
   <block id="03021eec65c2df0065e1ad1083de7525" category="open-title">Tutte le release di ONTAP</block>
   <block id="d576f6342b019a4a22e71708ae81b0d9" category="paragraph">Per tutte le release di ONTAP, è possibile utilizzare anche<block ref="7eaac8e45910aa8bf3a06f6966ab0656" prefix=" " category="inline-code"></block> comando per controllare la connettività:</block>
-  <block id="090015dd47b4cd238b646c5f1dbc231d" category="list-text">[[step5]]attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch.</block>
   <block id="079555d3c02274a2f31c4ed0065d657e" category="doc">Configurare SNMPv3</block>
   <block id="1bd553f48f18f76a761092d0bebbe5a4" category="paragraph">Il seguente comando stabilisce il nome utente SNMPv3 con CSHM:<block ref="bc0f2549b8e026bfa298fbc575ba6020" prefix=" " category="inline-code"></block></block>
   <block id="44dd2902e6a8940e811d66f001eb74b8" category="list-text">Ripetere i passaggi da 1 a 8 per installare il software NX-OS sullo switch CS1.</block>
@@ -4499,7 +4442,6 @@ Per informazioni aggiornate sulla compatibilità, consultare<block ref="f6aa36fb
   <block id="c940238f4423743995b99e3d47cec744" category="paragraph">1 cluster-ha-breakout</block>
   <block id="65ca7d1055bbc5c2afaa8f8db0fbaae3" category="paragraph">Le porte sono configurate per breakout 4x10GbE, breakout 4x25GbE (RCF 1,6+ su switch 100GbE) e 40/100GbE. Supporta il traffico ha/cluster condiviso sulle porte per i nodi che utilizzano porte ha/cluster condivisi: Sistemi AFF A320, AFF A250 e FAS500f. Inoltre, tutte le porte possono essere utilizzate come porte cluster dedicate.</block>
   <block id="ef6ec6c3227d99b527b0f12e8d83330e" category="paragraph">Storage ha-cluster</block>
-  <block id="4538da9d5a0e6ade8902da0c6cb04eaf" category="paragraph">Le porte sono configurate per 40/100GbE per Cluster+ha, breakout 4x10 GbE per il cluster e breakout 4x25GbE per Cluster+ha e 100GbE per ogni coppia ha storage.</block>
   <block id="249694a485fc5d3289c38986b4f8e887" category="paragraph">Cluster</block>
   <block id="b9e95d5844128e0ae9ee0ab6e4e048ec" category="paragraph">Due versioni di RCF con diverse allocazioni di 4 porte 10 GbE (breakout) e porte 40/100GbE. Tutti i nodi FAS/AFF sono supportati, ad eccezione dei sistemi AFF A320, AFF A250 e FAS500f.</block>
   <block id="8c4aa541ee911e8d80451ef8cc304806" category="paragraph">Storage</block>
@@ -4650,7 +4592,6 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
   <block id="5851bb17419faa449f719ec90fe12181" category="list-text">[[step7]]sostituire l'RCF di storage sullo switch condiviso A con il file RCF condiviso. Vedere <block ref="2e5583639979312d3d691c4092c19d52" category="inline-link-macro-rx"></block> per ulteriori dettagli.</block>
   <block id="ea9f3090e45d8199fc92892a96dd0214" category="list-text">[[STEP13]]sostituire il file RCF di archiviazione sullo switch condiviso B con il file RCF condiviso. Vedere <block ref="2e5583639979312d3d691c4092c19d52" category="inline-link-macro-rx"></block> per ulteriori dettagli.</block>
   <block id="779f2e1ced3dc42aa441f71771bcb993" category="list-text">[[step16]]Converti la coppia ha 1 da un cluster senza switch a un cluster con switch. Utilizzare le assegnazioni delle porte del cluster definite dall'RCF condiviso. Vedere <block ref="2e68fbe1bf6d8e813f758c3b7509ff6f" category="inline-link-macro-rx"></block>per ulteriori dettagli.</block>
-  <block id="3e4a731a25f6cb42856b944eca270383" category="paragraph"><block ref="69a3b5b5b3e87ce1bcae2811d815d9de" category="inline-link-macro-rx"></block>.</block>
   <block id="a11987d46687611ce124e7db3e587d99" category="list-text">Per *nessuna autenticazione*:<block ref="ba6af8270ffe8be26bb38b923ee39375" prefix=" " category="inline-code"></block></block>
   <block id="00a862cbf647531bcc4b5bf9faba74e4" category="list-text">Per l'autenticazione *MD5/SHA*:<block ref="31b98def7e9f7bb02cdfd9ac87afcda4" prefix=" " category="inline-code"></block></block>
   <block id="7286c151c11606a97b24bba616cce292" category="list-text">Per l'autenticazione *MD5/SHA con crittografia AES/DES*:<block ref="6a48e8cc740517cd540e6de4c0a5585b" prefix=" " category="inline-code"></block></block>
@@ -4670,7 +4611,6 @@ Per le porte switch e0a e e0b, l'impostazione fec è impostata su<block ref="49b
   <block id="ffb3876ecec1241eb99eed3e2c199c30" category="list-text">Le porte 48 10/25GbE (SFP28/SFP+) vengono combinate in 12 gruppi a 4 porte come segue: Porte 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 e 45-48.</block>
   <block id="3262b02fba07b6c88ff94cf729a2d880" category="list-text">Se le velocità in un gruppo a 4 porte sono diverse, le porte dello switch non funzioneranno correttamente.</block>
   <block id="44419445a2db4f385ef269ec6901c6f0" category="list-text">Verificare che l'ISL e le porte fisiche sull'ISL tra i due switch BES-53248 CS1 e CS2 siano attive:</block>
-  <block id="d3ca9236c4922d1ced4f46317b142939" category="paragraph">Una volta completata la migrazione, potrebbe essere necessario installare il file di configurazione necessario per supportare il monitor stato switch Ethernet (CSHM) per gli switch cluster BES-53248. Vedere <block ref="69a3b5b5b3e87ce1bcae2811d815d9de" category="inline-link-macro-rx"></block>.</block>
   <block id="884341494cf0683252982193822b1820" category="summary">Prima di configurare lo switch Broadcom BES-53248, consultare le seguenti informazioni.</block>
   <block id="07da2741be958e9f66a97df92910bd8a" category="paragraph">Prima di configurare lo switch Broadcom BES-53248, esaminare le seguenti considerazioni.</block>
   <block id="5ff0ed2baf5dbbaa7302070081cdcb21" category="section-title">Assegnazione degli switch delle porte del cluster</block>
@@ -4714,7 +4654,6 @@ Immagine:../media/FEC_copper_table.jpg[25G porte con cavi in rame]</block>
   <block id="af7a19b4dbadf7641102bf88598cfd8b" category="paragraph">+
 Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione e avvio della raccolta di registri *supporto* dettagliati dal centralino e avvia una raccolta oraria di dati *periodici* raccolti da AutoSupport.</block>
   <block id="a13c9d4c750715a8b993a3fec916189f" category="list-text">È necessario specificare l'utente per la raccolta di log quando viene applicato il file di configurazione di riferimento (RCF). Per impostazione predefinita, questo utente è impostato su _admin_. Se si desidera utilizzare un altro utente, è necessario specificarlo nella sezione *# SHM User*s di RCF.</block>
-  <block id="11a42d3d6a2e579a381b3f9fcb7ec792" category="paragraph">Direttiva non risolta in &lt;stdin&gt; - include:./_include/install-rcf-software-9336c.adoc[]</block>
   <block id="69a3b5b5b3e87ce1bcae2811d815d9de" category="paragraph"><block ref="69a3b5b5b3e87ce1bcae2811d815d9de" category="inline-link-macro-rx"></block></block>
   <block id="7091e2c750a185300a6b16e37ae123f6" category="paragraph">Le istruzioni sono disponibili nella documentazione NVIDIA.</block>
   <block id="894989f86e54fb4105389f59b2f248db" category="list-text"><block ref="c4cd7ec23f215e2259f91b6eb6e7cbc1" category="inline-link-macro-rx"></block>.</block>
@@ -4789,17 +4728,13 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
   <block id="28dbd722b252673fdce3f809670e34b8" category="list-text">Se si sta aggiornando la versione RCF, è necessaria una configurazione di avvio nell'RCF che rifletta le immagini di avvio desiderate.</block>
   <block id="5640915560bc663196a684ebfc6fa2ec" category="admonition">Prima di installare una nuova versione del software dello switch e gli RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Prima di cancellare le impostazioni dello switch, è necessario essere collegati allo switch utilizzando la console seriale o aver conservato le informazioni di configurazione di base.</block>
   <block id="1b49e113d2db8aa6503efc6ca4257925" category="paragraph">Per installare e configurare il software per uno switch Cisco Nexus 9336C-FX2 e per installare o aggiornare il file di configurazione di riferimento (RCF), attenersi alla seguente procedura:</block>
-  <block id="814af3441f904c14570759e7e53a2eac" category="list-text"><block ref="103347887335950e25df4c7b93bdd950" category="inline-link-macro-rx"></block>.</block>
   <block id="2d667925d48008850336e0d43e4d4306" category="sidebar">Interruttore quadro strumenti - Broadcom BES-53248</block>
   <block id="9013a0f95a05b68811cef544c6eea37b" category="sidebar">Switch cluster - Cisco Nexus 9336C-FX2</block>
-  <block id="ed3dd7f516f69cf573ae79a1781bbcbf" category="sidebar">Switch cluster - switch cluster NVIDIA SN2100</block>
   <block id="fc01f4074d379d0722eb2fa3b21e6af4" category="sidebar">Switch di storage - Cisco Nexus 9336C-FX2</block>
   <block id="caf5170cbc1f4850f6d380c982fa61f9" category="sidebar">Switch di archiviazione - NVIDIA SN2100</block>
   <block id="6f738209e5071a9c22c8d336c6dec7a1" category="sidebar">Switch condiviso: Cisco Nexus 9336C-FX2</block>
   <block id="a306bc0f90914bd9715854d664b6505a" category="sidebar">Switch cluster - Cisco Nexus 3232c</block>
   <block id="2dc82baa4aac6df7519361c705672faa" category="sidebar">Switch cluster - Cisco Nexus 3132Q-V</block>
-  <block id="29f6f46414f36869e8e3f9f19d16b6db" category="sidebar">Switch cluster - Cisco Nexus 92300YC</block>
-  <block id="22daf846f579c427af282aa33d7c2a7b" category="sidebar">Interruttore quadro strumenti - NetApp CN1610</block>
   <block id="c6244de2d0f92f3ce9f4386189743190" category="sidebar">Installare o aggiornare il file di configurazione RCF</block>
   <block id="43822bbc5cba6f539b9e148db3e66253" category="list-text">Per attivare la funzione di raccolta dei registri, è necessario eseguire ONTAP versione 9.10.1P15, 9.11.1P12 o 9.12.1 o successiva ed EFOS 3.8.0.2 o successiva.</block>
   <block id="61ea9adabe3d3953231005a1aab3ccec" category="list-text">Questa procedura è adatta solo per installazioni nuove.</block>
@@ -4864,13 +4799,10 @@ Lo switch viene riavviato senza alcuna configurazione applicata e viene ripristi
   <block id="a55c3354b5879046f976811535a4a4f1" category="list-text">Sullo switch CS1, verificare che le porte dello switch collegate alle porte del cluster siano *up*:</block>
   <block id="bcd3582716db1fbcec6c5c8132dc4253" category="list-text">Verificare che l'ISL tra gli switch cs1 e cs2 funzioni correttamente:</block>
   <block id="322cf54023dcfab56a26576123959d58" category="inline-link-macro">Abilitare SSH per la raccolta dei log</block>
-  <block id="252e043223f3383251c64110f5cb451c" category="paragraph"><block ref="bbee108d14640a71df38e987fd21df1f" category="inline-link-macro-rx"></block>.</block>
   <block id="7b0ac22c525a61eb6a12e2267bf6ddea" category="doc">Verificare la rete del cluster ONTAP dopo un aggiornamento del software EFOS o RCF degli switch del cluster BES-53248</block>
   <block id="45f43daecf76cec34b1fa9cb5925aa48" category="paragraph">È possibile utilizzare i seguenti comandi per verificare l'integrità della rete cluster ONTAP dopo un aggiornamento del software EFOS o RCF per gli switch cluster BES-53248.</block>
   <block id="d5c56d6c3abbb7dd20246c17ec16d101" category="inline-link-macro">Aggiornare l'RCF</block>
   <block id="3ff8146e3852dfcba1cfd255ac4f5576" category="paragraph"><block ref="74dd19c11d43cfa2dd387ecf7d984746" category="inline-link-macro-rx"></block> oppure <block ref="885efaf124d7da00a7a60364582f6275" category="inline-link-macro-rx"></block>.</block>
-  <block id="73df015a045bb065c0d7de000247497b" category="paragraph">Installare l'RCF sullo switch del cluster BES-53248, quindi verificare la presenza di una licenza aggiuntiva nelle porte dopo l'applicazione dell'RCF.</block>
-  <block id="5466a6c78d1b1065210a875746df2c05" category="list-text"><block ref="e1494265509459a484f1e852428137bf" category="inline-link-macro-rx"></block>.</block>
   <block id="18e822da210e93da8992e6b3c462671f" category="open-title">EFOS 3.10.0.3 e versioni successive</block>
   <block id="85e9fe702698c7a1eb1de4500bc3fca4" category="paragraph">Configurare il fuso orario e la sincronizzazione dell'ora (NTP):</block>
   <block id="3cc87411e9c51d2b281718c8673c3219" category="open-title">EFOS 3.9.0.2 e versioni precedenti</block>
@@ -4999,7 +4931,126 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="89c6b3e5f896b8d329ae4e4fe91cc812" category="paragraph">In caso di errore, contattare il supporto NetApp.</block>
   <block id="a6fd16052b19595c024aa4e5bcb0b366" category="list-text">[[step6]]attendere fino a due volte l'intervallo di polling del monitor dello stato dello switch Ethernet, rilevato eseguendo<block ref="c9e6cd6140c9d8677df821c7cce2aac1" prefix=" " category="inline-code"></block>, prima di completare il passaggio successivo.</block>
   <block id="c947c5faccdddd0a9a87be7895f50511" category="list-text">Eseguire il comando<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> sul sistema ONTAP e assicurarsi che gli switch del cluster vengano rilevati con il campo monitorato impostato su *vero* e il campo del numero di serie non visualizzi *Sconosciuto*.</block>
-  <block id="b954609be582bc6760c67ae6e58cd7a9" category="sidebar">Installare il file di configurazione CSHM</block>
   <block id="31c020d11cc321faf9c0793a662d1e53" category="list-text">Riavviare l'interruttore CS2. È possibile ignorare entrambi gli eventi "cluster ports down" riportati sui nodi durante il riavvio dello switch e l'output dell'errore<block ref="a9e34a08c2be7359540cbf7337dc5ce9" prefix=" " category="inline-code"></block> .</block>
   <block id="db82c22b5434946b4bc226a3b9b7888a" category="list-text">Applicare lo stesso RCF e salvare la configurazione in esecuzione per una seconda volta. Ciò è necessario in quanto l'RCF utilizza QoS e richiede una riconfigurazione del TCAM che comporta il caricamento dell'RCF due volte con lo switch riavviato tra di loro.</block>
+  <block id="5fdb34220ba0015ed7039c3f92044588" category="paragraph"><block ref="e28073c74a510a495bd318aad6ec05d2" category="inline-link-macro-rx"></block>.</block>
+  <block id="c7ca49e9f550dc9b18f2402f13ad9430" category="list-text">[[step5]]se è stata soppressa la creazione automatica dei casi, riattivarla richiamando un messaggio AutoSupport:<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
+  <block id="58a19c530e54f6364edd838f35b1830e" category="inline-link-macro">Configurare il monitoraggio dello stato dello switch</block>
+  <block id="d21243682bbd31fa9c0d32d291135394" category="paragraph"><block ref="5b8b393a675dcaaee97c02828356657c" category="inline-link-macro-rx"></block>.</block>
+  <block id="e0ac82c3ba84f3478af53619e7a13dc9" category="paragraph"><block ref="0ad0656927b565ff563d073b0158ec24" category="inline-link-macro-rx"></block>.</block>
+  <block id="33446f9dc3d57cc65d0607602cea0067" category="paragraph">Installare o aggiornare l'RCF sullo switch del cluster BES-53248, quindi verificare le porte per una licenza aggiuntiva dopo l'applicazione dell'RCF.</block>
+  <block id="6839871c951e0451fa16484988485a69" category="paragraph">Se si utilizzano le funzioni CSHM (Ethernet Switch Health Monitor) e di raccolta dei registri, attivare SSH sugli switch.</block>
+  <block id="ace8956d8976d528bf22aab3553d5953" category="paragraph">Se si utilizzano le funzioni Ethernet Switch Health Monitor (CSHM) e di raccolta dei log, è necessario generare le chiavi SSH e quindi abilitare SSH sugli switch del cluster.</block>
+  <block id="5b8b393a675dcaaee97c02828356657c" category="paragraph"><block ref="5b8b393a675dcaaee97c02828356657c" category="inline-link-macro-rx"></block></block>
+  <block id="bc0d8d4243074a46cad51594b5a0fd0f" category="admonition">SSH è consigliato quando si utilizza Ethernet Switch Health Monitor (CSHM) per le funzioni di raccolta dei log. SSHv2 è consigliato anche per una maggiore sicurezza.</block>
+  <block id="af586f672614707ef07031398b17fe29" category="paragraph"><block ref="af586f672614707ef07031398b17fe29" category="inline-link-macro-rx"></block></block>
+  <block id="63a3f29d798fa577b051e98c5ffbca0c" category="admonition">Lo switch Ethernet Health monitor non supporta ONTAP 9.13.1P8 e versioni precedenti e 9.14.1P3 e precedenti o NX-OS 10,3(4a)(M).</block>
+  <block id="10bd81ac212ccc1de8787d82e4582e46" category="inline-link-macro">Preparare l'installazione del software NX-OS e di RCF</block>
+  <block id="5100b6db0c93d9851fab3b0b6ed72166" category="list-text"><block ref="0f24d169a2f575f17ba79644c46d3a03" category="inline-link-macro-rx"></block>.</block>
+  <block id="9b32aa934f364be9aa6cdf3bf05d15ee" category="paragraph">Il software Cisco NX-OS e i file di configurazione di riferimento (RCF) devono essere installati sugli switch cluster Cisco Nexus 9336C-FX2.</block>
+  <block id="e1ef2bf589b36ef4fe890c1ce3f4414e" category="list-text"><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block>.</block>
+  <block id="629075dbdb9eff0fb95f99ab0fcd1967" category="paragraph">Scarica e installa o aggiorna il software NX-OS sullo switch cluster Cisco Nexus 9336C-FX2.</block>
+  <block id="11106314fe1d4dd5bee639afb348b915" category="inline-link-macro">Installare o aggiornare l'RCF</block>
+  <block id="c04285e0007809b2644676a723882b00" category="list-text"><block ref="1fe309bd8e626375dc4971f4edf77d2d" category="inline-link-macro-rx"></block>.</block>
+  <block id="01a618717f01c55d9b54bedd7307a43f" category="paragraph">Installare o aggiornare l'RCF dopo aver configurato per la prima volta lo switch Cisco Nexus 9336C-FX2. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.</block>
+  <block id="b002a5cd7db32a3dea22b0992712b264" category="list-text"><block ref="56a03b023ba50fb49738eaf20203f57a" category="inline-link-macro-rx"></block>.</block>
+  <block id="959598166d06ebc7f87da7525f293a91" category="list-text"><block ref="0bc8e83d3cd2eebf0c2c5d2a7b54cc6c" category="inline-link-macro-rx"></block>.</block>
+  <block id="df7bc1c04ccb094d3b474fc08a97d272" category="paragraph">Configurare l'hardware dello switch.</block>
+  <block id="a7682f7ee72405f79f40850a1dea900c" category="list-text"><block ref="93d08ab8d6c80a25299648349a7a616c" category="inline-link-macro-rx"></block>.</block>
+  <block id="a126004fd7782c98059de2e560db6f95" category="paragraph">Configurare lo switch Cisco Nexus 9336C-FX2.</block>
+  <block id="150103ea90f7632427a62d1282b69ab2" category="list-text"><block ref="8aff4253487da8e8b254faac9934a250" category="inline-link-macro-rx"></block>.</block>
+  <block id="0ca3ca41c2905b8f6347613ad99abeda" category="paragraph">Seguire le procedure preliminari per l'installazione del software Cisco NX-OS e dei file di configurazione di riferimento (RCF).</block>
+  <block id="146fe7ba55f154a00f7fdd5bc0bc3b7f" category="paragraph">Installa o aggiorna il software NX-OS sullo switch del cluster Nexus 9336C-FX2.</block>
+  <block id="c2682a02fa235bb20233662aeba236ad" category="paragraph">Installare o aggiornare l'RCF dopo aver configurato per la prima volta lo switch Nexus 9336C-FX2. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.</block>
+  <block id="b98c51d6f722172518f1e38267bc1da4" category="inline-link-macro">Attivare SSH sugli switch del cluster Nexus 9336C-FX2</block>
+  <block id="ec348def7634a5754cf9d62e8bca7f24" category="list-text"><block ref="853bcb6b647712eac9646e8ede049d7b" category="inline-link-macro-rx"></block>.</block>
+  <block id="5f7b61b5cf8ee335e4fdf4eb2e2191b2" category="paragraph">Le porte sono configurate per 40/100GbE GbE per Cluster+ha, 4x10GbE breakout per il cluster e 4x25GbE breakout per Cluster+ha e 100GbE GbE per ogni coppia ha storage.</block>
+  <block id="d30ea82d7096609f0aea87ef848f7ebd" category="paragraph">Per installare e configurare il software per uno switch condiviso Cisco Nexus 9336C-FX2, attenersi alla seguente procedura:</block>
+  <block id="332339bcd9f462ab40cbf756a81eb021" category="doc">Abilitare SSH sugli switch condivisi Cisco 9336C-FX2</block>
+  <block id="e495f3ec8dabfce7925d7c5053f55cbb" category="inline-link-macro">Installare lo switch in un armadio NetApp</block>
+  <block id="343d8858c5eef7adcd6fc983a90c4848" category="list-text"><block ref="cad0a32a1376b86b466dd6cf29c7e620" category="inline-link-macro-rx"></block>.</block>
+  <block id="d136348fb812c17c0d3c68bd85d3987f" category="inline-link-macro">Preparare l'installazione di NX-OS e RCF</block>
+  <block id="cb097b1a250075c6d723557ad68fbeaf" category="list-text"><block ref="6c9c04e734b9c8edcddd8e6886267ef5" category="inline-link-macro-rx"></block>.</block>
+  <block id="f7e7d6376d3c621fe55f8db68a669d03" category="list-text">[[step15]]spostare le porte di storage dal vecchio switch sh2 al nuovo switch news2.</block>
+  <block id="bc2fac09fdd528e5067568b7be4074db" category="list-text">[[step18]]verificare che gli shelf siano cablati correttamente:</block>
+  <block id="783733d2f76fb1513a44bb7144679e76" category="list-text">[[step19]]rimuovere il vecchio switch sh2.</block>
+  <block id="3e6dc141a56ffa03ce5afc78a5bbbef1" category="paragraph">Per installare e configurare il software per uno switch storage Cisco Nexus 9336C-FX2, attenersi alla seguente procedura:</block>
+  <block id="d60d1714728d79a415d0da5a4975ae8f" category="doc">Abilitare SSH sugli switch di storage Cisco 9336C-FX2</block>
+  <block id="e9c6db9ee4edb08184a082916cf1f56f" category="list-text"><block ref="c49772a60328b39d671da109a076acd4" category="inline-link-macro-rx"></block>.</block>
+  <block id="5537a63af1d3d4f5a6ffcc2a8619a2f8" category="list-text"><block ref="d43bf43861b014b2f70de1c12cff1c76" category="inline-link-macro-rx"></block>.</block>
+  <block id="cb037476ec4486d51b86d5dbeede8008" category="doc">Configurare la raccolta di log</block>
+  <block id="8ac20e3719b6b58e94e5a4385e87b52e" category="paragraph">Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione della raccolta, la richiesta di registri *supporto* dettagliati e l'abilitazione di una raccolta oraria di dati *periodici* raccolti da AutoSupport.</block>
+  <block id="2ded3ff3862adfc6f54d2a2f3ebf1147" category="paragraph">*NOTA:* se si attiva la modalità FIPS, è necessario completare quanto segue:</block>
+  <block id="4d3c86b44351ffae1eca9baf52af2d5a" category="list-text">Rigenerare le chiavi ssh sullo switch, come indicato nelle istruzioni del fornitore.</block>
+  <block id="64e9182ec64ec70301b0218941a9ebd8" category="list-text">Rigenerare le chiavi ssh sul lato ONTAP utilizzando<block ref="c079360670e0f4f9441a54ac1d262788" prefix=" " category="inline-code"></block></block>
+  <block id="6cf5d6e9f6afd78a09fd1d4215def7c4" category="list-text">Eseguire nuovamente la routine di impostazione della raccolta dei registri utilizzando<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block></block>
+  <block id="ca243f374acfb56a77236e0d30935f7f" category="list-text">L'utente deve avere accesso ai comandi di commutazione<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> . Se non sono disponibili, creare un nuovo utente e concedere le autorizzazioni necessarie all'utente.</block>
+  <block id="428fd3f400671ac494fc78009abe0ff1" category="list-text">Per gli switch NVIDIA, all'utente per la raccolta dei log deve essere consentito di eseguire i comandi di raccolta dei log senza visualizzare un prompt della password. Per consentire questo utilizzo, eseguire il comando:<block ref="35faf9d034bd3280f6d0a63cbb93f5e1" prefix=" " category="inline-code"></block></block>
+  <block id="098a6be90d7d0f41999537981c29585d" category="open-title">ONTAP 9.14.1 e versioni precedenti</block>
+  <block id="bec82052a92013a93a38547be5743fc2" category="list-text">Per richiedere la raccolta del registro di supporto e attivare la raccolta periodica, eseguire il comando seguente. Questo avvia entrambi i tipi di raccolta di log: I log dettagliati<block ref="db5eb84117d06047c97c9a0191b5fffe" prefix=" " category="inline-code"></block> e una raccolta oraria di<block ref="cdcc32a064503184053bd2018d1c0e7e" prefix=" " category="inline-code"></block> dati.</block>
+  <block id="d35634a11eab667045ca1f93a9aae3e4" category="list-text">Abilita raccolta registro periodica:</block>
+  <block id="679c69dadfb9ebf6a73c6cb1e48f610e" category="list-text">Richiedi raccolta registro assistenza:</block>
+  <block id="9c7ca9d82e20f27a701fcb23071651ef" category="list-text">Per visualizzare tutti i dettagli della raccolta di log, inclusi abilitazione, messaggio di stato, data e ora precedenti e nome del file della raccolta periodica, lo stato della richiesta, il messaggio di stato, l'indicatore data e ora precedenti e il nome del file della raccolta di supporto, utilizzare quanto segue:</block>
+  <block id="da28641e557d1527788801659dc81fd5" category="inline-link-macro">Risolvere i problemi relativi alla raccolta dei log</block>
+  <block id="c309beb80230e73eabb3db48e81e52ab" category="admonition">Se uno stato di errore viene segnalato dalla funzione di raccolta registri (visibile nell'output di<block ref="88354d538ba5d4e1746193ec5949ab4b" prefix=" " category="inline-code"></block>), vedere <block ref="2504f84f3fef22e482d1d3a35d9305fe" category="inline-link-macro-rx"></block> per ulteriori dettagli.</block>
+  <block id="8ae4eeaa7baed19106cc30ea02483c5e" category="summary">Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug.</block>
+  <block id="c4bf003fc396e9ee7d60812f1da24cfe" category="list-text"><block ref="c4bf003fc396e9ee7d60812f1da24cfe" category="inline-link-macro-rx"></block></block>
+  <block id="2ae26c52de113e0592fc26619e9e73d1" category="inline-link-macro">Opzionale: Configurare SNMPv3</block>
+  <block id="ec5440e4cc2d261dc76dac84e641c0ab" category="list-text"><block ref="ec5440e4cc2d261dc76dac84e641c0ab" category="inline-link-macro-rx"></block></block>
+  <block id="5b62a4b03175f138ff64effec2560ed7" category="summary">È possibile utilizzare questa procedura per configurare SNMPv3 per lo switch specifico, che supporta il monitoraggio dello stato degli switch Ethernet (CSHM).</block>
+  <block id="7e26b49f49bdf462799729889a55fd9a" category="doc">Opzionale: Configurare SNMPv3 per lo switch</block>
+  <block id="476d803e2d152b994f42b3899dd8b1eb" category="paragraph">SNMP viene utilizzato per monitorare gli switch. Il monitor stato switch Ethernet (CSHM) utilizza SNMP per monitorare lo stato e le prestazioni degli switch cluster e di storage. Per impostazione predefinita, SNMPv2c viene configurato automaticamente tramite il file di configurazione di riferimento (RCF).</block>
+  <block id="8e55417d823d2c594db1981ae6621e55" category="paragraph">SNMPv3 è più sicuro di SNMPv2 perché introduce robuste funzionalità di sicurezza come autenticazione, crittografia e integrità dei messaggi, che proteggono da accessi non autorizzati e garantiscono la riservatezza e l'integrità dei dati durante la trasmissione.</block>
+  <block id="1451684986f1c945fdb4e4f2a8b904be" category="admonition">SNMPv3 è supportato solo su ONTAP 9.12.1 e versioni successive.</block>
+  <block id="c76d1ab1bab3f2bc0c89856d8d6e3d40" category="paragraph">Seguire questa procedura per configurare SNMPv3 per lo switch specifico che supporta CSHM.</block>
+  <block id="5fb3828593766d454e79a0dcf52fed9d" category="paragraph">I seguenti comandi vengono utilizzati per configurare un nome utente SNMPv3 sugli switch *Broadcom*, *Cisco* e *NVIDIA*:</block>
+  <block id="77f3beca20fcd78f77236507e8d9b4af" category="open-title">Switch Broadcom</block>
+  <block id="89fe808c6ef5fe301085b5abe4406d35" category="paragraph">Configurare un OPERATORE DI RETE con nome utente SNMPv3 sugli switch Broadcom BES-53248.</block>
+  <block id="c59df2c71925eefec8dc03aa685125c8" category="list-text">Per *nessuna autenticazione*:</block>
+  <block id="4c58055d9b16c25c354c591188cb27ae" category="list-text">Per l'autenticazione *MD5/SHA*:</block>
+  <block id="b00500f501ccb5c8ab2313d810b6ff29" category="list-text">Per l'autenticazione *MD5/SHA con crittografia AES/DES*:</block>
+  <block id="ce23d8cb44ce288570eb2dcc49f1f2f7" category="paragraph">Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP:</block>
+  <block id="760c6e9b6b587e6f977e0e7116b69f45" category="paragraph">Il seguente comando stabilisce il nome utente SNMPv3 con CSHM:</block>
+  <block id="250f3098aa37d3a08b48b8157db8a62e" category="open-title">Switch Cisco</block>
+  <block id="0fdfed50bdfb7a964741d7f6016dd332" category="paragraph">Configurare un nome utente SNMPv3 SNMPv3_USER sugli switch Cisco 9336C-FX2:</block>
+  <block id="e1df47a492be7a2e244ccb9b079d5cf3" category="open-title">NVIDIA - CLI 5,4</block>
+  <block id="108965fef02b86b124e7f3d9a56db931" category="paragraph">Configurare un nome utente SNMPv3 SNMPv3_USER sugli switch NVIDIA SN2100 che eseguono CLI 5,4:</block>
+  <block id="1c76d98a8c6bdaf19a0c6e69ecd5d74b" category="doc">Panoramica del monitor dello stato dello switch</block>
+  <block id="5c1a7fd59da01d98a9fa4672044477e2" category="summary">È possibile utilizzare i comandi forniti ....</block>
+  <block id="28498a71a5aca6b62e077f2dc8cf0ccb" category="doc">Panoramica della raccolta di log</block>
+  <block id="452d50412b41907394c8b1080a5d849c" category="paragraph">Una volta impostata la raccolta dei log, è possibile abilitare una raccolta oraria di dati periodici raccolti da AutoSupport e richiedere log di supporto dettagliati.</block>
+  <block id="073802e18d9b4a942841d081884cb695" category="paragraph">Per ulteriori informazioni, vedere <block ref="c4bf003fc396e9ee7d60812f1da24cfe" category="inline-link-macro-rx"></block> .</block>
+  <block id="165b20024e718c290b506f5e2954e31f" category="summary">È possibile utilizzare i comandi forniti qui per ......</block>
+  <block id="95dffb21850e4f0b850458e11bbc45ef" category="paragraph">Se si verifica uno dei seguenti stati di errore riportati dalla funzione di raccolta del registro (visibile nell'output del<block ref="88354d538ba5d4e1746193ec5949ab4b" prefix=" " category="inline-code"></block> comando), provare i passi di debug corrispondenti:</block>
+  <block id="8ba5c56256d30222b7c55936d123dc59" category="paragraph">Rigenerare le chiavi SSH ONTAP.</block>
+  <block id="116db33d9c5a395bc3ea44e9c58b5c19" category="paragraph">*Errore di modifica della password*</block>
+  <block id="1aa469ff2a079012f0165333a3f1458f" category="paragraph">*Trovato log preesistente*</block>
+  <block id="6d089fbcb3a71e6f4948e9ac7cfb5d6f" category="paragraph">*Errore registro dump switch*</block>
+  <block id="12a1463825f156f800e84472640a9cb1" category="admonition">Se i dettagli della risoluzione non funzionano, contattare l'assistenza NetApp.</block>
+  <block id="607126f34265db55f46f438aaf4ba1d3" category="summary">È possibile utilizzare i seguenti comandi ......</block>
+  <block id="6cb7e7175772458b6a512f93402e800e" category="doc">Panoramica del controllo di stato</block>
+  <block id="de7960f419131c971f6905d62aa87045" category="paragraph">I monitor dello stato di salute monitorano in modo proattivo determinate condizioni critiche nel cluster e avvisano se rilevano un guasto o un rischio.</block>
+  <block id="22e3ddd92aa0a3d78016b504e9ea4e9e" category="paragraph">Per visualizzare gli avvisi di monitoraggio dello stato degli switch Ethernet attualmente generati, eseguire il comando:<block ref="b92d326ce60669fec91632ae7396bfb2" prefix=" " category="inline-code"></block></block>
+  <block id="a02aa2b04820123e33c3f1ed1d5b7beb" category="paragraph">Per visualizzare gli avvisi disponibili sul monitor dello stato dello switch Ethernet, eseguire il comando:<block ref="13002eba99758de77aac2a37e80f711a" prefix=" " category="inline-code"></block></block>
+  <block id="6cc5e94de81962ea9fe26d4e31f09978" category="summary">È possibile utilizzare i seguenti comandi .....</block>
+  <block id="6e86085a8f5bd83a0c4b0ef8d4280d0c" category="doc">Risolvere i problemi relativi agli avvisi</block>
+  <block id="cf767c6f0068a5861e9da8c65ee2565d" category="paragraph">Gli avvisi vengono generati in caso di rilevamento di un guasto, di un rischio o di una condizione critica per uno switch Ethernet nel cluster.</block>
+  <block id="11f32682abba2115ff437faec8512d84" category="paragraph">Se vengono generati degli avvisi, lo stato di salute del sistema indica uno stato degradato per il cluster. Gli avvisi generati includono le informazioni necessarie per rispondere a problemi di integrità del sistema.</block>
+  <block id="b16485fd5118936281137dbf7e67a0d1" category="inline-link">Guida alla risoluzione degli avvisi dello switch Health Monitor</block>
+  <block id="4f6ad2ff8706dcda764fc65056aa35bb" category="paragraph">Per informazioni dettagliate sulla risoluzione avanzata degli avvisi, consultare l'articolo della Knowledge base<block ref="fa3450ee0f59ff4c6ed811d38ddb851b" category="inline-link-rx"></block> .</block>
+  <block id="71740cccf1b838f9289aa8a38d080323" category="sidebar">Switch cluster - NVIDIA SN2100</block>
+  <block id="43d4629723093f676e7670fc1bb175cc" category="sidebar">Switch cluster - Cisco Nexus 92300YC</block>
+  <block id="1838d8ee27b09ea75fadf392eed76c41" category="sidebar">Interruttore quadro strumenti - NetApp CN1610</block>
+  <block id="be00341ff3fed2bc4bc077b28c34bb91" category="sidebar">Monitoraggio dello stato degli switch Ethernet</block>
+  <block id="5f5feee95006522a54a9a1f3edfdf546" category="sidebar">Controllare il monitoraggio dello stato degli interruttori</block>
+  <block id="63ac3281ef7a2b30a9ec8f58e500f4ac" category="sidebar">Raccogliere i registri per il monitoraggio dello stato degli switch</block>
+  <block id="4d716b622a02b7e68fae43b85b045411" category="sidebar">Monitorare lo stato degli switch</block>
+  <block id="08b7ad798c66f1af0fba98a0107b6dfc" category="sidebar">Panoramica del monitoraggio dello stato degli switch</block>
+  <block id="6611dff3ec03954421335708f49af79d" category="sidebar">Switch_Health_cshm</block>
+  <block id="37f6298ed21bb27b583654cebefb4620" category="sidebar">Configure_switch_Health</block>
+  <block id="db15809ae693fa5aa50cb4b40454f055" category="sidebar">Facoltativo - configurare SNMPv3</block>
+  <block id="5bc599259e802db4cd19057399debd0b" category="sidebar">Controllare lo stato dello switch</block>
+  <block id="114c27cb863250ce041d62daae03a69e" category="sidebar">Monitor_switch_Health</block>
+  <block id="d4a8473f83e1246e0b3ab08e2034db7c" category="sidebar">Raccolta di log</block>
+  <block id="75d763e21c6a88838d01217650c14bcb" category="sidebar">log_collection_switch_health</block>
 </blocks>

@@ -472,3 +472,6 @@ Configuration Saved!
 ====
 . Ripetere i passaggi precedenti per installare RCF sull'altro switch, cs1.
 
+
+.Quali sono le prossime novità?
+link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"]

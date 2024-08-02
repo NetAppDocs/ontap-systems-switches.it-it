@@ -1,0 +1,57 @@
+---
+permalink: switch-cshm/log-collection-troubleshoot.html 
+sidebar: sidebar 
+keywords: cshm, cluster, storage, switch logs, debugging, collection 
+summary: È possibile utilizzare i comandi forniti qui per ...... 
+---
+= Risolvere i problemi relativi alla raccolta dei log
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si verifica uno dei seguenti stati di errore riportati dalla funzione di raccolta del registro (visibile nell'output del `system switch ethernet log show` comando), provare i passi di debug corrispondenti:
+
+|===
+
+
+| *Stato errore raccolta log* | *Risoluzione* 
+
+
+ a| 
+*Chiavi RSA non presenti*
+ a| 
+Rigenerare le chiavi SSH ONTAP.
+
+
+
+ a| 
+*Errore di modifica della password*
+ a| 
+Verificare le credenziali, verificare la connettività SSH e rigenerare le chiavi SSH ONTAP. Per istruzioni, consultare la documentazione dello switch o contattare l'assistenza NetApp.
+
+
+
+ a| 
+*Chiavi ECDSA non presenti per FIPS*
+ a| 
+Se la modalità FIPS è attivata, le chiavi ECDSA devono essere generate sullo switch prima di riprovare.
+
+
+
+ a| 
+*Trovato log preesistente*
+ a| 
+Rimuovere il file di raccolta del registro precedente sullo switch.
+
+
+
+ a| 
+*Errore registro dump switch*
+ a| 
+Assicurarsi che l'utente dello switch disponga delle autorizzazioni per la raccolta dei registri. Fare riferimento ai prerequisiti riportati sopra.
+
+|===
+
+NOTE: Se i dettagli della risoluzione non funzionano, contattare l'assistenza NetApp.

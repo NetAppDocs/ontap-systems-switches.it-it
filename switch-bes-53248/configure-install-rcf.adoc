@@ -1068,4 +1068,4 @@ system node autosupport invoke -node * -type all -message MAINT=END
 
 
 .Quali sono le prossime novità?
-link:configure-ssh.html["Abilitare SSH per la raccolta dei log"].
+link:configure-ssh.html["Abilitare SSH"].

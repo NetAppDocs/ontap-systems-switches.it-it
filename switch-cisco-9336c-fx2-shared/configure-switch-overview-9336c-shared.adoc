@@ -20,21 +20,13 @@ Lo switch condiviso Cisco Nexus 9336C-FX2 fa parte della piattaforma Cisco Nexus
 Per configurare inizialmente uno switch Cisco Nexus 9336C-FX2 su sistemi che eseguono ONTAP, attenersi alla seguente procedura:
 
 . link:cable-9336c-shared.html["Completare il foglio di lavoro per il cablaggio"].
-+
-Utilizzare le immagini dei cavi per completare il cablaggio tra i controller e gli switch.
-
 . link:install-9336c-shared.html["Installare lo switch"].
 . link:setup-and-configure-9336c-shared.html["Configurare lo switch"].
-. link:install-switch-and-passthrough-panel-9336c-shared.html["Installare lo switch nel cabinet NetApp"].
-+
-A seconda della configurazione, è possibile installare lo switch Cisco Nexus 9336C-FX2 e il pannello pass-through in un cabinet NetApp con le staffe standard incluse con lo switch.
-
-. link:prepare-nxos-rcf-9336c-shared.html["Preparazione all'installazione di NX-OS e RCF"].
+. link:install-switch-and-passthrough-panel-9336c-shared.html["Installare lo switch in un armadio NetApp"].
+. link:prepare-nxos-rcf-9336c-shared.html["Preparare l'installazione di NX-OS e RCF"].
 . link:install-nxos-software-9336c-shared.html["Installare il software NX-OS"].
 . link:install-nxos-rcf-9336c-shared.html["Installare il file di configurazione RCF"].
-+
-Installare l'RCF dopo aver configurato lo switch Nexus 9336C-FX2 per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.
-
+. link:configure-ssh.html["Abilitare SSH"].
 
 
 

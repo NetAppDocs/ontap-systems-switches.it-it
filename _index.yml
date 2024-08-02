@@ -18,7 +18,7 @@ indexpage:
       url: "/switch-bes-53248/configure-new-switch-overview.html"
     - title: Switch cluster - Cisco Nexus 9336C-FX2
       url: "/switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"
-    - title: Switch cluster - switch cluster NVIDIA SN2100
+    - title: Switch cluster - NVIDIA SN2100
       url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
     - title: Switch di storage - Cisco Nexus 9336C-FX2
       url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
@@ -36,6 +36,14 @@ indexpage:
       url: "/switch-cisco-92300/install-overview-cisco-92300.html"
     - title: Interruttore quadro strumenti - NetApp CN1610
       url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
+  - title: Monitoraggio dello stato degli switch Ethernet
+    links:
+    - title: Configurare il monitoraggio dello stato dello switch
+      url: "/switch-cshm/config-overview.html"
+    - title: Controllare il monitoraggio dello stato degli interruttori
+      url: "/switch-cshm/monitor-overview.html"
+    - title: Raccogliere i registri per il monitoraggio dello stato degli switch
+      url: "/switch-cshm/log-collection-overview.html"
   - title: Documenti ONTAP correlati
     links:
     - title: Sistemi hardware ONTAP

@@ -43,17 +43,7 @@ Seguire le procedure di cablaggio se si dispone di un sistema in cui gli shelf d
 +
 Sono disponibili due script RCF per le applicazioni di clustering e storage. La procedura per ciascuno di essi è la stessa.
 
-. link:CSHM_log_collection.html["Abilitare la raccolta dei log"].
-+
-Utilizzare questa funzione per raccogliere i file di log relativi allo switch in ONTAP.
 
-. link:CSHM_snmpv3.html["Configurare SNMPv3 per il monitoraggio"].
-+
-Questa versione include il supporto per SNMPv3 per la raccolta dei log degli switch e per Switch Health Monitoring (SHM).
-
-
-
-Le procedure utilizzano Network Command Line Utility (NCLU), un'interfaccia a riga di comando che garantisce l'accesso completo a Cumulus Linux. Il comando net è l'utility wrapper utilizzata per eseguire azioni da un terminale.
 
 
 

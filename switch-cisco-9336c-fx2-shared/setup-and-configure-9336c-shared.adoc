@@ -95,7 +95,7 @@ Rispondere con *sì*. L'impostazione predefinita è sì.
 
 +
 
-NOTE: SSH è consigliato quando si utilizza Cluster Switch Health Monitor (CSHM) per le funzioni di raccolta dei log. SSHv2 è consigliato anche per una maggiore sicurezza.
+NOTE: SSH è consigliato quando si utilizza Ethernet Switch Health Monitor (CSHM) per le funzioni di raccolta dei log. SSHv2 è consigliato anche per una maggiore sicurezza.
 
 .. [[step14]]inserire il tipo di chiave SSH che si desidera generare (dsa/rsa/rsa1). L'impostazione predefinita è rsa.
 .. Inserire il numero di bit della chiave (1024- 2048).

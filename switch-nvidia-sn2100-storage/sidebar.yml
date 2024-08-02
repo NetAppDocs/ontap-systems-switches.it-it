@@ -7,44 +7,40 @@ entries:
   pdf-filename: Panoramica_sn2100-storage
   entries:
   - title: Panoramica della configurazione
-    url: "/switch-nvidia-sn2100/configure-overview-sn2100-storage.html"
+    url: "/switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
   - title: Requisiti di configurazione
-    url: "/switch-nvidia-sn2100/configure-reqs-sn2100-storage.html"
+    url: "/switch-nvidia-sn2100-storage/configure-reqs-sn2100-storage.html"
   - title: Componenti e numeri di parte
-    url: "/switch-nvidia-sn2100/components-sn2100-storage.html"
+    url: "/switch-nvidia-sn2100-storage/components-sn2100-storage.html"
   - title: Documentazione richiesta
-    url: "/switch-nvidia-sn2100/required-documentation-sn2100-storage.html"
+    url: "/switch-nvidia-sn2100-storage/required-documentation-sn2100-storage.html"
 - title: Installare l'hardware
   pdf-filename: Install_hardware_sn2100-storage
   entries:
   - title: Installare lo switch
-    url: "/switch-nvidia-sn2100/install-hardware-sn2100-storage.html"
+    url: "/switch-nvidia-sn2100-storage/install-hardware-sn2100-storage.html"
   - title: Configurare lo switch
-    url: "/switch-nvidia-sn2100/configure-sn2100-storage.html"
+    url: "/switch-nvidia-sn2100-storage/configure-sn2100-storage.html"
   - title: Analisi del cablaggio e della configurazione
-    url: "/switch-nvidia-sn2100/cabling-considerations-sn2100-storage.html"
+    url: "/switch-nvidia-sn2100-storage/cabling-considerations-sn2100-storage.html"
   - title: Shelf NS224 per cavi
-    url: "/switch-nvidia-sn2100/install-cable-shelves-sn2100-storage.html"
+    url: "/switch-nvidia-sn2100-storage/install-cable-shelves-sn2100-storage.html"
 - title: Configurare il software
   pdf-filename: Configure_software_sn2100-storage
   entries:
   - title: Workflow di installazione del software
-    url: "/switch-nvidia-sn2100/configure-software-sn2100-storage.html"
+    url: "/switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html"
   - title: Installare Cumulus Linux in modalità Cumulus
-    url: "/switch-nvidia-sn2100/install-cumulus-mode-sn2100-storage.html"
+    url: "/switch-nvidia-sn2100-storage/install-cumulus-mode-sn2100-storage.html"
   - title: Installare Cumulus Linux in modalità ONIE
-    url: "/switch-nvidia-sn2100/install-onie-mode-sn2100-storage.html"
+    url: "/switch-nvidia-sn2100-storage/install-onie-mode-sn2100-storage.html"
   - title: Installare lo script RCF
-    url: "/switch-nvidia-sn2100/install-rcf-sn2100-storage.html"
-  - title: Abilitare la raccolta dei log
-    url: "/switch-nvidia-sn2100/CSHM_log_collection.html"
-  - title: Configurare SNMPv3 per il monitoraggio
-    url: "/switch-nvidia-sn2100/CSHM_snmpv3.html"
+    url: "/switch-nvidia-sn2100-storage/install-rcf-sn2100-storage.html"
 - title: Migrare gli switch
   pdf-filename: Migrare_switch_sn2100-storage
   entries:
   - title: Migrazione da switch storage Cisco
-    url: "/switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html"
+    url: "/switch-nvidia-sn2100-storage/migrate-cisco-storage-switch-sn2100-storage.html"
 - title: Sostituire l'interruttore
   pdf-filename: Sostituisce_switch_sn2100-storage
-  url: "/switch-nvidia-sn2100/replace-sn2100-switch-storage.html"
+  url: "/switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"
