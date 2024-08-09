@@ -93,3 +93,6 @@ node2                true    true          false
 ----
 ====
 
+
+.Quali sono le prossime novità?
+link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].

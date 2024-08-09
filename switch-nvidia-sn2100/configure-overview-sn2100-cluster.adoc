@@ -43,6 +43,10 @@ Seguire le procedure di cablaggio se si dispone di un sistema in cui gli shelf d
 +
 Sono disponibili due script RCF per le applicazioni di clustering e storage. La procedura per ciascuno di essi è la stessa.
 
+. link:setup-install-cshm-file.html["Installare il file CSHM"].
++
+È possibile installare il file di configurazione applicabile per il monitoraggio dello stato degli switch Ethernet degli switch cluster NVIDIA.
+
 
 
 
