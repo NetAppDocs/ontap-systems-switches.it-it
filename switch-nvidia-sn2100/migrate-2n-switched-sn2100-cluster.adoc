@@ -339,7 +339,7 @@ I seguenti comandi abilitano tutte le porte rivolte ai nodi sullo switch SW1.
 +
 [listing, subs="+quotes"]
 ----
-cumulus@sw1:~$ *nv unset interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw1:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state up*
 cumulus@sw1:~$ *nv config apply*
 cumulus@sw1:~$ *nv config save*
 ----
@@ -519,7 +519,7 @@ I seguenti comandi abilitano le porte rivolte al nodo dello switch sw2:
 +
 [listing, subs="+quotes"]
 ----
-cumulus@sw2:~$ *nv unset interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw2:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state up*
 cumulus@sw2:~$ *nv config apply*
 cumulus@sw2:~$ *nv config save*
 ----

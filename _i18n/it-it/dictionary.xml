@@ -90,7 +90,6 @@
   <block id="4dd13a124f96d89e0fd6c36f6d82e131" category="list-text">Broadcom BES-53248</block>
   <block id="5aec304982416461faa5bf9b3a0b2cf3" category="list-text">Cisco Nexus 9336C-FX2</block>
   <block id="94f92369bb57ec3cd50af356ac87615d" category="list-text">NVIDIA SN2100</block>
-  <block id="b7d78f68022187a2bd65e5a79d764891" category="paragraph">Gli switch storage consentono di instradare i dati tra server e array di storage in una SAN (Storage Area Network). Gli switch di cluster supportati da NetApp includono:</block>
   <block id="e5de2aac752edf0c07f6f662681a46cf" category="paragraph">Gli switch condivisi consentono di combinare funzionalità di cluster e storage in una configurazione di switch condivisa, supportando l'utilizzo di RCF di cluster e storage condivisi. Lo switch condiviso supportato da NetApp è:</block>
   <block id="d3f0947d0a91424d3423125ef86f501f" category="section-title">Fine della disponibilità</block>
   <block id="453eb2af9200692fdb39bb88f6f41545" category="paragraph">I seguenti switch storage non sono più disponibili per l'acquisto, ma sono ancora supportati:</block>
@@ -577,7 +576,6 @@
   <block id="c88bbeb32e8a86a6536b0c77fe7f1ec8" category="list-text">Eseguire il ping delle interfacce del cluster remoto, quindi eseguire un controllo del server di chiamata per la procedura remota:</block>
   <block id="25ea268f832f9b1eec50e6576dee1fa5" category="list-text">Visualizzare le informazioni relative ai dispositivi nella configurazione:</block>
   <block id="7600489ac65e7f2d69df5731f63b9999" category="list-text">Rimuovere gli switch CN1610 sostituiti se non vengono rimossi automaticamente:</block>
-  <block id="810bc3d02021061ba2b8f87b703a66dd" category="paragraph">È possibile utilizzare la funzione di raccolta dei log per raccogliere i file di log relativi allo switch in ONTAP.</block>
   <block id="59f5de53d0bcaeeb4e4e9818bbf75f18" category="paragraph"><block ref="ff5aaae616b6f326cad680284f32b588" prefix="" category="inline-code"></block></block>
   <block id="45e50cd7644af8bcb7582afbaff1fd3a" category="list-text">Inserire:<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block></block>
   <block id="08bbd0d99ede937b797f43a6882fa2ad" category="list-text">Avviare la funzione di raccolta dei log dello switch:</block>
@@ -1777,8 +1775,6 @@
   <block id="4db57c36adcedbf3d48c546b8a964490" category="list-text"><block ref="4d9dc029304fd2614ef7b9bca43ee36d" prefix="" category="inline-code"></block></block>
   <block id="6d882d10695e4f3595987a4c3fc3b0d4" category="list-text"><block ref="2aa6f22da2ac5e9b2e1e6d3643ea273e" prefix="" category="inline-code"></block></block>
   <block id="9c1398e0fe6bc7229e870295da6e50f0" category="list-text">Ricaricare<block ref="b0df6da856b1d2d594adfbdfe27a1336" prefix=" " category="inline-code"></block> servizio</block>
-  <block id="1892645d2782c9bf9dc34851d08c3fc0" category="inline-link">Questo KB</block>
-  <block id="3415ad7957144776adc29fe727ecd053" category="paragraph">Vedere<block ref="5f1cba074f9c9f92027bd9e16fc96408" category="inline-link-rx"></block> per ulteriori dettagli.</block>
   <block id="45ac1916de26f6f51168dd562a7dfba5" category="paragraph">Su Cumulus Linux 4.4.2, le connessioni in rame non sono supportate sugli switch SN2100 con NIC X1151A, NIC X1146A o porte 100GbE integrate. Ad esempio:</block>
   <block id="d35d5ab77a6267b38526b184dcfce0af" category="list-text">AFF A800 sulle porte e0a e e0b</block>
   <block id="b9017574c175e97b1d6c5e950a79e4c7" category="list-text">AFF A320 sulle porte e0g e e0h</block>
@@ -2115,19 +2111,6 @@
   <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">Brevetti</block>
   <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">Un elenco aggiornato dei brevetti di proprietà di NetApp è disponibile all'indirizzo:</block>
   <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">Direttiva sulla privacy</block>
-  <block id="38c08a7df2ddfcda1cd914c471b45a0d" category="paragraph">10/40 nodi di porta del cluster</block>
-  <block id="39924b64204be181666ab697dc299202" category="paragraph">25/100 nodi di porta del cluster</block>
-  <block id="6877c07b3e2d6db48f28f32420bc2010" category="paragraph">nodi porta cluster swp3-14 40/100</block>
-  <block id="92a2157c968b6a4a7631b737b57c1d35" category="paragraph">Porte ISL (Inter-Switch link) swp15-16 40/100</block>
-  <block id="431e14f4180345b196683a41e85d8768" category="section-title">Connessioni ottiche</block>
-  <block id="ca7682f7c04d00e4194019da895757c8" category="paragraph">Solo le connessioni ottiche sono supportate sugli switch SN2100 con NIC X1151A, NIC X1146A o porte 100GbE integrate. Ad esempio:</block>
-  <block id="d8143a2f74ed0aaddb9c42f8329343b5" category="section-title">Adpater QSA</block>
-  <block id="9800eac46011eb652a03229615cb7394" category="paragraph">Quando si utilizza un adattatore QSA per connettersi alle porte cluster Intel integrate su una piattaforma, non vengono visualizzati tutti i collegamenti. Le piattaforme di esempio sono: FAS2750, AFF A300 e FAS8200 (tutti 10G) e AFF A250 (25G).</block>
-  <block id="96860f68dd00843c4cb56864a29f5c87" category="list-text">Per Intel 10G, impostare manualmente la velocità di collegamento swp1s0-3 su 10000 e impostare la negoziazione automatica su Off.</block>
-  <block id="12a7ab6e6b950f63d80a4a310e02bd1e" category="list-text">Per Chelsio 25G, impostare manualmente la velocità di collegamento swp2s0-3 su 25000 e impostare la negoziazione automatica su Off.</block>
-  <block id="ee42c1d9d1520c3cdd715411436b7999" category="admonition">Utilizzando QSA 10G/25G, utilizzare le porte 40/100G senza interruzione. Non inserire l'adattatore QSA nelle porte configurate per la breakout.</block>
-  <block id="88bef4a61889e60ab41863d981d73b86" category="section-title">Velocità switchport</block>
-  <block id="e137cd6adbf4837405bfdfa337a0793f" category="paragraph">A seconda del ricetrasmettitore in switchport, potrebbe essere necessario impostare la velocità su una porta fissa. Se si utilizzano porte di breakout 10G e 25G, assicurarsi che la negoziazione automatica sia disattivata e impostare a fondo la velocità della porta sullo switch. Ad esempio:</block>
   <block id="106f56409094e8675dc6d648c4e5ab5d" category="paragraph"><block ref="9a00636def01671b999a7c1df59762ff" category="inline-link-macro-rx"></block>.</block>
   <block id="26d790640d24187551f77f4682a9f781" category="summary">Per l'installazione e la manutenzione dello switch NVIDIA SN2100, verificare tutti i requisiti.</block>
   <block id="1d9152605063cf1b257a36675cece81c" category="inline-link-macro">Considerazioni sul cablaggio e sulla configurazione</block>
@@ -4416,7 +4399,6 @@
   <block id="242513ff76ac739e35a8e7e168d947bd" category="list-text">Eseguire il comando di configurazione dello switch Health monitor<block ref="0477ef599648fe2dbbf01945805f0e88" prefix=" " category="inline-code"></block>:</block>
   <block id="174ee6e9c9130ef3e6ceab7f0ab7356c" category="list-text">Eseguire il comando<block ref="694b56ad85eb627acc97ea9295f39018" prefix=" " category="inline-code"></block> Sul sistema ONTAP e assicurarsi che gli switch del cluster vengano rilevati con il campo monitorato impostato su "vero".</block>
   <block id="c94eee10204c293e476c9b772d10ddfe" category="admonition">Se in qualsiasi momento si torna a una versione precedente di ONTAP, sarà necessario installare nuovamente il file di configurazione di SHM per abilitare l'SHM degli switch del cluster 9336C-FX2.</block>
-  <block id="669c1a3fa77bc8a049e5cd4a16e5cff8" category="paragraph">Verificare di aver configurato l'ambiente utilizzando lo switch cluster 9336C-FX2 *CLI*.</block>
   <block id="680284a2e0d6a86aafc85099ca58d7af" category="list-text">Creare una password per la funzione di raccolta dei log dello switch Ethernet Health monitor:</block>
   <block id="3fc74bed2ec666d227e966120d5c4160" category="inline-link">Bug 1570339</block>
   <block id="a9881d2bc89c135aee3c1490acc55259" category="inline-link">Errori CRC sulle porte T6 dopo la conversione da 40GbE a 100GbE</block>
@@ -4498,7 +4480,6 @@ Per informazioni aggiornate sulla compatibilità, consultare<block ref="f6aa36fb
   <block id="8d36506446d5ad8477c75d9150e6528f" category="list-text">Il monitoraggio dello stato dello switch deve essere abilitato per lo switch. Verificare questo assicurandosi che<block ref="83bb5774e6e4dc96959b12bfa4334f18" prefix=" " category="inline-code"></block> il campo è impostato su *true* nell'output di<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> comando.</block>
   <block id="09a5c8e72e479c23dfcdb0045312203a" category="list-text">Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.</block>
   <block id="51e57b530a227b04924d2803cdc52930" category="list-text">Per avviare la raccolta dei log, eseguire il comando seguente, sostituendo DEVICE con lo switch utilizzato nel comando precedente. Questo avvia entrambi i tipi di raccolta di log: I log dettagliati *Support* e una raccolta oraria di dati *Periodic*.</block>
-  <block id="231cf4c70d866b616c21baddaeed0696" category="paragraph-title">Risoluzione dei problemi</block>
   <block id="37c0786b751e8b6bed2adbf850ab884e" category="paragraph">Se si verifica uno dei seguenti stati di errore segnalati dalla funzione di raccolta registri (visibile nell'output di<block ref="88354d538ba5d4e1746193ec5949ab4b" prefix=" " category="inline-code"></block>), provare i passi di debug corrispondenti:</block>
   <block id="f766c25c90ea3bb9aa3798d25e0a5087" category="cell">*Stato errore raccolta log*</block>
   <block id="2d424e5dd89f6819ff42231c7a18b118" category="cell">*Risoluzione*</block>
@@ -4520,11 +4501,6 @@ Per informazioni aggiornate sulla compatibilità, consultare<block ref="f6aa36fb
   <block id="7645c6b839b29d79d56508ac59b17a0f" category="paragraph"><block ref="e455ca07bfb78eb821e00f72366d7972" prefix="" category="inline-code"></block></block>
   <block id="d4d693d9dd779d0daf149c2e448b60b2" category="list-text">Verificare che il numero seriale da sottoporre a query con l'utente SNMPv3 appena creato sia lo stesso descritto nel passaggio precedente dopo il completamento del periodo di polling CSHM.</block>
   <block id="28444591fb832d5dcae593ad2a8f56da" category="admonition">È necessario specificare un utente nell'RCF (oltre all'utente amministratore) da utilizzare specificamente per la raccolta dei log.</block>
-  <block id="f2a9c66f4943798b57467021b65ab75a" category="list-text">È necessario specificare l'utente per la raccolta di log quando viene applicato il file di configurazione di riferimento (RCF). Per impostazione predefinita, questo utente è impostato su 'admin'. Se si desidera utilizzare un altro utente, è necessario specificarlo nella sezione *# SHM User*s di RCF.</block>
-  <block id="41418696440702a63005a485c96de621" category="list-text">L'utente deve avere accesso ai comandi *nv show*. Questo può essere aggiunto eseguendo<block ref="d019363df09b88c795c1354553c6fe8f" prefix=" " category="inline-code"></block> E sostituendo l'utente con l'utente per la raccolta dei log.</block>
-  <block id="f9659d3e6fcf03c716c20b733c8e68fc" category="list-text">Per avviare la raccolta dei log, eseguire il comando seguente, sostituendo DEVICE con lo switch utilizzato nel comando precedente. In questo modo vengono avviati entrambi i tipi di raccolta di log: Il dettagliato<block ref="db5eb84117d06047c97c9a0191b5fffe" prefix=" " category="inline-code"></block> registri e una raccolta oraria di<block ref="cdcc32a064503184053bd2018d1c0e7e" prefix=" " category="inline-code"></block> dati.</block>
-  <block id="b9c519617ddb8983725afb0a6830a2f9" category="paragraph">Rimuovere la directory di raccolta dei log precedente e il file '.tar' che si trova in<block ref="0793027f48f71fa4fc10baf29d75e685" prefix=" " category="inline-code"></block> sull'interruttore.</block>
-  <block id="c2d06740bdd189b6a9e5c66037c2fca6" category="list-text">Verificare che il numero seriale da interrogare con l'utente SNMPv3 appena creato sia lo stesso descritto nel passaggio precedente una volta completato il periodo di polling CSHM.</block>
   <block id="d185f7c4f8a7ee7fcc5143d7f639a45b" category="sidebar">Configurare SNMPv3 per il monitoraggio</block>
   <block id="c7afd9396f393d27ad260ca9f7d80ada" category="open-title">Cumulus Linux 4,4.x</block>
   <block id="bac0749492396eefc62e79ed342a7d3e" category="paragraph">I seguenti comandi mostrano che le porte ISL sono attive sugli switch SW1 e SW2:</block>
@@ -4543,15 +4519,6 @@ Per informazioni aggiornate sulla compatibilità, consultare<block ref="f6aa36fb
   <block id="3d49c6a8040af00423280443bbe5d05f" category="paragraph"><block ref="913a5e09220539ba22f04cc8f2d2fe80" prefix="" category="inline-code"></block></block>
   <block id="9d6600c74c6f65eef63f8fe8e301ffef" category="paragraph">I seguenti esempi mostrano i risultati appropriati per entrambi gli interruttori SW1 e SW2:</block>
   <block id="3510e8dd2306d7a2623d6253e5ee079b" category="list-text">[[STEP17]] Visualizza informazioni sui dispositivi di rete rilevati nel cluster:</block>
-  <block id="85ec13bf5591b128daa3a54ae368ba3c" category="paragraph">I seguenti comandi configurano un nome utente SNMPv3 sugli switch Cisco 3232C:</block>
-  <block id="5293a7c2493b5e9fa8261d30e6343464" category="list-text">Per *nessuna autenticazione*:<block ref="4de90a5f2562588942e54211db55bbc8" prefix=" " category="inline-code"></block></block>
-  <block id="5ca43733e44b3aa36045aae712118a0c" category="list-text">Per l'autenticazione *MD5/SHA*:<block ref="8de8efe8209f40424b2f8182df3e0711" prefix=" " category="inline-code"></block></block>
-  <block id="5bdf8576a82b897f01268b182b208da7" category="list-text">Per l'autenticazione *MD5/SHA con crittografia AES/DES*:<block ref="7021d4581846b898d8f652c016aef25f" prefix=" " category="inline-code"></block></block>
-  <block id="3634ec349fe0ac8ede01e576a2ea0f9c" category="paragraph"><block ref="e13e2f89a8f9ef3b183db91662b40273" prefix="" category="inline-code"></block></block>
-  <block id="627d56d1b7897f4dcfcbb018bce61116" category="summary">La funzione di raccolta dei log del monitor di stato dello switch del cluster viene utilizzata per raccogliere i file di log relativi allo switch in ONTAP. È necessario assicurarsi di aver configurato l'ambiente utilizzando l'interfaccia a riga di comando dello switch cluster 9336c-FX2, come illustrato in dettaglio qui.</block>
-  <block id="33bdcda7e2a546866442177b5bcf615d" category="paragraph">È possibile utilizzare la funzione di raccolta dei log per raccogliere i file di log relativi allo switch in ONTAP.
-Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione e avvio della raccolta di registri *supporto* dettagliati dal centralino e avvia una raccolta oraria di dati *periodici* raccolti da AutoSupport.</block>
-  <block id="7e1ba7c75d78333c2b0d49c9ac24ef12" category="list-text">Verificare di aver configurato l'ambiente utilizzando lo switch cluster Cisco 3232C *CLI*.</block>
   <block id="c48ae1736b44dafa44df6c91e234967b" category="paragraph">Verificare le credenziali, verificare la connettività SSH e rigenerare le chiavi SSH ONTAP. Per istruzioni, consultare la documentazione dello switch o contattare l'assistenza NetApp.</block>
   <block id="1837f24cc84dcee4cf147fd1cb89460b" category="list-text">L'interruttore C2 viene sostituito per primo dall'interruttore SW2.</block>
   <block id="d74d5bfd992e4f32cce751a7efe7675a" category="list-text">Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.</block>
@@ -4577,10 +4544,6 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
   <block id="9d24a408b8a659b2d9a8bb0df05e2629" category="paragraph">Tutte le LIF del cluster eseguono il failover allo switch CS2.</block>
   <block id="ca485f2dd68e04b01569b761e6e09728" category="list-text">Verifica che le LIF del cluster abbiano eseguito il failover alle porte ospitate nello switch CS2. Questa operazione potrebbe richiedere alcuni secondi:</block>
   <block id="b724af2fef6af61e0edab3f426d0cddd" category="list-text">Verificare che i collegamenti della porta dello switch siano integri dal punto di vista dello switch CS1:</block>
-  <block id="b9ab24854008adedc57cca2a0bf2e4f8" category="paragraph">I seguenti comandi configurano un nome utente SNMPv3 sugli switch Cisco 3132Q-V:</block>
-  <block id="dd6639b00fbb4becd05c71735c5944af" category="list-text">Verificare di aver configurato l'ambiente utilizzando lo switch cluster Cisco 3132Q-V *CLI*.</block>
-  <block id="91863ff015a5297c5c27e15dd6e5e916" category="paragraph">Attendere 10 minuti, quindi verificare che la raccolta del registro sia completata:</block>
-  <block id="03d991029fc10722afd68a8300e08fbf" category="paragraph">I seguenti comandi configurano un nome utente SNMPv3 sugli switch Cisco 9336C-FX2:</block>
   <block id="e9505b73caa990829220fedbb878ef68" category="list-text">L'interruttore C2 viene sostituito per primo dall'interruttore CS2.</block>
   <block id="39bba2bddb2bf527b701828442a18b5e" category="list-text">Il cablaggio tra i nodi e C2 viene quindi scollegato da C2 e ricollegato a CS2.</block>
   <block id="6fa86324fabffaee853e6eeee2824329" category="list-text">L'interruttore C1 è sostituito dall'interruttore CS1.</block>
@@ -4596,8 +4559,6 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
   <block id="00a862cbf647531bcc4b5bf9faba74e4" category="list-text">Per l'autenticazione *MD5/SHA*:<block ref="31b98def7e9f7bb02cdfd9ac87afcda4" prefix=" " category="inline-code"></block></block>
   <block id="7286c151c11606a97b24bba616cce292" category="list-text">Per l'autenticazione *MD5/SHA con crittografia AES/DES*:<block ref="6a48e8cc740517cd540e6de4c0a5585b" prefix=" " category="inline-code"></block></block>
   <block id="e7d18f4dea6cb0b4877fd6a9e25a2411" category="paragraph"><block ref="e3949fbf38af37f5381ecfa4e157ffa8" prefix="" category="inline-code"></block></block>
-  <block id="7733a6a16b4fa24d09c107d2b3eefb78" category="summary">La funzione di raccolta dei log del monitor di stato dello switch del cluster viene utilizzata per raccogliere i file di log relativi allo switch in ONTAP. È necessario assicurarsi di aver configurato l'ambiente utilizzando l'interfaccia a riga di comando dello switch cluster 92300YC, come illustrato di seguito.</block>
-  <block id="e7c823ebcf9c688c2043749093639ce5" category="paragraph">I seguenti comandi configurano un nome utente SNMPv3 sugli switch Cisco 92300YC:</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="paragraph-title">Risolvere i problemi</block>
   <block id="3e7c0049318f1d54d121bd59293ae3f8" category="summary">Prima di configurare lo switch Cisco 9336C-FX2, leggere le seguenti informazioni.</block>
   <block id="6f46a467644090d99e7affb0172248d7" category="paragraph">Prima di configurare lo switch Cisco 9336C-FX2, esaminare le seguenti considerazioni.</block>
@@ -4651,9 +4612,6 @@ Immagine:../media/FEC_copper_table.jpg[25G porte con cavi in rame]</block>
   <block id="3947ff32e82f86e7176dc28b3ee33db0" category="list-text">Sullo switch del cluster CS2, chiudere le porte collegate alle porte del cluster di *tutti* i nodi per eseguire il failover delle LIF del cluster:</block>
   <block id="022c00ee7f7e6672d82cc079623d6e22" category="list-text">Sullo switch del cluster CS1, chiudere le porte collegate alle porte del cluster di *tutti* i nodi per eseguire il failover delle LIF del cluster.</block>
   <block id="e6eb1709bc8131372d63990293ab75f8" category="paragraph">Tutte le LIF del cluster eseguono il failover sullo switch da CS2 nuovi.</block>
-  <block id="af7a19b4dbadf7641102bf88598cfd8b" category="paragraph">+
-Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione e avvio della raccolta di registri *supporto* dettagliati dal centralino e avvia una raccolta oraria di dati *periodici* raccolti da AutoSupport.</block>
-  <block id="a13c9d4c750715a8b993a3fec916189f" category="list-text">È necessario specificare l'utente per la raccolta di log quando viene applicato il file di configurazione di riferimento (RCF). Per impostazione predefinita, questo utente è impostato su _admin_. Se si desidera utilizzare un altro utente, è necessario specificarlo nella sezione *# SHM User*s di RCF.</block>
   <block id="69a3b5b5b3e87ce1bcae2811d815d9de" category="paragraph"><block ref="69a3b5b5b3e87ce1bcae2811d815d9de" category="inline-link-macro-rx"></block></block>
   <block id="7091e2c750a185300a6b16e37ae123f6" category="paragraph">Le istruzioni sono disponibili nella documentazione NVIDIA.</block>
   <block id="894989f86e54fb4105389f59b2f248db" category="list-text"><block ref="c4cd7ec23f215e2259f91b6eb6e7cbc1" category="inline-link-macro-rx"></block>.</block>
@@ -4702,7 +4660,6 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
   <block id="cd05c6b0946147cbb3f39299b8dcdeed" category="paragraph"><block ref="320348c7039a92322f8ae8aa6b9548b3" prefix="" category="inline-code"></block></block>
   <block id="e90414dab5eca6b338b4136c697db6b5" category="list-text">Dopo che l'indirizzo IP di gestione è nuovamente raggiungibile, accedere allo switch tramite SSH.</block>
   <block id="c91e8b7706844bcabdc205a7e43be636" category="paragraph">Potrebbe essere necessario aggiornare le voci del file host relative alle chiavi SSH.</block>
-  <block id="22ce77808f11e6ab0287a2c388f17c20" category="list-text">Riapplicare eventuali aggiunte personalizzate precedentemente identificate alla configurazione dello switch.</block>
   <block id="75d60e24abda3d2be5719b222283e4ab" category="list-text">Dopo aver verificato che le versioni di RCF, le aggiunte personalizzate e le impostazioni dello switch siano corrette, copiare il file running-config nel file startup-config.</block>
   <block id="59a8406e97bc3122bcc4f9fec1cab7c9" category="paragraph"><block ref="e1e291973b667f98a077e4eb6f5aa9ac" prefix="" category="inline-code"></block></block>
   <block id="a899bc4bde195885d1d8f64046805509" category="paragraph"><block ref="f09b6decdfbfa4d8cb5b241722b9a9e6" prefix="" category="inline-code"></block></block>
@@ -5061,4 +5018,14 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="2cd1b70f79d5acd7ffb2c204f4069175" category="summary">È possibile utilizzare questa procedura per installare il file di configurazione applicabile per il monitoraggio dello stato degli switch cluster degli switch di storage NVIDIA SN2100.</block>
   <block id="d57382f230671f8cd52f47dc80838934" category="paragraph">Se il modello mostra ancora *ALTRO* dopo aver applicato il file di configurazione, contattare il supporto NetApp.</block>
   <block id="762421c7b0a81d02d689a9f2e22ee18d" category="sidebar">Installare il file CSHM</block>
+  <block id="e019eb42e4f42756266b23abef92e1dd" category="list-text">Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a <block ref="45429bb8a97f1efddbc53c789578d613" category="inline-link-macro-rx"></block> per i dettagli su eventuali ulteriori modifiche necessarie.</block>
+  <block id="dd59ffc29dc202728192a95abe6178f9" category="paragraph">Gli switch storage consentono di instradare i dati tra server e array di storage in una SAN (Storage Area Network). Gli switch di storage supportati da NetApp includono:</block>
+  <block id="57b022aa023a23cddb03c6191daffa4f" category="list-text">Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a <block ref="1d9551648f2ada4f38f23191d61ca885" category="inline-link-macro-rx"></block> per i dettagli su eventuali ulteriori modifiche necessarie.</block>
+  <block id="5a389651a2b073f3c60a3a61d9470776" category="list-text">Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a <block ref="80cb17023e08ea29d449df7367413559" category="inline-link-macro-rx"></block> per i dettagli su eventuali ulteriori modifiche necessarie.</block>
+  <block id="7a6b9b7eb5a2b3055f09f44911fb2bc5" category="list-text">Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a <block ref="a181f167f0e6d024e95ed78a8f44bff6" category="inline-link-macro-rx"></block> per i dettagli su eventuali ulteriori modifiche necessarie.</block>
+  <block id="b1a89b5446a31892e94db79afbb0de42" category="inline-link">Lo switch SN2100 non riesce a collegarsi utilizzando cavi in rame 40/100GbE</block>
+  <block id="bea2f90298678b2195d0c6fdc1b17566" category="paragraph">Per<block ref="8462b48cb4d4d2778ecd09578b163838" category="inline-link-rx"></block> ulteriori informazioni, consultare l'articolo della Knowledge base.</block>
+  <block id="4af7c647d1c04eb805c9ecbc772595d1" category="list-text">Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a <block ref="81e27480a79c2bb77194c038c9737157" category="inline-link-macro-rx"></block> per i dettagli su eventuali ulteriori modifiche necessarie.</block>
+  <block id="e51054318a8dcf9b707bc011338e9665" category="section-title">Impostare la velocità di interfaccia sulle porte di breakout</block>
+  <block id="e4da4813fef5b96a216a043d594bf245" category="list-text">Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a <block ref="75ce5666fba6992a0719935651dd5b1b" category="inline-link-macro-rx"></block> per i dettagli su eventuali ulteriori modifiche necessarie.</block>
 </blocks>

@@ -215,6 +215,7 @@ L'output varia in base alla configurazione del sito. Controllare le impostazioni
 
 
 
+. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-9336c-fx2.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
 . Dopo aver verificato che le versioni RCF e le impostazioni dello switch siano corrette, copiare il file running-config nel file startup-config.
 +
 `copy running-config startup-config`
@@ -463,7 +464,7 @@ System Manager offre un workflow semplice e facile per la configurazione e la co
 Passare a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurare ONTAP su un nuovo cluster con Gestione di sistema"] per le istruzioni di installazione.
 
 .Quali sono le prossime novità?
-link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["Abilitare SSH"].
+link:configure-ssh.html["Abilitare SSH"].
 
 
 
@@ -837,7 +838,7 @@ L'output varia in base alla configurazione del sito. Controllare le impostazioni
 
 
 
-. Riapplicare eventuali aggiunte personalizzate precedentemente identificate alla configurazione dello switch.
+. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-9336c-fx2.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
 . Dopo aver verificato che le versioni di RCF, le aggiunte personalizzate e le impostazioni dello switch siano corrette, copiare il file running-config nel file startup-config.
 +
 Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS Command Reference"^] guide.

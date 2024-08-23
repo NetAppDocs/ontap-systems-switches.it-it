@@ -106,6 +106,7 @@ Lo script RCF completa le istruzioni elencate sopra.
 
 NOTE: Per qualsiasi problema di script RCF python che non può essere corretto, contatta https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
 
+. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-sn2100-storage.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
 . Verificare la configurazione dopo il riavvio:
 +
 `net show interface all`

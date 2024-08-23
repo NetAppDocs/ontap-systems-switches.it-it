@@ -113,6 +113,7 @@ NOTE: Nel passaggio 3 *aggiornamento del file MOTD* precedente, il comando `cat 
 
 NOTE: Per qualsiasi problema di script RCF python che non può essere corretto, contatta https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
 
+. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
 . Verificare la configurazione dopo il riavvio:
 +
 [listing, subs="+quotes"]
@@ -204,7 +205,7 @@ swp16      100G   BondMember  sw14                    swp16
 ----
 . Verificare lo stato delle porte del cluster sul cluster.
 +
-.. Verificare che le porte e0d siano in buone condizioni su tutti i nodi del cluster:
+.. Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:
 +
 [listing, subs="+quotes"]
 ----
@@ -370,6 +371,7 @@ admin@sw1:mgmt:~$ cat /etc/issue
 
 NOTE: Per qualsiasi problema di script RCF python che non può essere corretto, contatta https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
 
+. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
 . Verificare la configurazione dopo il riavvio:
 +
 [listing, subs="+quotes"]
@@ -540,7 +542,7 @@ swp16      100G   BondMember  sw2                      sw
 ----
 . Verificare lo stato delle porte del cluster sul cluster.
 +
-.. Verificare che le porte e0d siano in buone condizioni su tutti i nodi del cluster:
+.. Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:
 +
 [listing, subs="+quotes"]
 ----

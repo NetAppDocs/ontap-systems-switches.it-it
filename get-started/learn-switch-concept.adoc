@@ -33,7 +33,7 @@ Gli switch del cluster consentono di creare cluster ONTAP con più di due nodi. 
 
 == Switch storage
 
-Gli switch storage consentono di instradare i dati tra server e array di storage in una SAN (Storage Area Network). Gli switch di cluster supportati da NetApp includono:
+Gli switch storage consentono di instradare i dati tra server e array di storage in una SAN (Storage Area Network). Gli switch di storage supportati da NetApp includono:
 
 * Cisco Nexus 9336C-FX2
 * NVIDIA SN2100
