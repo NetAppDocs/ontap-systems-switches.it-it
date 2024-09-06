@@ -91,7 +91,7 @@ Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e n
 * Il `cluster1::*>` prompt indica il nome del cluster.
 
 
-Gli esempi di questa procedura utilizzano quattro nodi. Questi nodi utilizzano due porte di interconnessione cluster 10GbE e0a e e0b. Vedere https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"] per verificare le porte cluster corrette sulle piattaforme.
+Gli esempi di questa procedura utilizzano quattro nodi. Questi nodi utilizzano due porte di interconnessione cluster 10GbE e0a e e0b. Consultare https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte cluster corrette sulle piattaforme.
 
 
 NOTE: Gli output dei comandi possono variare a seconda delle diverse versioni di ONTAP.
@@ -464,7 +464,7 @@ System Manager offre un workflow semplice e facile per la configurazione e la co
 Passare a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurare ONTAP su un nuovo cluster con Gestione di sistema"] per le istruzioni di installazione.
 
 .Quali sono le prossime novità?
-link:configure-ssh.html["Abilitare SSH"].
+link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].
 
 
 
@@ -649,6 +649,10 @@ cluster1::*>
 
 +
 `cs1(config-if-range)# *shutdown*`
+
++
+
+CAUTION: Assicurarsi di chiudere *tutte* le porte del cluster collegate per evitare problemi di connessione di rete. Per https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nodo fuori dal quorum quando si esegue la migrazione della LIF del cluster durante l'aggiornamento del sistema operativo dello switch"^] ulteriori informazioni, consultare l'articolo della Knowledge base.
 
 . Verifica che le LIF del cluster abbiano eseguito il failover sulle porte ospitate nello switch del cluster CS1. Questa operazione potrebbe richiedere alcuni secondi.
 +
@@ -1330,4 +1334,4 @@ RPC status:
 
 
 .Quali sono le prossime novità?
-link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["Abilitare SSH"].
+link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].
