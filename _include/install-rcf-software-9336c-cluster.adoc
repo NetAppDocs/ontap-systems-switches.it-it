@@ -359,4 +359,4 @@ System Manager offre un workflow semplice e facile per la configurazione e la co
 Passare a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurare ONTAP su un nuovo cluster con Gestione di sistema"] per le istruzioni di installazione.
 
 .Quali sono le prossime novità?
-link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].
+link:configure-ssh-keys.html["Verificare la configurazione SSH"].

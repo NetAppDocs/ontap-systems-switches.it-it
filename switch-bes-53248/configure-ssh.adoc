@@ -86,6 +86,54 @@ Configuration Saved!
 
 WARNING: Assicurarsi che SSH sia disabilitato prima di modificare le chiavi, altrimenti viene riportato un avviso sullo switch.
 
+. Crittografare le chiavi SSH (solo per *FIPS-mode*):
++
+
+CAUTION: In modalità FIPS, le chiavi devono essere crittografate con una passphrase per la protezione. In assenza di una chiave crittografata, l'applicazione non si avvia. Le chiavi vengono create e crittografate utilizzando i seguenti comandi:
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch) *configure*
+(switch) (Config)# *crypto key encrypt write rsa passphrase _<passphase>_*
+
+The key will be encrypted and saved on NVRAM.
+This will result in saving all existing configuration also.
+Do you want to continue? (y/n): *y*
+
+Config file 'startup-config' created successfully.
+
+(switch) (Config)# *crypto key encrypt write dsa passphrase _<passphase>_*
+
+The key will be encrypted and saved on NVRAM.
+This will result in saving all existing configuration also.
+Do you want to continue? (y/n): *y*
+
+Config file 'startup-config' created successfully.
+
+(switch)(Config)# *crypto key encrypt write ecdsa passphrase _<passphase>_*
+
+The key will be encrypted and saved on NVRAM.
+This will result in saving all existing configuration also.
+Do you want to continue? (y/n): *y*
+
+Config file 'startup-config' created successfully.
+
+(switch) (Config)# end
+(switch)# write memory
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
 . Riavviare lo switch:
 +
 `reload`

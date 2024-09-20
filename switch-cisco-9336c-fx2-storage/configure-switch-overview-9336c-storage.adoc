@@ -11,7 +11,7 @@ summary: 'Panoramica dell"installazione e della configurazione degli switch stor
 
 
 [role="lead"]
-Lo switch di storage Cisco Nexus 9336C-FX2 fa parte della piattaforma Cisco Nexus 9000 e può essere installato in un cabinet di sistema NetApp. Gli switch storage consentono di instradare i dati tra server e array di storage in una SAN (Storage Area Network).
+Lo switch Cisco Nexus 9336C-FX2 fa parte della piattaforma Cisco Nexus 9000 e può essere installato in un cabinet di sistema NetApp. Nexus 9336C-FX2 è uno switch Ethernet che ti consente di alternare i controller e gli shelf di dischi.
 
 
 

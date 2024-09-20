@@ -1,0 +1,64 @@
+---
+permalink: switch-cisco-3132q-v/configure-ssh-keys.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
+summary: 'SSH è un requisito per l"utilizzo delle funzionalità di monitoraggio dello stato di salute dello switch del cluster (CSHM) e di raccolta dei log. Per abilitare SSH sugli switch del cluster Cisco 3132Q-V, si generano prima le chiavi SSH e quindi si abilita SSH.' 
+---
+= Verificare la configurazione DELLA SSH
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si utilizzano le funzioni di Ethernet Switch Health Monitor (CSHM) e di raccolta dei log, verificare che le chiavi SSH e SSH siano attivate sugli switch del cluster.
+
+.Fasi
+. Verificare che SSH sia attivato:
++
+[listing, subs="+quotes"]
+----
+(switch) *show ssh server*
+ssh version 2 is enabled
+----
+. Verificare che le chiavi SSH siano attivate:
++
+`show ssh key`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *show ssh key*
+
+rsa Keys generated:Fri Jun 28 02:16:00 2024
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDiNrD52Q586wTGJjFAbjBlFaA23EpDrZ2sDCewl7nwlioC6HBejxluIObAH8hrW8kR+gj0ZAfPpNeLGTg3APj/yiPTBoIZZxbWRShywAM5PqyxWwRb7kp9Zt1YHzVuHYpSO82KUDowKrL6lox/YtpKoZUDZjrZjAp8hTv3JZsPgQ==
+
+bitcount:1024
+fingerprint:
+SHA256:aHwhpzo7+YCDSrp3isJv2uVGz+mjMMokqdMeXVVXfdo
+
+could not retrieve dsa key information
+
+ecdsa Keys generated:Fri Jun 28 02:30:56 2024
+
+ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBABJ+ZX5SFKhS57evkE273e0VoqZi4/32dt+f14fBuKv80MjMsmLfjKtCWy1wgVt1Zi+C5TIBbugpzez529zkFSF0ADb8JaGCoaAYe2HvWR/f6QLbKbqVIewCdqWgxzrIY5BPP5GBdxQJMBiOwEdnHg1u/9Pzh/Vz9cHDcCW9qGE780QHA==
+
+bitcount:521
+fingerprint:
+SHA256:TFGe2hXn6QIpcs/vyHzftHJ7Dceg0vQaULYRAlZeHwQ
+
+(switch)# *show feature | include scpServer*
+scpServer              1          enabled
+(switch)# *show feature | include ssh*
+sshServer              1          enabled
+(switch)#
+----
+====
+
+
+.Quali sono le prossime novità?
+link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].
