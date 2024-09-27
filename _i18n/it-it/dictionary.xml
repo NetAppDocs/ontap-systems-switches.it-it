@@ -5041,4 +5041,6 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="c1433b541d8d99faed86a93460cb0bad" category="list-text">Per la raccolta dei log di supporto con gli switch NVIDIA, la raccolta log _user_ deve essere autorizzata ad eseguire il<block ref="c85737d6a0d20328583b59ea7320a5ef" prefix=" " category="inline-code"></block> comando senza dover fornire una password. Per consentire questo utilizzo, eseguire il comando:</block>
   <block id="a0379ee208b1ca86b0ce11e60c0e73eb" category="paragraph"><block ref="83e3f80a08612b0113ac48e3b9a3432e" prefix="" category="inline-code"></block></block>
   <block id="d97cf4e1b3c59ab22fc281643864890d" category="paragraph">NVIDIA SN2100 è uno switch Ethernet che consente di alternare i controller e gli shelf di dischi.</block>
+  <block id="68cbc1ccd652f8f281a11d07040f5054" category="inline-link">Configurare la sicurezza di rete utilizzando FIPS</block>
+  <block id="ee73a5b7bde1ac3826492824ed56415e" category="admonition">Quando si attiva FIPS, è necessario cambiare il conteggio dei bit a 256 sullo switch utilizzando il comando<block ref="e945b32dfeddd45c02f47f82f234232f" prefix=" " category="inline-code"></block>. Per ulteriori informazioni, vedere<block ref="4ed77aafc2157fac88ce3125b253884f" category="inline-link-rx"></block>.</block>
 </blocks>
