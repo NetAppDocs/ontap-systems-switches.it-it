@@ -66,19 +66,27 @@ Questa procedura riguarda il seguente scenario:
 * L'interruttore C2 viene sostituito per primo dall'interruttore CS2.
 +
 ** Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.
++
+*** Tutte le LIF del cluster eseguono il failover sul nuovo switch CS2.
+
+
 ** Il cablaggio tra i nodi e C2 viene quindi scollegato da C2 e ricollegato a CS2.
 
 
 * L'interruttore C1 è sostituito dall'interruttore CS1.
 +
 ** Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.
++
+*** Tutte le LIF del cluster eseguono il failover sul nuovo switch CS1.
+
+
 ** Il cablaggio tra i nodi e C1 viene quindi scollegato da C1 e ricollegato a cs1.
 
 
 
 
 
-NOTE: Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue la migrazione di tutte le LIF del cluster allo switch del partner operativo durante l'esecuzione delle operazioni sullo switch di destinazione.
+NOTE: Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire le operazioni senza interruzioni del cluster, viene eseguita la seguente procedura per il failover di tutte le LIF del cluster allo switch partner operativo, eseguendo al tempo stesso la procedura sullo switch target.
 
 
 
@@ -98,7 +106,10 @@ dove _x_ è la durata della finestra di manutenzione in ore.
 +
 Viene visualizzato il prompt Advanced (*>).
 
-. Disattivare il ripristino automatico sulle LIF del cluster:
+. Disattiva l'autorevert sulle LIF del cluster.
++
+Disabilitando l'opzione di auto-revert per questa procedura, le LIF del cluster non torneranno automaticamente alla porta home. Rimangono sulla porta corrente mentre continua ad essere attiva e operativa.
+
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 

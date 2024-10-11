@@ -68,19 +68,27 @@ Questa procedura riguarda il seguente scenario:
 * L'interruttore CS2 viene sostituito dall'interruttore CS2-nuovo per primo.
 +
 ** Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.
++
+*** Tutte le LIF del cluster eseguono il failover sul nuovo switch CS2-new.
+
+
 ** Il cablaggio tra i nodi e CS2 viene quindi scollegato da CS2 e ricollegato a CS2-New.
 
 
 * L'interruttore CS1 viene sostituito dall'interruttore CS1-nuovo.
 +
 ** Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.
++
+*** Tutte le LIF del cluster eseguono il failover sul nuovo switch CS1-new.
+
+
 ** Il cablaggio tra i nodi e CS1 viene quindi scollegato da CS1 e ricollegato a CS1-New.
 
 
 
 
 
-NOTE: Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue la migrazione di tutte le LIF del cluster allo switch del partner operativo durante l'esecuzione delle operazioni sullo switch di destinazione.
+NOTE: Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire le operazioni senza interruzioni del cluster, viene eseguita la seguente procedura per il failover di tutte le LIF del cluster allo switch partner operativo, eseguendo al tempo stesso la procedura sullo switch target.
 
 
 
@@ -256,6 +264,9 @@ cs2                         cluster-network     10.233.205.93   N5K-C5596UP
 
 
 . Disattiva l'autorevert sulle LIF del cluster.
++
+Disabilitando l'opzione di auto-revert per questa procedura, le LIF del cluster non torneranno automaticamente alla porta home. Rimangono sulla porta corrente mentre continua ad essere attiva e operativa.
+
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 

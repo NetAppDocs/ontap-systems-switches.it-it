@@ -5043,4 +5043,10 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="d97cf4e1b3c59ab22fc281643864890d" category="paragraph">NVIDIA SN2100 è uno switch Ethernet che consente di alternare i controller e gli shelf di dischi.</block>
   <block id="68cbc1ccd652f8f281a11d07040f5054" category="inline-link">Configurare la sicurezza di rete utilizzando FIPS</block>
   <block id="ee73a5b7bde1ac3826492824ed56415e" category="admonition">Quando si attiva FIPS, è necessario cambiare il conteggio dei bit a 256 sullo switch utilizzando il comando<block ref="e945b32dfeddd45c02f47f82f234232f" prefix=" " category="inline-code"></block>. Per ulteriori informazioni, vedere<block ref="4ed77aafc2157fac88ce3125b253884f" category="inline-link-rx"></block>.</block>
+  <block id="7a43f267b45d16f3e9b7113b1665a8ef" category="list-text">Tutte le LIF del cluster eseguono il failover sul nuovo switch CS2-new.</block>
+  <block id="a200958f285bc9634331308217aef6e8" category="list-text">Tutte le LIF del cluster eseguono il failover sul nuovo switch CS1-new.</block>
+  <block id="866e23be3750652ebc7235f85b035f6b" category="admonition">Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire le operazioni senza interruzioni del cluster, viene eseguita la seguente procedura per il failover di tutte le LIF del cluster allo switch partner operativo, eseguendo al tempo stesso la procedura sullo switch target.</block>
+  <block id="936b3180f1af844d99a2935c0f8f1407" category="paragraph">Disabilitando l'opzione di auto-revert per questa procedura, le LIF del cluster non torneranno automaticamente alla porta home. Rimangono sulla porta corrente mentre continua ad essere attiva e operativa.</block>
+  <block id="8cfe0e3d8ad280ac0655595fef97d183" category="list-text">Tutte le LIF del cluster eseguono il failover sul nuovo switch CS2.</block>
+  <block id="7f59c84a99e8340f8584b604b173e044" category="list-text">Tutte le LIF del cluster eseguono il failover sul nuovo switch CS1.</block>
 </blocks>
