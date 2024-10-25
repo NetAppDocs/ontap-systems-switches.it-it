@@ -377,17 +377,47 @@ Cluster
 cluster::*> network port modify -node n1 -port e4a -up-admin false
 cluster::*> network port modify -node n2 -port e4a -up-admin false
 ----
-. Eseguire il ping delle interfacce del cluster remoto ed eseguire un controllo del server RPC:
-+
-`cluster ping-cluster`
+. Verificare la connettività delle interfacce del cluster remoto:
 
-+
-.Mostra esempio
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-[listing]
+.ONTAP 9.9.1 e versioni successive
+--
+È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+
+`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTA:* attendere alcuni secondi prima di eseguire il comando show per visualizzare i dettagli.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2        n2_clus1      none
+       3/5/2022 19:21:20 -06:00   n1_clus2        n2_clus2      none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2        n1_clus1      none
+       3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
+----
+--
+.Tutte le release di ONTAP
+--
+Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1		e4a	10.10.0.1
@@ -413,8 +443,9 @@ RPC status:
 1 paths up, 0 paths down (tcp check)
 1 paths up, 0 paths down (ucp check)
 ----
+--
 ====
-. Scollegare il cavo da e4a sul nodo n1.
+. [[step10]]scollegare il cavo da e4a sul nodo n1.
 +
 Fare riferimento alla configurazione in esecuzione e collegare la prima porta 40 GbE dello switch C1 (porta 1/7 in questo esempio) a e4a su n1 utilizzando il cablaggio supportato su Nexus 3132Q-V.
 
@@ -796,17 +827,47 @@ network options switchless-cluster show
 
 === Fase 5: Verificare la configurazione
 
-. Eseguire il ping delle interfacce del cluster remoto ed eseguire un controllo del server RPC:
-+
-`cluster ping-cluster`
+. Verificare la connettività delle interfacce del cluster remoto:
 
-+
-.Mostra esempio
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-[listing]
+.ONTAP 9.9.1 e versioni successive
+--
+È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+
+`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTA:* attendere alcuni secondi prima di eseguire il comando show per visualizzare i dettagli.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2        n2_clus1      none
+       3/5/2022 19:21:20 -06:00   n1_clus2        n2_clus2      none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2        n1_clus1      none
+       3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
+----
+--
+.Tutte le release di ONTAP
+--
+Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1		e4a	10.10.0.1
@@ -832,12 +893,13 @@ RPC status:
 1 paths up, 0 paths down (tcp check)
 1 paths up, 0 paths down (ucp check)
 ----
+--
 ====
-. Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
+. [[step2]]se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
 .Quali sono le prossime novità?
-link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"]
+link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].

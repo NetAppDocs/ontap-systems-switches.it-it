@@ -592,7 +592,7 @@ Se le LIF del cluster non sono tornate alla porta home, ripristinarle manualment
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* attendere alcuni secondi prima di eseguire il comando show per visualizzare i dettagli.
+*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
 
 [listing, subs="+quotes"]
 ----

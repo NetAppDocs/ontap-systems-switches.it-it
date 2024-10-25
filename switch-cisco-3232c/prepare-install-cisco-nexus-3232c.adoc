@@ -134,15 +134,48 @@ Cluster
 ====
 
 
-. Ping delle LIF del cluster remoto:
-`cluster ping-cluster -node _node-name_`
-+
-.Mostra esempio
-[%collapsible]
+. Verificare la connettività delle interfacce del cluster remoto:
+
+
+[role="tabbed-block"]
 ====
+.ONTAP 9.9.1 e versioni successive
+--
+È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+
+`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+
 [listing, subs="+quotes"]
 ----
-cluster1::*> *cluster ping-cluster -node cluster1-02*
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source              Destination         Packet
+Node   Date                       LIF                 LIF                 Loss
+------ -------------------------- ------------------- ------------------- -----------
+cluster1-01
+       3/5/2022 19:21:18 -06:00   cluster1-01_clus2   cluster1-02_clus1   none
+       3/5/2022 19:21:20 -06:00   cluster1-01_clus2   cluster1-02_clus2   none
+.
+.
+cluster1-02
+       3/5/2022 19:21:18 -06:00   cluster1-02_clus2   cluster1-01_clus1   none
+       3/5/2022 19:21:20 -06:00   cluster1-02_clus2   cluster1-01_clus2   none
+----
+--
+.Tutte le release di ONTAP
+--
+Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
 Host is cluster1-02
 Getting addresses from network interface table...
 Cluster cluster1-01_clus1 169.254.209.69 cluster1-01     e0a
@@ -167,8 +200,9 @@ RPC status:
 2 paths up, 0 paths down (tcp check)
 2 paths up, 0 paths down (udp check)
 ----
+--
 ====
-. Verificare che il `auto-revert` Il comando è attivato su tutte le LIF del cluster:
+. [[step6]]verifica che il `auto-revert` comando sia abilitato in tutte le LIF del cluster:
 `network interface show -vserver Cluster -fields auto-revert`
 +
 .Mostra esempio
@@ -180,7 +214,7 @@ cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
 
           Logical
 Vserver   Interface           Auto-revert
---------- ––––––-------------- ------------
+--------- ------------------- ------------
 Cluster
           cluster1-01_clus1   true
           cluster1-01_clus2   true

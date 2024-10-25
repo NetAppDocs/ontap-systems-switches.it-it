@@ -795,14 +795,43 @@ cluster1-04          true    true          false
 cluster1::*>
 ----
 ====
-. Eseguire il ping delle interfacce del cluster remoto per verificare la connettività:
-+
-`cluster ping-cluster -node local`
+. Verificare la connettività delle interfacce del cluster remoto:
 
-+
-.Mostra esempio
-[%collapsible]
+
+[role="tabbed-block"]
 ====
+.ONTAP 9.9.1 e versioni successive
+--
+È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+
+`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source               Destination         Packet
+Node   Date                       LIF                  LIF                 Loss
+------ -------------------------- -------------------- ------------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   cluster1-01_clus2    cluster1-02-clus1   none
+       3/5/2022 19:21:20 -06:00   cluster1-01_clus2    cluster1-02_clus2   none
+node2
+       3/5/2022 19:21:18 -06:00   cluster1-02_clus2    cluster1-01_clus1   none
+       3/5/2022 19:21:20 -06:00   cluster1-02_clus2    cluster1-01_clus2   none
+----
+--
+.Tutte le release di ONTAP
+--
+Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+
+`cluster ping-cluster -node <name>`
+
 [listing, subs="+quotes"]
 ----
 cluster1::*> *cluster ping-cluster -node local*
@@ -842,8 +871,7 @@ RPC status:
 6 paths up, 0 paths down (tcp check)
 6 paths up, 0 paths down (udp check)
 ----
+--
 ====
-
-
 .Quali sono le prossime novità?
 link:configure-ssh-keys.html["Verificare la configurazione SSH"].
