@@ -8,7 +8,16 @@
 
 
  a| 
-https://hwu.netapp.com/Switch/Index["Switch Cisco 100 GbE a 36 porte (X190200)"]
+Switch NVIDIA 100GbE a 16 porte (X190006-PE e X190006-PI)
+ a| 
+Supporto di switch per cluster Interconnect NVIDIA SN2100 e switch storage, incluso il supporto per le configurazioni IP MetroCluster.
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
+Switch Cisco 100GbE a 36 porte (X190200-CS-PE e X190200-CS-PI)
  a| 
 Supporta un'infrastruttura condivisa (cluster, ha e storage collegato a switch) sulla stessa coppia di switch Cisco Nexus 9336C-FX2, incluso il supporto per le configurazioni IP MetroCluster.
  a| 
@@ -17,27 +26,27 @@ ONTAP 9.9.1
 
 
  a| 
-https://hwu.netapp.com/Switch/Index["Switch Cisco 100 GbE a 36 porte (X190200 e X190210)"]
+Switch Cisco 100GbE a 36 porte (X190200-CS-PE e X190200-CS-PI), (X190210-FE-PE e X190210-FE-PI)
  a| 
-Switch di interconnessione cluster e storage switch Cisco Nexus 9336C-FX2 per controller AFF/FAS e connettività dati front-end.
- a| 
-ONTAP 9.8
-
-
-
- a| 
-https://hwu.netapp.com/Switch/Index["Switch Broadcom BES-53248 (X190005 e X190005R)"]
- a| 
-Supporto di switch di interconnessione cluster Broadcom BES-53248 per controller AFF/FAS con porte 40/100GbE.
+Supporto di switch cluster Interconnect Cisco Nexus 9336C-FX2 e switch storage per sistemi storage AFF e ASA, nonché per la connettività dei dati front-end.
  a| 
 ONTAP 9.8
 
 
 
  a| 
-https://hwu.netapp.com/Switch/Index["Switch Cisco 100 GbE a 36 porte (X190200)"] https://hwu.netapp.com/Switch/Index["Switch Cisco 100 GbE a 32 porte (X190100 e X190100R)"]
+Switch Broadcom BES-53248 (X190005 e X190005R)
  a| 
-Lo switch Cisco Nexus 100 GbE può essere utilizzato come switch storage dedicato per collegare gli shelf di dischi NS224 NVMe alle seguenti piattaforme:
+Switch per cluster Interconnect Broadcom BES-53248 per il supporto di controller AFF/FAS con porte 10/25GbE e 40/100GbE.
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+Switch Cisco 100GbE a 36 porte (X190200) e switch Cisco 100GbE a 32 porte (X190100 e X190100R)
+ a| 
+Supporto dello storage switch Cisco Nexus 3232C per la connessione di NS224 shelf di dischi NVMe sistemi storage AFF e ASA:
 
 * AFF A800/AFF ASA A800
 * AFF A700/AFF ASA A700
@@ -46,14 +55,5 @@ Lo switch Cisco Nexus 100 GbE può essere utilizzato come switch storage dedicat
 
  a| 
 ONTAP 9.8
-
-
-
- a| 
-https://hwu.netapp.com/Switch/Index["Switch Broadcom BES-53248 (X190005 e X190005R)"]
- a| 
-Supporto di switch di interconnessione cluster Broadcom BES-53248 per controller AFF/FAS con porte 10 GbE.
- a| 
-ONTAP 9.5P8
 
 |===
