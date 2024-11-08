@@ -14,6 +14,9 @@ summary: Il modello base di switch cluster BES-53248 è concesso in licenza per 
 Il modello base di switch cluster BES-53248 è concesso in licenza per 16 porte 10GbE o 25GbE e due porte 100GbE. È possibile aggiungere nuove porte acquistando ulteriori licenze.
 
 
+CAUTION: Per EFOS 3,12 e versioni successive, seguire la procedura di installazione descritta in link:efos-install-rcf-license-file.html["Installare il file di configurazione di riferimento (RCF) e il file di licenza"].
+
+
 
 == Esaminare le licenze disponibili
 

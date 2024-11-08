@@ -685,7 +685,6 @@
   <block id="bc18114517d63d4db943371546b0e1ae" category="list-text">Verificare lo stato delle porte del cluster sul cluster.</block>
   <block id="5d1ccfeff69430937e33ed02e46dbd94" category="list-text">Verificare lo stato dello switch dal cluster.</block>
   <block id="ef1ee64e66c476fc0def572853f98a6d" category="paragraph">Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia:</block>
-  <block id="e23c199f14d9e7bf9dbb9da03bf726a2" category="list-text">Riavviare lo switch cs1. Questa operazione consente di attivare le LIF del cluster per ripristinare le porte home. È possibile ignorare gli eventi di "interruzione delle porte del cluster" riportati sui nodi durante il riavvio dello switch.</block>
   <block id="8e4984bab9d1ed958d954b97ee853c52" category="summary">È possibile utilizzare la tabella di assegnazione delle porte dello switch del cluster BES-53248 come guida per configurare il cluster.</block>
   <block id="b5a925fc7db2ad87d052b8e842aaca5c" category="doc">Requisiti di configurazione per gli switch cluster BES-53248</block>
   <block id="647742b7ed5a74255a1cd295f9fd2fc9" category="paragraph">Per l'installazione e la manutenzione dello switch BES-53248, consultare i requisiti di configurazione e supporto EFOS e ONTAP.</block>
@@ -5059,4 +5058,21 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="c509ae209503be0a774ac204f0f2dc91" category="paragraph">4x100GbE nodo 35</block>
   <block id="f992d2e7f110147780c9ce8e305e4981" category="paragraph">4x100GbE nodo 36</block>
   <block id="cb02ea2e8f595e77e5e6585ac0421c1a" category="paragraph">Scopri i nuovi switch per sistemi FAS e AFF. Per ulteriori informazioni sull'interruttore, vedere<block ref="341c1c8afc925d24c41903215e7d4958" category="inline-link-rx"></block> .</block>
+  <block id="d217db6e5c9fe01778df762ef953150e" category="inline-link-macro">Installare il file di configurazione di riferimento (RCF) e il file di licenza</block>
+  <block id="6503ea0189c5cfc2f7fbdef509813892" category="admonition">Per EFOS 3,12 e versioni successive, seguire la procedura di installazione descritta in <block ref="2875012234c5bc616da894d0cc04d2b5" category="inline-link-macro-rx"></block>.</block>
+  <block id="138707357e50e83ca9a6f1bf487a4c4b" category="paragraph">Verificare che siano stati installati i seguenti componenti:</block>
+  <block id="f3f5793bcca1ebb5ebbd53986eeb7aa2" category="admonition">Prima di installare una nuova versione del software dello switch e RCF, consultare l'articolo della Knowledge base<block ref="18b4271d2bf70dbfb01e42cb4850cea6" category="inline-link-rx"></block> . Se è necessario cancellare completamente le impostazioni dello switch, eseguire nuovamente la configurazione di base. È necessario essere collegati allo switch utilizzando la console seriale perché una cancellazione completa della configurazione ripristina la configurazione della rete di gestione.</block>
+  <block id="760a43dbe67e92dafc9be460c7ec7a71" category="open-title">EFOS versione 3,12.x e successive</block>
+  <block id="b901c25333441ff036da53fab081d9f0" category="list-text">Verificare che lo script sia stato scaricato e salvato con il nome file assegnato:</block>
+  <block id="c996550fa25e7bc14821abd9c8d23ed7" category="open-title">Tutte le altre versioni di EFOS</block>
+  <block id="cbaf87b69b101c8da09eb66a7e118196" category="list-text">Esaminare l'output del banner dal<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> comando. Leggere e seguire queste istruzioni per verificare la corretta configurazione e il corretto funzionamento dello switch.</block>
+  <block id="d8b62ff42020df981e759bfaae3ea683" category="list-text">Riavviare l'interruttore CS1. In questo modo, le LIF del cluster tornano alle porte home. È possibile ignorare gli eventi di "interruzione delle porte del cluster" riportati sui nodi durante il riavvio dello switch.</block>
+  <block id="44b28482ab8476e86718a1ca5ff60e37" category="paragraph">A partire da EFOS 3.12.0.1, è possibile installare il file di configurazione di riferimento (RCF) e il file di licenza dopo aver configurato lo switch del cluster BES-53248.</block>
+  <block id="9a155684dd1562ffdaa25731d825bbe9" category="admonition">Le porte Sall sono configurate quando si installa RCF, ma è necessario installare la licenza per attivare le porte configurate.</block>
+  <block id="fbec2ebb075cb19757cff7017cb93af5" category="list-text">RCF corrente, disponibile nella<block ref="b4c2fb45a290e6214474529bd84dd3bc" category="inline-link-rx"></block> pagina.</block>
+  <block id="4456b97c43334b2054b59141ede95e7a" category="list-text">Copiare l'RCF nella memoria di avvio dello switch CS2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, HTTP, TFTP, SFTP o SCP.</block>
+  <block id="f33dd0ad3ffde0d7eeaba1d3a85f7205" category="paragraph">In questo esempio viene illustrato l'utilizzo di HTTP per copiare un RCF nel bootflash dello switch CS2:</block>
+  <block id="7bbcf8e324817b180739b7f7d821945a" category="list-text">Sullo switch, verificare che le modifiche siano state apportate:</block>
+  <block id="a84263d893b250f940f2cfa8e599b7e2" category="list-text">[[step21]]sullo switch del cluster CS1, chiudere le porte collegate alle porte del cluster dei nodi.</block>
+  <block id="5bd6c874b20210387cbc3fd552b0e8bc" category="sidebar">Installare RCF e il file di licenza per EFOS 3,12 e versioni successive</block>
 </blocks>

@@ -1,20 +1,20 @@
 ---
-permalink: switch-bes-53248/configure-install-rcf.html 
+permalink: switch-bes-53248/efos-install-rcf-license-file.html 
 sidebar: sidebar 
-keywords: install rcf,setup rcf,rcf file 
+keywords: install rcf,setup rcf,rcf file, efos, license file 
 summary: 'È possibile installare il file di configurazione di riferimento (RCF) dopo aver configurato lo switch del cluster BES-53248 e aver applicato le nuove licenze.' 
 ---
-= Installazione del file di configurazione di riferimento (RCF)
+= Installare il file di configurazione di riferimento (RCF) e il file di licenza
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-È possibile installare il file di configurazione di riferimento (RCF) dopo aver configurato lo switch del cluster BES-53248 e aver applicato le nuove licenze.
+A partire da EFOS 3.12.0.1, è possibile installare il file di configurazione di riferimento (RCF) e il file di licenza dopo aver configurato lo switch del cluster BES-53248.
 
 
-CAUTION: Per EFOS 3,12 e versioni successive, seguire la procedura di installazione descritta in link:efos-install-rcf-license-file.html["Installare il file di configurazione di riferimento (RCF) e il file di licenza"].
+CAUTION: Le porte Sall sono configurate quando si installa RCF, ma è necessario installare la licenza per attivare le porte configurate.
 
 
 
@@ -25,7 +25,7 @@ Verificare che siano stati installati i seguenti componenti:
 
 * Backup corrente della configurazione dello switch.
 * Un cluster completamente funzionante (nessun errore nei log o problemi simili).
-* Il file RCF corrente, disponibile da https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom Cluster Switch"^] pagina.
+* RCF corrente, disponibile nella https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom Cluster Switch"^] pagina.
 * Una configurazione di boot in RCF che rifletta le immagini di boot desiderate, necessaria se si installa solo EFOS e si mantiene la versione corrente di RCF. Se è necessario modificare la configurazione di avvio per riflettere le immagini di avvio correnti, è necessario farlo prima di riapplicare RCF in modo che venga creata un'istanza della versione corretta in caso di riavvio futuro.
 * Una connessione console allo switch, necessaria quando si installa RCF da uno stato predefinito di fabbrica. Questo requisito è facoltativo se si è utilizzato l'articolo della Knowledge base https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Broadcom mantenendo la connettività remota"^] per cancellare la configurazione, in anticipo.
 
@@ -437,40 +437,40 @@ Are you sure you would like to reset the system? (y/n) *y*
 .. Accedere nuovamente allo switch utilizzando SSH per completare l'installazione di RCF.
 
 
-. Tenere presente quanto segue:
+
+
+. Registrare eventuali personalizzazioni effettuate nell'RCF precedente e applicarle al nuovo RCF. Ad esempio, l'impostazione delle velocità delle porte o la modalità FEC con codifica rigida.
+. Copiare l'RCF nella memoria di avvio dello switch CS2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, HTTP, TFTP, SFTP o SCP.
 +
-.. Se sullo switch sono state installate licenze porta aggiuntive, è necessario modificare l'RCF per configurare le porte aggiuntive con licenza. Vedere link:configure-licenses.html#activate-newly-licensed-ports["Attivare le nuove porte con licenza"] per ulteriori informazioni.
-.. Registrare eventuali personalizzazioni effettuate nell'RCF precedente e applicarle al nuovo RCF. Ad esempio, l'impostazione delle velocità delle porte o la modalità FEC con codifica rigida.
+In questo esempio viene illustrato l'utilizzo di HTTP per copiare un RCF nel bootflash dello switch CS2:
 
-
-
-
-[role="tabbed-block"]
++
+.Mostra esempio
+[%collapsible]
 ====
-.EFOS versione 3,12.x e successive
---
-. Copiare l'RCF nella flash di avvio dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
-+
-Questo esempio mostra l'utilizzo di SFTP per copiare un RCF nella flash di avvio sullo switch cs2:
-
-
-
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/BES-53248-RCF-v1.9-Cluster-HA.txt
-nvram:reference-config*
-Remote Password:**
-Mode........................................... TFTP
+(cs2)# *copy http://<ip-to-webserver>/path/to/BES-53248-RCF-v1.12-Cluster-HA.txt nvram:reference-config*
+
+Mode........................................... HTTP
 Set Server IP.................................. 172.19.2.1
-Path........................................... //tmp/
-Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
-Data Type...................................... Config Script
-Destination Filename........................... BES-53248_RCF_v1.9-Cluster-HA.scr
+Path........................................... <ip-to-webserver>/path/to/
+Filename....................................... BES-53248-RCF-v1.12-Cluster-HA.txt
+Data Type...................................... Unknown
+
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) *y*
-TFTP Code transfer starting...
+File transfer in progress.
+Management access will be blocked for the duration of the transfer.
+Please wait...
+HTTP Unknown file type transfer starting...
+Validating configuration script
+.....
+....
+Configuration script validated.
 File transfer operation completed successfully.
 ----
+====
 . Verificare che lo script sia stato scaricato e salvato con il nome file assegnato:
 +
 `script list`
@@ -483,14 +483,17 @@ File transfer operation completed successfully.
 Configuration Script Name                  Size(Bytes)  Date of Modification
 -----------------------------------------  -----------  --------------------
 Reference-config.scr                       2680         2024 05 31 21:54:22
-2 configuration script(s) found.
-2042 Kbytes free.
+1 configuration script(s) found.
+2045 Kbytes free.
 ----
 . Applicare lo script allo switch:
 +
 `script apply`
 
 +
+.Mostra esempio
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 (cs2)# *script apply reference-config.scr*
@@ -501,72 +504,51 @@ The system has unsaved changes.
 Would you like to save them now? (y/n) *y*
 Config file 'startup-config' created successfully.
 Configuration Saved!
-
-Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
+...
+...
+Configuration script 'reference-config.scr' applied.
 ----
-
-
---
-.Tutte le altre versioni di EFOS
---
-. Copiare l'RCF nella flash di avvio dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
+====
+. Installare il file di licenza.
 +
-Questo esempio mostra l'utilizzo di SFTP per copiare un RCF nella flash di avvio sullo switch cs2:
-
-
-
+.Mostra esempio
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.9-Cluster-HA.txt
-nvram:script BES-53248_RCF_v1.9-Cluster-HA.scr*
-Remote Password:**
-Mode........................................... SFTP
+(cs2)# *copy http://<ip-to-webserver>/path/to/BES-53248-LIC.dat nvram:license-key 1*
+Mode........................................... HTTP
 Set Server IP.................................. 172.19.2.1
-Path........................................... //tmp/
-Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
-Data Type...................................... Config Script
-Destination Filename........................... BES-53248_RCF_v1.9-Cluster-HA.scr
+Path........................................... <ip-to-webserver>/path/to/
+Filename....................................... BES-53248-LIC.dat
+Data Type...................................... license
+
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) *y*
-SFTP Code transfer starting...
-File transfer operation completed successfully.
-----
-. Verificare che lo script sia stato scaricato e salvato con il nome file assegnato:
-+
-`script list`
 
-+
-[listing, subs="+quotes"]
-----
-(cs2)# *script list*
+File transfer in progress. Management access will be blocked for the duration of the transfer.
 
-Configuration Script Name                  Size(Bytes)  Date of Modification
------------------------------------------  -----------  --------------------
-BES-53248_RCF_v1.9-Cluster-HA.scr          2241         2020 09 30 05:41:00
+Please wait...
 
-1 configuration script(s) found.
-----
-. Applicare lo script allo switch:
-+
-`script apply`
+License Key transfer operation completed successfully.
 
-+
-[listing, subs="+quotes"]
-----
-(cs2)# *script apply BES-53248_RCF_v1.9-Cluster-HA.scr*
+System reboot is required.
+(cs2)# *write memory*
 
-Are you sure you want to apply the configuration script? (y/n) *y*
+This operation may take a few minutes.
 
-The system has unsaved changes.
-Would you like to save them now? (y/n) *y*
+Management interfaces will not be available during this time.
+Are you sure you want to save? (y/n) *y*
+
 Config file 'startup-config' created successfully.
+
 Configuration Saved!
 
-Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
+(cs2)# *reload*
+Are you sure you would like to reset the system? (y/n) *y*
+...
+...
 ----
-
-
---
 ====
 . Esaminare l'output del banner dal `show clibanner` comando. Leggere e seguire queste istruzioni per verificare la corretta configurazione e il corretto funzionamento dello switch.
 +
@@ -579,29 +561,25 @@ Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
 
 Banner Message configured :
 =========================
-BES-53248 Reference Configuration File v1.9 for Cluster/HA/RDMA
+BES-53248 Reference Configuration File v1.12 for Cluster/HA/RDMA
 
 Switch   : BES-53248
-Filename : BES-53248-RCF-v1.9-Cluster.txt
-Date     : 10-26-2022
-Version  : v1.9
+Filename : BES-53248-RCF-v1.12-Cluster.txt
+Date     : 11-04-2024
+Version  : v1.12
 Port Usage:
 Ports 01 - 16: 10/25GbE Cluster Node Ports, base config
 Ports 17 - 48: 10/25GbE Cluster Node Ports, with licenses
 Ports 49 - 54: 40/100GbE Cluster Node Ports, with licenses, added right to left
 Ports 55 - 56: 100GbE Cluster ISL Ports, base config
 NOTE:
-- The 48 SFP28/SFP+ ports are organized into 4-port groups in terms of port
-speed:
-Ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44,
-45-48
-The port speed should be the same (10GbE or 25GbE) across all ports in a 4-port
-group
+- The 48 SFP28/SFP+ ports are organized into 4-port groups in terms of port speed:
+  Ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44, 45-48
+  The port speed should be the same (10GbE or 25GbE) across all ports in a 4-port group
 - If additional licenses are purchased, follow the 'Additional Node Ports
-activated with Licenses' section for instructions
-- If SSH is active, it will have to be re-enabled manually after 'erase
-startup-config'
-command has been executed and the switch rebooted
+  activated with Licenses' section for instructions
+- If SSH is active, it will have to be re-enabled manually after 'erase startup-config'
+  command has been executed and the switch rebooted"
 ----
 ====
 . Sullo switch, verificare che le porte aggiuntive con licenza appaiano dopo l'applicazione dell'RCF:
@@ -647,7 +625,7 @@ Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
 0/56             Enable    100G Full               Down   Enable  Enable long
 ----
 ====
-. Verificare sullo switch che le modifiche siano state apportate:
+. Sullo switch, verificare che le modifiche siano state apportate:
 +
 [source, cli]
 ----
@@ -881,7 +859,7 @@ cluster1::*>
 ----
 --
 ====
-. [[step20]]sullo switch del cluster CS1, chiudere le porte collegate alle porte del cluster dei nodi.
+. [[step21]]sullo switch del cluster CS1, chiudere le porte collegate alle porte del cluster dei nodi.
 +
 Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia:
 
