@@ -124,17 +124,67 @@ unreachable default metric 4278198272
 10.233.204.0/23 dev eth0 proto kernel scope link src 10.233.204.71
 127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
 ----
-. Configurare il fuso orario utilizzando la modalità interattiva NTP.
+. Impostare la data, l'ora, il fuso orario e il server NTP sullo switch.
 +
-.. Su un terminale, eseguire il seguente comando:
+.. Verificare il fuso orario corrente:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *cat /etc/timezone*
+----
+.. Aggiornamento al nuovo fuso orario:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *sudo dpkg-reconfigure --frontend noninteractive tzdata*
+----
+.. Verificare il fuso orario corrente:
++
+[listing, subs="+quotes"]
+----
+cumulus@switch:~$ *date +%Z*
+----
+.. Per impostare il fuso orario mediante la procedura guidata, eseguire il seguente comando:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *sudo dpkg-reconfigure tzdata*
 ----
-.. Seguire le opzioni del menu a schermo per selezionare l'area geografica e la regione.
-.. Per impostare il fuso orario per tutti i servizi e i daemon, riavviare lo switch.
-.. Verificare che la data e l'ora dello switch siano corrette e, se necessario, aggiornarle.
+.. Impostare l'orologio del software in base al fuso orario configurato:
++
+[listing, subs="+quotes"]
+----
+cumulus@switch:~$ *sudo date -s "Tue Oct 28 00:37:13 2023"*
+----
+.. Impostare il valore corrente dell'orologio del software sull'orologio hardware:
++
+[listing, subs="+quotes"]
+----
+cumulus@switch:~$ *sudo hwclock -w*
+----
+.. Se necessario, aggiungere un server NTP:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net add time ntp server _<cumulus.network.ntp.org>_ iburst*
+cumulus@sw1:~$ *net pending*
+cumulus@sw1:~$ *net commit*
+----
+.. Verificare che `ntpd` sia in esecuzione sul sistema:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *ps -ef | grep ntp*
+ntp       4074     1  0 Jun20 ?        00:00:33 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 101:102
+----
+.. Specificare l'interfaccia di origine NTP. Per impostazione predefinita, l'interfaccia di origine utilizzata da NTP è `eth0`. È possibile configurare una diversa interfaccia di origine NTP nel modo seguente:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net add time ntp source _<src_int>_*
+cumulus@sw1:~$ *net pending*
+cumulus@sw1:~$ *net commit*
+----
 
 
 . Installare Cumulus Linux 4.4.3:
@@ -290,17 +340,61 @@ unreachable default metric 4278198272
 10.233.204.0/23 dev eth0 proto kernel scope link src 10.233.204.71
 127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
 ----
-. Configurare il fuso orario utilizzando la modalità interattiva NTP.
+. Impostare il fuso orario, la data, l'ora e il server NTP sullo switch.
 +
-.. Su un terminale, eseguire il seguente comando:
+.. Per impostare il fuso orario:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv set system timezone US/Eastern*
+cumulus@sw1:~$ *nv config apply*
+----
+.. Verificare il fuso orario corrente:
++
+[listing, subs="+quotes"]
+----
+cumulus@switch:~$ *date +%Z*
+----
+.. Per impostare il fuso orario mediante la procedura guidata, eseguire il seguente comando:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *sudo dpkg-reconfigure tzdata*
 ----
-.. Seguire le opzioni del menu a schermo per selezionare l'area geografica e la regione.
-.. Per impostare il fuso orario per tutti i servizi e i daemon, riavviare lo switch.
-.. Verificare che la data e l'ora dello switch siano corrette e, se necessario, aggiornarle.
+.. Impostare l'orologio del software in base al fuso orario configurato:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *sudo date -s "Tue Oct 28 00:37:13 2023"*
+----
+.. Impostare il valore corrente dell'orologio del software sull'orologio hardware:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *sudo hwclock -w*
+----
+.. Se necessario, aggiungere un server NTP:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv set service ntp default server _<cumulus.network.ntp.org>_ iburst on*
+cumulus@sw1:~$ *nv config apply*
+cumulus@sw1:~$ *nv config save*
+----
+.. Verificare che `ntpd` sia in esecuzione sul sistema:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *ps -ef | grep ntp*
+ntp       4074     1  0 Jun20 ?        00:00:33 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 101:102
+----
+.. Specificare l'interfaccia di origine NTP. Per impostazione predefinita, l'interfaccia di origine utilizzata da NTP è `eth0`. È possibile configurare una diversa interfaccia di origine NTP nel modo seguente:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv set service ntp default listen _<src_int>_*
+cumulus@sw1:~$ *nv config apply*
+----
 
 
 . Installare Cumulus Linux 5.4:

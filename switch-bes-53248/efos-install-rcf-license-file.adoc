@@ -14,7 +14,7 @@ summary: 'È possibile installare il file di configurazione di riferimento (RCF)
 A partire da EFOS 3.12.0.1, è possibile installare il file di configurazione di riferimento (RCF) e il file di licenza dopo aver configurato lo switch del cluster BES-53248.
 
 
-CAUTION: Le porte Sall sono configurate quando si installa RCF, ma è necessario installare la licenza per attivare le porte configurate.
+CAUTION: Tutte le porte vengono configurate durante l'installazione di RCF, ma è necessario installare la licenza per attivare le porte configurate.
 
 
 
