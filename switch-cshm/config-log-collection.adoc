@@ -45,6 +45,9 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
 --
 . Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.
 +
+*NOTA:* se si risponde `y` al prompt delle specifiche dell'utente, assicurarsi che l'utente disponga delle autorizzazioni necessarie, come descritto in <<Prima di iniziare>> .
+
++
 [source, cli]
 ----
 system switch ethernet log setup-password
@@ -111,6 +114,9 @@ system switch ethernet log show
 .ONTAP 9.15.1 e versioni successive
 --
 . Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.
++
+*NOTA:* se si risponde `y` al prompt delle specifiche dell'utente, assicurarsi che l'utente disponga delle autorizzazioni necessarie, come descritto in <<Prima di iniziare>>.
+
 +
 [source, cli]
 ----

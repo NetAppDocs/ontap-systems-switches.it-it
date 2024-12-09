@@ -67,7 +67,7 @@ Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e n
 * n1_clus2 è il primo LIF del cluster collegato allo switch del cluster CL2 o C2, per il nodo n1.
 * n1_clus3 è il secondo LIF collegato allo switch del cluster C2, per il nodo n1.
 * n1_clus4 è il secondo LIF collegato allo switch del cluster CL1, per il nodo n1.
-* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili su link:https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] pagina.
+* Il numero di porte 10 GbE e 40 GbE viene definito nei file di configurazione di riferimento (RCF) disponibili nella link:https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] pagina.
 * I nodi sono n1, n2, n3 e n4. Gli esempi di questa procedura utilizzano quattro nodi: Due nodi utilizzano quattro porte di interconnessione cluster da 10 GB: E0a, e0b, e0c e e0d. Gli altri due nodi utilizzano due porte di interconnessione cluster da 40 GB: E4a e e4e. Vedere link:https://hwu.netapp.com/["Hardware Universe"^] per le porte cluster effettive sulle piattaforme.
 
 
