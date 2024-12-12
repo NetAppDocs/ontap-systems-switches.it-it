@@ -1,0 +1,30 @@
+---
+permalink: switch-cisco-3132q-v/migrate-switchless-to-switched-workflow.html 
+sidebar: sidebar 
+keywords: 3132q-v cabling setup, 3132q-v switches configuration, nx-os 
+summary: Prima di configurare lo switch Cisco 3132q-v, leggere le seguenti informazioni. 
+---
+= Migra dai cluster senza switch al workflow di cluster a due nodi con switch
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Segui questi passaggi del workflow per migrare da un cluster senza switch a due nodi a un cluster con switch a due nodi che include gli switch di rete cluster Cisco Nexus 3132Q-V.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:migrate-switchless-to-switched-requirements.html["Requisiti di migrazione"]
+[role="quick-margin-para"]
+Esaminare i requisiti e le informazioni di esempio relative allo switch per il processo di migrazione.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:migrate-switchless-prepare-to-migrate.html["Preparazione per la migrazione"]
+[role="quick-margin-para"]
+Prepara i tuoi cluster senza switch per la migrazione verso cluster a due nodi con switch.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:migrate-switchless-configure-ports.html["Configurare le porte"]
+[role="quick-margin-para"]
+Configura le porte per la migrazione da cluster senza switch a due nodi a cluster con switch a due nodi.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:migrate-switchless-complete-migration.html["Completa la migrazione"]
+[role="quick-margin-para"]
+Completa la migrazione da cluster senza switch a cluster a due nodi con switch.

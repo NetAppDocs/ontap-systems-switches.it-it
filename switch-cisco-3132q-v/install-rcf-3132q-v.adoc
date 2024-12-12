@@ -17,7 +17,7 @@ Seguire questa procedura per installare RCF dopo aver configurato lo switch Nexu
 
 == Verifica dei requisiti
 
-.Di cosa hai bisogno
+.Prima di iniziare
 * Backup corrente della configurazione dello switch.
 * Un cluster completamente funzionante (nessun errore nei log o problemi simili).
 * Il file di configurazione di riferimento corrente (RCF).

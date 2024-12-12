@@ -1,12 +1,23 @@
-= Fase 1: Installare l'RCF sugli interruttori
+---
+permalink: switch-cisco-9336c-fx2/install-rcf-software-9336c-cluster.html 
+sidebar: sidebar 
+keywords: install rcf, cisco switches 
+summary: È possibile installare RCF dopo aver configurato lo switch Nexus 9336C-FX2 per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione RCF. 
+---
+= Installazione del file di configurazione di riferimento (RCF)
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
+
+[role="lead"]
+Dopo aver configurato per la prima volta lo switch Nexus 9336C-FX2, installare il file di configurazione di riferimento (RCF).
 
 .Prima di iniziare
-Verificare quanto segue:
+Verificare le seguenti installazioni e connessioni:
 
 * Collegamento della console allo switch. Il collegamento alla console è opzionale se si dispone dell'accesso remoto allo switch.
-* Lo switch CS1 e lo switch CS2 sono accesi e la configurazione iniziale dello switch è completa (l'indirizzo IP di gestione e SSH sono impostati)
+* Lo switch CS1 e lo switch CS2 sono accesi e la configurazione iniziale dello switch è completa (l'indirizzo IP di gestione e SSH è impostato).
 * È stata installata la versione NX-OS desiderata.
 * Le connessioni ISL tra gli switch sono collegate.
 * Le porte del cluster di nodi ONTAP non sono connesse.
@@ -14,7 +25,7 @@ Verificare quanto segue:
 
 
 
-=== Fase 1: Installare l'RCF sugli interruttori
+== Fase 1: Installare l'RCF sugli interruttori
 
 . Accedere allo switch CS1 usando SSH o usando una console seriale.
 . Copiare l'RCF nella memoria di avvio dello switch CS1 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
@@ -140,7 +151,7 @@ Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in
 
 
 
-=== Fase 2: Verificare i collegamenti dello switch
+== Fase 2: Verificare i collegamenti dello switch
 
 . Verificare che le porte dello switch collegate alle porte del cluster siano *up*.
 +
@@ -350,7 +361,7 @@ cs1#
 
 
 
-=== Fase 3: Configurare il cluster ONTAP
+== Fase 3: Configurare il cluster ONTAP
 
 NetApp consiglia di utilizzare System Manager per configurare nuovi cluster.
 

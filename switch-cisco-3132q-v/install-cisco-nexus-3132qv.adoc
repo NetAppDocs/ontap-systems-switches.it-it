@@ -13,7 +13,7 @@ summary: È possibile installare lo switch Cisco Nexus 3132Q-V e il pannello pas
 [role="lead"]
 A seconda della configurazione, potrebbe essere necessario installare lo switch Cisco Nexus 3132Q-V e il pannello pass-through in un cabinet NetApp con le staffe standard incluse con lo switch.
 
-.Di cosa hai bisogno
+.Prima di iniziare
 * I requisiti di preparazione iniziale, il contenuto del kit e le precauzioni di sicurezza in http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guida all'installazione dell'hardware di Cisco Nexus serie 3000"^]. Esaminare questi documenti prima di iniziare la procedura.
 * Il kit pannello pass-through, disponibile presso NetApp (codice X8784-R6). Il kit di pannelli pass-through NetApp contiene il seguente hardware:
 +

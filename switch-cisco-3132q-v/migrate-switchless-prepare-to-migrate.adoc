@@ -1,0 +1,103 @@
+---
+permalink: switch-cisco-3132q-v/migrate-switchless-prepare-to-migrate.html 
+sidebar: sidebar 
+keywords: cisco 3132q-v, cluster switches 
+summary: È possibile utilizzare gli switch Cisco Nexus 3132q-v come switch cluster nel cluster AFF o FAS. 
+---
+= Preparare la migrazione da cluster senza switch a cluster con switch
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Segui questa procedura per preparare il tuo cluster senza switch per la migrazione a un cluster a due nodi con switch.
+
+.Fasi
+. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
++
+`system node autosupport invoke -node * -type all - message MAINT=xh`
+
++
+_x_ è la durata della finestra di manutenzione in ore.
+
++
+[NOTE]
+====
+Il messaggio AutoSupport informa il supporto tecnico di questa attività di manutenzione in modo che la creazione automatica del caso venga soppressa durante la finestra di manutenzione.
+
+====
+. Determinare lo stato amministrativo o operativo di ciascuna interfaccia del cluster:
++
+.. Visualizzare gli attributi della porta di rete:
++
+`network port show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network port show -role cluster
+  (network port show)
+Node: n1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e4a       Cluster      Cluster          up   9000 auto/40000  -        -
+e4e       Cluster      Cluster          up   9000 auto/40000  -        -
+
+Node: n2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e4a       Cluster      Cluster          up   9000 auto/40000  -        -
+e4e       Cluster      Cluster          up   9000 auto/40000  -        -
+4 entries were displayed.
+----
+====
+.. Visualizza informazioni sulle interfacce logiche:
++
+`network interface show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface show -role cluster
+ (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e4a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e4e     true
+            n2_clus1   up/up      10.10.0.3/24       n2            e4a     true
+            n2_clus2   up/up      10.10.0.4/24       n2            e4e     true
+4 entries were displayed.
+----
+====
+
+
+. Verificare che gli RCF e l'immagine appropriati siano installati sui nuovi switch 3132Q-V in base alle proprie esigenze e personalizzare il sito in modo essenziale, ad esempio utenti e password, indirizzi di rete e così via.
++
+È necessario preparare entrambi gli switch in questa fase. Se è necessario aggiornare il software RCF e delle immagini, attenersi alla seguente procedura:
+
++
+.. Accedere alla link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^] Sul sito di supporto NetApp.
+.. Annotare lo switch e le versioni software richieste nella tabella riportata in tale pagina.
+.. Scaricare la versione appropriata di RCF.
+.. Selezionare *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza, quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
+.. Scaricare la versione appropriata del software dell'immagine.
+
+
+. Selezionare *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza, quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
+
+
+.Quali sono le prossime novità?
+link:migrate-switchless-configure-ports.html["Configurare le porte"].

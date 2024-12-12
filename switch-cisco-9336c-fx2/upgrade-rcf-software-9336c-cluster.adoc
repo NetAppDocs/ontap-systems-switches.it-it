@@ -1,10 +1,39 @@
-= Passaggio 1: Preparazione per l'aggiornamento
+---
+permalink: switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html 
+sidebar: sidebar 
+keywords: install rcf, cisco switches 
+summary: È possibile installare RCF dopo aver configurato lo switch Nexus 9336C-FX2 per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione RCF. 
+---
+= Aggiornamento del file di configurazione di riferimento (RCF)
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile aggiornare la versione RCF quando si dispone di una versione esistente del file RCF installata sugli switch operativi.
+
+.Prima di iniziare
+Assicurarsi di disporre di quanto segue:
+
+* Backup corrente della configurazione dello switch.
+* Un cluster completamente funzionante (nessun errore nei log o problemi simili).
+* RCF corrente.
+* Se si sta aggiornando la versione RCF, è necessaria una configurazione di avvio nell'RCF che rifletta le immagini di avvio desiderate.
++
+Se è necessario modificare la configurazione di avvio per riflettere le immagini di avvio correnti, è necessario farlo prima di riapplicare RCF in modo che venga creata un'istanza della versione corretta in caso di riavvio futuro.
 
 
 
 
-=== Passaggio 1: Preparazione per l'aggiornamento
+NOTE: Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue la migrazione di tutte le LIF del cluster allo switch del partner operativo durante l'esecuzione delle operazioni sullo switch di destinazione.
+
+
+CAUTION: Prima di installare una nuova versione del software dello switch e gli RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Prima di cancellare le impostazioni dello switch, è necessario essere collegati allo switch utilizzando la console seriale o aver conservato le informazioni di configurazione di base.
+
+
+
+== Passaggio 1: Preparazione per l'aggiornamento
 
 . Visualizzare le porte del cluster su ciascun nodo collegato agli switch del cluster:
 +
@@ -153,7 +182,7 @@ cluster1::*>
 
 
 
-=== Fase 2: Configurare le porte
+== Fase 2: Configurare le porte
 
 . Sullo switch del cluster cs1, spegnere le porte collegate alle porte del cluster dei nodi.
 +
@@ -509,7 +538,7 @@ cluster1::*>
 
 
 
-=== Fase 3: Verificare la configurazione della rete cluster e lo stato del cluster
+== Fase 3: Verificare la configurazione della rete cluster e lo stato del cluster
 
 . Verificare che le porte dello switch collegate alle porte del cluster siano *up*.
 +

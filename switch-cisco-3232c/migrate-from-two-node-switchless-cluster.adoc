@@ -17,11 +17,8 @@ Se si dispone di un cluster _switchless_ a due nodi, è possibile migrare a un c
 
 == Verifica dei requisiti
 
-.Requisiti di migrazione
-Prima della migrazione, assicurarsi di rivedere link:migrate-requirements-3232c.html["Requisiti di migrazione"].
-
-.Di cosa hai bisogno
-Assicurarsi che:
+.Prima di iniziare
+Verificare le seguenti installazioni e connessioni:
 
 * Le porte sono disponibili per le connessioni dei nodi. Gli switch del cluster utilizzano le porte ISL (Inter-Switch link) e1/31-32.
 * Si dispone di cavi appropriati per le connessioni cluster:
@@ -50,10 +47,6 @@ I due nodi devono essere connessi e funzionanti in un'impostazione di cluster se
 
 
 
-
-
-== Migrare gli switch
-
 .A proposito degli esempi
 Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
@@ -77,7 +70,7 @@ La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 3000 
 ====
 
 
-=== Fase 1: Visualizzazione e migrazione delle porte fisiche e logiche
+== Fase 1: Visualizzazione e migrazione delle porte fisiche e logiche
 
 . Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
 +
@@ -330,7 +323,7 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-no
 
 
 
-=== Fase 2: Spegnere i file LIF riassegnati e scollegare i cavi
+== Fase 2: Spegnere i file LIF riassegnati e scollegare i cavi
 
 . Verificare che le interfacce del cluster siano migrate correttamente:
 +
@@ -445,7 +438,7 @@ Si può fare riferimento alla configurazione in esecuzione e collegare la prima 
 
 
 
-=== Fase 3: Abilitare le porte del cluster
+== Fase 3: Abilitare le porte del cluster
 
 . Scollegare il cavo da e4a sul nodo n2.
 +
@@ -561,7 +554,7 @@ Cluster
 
 
 
-=== Fase 4: Abilitare i LIF riassegnati
+== Fase 4: Abilitare i LIF riassegnati
 
 . Visualizzare la connettività della porta del cluster su ciascun nodo:
 +

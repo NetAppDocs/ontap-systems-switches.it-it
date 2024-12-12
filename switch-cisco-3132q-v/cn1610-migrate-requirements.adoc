@@ -1,0 +1,91 @@
+---
+permalink: switch-cisco-3132q-v/cn1610-migrate-requirements.html 
+sidebar: sidebar 
+keywords: install, cisco nexus 3132q-v switch, 
+summary: Prima di configurare gli switch Cisco Nexus 3132q-v, esaminare una panoramica del processo e della nomenclatura. 
+---
+= Requisiti di migrazione
+:allow-uri-read: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Gli switch Cisco Nexus 3132Q-V possono essere utilizzati come switch di cluster nel cluster AFF o FAS. Gli switch del cluster consentono di creare cluster ONTAP con più di due nodi.
+
+[NOTE]
+====
+La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 3000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
+
+====
+Per ulteriori informazioni, consulta:
+
+* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Pagina descrittiva di NetApp CN1601 e CN1610"^]
+* http://support.netapp.com/NOW/download/software/cm_switches/["Pagina di descrizione dello switch Ethernet Cisco"^]
+* http://hwu.netapp.com["Hardware Universe"^]
+
+
+
+
+== Requisiti CN1610
+
+Sono supportati i seguenti switch del cluster:
+
+* NetApp CN1610
+* Cisco Nexus 3132Q-V.
+
+
+Gli switch del cluster supportano le seguenti connessioni di nodo:
+
+* NetApp CN1610: Porte da 0/1 a 0/12 (10 GbE)
+* Cisco Nexus 3132Q-V: Porte e1/1-30 (40/100 GbE)
+
+
+Gli switch del cluster utilizzano le seguenti porte ISL (Inter-Switch link):
+
+* NetApp CN1610: Porte da 0/13 a 0/16 (10 GbE)
+* Cisco Nexus 3132Q-V: Porte e1/31-32 (40/100 GbE)
++
+Il link:https://hwu.netapp.com/["Hardware Universe"^] Contiene informazioni sul cablaggio supportato per gli switch Nexus 3132Q-V:
+
+* I nodi con connessioni cluster da 10 GbE richiedono cavi di breakout in fibra ottica da QSFP a SFP+ o cavi di breakout in rame da QSFP a SFP+
+* I nodi con connessioni cluster da 40/100 GbE richiedono moduli ottici QSFP/QSFP28 supportati con cavi in fibra ottica o cavi a collegamento diretto in rame QSFP/QSFP28
+
+
+Il cablaggio ISL appropriato è il seguente:
+
+* Inizio: Per CN1610 - CN1610 (da SFP+ a SFP+), quattro cavi SFP+ a collegamento diretto in fibra ottica o rame
+* Interim: Per CN1610 - Nexus 3132Q-V (da QSFP a quattro breakout SFP+), un cavo di breakout in fibra ottica da QSFP a SFP+ o rame
+* Finale: Per Nexus 3132Q-V - Nexus 3132Q-V (da QSFP28 a QSFP28), due cavi QSFP28 a collegamento diretto in fibra ottica o rame
+
+
+I cavi twinax NetApp non sono compatibili con gli switch Cisco Nexus 3132Q-V.
+
+Se la configurazione corrente di CN1610 utilizza cavi twinax NetApp per connessioni cluster-nodo-switch o ISL e si desidera continuare a utilizzare il cavo twinax nel proprio ambiente, è necessario procurarsi i cavi twinax Cisco. In alternativa, è possibile utilizzare cavi in fibra ottica per le connessioni ISL e cluster-nodo-switch.
+
+.Informazioni sugli esempi utilizzati
+Gli esempi di questa procedura descrivono la sostituzione degli switch CN1610 con switch Cisco Nexus 3132Q-V. È possibile utilizzare questi passaggi (con modifiche) per altri switch Cisco meno recenti.
+
+La procedura utilizza anche la seguente nomenclatura di switch e nodi:
+
+* Gli output dei comandi possono variare a seconda delle diverse versioni di ONTAP.
+* I CN1610 interruttori da sostituire sono *CL1* e *CL2*.
+* Gli switch Nexus 3132Q-V per sostituire gli switch CN1610 sono *C1* e *C2*.
+* *n1_clus1* è la prima interfaccia logica del cluster (LIF) collegata allo switch del cluster 1 (CL1 o C1) per il nodo *n1*.
+* *n1_clus2* è il primo cluster LIF collegato al cluster switch 2 (CL2 o C2) per il nodo *n1*.
+* *n1_clus3* è la seconda LIF collegata al cluster switch 2 (CL2 o C2) per il nodo *n1*.
+* *n1_clus4* è la seconda LIF collegata al cluster switch 1 (CL1 o C1) per il nodo *n1*.
+* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili su https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] pagina.
+* I nodi sono *n1*, *n2*, *n3* e *n4*.
+
+
+Gli esempi di questa procedura utilizzano quattro nodi:
+
+* Due nodi utilizzano quattro porte di interconnessione cluster 10 GbE: *e0a*, *e0b*, *e0c* e *e0d*.
+* Gli altri due nodi utilizzano due porte di interconnessione cluster 40 GbE: *e4a* e *E4E*.
++
+link:https://hwu.netapp.com/["Hardware Universe"^]Elenca le porte cluster effettive sulle piattaforme.
+
+
+
+.Quali sono le prossime novità?
+link:cn5596-prepare-to-migrate.html["Preparazione per la migrazione"].

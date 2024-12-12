@@ -1,10 +1,10 @@
 ---
-permalink: switch-cisco-9336c-fx2/install-nxos-rcf-9336c-cluster.html 
+permalink: switch-cisco-9336c-fx2/install-upgrade-rcf-overview-cluster.html 
 sidebar: sidebar 
-keywords: install rcf, cisco switches 
-summary: È possibile installare RCF dopo aver configurato lo switch Nexus 9336C-FX2 per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione RCF. 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
+summary: 'SSH è un requisito per l"utilizzo delle funzionalità di monitoraggio dello stato di salute dello switch del cluster (CSHM) e di raccolta dei log. Per abilitare SSH sugli switch del cluster Cisco 9336c-FX2, si generano prima le chiavi SSH e quindi si abilita SSH.' 
 ---
-= Installare o aggiornare il file di configurazione di riferimento (RCF)
+= Installare o aggiornare la panoramica del file di configurazione di riferimento (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -85,13 +85,13 @@ Per la documentazione completa sulle procedure di aggiornamento e di downgrade d
 .A proposito degli esempi
 Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
-* I nomi dei due switch Cisco sono cs1 e cs2.
-* I nomi dei nodi sono cluster1-01, cluster1-02, cluster1-03 e cluster1-04.
-* I nomi LIF del cluster sono cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2 , cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 e cluster1-04_clus2.
+* I nomi dei due switch Cisco sono *CS1* e *CS2*.
+* I nomi dei nodi sono *cluster1-01*, *cluster1-02*, *cluster1-03* e *cluster1-04*.
+* I nomi LIF del cluster sono *cluster1-01_clus1*, *cluster1-01_clus2*, *cluster1-03_clus2*, *cluster1-03_clus1*, *cluster1-02_clus2*, *cluster1-02_clus1*, *cluster1-04_clus1* e *cluster1-04_clus2*.
 * Il `cluster1::*>` prompt indica il nome del cluster.
 
 
-Gli esempi di questa procedura utilizzano quattro nodi. Questi nodi utilizzano due porte di interconnessione cluster 10GbE e0a e e0b. Consultare https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte cluster corrette sulle piattaforme.
+Gli esempi di questa procedura utilizzano quattro nodi. Questi nodi utilizzano due porte di interconnessione cluster 10GbE *e0a* e *e0b*. Consultare https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte cluster corrette sulle piattaforme.
 
 
 NOTE: Gli output dei comandi possono variare a seconda delle diverse versioni di ONTAP.
@@ -101,36 +101,5 @@ Per informazioni dettagliate sulle configurazioni RCF disponibili, vedere link:c
 .Comandi utilizzati
 La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 9000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
 
-
-
-== Opzione 1: Installare il file RCF su un nuovo switch
-
-Dopo aver configurato per la prima volta lo switch Nexus 9336C-FX2, installare il file di configurazione di riferimento (RCF).
-
-Direttiva non risolta in <stdin> - include:./_include/install-rcf-software-9336c-cluster.adoc[]
-
-
-
-== Opzione 2: Aggiornamento degli switch esistenti con una nuova versione RCF
-
-È possibile aggiornare la versione RCF quando si dispone di una versione esistente del file RCF installata sugli switch operativi.
-
-.Prima di iniziare
-Assicurarsi di disporre di quanto segue:
-
-* Backup corrente della configurazione dello switch.
-* Un cluster completamente funzionante (nessun errore nei log o problemi simili).
-* Il file RCF corrente.
-* Se si sta aggiornando la versione RCF, è necessaria una configurazione di avvio nell'RCF che rifletta le immagini di avvio desiderate.
-+
-Se è necessario modificare la configurazione di avvio per riflettere le immagini di avvio correnti, è necessario farlo prima di riapplicare RCF in modo che venga creata un'istanza della versione corretta in caso di riavvio futuro.
-
-
-
-
-NOTE: Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue la migrazione di tutte le LIF del cluster allo switch del partner operativo durante l'esecuzione delle operazioni sullo switch di destinazione.
-
-
-CAUTION: Prima di installare una nuova versione del software dello switch e gli RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Prima di cancellare le impostazioni dello switch, è necessario essere collegati allo switch utilizzando la console seriale o aver conservato le informazioni di configurazione di base.
-
-Direttiva non risolta in <stdin> - include:./_include/upgrade-rcf-software-9336c-cluster.adoc[]
+.Quali sono le prossime novità?
+link:install-rcf-software-9336c-cluster.html["Installare RCF"] o link:upgrade-rcf-software-9336c-cluster.html["Aggiornare il file RCF"].

@@ -1,0 +1,30 @@
+---
+permalink: switch-cisco-3232c/migrate-from-switchless-workflow.html 
+sidebar: sidebar 
+keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
+summary: Prima di configurare lo switch Cisco 3232C, leggere le seguenti informazioni. 
+---
+= Migrare da un workflow di cluster senza switch a due nodi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Segui questi passaggi per migrare da un cluster senza switch a due nodi a un cluster con switch cluster Cisco Nexus 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:migrate-from-switchless-migrate-requirements.html["Requisiti di migrazione"]
+[role="quick-margin-para"]
+Esaminare le informazioni di esempio sugli switch per il processo di migrazione.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:migrate-from-switchless-prepare-to-migrate.html["Preparazione per la migrazione"]
+[role="quick-margin-para"]
+Prepara il tuo cluster senza switch a due nodi per la migrazione a un cluster con switch a due nodi.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:migrate-from-switchless-configure-ports.html["Configurare le porte"]
+[role="quick-margin-para"]
+Configura il tuo cluster senza switch a due nodi per la migrazione a un cluster con switch a due nodi.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:migrate-from-switchless-complete-migration.html["Completa la migrazione"]
+[role="quick-margin-para"]
+Completamento della migrazione verso un cluster con switch a due nodi.

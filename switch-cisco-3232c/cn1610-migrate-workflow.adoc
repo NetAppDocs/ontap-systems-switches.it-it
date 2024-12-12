@@ -1,0 +1,34 @@
+---
+permalink: switch-cisco-3232c/cn1610-migrate-workflow.html 
+sidebar: sidebar 
+keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
+summary: Prima di configurare lo switch Cisco 3232C, leggere le seguenti informazioni. 
+---
+= Migrazione da switch CN1610 a workflow degli switch Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per migrare gli switch CN1610 a Cisco Nexus 3232C, segui questa procedura per il flusso di lavoro.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:cn1610-migrate-to-3232c-overview.html["Requisiti di migrazione"]
+[role="quick-margin-para"]
+Esaminare le informazioni di esempio sugli switch per il processo di migrazione.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:cn1610-prepare-to-migrate.html["Preparazione per la migrazione"]
+[role="quick-margin-para"]
+Prepara gli switch CN1610 per la migrazione agli switch Nexus 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:cn1610-replace-CL2.html["Sostituire l'interruttore del quadro strumenti CL2"]
+[role="quick-margin-para"]
+Sostituisci lo switch del cluster CL2 con il nuovo switch Nexus 3232C C2.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:cn1610-replace-CL1.html["Sostituire l'interruttore del quadro strumenti CL1"]
+[role="quick-margin-para"]
+Sostituisci lo switch del cluster CL1 con il nuovo switch Nexus 3232C C1.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:cn1610-complete-migration.html["Completa la migrazione"]
+[role="quick-margin-para"]
+Completa la migrazione ai nuovi switch Nexus 3232C.

@@ -13,7 +13,7 @@ summary: Se non si dispone già delle informazioni di configurazione e della doc
 [role="lead"]
 Seguire questa procedura per configurare lo switch Cisco Nexus 3132Q-V.
 
-.Di cosa hai bisogno
+.Prima di iniziare
 * Accesso a un server HTTP, FTP o TFTP nel sito di installazione per scaricare le release NX-OS e RCF (Reference Configuration file) applicabili.
 * Versione NX-OS applicabile, scaricata da https://software.cisco.com/download/home["Download del software Cisco"^] pagina.
 * Documentazione richiesta per lo switch di rete, la documentazione del controller e la documentazione ONTAP. Per ulteriori informazioni, vedere link:required-documentation-3132q.html["Documentazione richiesta"].
