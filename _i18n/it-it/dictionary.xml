@@ -2386,7 +2386,6 @@
   <block id="b2a5b007a4aa6394d7e47b0deaa528d3" category="list-text">Copia il software NX-OS e le immagini EPLD sullo switch Nexus 9336C-FX2.</block>
   <block id="8f5d4c5edc1ac35d440165e075268f86" category="list-text">Verificare la nuova versione del software NX-OS dopo il riavvio dello switch:</block>
   <block id="b2ed876df70e9e36d71d5bfdd2c8ce2f" category="list-text">Dopo il riavvio dello switch, accedere nuovamente e verificare che la nuova versione di EPLD sia stata caricata correttamente.</block>
-  <block id="afe6bd84cf9f314186e891843eba49cc" category="paragraph"><block ref="41aae7f405e62aa01d791efeede3f9c2" category="inline-link-macro-rx"></block>.</block>
   <block id="556e297f9def6449d3bf99acff84b641" category="doc">Sostituire uno switch cluster Cisco Nexus 9336C-FX2</block>
   <block id="456a5c90687a021221cc54821a27d7f4" category="paragraph">La sostituzione di uno switch Nexus 9336C-FX2 difettoso in una rete cluster è una procedura senza interruzioni (NDU).</block>
   <block id="8e5e05fd14686de7db83c8c64a4345d4" category="list-text">I nomi degli switch Nexus 9336C-FX2 esistenti sono cs1 e cs2.</block>
@@ -3880,7 +3879,6 @@
   <block id="d08074ca4afc3cad1b1b41c1134b3f1e" category="section-title">Fase 2: Configurare e verificare l'installazione</block>
   <block id="3e671871acf365e09e492c2fd833d14f" category="list-text">Esaminare l'output dello striscione da<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> comando. Leggere e seguire le istruzioni in *Note importanti* per garantire la corretta configurazione e il corretto funzionamento dello switch.</block>
   <block id="8fdae5a227344a83423005f83a057331" category="list-text">Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:</block>
-  <block id="442f3bc68fd4ab1c760b482d02f7ca71" category="list-text">Ripetere i passaggi da 1 a 10 sullo switch cs1.</block>
   <block id="af4d9c4c765c5c1d9c279c35191c82da" category="paragraph"><block ref="e39b44798f52b1532971ab295180e1b0" prefix="" category="inline-code"></block></block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Inizia subito</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">Novità</block>
@@ -5185,4 +5183,15 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="6697bf1c75a0d4d8868afeab04858bc3" category="sidebar">Upgrade_switches_3232C</block>
   <block id="253d101ba7a8a0f1e24c1a3b13a1b5b5" category="sidebar">Install_upgrade_rcf</block>
   <block id="2b8efdb0e77054ffe22b4bfb75564155" category="sidebar">Panoramica sull'installazione o l'aggiornamento di RCF</block>
+  <block id="b6503bc6a2e6ede86368a60473711626" category="list-text">Ripetere i passaggi da 1 a 11 sull'interruttore CS1.</block>
+  <block id="604f0b8e46b056f4f2f05bb3ea87a5a7" category="inline-link-macro">Installare RCF</block>
+  <block id="f398a91a8a2500b4ebd90095482c2638" category="paragraph"><block ref="032b77b792344ea711cbb6f8f0bfe3cc" category="inline-link-macro-rx"></block>.</block>
+  <block id="ea6719e8ba4a5a7aea0b4185afc5408b" category="summary">È possibile installare l'RCF dopo aver configurato per la prima volta lo switch di archiviazione Nexus 9336C-FX2. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.</block>
+  <block id="fc3ebe0c41be566a2062e99eee81c6ba" category="paragraph">Il file di configurazione di riferimento (RCF) viene installato dopo aver configurato per la prima volta lo switch di archiviazione Nexus 9336C-FX2.</block>
+  <block id="0d54a8a99337a48199414ba38d122135" category="list-text">Lo switch CS1 e lo switch CS2 sono accesi e la configurazione iniziale dello switch è completa (l'indirizzo IP di gestione e SSH sono impostati).</block>
+  <block id="f1de50ac922202c9581e806906499ae8" category="paragraph">Questo esempio mostra l'RCF<block ref="fcd688c0fb8c0256c7fc0b5ca2fd673d" prefix=" " category="inline-code"></block> installato sull'interruttore CS1:</block>
+  <block id="a697c9a980376d3a62210b2b53d5b0b8" category="list-text">Esaminare l'output del banner dal<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> comando. Leggere e seguire queste istruzioni per garantire la corretta configurazione e il corretto funzionamento dell'interruttore.</block>
+  <block id="b0d1465a243b273a8f71d6084fd2c12c" category="list-text">Verificare che l'RCF sia la versione più recente corretta:</block>
+  <block id="7fd5f97719ed93b62ce57a2401ebb179" category="list-text">Dopo aver verificato che le versioni di RCF e le impostazioni dello switch siano corrette, copiare il file running-config nel file startup-config:</block>
+  <block id="f7b017d791fb57f4bbb1b2ce01659ed8" category="paragraph">System Manager offre un workflow semplice e facile per la configurazione e il setup del cluster, che include l'assegnazione di un indirizzo IP di gestione dei nodi, l'inizializzazione del cluster, la creazione di un Tier locale, la configurazione dei protocolli e il provisioning dello storage iniziale.</block>
 </blocks>

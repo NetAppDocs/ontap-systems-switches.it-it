@@ -694,4 +694,4 @@ In caso di mancato ritorno delle LIF del cluster alle porte home, puoi ripristin
 
 
 .Quali sono le prossime novità?
-link:install-nxos-rcf-9336c-storage.html["Installare il file di configurazione RCF"].
+link:install-rcf-software-9336c-storage.html["Installare RCF"].

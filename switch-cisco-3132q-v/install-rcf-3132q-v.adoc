@@ -621,7 +621,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Ripetere i passaggi da 1 a 10 sullo switch cs1.
+. Ripetere i passaggi da 1 a 11 sull'interruttore CS1.
 . Abilitare il ripristino automatico sulle LIF del cluster.
 +
 .Mostra esempio
