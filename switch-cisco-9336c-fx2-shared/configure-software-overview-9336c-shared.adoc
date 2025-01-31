@@ -16,5 +16,4 @@ Per installare e configurare il software per uno switch condiviso Cisco Nexus 93
 . link:prepare-nxos-rcf-9336c-shared.html["Preparazione all'installazione di NX-OS e RCF"].
 . link:install-nxos-software-9336c-shared.html["Installare il software NX-OS"].
 . link:install-nxos-rcf-9336c-shared.html["Installare RCF"].
-. link:configure-ssh.html["Abilitare SSH"].
 

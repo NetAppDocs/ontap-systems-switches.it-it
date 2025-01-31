@@ -223,13 +223,10 @@
   <block id="420b291d479da153c96fd1143e9d0e2f" category="list-text"><block ref="c306cecb30107650b346d91b7d7c74b6" category="inline-xref-macro-rx"></block>. Utilizzare se una versione di EFOS è conforme a FIPS e l'altra non è conforme a FIPS.</block>
   <block id="fa6c2d2a92519a714fe25ca830427ee1" category="section-title">Metodo 1: Installare EFOS</block>
   <block id="7f824481c3b83fffcad8abfa0af8b312" category="inline-link">BES-53248 Cluster Switch NDU non ha eseguito l'aggiornamento a EFOS 3.7.0.4 e versioni successive</block>
-  <block id="cec6ec2be042120b7ff4b5d0f1e40dee" category="admonition">Si noti che dopo l'aggiornamento degli switch cluster BES-53248 da EFOS 3.3.x.x o 3.4.x.x a EFOS 3.7.0.4 o 3.8.0.2, i collegamenti Inter-Switch (ISL) e il canale della porta sono contrassegnati nello stato *down*. Consulta questo articolo della Knowledge base:<block ref="eb6085a70a8e8bb2aba905d5e75797ab" category="inline-link-rx"></block> per ulteriori dettagli.</block>
   <block id="ba9e418ff064efca86945643e9b87680" category="list-text">Collegare lo switch del cluster BES-53248 alla rete di gestione.</block>
   <block id="674d78e1dac3bea340dfeacf46be187b" category="list-text">Utilizzare<block ref="df911f0151f9ef021d410b4be5060972" prefix=" " category="inline-code"></block> Per verificare la connettività al server che ospita EFOS, le licenze e il file RCF.</block>
   <block id="32c19f9978a98cf0e1ff20e5177a69e0" category="paragraph">Questo esempio verifica che lo switch sia connesso al server all'indirizzo IP 172.19.2.1:</block>
-  <block id="c95aaaacb482fe42dce56ee7cd8615a6" category="list-text">Backup dell'immagine attiva corrente su cs2:</block>
   <block id="2ab6a6c6e3efa9ded96d007db3c8ddd6" category="paragraph"><block ref="d952dcd329fa507e9e731ce0c7d8dbc1" prefix="" category="inline-code"></block></block>
-  <block id="19cb75d1f662e01942f8d897534baeb7" category="list-text">Verificare la versione in esecuzione del software EFOS:</block>
   <block id="7c68cb6d1d2efbce76002169b10f787d" category="paragraph"><block ref="48f6d03db0af7dafae461857e48942d9" prefix="" category="inline-code"></block></block>
   <block id="6c3f6a049adc76db29ca1df525b7c235" category="list-text">Scaricare il file immagine sullo switch.</block>
   <block id="9f5a2906a0e63ca6b46604a272791779" category="paragraph">Copiare il file immagine nell'immagine attiva significa che quando si riavvia, l'immagine stabilisce la versione EFOS in esecuzione. L'immagine precedente rimane disponibile come backup.</block>
@@ -2361,7 +2358,6 @@
   <block id="d002eea8f83f99bafbbc5f36440edd41" category="summary">È possibile installare RCF dopo aver configurato lo switch Nexus 9336C-FX2 per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione RCF.</block>
   <block id="0e20b420112310f5c09a775e13d5ec63" category="paragraph">È possibile installare RCF dopo aver configurato per la prima volta lo switch Nexus 9336C-FX2. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.</block>
   <block id="61c7408c0e623b660a741b6b2c143251" category="paragraph">Prima di iniziare, completare la procedura descritta in <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
-  <block id="ea4cd01e183524e8bbb487095fe3c5d9" category="list-text">Il file RCF corrente.</block>
   <block id="065efbcd9d0a8e180fd23e7abf72c407" category="list-text">I nomi dei due switch Cisco sono cs1 e cs2.</block>
   <block id="0a7b7f6be6701fe3f4fccf471c185aac" category="list-text">I nomi LIF del cluster sono cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2 , cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 e cluster1-04_clus2.</block>
   <block id="f0db4a1725ddf2683998fa54fd370447" category="paragraph">La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 9000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.</block>
@@ -3556,7 +3552,6 @@
   <block id="412d467b5f15dc1967df2c5af126e62d" category="list-text">Rimuovere gli switch del cluster inutilizzati.</block>
   <block id="936648102dd0e64a9748e863cad7bbdd" category="list-text">Rimuovere gli switch di storage inutilizzati.</block>
   <block id="21f31f792b72c310b4fd5aa9c2e35835" category="paragraph">Seguire questa procedura per installare il software NX-OS sullo switch condiviso Nexus 9336C-FX2.</block>
-  <block id="22eb01d1e7d6584a0da20f490dc5af77" category="paragraph"><block ref="22eb01d1e7d6584a0da20f490dc5af77" category="inline-link-macro-rx"></block></block>
   <block id="1ee751725b7ef12e637c634b1e1148a4" category="doc">Installare gli switch condivisi Cisco Nexus 9336C-FX2</block>
   <block id="94f31b898786bbf285eb3f1766d2b846" category="list-text">Rack per switch, controller e shelf di storage NS224 NVMe.</block>
   <block id="f1d2082f6b7e2fe0bd21c264b34b1db0" category="inline-link">Istruzioni per la scaffalatura</block>
@@ -4441,9 +4436,7 @@ Immagine:../media/FEC_copper_table.jpg[25G porte con cavi in rame]</block>
   <block id="32559ee483b61b36141f9b9e0f4bbfff" category="paragraph">Consultare la tabella di compatibilità degli switch per le versioni ONTAP e RCF supportate sul sito di supporto NetApp. Si noti che possono esistere dipendenze di comando tra la sintassi di comando nell'RCF e la sintassi trovata nelle versioni specifiche di NX-OS.</block>
   <block id="ad0d19783ccfa19f931108b838e4b7e4" category="list-text"><block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block></block>
   <block id="79509ba15c2970f327dd8610e3b4628c" category="paragraph-title">Comandi utilizzati</block>
-  <block id="1ad593dd61af4356ce9ba12d276c4336" category="section-title">Opzione 1: Installare il file RCF su un nuovo switch</block>
   <block id="d061b4842fee7f503446ba29253d182f" category="paragraph">Dopo aver configurato per la prima volta lo switch Nexus 9336C-FX2, installare il file di configurazione di riferimento (RCF).</block>
-  <block id="121f18688d36f2438eb17eb52e61e7e8" category="section-title">Opzione 2: Aggiornamento degli switch esistenti con una nuova versione RCF</block>
   <block id="eba0713505eba2aab08d4d6fa9ca2cf7" category="paragraph">È possibile aggiornare la versione RCF quando si dispone di una versione esistente del file RCF installata sugli switch operativi.</block>
   <block id="ddd0020a0684c14dbd50622f84d8917a" category="paragraph">Assicurarsi di disporre di quanto segue:</block>
   <block id="28dbd722b252673fdce3f809670e34b8" category="list-text">Se si sta aggiornando la versione RCF, è necessaria una configurazione di avvio nell'RCF che rifletta le immagini di avvio desiderate.</block>
@@ -4549,8 +4542,6 @@ Ripristinare le impostazioni predefinite dello switch e applicare il file RCF pe
   <block id="56e7024dc2e812be7449228dc66597d9" category="admonition">Aggiornare EFOS su uno switch alla volta per garantire il funzionamento continuo della rete cluster.</block>
   <block id="c3e2e765c3744c1b19452b2f233fdd15" category="section-title">Metodo 1: Aggiornamento EFOS</block>
   <block id="c117ec58c236a456904edaa76f1cc5a9" category="paragraph">Per aggiornare il software EFOS, procedere come segue.</block>
-  <block id="061be1b61be0d3e5b21e6a5912639344" category="admonition">Se sono state installate licenze, verificare il relativo stato.</block>
-  <block id="84d3d1386241334d40a809878bbb05d9" category="list-text">Ripetere i passi da 5 a 10 sull'interruttore CS1.</block>
   <block id="83b8a0042e3650c5af884c9601f53043" category="inline-link-macro">Ripristinare la porta home di un LIF</block>
   <block id="870c6c263570c51afc056f510d552e1f" category="paragraph">Per ulteriori dettagli, vedere <block ref="b9ea844d3dd5520c7767de46f1c99a2b" category="inline-link-macro-rx"></block>.</block>
   <block id="d0dc5dfd4c3b3be079653b7f0ac8d844" category="paragraph">Se una versione di EFOS è conforme a FIPS e l'altra non è conforme a FIPS, eseguire le seguenti operazioni. Questi passaggi possono essere utilizzati per aggiornare l'immagine EFOS 3,7.x.x non conforme a FIPS o FIPS da ONIE in caso di mancato avvio dello switch.</block>
@@ -4784,7 +4775,6 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="e4da4813fef5b96a216a043d594bf245" category="list-text">Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a <block ref="75ce5666fba6992a0719935651dd5b1b" category="inline-link-macro-rx"></block> per i dettagli su eventuali ulteriori modifiche necessarie.</block>
   <block id="bdbcf1c0d7f9cba19eb12819b953fbf1" category="inline-link">Nodo fuori dal quorum quando si esegue la migrazione della LIF del cluster durante l'aggiornamento del sistema operativo dello switch</block>
   <block id="e6ab3c0f7886a69b4cd4dc70d1d4afa9" category="admonition">Assicurarsi di chiudere *tutte* le porte del cluster collegate per evitare problemi di connessione di rete. Per<block ref="c9b140831402716d03d51afcd09ff177" category="inline-link-rx"></block> ulteriori informazioni, consultare l'articolo della Knowledge base.</block>
-  <block id="263b9f10fe7e073e656b08a5b6da7e5a" category="paragraph">Gli esempi di questa procedura utilizzano quattro nodi. Questi nodi utilizzano due porte di interconnessione cluster 10GbE e0a e e0b. Consultare<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> per verificare le porte cluster corrette sulle piattaforme.</block>
   <block id="fc9b57bfb616bf5697d55f4dc656cead" category="inline-link-macro">Verificare la configurazione SSH</block>
   <block id="1046b0a81eea5dae9091290036b99362" category="paragraph"><block ref="4767a0bcf3ab94aeda87c79dd4096ef4" category="inline-link-macro-rx"></block>.</block>
   <block id="95baf91c437105360687405b916b57fa" category="list-text">Crittografare le chiavi SSH (solo per *FIPS-mode*):</block>
@@ -5142,7 +5132,6 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="5f9610f3409d9abe96cc344156486c5e" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="4c0a19683ab4dd37cd0517d25639fa78" category="inline-link-macro-rx"></block></block>
   <block id="e796841df950e342f76a5b538574f5f6" category="paragraph">Completamento della migrazione verso un cluster con switch a due nodi.</block>
   <block id="e4ff582cba38e556dc88b3e74baf1ec1" category="paragraph">Direttiva non risolta in &lt;stdin&gt; - include:./_include/install-rcf-software-9336c-cluster.adoc[]</block>
-  <block id="688523fe289426758745102b5d3ea37f" category="paragraph">Direttiva non risolta in &lt;stdin&gt; - include:./_include/upgrade-rcf-software-9336c-cluster.adoc[]</block>
   <block id="1ececed2a569720ced41e9cd50d7b238" category="list-text">Lo switch CS1 e lo switch CS2 sono accesi e la configurazione iniziale dello switch è completa (l'indirizzo IP di gestione e SSH è impostato).</block>
   <block id="c3109b36f2c8edda93835ccefa0e4dc3" category="doc">Installare o aggiornare la panoramica del file di configurazione di riferimento (RCF)</block>
   <block id="6d7b8066e6c7166408cb61e68a705e7f" category="list-text">I nomi dei due switch Cisco sono *CS1* e *CS2*.</block>
@@ -5151,7 +5140,6 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="1c319a6cce094508e045c5bb62d6664e" category="paragraph">Gli esempi di questa procedura utilizzano quattro nodi. Questi nodi utilizzano due porte di interconnessione cluster 10GbE *e0a* e *e0b*. Consultare<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> per verificare le porte cluster corrette sulle piattaforme.</block>
   <block id="88870df2dabeaf8bc50daf8d504498e0" category="inline-link-macro">Aggiornare il file RCF</block>
   <block id="d1d882c0929e664f5d3052ad227ecec9" category="paragraph"><block ref="51640e6af8359470cbd047034716b7ac" category="inline-link-macro-rx"></block> o <block ref="d9cc2c4eec198e8f90466b5b89bfc33e" category="inline-link-macro-rx"></block>.</block>
-  <block id="fd7fe8bcb397a94d6c1c59e351072eac" category="doc">Aggiornamento del file di configurazione di riferimento (RCF)</block>
   <block id="df73b0f89510f793b71a90bf50d82c10" category="list-text">RCF corrente.</block>
   <block id="85e086d364dc39fb9a01f1b57e7afc52" category="list-text">ONTAP 9.10.1P3 e versioni successive</block>
   <block id="e6645191453a89d37ca94dbd791a1499" category="paragraph">Lo switch SN2100 serve cluster e applicazioni di storage in ONTAP 9.10.1P3 e versioni successive su diverse coppie di switch.</block>
@@ -5194,4 +5182,15 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="b0d1465a243b273a8f71d6084fd2c12c" category="list-text">Verificare che l'RCF sia la versione più recente corretta:</block>
   <block id="7fd5f97719ed93b62ce57a2401ebb179" category="list-text">Dopo aver verificato che le versioni di RCF e le impostazioni dello switch siano corrette, copiare il file running-config nel file startup-config:</block>
   <block id="f7b017d791fb57f4bbb1b2ce01659ed8" category="paragraph">System Manager offre un workflow semplice e facile per la configurazione e il setup del cluster, che include l'assegnazione di un indirizzo IP di gestione dei nodi, l'inizializzazione del cluster, la creazione di un Tier locale, la configurazione dei protocolli e il provisioning dello storage iniziale.</block>
+  <block id="7ff4d12d3e81fb159ea571275dbbb3fd" category="admonition">Si noti che dopo l'aggiornamento degli switch del cluster BES-53248 da EFOS 3,3.x.x o 3,4.x.x a EFOS 3.7.0.4 o 3,8.0,2, i collegamenti interswitch (ISL) e i canali delle porte sono contrassegnati nello stato *down*. Questo è il comportamento previsto ed è sicuro continuare con l'aggiornamento a meno che non si verifichino problemi con la riattivazione automatica delle LIF. Per ulteriori informazioni, consultare l'articolo della Knowledge base:<block ref="eb6085a70a8e8bb2aba905d5e75797ab" category="inline-link-rx"></block></block>
+  <block id="4624388fca013386d1c7314566aa1510" category="list-text">Avviare il sistema dalla configurazione di backup:</block>
+  <block id="ae791522c9f7834f0edc56277ffe2340" category="paragraph"><block ref="f2210f21804aee53def01718125f3f18" prefix="" category="inline-code"></block></block>
+  <block id="892854a85c10d8b7b832a094d0b2b95e" category="list-text">Ripetere i passi da 5 a 11 sull'interruttore CS1.</block>
+  <block id="b0411eb90c7d5ca211940fcb5d8f219a" category="doc">Aggiornamento del file di configurazione di riferimento (RCF)</block>
+  <block id="657454366cb4a451c5905310b7f4d2cc" category="paragraph">È possibile installare il file di configurazione di riferimento (RCF) dopo aver configurato lo switch Nexus 9336C-FX2 per la prima volta.</block>
+  <block id="34b61fdbe20d7b5fdf2f4d5655d2dc71" category="list-text">I collegamenti interswitch link (ISL) tra gli interruttori sono collegati.</block>
+  <block id="5e9fc634461251750aac2012c638665a" category="doc">Aggiornare il file di configurazione di riferimento (RCF)</block>
+  <block id="9129459f5b5477d59e1fbb13abc9bbd4" category="admonition">Prima di installare una nuova versione del software dello switch e gli RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Prima di cancellare le impostazioni dello switch, è necessario essere collegati allo switch utilizzando la console seriale o aver conservato le informazioni di configurazione di base.</block>
+  <block id="4c4876d5d981da2e6943a052d93bb189" category="list-text">Per NX-OS 10,2 e versioni successive, utilizzare il<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> comando per confrontare con il file RCF salvato nel bootflash. In caso contrario, utilizzare uno strumento diff o compare di terze parti.</block>
+  <block id="0a306731a6993e7a08026ab2d7ca2d97" category="paragraph">Potrebbe essere necessario aggiornare le voci del file host relative alle chiavi SSH.</block>
 </blocks>
