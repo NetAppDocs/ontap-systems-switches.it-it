@@ -29,6 +29,7 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
 
 * L'utente deve avere accesso ai comandi di commutazione `show` . Se non sono disponibili, creare un nuovo utente e concedere le autorizzazioni necessarie all'utente.
 * Il monitoraggio dello stato dello switch deve essere abilitato per lo switch. Verificare questo assicurandosi che `Is Monitored:` il campo è impostato su *true* nell'output di `system switch ethernet show` comando.
+* Per la raccolta dei log con gli switch Broadcom e Cisco, è necessario creare un nuovo utente sullo switch per ogni configurazione con la raccolta dei log attivata. Questi switch non supportano più chiavi SSH per lo stesso utente. Qualsiasi impostazione di raccolta di log aggiuntiva eseguita sovrascrive qualsiasi chiave SSH preesistente per l'utente.
 * Per la raccolta dei log di supporto con gli switch NVIDIA, la raccolta log _user_ deve essere autorizzata ad eseguire il `cl-support` comando senza dover fornire una password. Per consentire questo utilizzo, eseguire il comando:
 +
 `echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
