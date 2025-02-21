@@ -694,4 +694,4 @@ In caso di mancato ritorno delle LIF del cluster alle porte home, puoi ripristin
 
 
 .Quali sono le prossime novità?
-link:install-nxos-rcf-9336c-cluster.html["Installare o aggiornare il file di configurazione di riferimento (RCF)"]
+link:install-upgrade-rcf-overview-cluster.html["Installare o aggiornare il file di configurazione di riferimento (RCF)"]

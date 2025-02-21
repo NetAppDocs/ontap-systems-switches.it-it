@@ -25,8 +25,7 @@ Per configurare inizialmente uno switch Cisco Nexus 9336C-FX2 su sistemi che ese
 . link:install-switch-and-passthrough-panel-9336c-storage.html["Installare lo switch in un armadio NetApp"].
 . link:install-nxos-overview-9336c-storage.html["Preparazione all'installazione di NX-OS e RCF"].
 . link:install-nxos-software-9336c-storage.html["Installare il software NX-OS"].
-. link:install-nxos-rcf-9336c-storage.html["Installare il file di configurazione RCF"].
-. link:configure-ssh.html["Abilitare SSH"].
+. link:install-rcf-software-9336c-storage.html["Installare il file di configurazione RCF"].
 
 
 

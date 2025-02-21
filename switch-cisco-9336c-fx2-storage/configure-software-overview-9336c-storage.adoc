@@ -15,5 +15,5 @@ Per installare e configurare il software per uno switch storage Cisco Nexus 9336
 
 . link:install-nxos-overview-9336c-storage.html["Preparazione all'installazione di NX-OS e RCF"].
 . link:install-nxos-software-9336c-storage.html["Installare il software NX-OS"].
-. link:install-nxos-rcf-9336c-storage.html["Installare il file di configurazione RCF"].
+. link:install-rcf-software-9336c-storage.html["Installare il file di configurazione RCF"].
 
