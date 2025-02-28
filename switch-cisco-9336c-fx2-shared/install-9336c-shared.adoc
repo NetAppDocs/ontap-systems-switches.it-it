@@ -25,7 +25,7 @@ Seguire queste istruzioni per configurare gli switch condivisi Cisco Nexus 9336C
 .Fasi
 . Rack per switch, controller e shelf di storage NS224 NVMe.
 +
-Vedere https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-9336c-install-cabinet/GUID-92287262-E7A6-4A62-B159-7F148097B33B.html["Istruzioni per la scaffalatura"] Per scoprire come eseguire il rack dello switch in un cabinet NetApp.
+Per informazioni su come installare lo switch in un cabinet NetApp, vedere lalink:../switch-cisco-9336c-fx2/install-switch-and-passthrough-panel-9336c-cluster.html["Istruzioni per la scaffalatura"].
 
 . Accendere gli switch, i controller e gli shelf di storage NS224 NVMe.
 

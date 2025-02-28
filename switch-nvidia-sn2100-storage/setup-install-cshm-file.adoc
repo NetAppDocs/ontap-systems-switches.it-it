@@ -43,14 +43,14 @@ Se il modello mostra ancora *ALTRO* dopo aver applicato il file di configurazion
 +
 `ls /etc/cshm_nod/nod_sign`
 
-.. Eliminare tutti i file NOD corrispondenti ai modelli di switch collegati.
+.. Eliminare tutti i file di configurazione corrispondenti ai modelli di switch collegati.
 +
-In caso di dubbi, rimuovere tutti i file NOD per i modelli supportati elencati sopra, quindi scaricare e installare i file NOD più recenti per gli stessi modelli.
+In caso di dubbi, rimuovere tutti i file di configurazione per i modelli supportati elencati sopra, quindi scaricare e installare i file di configurazione più recenti per gli stessi modelli.
 
 +
 `rm /etc/cshm_nod/nod_sign/<filename>`
 
-.. Verificare che i file NOD eliminati non siano più nella directory:
+.. Verificare che i file di configurazione eliminati non siano più nella directory:
 +
 `ls /etc/cshm_nod/nod_sign`
 
