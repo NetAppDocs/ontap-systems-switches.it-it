@@ -672,7 +672,6 @@
   <block id="406bb351c55daa6b29920fa6ce644c29" category="paragraph"><block ref="b6bb909f15a4cebed583f578fc5afd2d" prefix="" category="inline-code"></block></block>
   <block id="b3d2ab282b59bbaad33610c1e37f6f97" category="list-text">Applicare lo script allo switch:</block>
   <block id="02afa83850d1a1e555c0bc75967fef66" category="paragraph"><block ref="5590c26cbf8a14b147a1465a6168f701" prefix="" category="inline-code"></block></block>
-  <block id="c77174e35b7f7fc235a87561809ad614" category="list-text">Esaminare l'output dello striscione da<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> comando. Leggere e seguire queste istruzioni per garantire la corretta configurazione e il corretto funzionamento dello switch.</block>
   <block id="420b545896cb1c9b03dbccd44bf33f86" category="list-text">Sullo switch, verificare che le porte aggiuntive con licenza appaiano dopo l'applicazione dell'RCF:</block>
   <block id="44204cecc6038ea77eba4b1c7fdb67ca" category="list-text">Verificare sullo switch che le modifiche siano state apportate:</block>
   <block id="2c4752308de3d9f3db61274d3c1d0e24" category="paragraph"><block ref="d064a73c32d00bf384204782a696a298" prefix="" category="inline-code"></block></block>
@@ -3877,7 +3876,6 @@
   <block id="e12f54ec861369fe9d4230c607023240" category="sidebar">Installare le licenze</block>
   <block id="e7d694813a2146a3ab31b4b907988620" category="sidebar">Abilitare SSH</block>
   <block id="037fd3285f5414c76c57c401fbc5603c" category="sidebar">Abilitare la raccolta dei log</block>
-  <block id="742d7720a6bdc19b4810641f0c74ddd3" category="sidebar">Aggiornare gli switch</block>
   <block id="71f5771dab663d80ba4dad1627e3386a" category="sidebar">Panoramica sull'aggiornamento</block>
   <block id="c0297ebb85b4b11dd34e1a95ad8ae773" category="sidebar">Migrare gli switch</block>
   <block id="ce140d6d1921435e3df40a72b6d032f4" category="sidebar">Migrazione da switch CN1610</block>
@@ -4634,9 +4632,7 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="e1ef2bf589b36ef4fe890c1ce3f4414e" category="list-text"><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block>.</block>
   <block id="629075dbdb9eff0fb95f99ab0fcd1967" category="paragraph">Scarica e installa o aggiorna il software NX-OS sullo switch cluster Cisco Nexus 9336C-FX2.</block>
   <block id="11106314fe1d4dd5bee639afb348b915" category="inline-link-macro">Installare o aggiornare l'RCF</block>
-  <block id="c04285e0007809b2644676a723882b00" category="list-text"><block ref="1fe309bd8e626375dc4971f4edf77d2d" category="inline-link-macro-rx"></block>.</block>
   <block id="01a618717f01c55d9b54bedd7307a43f" category="paragraph">Installare o aggiornare l'RCF dopo aver configurato per la prima volta lo switch Cisco Nexus 9336C-FX2. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.</block>
-  <block id="b002a5cd7db32a3dea22b0992712b264" category="list-text"><block ref="56a03b023ba50fb49738eaf20203f57a" category="inline-link-macro-rx"></block>.</block>
   <block id="959598166d06ebc7f87da7525f293a91" category="list-text"><block ref="0bc8e83d3cd2eebf0c2c5d2a7b54cc6c" category="inline-link-macro-rx"></block>.</block>
   <block id="df7bc1c04ccb094d3b474fc08a97d272" category="paragraph">Configurare l'hardware dello switch.</block>
   <block id="a7682f7ee72405f79f40850a1dea900c" category="list-text"><block ref="93d08ab8d6c80a25299648349a7a616c" category="inline-link-macro-rx"></block>.</block>
@@ -4779,7 +4775,6 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="2d7cd36455daea92f172ede16d765aae" category="list-text">[[step7]] verificare che il cluster sia integro:</block>
   <block id="acdfe379cf0ed5868b119418e7d41b82" category="list-text">[[step11]] impostare la configurazione senza switch per le porte del gruppo 2.</block>
   <block id="a2f7ec2dd8feebc2c1e30e5f859d4497" category="list-text">[[step6]] se è stata soppressa la creazione automatica dei casi, riattivarla richiamando un messaggio AutoSupport:</block>
-  <block id="2f3040f570b3d77425ad0bf50fc7985c" category="list-text">[[step6]]Cambia di nuovo il livello di privilegio in admin:</block>
   <block id="4e4f70ba52e8cb595faa069991c5a9f4" category="list-text">[[step5]]se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:</block>
   <block id="c97fddef37af781b99f2bb564a90861d" category="list-text">[[step9]]Cambia di nuovo il livello di privilegio in admin:</block>
   <block id="991d705309210a9623a3f1d994c15150" category="list-text">[[step10]]chiudere le porte ISL da 41 a 48 sullo switch attivo Nexus 5596 CL1:</block>
@@ -5139,7 +5134,6 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="f36aa89aee5a55633ce25b54c9a779d3" category="sidebar">Migrare_da_cluster_senza_switch</block>
   <block id="c32aa48aa3b92b64c3a5ea6a1b2e9a1f" category="sidebar">Migrazione da un workflow di cluster a due nodi senza switch</block>
   <block id="df8a9198280d88db538535b2609f0f83" category="sidebar">Replace_switches_3232C</block>
-  <block id="6697bf1c75a0d4d8868afeab04858bc3" category="sidebar">Upgrade_switches_3232C</block>
   <block id="253d101ba7a8a0f1e24c1a3b13a1b5b5" category="sidebar">Install_upgrade_rcf</block>
   <block id="2b8efdb0e77054ffe22b4bfb75564155" category="sidebar">Panoramica sull'installazione o l'aggiornamento di RCF</block>
   <block id="b6503bc6a2e6ede86368a60473711626" category="list-text">Ripetere i passaggi da 1 a 11 sull'interruttore CS1.</block>
@@ -5256,4 +5250,6 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="a9fc37ffea4ac5fbd75f369d96c903f6" category="sidebar">Switch cluster: Cisco Nexus 9336C-FX2 o 9336C-FX2-T.</block>
   <block id="ed3dd7f516f69cf573ae79a1781bbcbf" category="sidebar">Switch cluster - switch cluster NVIDIA SN2100</block>
   <block id="49e57b2c31c8feba776b7a2916673678" category="sidebar">Cisco Nexus 9336C-FX2 o 9336C-FX2-T.</block>
+  <block id="c66ea64be71d87967746ef74fac6ec75" category="list-text">[[step11]]esamina l'output del banner dal<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> comando. Leggere e seguire queste istruzioni per garantire la corretta configurazione e il corretto funzionamento dello switch.</block>
+  <block id="8b084baecf96a692280d1a024d86081d" category="list-text"><block ref="cf3a409f8782a7944244632e6a1adb8e" category="inline-link-macro-rx"></block>.</block>
 </blocks>

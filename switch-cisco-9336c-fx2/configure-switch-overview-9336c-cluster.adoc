@@ -19,7 +19,7 @@ Lo switch cluster Cisco Nexus 9336C-FX2 fa parte della piattaforma Cisco Nexus 9
 
 Per configurare inizialmente uno switch Cisco Nexus 9336C-FX2 su sistemi che eseguono ONTAP, attenersi alla seguente procedura:
 
-. link:setup-worksheet-9336c-cluster.html["Completare il foglio di lavoro per il cablaggio di Cisco Nexus 9336C-FX2"].
+. link:setup-worksheet-9336c-cluster.html["Completare la scheda di lavoro relativa al cablaggio Cisco Nexus 9336C-FX2 o 9336C-FX2-T."].
 +
 Il foglio di lavoro di esempio relativo ai cavi fornisce esempi di assegnazione delle porte consigliate dagli switch ai controller. Il foglio di lavoro vuoto fornisce un modello che è possibile utilizzare per la configurazione del cluster.
 
@@ -43,7 +43,7 @@ Seguire le procedure preliminari per l'installazione del software Cisco NX-OS e 
 +
 Installa o aggiorna il software NX-OS sullo switch del cluster Nexus 9336C-FX2.
 
-. link:install-nxos-rcf-9336c-cluster.html["Installare o aggiornare l'RCF"].
+. link:install-upgrade-rcf-overview-cluster.html["Installare o aggiornare l'RCF"].
 +
 Installare o aggiornare l'RCF dopo aver configurato per la prima volta lo switch Nexus 9336C-FX2. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.
 
