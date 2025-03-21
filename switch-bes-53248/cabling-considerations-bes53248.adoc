@@ -68,12 +68,11 @@ Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per ulteriori i
 == Requisiti FEC
 
 * Per le porte 25g con cavi in rame, vedere la tabella seguente per i dettagli.
-
-
++
 Se il lato Controller è `auto`, Il lato dell'interruttore è impostato su FEC 25g.
 
 +
-Immagine:../media/FEC_copper_table.jpg[25G porte con cavi in rame]
+image::../media/FEC_copper_table.jpg[25g porte con cavi in rame]
 
 * Per le porte 25g con cavi in fibra ottica, vedere la tabella seguente per i dettagli:
 +
