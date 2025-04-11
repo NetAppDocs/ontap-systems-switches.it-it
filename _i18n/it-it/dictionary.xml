@@ -5213,7 +5213,6 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="49e57b2c31c8feba776b7a2916673678" category="sidebar">Cisco Nexus 9336C-FX2 o 9336C-FX2-T.</block>
   <block id="c66ea64be71d87967746ef74fac6ec75" category="list-text">[[step11]]esamina l'output del banner dal<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> comando. Leggere e seguire queste istruzioni per garantire la corretta configurazione e il corretto funzionamento dello switch.</block>
   <block id="8b084baecf96a692280d1a024d86081d" category="list-text"><block ref="cf3a409f8782a7944244632e6a1adb8e" category="inline-link-macro-rx"></block>.</block>
-  <block id="a0483532706ba341300191e20cafc42e" category="list-text">Per la raccolta dei log con gli switch Broadcom e Cisco, è necessario creare un nuovo utente sullo switch per ogni configurazione del cluster con la raccolta dei log attivata. Questi switch non supportano più chiavi SSH per lo stesso utente. Qualsiasi impostazione di raccolta di log aggiuntiva eseguita sovrascrive qualsiasi chiave SSH preesistente per l'utente.</block>
   <block id="1fcbc8802637b04b8fe9a86ac3d545c9" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Montare la bulloneria dell'interruttore</block>
   <block id="b11226c776ec1b74f6a42f871e3194c9" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Installazione del sistema di storage e dei shelf di storage</block>
   <block id="130792cb3edc8d0afffb557e50b218c3" category="paragraph">Installare il sistema di archiviazione e gli scaffali nel cabinet o nel rack. Accedere alle istruzioni di installazione e configurazione per il modello di piattaforma in uso.</block>
@@ -5238,4 +5237,9 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="997f5023d76908d72d993d6b09390a5e" category="doc">Installare o aggiornare lo script RCF</block>
   <block id="7baa7758ed49797651dc1e276762ae15" category="list-text">Clustering: *MSN2100-RCF-v1._x_-Cluster*</block>
   <block id="dd584ffba0b7534139645967bf24df84" category="sidebar">Installare o aggiornare lo script RCF</block>
+  <block id="40b03f9635c63b20aade0ff8145eafb8" category="list-text">Per la raccolta dei registri con gli switch Broadcom e Cisco:</block>
+  <block id="89f1dd995a5c07ea1e13abc5993d9d59" category="list-text">Gli utenti devono disporre di un Privileges di amministrazione di rete.</block>
+  <block id="60f743043272b873831b17c5e7290445" category="list-text">È necessario creare un nuovo utente sullo switch per ogni configurazione del cluster con la raccolta di log attivata. Questi switch non supportano più chiavi SSH per lo stesso utente. Qualsiasi impostazione di raccolta di log aggiuntiva eseguita sovrascrive qualsiasi chiave SSH preesistente per l'utente.</block>
+  <block id="63229fc9218a5e1a57243ce033e91a3b" category="paragraph">Per ulteriori informazioni sull'installazione o l'aggiornamento di RCF, consultare l'articolo della Knowledge base<block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>.</block>
+  <block id="26552c2532e5b34c96d8cef5f736c6ff" category="paragraph">Per ulteriori informazioni sull'installazione di RCF, consultare l'articolo della Knowledge base<block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>.</block>
 </blocks>

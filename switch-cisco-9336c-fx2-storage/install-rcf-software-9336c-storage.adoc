@@ -13,6 +13,8 @@ summary: 'È possibile installare l"RCF dopo aver configurato per la prima volta
 [role="lead"]
 Il file di configurazione di riferimento (RCF) viene installato dopo aver configurato per la prima volta lo switch di archiviazione Nexus 9336C-FX2.
 
+Per ulteriori informazioni sull'installazione di RCF, consultare l'articolo della Knowledge baselink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch Cisco Interconnect mantenendo la connettività remota"^].
+
 .Prima di iniziare
 Verificare le seguenti installazioni e connessioni:
 
