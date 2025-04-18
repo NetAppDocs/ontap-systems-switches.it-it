@@ -1,0 +1,58 @@
+---
+permalink: switch-cshm/monitor-verify.html 
+sidebar: sidebar 
+keywords: verify, monitor, cluster, management, network, switches, heath, monitor 
+summary: Informazioni su come verificare il monitoraggio di uno switch Ethernet. 
+---
+= Verificare il monitoraggio degli switch Ethernet
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il monitor dello stato dello switch Ethernet (CSHM) tenta automaticamente di monitorare gli switch rilevati; tuttavia, il monitoraggio potrebbe non avvenire automaticamente se gli switch non sono configurati correttamente. Verificare che il monitor dello stato di salute sia configurato correttamente per monitorare gli switch.
+
+
+
+== Verificare il monitoraggio degli switch Ethernet collegati
+
+Per confermare che gli switch Ethernet collegati siano monitorati, eseguire:
+
+[source, cli]
+----
+system switch ethernet show
+----
+Se la `Model` colonna visualizza *ALTRO* o il `IS Monitored` campo visualizza *falso*, ONTAP non è in grado di monitorare l'interruttore. Un valore *ALTRO* indica in genere che ONTAP non supporta tale switch per il monitoraggio dello stato.
+
+Il `IS Monitored` campo è impostato su *false* per il motivo specificato nel `Reason` campo.
+
+[NOTE]
+====
+Se uno switch non è elencato nell'output del comando, è probabile che ONTAP non lo abbia rilevato. Verificare che l'interruttore sia collegato correttamente. Se necessario, è possibile aggiungere lo switch manualmente. Per ulteriori informazioni, vedere link:manage-monitor.html["Gestire il monitoraggio degli switch Ethernet"] .
+
+====
+
+
+== Verificare che le versioni firmware e RCF siano aggiornate
+
+Assicurarsi che lo switch esegua il firmware più recente supportato e che sia stato applicato un file di configurazione di riferimento (RCF) compatibile. Ulteriori informazioni sono disponibili sul https://mysupport.netapp.com/site/downloads["Pagina Support Downloads di NetApp"^].
+
+Per impostazione predefinita, il monitor sanitario utilizza SNMPv2c con la stringa di comunità *cshm1!* per il monitoraggio, ma è anche possibile configurare SNMPv3.
+
+Se è necessario modificare la stringa di comunità SNMPv2c predefinita, assicurarsi che la stringa di comunità SNMPv2c desiderata sia stata configurata sullo switch.
+
+[source, cli]
+----
+system switch ethernet modify -device SwitchA -snmp-version SNMPv2c -community-or-username newCommunity!
+----
+
+NOTE: Per ulteriori informazioni sulla configurazione di SNMPv3 per l'uso, vedere link:config-snmpv3.html["Opzionale: Configurare SNMPv3"].
+
+
+
+== Confermare la connessione alla rete di gestione
+
+Verificare che la porta di gestione dello switch sia collegata alla rete di gestione.
+
+Per eseguire query SNMP e la ONTAP raccolta di log, è necessaria una connessione corretta alla porta di gestione.

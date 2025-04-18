@@ -1,0 +1,47 @@
+= Creare una voce dello switch in modo che ONTAP possa monitorarla
+:allow-uri-read: 
+
+
+
+
+== Creare una voce dello switch in modo che ONTAP possa monitorarla
+
+Utilizzare il `system switch ethernet create` comando per configurare manualmente e attivare il monitoraggio per uno switch Ethernet specificato. Ciò è utile se ONTAP non aggiunge automaticamente lo switch o se lo switch è stato rimosso in precedenza e si desidera aggiungerlo nuovamente.
+
+[source, cli]
+----
+system switch ethernet create -device DeviceName -address 1.2.3.4 -snmp-version SNMPv2c -community-or-username cshm1! -model NX3132V -type cluster-network
+----
+Un esempio tipico è l'aggiunta di uno switch denominato [deviceName], con l'indirizzo IP 1,2.3,4 e le credenziali SNMPv2c impostate su *cshm1!*. Utilizzare `-type storage-network` invece di `-type cluster-network` se si sta configurando uno switch di archiviazione.
+
+
+
+== Disattivare il monitoraggio senza eliminare l'interruttore
+
+Se si desidera sospendere o interrompere il monitoraggio di un determinato switch, ma conservarlo per il monitoraggio futuro, modificare il `is-monitoring-enabled-admim` parametro invece di eliminarlo.
+
+Ad esempio:
+
+[source, cli]
+----
+system switch ethernet modify -device DeviceName -is-monitoring-enabled-admin false
+----
+In questo modo è possibile conservare i dettagli e la configurazione dello switch senza generare nuovi avvisi o nuove rilevazioni.
+
+
+
+== Rimuovere uno switch non più necessario
+
+Utilizzare `system switch ethernet delete` per eliminare un interruttore scollegato o non più necessario:
+
+[source, cli]
+----
+system switch ethernet delete -device DeviceName
+----
+Per impostazione predefinita, questo comando funziona solo se ONTAP non rileva attualmente lo switch tramite CDP o LLDP. Per rimuovere uno switch rilevato, utilizzare il `-force` parametro:
+
+[source, cli]
+----
+system switch ethernet delete -device DeviceName -force
+----
+Quando `-force` viene utilizzato, lo switch potrebbe essere aggiunto nuovamente automaticamente se ONTAP lo rileva nuovamente.
