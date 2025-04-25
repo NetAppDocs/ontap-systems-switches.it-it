@@ -151,11 +151,11 @@ I seguenti comandi disattivano le porte rivolte al nodo sugli switch sw1 e sw2:
 ----
 cumulus@sw1:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
 cumulus@sw1:~$ *nv config apply*
-cumulus@sw1:~$ *nv save*
+cumulus@sw1:~$ *nv config save*
 
 cumulus@sw2:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
 cumulus@sw2:~$ *nv config apply*
-cumulus@sw2:~$ *nv save*
+cumulus@sw2:~$ *nv config save*
 ----
 . Verificare che le porte ISL e fisiche dell'ISL tra i due switch SN2100 sw1 e sw2 siano installate sulle porte swp15 e swp16:
 +

@@ -1952,7 +1952,6 @@
   <block id="5e7f834bb6ce37fe7786c30951681705" category="list-text">Verificare che la versione di Cumulus Linux sia 4.4.3:<block ref="98f5dff8534e8c39673b544f567273e7" prefix=" " category="inline-code"></block></block>
   <block id="d3197ab8aed6376fa7796149e9bb5d76" category="paragraph">Il programma di installazione avvia il download. Digitare *y* quando richiesto.</block>
   <block id="0d5b4669d0f67490dffe38df0a47c207" category="list-text">L'installazione viene avviata automaticamente e vengono visualizzate le seguenti opzioni della schermata di GRUB. Non effettuare alcuna selezione.</block>
-  <block id="caf789a40cb327fa8f64258a010c13e0" category="list-text">Verificare che la versione di Cumulus Linux sia 5.4:<block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix=" " category="inline-code"></block></block>
   <block id="d592f003299c9790cf6b7880991e4552" category="list-text">Creare un nuovo utente e aggiungerlo a.<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block> gruppo. Questo utente diventa effettivo solo dopo il riavvio della sessione console/SSH.</block>
   <block id="af0741a63009a71666c8a00c5279b401" category="summary">Se si dispone di un ambiente cluster senza switch a due nodi, è possibile migrare a un ambiente cluster con switch a due nodi utilizzando gli switch NVIDIA SN2100 per scalare oltre due nodi nel cluster.</block>
   <block id="47da18a30b9fcd2d1294cf032080276b" category="doc">Migrazione a un cluster con switch a due nodi con switch cluster NVIDIA SN2100</block>
@@ -5275,4 +5274,12 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="7d446387be9f1d7a1583327a693c81a1" category="paragraph">Il monitor dello stato dello switch Ethernet (CSHM) tenta automaticamente di monitorare gli switch rilevati; tuttavia, il monitoraggio potrebbe non avvenire automaticamente se gli switch non sono configurati correttamente. Verificare che il monitor dello stato di salute sia configurato correttamente per monitorare gli switch.</block>
   <block id="a6227aae637a0baad0de1335f2d71396" category="sidebar">Gestire il monitoraggio degli switch</block>
   <block id="5c46a4758dcc5f666eee202daef67af4" category="sidebar">Verificare il monitoraggio dell'interruttore</block>
+  <block id="41cda86775eebf53199061928eb39a74" category="list-text">Installare Cumulus Linux 5.4.0:</block>
+  <block id="a731c9953cb3178b61fd688f2c10ea64" category="list-text">Verificare che la versione di Cumulus Linux sia la 5,4.0:<block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix=" " category="inline-code"></block></block>
+  <block id="7fe163201519200ade1c23cd052b6611" category="paragraph">Quando si accede allo switch per la prima volta, richiede il nome utente/password di *cumulus*/*cumulus* con<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block> Privileges.</block>
+  <block id="b133f5ec9f6f691880079c684d878177" category="list-text">Installare Cumulus Linux 5.11.0:</block>
+  <block id="528379fa0d040e8e6455094df07828d8" category="list-text">Verificare che la versione di Cumulus Linux sia 5.11.0:</block>
+  <block id="f90f747e373fe6ad78e15dd0d320ce66" category="paragraph"><block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix="" category="inline-code"></block></block>
+  <block id="fd5f0f669932a550ea7400efc749cfc5" category="list-text">Verificare che ogni nodo disponga di una connessione a ciascuno switch:</block>
+  <block id="2d3e15002e9f668635d184afe49a634e" category="paragraph">Per ulteriori informazioni, vedere<block ref="9fa647797c0e0305f4f3b2116b6db003" category="inline-link-rx"></block> .</block>
 </blocks>
