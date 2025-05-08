@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2 
 summary: Se si desidera documentare le piattaforme supportate, è necessario completare il foglio di lavoro vuoto per il cablaggio utilizzando il foglio di lavoro di esempio completo come guida. 
 ---
-= Completare il foglio di lavoro per il cablaggio di Cisco Nexus 9336C-FX2
+= Completare la scheda di lavoro relativa al cablaggio Cisco Nexus 9336C-FX2 o 9336C-FX2-T.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,9 +15,15 @@ Se si desidera documentare le piattaforme supportate, scaricare un PDF di questa
 
 Il foglio di lavoro di esempio relativo ai cavi fornisce esempi di assegnazione delle porte consigliate dagli switch ai controller. Il foglio di lavoro vuoto fornisce un modello che è possibile utilizzare per la configurazione del cluster.
 
+* <<9336C-FX2 esempio di foglio di lavoro per il cablaggio>>
+* <<9336C-FX2 foglio di lavoro cablaggio vuoto>>
+* <<9336C-FX2-T esempio di foglio di lavoro di cablaggio (12 porte)>>
+* <<9336C-FX2-T foglio di lavoro cablaggio vuoto (12 porte)>>
 
 
-== Esempio di foglio di lavoro per il cablaggio
+
+
+== 9336C-FX2 esempio di foglio di lavoro per il cablaggio
 
 La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
 
@@ -437,7 +443,7 @@ Nodo 4x100GbE 24
 |===
 
 
-== Foglio di lavoro di cablaggio vuoto
+== 9336C-FX2 foglio di lavoro cablaggio vuoto
 
 È possibile utilizzare il foglio di lavoro dei cavi vuoto per documentare le piattaforme supportate come nodi in un cluster. La sezione _connessioni cluster supportate_ di https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
 
@@ -769,3 +775,249 @@ Nodo 4x100GbE 24
  a| 
 
 |===
+
+
+== 9336C-FX2-T esempio di foglio di lavoro di cablaggio (12 porte)
+
+La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
+
+[cols="1,3,1,3"]
+|===
+2+| Switch del cluster A 2+| Switch del cluster B 
+
+
+| Porta dello switch | Utilizzo di nodi e porte | Porta dello switch | Utilizzo di nodi e porte 
+
+
+ a| 
+1
+ a| 
+4x100GbE nodo 1
+ a| 
+1
+ a| 
+4x100GbE nodo 1
+
+
+
+ a| 
+2
+ a| 
+4x100GbE nodo 2
+ a| 
+2
+ a| 
+4x100GbE nodo 2
+
+
+
+ a| 
+3
+ a| 
+4x100GbE nodo 3
+ a| 
+3
+ a| 
+4x100GbE nodo 3
+
+
+
+ a| 
+4
+ a| 
+4x100GbE nodo 4
+ a| 
+4
+ a| 
+4x100GbE nodo 4
+
+
+
+ a| 
+5
+ a| 
+4x100GbE nodo 5
+ a| 
+5
+ a| 
+4x100GbE nodo 5
+
+
+
+ a| 
+6
+ a| 
+4x100GbE nodo 6
+ a| 
+6
+ a| 
+4x100GbE nodo 6
+
+
+
+ a| 
+7
+ a| 
+Nodo 4 x 100 GbE 7
+ a| 
+7
+ a| 
+Nodo 4 x 100 GbE 7
+
+
+
+ a| 
+8
+ a| 
+Nodo 4 x 100 GbE 8
+ a| 
+8
+ a| 
+Nodo 4 x 100 GbE 8
+
+
+
+ a| 
+9
+ a| 
+Nodo 4 x 100 GbE 9
+ a| 
+9
+ a| 
+Nodo 4 x 100 GbE 9
+
+
+
+ a| 
+10
+ a| 
+Nodo 4x100GbE 10
+ a| 
+10
+ a| 
+Nodo 4x100GbE 10
+
+
+
+ a| 
+da 11 a 36
+ a| 
+Richiede licenza
+ a| 
+da 11 a 36
+ a| 
+Richiede licenza
+
+|===
+
+
+== 9336C-FX2-T foglio di lavoro cablaggio vuoto (12 porte)
+
+È possibile utilizzare il foglio di lavoro dei cavi vuoto per documentare le piattaforme supportate come nodi in un cluster.
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Switch del cluster A 2+| Switch del cluster B 
+
+
+ a| 
+1
+ a| 
+ a| 
+1
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+2
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+3
+ a| 
+
+
+
+ a| 
+4
+ a| 
+ a| 
+4
+ a| 
+
+
+
+ a| 
+5
+ a| 
+ a| 
+5
+ a| 
+
+
+
+ a| 
+6
+ a| 
+ a| 
+6
+ a| 
+
+
+
+ a| 
+7
+ a| 
+ a| 
+7
+ a| 
+
+
+
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+
+
+
+ a| 
+9
+ a| 
+ a| 
+9
+ a| 
+
+
+
+ a| 
+10
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+da 11 a 36
+ a| 
+Richiede licenza
+ a| 
+da 11 a 36
+ a| 
+Richiede licenza
+
+|===
+Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"] per ulteriori informazioni sulle porte dello switch.

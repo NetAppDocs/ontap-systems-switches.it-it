@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9336c-fx2 
 summary: Questa procedura consente di installare il software NX-OS sullo switch cluster Nexus 9336C-FX2. 
 ---
-= Installare il software NX-OS
+= Installare o aggiornare il software NX-OS
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -694,4 +694,4 @@ In caso di mancato ritorno delle LIF del cluster alle porte home, puoi ripristin
 
 
 .Quali sono le prossime novità?
-link:install-rcf-software-9336c-storage.html["Installare RCF"].
+link:install-rcf-software-9336c-storage.html["Installare o aggiornare RCF"].

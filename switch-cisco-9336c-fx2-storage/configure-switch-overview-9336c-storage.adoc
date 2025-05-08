@@ -20,12 +20,33 @@ Lo switch Cisco Nexus 9336C-FX2 fa parte della piattaforma Cisco Nexus 9000 e pu
 Per configurare inizialmente uno switch Cisco Nexus 9336C-FX2 su sistemi che eseguono ONTAP, attenersi alla seguente procedura:
 
 . link:setup-worksheet-9336c-storage.html["Completare il foglio di lavoro per il cablaggio"].
++
+Il foglio di lavoro di esempio relativo ai cavi fornisce esempi di assegnazione delle porte consigliate dagli switch ai controller. Il foglio di lavoro vuoto fornisce un modello che è possibile utilizzare per la configurazione del cluster.
+
 . link:install-9336c-storage.html["Installare lo switch"].
++
+Configurare l'hardware dello switch.
+
 . link:setup-switch-9336c-storage.html["Configurare lo switch"].
++
+Configurare lo switch storage Cisco Nexus 9336C-FX2
+
 . link:install-switch-and-passthrough-panel-9336c-storage.html["Installare lo switch in un armadio NetApp"].
-. link:install-nxos-overview-9336c-storage.html["Preparazione all'installazione di NX-OS e RCF"].
-. link:install-nxos-software-9336c-storage.html["Installare il software NX-OS"].
-. link:install-rcf-software-9336c-storage.html["Installare il file di configurazione RCF"].
++
+A seconda della configurazione, è possibile installare lo switch Cisco Nexus 9336C-FX2 e il pannello pass-through in un cabinet NetApp con le staffe standard incluse con lo switch.
+
+. link:install-nxos-overview-9336c-storage.html["Preparare l'installazione o l'aggiornamento di NX-OS e RCF"].
++
+Seguire le procedure preliminari per l'installazione del software Cisco NX-OS e dei file di configurazione di riferimento (RCF).
+
+. link:install-nxos-software-9336c-storage.html["Installare o aggiornare il software NX-OS"].
++
+Installa o aggiorna il software NX-OS sullo switch storage Nexus 9336C-FX2.
+
+. link:install-rcf-software-9336c-storage.html["Installare o aggiornare il file di configurazione RCF"].
++
+Installare o aggiornare l'RCF dopo aver configurato per la prima volta lo switch Nexus 9336C-FX2. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.
+
 
 
 

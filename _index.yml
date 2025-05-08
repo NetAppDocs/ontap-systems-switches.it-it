@@ -20,7 +20,7 @@ indexpage:
       url: "/switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"
     - title: Switch cluster - switch cluster NVIDIA SN2100
       url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
-    - title: Switch di storage - Cisco Nexus 9336C-FX2
+    - title: Switch storage - Cisco Nexus 9336C-FX2 o 9336C-FX2-T.
       url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
     - title: Switch di archiviazione - NVIDIA SN2100
       url: "/switch-nvidia-sn2100/configure-overview-sn2100-storage.html"

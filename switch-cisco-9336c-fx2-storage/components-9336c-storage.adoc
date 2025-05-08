@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-storage/components-9336c-storage.html
 keywords: shared storage cluster switch 
 summary: A partire da ONTAP 9.9.1, è possibile utilizzare gli switch Cisco Nexus 9336C-FX2 per combinare funzionalità di storage e cluster in uno scenario di switch condiviso. 
 ---
-= Componenti e codici ricambio per switch storage Cisco Nexus 9336C-FX2
+= Componenti e numeri dei componenti per gli switch storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,9 @@ summary: A partire da ONTAP 9.9.1, è possibile utilizzare gli switch Cisco Nexu
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dello switch Cisco Nexus 9336C-FX2, consultare l'elenco dei componenti e dei codici dei componenti.
+Per l'installazione e la manutenzione degli switch storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T, rivedere l'elenco dei componenti e dei numeri parte.
 
-La seguente tabella elenca il codice ricambio e la descrizione dello switch, delle ventole e degli alimentatori 9336C-FX2:
+La tabella seguente elenca il numero di parte e la descrizione per gli interruttori di memorizzazione 9336C-FX2 e 9336C-FX2-T, le ventole e gli alimentatori:
 
 [cols="1,2"]
 |===
@@ -26,28 +26,49 @@ La seguente tabella elenca il codice ricambio e la descrizione dello switch, del
  a| 
 X190200-CS-PE
  a| 
-N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28
+Interruttore quadro strumenti, N9336C 36Pt PTSX 10/25/40/100g
 
 
 
  a| 
 X190200-CS-PI
  a| 
-N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28
+Interruttore quadro strumenti, N9336C 36Pt PSIN 10/25/40/100g
+
+
+
+ a| 
+X190212-CS-PE
+ a| 
+Interruttore quadro strumenti, N9336C 12pt (9336C-FX2-T) PTSX 10/25/40/100g
+
+
+
+ a| 
+X190212-CS-PI
+ a| 
+Interruttore quadro strumenti, N9336C 12pt (9336C-FX2-T) PSIN 10/25/40/100g
+
+
+
+ a| 
+SW-N9K-FX2-24P-UPG
+ a| 
+SW, licenza POD Cisco 9336CFX2 a 24 porte
 
 
 
  a| 
 X190210-FE-PE
  a| 
-N9K-9336C, FTE, PTSX, 36PT10/25/40/100GQSFP28
+N9K-9336C, FTE, PTSX, 36PT 10/25/40/100GQSFP28
 
 
 
  a| 
 X190210-FE-PI
  a| 
-N9K-9336C, FTE, PSIN, 36PT10/25/40/100GQSFP28
+N9K-9336C, FTE, PSIN, 36PT 10/25/40/100GQSFP28
 
 
 
@@ -85,3 +106,15 @@ X-NXA-FAN-65CFM-PI
 N9K-9336C 65CFM, flusso d'aria di aspirazione lato porta
 
 |===
+
+
+== Licenze Cisco Smart
+
+Per attivare più di 12 porte sullo switch di storage Cisco Nexus 9336C-FX-T, è necessario acquistare una licenza Cisco Smart. Le licenze Cisco Smart vengono gestite tramite gli account Cisco Smart.
+
+. Se necessario, creare un nuovo account Smart. Per ulteriori informazioni, vedere https://id.cisco.com/signin/register["Creare un nuovo account Smart"^].
+. Richiedere l'accesso a un account Smart esistente. Per ulteriori informazioni, vedere https://id.cisco.com/oauth2/default/v1/authorize?response_type=code&scope=openid%20profile%20address%20offline_access%20cci_coimemberOf%20email&client_id=cae-okta-web-gslb-01&state=s2wvKDiBja__7ylXonWrq8w-FAA&redirect_uri=https%3A%2F%2Frpfa.cloudapps.cisco.com%2Fcb%2Fsso&nonce=qO6s3cZE5ZdhC8UKMEfgE6fbu3mvDJ8PTw5jYOp6z30["Richiedere l'accesso a un account Smart esistente"^].
+
+
+
+NOTE: Una volta acquistata la licenza Smart, installare l'RCF appropriato per abilitare e configurare tutte le 36 porte disponibili per l'uso.
