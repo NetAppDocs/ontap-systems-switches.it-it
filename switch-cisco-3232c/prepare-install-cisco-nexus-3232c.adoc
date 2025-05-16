@@ -226,4 +226,4 @@ Cluster
 
 
 .Quali sono le prossime novità?
-link:install-nxos-software-3232c.html["Installare il software NX-OS"]
+link:install-nx-os-software-3232c.html["Installare il software NX-OS"]
