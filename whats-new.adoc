@@ -23,6 +23,15 @@ Scopri i nuovi switch per sistemi FAS e AFF. Per ulteriori informazioni sull'int
 
 
  a| 
+Switch di cluster e storage Cisco Nexus 9336C-FX2-T a 12 porte 10/25/40/100GbE (X190212-CS-PE e X190212-CS-PI)
+ a| 
+Supporta configurazioni di cluster 10/25/40/100GbE e configurazioni di storage 100GbE (switch-attached storage).
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
 Switch NVIDIA 100GbE a 16 porte (X190006-PE e X190006-PI)
  a| 
 Supporto di switch per cluster Interconnect NVIDIA SN2100 e switch storage, incluso il supporto per le configurazioni IP MetroCluster.

@@ -38,81 +38,11 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.14.1 e versioni precedenti
---
-. Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.
-+
-*NOTA:* se si risponde `y` al prompt delle specifiche dell'utente, assicurarsi che l'utente disponga delle autorizzazioni necessarie, come descritto in <<Prima di iniziare>> .
-
-+
-[source, cli]
-----
-system switch ethernet log setup-password
-----
-+
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log setup-password*
-Enter the switch name: <return>
-The switch name entered is not recognized.
-Choose from the following list:
-*cs1*
-*cs2*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *cs1*
-Would you like to specify a user other than admin for log collection? {y|n}: *n*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *cs2*
-
-Would you like to specify a user other than admin for log collection? {y|n}: *n*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-----
-. Per richiedere la raccolta del registro di supporto e attivare la raccolta periodica, eseguire il comando seguente. Questo avvia entrambi i tipi di raccolta di log: I log dettagliati `Support` e una raccolta oraria di `Periodic` dati.
-+
-[source, cli]
-----
-system switch ethernet log modify -device <switch-name> -log-request true
-----
-+
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
-
-Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-
-cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
-
-Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-----
-+
-Attendere 10 minuti, quindi verificare che la raccolta dei log sia completa:
-
-+
-[source, cli]
-----
-system switch ethernet log show
-----
-
-
---
 .ONTAP 9.15.1 e versioni successive
 --
 . Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.
 +
-*NOTA:* se si risponde `y` al prompt delle specifiche dell'utente, assicurarsi che l'utente disponga delle autorizzazioni necessarie, come descritto in <<Prima di iniziare>>.
+*NOTA:* Se si risponde *y* alla richiesta di specificazione dell'utente, assicurarsi che l'utente disponga delle autorizzazioni necessarie come descritto in <<Prima di iniziare>> .
 
 +
 [source, cli]
@@ -146,7 +76,12 @@ Would you like to specify a user other than admin for log collection? {y|n}: *n*
 Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
-. Abilita raccolta registro periodica:
+
+
+
+NOTE: Per CL 5.11.1, creare l'utente *cumulus* e rispondere *y* al seguente prompt: Si desidera specificare un utente diverso da admin per la raccolta dei log? {y|n}: *y*
+
+. [[step2]]Abilita la raccolta periodica dei registri:
 +
 [source, cli]
 ----
@@ -231,6 +166,81 @@ cluster1::*> *system switch ethernet log show -instance*
      Last Support Log Timestamp: 3/11/2024 11:18:54
            Support Log Filename: cluster1:/mroot/etc/log/shm-cluster-log.tgz
 2 entries were displayed.
+----
+
+
+--
+.ONTAP 9.14.1 e versioni precedenti
+--
+. Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.
++
+*NOTA:* se si risponde `y` al prompt delle specifiche dell'utente, assicurarsi che l'utente disponga delle autorizzazioni necessarie, come descritto in <<Prima di iniziare>>.
+
++
+[source, cli]
+----
+system switch ethernet log setup-password
+----
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+*cs1*
+*cs2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs1*
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs2*
+
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+----
+
+
+
+NOTE: Per CL 5.11.1, creare l'utente *cumulus* e rispondere *y* al seguente prompt: Si desidera specificare un utente diverso da admin per la raccolta dei log? {y|n}: *y*
+
+. [[step2]] Per richiedere la raccolta del registro di supporto e abilitare la raccolta periodica, eseguire il seguente comando. Questo avvia entrambi i tipi di raccolta di log: I log dettagliati `Support` e una raccolta oraria di `Periodic` dati.
++
+[source, cli]
+----
+system switch ethernet log modify -device <switch-name> -log-request true
+----
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+----
++
+Attendere 10 minuti, quindi verificare che la raccolta dei log sia completa:
+
++
+[source, cli]
+----
+system switch ethernet log show
 ----
 
 

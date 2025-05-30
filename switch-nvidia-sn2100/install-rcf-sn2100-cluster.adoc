@@ -40,6 +40,41 @@ L'output di comando di esempio utilizza l'indirizzo IP di gestione dello switch 
 ====
 .Cumulus Linux 4.4.3
 --
+. Collegare lo switch del cluster alla rete di gestione.
+. Utilizzare il  `ping` comando per verificare la connettività al server che ospita Cumulus Linux e RCF.
+. Visualizzare le porte del cluster su ciascun nodo collegato agli switch del cluster:
++
+`network device-discovery show`
+
+. Controllare lo stato amministrativo e operativo di ciascuna porta del cluster.
++
+.. Verificare che tutte le porte del cluster siano funzionanti:
++
+`network port show -role cluster`
+
+.. Verificare che tutte le interfacce del cluster (LIF) siano sulla porta home:
++
+`network interface show -role cluster`
+
+.. Verificare che il cluster visualizzi le informazioni per entrambi gli switch del cluster:
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
+
+
+. Disattiva l'autorevert sulle LIF del cluster. Le LIF del cluster eseguono il failover sullo switch del cluster partner e rimangono nella pagina man mano che si esegue la procedura di upgrade sullo switch target:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
++
+[NOTE]
+.Tenere presente quanto segue:
+====
+** Se stai aggiornando il tuo RCF, devi disabilitare il ripristino automatico per questo passaggio.
+** Se hai appena aggiornato la tua versione di Cumulus Linux, non è necessario disattivare il ripristino automatico per questo passaggio perché è già disattivato.
+
+
+====
 . Visualizzare le interfacce disponibili sullo switch SN2100:
 +
 [listing, subs="+quotes"]
@@ -264,11 +299,55 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 ----
 
 
+. Verificare che il cluster funzioni correttamente:
++
+`cluster show`
+
+. Ripetere i passaggi da 1 a 14 sul secondo interruttore.
+. Abilitare il ripristino automatico sulle LIF del cluster.
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
 
 
 --
 .Cumulus Linux 5.4.0
 --
+. Collegare lo switch del cluster alla rete di gestione.
+. Utilizzare il  `ping` comando per verificare la connettività al server che ospita Cumulus Linux e RCF.
+. Visualizzare le porte del cluster su ciascun nodo collegato agli switch del cluster:
++
+`network device-discovery show`
+
+. Controllare lo stato amministrativo e operativo di ciascuna porta del cluster.
++
+.. Verificare che tutte le porte del cluster siano funzionanti:
++
+`network port show -role cluster`
+
+.. Verificare che tutte le interfacce del cluster (LIF) siano sulla porta home:
++
+`network interface show -role cluster`
+
+.. Verificare che il cluster visualizzi le informazioni per entrambi gli switch del cluster:
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
+
+
+. Disattiva l'autorevert sulle LIF del cluster. Le LIF del cluster eseguono il failover sullo switch del cluster partner e rimangono nella pagina man mano che si esegue la procedura di upgrade sullo switch target:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
++
+[NOTE]
+.Tenere presente quanto segue:
+====
+** Se stai aggiornando il tuo RCF, devi disabilitare il ripristino automatico per questo passaggio.
+** Se hai appena aggiornato la tua versione di Cumulus Linux, non è necessario disattivare il ripristino automatico per questo passaggio perché è già disattivato.
+
+
+====
 . Visualizzare le interfacce disponibili sullo switch SN2100:
 +
 [listing, subs="+quotes"]
@@ -586,11 +665,55 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 ----
 
 
+. Verificare che il cluster funzioni correttamente:
++
+`cluster show`
+
+. Ripetere i passaggi da 1 a 14 sul secondo interruttore.
+. Abilitare il ripristino automatico sulle LIF del cluster.
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
 
 
 --
 .Cumulus Linux 5.11.0
 --
+. Collegare lo switch del cluster alla rete di gestione.
+. Utilizzare il  `ping` comando per verificare la connettività al server che ospita Cumulus Linux e RCF.
+. Visualizzare le porte del cluster su ciascun nodo collegato agli switch del cluster:
++
+`network device-discovery show`
+
+. Controllare lo stato amministrativo e operativo di ciascuna porta del cluster.
++
+.. Verificare che tutte le porte del cluster siano funzionanti:
++
+`network port show -role cluster`
+
+.. Verificare che tutte le interfacce del cluster (LIF) siano sulla porta home:
++
+`network interface show -role cluster`
+
+.. Verificare che il cluster visualizzi le informazioni per entrambi gli switch del cluster:
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
+
+
+. Disattiva l'autorevert sulle LIF del cluster. Le LIF del cluster eseguono il failover sullo switch del cluster partner e rimangono nella pagina man mano che si esegue la procedura di upgrade sullo switch target:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
++
+[NOTE]
+.Tenere presente quanto segue:
+====
+** Se stai aggiornando il tuo RCF, devi disabilitare il ripristino automatico per questo passaggio.
+** Se hai appena aggiornato la tua versione di Cumulus Linux, non è necessario disattivare il ripristino automatico per questo passaggio perché è già disattivato.
+
+
+====
 . Visualizzare le interfacce disponibili sullo switch SN2100:
 +
 [listing, subs="+quotes"]
@@ -907,6 +1030,15 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
     Version Source: LLDP
 ----
 
+
+. Verificare che il cluster funzioni correttamente:
++
+`cluster show`
+
+. Ripetere i passaggi da 1 a 14 sul secondo interruttore.
+. Abilitare il ripristino automatico sulle LIF del cluster.
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
 
 
 

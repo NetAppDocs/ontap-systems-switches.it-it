@@ -97,7 +97,7 @@ Il seguente comando elimina la creazione automatica del caso per due ore:
 +
 [listing]
 ----
-cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=2h
+cluster1::*> system node autosupport invoke -node * -type all -message MAINT=2h
 ----
 . Impostare il livello di privilegio su Advanced (avanzato), immettendo *y* quando viene richiesto di continuare:
 +
@@ -635,7 +635,7 @@ RPC status:
 ====
 [listing]
 ----
-cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=END
+cluster1::*> system node autosupport invoke -node * -type all -message MAINT=END
 ----
 ====
 +

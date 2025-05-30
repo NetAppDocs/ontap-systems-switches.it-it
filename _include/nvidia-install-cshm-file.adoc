@@ -2,26 +2,21 @@
 :allow-uri-read: 
 
 
-Seguire questa procedura per installare il file di configurazione applicabile per il monitoraggio dello stato dello switch Ethernet degli switch cluster NVIDIA.
+Per configurare il monitoraggio dello stato dello switch Ethernet sugli switch Ethernet NVIDIA, seguire questa procedura.
 
-I modelli supportati sono:
+Queste istruzioni si applicano se gli switch NVIDIA X190006-PE e X190006-PI non vengono rilevati correttamente, il che può essere confermato eseguendo  `system switch ethernet show` e controlla se *OTHER* è visualizzato per il tuo modello. Per identificare il modello del tuo switch NVIDIA, trova il codice prodotto con il comando  `nv show platform hardware` per NVIDIA CL 5.8 e precedenti o  `nv show platform` per le versioni successive.
 
-* MSN2100-CB2FC
-* MSN2100-CB2RC
-* X190006-PE
-* X190006-PI
+[NOTE]
+====
+Questi passaggi sono consigliati anche se si desidera che il monitoraggio dello stato e la raccolta dei log funzionino correttamente quando si utilizza NVIDIA CL 5.11.x con le seguenti release di ONTAP. Sebbene il monitoraggio dello stato e la raccolta dei log possano comunque funzionare anche senza questi passaggi, seguirli garantisce il corretto funzionamento di tutto.
+
+* 9.10.1P20, 9.11.1P18, 9.12.1P16, 9.13.1P8, 9.14.1, 9.15.1 e versioni successive
 
 
-
-NOTE: Questa procedura di installazione si applica a ONTAP 9.10.1 e versioni successive.
-
+====
 .Prima di iniziare
-* Verificare che sia necessario scaricare il file di configurazione eseguendo `system switch ethernet show` e verificando se è visualizzato *ALTRO* per il modello in uso.
-+
-Se il modello mostra ancora *ALTRO* dopo aver applicato il file di configurazione, contattare il supporto NetApp.
-
 * Assicurarsi che il cluster ONTAP sia attivo e in esecuzione.
-* Abilitare SSH per utilizzare tutte le funzioni disponibili in CSHM.
+* Abilitare SSH sullo switch per utilizzare tutte le funzionalità disponibili in CSHM.
 * Cancellare la `/mroot/etc/cshm_nod/nod_sign/` directory su tutti i nodi:
 +
 .. Immettere la notoresella:
@@ -92,7 +87,7 @@ In caso di dubbi, rimuovere tutti i file di configurazione per i modelli support
 +
 [listing, subs="+quotes"]
 ----
-cluster1::> *system cluster-switch configure-health-monitor -node * -package-url http://192.168.2.20/usr/download/_[filename.zip]_*
+cluster1::> *system switch ethernet*
 ----
 . Verificare che l'output del comando termini con il seguente testo per la versione di ONTAP in uso:
 
@@ -125,3 +120,6 @@ In caso di errore, contattare il supporto NetApp.
 cluster1::> *system switch ethernet show*
 ----
 
+
+
+NOTE: Se il modello mostra ancora *ALTRO* dopo aver applicato il file di configurazione, contattare il supporto NetApp.

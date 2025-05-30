@@ -86,7 +86,7 @@ Fornisce informazioni legali, sulla conformità e sulla sicurezza degli switch N
 
 == Documentazione sui sistemi ONTAP
 
-Per configurare un sistema ONTAP, sono necessari i seguenti documenti per la versione del sistema operativo in uso dal https://docs.netapp.com/ontap-9/index.jsp["Centro documentazione di ONTAP 9"^].
+Per configurare un sistema ONTAP, sono necessari i seguenti documenti per la versione del sistema operativo da  https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^] .
 
 [cols="1,2"]
 |===
