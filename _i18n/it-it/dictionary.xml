@@ -583,9 +583,7 @@
   <block id="d2a62ef21f835696a8c6261bed3c3040" category="list-text">controllo di flusso: nessuno</block>
   <block id="5774edcf06cc50000de075fa347fa292" category="list-text">Accedere allo switch come<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block> E premere *Invio* quando viene richiesta una password. Il nome predefinito dello switch è *routing*. Quando richiesto, immettere<block ref="208f156d4a803025c284bb595a7576b4" prefix=" " category="inline-code"></block>. In questo modo è possibile accedere alla modalità EXEC privilegiata per la configurazione dello switch.</block>
   <block id="b51993b6b7e3ea50c17952db42c3a543" category="list-text">Modificare il nome dello switch in *cs2*.</block>
-  <block id="c04ce9c1c44c5e07bf7a73e79811a429" category="list-text">Per impostare un indirizzo IP statico, utilizzare<block ref="be61298f670927dc76b9ef87aec3538b" prefix=" " category="inline-code"></block>,<block ref="0b1b9820b62e4a0d7f72c76456845979" prefix=" " category="inline-code"></block>, e.<block ref="a14092a0fca1bb648cb5a74d7dfe7995" prefix=" " category="inline-code"></block> comandi come mostrato nell'esempio.</block>
   <block id="ed37a6a8028dc06785735d8c0a7178b4" category="paragraph">serviceport è impostato su Usa DHCP per impostazione predefinita. L'indirizzo IP, la subnet mask e l'indirizzo del gateway predefinito vengono assegnati automaticamente.</block>
-  <block id="433c21332379db77320fe7a821073bdc" category="list-text">Verificare i risultati utilizzando il comando:</block>
   <block id="054f736f28a6918e0571caad3b5d1440" category="paragraph"><block ref="16e8f72947d7ec600259a2f0b5896bd0" prefix="" category="inline-code"></block></block>
   <block id="afac0a52c83984bf1020f56dd9df720f" category="list-text">Configurare il dominio e il server dei nomi:</block>
   <block id="46180f667842fa1595248c425401bc35" category="paragraph"><block ref="e2d5a00791bce9a01f99bc6fd613a39d" prefix="" category="inline-code"></block></block>
@@ -2321,7 +2319,6 @@
   <block id="95f749c32572d23c36c0f33b9f48fa88" category="inline-link-macro">Installare uno switch Cisco Nexus 9336C-FX2 in un cabinet NetApp</block>
   <block id="674dac01986b07db44266812735775f6" category="paragraph">Se lo si desidera, è possibile <block ref="2243efeaee625d6b6076bcdcbd40e014" category="inline-link-macro-rx"></block>. In caso contrario, passare a. <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="d002eea8f83f99bafbbc5f36440edd41" category="summary">È possibile installare RCF dopo aver configurato lo switch Nexus 9336C-FX2 per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione RCF.</block>
-  <block id="0e20b420112310f5c09a775e13d5ec63" category="paragraph">È possibile installare RCF dopo aver configurato per la prima volta lo switch Nexus 9336C-FX2. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.</block>
   <block id="61c7408c0e623b660a741b6b2c143251" category="paragraph">Prima di iniziare, completare la procedura descritta in <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="065efbcd9d0a8e180fd23e7abf72c407" category="list-text">I nomi dei due switch Cisco sono cs1 e cs2.</block>
   <block id="0a7b7f6be6701fe3f4fccf471c185aac" category="list-text">I nomi LIF del cluster sono cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2 , cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 e cluster1-04_clus2.</block>
@@ -5040,7 +5037,6 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="a631ed2f01f0a384874d92ecdaee2d1c" category="paragraph">Configura il tuo cluster senza switch a due nodi per la migrazione a un cluster con switch a due nodi.</block>
   <block id="5f9610f3409d9abe96cc344156486c5e" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="4c0a19683ab4dd37cd0517d25639fa78" category="inline-link-macro-rx"></block></block>
   <block id="e796841df950e342f76a5b538574f5f6" category="paragraph">Completamento della migrazione verso un cluster con switch a due nodi.</block>
-  <block id="e4ff582cba38e556dc88b3e74baf1ec1" category="paragraph">Direttiva non risolta in &lt;stdin&gt; - include:./_include/install-rcf-software-9336c-cluster.adoc[]</block>
   <block id="1ececed2a569720ced41e9cd50d7b238" category="list-text">Lo switch CS1 e lo switch CS2 sono accesi e la configurazione iniziale dello switch è completa (l'indirizzo IP di gestione e SSH è impostato).</block>
   <block id="c3109b36f2c8edda93835ccefa0e4dc3" category="doc">Installare o aggiornare la panoramica del file di configurazione di riferimento (RCF)</block>
   <block id="6d7b8066e6c7166408cb61e68a705e7f" category="list-text">I nomi dei due switch Cisco sono *CS1* e *CS2*.</block>
@@ -5319,4 +5315,9 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="1793733c3fd6ed243dfcb1cd45582f6e" category="list-text">Scarica l'immagine di Cumulux Linux 5.11.0:</block>
   <block id="3b17e95301e3d2dffb102ceff49ecd86" category="list-text">Disconnettersi e riconnettersi allo switch per visualizzare il nome dello switch aggiornato al prompt:</block>
   <block id="7c7a0b76c488baaa82c48a846faa8727" category="paragraph"><block ref="0d353ea2e4037b21b3bb06f2b69f1c6c" category="inline-link-macro-rx"></block>.</block>
+  <block id="fc6063e37d3407a7d76fabb59f7a96a3" category="list-text">Per impostare un indirizzo di gestione IPv4 o IPv6 statico per la porta di servizio dello switch:</block>
+  <block id="42a9137a05a60eb752dcdf982e717626" category="open-title">IPv4</block>
+  <block id="fdb7cb8f657426e7c409bfd6d1a36ce4" category="open-title">IPv6</block>
+  <block id="eac292441a720b0a0f4b67dcb9db6398" category="list-text">[[step7]]Verificare i risultati utilizzando il comando:</block>
+  <block id="c946088bdd01d4ceb54099911c69adbe" category="admonition">Il numero di porte visualizzate varia in base al numero di nodi nel cluster.</block>
 </blocks>

@@ -206,9 +206,17 @@ Assicurarsi che l'autorevert sia disattivato dopo aver eseguito questo comando.
 +
 [listing, subs="+quotes"]
 ----
+cs2> *enable*
+cs2# *configure*
 cs2(config)# *interface eth1/1/1-2,eth1/7-8*
 cs2(config-if-range)# *shutdown*
+cs2(config-if-range)# *exit*
+cs2# *exit*
 ----
++
+
+NOTE: Il numero di porte visualizzate varia in base al numero di nodi nel cluster.
+
 . Verificare che le porte del cluster siano migrate alle porte ospitate sullo switch del cluster cs1. Questa operazione potrebbe richiedere alcuni secondi.
 +
 `network interface show -vserver Cluster`
@@ -570,10 +578,18 @@ NOTE: I nodi del cluster possono richiedere fino a 5 minuti per il reporting com
 ====
 [listing, subs="+quotes"]
 ----
+cs1> *enable*
+cs1# *configure*
 cs1(config)# *interface eth1/1/1-2,eth1/7-8*
 cs1(config-if-range)# *shutdown*
+cs1(config-if-range)# *exit*
+cs1# *exit*
 ----
 ====
++
+
+NOTE: Il numero di porte visualizzate varia in base al numero di nodi nel cluster.
+
 . Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch cs2. Questa operazione potrebbe richiedere alcuni secondi.
 +
 `network interface show -vserver Cluster`
