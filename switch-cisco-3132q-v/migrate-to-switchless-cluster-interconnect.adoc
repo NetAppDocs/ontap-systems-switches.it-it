@@ -11,6 +11,19 @@ summary: È possibile migrare da un cluster con una rete cluster commutata a uno
 
 
 [role="lead"]
+In ONTAP 9.3 e versioni successive, è possibile migrare da un cluster con una rete di cluster commutata a uno in cui due nodi sono connessi direttamente.
+
+[NOTE]
+====
+NetApp consiglia di aggiornare la versione di ONTAP prima di procedere con il passaggio a un cluster switchless per gli switch Cisco Nexus 3132Q-V.
+
+Per ulteriori informazioni, vedere quanto segue:
+
+* link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU540["SU540: Gli errori della scheda di rete Chelsio T6 causano l'arresto del sistema durante l'aggiornamento da switch di rete da 40G a 100G"^]
+* link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_panic_after_migration_from_switched_to_switchless_cluster["Nodo in panico dopo la migrazione da un cluster commutato a uno senza commutatore"^]
+
+
+====
 È possibile migrare da un cluster con una rete cluster commutata a uno in cui due nodi sono collegati direttamente per ONTAP 9.3 e versioni successive.
 
 
