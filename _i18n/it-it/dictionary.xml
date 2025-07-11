@@ -5332,4 +5332,11 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="1767f5d7b100e3d4d6c5fea66216a39c" category="admonition">Nel passaggio 3 *Aggiornamento del file MOTD* sopra riportato, viene eseguito il comando `cat /etc/issue.net. Questo consente di verificare il nome file RCF, la versione RCF, le porte da utilizzare e altre informazioni importanti nel banner RCF.</block>
   <block id="86f7f66cb381cc46fe300e0c2c8f0499" category="inline-link-macro">La configurazione del server NTP non funziona con gli switch NVIDIA SN2100</block>
   <block id="c77e68e056a1f231532a65076ed213f7" category="paragraph">Vedi l'articolo della Knowledge Base <block ref="54a4a8d8880601232d1c62bd5f55e05a" category="inline-link-macro-rx"></block> per ulteriori dettagli.</block>
+  <block id="18e6dddff6b5dbe3698443f6bf547259" category="list-text">Per RCF versione 1.12 e successive, eseguire i seguenti comandi:</block>
+  <block id="b9290d13c5441920a725478322d847bc" category="paragraph"><block ref="fd00e81f5f0cef46bffcdca10e8bb0be" prefix="" category="inline-code"></block></block>
+  <block id="34425e3277b6cd10529c78a1067175a7" category="paragraph"><block ref="56f6c12b458176a1c5a0b7f219fc582f" prefix="" category="inline-code"></block></block>
+  <block id="36e8b4b3d01f5fa01bc38b742b7adae1" category="paragraph"><block ref="ceccb5672696bf7833b4da32e595b96e" prefix="" category="inline-code"></block></block>
+  <block id="255946ce0bdffe025ba4bdaa710146e6" category="list-text">Verificare che il file write_erase.cfg sia popolato come previsto:</block>
+  <block id="c8608e8042094ff03aff5d73acbce651" category="paragraph"><block ref="aa69f627a489063557f4707be7ba43f0" prefix="" category="inline-code"></block></block>
+  <block id="90b56b330f7736518fea2723b6853482" category="list-text">Ripetere i passaggi da 1 a 20 sull'interruttore CS2.</block>
 </blocks>

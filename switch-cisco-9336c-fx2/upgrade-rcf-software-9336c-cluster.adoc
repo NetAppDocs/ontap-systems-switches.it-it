@@ -265,6 +265,20 @@ cluster1::*>
 +
 `switch# show run | section "switchname" >> bootflash:write_erase.cfg`
 
+. Per RCF versione 1.12 e successive, eseguire i seguenti comandi:
++
+`switch# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
+
++
+`switch# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
+
++
+`switch# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
+
+. Verificare che il file write_erase.cfg sia popolato come previsto:
++
+`show file bootflash:write_erase.cfg`
+
 . Utilizzare il comando write erase per cancellare la configurazione salvata corrente:
 +
 `switch# write erase`
@@ -529,7 +543,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Ripetere i passaggi da 1 a 18 sull'interruttore CS2.
+. Ripetere i passaggi da 1 a 20 sull'interruttore CS2.
 . Abilitare il ripristino automatico sulle LIF del cluster.
 +
 `cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`

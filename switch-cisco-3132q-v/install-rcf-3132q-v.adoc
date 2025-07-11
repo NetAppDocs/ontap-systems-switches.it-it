@@ -417,7 +417,6 @@ NOTE: Per informazioni su come portare le porte 10GbE in linea dopo un aggiornam
 
 
 
-. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-3132q-v.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
 . Dopo aver verificato che le versioni RCF e le impostazioni dello switch siano corrette, copiare il file running-config nel file startup-config.
 +
 Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS Command Reference"^] guide.
@@ -453,6 +452,7 @@ cs2# copy Nexus_3132QV_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-comm
 cs2# copy running-config startup-config [########################################] 100% Copy complete
 ----
 ====
+. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-3132q-v.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
 . Verificare lo stato delle porte del cluster sul cluster.
 +
 .. Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:
