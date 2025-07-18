@@ -11,7 +11,7 @@ summary: Esaminare la panoramica del software.
 
 
 [role="lead"]
-Per installare e configurare inizialmente il software per uno switch cluster BES-53248, attenersi alla seguente procedura:
+Per installare e configurare il software per uno switch cluster BES-53248, attenersi alla seguente procedura:
 
 . link:configure-efos-software.html["Installare il software EFOS"].
 +
@@ -28,5 +28,9 @@ Installare o aggiornare l'RCF sullo switch del cluster BES-53248, quindi verific
 . link:configure-ssh.html["Abilitare SSH sugli switch cluster BES-53248"].
 +
 Se si utilizzano le funzioni CSHM (Ethernet Switch Health Monitor) e di raccolta dei registri, attivare SSH sugli switch.
+
+. link:reset-switch-bes-53248.html["Ripristinare l'interruttore alle impostazioni predefinite di fabbrica"].
++
+Cancellare le impostazioni dello switch del cluster BES-53248.
 
 

@@ -31,7 +31,7 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
 * Il monitoraggio dello stato dello switch deve essere abilitato per lo switch. Verificare questo assicurandosi che `Is Monitored:` il campo è impostato su *true* nell'output di `system switch ethernet show` comando.
 * Per la raccolta dei registri con gli switch Broadcom e Cisco:
 +
-** Gli utenti devono disporre di un Privileges di amministrazione di rete.
+** L'utente locale deve disporre dei privilegi di amministratore di rete.
 ** È necessario creare un nuovo utente sullo switch per ogni configurazione del cluster con la raccolta di log attivata. Questi switch non supportano più chiavi SSH per lo stesso utente. Qualsiasi impostazione di raccolta di log aggiuntiva eseguita sovrascrive qualsiasi chiave SSH preesistente per l'utente.
 
 

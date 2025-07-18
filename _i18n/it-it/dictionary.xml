@@ -319,7 +319,6 @@
   <block id="82c7b5069d64f95a2a115dff1c9ad171" category="inline-link-macro">Installare il file di configurazione di Cluster Switch Health Monitor (CSHM)</block>
   <block id="d007743863da413e0445811c05d574db" category="summary">Esaminare la panoramica del software.</block>
   <block id="93d9f7b647768c2633a5b9f8a68e2b52" category="doc">Workflow di installazione del software per switch BES-53248</block>
-  <block id="6dd4b5e58bd32b079e19b1dda5c2f1bc" category="paragraph">Per installare e configurare inizialmente il software per uno switch cluster BES-53248, attenersi alla seguente procedura:</block>
   <block id="62d8b9841abbee3c8d144371f887a783" category="list-text"><block ref="1233ecfc62f0bed40d830afa17eec2c7" category="inline-link-macro-rx"></block>.</block>
   <block id="fd280d62f276e98d2c1156b6a7cd8932" category="paragraph">Scaricare e installare il software Ethernet Fabric OS (EFOS) sullo switch cluster BES-53248.</block>
   <block id="e5e0ceddda654af2c9e3c1386537e4f7" category="paragraph">Facoltativamente, aggiungere nuove porte acquistando e installando ulteriori licenze. Il modello di base dello switch è concesso in licenza per 16 porte 10GbE o 25GbE e due porte 100GbE.</block>
@@ -5207,7 +5206,6 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="7baa7758ed49797651dc1e276762ae15" category="list-text">Clustering: *MSN2100-RCF-v1._x_-Cluster*</block>
   <block id="dd584ffba0b7534139645967bf24df84" category="sidebar">Installare o aggiornare lo script RCF</block>
   <block id="40b03f9635c63b20aade0ff8145eafb8" category="list-text">Per la raccolta dei registri con gli switch Broadcom e Cisco:</block>
-  <block id="89f1dd995a5c07ea1e13abc5993d9d59" category="list-text">Gli utenti devono disporre di un Privileges di amministrazione di rete.</block>
   <block id="60f743043272b873831b17c5e7290445" category="list-text">È necessario creare un nuovo utente sullo switch per ogni configurazione del cluster con la raccolta di log attivata. Questi switch non supportano più chiavi SSH per lo stesso utente. Qualsiasi impostazione di raccolta di log aggiuntiva eseguita sovrascrive qualsiasi chiave SSH preesistente per l'utente.</block>
   <block id="63229fc9218a5e1a57243ce033e91a3b" category="paragraph">Per ulteriori informazioni sull'installazione o l'aggiornamento di RCF, consultare l'articolo della Knowledge base<block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>.</block>
   <block id="26552c2532e5b34c96d8cef5f736c6ff" category="paragraph">Per ulteriori informazioni sull'installazione di RCF, consultare l'articolo della Knowledge base<block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>.</block>
@@ -5339,4 +5337,19 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="255946ce0bdffe025ba4bdaa710146e6" category="list-text">Verificare che il file write_erase.cfg sia popolato come previsto:</block>
   <block id="c8608e8042094ff03aff5d73acbce651" category="paragraph"><block ref="aa69f627a489063557f4707be7ba43f0" prefix="" category="inline-code"></block></block>
   <block id="90b56b330f7736518fea2723b6853482" category="list-text">Ripetere i passaggi da 1 a 20 sull'interruttore CS2.</block>
+  <block id="fb945b959f6754639fad6c6e9e9469b9" category="list-text">L'utente locale deve disporre dei privilegi di amministratore di rete.</block>
+  <block id="47547bd96a2d76e2174e671baccc263a" category="paragraph">Per installare e configurare il software per uno switch cluster BES-53248, attenersi alla seguente procedura:</block>
+  <block id="7a81f2c0648b303fec3fe1081158d0e3" category="inline-link-macro">Ripristinare l'interruttore alle impostazioni predefinite di fabbrica</block>
+  <block id="842f57c662529f95b306feb653984af0" category="list-text"><block ref="6356dc79de453379cf58db845e7c3b08" category="inline-link-macro-rx"></block>.</block>
+  <block id="585a6fd0f28eaade2a16ccaba1bb9b0d" category="paragraph">Cancellare le impostazioni dello switch del cluster BES-53248.</block>
+  <block id="b879f523acbbe3c8d6ea83060443367e" category="doc">Ripristinare lo switch del cluster BES-53248 ai valori predefiniti di fabbrica</block>
+  <block id="7515349dce34258a6f65c5f9b6b0bc58" category="paragraph">Per ripristinare le impostazioni predefinite di fabbrica dello switch cluster BES-53248, è necessario cancellare le impostazioni dello switch BES-53248.</block>
+  <block id="cf8c4cbc63a2e42b70c4b4beddd2e366" category="list-text">È necessario essere collegati allo switch mediante la console seriale.</block>
+  <block id="55b0c310e4703cc82f05f8c44c9d0d39" category="list-text">Questa attività ripristina la configurazione della rete di gestione.</block>
+  <block id="eceb40fbe3a93ae0c766b186cce3cba4" category="list-text">Passare al prompt dei comandi con privilegi elevati.</block>
+  <block id="8045e733034738065ca77d531de9666f" category="list-text">Cancella la configurazione di avvio.</block>
+  <block id="91f81f9cd1a23a248e317b6b22a84ce3" category="paragraph"><block ref="1fb554759d9d32d450daa4da09330114" prefix="" category="inline-code"></block></block>
+  <block id="671537f32d06de75a977dc3008daeff5" category="admonition">Se il sistema chiede se salvare la configurazione non salvata o modificata prima di ricaricare lo switch, selezionare *No*.</block>
+  <block id="01abea5f71122f7491f5d67a54692187" category="list-text">[[step4]] Attendi che lo switch si ricarichi, quindi accedi allo switch.</block>
+  <block id="3298c6d813bb0262584ca3882273ff2a" category="paragraph">L'utente predefinito è "admin" e non è impostata alcuna password. Viene visualizzato un prompt simile al seguente:</block>
 </blocks>
