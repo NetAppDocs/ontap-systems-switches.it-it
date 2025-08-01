@@ -1365,3 +1365,5 @@ Da ISL a switch B porta 66
 ISL per lo switch Di Una porta 66
 
 |===
+.Cosa c'è dopo?
+link:install-switch-92300yc.html["Installare lo switch"] .

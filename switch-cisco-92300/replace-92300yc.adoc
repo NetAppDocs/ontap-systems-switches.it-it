@@ -17,7 +17,7 @@ La sostituzione di uno switch Nexus 92300YC difettoso in una rete cluster è una
 
 == Verifica dei requisiti
 
-.Di cosa hai bisogno
+.Prima di iniziare
 Prima di sostituire lo switch, assicurarsi che:
 
 * Nel cluster e nell'infrastruttura di rete esistenti:

@@ -19,7 +19,9 @@ Prima di iniziare, completare la procedura descritta in link:install-nxos-overvi
 
 == Verifica dei requisiti
 
-.Di cosa hai bisogno
+.Prima di iniziare
+Assicurarsi di disporre di quanto segue:
+
 * Backup corrente della configurazione dello switch.
 * Un cluster completamente funzionante (nessun errore nei log o problemi simili).
 

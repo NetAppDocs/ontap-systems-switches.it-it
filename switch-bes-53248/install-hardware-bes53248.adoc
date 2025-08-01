@@ -19,4 +19,4 @@ Per installare l'hardware BES-53248, consultare la documentazione di Broadcom.
 
 
 .Quali sono le prossime novità?
-link:configure-install-initial.html["Configurare lo switch"].
+link:cabling-considerations-bes-53248.html["Analisi del cablaggio e della configurazione"] .

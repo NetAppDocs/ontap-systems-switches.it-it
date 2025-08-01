@@ -16,7 +16,7 @@ summary:
 [role="lead"]
 È possibile sostituire uno switch condiviso Nexus 9336C-FX2 difettoso. Si tratta di una procedura senza interruzioni (NDU).
 
-.Di cosa hai bisogno
+.Prima di iniziare
 Prima di sostituire lo switch, assicurarsi che:
 
 * Nel cluster e nell'infrastruttura di rete esistenti:

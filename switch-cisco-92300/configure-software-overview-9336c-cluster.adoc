@@ -1,0 +1,34 @@
+---
+permalink: switch-cisco-92300/configure-software-overview-92300-cluster.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-92300 switch 
+summary: Panoramica della configurazione software per gli switch cluster Cisco Nexus 92300YC 
+---
+= Flusso di lavoro di installazione del software per gli switch cluster Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per installare e configurare il software per uno switch Cisco Nexus 92300YC e per installare o aggiornare il file di configurazione di riferimento (RCF), attenersi alla seguente procedura:
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-install-initial.html["Configurare lo switch"]
+[role="quick-margin-para"]
+Configurare lo switch cluster 92300YC.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:install-nxos-overview.html["Preparare l'installazione del software NX-OS e di RCF"]
+[role="quick-margin-para"]
+Il software Cisco NX-OS e i file di configurazione di riferimento (RCF) devono essere installati sugli switch cluster Cisco 92300YC.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-nxos-software.html["Installare o aggiornare il software NX-OS"]
+[role="quick-margin-para"]
+Scaricare e installare o aggiornare il software NX-OS sullo switch cluster Cisco 392300YC.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:install-the-rcf-file.html["Installare RCF"]
+[role="quick-margin-para"]
+Installare l'RCF dopo aver configurato per la prima volta lo switch Cisco 92300YC.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-ssh-keys.html["Verificare la configurazione SSH"]
+[role="quick-margin-para"]
+Verificare che SSH sia abilitato sugli switch per utilizzare le funzionalità di monitoraggio dello stato dello switch Ethernet (CSHM) e di raccolta dei registri.

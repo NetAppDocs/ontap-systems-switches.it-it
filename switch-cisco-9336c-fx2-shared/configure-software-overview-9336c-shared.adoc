@@ -13,7 +13,22 @@ summary: Panoramica della configurazione software per gli switch condivisi Cisco
 [role="lead"]
 Per installare e configurare il software per uno switch condiviso Cisco Nexus 9336C-FX2, attenersi alla seguente procedura:
 
-. link:prepare-nxos-rcf-9336c-shared.html["Preparazione all'installazione di NX-OS e RCF"].
-. link:install-nxos-software-9336c-shared.html["Installare il software NX-OS"].
-. link:install-nxos-rcf-9336c-shared.html["Installare RCF"].
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-and-configure-9336c-shared.html["Configurare lo switch"]
+[role="quick-margin-para"]
+Configurare lo switch condiviso 9336C-FX2.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:prepare-nxos-rcf-9336c-shared.html["Preparare l'installazione del software NX-OS e di RCF"]
+[role="quick-margin-para"]
+Il software Cisco NX-OS e i file di configurazione di riferimento (RCF) devono essere installati sugli switch condivisi Cisco 9336C-FX2.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-nxos-software-9336c-shared.html["Installare o aggiornare il software NX-OS"]
+[role="quick-margin-para"]
+Scaricare e installare o aggiornare il software NX-OS sullo switch condiviso Cisco 9336C-FX2.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:install-nxos-rcf-9336c-shared.html["Installare RCF"]
+[role="quick-margin-para"]
+Installare l'RCF dopo aver configurato per la prima volta lo switch condiviso Cisco 9336C-FX2.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:upgrade-rcf-software-9336c-shared.html["Aggiornare il file RCF"]
+[role="quick-margin-para"]
+Aggiorna la versione RCF quando hai una versione esistente del file RCF installata sui tuoi switch operativi.

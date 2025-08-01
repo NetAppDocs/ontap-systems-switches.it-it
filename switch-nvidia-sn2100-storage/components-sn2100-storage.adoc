@@ -73,3 +73,6 @@ Kit di guide, NVIDIA Single Switch a breve profondità
 |===
 
 NOTE: Consultare la documentazione NVIDIA per ulteriori informazioni su https://docs.nvidia.com/networking/display/sn2000pub/Installation["Installazione dello switch SN2100 e del kit guida"^].
+
+.Cosa c'è dopo?
+link:required-documentation-sn2100-storage.html["Documentazione richiesta"]

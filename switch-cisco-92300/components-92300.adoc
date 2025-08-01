@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco nexus 92300YC 
 summary: Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete cluster supportati. È possibile utilizzare switch di gestione aggiuntivi, opzionali. 
 ---
-= Componenti per switch Cisco Nexus 92300YC
+= Componenti e numeri di parte per gli switch Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -66,3 +66,6 @@ Dettagli sul flusso d'aria dello switch Cisco Nexus 92300YC:
 * Flusso d'aria di scarico lato porta (aria standard) -- l'aria fredda entra nel telaio attraverso i moduli della ventola e dell'alimentatore nel corridoio freddo e viene erogata attraverso l'estremità della porta del telaio nel corridoio caldo. Flusso d'aria di scarico lato porta con colorazione blu.
 * Flusso d'aria di aspirazione lato porta (aria inversa) -- l'aria fredda entra nel telaio attraverso l'estremità della porta nel corridoio freddo e si scarica attraverso i moduli della ventola e dell'alimentatore nel corridoio caldo. Flusso d'aria di aspirazione lato porta con colorazione bordeaux.
 
+
+.Cosa c'è dopo?
+link:required-documentation-92300.html["Documentazione richiesta"] .

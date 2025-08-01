@@ -33,3 +33,6 @@ Sono necessarie le seguenti informazioni di rete per tutte le configurazioni del
 
 
 Fare riferimento a. https://hwu.netapp.com["Hardware Universe"^] per informazioni aggiornate.
+
+.Cosa c'è dopo?
+link:components-92300.html["Componenti e numeri di parte"] .

@@ -6,7 +6,7 @@ entries:
 - title: Panoramica
   pdf-filename: Panoramica_9336c-FX2-storage
   entries:
-  - title: Panoramica della configurazione
+  - title: Avvio rapido
     url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
   - title: Requisiti di configurazione
     url: "/switch-cisco-9336c-fx2-storage/configure-reqs-9336c-storage.html"
@@ -19,25 +19,29 @@ entries:
 - title: Installare l'hardware
   pdf-filename: Install_hardware_9336c-FX2-storage
   entries:
+  - title: Flusso di lavoro di installazione dell'hardware
+    url: "/switch-cisco-9336c-fx2-storage/install-hardware-workflow.html"
   - title: Completare il foglio di lavoro per il cablaggio
     url: "/switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html"
   - title: Installare lo switch
     url: "/switch-cisco-9336c-fx2-storage/install-9336c-storage.html"
-  - title: Configurare lo switch
-    url: "/switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html"
-  - title: Installare lo switch nel cabinet NetApp
+  - title: Installare lo switch nell'armadio NetApp
     url: "/switch-cisco-9336c-fx2-storage/install-switch-and-passthrough-panel-9336c-storage.html"
 - title: Configurare il software
   pdf-filename: Configure_software_9336c-FX2-storage
   entries:
   - title: Workflow di installazione del software
     url: "/switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html"
+  - title: Configurare lo switch
+    url: "/switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html"
   - title: Preparazione all'installazione di NX-OS e RCF
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-overview-9336c-storage.html"
   - title: Installa o aggiorna il software NX-OS
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-software-9336c-storage.html"
   - title: Installare o aggiornare RCF
     url: "/switch-cisco-9336c-fx2-storage/install-rcf-software-9336c-storage.html"
-- title: Sostituire lo switch di storage
+  - title: Verificare la configurazione SSH
+    url: "/switch-cisco-9336c-fx2-storage/configure-ssh-keys.html"
+- title: Sostituire l'interruttore di archiviazione
   pdf-filename: Replace_switch_9336c-FX2-storage
   url: "/switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"

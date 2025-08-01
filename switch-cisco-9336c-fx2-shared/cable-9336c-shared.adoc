@@ -69,3 +69,6 @@ Dove:
 * 100G ISL alla porta B dello switch 35
 * 100G ISL alla porta B dello switch 36
 
+
+.Cosa c'è dopo?
+link:install-9336c-shared.html["Installare lo switch"].

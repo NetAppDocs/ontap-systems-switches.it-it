@@ -17,7 +17,9 @@ Se si dispone di sistemi FAS22xx in un cluster senza switch a due nodi esistente
 
 == Verifica dei requisiti
 
-.Di cosa hai bisogno
+.Prima di iniziare
+Assicurarsi di disporre di quanto segue:
+
 * Due connessioni cluster per la migrazione da una configurazione senza switch a una configurazione con switch.
 * Il cluster è integro ed è composto da due nodi connessi con connettività back-to-back.
 * I nodi eseguono ONTAP 8.2 o versione successiva.

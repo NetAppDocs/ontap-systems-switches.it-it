@@ -589,3 +589,5 @@ Riservato
 100GbE ISL per commutare Una porta 32
 
 |===
+.Cosa c'è dopo?
+link:install-switch-3232c.html["Installare lo switch"] .

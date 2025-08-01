@@ -589,3 +589,5 @@ Riservato
 40G ISL per lo switch Di Una porta 32
 
 |===
+.Cosa c'è dopo?
+link:install-switch-3132qv.html["Installare lo switch"] .

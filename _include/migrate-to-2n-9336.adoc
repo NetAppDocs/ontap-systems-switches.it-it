@@ -6,7 +6,9 @@
 
 == Verifica dei requisiti
 
-.Di cosa hai bisogno
+.Prima di iniziare
+Assicurarsi di disporre di quanto segue:
+
 * Per la configurazione senza switch a due nodi:
 +
 ** La configurazione senza switch a due nodi è configurata e funziona correttamente.

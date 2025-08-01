@@ -424,3 +424,6 @@ Lo switch viene riavviato senza alcuna configurazione applicata e viene ripristi
 
 . Ripetere i passaggi da 1 a 8 sullo switch partner.
 
+
+.Cosa c'è dopo?
+link:configure-licenses.html["Installare le licenze"] .

@@ -13,24 +13,26 @@ summary: Esaminare la panoramica del software.
 [role="lead"]
 Per installare e configurare il software per uno switch cluster BES-53248, attenersi alla seguente procedura:
 
-. link:configure-efos-software.html["Installare il software EFOS"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-install-initial.html["Configurare lo switch"]
+[role="quick-margin-para"]
+Configurare lo switch cluster BES-53248.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:configure-efos-software.html["Installare il software EFOS"]
+[role="quick-margin-para"]
 Scaricare e installare il software Ethernet Fabric OS (EFOS) sullo switch cluster BES-53248.
 
-. link:configure-licenses.html["Installare le licenze per gli switch cluster BES-53248"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:configure-licenses.html["Installare le licenze per gli switch cluster BES-53248"]
+[role="quick-margin-para"]
 Facoltativamente, aggiungere nuove porte acquistando e installando ulteriori licenze. Il modello di base dello switch è concesso in licenza per 16 porte 10GbE o 25GbE e due porte 100GbE.
 
-. link:configure-install-rcf.html["Installazione del file di configurazione di riferimento (RCF)"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:configure-install-rcf.html["Installazione del file di configurazione di riferimento (RCF)"]
+[role="quick-margin-para"]
 Installare o aggiornare l'RCF sullo switch del cluster BES-53248, quindi verificare le porte per una licenza aggiuntiva dopo l'applicazione dell'RCF.
 
-. link:configure-ssh.html["Abilitare SSH sugli switch cluster BES-53248"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-ssh.html["Abilitare SSH sugli switch cluster BES-53248"]
+[role="quick-margin-para"]
 Se si utilizzano le funzioni CSHM (Ethernet Switch Health Monitor) e di raccolta dei registri, attivare SSH sugli switch.
 
-. link:reset-switch-bes-53248.html["Ripristinare l'interruttore alle impostazioni predefinite di fabbrica"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:reset-switch-bes-53248.html["Ripristinare l'interruttore alle impostazioni di fabbrica"]
+[role="quick-margin-para"]
 Cancellare le impostazioni dello switch del cluster BES-53248.
-
-

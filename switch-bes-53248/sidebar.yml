@@ -5,7 +5,7 @@ entries:
 - title: Panoramica
   pdf-filename: Panoramica_bes53248
   entries:
-  - title: Panoramica della configurazione
+  - title: Avvio rapido
     url: "/switch-bes-53248/configure-new-switch-overview.html"
   - title: Requisiti di configurazione
     url: "/switch-bes-53248/configure-reqs-bes53248.html"
@@ -16,10 +16,10 @@ entries:
 - title: Installare l'hardware
   pdf-filename: Installazione_hardware_bes53248
   entries:
+  - title: Flusso di lavoro di installazione dell'hardware
+    url: "/switch-bes-53248/install-hardware-workflow.html"
   - title: Installare lo switch
     url: "/switch-bes-53248/install-hardware-bes53248.html"
-  - title: Configurare lo switch
-    url: "/switch-bes-53248/configure-install-initial.html"
   - title: Analisi del cablaggio e della configurazione
     url: "/switch-bes-53248/cabling-considerations-bes-53248.html"
 - title: Configurare il software
@@ -27,6 +27,8 @@ entries:
   entries:
   - title: Workflow di installazione del software
     url: "/switch-bes-53248/configure-software-overview-bes53248.html"
+  - title: Configurare lo switch
+    url: "/switch-bes-53248/configure-install-initial.html"
   - title: Installare il software EFOS
     url: "/switch-bes-53248/configure-efos-software.html"
   - title: Installare RCF e il file di licenza per EFOS 3,12 e versioni successive
@@ -39,10 +41,10 @@ entries:
     url: "/switch-bes-53248/configure-ssh.html"
   - title: Ripristinare l'interruttore alle impostazioni predefinite di fabbrica
     url: "/switch-bes-53248/reset-switch-bes-53248.html"
-- title: Switch di aggiornamento
+- title: Aggiorna lo switch
   pdf-filename: Upgrade_Switches_bes53248
   entries:
-  - title: Panoramica sull'aggiornamento
+  - title: Flusso di lavoro di aggiornamento
     url: "/switch-bes-53248/upgrade-switch-overview.html"
   - title: Aggiornare la versione EFOS
     url: "/switch-bes-53248/upgrade-efos-software.html"

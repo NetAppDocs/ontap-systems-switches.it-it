@@ -13,7 +13,7 @@ summary: Sostituzione di uno switch di storage NVIDIA SN2100 difettoso in una pr
 [role="lead"]
 È possibile sostituire uno switch di storage NVIDIA SN2100 difettoso. Si tratta di una procedura senza interruzioni.
 
-.Di cosa hai bisogno
+.Prima di iniziare
 Prima di installare il software Cumulus e gli RCF su uno switch di storage NVIDIA SN2100, assicurarsi che:
 
 * Il sistema supporta gli switch storage NVIDIA SN2100.

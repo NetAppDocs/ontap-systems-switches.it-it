@@ -16,7 +16,9 @@ Consultare le seguenti linee guida:
 * Se si dispone di un cluster a due nodi esistente che utilizza switch di interconnessione cluster e utilizza ONTAP 9.3 o versione successiva, è possibile sostituire gli switch con connessioni dirette back-to-back tra i nodi.
 
 
-.Di cosa hai bisogno
+.Prima di iniziare
+Assicurarsi di disporre di quanto segue:
+
 * Un cluster integro costituito da due nodi collegati da switch di cluster. I nodi devono eseguire la stessa release di ONTAP.
 * Ciascun nodo con il numero richiesto di porte cluster dedicate, che forniscono connessioni di interconnessione cluster ridondanti per supportare la configurazione del sistema. Ad esempio, esistono due porte ridondanti per un sistema con due porte di interconnessione cluster dedicate su ciascun nodo.
 

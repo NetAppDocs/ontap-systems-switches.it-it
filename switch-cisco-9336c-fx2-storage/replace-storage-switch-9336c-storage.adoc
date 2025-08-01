@@ -13,7 +13,7 @@ summary: La sostituzione di uno switch Nexus 9336C-FX2 difettoso in una rete clu
 [role="lead"]
 È possibile sostituire uno switch Nexus 9336C-FX2 difettoso in una rete cluster. Si tratta di una procedura senza interruzioni.
 
-.Di cosa hai bisogno
+.Prima di iniziare
 Prima di installare il software NX-OS e gli RCF su uno switch di storage Cisco Nexus 9336C-FX2, assicurarsi che:
 
 * Il sistema supporta gli switch storage Cisco Nexus 9336C-FX2.

@@ -13,20 +13,22 @@ summary: Panoramica della configurazione software per gli switch cluster Cisco N
 [role="lead"]
 Per installare e configurare il software per uno switch Cisco Nexus 9336C-FX2 e per installare o aggiornare il file di configurazione di riferimento (RCF), attenersi alla seguente procedura:
 
-. link:install-nxos-overview-9336c-cluster.html["Preparare l'installazione del software NX-OS e di RCF"].
-+
-Il software Cisco NX-OS e i file di configurazione di riferimento (RCF) devono essere installati sugli switch cluster Cisco Nexus 9336C-FX2.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-switch-9336c-cluster.html["Configurare lo switch"]
+[role="quick-margin-para"]
+Configurare lo switch cluster 9336C-FX2.
 
-. link:install-nxos-software-9336c-cluster.html["Installare o aggiornare il software NX-OS"].
-+
-Scarica e installa o aggiorna il software NX-OS sullo switch cluster Cisco Nexus 9336C-FX2.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:install-nxos-overview-9336c-cluster.html["Preparare l'installazione del software NX-OS e di RCF"]
+[role="quick-margin-para"]
+Il software Cisco NX-OS e i file di configurazione di riferimento (RCF) devono essere installati sugli switch cluster Cisco 9336C-FX2.
 
-. link:install-upgrade-rcf-overview-cluster.html["Installare o aggiornare l'RCF"].
-+
-Installare o aggiornare l'RCF dopo aver configurato per la prima volta lo switch Cisco Nexus 9336C-FX2. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-nxos-software-9336c-cluster.html["Installare o aggiornare il software NX-OS"]
+[role="quick-margin-para"]
+Scaricare e installare o aggiornare il software NX-OS sullo switch cluster Cisco 9336C-FX2.
 
-. link:configure-ssh-keys.html["Verificare la configurazione SSH sugli switch del cluster Nexus 9336C-FX2"].
-+
-Se si utilizzano le funzioni CSHM (Ethernet Switch Health Monitor) e CSHM (Log Collection), verificare che SSH sia attivato sugli switch.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:install-upgrade-rcf-overview-cluster.html["Installare o aggiornare l'RCF"]
+[role="quick-margin-para"]
+Installare o aggiornare l'RCF dopo aver configurato per la prima volta lo switch Cisco 9336C-FX2.  Puoi usare questa procedura anche per aggiornare la tua versione RCF.
 
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-ssh-keys.html["Verificare la configurazione SSH"]
+[role="quick-margin-para"]
+Verificare che SSH sia abilitato sugli switch per utilizzare le funzionalità di monitoraggio dello stato dello switch Ethernet (CSHM) e di raccolta dei registri.

@@ -880,3 +880,6 @@ Richiede licenza
 
 |===
 Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"] per ulteriori informazioni sulle porte dello switch.
+
+.Cosa c'è dopo?
+link:install-switch-9336c-cluster.html["Installare lo switch"].

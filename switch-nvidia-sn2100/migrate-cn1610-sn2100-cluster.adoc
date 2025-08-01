@@ -28,7 +28,7 @@ Sono supportati i seguenti switch del cluster:
 
 Per informazioni dettagliate sulle porte supportate e sulle relative configurazioni, consultare https://hwu.netapp.com/["Hardware Universe"^].
 
-.Di cosa hai bisogno
+.Prima di iniziare
 Verificare che la configurazione soddisfi i seguenti requisiti:
 
 * Il cluster esistente è configurato e funziona correttamente.

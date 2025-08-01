@@ -17,7 +17,9 @@ Quando si installa il software FASTPATH sugli switch NetApp, è necessario inizi
 
 == Verifica dei requisiti
 
-.Di cosa hai bisogno
+.Prima di iniziare
+Assicurarsi di disporre di quanto segue:
+
 * Backup corrente della configurazione dello switch.
 * Un cluster completamente funzionante (nessun errore nei log e nessuna scheda di interfaccia di rete (NIC) del cluster difettosa o problemi simili).
 * Connessioni delle porte completamente funzionanti sullo switch del cluster.

@@ -19,4 +19,4 @@ Per installare l'hardware SN2100, consultare la documentazione di NVIDIA.
 
 
 .Quali sono le prossime novità?
-link:configure-sn2100-cluster.html["Configurare lo switch"].
+link:cabling-considerations-sn2100-cluster.html["Analisi del cablaggio e della configurazione"] .

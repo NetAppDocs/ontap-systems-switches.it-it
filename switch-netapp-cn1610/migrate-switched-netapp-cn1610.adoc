@@ -17,7 +17,9 @@ Se si dispone di un ambiente cluster senza switch a due nodi, è possibile migra
 
 == Verifica dei requisiti
 
-.Di cosa hai bisogno
+.Prima di iniziare
+Assicurarsi di disporre di quanto segue:
+
 Per una configurazione senza switch a due nodi, assicurarsi che:
 
 * La configurazione senza switch a due nodi è configurata e funziona correttamente.

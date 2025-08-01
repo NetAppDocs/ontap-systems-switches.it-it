@@ -16,7 +16,9 @@ Seguire questa procedura per installare il sistema operativo Cumulus Linux (CL) 
 
 NOTE: Il sistema operativo Cumulus Linux (CL) può essere installato quando lo switch esegue Cumulus Linux o ONIE (vedere link:install-onie-mode-sn2100-cluster.html["Installare in modalità ONIE"]).
 
-.Di cosa hai bisogno
+.Prima di iniziare
+Assicurarsi di disporre di quanto segue:
+
 * Conoscenza di livello intermedio di Linux.
 * Familiarità con la modifica di base del testo, le autorizzazioni dei file UNIX e il monitoraggio dei processi. Sono preinstallati diversi editor di testo, tra cui `vi` e. `nano`.
 * Accesso a una shell Linux o UNIX. Se si utilizza Windows, utilizzare un ambiente Linux come strumento della riga di comando per interagire con Cumulus Linux.

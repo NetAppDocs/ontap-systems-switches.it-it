@@ -33,3 +33,6 @@ Lo switch NVIDIA SN2100 è uno switch Ethernet da 10/25/40/100 GB con Cumulus Li
 * Sistema operativo Cumulus Linux (CL) versione 4.4.3. Per informazioni aggiornate sulla compatibilità, consultare https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switch Ethernet NVIDIA"^] pagina informativa.
 * È possibile installare Cumulus Linux quando lo switch esegue Cumulus Linux o ONIE.
 
+
+.Cosa c'è dopo?
+link:components-sn2100-storage.html["Componenti e numeri di parte"] .

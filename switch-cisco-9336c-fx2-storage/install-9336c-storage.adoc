@@ -13,7 +13,9 @@ summary: Se non si dispone già delle informazioni di configurazione e della doc
 [role="lead"]
 Seguire questa procedura per installare lo storage switch Cisco Nexus 9336C-FX2.
 
-.Di cosa hai bisogno
+.Prima di iniziare
+Assicurarsi di disporre di quanto segue:
+
 * Accesso a un server HTTP, FTP o TFTP nel sito di installazione per scaricare le release NX-OS e RCF (Reference Configuration file) applicabili.
 * Versione NX-OS applicabile, scaricata da https://software.cisco.com/download/home["Download del software Cisco"^] pagina.
 * Licenze applicabili, informazioni di rete e configurazione e cavi.
@@ -48,4 +50,4 @@ Consultare le procedure fornite nelle guide all'installazione dell'hardware dell
 
 
 .Quali sono le prossime novità?
-Passare a. link:setup-switch-9336c-storage.html["Configurare lo switch storage Cisco Nexus 9336C-FX2"].
+Facoltativamente, puoilink:install-switch-and-passthrough-panel-9336c-storage.html["Installare uno switch Cisco Nexus 9336C-FX2 in un cabinet NetApp"] .  Altrimenti vai alink:setup-switch-9336c-storage.html["Configurare lo switch"] .

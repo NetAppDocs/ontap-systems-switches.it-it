@@ -20,7 +20,9 @@ NOTE: Al termine della migrazione, potrebbe essere necessario installare il file
 
 == Verifica dei requisiti
 
-.Di cosa hai bisogno
+.Prima di iniziare
+Assicurarsi di disporre di quanto segue:
+
 * Un cluster esistente completamente funzionale.
 * Connettività 10 GbE e 40 GbE dai nodi agli switch di cluster Nexus 92300YC.
 * Tutte le porte del cluster sono in stato attivo per garantire operazioni senza interruzioni.

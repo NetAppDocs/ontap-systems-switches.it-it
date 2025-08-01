@@ -249,4 +249,4 @@ Configuration Saved!
 
 
 .Quali sono le prossime novità?
-link:configure-efos-software.html["Installare il software EFOS"]
+link:configure-efos-software.html["Installare il software EFOS"].

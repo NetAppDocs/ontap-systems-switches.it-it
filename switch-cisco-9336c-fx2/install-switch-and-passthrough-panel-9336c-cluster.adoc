@@ -13,7 +13,9 @@ summary: È possibile installare lo switch Cisco Nexus 9336C-FX2 e il pannello p
 [role="lead"]
 A seconda della configurazione, potrebbe essere necessario installare lo switch Cisco Nexus 9336C-FX2 e il pannello pass-through in un cabinet NetApp. Le staffe standard sono incluse con lo switch.
 
-.Di cosa hai bisogno
+.Prima di iniziare
+Assicurarsi di disporre di quanto segue:
+
 * Il kit pannello pass-through, disponibile presso NetApp (codice X8784-R6).
 +
 Il kit di pannelli pass-through NetApp contiene il seguente hardware:
