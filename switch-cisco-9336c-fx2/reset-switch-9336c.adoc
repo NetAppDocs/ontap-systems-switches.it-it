@@ -1,0 +1,46 @@
+---
+permalink: switch-cisco-9336c-fx2/reset-switch-9336c.html 
+sidebar: sidebar 
+keywords: 9336C-FX2 reset switch to factory defaults, 9336C-FX2 switches configuration, efos 
+summary: Prima di configurare lo switch Cisco Nexus 9336C-FX2, leggere le seguenti informazioni. 
+---
+= Ripristinare lo switch del cluster 9336C-FX2 ai valori predefiniti di fabbrica
+:allow-uri-read: 
+
+
+[role="lead"]
+Per ripristinare le impostazioni predefinite di fabbrica dello switch cluster 9336C-FX2, è necessario cancellare le impostazioni dello switch 9336C-FX2.
+
+.A proposito di questa attività
+* È necessario essere collegati allo switch mediante la console seriale.
+* Questa attività ripristina la configurazione della rete di gestione.
+
+
+.Fasi
+. Cancella la configurazione esistente:
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Ricaricare il software dello switch:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+Il sistema si riavvia e accede alla procedura guidata di configurazione.  Durante l'avvio, se viene visualizzato il messaggio "Interrompere il provisioning automatico e continuare con la configurazione normale?"  (sì/no)[n]”, dovresti rispondere *sì* per procedere.
+
+

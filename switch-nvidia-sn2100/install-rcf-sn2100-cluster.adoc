@@ -23,6 +23,22 @@ Prima di installare o aggiornare lo script RCF, assicurarsi che sullo switch sia
 
 NOTE: È necessario specificare un utente nell'RCF (oltre all'utente amministratore) da utilizzare specificamente per la raccolta dei log.
 
+.Configurazioni del cliente
+Sono disponibili le seguenti categorie di configurazione di riferimento:
+
+[cols="1,2"]
+|===
+
+
+| Cluster | Sulle porte configurate per il breakout 4x10GbE, una porta è configurata per il breakout 4x25GbE e le altre porte sono configurate per 40/100GbE.  Supporta il traffico cluster/HA condiviso sulle porte per i nodi che utilizzano porte cluster/HA condivise.  Consultare la tabella delle piattaforme nell'articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_AFF_ASA_and_FAS_platforms_use_shared_Cluster_and_HA_Ethernet_ports["Quali piattaforme AFF, ASA e FAS utilizzano porte Ethernet Cluster e HA condivise?"^] .  Tutte le porte possono essere utilizzate anche come porte cluster dedicate. 
+
+
+ a| 
+Storage
+ a| 
+Tutte le porte sono configurate per connessioni di archiviazione NVMe da 100 GbE.
+
+|===
 .Versioni correnti degli script RCF
 Sono disponibili due script RCF per le applicazioni cluster e storage. Scaricare gli RCF dalla https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Download del software NVIDIA SN2100"^] pagina. La procedura per ciascuno di essi è la stessa.
 

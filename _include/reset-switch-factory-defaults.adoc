@@ -1,0 +1,37 @@
+= 
+:allow-uri-read: 
+
+
+.A proposito di questa attività
+* È necessario essere collegati allo switch mediante la console seriale.
+* Questa attività ripristina la configurazione della rete di gestione.
+
+
+.Fasi
+. Cancella la configurazione esistente:
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Ricaricare il software dello switch:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+Il sistema si riavvia e accede alla procedura guidata di configurazione.  Durante l'avvio, se viene visualizzato il messaggio "Interrompere il provisioning automatico e continuare con la configurazione normale?"  (sì/no)[n]”, dovresti rispondere *sì* per procedere.
+
+

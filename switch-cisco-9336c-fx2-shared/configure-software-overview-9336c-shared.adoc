@@ -32,3 +32,7 @@ Installare l'RCF dopo aver configurato per la prima volta lo switch condiviso Ci
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:upgrade-rcf-software-9336c-shared.html["Aggiornare il file RCF"]
 [role="quick-margin-para"]
 Aggiorna la versione RCF quando hai una versione esistente del file RCF installata sui tuoi switch operativi.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:reset-switch-9336c-shared.html["Ripristinare l'interruttore alle impostazioni predefinite di fabbrica"]
+[role="quick-margin-para"]
+Cancellare le impostazioni dello switch condiviso 9336C-FX2.

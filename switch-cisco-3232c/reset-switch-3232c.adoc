@@ -1,0 +1,46 @@
+---
+permalink: switch-cisco-3232c/reset-switch-3232c.html 
+sidebar: sidebar 
+keywords: 3232C reset switch to factory defaults, 3232C switches configuration, efos 
+summary: Prima di configurare lo switch Cisco Nexus 3232C, leggere le seguenti informazioni. 
+---
+= Ripristinare lo switch del cluster 3232C ai valori predefiniti di fabbrica
+:allow-uri-read: 
+
+
+[role="lead"]
+Per ripristinare le impostazioni predefinite di fabbrica dello switch cluster 3232C, è necessario cancellare le impostazioni dello switch 3232C.
+
+.A proposito di questa attività
+* È necessario essere collegati allo switch mediante la console seriale.
+* Questa attività ripristina la configurazione della rete di gestione.
+
+
+.Fasi
+. Cancella la configurazione esistente:
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Ricaricare il software dello switch:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+Il sistema si riavvia e accede alla procedura guidata di configurazione.  Durante l'avvio, se viene visualizzato il messaggio "Interrompere il provisioning automatico e continuare con la configurazione normale?"  (sì/no)[n]”, dovresti rispondere *sì* per procedere.
+
+

@@ -36,3 +36,7 @@ Sono disponibili due script RCF per le applicazioni di clustering e storage. La 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:setup-install-cshm-file.html["Installare il file CSHM"]
 [role="quick-margin-para"]
 È possibile installare il file di configurazione applicabile per il monitoraggio dello stato degli switch Ethernet degli switch cluster NVIDIA.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]link:reset-switch-sn2100.html["Ripristinare l'interruttore alle impostazioni predefinite di fabbrica"]
+[role="quick-margin-para"]
+Cancellare le impostazioni dello switch del cluster SN2100.

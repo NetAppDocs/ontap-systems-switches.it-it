@@ -1,0 +1,46 @@
+---
+permalink: switch-cisco-3132q-v/reset-switch-3132q-v.html 
+sidebar: sidebar 
+keywords: 3132Q-V reset switch to factory defaults, 3132Q-V2 switches configuration, efos 
+summary: Prima di configurare lo switch Cisco Nexus 3132Q-V, leggere le seguenti informazioni. 
+---
+= Ripristinare lo switch del cluster 3132Q-V ai valori predefiniti di fabbrica
+:allow-uri-read: 
+
+
+[role="lead"]
+Per ripristinare le impostazioni predefinite di fabbrica dello switch cluster 3132Q-V, è necessario cancellare le impostazioni dello switch 3132Q-V.
+
+.A proposito di questa attività
+* È necessario essere collegati allo switch mediante la console seriale.
+* Questa attività ripristina la configurazione della rete di gestione.
+
+
+.Fasi
+. Cancella la configurazione esistente:
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Ricaricare il software dello switch:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+Il sistema si riavvia e accede alla procedura guidata di configurazione.  Durante l'avvio, se viene visualizzato il messaggio "Interrompere il provisioning automatico e continuare con la configurazione normale?"  (sì/no)[n]”, dovresti rispondere *sì* per procedere.
+
+
