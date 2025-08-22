@@ -133,5 +133,7 @@ cluster1::> *system switch ethernet show*
 
 NOTE: Se il modello mostra ancora *ALTRO* dopo aver applicato il file di configurazione, contattare il supporto NetApp.
 
+Vedi il https://docs.netapp.com/us-en/ontap-cli/system-switch-ethernet-configure-health-monitor.html["switch di sistema ethernet configura-monitor-stato"^] comando per ulteriori dettagli.
+
 .Quali sono le prossime novità?
 link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].

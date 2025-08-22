@@ -37,7 +37,7 @@ entries:
     url: "/switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html"
   - title: Installare il software NX-OS
     url: "/switch-cisco-3132q-v/install-nx-os-software-3132q-v.html"
-  - title: Installare il file di configurazione RCF
+  - title: Installare o aggiornare RCF
     url: "/switch-cisco-3132q-v/install-rcf-3132q-v.html"
   - title: Verificare la configurazione SSH
     url: "/switch-cisco-3132q-v/configure-ssh-keys.html"
