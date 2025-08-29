@@ -455,7 +455,6 @@
   <block id="e90d5ac1532bae79aa9f467efd13168c" category="summary">SSH è un requisito per l'utilizzo delle funzionalità di monitoraggio dello stato di salute dello switch del cluster (CSHM) e di raccolta dei log. Per attivare SSH sugli switch cluster BES-53248, generare prima le chiavi SSH e quindi attivare SSH.</block>
   <block id="5c60227e684a42ed2c4295981335965a" category="list-text">Verificare che SSH sia disattivato:</block>
   <block id="ddf98c782f1bf15e46a4c740b56426ff" category="paragraph"><block ref="031cb810fe7e12b44d30ad57badb18f9" prefix="" category="inline-code"></block></block>
-  <block id="59ed8d797343a87748211be365bd1d90" category="list-text">Generare le chiavi SSH:</block>
   <block id="2986030ac2a2c3716611c3a1bcc0c093" category="paragraph"><block ref="0b8cf6b3656c259d9957a92e154a9d52" prefix="" category="inline-code"></block></block>
   <block id="83a0e3bf9dd48caad05146cc29f81e6b" category="list-text">Verificare che SSH sia attivato:</block>
   <block id="f4041989c699a535116c689437df5c7f" category="inline-link">Download del software NetApp</block>
@@ -1893,11 +1892,6 @@
   <block id="91dcca4278a428afbccb2f118d523e13" category="admonition">Non utilizzare caratteri di sottolineatura (_), apostrofo (') o non ASCII nel nome host.</block>
   <block id="5e82a0b4b15e3bfeac2a57b4a294a39c" category="paragraph">Questo comando modifica entrambi<block ref="a69c84a628c199bc14f166b95b055c4a" prefix=" " category="inline-code"></block> e.<block ref="ad942c725cd0cae65ca4c63717ec464c" prefix=" " category="inline-code"></block> file.</block>
   <block id="81ed2a4b4b4f78c31401892f676d00f6" category="list-text">Verificare che il nome host, l'indirizzo IP, la subnet mask e il gateway predefinito siano stati aggiornati.</block>
-  <block id="6c42fa7e4c3302fb56f4374e70b97fc2" category="list-text">Configurare il fuso orario utilizzando la modalità interattiva NTP.</block>
-  <block id="3f13db29081af25b57d3e76ea324a03b" category="list-text">Su un terminale, eseguire il seguente comando:</block>
-  <block id="83d1563d45527134091bdab8d6e5072d" category="list-text">Seguire le opzioni del menu a schermo per selezionare l'area geografica e la regione.</block>
-  <block id="fe0f6a5f9b992c1eea817100a2c1c148" category="list-text">Per impostare il fuso orario per tutti i servizi e i daemon, riavviare lo switch.</block>
-  <block id="61d6aab01fc093c66c1e769d05c39812" category="list-text">Verificare che la data e l'ora dello switch siano corrette e, se necessario, aggiornarle.</block>
   <block id="2da5e3ee5bdcbc1a5443b42db962c1bb" category="list-text">Installare Cumulus Linux 4.4.3:</block>
   <block id="9a828cf107e0b55e82b0e52b871aa982" category="paragraph">Il programma di installazione avvia il download. Digitare *y* quando richiesto.</block>
   <block id="b64202cf747d1cf1ed877a2b16051b9b" category="list-text">Riavviare lo switch NVIDIA SN2100:</block>
@@ -2012,10 +2006,6 @@
   <block id="8b62efe83d10f30e759dd095dcc5c1ab" category="paragraph">Lo switch NVIDIA SN2100 è uno switch Ethernet da 10/25/40/100 GB con Cumulus Linux. Lo switch supporta quanto segue:</block>
   <block id="2bd6b04685be21d642d6c3c0f9a3da8e" category="admonition">Il sistema operativo Cumulus Linux (CL) può essere installato quando lo switch esegue Cumulus Linux o ONIE (vedere <block ref="e02d2e19cbeb033ae1227a02a219a032" category="inline-link-macro-rx"></block>).</block>
   <block id="06c2ede7dabacb6c8f4f628bf6b1de39" category="list-text">Il requisito di velocità di trasmissione deve essere impostato su 115200 sullo switch della console seriale per l'accesso alla console dello switch NVIDIA SN2100, come segue:</block>
-  <block id="9e6b336700c1d2e767e05525b2b57ef3" category="list-text">Controllare la versione di Cumulus Linux:</block>
-  <block id="cbb09f555687650b38fcf6ac05ce4978" category="paragraph"><block ref="518227d11c3d0b4ad2468e4272be661a" prefix="" category="inline-code"></block></block>
-  <block id="9f4f33c5c40ac522549c3e58d187e0a0" category="list-text">L'installazione viene avviata automaticamente e vengono visualizzate le seguenti schermate di GRUB. Non * effettuare selezioni:</block>
-  <block id="d639f69fd7b303cd7aefe025e7d76848" category="list-text">Verificare che la versione di Cumulus Linux sia 4.4.3:</block>
   <block id="738a5885a3f1e978619a10d76a3f0d58" category="paragraph"><block ref="98f5dff8534e8c39673b544f567273e7" prefix="" category="inline-code"></block></block>
   <block id="1545f8e8b25daf1dcedbccfac0ffeb23" category="paragraph">Switch cluster, NVIDIA SN2100, 16 PUNTI 100G, PTSX</block>
   <block id="50db68e5e1edfdae301d0e13cf36b35c" category="paragraph">Switch cluster, NVIDIA SN2100, 16 PUNTI 100G, PSIN</block>
@@ -5588,4 +5578,12 @@ in base alle release attuali e a quelle di destinazione.</block>
   <block id="bc19795a1e2342c4b6ced06c4d40bf1f" category="paragraph"><block ref="06ea8c0ad9680ca72f21fb9acf4190a7" prefix="" category="inline-code"></block></block>
   <block id="c0203a2fdd4f105bd33b18aba6317c1b" category="paragraph"><block ref="13a92d9b51e90b702df63253eaabc9ad" prefix="" category="inline-code"></block></block>
   <block id="473d16af00e46c61faa5f7ae956e2c65" category="paragraph"><block ref="02a3315103301dc60f71538670f8e63e" prefix="" category="inline-code"></block></block>
+  <block id="a857d7fbcfec4b7266d8ae96e74feaff" category="list-text">In modalità di configurazione, genera le chiavi SSH:</block>
+  <block id="e7a2f981aa0484adea9bedbd78c1087b" category="list-text">In modalità di configurazione, imposta l'autorizzazione AAA per la raccolta dei log ONTAP :</block>
+  <block id="4f4336771d0733889f26dc02ed32b5b4" category="paragraph"><block ref="160edba9b79d23472e05dab56e0f0cfa" prefix="" category="inline-code"></block></block>
+  <block id="558547888dbf1ed9cea97d962f5a635c" category="list-text">Riattivare SSH/SCP.</block>
+  <block id="a2c7fa8f383a047f3591230c9b0234c9" category="list-text">Salvare queste modifiche nel file startup-config:</block>
+  <block id="7411e9f163d9baab36b5ebc3f80bda73" category="admonition">Mentre<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> viene utilizzato nell'esempio, puoi usare il tuo metodo preferito per il trasferimento dei file, ad esempio SFTP, HTTPS o FTP.</block>
+  <block id="5b9b8dea15de063806f0306fe78872c8" category="admonition">Sebbene<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> viene utilizzato nell'esempio, puoi usare il tuo metodo preferito per il trasferimento dei file, ad esempio SFTP, HTTPS o FTP.</block>
+  <block id="bea4eb9c3f61f6fc9076a215ac1173fe" category="paragraph"><block ref="c1b3921cc8c2b4b51a888d2dc803623c" category="inline-link-macro-rx"></block> .</block>
 </blocks>
