@@ -11,7 +11,7 @@ summary: Questa procedura consente di installare il software NX-OS sullo switch 
 
 
 [role="lead"]
-Seguire questa procedura per installare o aggiornare il software NX-OS sullo switch cluster Nexus 9336C-FX2.
+Seguire questa procedura per installare o aggiornare il software NX-OS sugli switch cluster Nexus 9336C-FX2 e 9336C-FX2-T.
 
 Prima di iniziare, completare la procedura descritta in link:install-nxos-overview-9336c-cluster.html["Preparazione all'installazione di NX-OS e RCF"].
 
@@ -696,4 +696,4 @@ In caso di mancato ritorno delle LIF del cluster alle porte home, puoi ripristin
 
 
 .Quali sono le prossime novità?
-link:install-upgrade-rcf-overview-cluster.html["Installare o aggiornare il file di configurazione di riferimento (RCF)"] .
+Dopo aver installato o aggiornato il software NX-OS,link:install-upgrade-rcf-overview-cluster.html["installare o aggiornare il file di configurazione di riferimento (RCF)"] .

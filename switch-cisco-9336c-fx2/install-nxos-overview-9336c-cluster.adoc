@@ -241,4 +241,4 @@ Cluster
 
 
 .Quali sono le prossime novità?
-link:install-nxos-software-9336c-cluster.html["Installare o aggiornare il software NX-OS"].
+Dopo esserti preparato per installare il software NX-OS e RCF,link:install-nxos-software-9336c-cluster.html["installare o aggiornare il software NX-OS"] .

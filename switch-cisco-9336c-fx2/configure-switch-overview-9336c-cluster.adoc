@@ -4,28 +4,30 @@ sidebar: sidebar
 keywords: switches, initial installation, configure switch-cisco-9336c-fx2 switch 
 summary: 'Panoramica dell"installazione e della configurazione degli switch cluster Cisco Nexus 9336C-FX2' 
 ---
-= Flusso di lavoro di installazione e configurazione per gli switch cluster Cisco Nexus 9336C-FX2
+= Flusso di lavoro di installazione e configurazione per gli switch cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Lo switch cluster Cisco Nexus 9336C-FX2 fa parte della piattaforma Cisco Nexus 9000 e può essere installato in un cabinet di sistema NetApp. Gli switch del cluster consentono di creare cluster ONTAP con più di due nodi.
+Gli switch cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T fanno parte della piattaforma Cisco Nexus 9000 e possono essere installati in un cabinet di sistema NetApp . Gli switch cluster consentono di creare cluster ONTAP con più di due nodi.
 
-Seguire questi passaggi del flusso di lavoro per installare e configurare gli switch Cisco 9336C-FX2.
+Cisco Nexus 9336C-FX2 (36 porte) è uno switch cluster/storage/dati ad alta densità di porte. Cisco Nexus 9336C-FX2-T (12 porte) è uno switch ad alte prestazioni e bassa densità di porte che supporta configurazioni cluster 10/25/40/100GbE.
+
+Seguire questi passaggi del flusso di lavoro per installare e configurare gli switch Cisco 9336C-FX2 e 9336C-FX2-T.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-reqs-9336c-cluster.html["Rivedere i requisiti di configurazione"]
 [role="quick-margin-para"]
-Esaminare i requisiti di configurazione per lo switch cluster 9336C-FX2.
+Esaminare i requisiti di configurazione per gli switch cluster 9336C-FX2 e 9336C-FX2-T.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:components-9336c-cluster.html["Rivedere i componenti e i numeri delle parti"]
 [role="quick-margin-para"]
-Esaminare i componenti e i codici articolo dello switch cluster 9336C-FX2.
+Esaminare i componenti e i codici articolo degli switch cluster 9336C-FX2 e 9336C-FX2-T.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:required-documentation-9336c-cluster.html["Esaminare la documentazione richiesta"]
 [role="quick-margin-para"]
-Consultare la documentazione specifica dello switch e del controller per configurare gli switch 9336C-FX2 e il cluster ONTAP .
+Consultare la documentazione specifica dello switch e del controller per configurare gli switch 9336C-FX2 e 9336C-FX2-T e il cluster ONTAP .
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:smart-call-9336c-cluster.html["Esaminare i requisiti di Smart Call Home"]
 [role="quick-margin-para"]

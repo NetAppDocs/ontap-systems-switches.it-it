@@ -285,7 +285,7 @@ NOTE: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le 
 
 . Per RCF versione 1.12 e successive, eseguire i seguenti comandi:
 +
-`cs2# echo "hardware access-list tcam region racl-lite 512" > bootflash:write_erase.cfg`
+`cs2# echo "hardware access-list tcam region racl-lite 512" >> bootflash:write_erase.cfg`
 
 +
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`

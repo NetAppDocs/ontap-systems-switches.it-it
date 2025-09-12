@@ -11,7 +11,7 @@ summary: Se si dispone di un ambiente cluster senza switch a due nodi, è possib
 
 
 [role="lead"]
-Se si dispone di un ambiente di cluster _switchless_ a due nodi, è possibile migrare a un ambiente di cluster _switched_ a due nodi utilizzando gli switch Cisco Nexus 9336C-FX2.
+Se si dispone di un ambiente cluster a due nodi _senza switch_, è possibile migrare a un ambiente cluster a due nodi _con switch_ utilizzando gli switch Cisco Nexus 9336C-FX2 e 9336C-FX2-T.
 
 Il processo di migrazione funziona per tutti i nodi che utilizzano porte ottiche o Twinax, ma non è supportato su questo switch se i nodi utilizzano porte RJ45 10GB BASE-T integrate per le porte di rete del cluster.
 
@@ -629,4 +629,4 @@ RPC status:
 
 
 .Quali sono le prossime novità?
-link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].
+Dopo aver migrato gli switch,link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"] .

@@ -112,7 +112,7 @@ N9K-9336C 65CFM, flusso d'aria di aspirazione lato porta
 |===
 
 
-== Licenze Cisco Smart
+== Licenze Cisco Smart solo per porte 9336C-FX2-T
 
 Per attivare più di 12 porte sullo switch cluster Cisco Nexus 9336C-FX-T, è necessario acquistare una licenza Cisco Smart. Le licenze Cisco Smart vengono gestite tramite gli account Cisco Smart.
 
@@ -124,4 +124,4 @@ Per attivare più di 12 porte sullo switch cluster Cisco Nexus 9336C-FX-T, è ne
 NOTE: Una volta acquistata la licenza Smart, installare l'RCF appropriato per abilitare e configurare tutte le 36 porte disponibili per l'uso.
 
 .Cosa c'è dopo?
-link:required-documentation-9336c-cluster.html["Documentazione richiesta"] .
+Dopo aver confermato i componenti e i numeri di parte, rivedi illink:required-documentation-9336c-cluster.html["documentazione richiesta"] .

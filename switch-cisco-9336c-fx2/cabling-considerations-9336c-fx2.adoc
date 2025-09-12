@@ -11,7 +11,7 @@ summary: Prima di configurare lo switch Cisco 9336C-FX2, leggere le seguenti inf
 
 
 [role="lead"]
-Prima di configurare lo switch Cisco 9336C-FX2, esaminare le seguenti considerazioni.
+Prima di configurare gli switch 9336C-FX2 e 9336C-FX2-T, leggere le seguenti considerazioni.
 
 
 
@@ -42,8 +42,7 @@ Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per ulteriori i
 
 === Porte da e0b GbE/FAS2820 e0a
 
-Le porte FAS2820 e0a e e0b richiedono modifiche alla configurazione FEC per collegarsi alle porte dello switch 9336C-FX2.
-Per le porte switch e0a e e0b, l'impostazione fec è impostata su `rs-cons16`.
+Le porte FAS2820 e0a ed e0b richiedono modifiche alla configurazione FEC per collegarsi alle porte dello switch 9336C-FX2 e 9336C-FX2-T. Per le porte dello switch e0a ed e0b, l'impostazione fec è impostata su `rs-cons16` .
 
 [listing, subs="+quotes"]
 ----
@@ -58,6 +57,6 @@ Per le porte switch e0a e e0b, l'impostazione fec è impostata su `rs-cons16`.
 
 == Le porte non si collegano a causa delle risorse TCAM
 
-Sullo switch 9336C-FX2, le risorse TCAM (Content Addressable Memory) ternarie configurate nella configurazione utilizzata dallo switch sono esaurite.
+Sugli switch 9336C-FX2 e 9336C-FX2-T, le risorse TCAM (Ternary Content Addressable Memory) configurate nella configurazione utilizzata dallo switch sono esaurite.
 
 Consultare l'articolo della Knowledge base https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["Le porte non si collegano su Cisco Nexus 9336C-FX2 a causa delle risorse TCAM"^] per ulteriori informazioni su come risolvere questo problema.
