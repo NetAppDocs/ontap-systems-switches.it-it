@@ -262,8 +262,8 @@ cluster1::*>
 +
 `show running-config`
 
-. Registrare eventuali aggiunte personalizzate tra il file running-config corrente e il file RCF in uso.
-. Salvare i dettagli della configurazione di base nel file write_erase.cfg sul bootflash.
+. Registrare eventuali aggiunte personalizzate tra l'attuale `running-config` e il file RCF in uso.
+. Salva i dettagli di configurazione di base nel `write_erase.cfg` file sul bootflash.
 +
 
 NOTE: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base.  Per configurare nuovamente lo switch, è necessario essere connessi alla porta della console seriale.
@@ -291,9 +291,9 @@ NOTE: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le 
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
 +
-Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch Cisco Interconnect mantenendo la connettività remota"^] per ulteriori dettagli.
+Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch Cisco Interconnect mantenendo la connettività remota"^] per ulteriori dettagli.
 
-. Verificare che il file write_erase.cfg sia popolato come previsto:
+. Verificare che il `write_erase.cfg` il file è popolato come previsto:
 +
 `show file bootflash:write_erase.cfg`
 
@@ -309,7 +309,7 @@ Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/Switches/Cisc
 
 . Copiare la configurazione di base salvata in precedenza nella configurazione di avvio.
 +
-`cs2# *copy write_erase.cfg startup-config*`
+`cs2# *copy bootflash:write_erase.cfg startup-config*`
 
 . Riavviare lo switch:
 +
@@ -318,7 +318,7 @@ Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/Switches/Cisc
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Copiare l'RCF nella flash di avvio dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS Command Reference"^] guide.
+. Copiare l'RCF nel bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.  Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nellink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS Command Reference"^] guide.
 +
 .Mostra esempio
 [%collapsible]
@@ -337,7 +337,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Applicare l'RCF precedentemente scaricato al bootflash.
 +
-Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS Command Reference"^] guide.
+Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nellink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS Command Reference"^] guide.
 
 +
 .Mostra esempio
@@ -619,7 +619,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Ripetere i passaggi da 7 a 20 sullo switch cs1.
+. Ripetere i passaggi da 7 a 23 sullo switch cs1.
 . Abilitare il ripristino automatico sulle LIF del cluster.
 +
 [listing, subs="+quotes"]

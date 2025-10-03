@@ -26,8 +26,8 @@ La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 3000 
 ====
 Per ulteriori informazioni, consulta:
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Pagina di descrizione dello switch Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -46,7 +46,7 @@ La procedura utilizza anche la seguente nomenclatura di switch e nodi:
 * n1_clus2 è il primo LIF del cluster collegato allo switch del cluster 2 (CL2 o C2) per il nodo n1.
 * n1_clus3 è il secondo LIF collegato allo switch del cluster 2 (CL2 o C2) per il nodo n1.
 * n1_clus4 è il secondo LIF collegato allo switch del cluster 1 (CL1 o C1) per il nodo n1.-
-* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili su https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] pagina.
+* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili all'indirizzolink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] .
 * I nodi sono n1, n2, n3 e n4.
 
 
@@ -241,7 +241,7 @@ Se è necessario aggiornare l'RCF e l'immagine, attenersi alla seguente procedur
 +
 .. Accedere alla pagina _Cisco Ethernet Switches_ sul sito del supporto NetApp.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]
 
 .. Annotare lo switch e le versioni software richieste nella tabella riportata in tale pagina.
 .. Scaricare la versione appropriata di RCF.
@@ -383,8 +383,8 @@ Cluster n2_clus3 n2       e0c    10.10.0.7
 Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
-Cluster Vserver Id = 4294967293 Ping status:
-....
+Cluster Vserver Id = 4294967293
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................
@@ -670,8 +670,8 @@ Cluster n2_clus3 n2       e0c    10.10.0.7
 Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
-Cluster Vserver Id = 4294967293 Ping status:
-....
+Cluster Vserver Id = 4294967293
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................
@@ -1030,8 +1030,8 @@ Cluster n2_clus3 n2       e0c    10.10.0.7
 Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
-Cluster Vserver Id = 4294967293 Ping status:
-....
+Cluster Vserver Id = 4294967293
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................

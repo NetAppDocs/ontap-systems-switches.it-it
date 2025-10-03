@@ -24,9 +24,9 @@ NOTE: La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus
 
 Se necessario, fare riferimento a quanto segue per ulteriori informazioni:
 
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Pagina descrittiva di NetApp CN1601 e CN1610"^]
-* http://support.netapp.com/NOW/download/software/cm_switches/["Pagina di descrizione dello switch Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 e CN1610"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -46,7 +46,7 @@ Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e n
 * n1_clus2 è il primo LIF del cluster connesso allo switch del cluster 2 (CL2 o C2) per il nodo n1.
 * n1_clus3 è il secondo LIF collegato allo switch del cluster 2 (CL2 o C2) per il nodo n1.
 * n1_clus4 è il secondo LIF collegato allo switch del cluster 1 (CL1 o C1) per il nodo n1.
-* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili su https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] pagina.
+* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili all'indirizzolink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] .
 
 
 
@@ -198,11 +198,11 @@ CL2                           cluster-network  10.10.1.102   CN1610
 Preparare entrambi gli switch in questa fase. Se è necessario aggiornare l'RCF e l'immagine, attenersi alla seguente procedura:
 
 +
-.. Vedere link:http://support.netapp.com/NOW/download/software/cm_switches/.html["Switch Ethernet Cisco"^] Sul sito di supporto NetApp.
+.. Vederelink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^] sul sito di supporto NetApp .
 .. Annotare lo switch e le versioni software richieste nella tabella riportata in tale pagina.
 .. Scaricare la versione appropriata di RCF.
 .. Fare clic su *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza, quindi seguire le istruzioni nella pagina *Download* per scaricare RCF.
-.. Scaricare la versione appropriata del software dell'immagine all'indirizzo link:http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.html["Download del file di configurazione di riferimento di Cisco® Cluster and Management Network Switch"^].
+.. Scarica la versione appropriata del software di gestione delle immagini all'indirizzolink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento di Cisco® Cluster and Management Network Switch"^] .
 
 
 . Migrare i LIF associati al secondo switch CN1610 che si intende sostituire:
@@ -332,8 +332,8 @@ Cluster n2_clus3 n2       e0c    10.10.0.7
 Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
-Cluster Vserver Id = 4294967293 Ping status:
-....
+Cluster Vserver Id = 4294967293
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................
@@ -687,8 +687,8 @@ Cluster n2_clus3 n2       e0c    10.10.0.7
 Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
-Cluster Vserver Id = 4294967293 Ping status:
-....
+Cluster Vserver Id = 4294967293
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................
@@ -1081,8 +1081,8 @@ Cluster n2_clus3 n2       e0c    10.10.0.7
 Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
-Cluster Vserver Id = 4294967293 Ping status:
-....
+Cluster Vserver Id = 4294967293
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................

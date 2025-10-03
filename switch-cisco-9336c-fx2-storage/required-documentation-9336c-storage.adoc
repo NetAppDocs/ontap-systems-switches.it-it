@@ -10,7 +10,7 @@ summary: 'Per l"installazione e la manutenzione dello switch Cisco Nexus 9336C-F
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

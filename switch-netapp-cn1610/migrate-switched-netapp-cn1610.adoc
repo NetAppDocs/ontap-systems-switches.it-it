@@ -35,7 +35,7 @@ Per la configurazione dello switch del cluster CN1610:
 * Gli switch del cluster sono accessibili dalla console.
 * Le connessioni switch da nodo a nodo CN1610 e switch-to-switch utilizzano cavi twinax o in fibra.
 +
-Il https://hwu.netapp.com/["Hardware Universe"^] contiene ulteriori informazioni sul cablaggio.
+ILlink:https://hwu.netapp.com/["Hardware Universe"^] contiene maggiori informazioni sul cablaggio.
 
 * I cavi ISL (Inter-Switch link) sono collegati alle porte da 13 a 16 su entrambi gli switch CN1610.
 * La personalizzazione iniziale di entrambi gli switch CN1610 è stata completata.
@@ -45,10 +45,10 @@ Qualsiasi personalizzazione del sito precedente, ad esempio SMTP, SNMP e SSH, de
 
 
 .Informazioni correlate
-* http://hwu.netapp.com["Hardware Universe"^]
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Pagina descrittiva di NetApp CN1601 e CN1610"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guida alla configurazione e alla configurazione degli switch CN1601 e CN1610"^]
-* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Articolo della Knowledge base di NetApp 1010449: Come eliminare la creazione automatica del caso durante le finestre di manutenzione pianificate"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 e CN1610"]
+* link:https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Impostazione e configurazione degli switch CN1601 e CN1610"^]
+* link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Articolo della Knowledge base di NetApp 1010449: Come eliminare la creazione automatica del caso durante le finestre di manutenzione pianificate"^]
 
 
 
@@ -64,7 +64,7 @@ Gli esempi di questa procedura utilizzano la seguente nomenclatura di nodi e swi
 * Il `cluster::*>` prompt indica il nome del cluster.
 * Le porte del cluster utilizzate in questa procedura sono e1a ed e2a.
 +
-Il https://hwu.netapp.com/["Hardware Universe"^] contiene le informazioni più recenti sulle porte cluster effettive per le piattaforme in uso.
+ILlink:https://hwu.netapp.com/["Hardware Universe"^] contiene le informazioni più recenti sulle porte cluster effettive per le tue piattaforme.
 
 
 

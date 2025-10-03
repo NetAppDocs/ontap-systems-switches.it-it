@@ -18,13 +18,15 @@ La procedura da seguire dipende dalla presenza di due porte cluster-network dedi
 La maggior parte dei sistemi richiede due porte cluster-network dedicate su ciascun controller.
 
 
-NOTE: Al termine della migrazione, potrebbe essere necessario installare il file di configurazione richiesto per supportare il monitoraggio dello stato di salute dello switch cluster (CSHM) per gli switch cluster 92300YC. Vederelink:setup-install-cshm-file.html["Installazione del Cluster Switch Health Monitor (CSHM)"].
+NOTE: Una volta completata la migrazione, potrebbe essere necessario installare il file di configurazione richiesto per supportare Cluster Switch Health Monitor (CSHM) per gli switch cluster 92300YC. Vedere link:../switch-cshm/cshm-overview.html["Monitoraggio dello stato di salute degli switch (CSHM)"] .
 
 
 
 == Verifica dei requisiti
 
-.Di cosa hai bisogno
+.Prima di iniziare
+Assicurarsi di disporre di quanto segue:
+
 Per una configurazione senza switch a due nodi, assicurarsi che:
 
 * La configurazione senza switch a due nodi è configurata e funziona correttamente.

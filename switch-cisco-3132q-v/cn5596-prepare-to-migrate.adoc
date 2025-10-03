@@ -171,7 +171,7 @@ cluster::*> network interface modify -vserver node2 -lif clus2 -auto-revert fals
 È necessario preparare entrambi gli switch in questa fase. Se è necessario aggiornare l'RCF e l'immagine, attenersi alla seguente procedura:
 
 +
-.. Accedere alla link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^] Sul sito di supporto NetApp.
+.. Vai alink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^] sul sito di supporto NetApp .
 .. Annotare lo switch e le versioni software richieste nella tabella riportata in tale pagina.
 .. Scaricare la versione appropriata di RCF.
 .. Selezionare *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza, quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
@@ -196,13 +196,13 @@ L'esempio seguente mostra n1 e n2, ma la migrazione LIF deve essere eseguita su 
 
 [listing]
 ----
-cluster::*> network interface migrate -vserver Cluster -lif n1_clus2 -source-node n1 –
+cluster::*> network interface migrate -vserver Cluster -lif n1_clus2 -source-node n1 -
 destination-node n1 -destination-port e0a
-cluster::*> network interface migrate -vserver Cluster -lif n1_clus3 -source-node n1 –
+cluster::*> network interface migrate -vserver Cluster -lif n1_clus3 -source-node n1 -
 destination-node n1 -destination-port e0d
-cluster::*> network interface migrate -vserver Cluster -lif n2_clus2 -source-node n2 –
+cluster::*> network interface migrate -vserver Cluster -lif n2_clus2 -source-node n2 -
 destination-node n2 -destination-port e0a
-cluster::*> network interface migrate -vserver Cluster -lif n2_clus3 -source-node n2 –
+cluster::*> network interface migrate -vserver Cluster -lif n2_clus3 -source-node n2 -
 destination-node n2 -destination-port e0d
 ----
 ====
@@ -308,8 +308,7 @@ Cluster n2_clus4 n2		e0d	10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
 Cluster Vserver Id = 4294967293
-Ping status:
-....
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................

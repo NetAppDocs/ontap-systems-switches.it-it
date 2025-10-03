@@ -25,7 +25,7 @@ Esaminare link:switch-requirements.html["Requisiti per la sostituzione degli swi
 +
 ** L'infrastruttura cluster Nexus 3132Q-V è ridondante e completamente funzionante su entrambi gli switch.
 +
-Il link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^] Page contiene le versioni più recenti di RCF e NX-OS sugli switch.
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Switch Ethernet Cisco"^]dispone delle ultime versioni RCF e NX-OS per i tuoi switch.
 
 ** Tutte le porte del cluster si trovano in `up` stato.
 ** La connettività di gestione esiste su entrambi gli switch.
@@ -40,7 +40,7 @@ Il link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Eth
 ** La personalizzazione iniziale dello switch è completata.
 
 
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -50,8 +50,8 @@ Il link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Eth
 NetApp consiglia vivamente di attivare la registrazione della console sui dispositivi in uso e di eseguire le seguenti operazioni quando si sostituisce lo switch:
 
 * Lasciare attivato AutoSupport durante la manutenzione.
-* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione del caso per tutta la durata della manutenzione. Consultare questo articolo della Knowledge base https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come eliminare la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
-* Attivare la registrazione della sessione per qualsiasi sessione CLI. Per istruzioni su come attivare la registrazione della sessione, consultare la sezione "registrazione dell'output della sessione" in questo articolo della Knowledge base https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare Putty per una connettività ottimale ai sistemi ONTAP"^].
+* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione di casi per tutta la durata della manutenzione.  Vedi questo articolo della Knowledge Baselink:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come eliminare la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
+* Abilita la registrazione delle sessioni per tutte le sessioni CLI.  Per istruzioni su come abilitare la registrazione della sessione, consultare la sezione "Registrazione dell'output della sessione" in questo articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare Putty per una connettività ottimale ai sistemi ONTAP"^] .
 
 
 
@@ -67,7 +67,7 @@ Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e n
 * n1_clus2 è il primo LIF del cluster collegato allo switch del cluster CL2 o C2, per il nodo n1.
 * n1_clus3 è il secondo LIF collegato allo switch del cluster C2, per il nodo n1.
 * n1_clus4 è il secondo LIF collegato allo switch del cluster CL1, per il nodo n1.
-* Il numero di porte 10 GbE e 40 GbE viene definito nei file di configurazione di riferimento (RCF) disponibili nella link:https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] pagina.
+* Il numero di porte 10 GbE e 40 GbE è definito nei file di configurazione di riferimento (RCF) disponibili all'indirizzolink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] .
 * I nodi sono n1, n2, n3 e n4. Gli esempi di questa procedura utilizzano quattro nodi: Due nodi utilizzano quattro porte di interconnessione cluster da 10 GB: E0a, e0b, e0c e e0d. Gli altri due nodi utilizzano due porte di interconnessione cluster da 40 GB: E4a e e4e. Vedere link:https://hwu.netapp.com/["Hardware Universe"^] per le porte cluster effettive sulle piattaforme.
 
 
@@ -261,7 +261,7 @@ CL2                          cluster-network   10.10.1.102      NX3132V
 A questo punto, è necessario preparare lo switch sostitutivo. Se è necessario aggiornare l'RCF e l'immagine, attenersi alla seguente procedura:
 
 +
-.. Sul sito di supporto NetApp, visitare il link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^] pagina.
+.. Sul sito di supporto NetApp , vederelink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Switch Ethernet Cisco"^] .
 .. Annotare lo switch e le versioni software richieste nella tabella riportata in tale pagina.
 .. Scaricare la versione appropriata di RCF.
 .. Fare clic su *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza, quindi seguire le istruzioni nella pagina *Download* per scaricare RCF.
@@ -577,8 +577,8 @@ cluster::*> network interface revert -vserver Cluster -lif n1_clus2
 cluster::*> network interface revert -vserver Cluster -lif n1_clus3
 cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus3
-Cluster::*> network interface revert –vserver Cluster –lif n3_clus2
-Cluster::*> network interface revert –vserver Cluster –lif n4_clus2
+cluster::*> network interface revert -vserver Cluster -lif n3_clus2
+cluster::*> network interface revert -vserver Cluster -lif n4_clus2
 ----
 ====
 . Verificare che le porte di interconnessione del cluster siano ora ripristinate a casa:
@@ -624,7 +624,7 @@ Cluster
 ====
 [listing]
 ----
-cluster::*> network port show –role cluster
+cluster::*> network port show -role cluster
   (network port show)
 Node: n1
                                                                        Ignore

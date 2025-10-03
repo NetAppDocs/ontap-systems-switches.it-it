@@ -19,8 +19,8 @@ La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 3000 
 ====
 Per ulteriori informazioni, consulta:
 
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Pagina descrittiva di NetApp CN1601 e CN1610"^]
-* http://support.netapp.com/NOW/download/software/cm_switches/["Pagina di descrizione dello switch Ethernet Cisco"^]
+* https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["Pagina descrittiva di NetApp CN1601 e CN1610"^]
+* https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Pagina di descrizione dello switch Ethernet Cisco"^]
 * http://hwu.netapp.com["Hardware Universe"^]
 
 

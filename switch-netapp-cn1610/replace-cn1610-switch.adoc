@@ -17,7 +17,7 @@ Seguire questa procedura per sostituire uno switch NetApp CN1610 difettoso in un
 
 == Verifica dei requisiti
 
-.Di cosa hai bisogno
+.Prima di iniziare
 Prima di eseguire la sostituzione dello switch, devono sussistere le seguenti condizioni prima di eseguire la sostituzione dello switch nell'ambiente corrente e sullo switch sostitutivo per l'infrastruttura di rete e del cluster esistente:
 
 * Il cluster esistente deve essere verificato come completamente funzionale, con almeno uno switch del cluster completamente connesso.

@@ -172,7 +172,7 @@ Se è necessario aggiornare l'RCF e l'immagine, attenersi alla seguente procedur
 +
 .. Accedere alla pagina _Cisco Ethernet Switches_ sul sito del supporto NetApp.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]
 
 .. Annotare lo switch e le versioni software richieste nella tabella riportata in tale pagina.
 .. Scaricare la versione appropriata di RCF.

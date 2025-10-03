@@ -21,7 +21,7 @@ Per ripristinare le impostazioni predefinite di fabbrica dello switch di archivi
 
 
 
-NOTE: Per ulteriori informazioni sull'installazione di Cumulus Linux, vederelink:configure-software-overview-sn2100-cluster.html["Workflow di installazione del software per switch NVIDIA SN2100"] .
+NOTE: Per ulteriori informazioni sull'installazione di Cumulus Linux, vederelink:configure-software-sn2100-storage.html["Workflow di installazione del software per switch NVIDIA SN2100"] .
 
 .Fasi
 [role="tabbed-block"]

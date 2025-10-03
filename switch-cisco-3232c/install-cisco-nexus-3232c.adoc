@@ -45,7 +45,7 @@ In questa procedura, il pannello di chiusura verrà installato in U40.
 ... Centrare il pannello verticalmente per evitare l'ingresso nello spazio rack adiacente, quindi serrare le viti.
 ... Inserire i connettori femmina di entrambi i cavi di collegamento da 48 pollici dalla parte posteriore del pannello e attraverso il gruppo spazzole.
 +
-image::../media/cisco_9148_jumper_cords.gif[cavi di collegamento cisco 9148]
+image::../media/cisco_9148_jumper_cords.gif[]
 
 
 
@@ -68,7 +68,7 @@ image::../media/3132q_front_bracket.gif[staffa anteriore]
 
 . Montare i dadi a clip nelle posizioni dei fori quadrati per tutti e quattro i montanti IEA.
 +
-image::../media/ru_locations_for_3132q_v.gif[posizioni ru per 3132q v]
+image::../media/ru_locations_for_3132q_v.gif[]
 
 +
 I due interruttori 3232C saranno sempre montati nella parte superiore 2U del cabinet RU41 e 42.
@@ -77,7 +77,7 @@ I due interruttori 3232C saranno sempre montati nella parte superiore 2U del cab
 +
 .. Posizionare la prima guida scorrevole in corrispondenza del contrassegno RU42 sul lato posteriore del montante posteriore sinistro, inserire le viti con il tipo di filettatura corrispondente, quindi serrare le viti con le dita.
 +
-image::../media/3132q_v_slider_rails.gif[3132q v guide di scorrimento]
+image::../media/3132q_v_slider_rails.gif[]
 
 +
 _(1) mentre si fa scorrere delicatamente la guida scorrevole, allinearla ai fori delle viti nel rack._ + _(2) serrare le viti delle guide di scorrimento sui montanti del cabinet._
@@ -106,7 +106,7 @@ _(2) far scorrere delicatamente lo switch fino a quando le staffe anteriori per 
 
 .. Collegare lo switch al cabinet.
 +
-image::../media/3132q_attaching.gif[3132q fissaggio]
+image::../media/3132q_attaching.gif[]
 
 +
 _(1) con una persona che tiene la parte anteriore del telaio a livello, l'altra deve serrare completamente le quattro viti posteriori ai montanti del cabinet._

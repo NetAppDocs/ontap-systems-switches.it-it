@@ -7,7 +7,7 @@ summary: Scopri i nuovi switch per sistemi FAS e AFF.
 = Novità per gli switch
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]

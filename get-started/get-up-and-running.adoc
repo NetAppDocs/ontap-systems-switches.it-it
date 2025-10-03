@@ -33,7 +33,7 @@ Installare gli switch nel rack o nell'armadietto. Accedere alle seguenti istruzi
  a| 
 .Switch storage
 * link:../switch-cisco-9336c-fx2-storage/install-9336c-storage.html["Installare lo switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/install-hardware-sn2100-storage.html["Installare lo switch NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100-storage/install-hardware-sn2100-storage.html["Installare lo switch NVIDIA SN2100"]
 
  a| 
 .Switch condivisi
@@ -78,7 +78,7 @@ Le istruzioni di installazione e configurazione dei sistemi ONTAP includono le i
  a| 
 .Switch storage
 * link:../switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html["Cavo switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/cabling-considerations-sn2100-storage.html["Cavo NVIDIA SN2100 switch"]
+* link:../switch-nvidia-sn2100-storage/cabling-considerations-sn2100-storage.html["Cavo NVIDIA SN2100 switch"]
 
  a| 
 .Switch condivisi
@@ -104,7 +104,7 @@ Eseguire una configurazione iniziale degli switch. Accedere alle seguenti istruz
  a| 
 .Switch storage
 * link:../switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html["Configurare lo switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/configure-sn2100-storage.html["Configurare lo switch NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100-storage/configure-sn2100-storage.html["Configurare lo switch NVIDIA SN2100"]
 
  a| 
 .Switch condivisi
@@ -130,7 +130,7 @@ Per installare e configurare il software sullo switch, seguire il flusso di lavo
  a| 
 .Switch storage
 * link:../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html["Installare il software per lo switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/configure-software-sn2100-storage.html["Installare il software per lo switch NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html["Installare il software per lo switch NVIDIA SN2100"]
 
  a| 
 .Switch condivisi

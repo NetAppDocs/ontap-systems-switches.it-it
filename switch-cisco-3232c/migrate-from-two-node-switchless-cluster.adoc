@@ -60,7 +60,7 @@ Gli esempi di questa procedura utilizzano due nodi, ciascuno dei quali utilizza 
 * n1_clus2 è il primo LIF del cluster ad essere collegato allo switch del cluster C2 per il nodo n1.
 * n2_clus1 è il primo LIF del cluster ad essere collegato allo switch del cluster C1 per il nodo n2.
 * n2_clus2 è il secondo cluster LIF da collegare allo switch del cluster C2 per il nodo n2.
-* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili su https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] pagina.
+* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili all'indirizzolink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] .
 
 
 [NOTE]
@@ -165,14 +165,14 @@ Enable Switchless Cluster Detection: true
 +
 .. Accedere alla pagina _Cisco Ethernet Switches_ sul sito del supporto NetApp.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]
 
 .. Annotare lo switch e le versioni software richieste nella tabella riportata in tale pagina.
 .. Scaricare la versione appropriata di RCF.
 .. Fare clic su *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza, quindi seguire le istruzioni nella pagina *Download* per scaricare RCF.
 .. Scaricare la versione appropriata del software dell'immagine.
 +
-https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Pagina di download del file di configurazione di riferimento di Cisco Cluster and Management Network Switch"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento per Cisco Cluster and Management Network Switch"^] .
 
 
 

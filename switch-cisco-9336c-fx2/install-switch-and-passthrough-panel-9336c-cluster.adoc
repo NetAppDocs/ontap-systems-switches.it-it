@@ -47,7 +47,7 @@ In questa procedura, il pannello di chiusura viene installato in U40.
 .. Centrare il pannello verticalmente per evitare l'ingresso nello spazio rack adiacente, quindi serrare le viti.
 .. Inserire i connettori femmina di entrambi i cavi di collegamento da 48 pollici dalla parte posteriore del pannello e attraverso il gruppo spazzole.
 +
-image::../media/cisco_9148_jumper_cords.gif[cavi di collegamento cisco 9148]
+image::../media/cisco_9148_jumper_cords.gif[]
 
 +
 _(1) connettore femmina del cavo di collegamento._
@@ -60,14 +60,14 @@ _(1) connettore femmina del cavo di collegamento._
 +
 image::../media/3132q_front_bracket.gif[staffa anteriore]
 
-.. Ripetere il punto <<SUBSTEP_9F2E2DDAEE084FE5853D1A6C6D945941,2a>> con l'altra staffa anteriore per il montaggio in rack sull'altro lato dello switch.
+.. Ripetere il passaggio 2a con l'altra staffa anteriore per il montaggio su rack sull'altro lato dello switch.
 .. Installare la staffa per il montaggio su rack posteriore sul telaio dello switch.
-.. Ripetere il punto <<SUBSTEP_53A502380D6D4F058F62ED5ED5FC2000,2c>> con l'altra staffa posteriore per il montaggio su rack sull'altro lato dello switch.
+.. Ripetere il punto 2c con l'altra staffa posteriore per il montaggio su rack sull'altro lato dello switch.
 
 
 . Montare i dadi a clip nelle posizioni dei fori quadrati per tutti e quattro i montanti IEA.
 +
-image::../media/ru_locations_for_3132q_v.gif[posizioni ru per 3132q v]
+image::../media/ru_locations_for_3132q_v.gif[]
 
 +
 I due switch 9336C-FX2 e 9336C-FX2-T sono sempre montati nella parte superiore 2U del cabinet RU41 e 42.
@@ -76,7 +76,7 @@ I due switch 9336C-FX2 e 9336C-FX2-T sono sempre montati nella parte superiore 2
 +
 .. Posizionare la prima guida scorrevole in corrispondenza del contrassegno RU42 sul lato posteriore del montante posteriore sinistro, inserire le viti con il tipo di filettatura corrispondente, quindi serrare le viti con le dita.
 +
-image::../media/3132q_v_slider_rails.gif[3132q v guide di scorrimento]
+image::../media/3132q_v_slider_rails.gif[]
 
 +
 _(1) mentre si fa scorrere delicatamente la guida scorrevole, allinearla ai fori delle viti nel rack._
@@ -84,8 +84,8 @@ _(1) mentre si fa scorrere delicatamente la guida scorrevole, allinearla ai fori
 +
 _(2) serrare le viti delle guide di scorrimento ai montanti dell'armadietto._
 
-.. Ripetere il punto <<SUBSTEP_81651316D3F84964A76BC80A9DE48C0E,4a>> per il montante posteriore destro.
-.. Ripetere i passaggi <<SUBSTEP_81651316D3F84964A76BC80A9DE48C0E,4a>> e. <<SUBSTEP_593967A423024594B9A41A04703DC458,4b>> Nelle posizioni RU41 del cabinet.
+.. Ripetere il passaggio 4a per il montante posteriore destro.
+.. Ripetere i passaggi 4a e 4b nelle posizioni RU41 dell'armadio.
 
 
 . Installare lo switch nell'armadio.
@@ -106,13 +106,13 @@ _(2) far scorrere delicatamente lo switch fino a quando le staffe anteriori per 
 
 .. Collegare lo switch al cabinet.
 +
-image::../media/3132q_attaching.gif[3132q fissaggio]
+image::../media/3132q_attaching.gif[]
 
 +
 _(1) con una persona che tiene la parte anteriore del telaio a livello, l'altra deve serrare completamente le quattro viti posteriori ai montanti del cabinet._
 
 .. Con il telaio ora supportato senza assistenza, serrare completamente le viti anteriori sui montanti.
-.. Ripetere i passaggi <<SUBSTEP_4F538C8C55E34C5FB5D348391088A0FE,5a>> attraverso <<SUBSTEP_EB8FE2FED2CA4120B709CC753C0F50FC,5c>> Per il secondo switch nella posizione RU42.
+.. Ripetere i passi da 5a a 5c per il secondo switch nella posizione RU42.
 +
 
 NOTE: Utilizzando lo switch completamente installato come supporto, non è necessario tenere la parte anteriore del secondo switch durante il processo di installazione.

@@ -19,8 +19,8 @@ La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 3000 
 ====
 Per ulteriori informazioni, consulta:
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Pagina di descrizione dello switch Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -81,7 +81,7 @@ Quando si scollega una porta 40/100 Gigabit Ethernet in 10 porte Gigabit Etherne
 
 ====
 * Hai completato la pianificazione, la migrazione e leggi la documentazione richiesta sulla connettività 10 GbE e 40/100 GbE dai nodi agli switch del cluster Nexus 3232C.
-* Le versioni di ONTAP e NX-OS supportate in questa procedura sono disponibili in link:http://support.netapp.com/NOW/download/software/cm_switches/.html["Pagina Cisco Ethernet Switches (Switch Ethernet Cisco)"^].
+* Le versioni ONTAP e NX-OS supportate in questa procedura sono alink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^] .
 
 
 .Informazioni sugli esempi utilizzati
@@ -96,7 +96,7 @@ La procedura utilizza anche la seguente nomenclatura di switch e nodi:
 * *n1_clus2* è il primo cluster LIF collegato al cluster switch 2 (CL2 o C2) per il nodo *n1*.
 * *n1_clus3* è la seconda LIF collegata al cluster switch 2 (CL2 o C2) per il nodo *n1*.
 * *n1_clus4* è la seconda LIF collegata al cluster switch 1 (CL1 o C1) per il nodo *n1*.
-* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili su https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] pagina.
+* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili sullink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] .
 * I nodi sono *n1*, *n2*, *n3* e *n4*.
 
 

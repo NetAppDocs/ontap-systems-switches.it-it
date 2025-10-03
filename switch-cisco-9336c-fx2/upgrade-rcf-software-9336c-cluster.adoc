@@ -248,11 +248,11 @@ cluster1::*>
 `show running-config`
 
 +
-.. Registrare eventuali aggiunte personalizzate tra il file running-config corrente e il file RCF in uso (ad esempio una configurazione SNMP per l'organizzazione).
-.. Per NX-OS 10,2 e versioni successive, utilizzare il `show diff running-config` Comando per confrontare con il file RCF salvato nel bootflash.  In caso contrario, utilizzare uno strumento di confronto/diff in terza parte.
+.. Registrare eventuali aggiunte personalizzate tra l'attuale `running-config` e il file RCF in uso (ad esempio una configurazione SNMP per la tua organizzazione).
+.. A partire da NX-OS 10.2, utilizzare `show diff running-config` comando per confrontare con il file RCF salvato nel bootflash.  In caso contrario, utilizzare uno strumento di confronto/differenza di terze parti.
 
 
-. Salvare i dettagli della configurazione di base nel file write_erase.cfg sul bootflash.
+. Salva i dettagli di configurazione di base nel `write_erase.cfg` file sul bootflash.
 +
 `cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
 
@@ -276,9 +276,9 @@ cluster1::*>
 `cs1# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
 
 +
-Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch Cisco Interconnect mantenendo la connettività remota"^] per ulteriori dettagli.
+Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch Cisco Interconnect mantenendo la connettività remota"^] per ulteriori dettagli.
 
-. Verificare che il file write_erase.cfg sia popolato come previsto:
+. Verificare che il `write_erase.cfg` il file è popolato come previsto:
 +
 `show file bootflash:write_erase.cfg`
 
@@ -309,7 +309,7 @@ Potrebbe essere necessario aggiornare le voci del file host relative alle chiavi
 
 . Copiare l'RCF nella memoria di avvio dello switch CS1 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
 +
-Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS Command Reference"^] guide.
+Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nellink:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS Command Reference"^] guide.
 
 +
 .Mostra esempio

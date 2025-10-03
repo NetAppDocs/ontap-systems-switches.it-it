@@ -18,7 +18,7 @@ Assicurarsi di comprendere i requisiti di configurazione, le connessioni delle p
 == Requisiti di Cisco Nexus 3132Q-V.
 
 * Lo switch cluster Cisco Nexus 3132Q-V è supportato.
-* Il numero di porte 10 GbE e 40 GbE viene definito nei file di configurazione di riferimento (RCF) disponibili nella link:https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] pagina.
+* Il numero di porte 10 GbE e 40 GbE è definito nei file di configurazione di riferimento (RCF) disponibili all'indirizzolink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] .
 * Gli switch del cluster utilizzano le porte ISL (Inter-Switch link) e1/31-32.
 * Il link:https://hwu.netapp.com["Hardware Universe"^] Contiene informazioni sul cablaggio supportato per gli switch Nexus 3132Q-V:
 +
@@ -44,7 +44,7 @@ Per impostazione predefinita, RCF è strutturato in modo da utilizzare la prima 
 
 * È necessario aver eseguito planning, migrazione e leggere la documentazione richiesta sulla connettività 10 GbE e 40 GbE dai nodi agli switch cluster Nexus 3132Q-V.
 +
-Il link:http://mysupport.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^] Contiene informazioni sulle versioni di ONTAP e NX-OS supportate in questa procedura.
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]contiene informazioni sulle versioni ONTAP e NX-OS supportate in questa procedura.
 
 
 
@@ -58,7 +58,7 @@ Il link:http://mysupport.netapp.com/NOW/download/software/cm_switches/["Switch E
 ** Nexus 3132Q-V.
 
 
-* Il numero di porte 10 GbE e 40 GbE viene definito nei file di configurazione di riferimento (RCF) disponibili nella https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] pagina.
+* Il numero di porte 10 GbE e 40 GbE è definito nei file di configurazione di riferimento (RCF) disponibili all'indirizzolink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] .
 * Gli switch del cluster utilizzano le seguenti porte per le connessioni ai nodi:
 +
 ** Porte e1/1-40 (10 GbE): Nexus 5596
@@ -114,7 +114,7 @@ NOTE: È possibile attivare 4 porte SFP+ invece di una porta QSFP per gli switch
 NOTE: È possibile suddividere le prime sei porte in modalità 4x10 GbE utilizzando `interface breakout module 1 port 1-6 map 10g-4x` comando. Allo stesso modo, è possibile raggruppare le prime sei porte QSFP+ dalla configurazione breakout utilizzando `no interface breakout module 1 port 1-6 map 10g-4x` comando.
 
 * È possibile eseguire planning, migrazione e leggere la documentazione richiesta sulla connettività 10 GbE e 40 GbE dai nodi agli switch cluster Nexus 3132Q-V.
-* Le versioni di ONTAP e NX-OS supportate in questa procedura sono disponibili in link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^] pagina.
+* Le versioni ONTAP e NX-OS supportate in questa procedura sono alink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^] .
 
 
 
@@ -176,6 +176,6 @@ NOTE: Quando si utilizzano le prime quattro porte SFP+, viene disattivata la pri
 È possibile suddividere le prime sei porte in modalità 4x10 GbE utilizzando il `interface breakout module 1 port 1-6 map 10g-4x` comando. Analogamente, è possibile raggruppare le prime sei porte QSFP+ dalla configurazione _breakout_ utilizzando il `no interface breakout module 1 port 1-6 map 10g-4x` comando.
 
 * È necessario aver eseguito planning, migrazione e leggere la documentazione richiesta sulla connettività 10 GbE e 40 GbE dai nodi agli switch cluster Nexus 3132Q-V.
-* Le versioni di ONTAP e NX-OS supportate in questa procedura sono elencate nella link:http://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^] pagina.
-* Le versioni di ONTAP e FASTPATH supportate in questa procedura sono elencate nella link:http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Switch NetApp CN1601 e CN1610"^] pagina.
+* Le versioni ONTAP e NX-OS supportate in questa procedura sono elencate sulink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^] .
+* Le versioni ONTAP e FASTPATH ​​supportate in questa procedura sono elencate sulink:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["Switch NetApp CN1601 e CN1610"^] .
 

@@ -17,7 +17,7 @@ Per l'installazione e la manutenzione dello switch Cisco Nexus 92300YC, consulta
 
 == Documentazione dello switch
 
-Per configurare gli switch Cisco Nexus 92300YC, è necessario disporre della seguente documentazione dal https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Supporto degli switch Cisco Nexus serie 9000"^] pagina:
+Per configurare gli switch Cisco Nexus 92300YC, è necessaria la seguente documentazione dal https://www.cisco.com/site/us/en/products/networking/cloud-networking-switches/nexus-9200-series-switches/index.html["Supporto degli switch Cisco Nexus serie 9000"^] pagina:
 
 [cols="1,2"]
 |===
@@ -129,7 +129,7 @@ Descrive le FRU associate all'armadio del sistema 42U e fornisce istruzioni per 
 
 
  a| 
-link:install-cisco-nexus-3132qv.html["[Installare uno switch Cisco Nexus 92300YC in un cabinet NetApp"]
+link:install-switch-netapp-cabinet-92300yc.html["Installare uno switch Cisco Nexus 92300YC in un cabinet NetApp"]
  a| 
 Descrive come installare uno switch Cisco Nexus 92300YC in un cabinet NetApp a quattro montanti.
 
