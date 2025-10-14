@@ -4,19 +4,29 @@ sidebar: sidebar
 keywords:  
 summary: Scopri di più su cluster, storage e switch condivisi. 
 ---
-= Scopri di più sugli switch cluster, storage e condivisi
+= Scopri di più sui sistemi AFX, Cluster, Storage e Switch condivisi
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-NetApp offre cluster, storage e switch condivisi che offrono comunicazioni interne con la possibilità di spostare dati e interfacce di rete senza interruzioni nel cluster.
+NetApp offre sistemi AFX, cluster, storage e switch condivisi che garantiscono comunicazioni interne con la possibilità di spostare dati e interfacce di rete all'interno del cluster senza interruzioni.
 
 Gli switch "front-end" forniscono connettività allo storage host, mentre gli switch cluster "back-end" forniscono connessioni tra due o più controller NetApp.
 
 
 NOTE: Sono supportati solo gli switch back-end validati da NetApp (ordinati da NetApp).
+
+
+
+== Interruttori di sistema AFX
+
+Gli switch dei sistemi AFX consentono di creare switch di rete rapidi, efficienti dal punto di vista energetico e salvaspazio.  Le loro dimensioni ridotte e l'elevata densità di porte li rendono ideali per la gestione di reti di grandi dimensioni.  Le porte supportano velocità diverse e possono essere suddivise in più connessioni.  Gli switch dei sistemi AFX supportati da NetApp includono:
+
+* Cisco Nexus 9332D-GX2B
+* Cisco Nexus 9364D-GX2A
+
 
 
 

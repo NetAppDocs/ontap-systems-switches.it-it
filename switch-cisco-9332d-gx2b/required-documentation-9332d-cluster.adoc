@@ -1,0 +1,108 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9332d-gx2b/required-documentation-9332d-cluster.html 
+keywords: shared storage cluster switch 
+summary: 'Per l"installazione e la manutenzione dello switch Cisco Nexus 9332D-GX2B, assicurarsi di consultare la documentazione specifica dello switch e del controller per configurare gli switch Cisco 9336-FX2 e il cluster ONTAP .' 
+---
+= Requisiti di documentazione per gli switch Cisco Nexus 9332D-GX2B
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per l'installazione e la manutenzione dello switch Cisco Nexus 9332D-GX2B, assicurarsi di consultare la documentazione specifica dello switch e del controller per configurare gli switch 9332D-GX2B e il cluster ONTAP .
+
+
+
+== Documentazione dello switch
+
+Per configurare gli switch Cisco Nexus 9332D-GX2B, è necessaria la seguente documentazione dallink:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Supporto degli switch Cisco Nexus serie 9000"^] pagina:
+
+[cols="1,2"]
+|===
+| Titolo del documento | Descrizione 
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9332d-gx2b/cisco-nexus-9332d-gx2b-nx-os-mode-switch-hardware-installation-guide/m_installing-the-switch-chassis-new-1ru-rack-mount.html["Guida all'installazione hardware dello switch Cisco Nexus 9332D-GX2B NX-OS Mode"^]
+ a| 
+Fornisce informazioni dettagliate sui requisiti del sito, sui dettagli dell'hardware dello switch e sulle opzioni di installazione.
+
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Guide alla configurazione del software dello switch Cisco Nexus serie 9000"^](scegli la guida per la versione NX-OS installata sui tuoi switch)
+ a| 
+Fornisce le informazioni di configurazione iniziale dello switch necessarie prima di poter configurare lo switch per il funzionamento ONTAP.
+
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/101x/upgrade/cisco-nexus-9000-nx-os-software-upgrade-downgrade-guide-101x.html["Guida all'aggiornamento e al downgrade del software per Cisco Nexus serie 9000 NX-OS"^](scegli la guida per la versione NX-OS installata sui tuoi switch)
+ a| 
+Fornisce informazioni su come eseguire il downgrade dello switch al software dello switch supportato da ONTAP, se necessario.
+
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Cisco Nexus 9000 Series NX-OS Command Reference"^]
+ a| 
+Fornisce collegamenti ai vari riferimenti ai comandi forniti da Cisco.
+
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Riferimento ai messaggi del sistema Cisco Nexus serie NX-OS 9000"^]
+ a| 
+Descrive i messaggi di sistema per gli switch Cisco Nexus serie 9000, quelli che sono informativi e altri che possono aiutare a diagnosticare problemi con collegamenti, hardware interno o software di sistema.
+
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-release-notes-list.html["Note sulla versione di Cisco Nexus serie 9000 NX-OS"^](seleziona le note per la versione NX-OS installata sui tuoi switch)
+ a| 
+Descrive le funzioni, i bug e le limitazioni di Cisco Nexus serie 9000.
+
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html?dtid=osscdc000283&linkclickid=srch["Conformità alle normative e informazioni sulla sicurezza per Cisco Nexus serie 9000"^]
+ a| 
+Fornisce informazioni legali, sulla conformità e sulla sicurezza degli switch Nexus serie 9000 a livello internazionale.
+
+|===
+
+
+== Documentazione sui sistemi ONTAP
+
+Per configurare un sistema ONTAP , sono necessari i seguenti documenti per la versione del sistema operativo da https://docs.netapp.com/ontap-9/index.jsp["Centro di documentazione ONTAP 9"^] .
+
+[cols="1,2"]
+|===
+| Nome | Descrizione 
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-afx/index.html["Documentazione dei sistemi AFX"^]
+ a| 
+Descrive come installare l'hardware NetApp.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-family/["Documentazione ONTAP"^]
+ a| 
+Fornisce informazioni dettagliate su tutti gli aspetti delle release di ONTAP.
+
+
+
+ a| 
+https://hwu.netapp.com["Hardware Universe"^]
+ a| 
+Fornisce informazioni sulla compatibilità e sulla configurazione dell'hardware NetApp.
+
+|===

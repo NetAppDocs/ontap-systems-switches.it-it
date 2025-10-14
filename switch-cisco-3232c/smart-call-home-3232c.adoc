@@ -15,7 +15,9 @@ Per utilizzare Smart Call Home, è necessario configurare uno switch di rete clu
 
 Smart Call Home monitora i componenti hardware e software della tua rete. Quando si verifica una configurazione critica del sistema, viene generata una notifica tramite e-mail e viene inviato un avviso a tutti i destinatari configurati nel profilo di destinazione.
 
-Prima di utilizzare Smart Call Home, tieni presente i seguenti requisiti:
+Smart Call Home monitora i componenti hardware e software della tua rete. Quando si verifica una configurazione critica del sistema, viene generata una notifica tramite e-mail e viene inviato un avviso a tutti i destinatari configurati nel profilo di destinazione.
+
+Prima di poter utilizzare Smart Call Home, è necessario tenere presente i seguenti requisiti:
 
 * È necessario che sia installato un server di posta elettronica.
 * Lo switch deve disporre di connettività IP al server di posta elettronica.

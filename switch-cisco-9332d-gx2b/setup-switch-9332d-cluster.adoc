@@ -1,0 +1,204 @@
+---
+permalink: switch-cisco-9332d-gx2b/setup-switch-9332d-cluster.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9332d-gx2b 
+summary: Seguire questa procedura per configurare lo switch Cisco Nexus 9332D-GX2B. 
+---
+= Configurare lo switch 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Seguire questa procedura per configurare lo switch Cisco Nexus 9332D-GX2B.
+
+.Prima di iniziare
+Assicurati di avere:
+
+* Accendete i vostri switch.
+* Accesso a un server HTTP, FTP o TFTP nel sito di installazione per scaricare le release NX-OS e RCF (Reference Configuration file) applicabili.
+* Versione NX-OS applicabile, scaricata da https://software.cisco.com/download/home["Download del software Cisco"^] pagina.
+
+
+[IMPORTANT]
+====
+* NX-OS 10.4.2 è l'unica versione supportata per gli switch Cisco Nexus 9332D-GX2B in un cluster ONTAP .
+* Non effettuare l'upgrade o il downgrade della versione NX-OS a una versione non supportata; al momento è supportata solo la versione 10.4.2.
+
+
+====
+* Licenze applicabili, informazioni di rete e configurazione e cavi.
+* RCF di rete condivisa e di gestione NetApp applicabili scaricabili dal sito di supporto NetApp all'indirizzo http://mysupport.netapp.com/["mysupport.netapp.com"^] .  Tutti gli switch di rete condivisa e di gestione Cisco vengono forniti con la configurazione predefinita di fabbrica Cisco .  Questi switch dispongono anche della versione corrente del software NX-OS, ma non hanno gli RCF caricati.
+* link:required-documentation-9332d-cluster.html["Documentazione richiesta su switch e ONTAP"] .
+
+
+.Fasi
+. Eseguire una configurazione iniziale degli switch di rete condivisi.
++
+Fornire le risposte appropriate alle seguenti domande iniziali di configurazione al primo avvio dello switch. La policy di sicurezza del sito definisce le risposte e i servizi da abilitare.
+
++
+[cols="1,2"]
+|===
+| Prompt | Risposta 
+
+
+ a| 
+Interrompere il provisioning automatico e continuare con la normale configurazione? (sì/no)
+ a| 
+Rispondere con *sì*. Il valore predefinito è no
+
+
+
+ a| 
+Applicare lo standard di password sicura? (sì/no)
+ a| 
+Rispondere con *sì*. L'impostazione predefinita è sì.
+
+
+
+ a| 
+Inserire la password per admin.
+ a| 
+La password predefinita è "`admin`"; è necessario creare una nuova password complessa. Una password debole può essere rifiutata.
+
+
+
+ a| 
+Accedere alla finestra di dialogo della configurazione di base? (sì/no)
+ a| 
+Rispondere con *yes* alla configurazione iniziale dello switch.
+
+
+
+ a| 
+Creare un altro account di accesso? (sì/no)
+ a| 
+La risposta dipende dalle policy del sito relative agli amministratori alternativi. L'impostazione predefinita è *NO*.
+
+
+
+ a| 
+Configurare la stringa di comunità SNMP di sola lettura? (sì/no)
+ a| 
+Rispondere con *no*. Il valore predefinito è no
+
+
+
+ a| 
+Configurare la stringa di comunità SNMP in lettura/scrittura? (sì/no)
+ a| 
+Rispondere con *no*. Il valore predefinito è no
+
+
+
+ a| 
+Inserire il nome dello switch.
+ a| 
+Inserire il nome dello switch, che può contenere al massimo 63 caratteri alfanumerici.
+
+
+
+ a| 
+Continuare con la configurazione di gestione out-of-band (mgmt0)? (sì/no)
+ a| 
+Rispondere con *yes* (impostazione predefinita) al prompt. Al prompt mgmt0 IPv4 address: (Indirizzo IPv4: Mgmt0), immettere l'indirizzo IP IP: ip_address (Indirizzo_ip).
+
+
+
+ a| 
+Configurare il gateway predefinito? (sì/no)
+ a| 
+Rispondere con *sì*. Al prompt dell'indirizzo IPv4 del gateway predefinito, immettere default_gateway.
+
+
+
+ a| 
+Configurare le opzioni IP avanzate? (sì/no)
+ a| 
+Rispondere con *no*. Il valore predefinito è no
+
+
+
+ a| 
+Abilitare il servizio telnet? (sì/no)
+ a| 
+Rispondere con *no*. Il valore predefinito è no
+
+
+
+ a| 
+Servizio SSH abilitato? (sì/no)
+ a| 
+Rispondere con *sì*. L'impostazione predefinita è sì.
+
+
+NOTE: SSH è consigliato quando si utilizza Ethernet Switch Health Monitor (CSHM) per le funzioni di raccolta dei log. SSHv2 è consigliato anche per una maggiore sicurezza.
+
+
+
+ a| 
+Inserire il tipo di chiave SSH che si desidera generare (dsa/rsa/rsa1).
+ a| 
+L'impostazione predefinita è *rsa*.
+
+
+
+ a| 
+Inserire il numero di bit della chiave (1024-2048).
+ a| 
+Inserire il numero di bit della chiave compreso tra 1024 e 2048.
+
+
+
+ a| 
+Configurare il server NTP? (sì/no)
+ a| 
+Rispondere con *no*. Il valore predefinito è no
+
+
+
+ a| 
+Configurare il livello di interfaccia predefinito (L3/L2)
+ a| 
+Rispondi con *L2*. L'impostazione predefinita è L2.
+
+
+
+ a| 
+Configurare lo stato di interfaccia della porta dello switch predefinito (shut/noshut)
+ a| 
+Rispondere con *noshut*. L'impostazione predefinita è noshut.
+
+
+
+ a| 
+Configurare il profilo di sistema Copp (rigido/moderato/lenient/denso)
+ a| 
+Rispondere con *Strict*. L'impostazione predefinita è rigorosa.
+
+
+
+ a| 
+Modificare la configurazione? (sì/no)
+ a| 
+A questo punto, viene visualizzata la nuova configurazione. Esaminare e apportare le modifiche necessarie alla configurazione appena inserita. Rispondere con *no* al prompt se si è soddisfatti della configurazione. Rispondere con *yes* se si desidera modificare le impostazioni di configurazione.
+
+
+
+ a| 
+Utilizzare questa configurazione e salvarla? (sì/no)
+ a| 
+Rispondere con *yes* per salvare la configurazione. In questo modo vengono aggiornate automaticamente le immagini del sistema e del kickstart.
+
+
+NOTE: Se non si salva la configurazione in questa fase, nessuna delle modifiche sarà effettiva al successivo riavvio dello switch.
+
+|===
+. Verificare le opzioni di configurazione effettuate sul display visualizzato al termine dell'installazione e assicurarsi di salvare la configurazione.
+. Controllare la versione sugli switch di rete condivisi e, se necessario, scaricare la versione del software supportata da NetApp sugli switch da https://software.cisco.com/download/home["Download del software Cisco"^] pagina.
+
+
+.Quali sono le prossime novità?
+Dopo aver configurato gli switch,link:install-nxos-overview-9332d-cluster.html["prepararsi a installare il software NX-OS e RCF"] .

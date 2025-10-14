@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9332d-gx2b/reset-switch-9332d.html 
+keywords: reset switch factory defaults 
+summary: Ripristinare le impostazioni predefinite di fabbrica dello switch 9332D-GX2B. 
+---
+= Ripristinare l'interruttore 9332D-GX2B ai valori predefiniti di fabbrica
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per ripristinare le impostazioni predefinite di fabbrica dello switch 9332D-GX2B, è necessario cancellare le impostazioni dello switch 9332D-GX2B.
+
+.A proposito di questa attività
+* È necessario essere collegati allo switch mediante la console seriale.
+* Questa attività ripristina la configurazione della rete di gestione.
+
+
+.Fasi
+. Cancella la configurazione esistente:
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Ricaricare il software dello switch:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+Il sistema si riavvia e accede alla procedura guidata di configurazione.  Durante l'avvio, se viene visualizzato il messaggio "Interrompere il provisioning automatico e continuare con la configurazione normale?"  (sì/no)[n]”, dovresti rispondere *sì* per procedere.
+
+

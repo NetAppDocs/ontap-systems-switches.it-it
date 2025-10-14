@@ -1,0 +1,55 @@
+---
+indexpage:
+  title: Switch del cluster
+  summary: Utilizzare la documentazione presente su questo sito per installare, configurare
+    e gestire gli switch del cluster per le distribuzioni del cluster ONTAP .
+  keywords: cluster switches, cisco nexus switches, ontap clusters
+  lead: Gli switch cluster consentono di creare cluster ONTAP con più di due nodi.  Questi
+    switch della piattaforma Cisco Nexus 9000 costituiscono la base per soluzioni
+    di interconnessione cluster scalabili negli ambienti NetApp ONTAP .
+  tiles:
+  - title: Inizia subito
+    links:
+    - title: Broadcom BES-53248
+      url: "../switch-bes-53248/configure-new-switch-overview.html"
+    - title: Cisco Nexus 9336C-FX2 e 9336C-FX2-T
+      url: "../switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"
+    - title: NVIDIA SN2100
+      url: "../switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
+  - title: Installare e configurare gli switch del cluster
+    links:
+    - title: Installare l'hardware dello switch Broadcom BES-53248
+      url: "../switch-bes-53248/install-hardware-workflow.html"
+    - title: Installare l'hardware dello switch 9336C-FX2 e 9336C-FX2-T
+      url: "../switch-cisco-9336c-fx2/install-hardware-workflow.html"
+    - title: Installa l'hardware dello switch NVIDIA SN2100
+      url: "../switch-nvidia-sn2100/install-hardware-workflow.html"
+    - title: Configurare il software dello switch Broadcom BES-53248
+      url: "../switch-bes-53248/configure-software-overview-bes53248.html"
+    - title: Configurare il software dello switch 9336C-FX2 e 9336C-FX2-T
+      url: "../switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html"
+    - title: Configurare il software dello switch NVIDIA SN2100
+      url: "../switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
+  - title: Mantenere gli switch del cluster
+    links:
+    - title: Sostituisci lo switch Broadcom BES-53248
+      url: "../switch-bes-53248/replace-switch.html"
+    - title: Sostituire l'interruttore 9336C-FX2 e 9336C-FX2-T
+      url: "../switch-cisco-9336c-fx2/replace-9336c-cluster.html"
+    - title: Sostituisci lo switch NVIDIA SN2100
+      url: "../switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"
+    - title: Ripristinare lo switch Broadcom BES-53248 ai valori predefiniti di fabbrica
+      url: "../switch-bes-53248/reset-switch-bes-53248.html"
+    - title: Ripristinare gli switch 9336C-FX2 e 9336C-FX2-T alle impostazioni predefinite
+        di fabbrica
+      url: "../switch-cisco-9336c-fx2/reset-switch-9336c.html"
+    - title: Ripristinare lo switch NVIDIA SN2100 ai valori predefiniti di fabbrica
+      url: "../switch-nvidia-sn2100/reset-switch-sn2100.html"
+  - title: Documentazione correlata
+    links:
+    - title: Sistemi hardware ONTAP
+      url: https://docs.netapp.com/us-en/ontap-systems/index.html
+    - title: Documentazione degli switch cluster
+      url: "../index.html"
+    - title: Monitoraggio dello stato di salute degli interruttori
+      url: "../switch-cshm/config-overview.html"

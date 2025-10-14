@@ -1,0 +1,40 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-cisco-9332d-gx2b switch 
+summary: Panoramica della configurazione software per gli switch Cisco 9332D-GX2B 
+---
+= Configurare il flusso di lavoro software per gli switch Cisco 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per installare e configurare il software per uno switch Cisco 9332D-GX2B e per installare o aggiornare il file di configurazione di riferimento (RCF), attenersi alla seguente procedura:
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-switch-9332d-cluster.html["Configurare lo switch 9332D-GX2B"]
+[role="quick-margin-para"]
+Configurare lo switch Cisco 9332D-GX2B.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:install-nxos-overview-9332d-cluster.html["Preparare l'installazione del software NX-OS e di RCF"]
+[role="quick-margin-para"]
+Installare il software Cisco NX-OS e i file di configurazione di riferimento (RCF) sugli switch Cisco 9332D-GX2B.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-nxos-software-9332d-cluster.html["Installare o aggiornare il software NX-OS"]
+[role="quick-margin-para"]
+Scaricare e installare o aggiornare il software NX-OS sullo switch Cisco 9332D-GX2B.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:install-upgrade-rcf-overview-cluster.html["Installare o aggiornare l'RCF"]
+[role="quick-margin-para"]
+Installare o aggiornare l'RCF dopo aver configurato per la prima volta lo switch Cisco 9332D-GX2B. Puoi usare questa procedura anche per aggiornare la tua versione RCF.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-ssh-keys.html["Verificare che SSH sia abilitato sugli switch Cisco 9332D-GX2B"]
+[role="quick-margin-para"]
+Verificare che SSH sia abilitato sullo switch Cisco 9332D-GX2B per l'utilizzo con le funzionalità di monitoraggio dello stato dello switch Ethernet (CSHM) e di raccolta dei registri.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:reset-switch-9332d.html["Ripristinare l'interruttore alle impostazioni predefinite di fabbrica"]
+[role="quick-margin-para"]
+Cancellare le impostazioni dello switch Cisco 9332D-GX2B.
+
+Una volta terminata la configurazione degli switch, vai sulink:https://docs.netapp.com/us-en/ontap-afx/install-setup/power-on-hardware.html["Accendi il tuo sistema di archiviazione AFX 1K"^] .

@@ -1,0 +1,46 @@
+---
+indexpage:
+  title: Interruttori di sistema AFX
+  summary: Utilizzare la documentazione presente su questo sito per installare, configurare
+    e gestire gli switch dei sistemi AFX per le distribuzioni di cluster ONTAP .
+  keywords: AFX systems switches, cisco nexus switches, cluster switches, ontap clusters
+  lead: Gli switch dei sistemi AFX consentono di creare cluster ONTAP con più di due
+    nodi.  Questi switch della piattaforma Cisco Nexus 9000 costituiscono la base
+    per soluzioni di interconnessione cluster scalabili negli ambienti NetApp ONTAP
+    .
+  tiles:
+  - title: Inizia subito
+    links:
+    - title: Cisco Nexus 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/configure-switch-overview-9332d-cluster.html"
+    - title: Cisco Nexus 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/configure-switch-overview-9364d-cluster.html"
+  - title: Installare e configurare gli switch AFX
+    links:
+    - title: Installare l'hardware dello switch 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/install-hardware.html"
+    - title: Installare l'hardware dello switch 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/install-hardware.html"
+    - title: Configurare il software dello switch 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html"
+    - title: Configurare il software dello switch 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/configure-software-overview-9364d-cluster.html"
+  - title: Manutenzione degli interruttori AFX
+    links:
+    - title: Sostituire l'interruttore 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/replace-9332d-cluster.html"
+    - title: Sostituire l'interruttore 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/replace-9364d-cluster.html"
+    - title: Ripristinare l'interruttore 9332D-GX2B ai valori predefiniti di fabbrica
+      url: "../switch-cisco-9332d-gx2b/reset-switch-9332d.html"
+    - title: Ripristinare l'interruttore 9364D-GX2A alle impostazioni predefinite
+        di fabbrica
+      url: "../switch-cisco-9364d-gx2a/reset-switch-9364d.html"
+  - title: Documentazione correlata
+    links:
+    - title: Sistemi hardware ONTAP
+      url: https://docs.netapp.com/us-en/ontap-systems/index.html
+    - title: Documentazione degli switch cluster
+      url: "../index.html"
+    - title: Monitoraggio dello stato di salute degli interruttori
+      url: "../switch-cshm/config-overview.html"
