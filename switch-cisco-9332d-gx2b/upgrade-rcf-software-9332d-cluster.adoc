@@ -951,7 +951,7 @@ node1-04          true     true          false
 4 entries were displayed.
 ----
 ====
-. Ripetere i passaggi da 4 a 17 sullo switch cs2.
+. Ripetere i passaggi da 4 a 18 sullo switch cs2.
 . Abilitare il ripristino automatico sulle LIF del cluster.
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`

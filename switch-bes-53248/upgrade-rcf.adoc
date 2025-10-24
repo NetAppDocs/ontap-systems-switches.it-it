@@ -455,7 +455,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 .EFOS versione 3,12.x e successive
 --
-. Copiare l'RCF nella flash di avvio dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
+. Copiare l'RCF nel bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: HTTP, HTTPS, FTP, TFTP, SFTP o SCP.
 +
 Questo esempio mostra l'utilizzo di SFTP per copiare un RCF nella flash di avvio sullo switch cs2:
 
@@ -514,7 +514,7 @@ Configuration script 'reference-config.scr' applied.
 --
 .Tutte le altre versioni di EFOS
 --
-. Copiare l'RCF nella flash di avvio dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
+. Copiare l'RCF nel bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: HTTP, HTTPS, FTP, TFTP, SFTP o SCP.
 +
 Questo esempio mostra l'utilizzo di SFTP per copiare un RCF nella flash di avvio sullo switch cs2:
 
