@@ -689,4 +689,4 @@ In caso di mancato ritorno delle LIF del cluster alle porte home, puoi ripristin
 
 
 .Quali sono le prossime novità?
-link:install-rcf-3232c.html["Installare il file di configurazione RCF"].
+Dopo aver installato il software NX-OS, link:install-upgrade-rcf-overview-3232c.html["installare o aggiornare il file di configurazione di riferimento (RCF)"].

@@ -333,4 +333,4 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 --
 ====
 .Quali sono le prossime novità?
-link:install-cable-shelves-sn2100-storage.html["Cablare gli shelf NS224 come storage collegato allo switch"].
+Dopo aver esaminato i requisiti di cablaggio e configurazione, link:install-cable-shelves-sn2100-storage.html["cablare i ripiani NS224 come spazio di archiviazione collegato all'interruttore"].

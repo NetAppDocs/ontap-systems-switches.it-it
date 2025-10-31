@@ -19,7 +19,7 @@ entries:
   - title: Flusso di lavoro di installazione dell'hardware
     url: "/switch-cisco-3132q-v/install-hardware-workflow.html"
   - title: Completare il foglio di lavoro per il cablaggio
-    url: "/switch-cisco-3132q-v/setup_worksheet_3132q.html"
+    url: "/switch-cisco-3132q-v/setup-worksheet-3132q.html"
   - title: Installare lo switch
     url: "/switch-cisco-3132q-v/install-switch-3132qv.html"
   - title: Installare lo switch nel cabinet NetApp
@@ -33,6 +33,8 @@ entries:
     url: "/switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html"
   - title: Configurare lo switch
     url: "/switch-cisco-3132q-v/setup-switch.html"
+  - title: Preparare l'installazione del software NX-OS e RCF
+    url: "/switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html"
   - title: Installare il software NX-OS
     url: "/switch-cisco-3132q-v/install-nx-os-software-3132q-v.html"
   - title: Installare o aggiornare l'RCF

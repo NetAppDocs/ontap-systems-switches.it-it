@@ -14,5 +14,5 @@ summary: 'Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabili
 Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug.
 
 * link:config-log-collection.html["Configurare la raccolta di log"]
-* link:config-snmpv3.html["Opzionale: Configurare SNMPv3"]
+* link:config-snmpv3.html["Configure SNMPv3 (opzionale)"]
 

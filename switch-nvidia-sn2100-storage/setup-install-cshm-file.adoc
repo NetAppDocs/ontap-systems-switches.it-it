@@ -134,4 +134,4 @@ cluster1::> *system switch ethernet show*
 
 
 .Quali sono le prossime novità?
-link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].
+Dopo aver installato il file CSHM, link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

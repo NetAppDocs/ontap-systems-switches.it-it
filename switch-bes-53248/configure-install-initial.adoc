@@ -249,4 +249,4 @@ Configuration Saved!
 
 
 .Quali sono le prossime novità?
-link:configure-efos-software.html["Installare il software EFOS"].
+Dopo aver configurato gli switch, puoi link:configure-efos-software.html["installare il software EFOS"].

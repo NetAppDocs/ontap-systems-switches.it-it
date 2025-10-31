@@ -19,4 +19,4 @@ Per configurare lo switch SN2100, consultare la documentazione di NVIDIA.
 
 
 .Quali sono le prossime novità?
-link:install-cumulus-mode-sn2100-storage.html["Installare Cumulus Linux in modalità Cumulus"]Olink:install-onie-mode-sn2100-storage.html["Installare Cumulus Linux in modalità ONIE"] .
+Dopo aver configurato gli switch, link:install-cumulus-mode-sn2100-storage.html["installare Cumulus Linux in modalità Cumulus"] O link:install-onie-mode-sn2100-storage.html["installare Cumulus Linux in modalità ONIE"].

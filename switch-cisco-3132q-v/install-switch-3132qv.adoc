@@ -50,4 +50,4 @@ Consultare le procedure fornite nelle guide all'installazione dell'hardware dell
 
 
 .Quali sono le prossime novità?
-Facoltativamente, puoilink:install-cisco-nexus-3132qv.html["installare uno switch Cisco Nexus 3132Q-V in un cabinet NetApp"] .  Altrimenti vai alink:cabling-considerations-3132q-v.html["Analisi del cablaggio e della configurazione"] .
+Facoltativamente, puoi link:install-cisco-nexus-3132qv.html["installare uno switch Cisco Nexus 3132Q-V in un cabinet NetApp"]. Altrimenti puoi link:cabling-considerations-3132q-v.html["rivedere il cablaggio e la configurazione"] requisiti.

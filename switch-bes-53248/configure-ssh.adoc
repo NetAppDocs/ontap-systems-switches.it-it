@@ -217,4 +217,4 @@ SCP server Administrative Mode: ............... Enabled
 
 
 .Quali sono le prossime novità?
-link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].
+Dopo aver abilitato SSH, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

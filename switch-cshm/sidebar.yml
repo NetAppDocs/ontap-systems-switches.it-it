@@ -12,7 +12,7 @@ entries:
     url: "/switch-cshm/config-overview.html"
   - title: Configurare la raccolta di log
     url: "/switch-cshm/config-log-collection.html"
-  - title: Facoltativo - configurare SNMPv3
+  - title: Configure SNMPv3 (opzionale)
     url: "/switch-cshm/config-snmpv3.html"
 - title: Controllare lo stato dello switch
   pdf-filename: Monitor_switch_Health

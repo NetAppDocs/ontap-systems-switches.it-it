@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, configure, snmpv3, switch logs, debugging, collection 
 summary: 'È possibile utilizzare questa procedura per configurare SNMPv3 per lo switch specifico, che supporta il monitoraggio dello stato degli switch Ethernet (CSHM).' 
 ---
-= Opzionale: Configurare SNMPv3 per lo switch
+= Configurare SNMPv3 per lo switch (facoltativo)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

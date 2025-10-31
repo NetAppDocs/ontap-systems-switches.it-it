@@ -672,4 +672,4 @@ unreachable default metric 4278198272
 --
 ====
 .Quali sono le prossime novità?
-link:install-rcf-sn2100-cluster.html["Installare o aggiornare lo script RCF"].
+Dopo aver aggiornato la versione di Cumulus Linux, link:install-rcf-sn2100-cluster.html["installare o aggiornare lo script RCF"].

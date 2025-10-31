@@ -71,4 +71,4 @@ Dove:
 
 
 .Cosa c'è dopo?
-link:install-9336c-shared.html["Installare lo switch"].
+Dopo aver completato i fogli di lavoro sui cavi, puoi link:install-9336c-shared.html["installare l'interruttore"].

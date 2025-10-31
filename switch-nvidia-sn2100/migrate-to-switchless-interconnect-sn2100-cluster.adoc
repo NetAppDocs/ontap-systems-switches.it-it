@@ -571,3 +571,6 @@ Per ulteriori informazioni, vedere link:https://kb.netapp.com/Advice_and_Trouble
 `set -privilege admin`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver sostituito gli interruttori,link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"] .

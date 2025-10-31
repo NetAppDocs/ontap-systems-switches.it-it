@@ -212,4 +212,4 @@ NOTE: Se non si salva la configurazione in questa fase, nessuna delle modifiche 
 
 
 .Quali sono le prossime novità?
-link:prepare-install-cisco-nexus-3132q.html["Preparazione all'installazione di NX-OS e RCF"].
+Dopo aver configurato gli switch, link:prepare-install-cisco-nexus-3132q.html["prepararsi a installare NX-OS e RCF"].

@@ -43,4 +43,4 @@ La seguente tabella elenca il codice ricambio e la descrizione dello switch, del
 | X-NXA-FAN-65CFM-PI | N9K-9336C 65CFM, flusso d'aria di aspirazione lato porta 
 |===
 .Cosa c'è dopo?
-link:required-documentation-9336c-shared.html["Documentazione richiesta"] .
+Dopo aver confermato i componenti e i numeri di parte, rivedi il link:required-documentation-9336c-shared.html["documentazione richiesta"].

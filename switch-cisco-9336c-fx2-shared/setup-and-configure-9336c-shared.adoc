@@ -136,4 +136,4 @@ NOTE: Se non si salva la configurazione in questa fase, nessuna delle modifiche 
 
 
 .Quali sono le prossime novità?
-link:prepare-nxos-rcf-9336c-shared.html["Preparazione all'installazione di NX-OS e RCF"].
+Dopo aver configurato gli switch, puoi link:prepare-nxos-rcf-9336c-shared.html["prepararsi a installare NX-OS e RCF"].

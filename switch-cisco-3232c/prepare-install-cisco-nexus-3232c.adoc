@@ -225,4 +225,4 @@ Cluster
 
 
 .Quali sono le prossime novità?
-link:install-nx-os-software-3232c.html["Installare il software NX-OS"] .
+Dopo esserti preparato per installare il software NX-OS e RCF, link:install-nx-os-software-3232c.html["installare il software NX-OS"].

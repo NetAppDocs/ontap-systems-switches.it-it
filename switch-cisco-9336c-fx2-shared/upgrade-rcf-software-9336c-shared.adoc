@@ -922,4 +922,4 @@ RPC status:
 --
 ====
 .Quali sono le prossime novità?
-link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].
+Dopo aver aggiornato l'RCF, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

@@ -696,4 +696,4 @@ In caso di mancato ritorno delle LIF del cluster alle porte home, puoi ripristin
 
 
 .Quali sono le prossime novità?
-link:install-nxos-rcf-9336c-shared.html["Installare RCF"].
+Dopo aver installato il software NX-OS, puoi link:install-nxos-rcf-9336c-shared.html["installare l'RCF"].

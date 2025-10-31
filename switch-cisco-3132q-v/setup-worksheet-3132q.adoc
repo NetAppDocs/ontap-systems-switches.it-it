@@ -590,4 +590,4 @@ Riservato
 
 |===
 .Cosa c'è dopo?
-link:install-switch-3132qv.html["Installare lo switch"] .
+Dopo aver completato i fogli di lavoro sul cablaggio, link:install-switch-3132qv.html["installare l'interruttore"].

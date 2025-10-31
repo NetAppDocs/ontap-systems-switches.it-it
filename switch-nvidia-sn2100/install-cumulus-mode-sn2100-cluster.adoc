@@ -723,4 +723,4 @@ Per ulteriori informazioni, vedere https://docs.nvidia.com/networking-ethernet-s
 --
 ====
 .Quali sono le prossime novità?
-link:install-rcf-sn2100-cluster.html["Installare lo script del file di configurazione di riferimento (RCF)"].
+Dopo aver installato Cumulus Linux in modalità Cumulus, link:install-rcf-sn2100-cluster.html["installare lo script del file di configurazione di riferimento (RCF)"].

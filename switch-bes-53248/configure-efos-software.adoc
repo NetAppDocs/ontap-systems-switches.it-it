@@ -426,4 +426,4 @@ Lo switch viene riavviato senza alcuna configurazione applicata e viene ripristi
 
 
 .Cosa c'è dopo?
-link:configure-licenses.html["Installare le licenze"] .
+Dopo aver installato il software EFOS, puoi link:configure-licenses.html["installa le tue licenze"].
