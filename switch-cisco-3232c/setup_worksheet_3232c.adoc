@@ -2,20 +2,20 @@
 permalink: switch-cisco-3232c/setup_worksheet_3232c.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 3232C 
-summary: Se si desidera documentare le piattaforme supportate, è necessario completare il foglio di lavoro vuoto per il cablaggio utilizzando il foglio di lavoro di esempio completo come guida. Ogni switch può essere configurato come una singola porta 100 GbE, 40 GbE o 4 porte 10 GbE. 
+summary: Se si desidera documentare le piattaforme supportate, è necessario compilare il foglio di lavoro di cablaggio vuoto utilizzando come guida il foglio di lavoro di cablaggio di esempio completato.  Ogni switch può essere configurato come una singola porta da 100 GbE, 40 GbE o 4 porte da 10 GbE. 
 ---
-= Completa il foglio di lavoro per il cablaggio di Cisco Nexus 3232C
+= Foglio di lavoro completo sul cablaggio Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se si desidera documentare le piattaforme supportate, scaricare un PDF di questa pagina e completare il foglio di lavoro relativo al cablaggio.
+Se desideri documentare le piattaforme supportate, scarica un PDF da questa pagina e compila il foglio di lavoro sul cablaggio.
 
-Il foglio di lavoro di esempio relativo ai cavi fornisce esempi di assegnazione delle porte consigliate dagli switch ai controller. Il foglio di lavoro vuoto fornisce un modello che è possibile utilizzare per la configurazione del cluster.
+Il foglio di lavoro di cablaggio di esempio fornisce esempi di assegnazioni di porte consigliate dagli switch ai controller.  Il foglio di lavoro vuoto fornisce un modello che puoi utilizzare per configurare il tuo cluster.
 
-Ogni switch può essere configurato come una singola porta 100 GbE, 40 GbE o 4 porte 10 GbE.
+Ogni switch può essere configurato come una singola porta da 100 GbE, 40 GbE o 4 porte da 10 GbE.
 
 
 
@@ -25,320 +25,320 @@ La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Switch del cluster A 2+| Switch del cluster B 
+2+| Interruttore del cluster A 2+| Interruttore del cluster B 
 
 
-| Porta dello switch | Utilizzo di nodi e porte | Porta dello switch | Utilizzo di nodi e porte 
+| Porta di commutazione | Utilizzo di nodi e porte | Porta di commutazione | Utilizzo di nodi e porte 
 
 
  a| 
 1
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 1
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 2
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 2
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 3
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 3
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 4
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 4
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 5
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 5
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 6
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 6
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 7
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 7
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 8
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 8
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 9
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 9
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 10
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 10
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 11
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 11
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 12
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 12
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 13
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 13
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 14
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 14
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 15
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 15
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 16
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 16
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 17
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 17
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 18
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
  a| 
 18
  a| 
-4 x 10GbE/4 x 25GbE o nodo 40/100GbE
+Nodo 4x10GbE/4x25GbE o 40/100GbE
 
 
 
  a| 
 19
  a| 
-40g/100GbE nodo 19
+Nodo 40G/100GbE 19
  a| 
 19
  a| 
-40g/100GbE nodo 19
+Nodo 40G/100GbE 19
 
 
 
  a| 
 20
  a| 
-40g/100GbE nodo 20
+Nodo 40G/100GbE 20
  a| 
 20
  a| 
-40g/100GbE nodo 20
+Nodo 40G/100GbE 20
 
 
 
  a| 
 21
  a| 
-40g/100GbE nodo 21
+Nodo 21 40G/100GbE
  a| 
 21
  a| 
-40g/100GbE nodo 21
+Nodo 21 40G/100GbE
 
 
 
  a| 
 22
  a| 
-40g/100GbE nodo 22
+Nodo 22 40G/100GbE
  a| 
 22
  a| 
-40g/100GbE nodo 22
+Nodo 22 40G/100GbE
 
 
 
  a| 
 23
  a| 
-40g/100GbE nodo 23
+Nodo 23 40G/100GbE
  a| 
 23
  a| 
-40g/100GbE nodo 23
+Nodo 23 40G/100GbE
 
 
 
  a| 
 24
  a| 
-40g/100GbE nodo 24
+Nodo 40G/100GbE 24
  a| 
 24
  a| 
-40g/100GbE nodo 24
+Nodo 40G/100GbE 24
 
 
 
  a| 
-da 25 a 30
+25-30
  a| 
-Riservato
+Prenotato
  a| 
-da 25 a 30
+25-30
  a| 
-Riservato
+Prenotato
 
 
 
  a| 
 31
  a| 
-100GbE ISL alla porta B dello switch 31
+100GbE ISL per commutare la porta B 31
  a| 
 31
  a| 
-100GbE ISL per commutare Una porta 31
+100GbE ISL per commutare la porta A 31
 
 
 
  a| 
 32
  a| 
-100GbE ISL alla porta B dello switch 32
+100GbE ISL per commutare la porta B 32
  a| 
 32
  a| 
-100GbE ISL per commutare Una porta 32
+100GbE ISL per commutare la porta A 32
 
 |===
 
 
-== Foglio di lavoro di cablaggio vuoto
+== Foglio di lavoro vuoto per il cablaggio
 
-È possibile utilizzare il foglio di lavoro dei cavi vuoto per documentare le piattaforme supportate come nodi in un cluster. La sezione _connessioni cluster supportate_ di https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
+È possibile utilizzare il foglio di lavoro di cablaggio vuoto per documentare le piattaforme supportate come nodi in un cluster.  La sezione _Connessioni cluster supportate_ del https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Switch del cluster A 2+| Switch del cluster B 
+2+| Interruttore del cluster A 2+| Interruttore del cluster B 
 
 
-| Porta dello switch | Utilizzo di nodo/porta | Porta dello switch | Utilizzo di nodo/porta 
+| Porta di commutazione | Utilizzo del nodo/porta | Porta di commutazione | Utilizzo del nodo/porta 
 
 
  a| 
@@ -558,35 +558,35 @@ Riservato
 
 
  a| 
-da 25 a 30
+25-30
  a| 
-Riservato
+Prenotato
  a| 
-da 25 a 30
+25-30
  a| 
-Riservato
+Prenotato
 
 
 
  a| 
 31
  a| 
-100GbE ISL alla porta B dello switch 31
+100GbE ISL per commutare la porta B 31
  a| 
 31
  a| 
-100GbE ISL per commutare Una porta 31
+100GbE ISL per commutare la porta A 31
 
 
 
  a| 
 32
  a| 
-100GbE ISL alla porta B dello switch 32
+100GbE ISL per commutare la porta B 32
  a| 
 32
  a| 
-100GbE ISL per commutare Una porta 32
+100GbE ISL per commutare la porta A 32
 
 |===
 .Cosa c'è dopo?

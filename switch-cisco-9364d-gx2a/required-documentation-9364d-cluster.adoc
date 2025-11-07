@@ -20,7 +20,7 @@ Per l'installazione e la manutenzione dello switch Cisco Nexus 9364D-GX2A, assic
 
 == Documentazione dello switch
 
-Per configurare gli switch Cisco Nexus 9364D-GX2A, è necessaria la seguente documentazione dal https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Supporto degli switch Cisco Nexus serie 9000"^] pagina:
+Per configurare gli switch Cisco Nexus 9364D-GX2A, è necessaria la seguente documentazione dal https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Supporto per gli switch Cisco Nexus serie 9000"^] pagina:
 
 [cols="1,2"]
 |===
@@ -30,26 +30,26 @@ Per configurare gli switch Cisco Nexus 9364D-GX2A, è necessaria la seguente doc
  a| 
 link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9364d-gx2a/cisco-nexus-9364d-gx2a-nx-os-mode-switch-hardware-installation-guide/m_installing_chassis_2ru_duvel.html["Guida all'installazione hardware dello switch Cisco Nexus 9364D-GX2A NX-OS Mode"^]
  a| 
-Fornisce informazioni dettagliate sui requisiti del sito, sui dettagli dell'hardware dello switch e sulle opzioni di installazione.
+Fornisce informazioni dettagliate sui requisiti del sito, dettagli sull'hardware dello switch e opzioni di installazione.
 
 
 
  a| 
 link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Guide alla configurazione del software dello switch Cisco Nexus serie 9000"^](scegli la guida per la versione NX-OS installata sui tuoi switch)
  a| 
-Fornisce le informazioni di configurazione iniziale dello switch necessarie prima di poter configurare lo switch per il funzionamento ONTAP.
+Fornisce le informazioni di configurazione iniziale dello switch necessarie prima di poterlo configurare per il funzionamento ONTAP .
 
 
 
  a| 
-link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/101x/upgrade/cisco-nexus-9000-nx-os-software-upgrade-downgrade-guide-101x.html["Guida all'aggiornamento e al downgrade del software per Cisco Nexus serie 9000 NX-OS"^](scegli la guida per la versione NX-OS installata sui tuoi switch)
+link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/101x/upgrade/cisco-nexus-9000-nx-os-software-upgrade-downgrade-guide-101x.html["Guida all'aggiornamento e al downgrade del software NX-OS della serie Cisco Nexus 9000"^](scegli la guida per la versione NX-OS installata sui tuoi switch)
  a| 
-Fornisce informazioni su come eseguire il downgrade dello switch al software dello switch supportato da ONTAP, se necessario.
+Fornisce informazioni su come effettuare il downgrade dello switch al software dello switch supportato ONTAP , se necessario.
 
 
 
  a| 
-link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Cisco Nexus 9000 Series NX-OS Command Reference"^]
+link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^]
  a| 
 Fornisce collegamenti ai vari riferimenti ai comandi forniti da Cisco.
 
@@ -58,26 +58,26 @@ Fornisce collegamenti ai vari riferimenti ai comandi forniti da Cisco.
  a| 
 link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Riferimento ai messaggi del sistema Cisco Nexus serie NX-OS 9000"^]
  a| 
-Descrive i messaggi di sistema per gli switch Cisco Nexus serie 9000, quelli che sono informativi e altri che possono aiutare a diagnosticare problemi con collegamenti, hardware interno o software di sistema.
+Descrive i messaggi di sistema per gli switch Cisco Nexus serie 9000, quelli informativi e altri che potrebbero aiutare a diagnosticare problemi con i collegamenti, l'hardware interno o il software di sistema.
 
 
 
  a| 
-link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-release-notes-list.html["Note sulla versione di Cisco Nexus serie 9000 NX-OS"^](seleziona le note per la versione NX-OS installata sui tuoi switch)
+link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-release-notes-list.html["Note sulla versione NX-OS della serie Cisco Nexus 9000"^](seleziona le note per la versione NX-OS installata sui tuoi switch)
  a| 
-Descrive le funzioni, i bug e le limitazioni di Cisco Nexus serie 9000.
+Descrive le funzionalità, i bug e le limitazioni della serie Cisco Nexus 9000.
 
 
 
  a| 
-link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html?dtid=osscdc000283&linkclickid=srch["Conformità alle normative e informazioni sulla sicurezza per Cisco Nexus serie 9000"^]
+link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html?dtid=osscdc000283&linkclickid=srch["Conformità normativa e informazioni sulla sicurezza per Cisco Nexus serie 9000"^]
  a| 
-Fornisce informazioni legali, sulla conformità e sulla sicurezza degli switch Nexus serie 9000 a livello internazionale.
+Fornisce informazioni sulla conformità alle agenzie internazionali, sulla sicurezza e sugli statuti per gli switch della serie Nexus 9000.
 
 |===
 
 
-== Documentazione sui sistemi ONTAP
+== Documentazione dei sistemi ONTAP
 
 Per configurare un sistema ONTAP , sono necessari i seguenti documenti per la versione del sistema operativo da https://docs.netapp.com/ontap-9/index.jsp["Centro di documentazione ONTAP 9"^] .
 
@@ -89,20 +89,20 @@ Per configurare un sistema ONTAP , sono necessari i seguenti documenti per la ve
  a| 
 https://docs.netapp.com/us-en/ontap-afx/index.html["Documentazione dei sistemi AFX"^]
  a| 
-Descrive come installare l'hardware NetApp.
+Descrive come installare l'hardware NetApp .
 
 
 
  a| 
 https://docs.netapp.com/us-en/ontap-family/["Documentazione ONTAP"^]
  a| 
-Fornisce informazioni dettagliate su tutti gli aspetti delle release di ONTAP.
+Fornisce informazioni dettagliate su tutti gli aspetti delle versioni ONTAP .
 
 
 
  a| 
 https://hwu.netapp.com["Hardware Universe"^]
  a| 
-Fornisce informazioni sulla compatibilità e sulla configurazione dell'hardware NetApp.
+Fornisce informazioni sulla configurazione hardware e sulla compatibilità NetApp .
 
 |===

@@ -4,15 +4,15 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: È possibile utilizzare i seguenti comandi ...... 
 ---
-= Panoramica del controllo di stato
+= Panoramica del controllo sanitario
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-I monitor dello stato di salute monitorano in modo proattivo determinate condizioni critiche nel cluster e avvisano se rilevano un guasto o un rischio.
+I monitor di integrità monitorano in modo proattivo determinate condizioni critiche nel cluster e generano avvisi se rilevano un guasto o un rischio.
 
-Per visualizzare gli avvisi di monitoraggio dello stato degli switch Ethernet attualmente generati, eseguire il comando: `system health alert show -monitor ethernet-switch`
+Per visualizzare gli avvisi di monitoraggio dello stato dello switch Ethernet attualmente generati, eseguire il comando: `system health alert show -monitor ethernet-switch`
 
-Per visualizzare gli avvisi disponibili sul monitor dello stato dello switch Ethernet, eseguire il comando: `system health alert definition show -monitor ethernet-switch`
+Per visualizzare gli avvisi di monitoraggio dello stato dello switch Ethernet disponibili, eseguire il comando: `system health alert definition show -monitor ethernet-switch`

@@ -2,67 +2,67 @@
 permalink: switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: migrating to a storage switch with NVIDIA SN2100 storage switches, how to migrate 
-summary: È possibile migrare senza interruzioni gli switch Cisco meno recenti per un cluster ONTAP agli switch storage NVIDIA SN2100. 
+summary: È possibile migrare i vecchi switch Cisco non disruptivi per un cluster ONTAP verso gli switch di storage NVIDIA SN2100. 
 ---
-= Migrare da uno switch storage Cisco a uno switch storage NVIDIA SN2100
+= Migrazione da uno switch di archiviazione Cisco a uno switch di archiviazione NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-È possibile migrare da switch Cisco meno recenti per un cluster ONTAP a switch storage NVIDIA SN2100. Si tratta di una procedura senza interruzioni.
+È possibile migrare dagli switch Cisco più vecchi per un cluster ONTAP agli switch di archiviazione NVIDIA SN2100. Si tratta di una procedura non distruttiva.
 
 
 
-== Verifica dei requisiti
+== Requisiti di revisione
 
-Quando si sostituiscono alcuni switch Cisco meno recenti con switch storage NVIDIA SN2100, è necessario conoscere alcune informazioni di configurazione, le connessioni delle porte e i requisiti di cablaggio. Vedere link:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"].
+Quando si sostituiscono alcuni vecchi switch Cisco con switch di archiviazione NVIDIA SN2100, è necessario conoscere alcune informazioni sulla configurazione, sui collegamenti delle porte e sui requisiti di cablaggio. Vederelink:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"] .
 
 .Switch supportati
-Sono supportati i seguenti switch storage:
+Sono supportati i seguenti switch di archiviazione:
 
 * Cisco Nexus 9336C-FX2
 * Cisco Nexus 3232C
 
 
-Per informazioni dettagliate sulle porte supportate e sulle relative configurazioni, consultare https://hwu.netapp.com/["Hardware Universe"^].
+Per i dettagli sulle porte supportate e le relative configurazioni, vedere https://hwu.netapp.com/["Hardware Universe"^] .
 
-.Di cosa hai bisogno
+.Cosa ti servirà
 Assicurarsi che:
 
-* Il cluster esistente è configurato e funziona correttamente.
-* Tutte le porte di storage sono in stato attivo per garantire operazioni senza interruzioni.
-* Gli switch storage NVIDIA SN2100 sono configurati e funzionano con la versione corretta di Cumulus Linux installata con il file di configurazione di riferimento (RCF) applicato.
-* La configurazione della rete di storage esistente prevede quanto segue:
+* Il cluster esistente è configurato e funzionante correttamente.
+* Tutte le porte di archiviazione sono attive per garantire operazioni senza interruzioni.
+* Gli switch di archiviazione NVIDIA SN2100 sono configurati e funzionano con la versione corretta di Cumulus Linux installata con il file di configurazione di riferimento (RCF) applicato.
+* La configurazione della rete di archiviazione esistente è la seguente:
 +
-** Un cluster NetApp ridondante e completamente funzionale che utilizza entrambi gli switch Cisco meno recenti.
-** Connettività di gestione e accesso alla console sia agli switch Cisco meno recenti che ai nuovi switch.
-** Tutte le LIF del cluster nello stato *up* con le LIF del cluster si trovano sulle rispettive porte home.
+** Un cluster NetApp ridondante e completamente funzionale che utilizza entrambi gli switch Cisco più vecchi.
+** Connettività di gestione e accesso alla console sia per i vecchi switch Cisco sia per quelli nuovi.
+** Tutti i cluster LIF nello stato *up* con i cluster LIf sulle loro porte home.
 ** Porte ISL abilitate e cablate tra i vecchi switch Cisco e tra i nuovi switch.
 
 
 * Alcune porte degli switch NVIDIA SN2100 sono configurate per funzionare a 100 GbE.
-* Hai pianificato, migrato e documentato la connettività 100 GbE dai nodi agli switch storage NVIDIA SN2100.
+* Hai pianificato, migrato e documentato la connettività 100 GbE dai nodi agli switch di archiviazione NVIDIA SN2100.
 
 
 
 
 == Migrare gli switch
 
-.A proposito degli esempi
-In questa procedura, gli switch storage Cisco Nexus 9336C-FX2 vengono utilizzati, ad esempio, comandi e output.
+.Informazioni sugli esempi
+In questa procedura, per i comandi e gli output di esempio vengono utilizzati gli switch di archiviazione Cisco Nexus 9336C-FX2.
 
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
-* Gli switch storage Cisco Nexus 9336C-FX2 esistenti sono _S1_ e _S2_.
-* I nuovi switch storage NVIDIA SN2100 sono _sw1_ e _sw2_.
+* Gli attuali switch di archiviazione Cisco Nexus 9336C-FX2 sono _S1_ e _S2_.
+* I nuovi switch di archiviazione NVIDIA SN2100 sono _sw1_ e _sw2_.
 * I nodi sono _node1_ e _node2_.
-* I LIF del cluster sono _node1_clus1_ e _node1_clus2_ sul nodo 1, e _node2_clus1_ e _node2_clus2_ rispettivamente sul nodo 2.
-* Il `cluster1::*>` prompt indica il nome del cluster.
+* I LIF del cluster sono _node1_clus1_ e _node1_clus2_ sul nodo 1, e _node2_clus1_ e _node2_clus2_ sul nodo 2, rispettivamente.
+* IL `cluster1::*>` il prompt indica il nome del cluster.
 * Le porte di rete utilizzate in questa procedura sono _e5a_ e _e5b_.
-* Le porte breakout hanno il formato: Swp1s0-3. Ad esempio, quattro porte di breakout su swp1 sono _swp1s0_, _swp1s1_, _swp1s2_ e _swp1s3_.
-* L'interruttore S2 viene sostituito dall'interruttore sw2, quindi l'interruttore S1 viene sostituito dall'interruttore sw1.
+* Le porte breakout hanno il formato: swp1s0-3.  Ad esempio, le quattro porte breakout su swp1 sono _swp1s0_, _swp1s1_, _swp1s2_ e _swp1s3_.
+* L'interruttore S2 viene sostituito prima dall'interruttore sw2 e poi l'interruttore S1 viene sostituito dall'interruttore sw1.
 +
 ** Il cablaggio tra i nodi e S2 viene quindi scollegato da S2 e ricollegato a sw2.
 ** Il cablaggio tra i nodi e S1 viene quindi scollegato da S1 e ricollegato a sw1.
@@ -72,31 +72,31 @@ Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e n
 
 
 
-=== Fase 1: Preparazione per la migrazione
+=== Fase 1: Prepararsi alla migrazione
 
-. Se AutoSupport è attivato, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+. Se AutoSupport è abilitato, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
 dove _x_ è la durata della finestra di manutenzione in ore.
 
-. Impostare il livello di privilegio su Advanced (avanzato), immettendo *y* quando viene richiesto di continuare: `set -privilege advanced`
+. Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare: `set -privilege advanced`
 +
-Viene visualizzato il prompt Advanced (*>).
+Viene visualizzato il prompt avanzato (*>).
 
 
 
 
 
-=== Fase 2: Configurare le porte e il cablaggio
+=== Passaggio 2: configurare porte e cablaggio
 
-. Determinare lo stato amministrativo o operativo di ciascuna interfaccia di storage.
+. Determinare lo stato amministrativo o operativo per ciascuna interfaccia di archiviazione.
 +
-Ogni porta deve visualizzare Enabled per  `Status`.
+Ogni porta dovrebbe essere visualizzata come abilitata per `Status` .
 
 +
-Visualizzare gli attributi della porta di rete:
+Visualizza gli attributi della porta di rete:
 
 +
 `storage port show`
@@ -124,7 +124,7 @@ node2
 cluster1::*>
 ----
 ====
-. Le porte di storage su ciascun nodo sono collegate agli switch di storage esistenti nel seguente modo (dal punto di vista dei nodi) utilizzando il comando:
+. Le porte di archiviazione su ciascun nodo vengono collegate agli switch di archiviazione esistenti nel modo seguente (dal punto di vista dei nodi) utilizzando il comando:
 +
 `network device-discovery show -protocol lldp`
 
@@ -146,7 +146,7 @@ node2      /lldp
             e5b    S2 (7c:ad:4f:98:8e:3c)    Eth1/2           -
 ----
 ====
-. Negli switch S1 e S2, le porte di storage e gli switch sono collegati nel modo seguente (dal punto di vista degli switch) utilizzando il comando:
+. Sugli switch S1 e S2, le porte di archiviazione e gli switch vengono collegati nel modo seguente (dal punto di vista degli switch) utilizzando il comando:
 +
 `show lldp neighbors`
 
@@ -183,7 +183,7 @@ SHFGB2017000269       Eth1/12        120         S                
 SHFGB2017000269       Eth1/13        120         S                   e0b
 ----
 ====
-. Sullo switch sw2, spegnere le porte collegate alle porte di storage e ai nodi degli shelf di dischi.
+. Sullo switch sw2, chiudere le porte collegate alle porte di archiviazione e ai nodi degli scaffali dei dischi.
 +
 .Mostra esempio
 [%collapsible]
@@ -195,8 +195,8 @@ cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
 ====
-. Spostare le porte di storage dei nodi del controller e degli shelf di dischi dal vecchio switch S2 al nuovo switch sw2, utilizzando il cablaggio appropriato supportato da NVIDIA SN2100.
-. Sullo switch sw2, richiamare le porte collegate alle porte di storage dei nodi e degli shelf di dischi.
+. Spostare le porte di archiviazione del nodo del controller e gli scaffali dei dischi dal vecchio switch S2 al nuovo switch sw2, utilizzando un cablaggio appropriato supportato da NVIDIA SN2100.
+. Sullo switch sw2, richiamare le porte collegate alle porte di archiviazione dei nodi e degli scaffali dei dischi.
 +
 .Mostra esempio
 [%collapsible]
@@ -208,7 +208,7 @@ cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
 ====
-. Le porte di storage su ciascun nodo sono ora collegate agli switch nel modo seguente, dal punto di vista dei nodi:
+. Le porte di archiviazione su ciascun nodo sono ora collegate agli switch nel modo seguente, dal punto di vista dei nodi:
 +
 .Mostra esempio
 [%collapsible]
@@ -256,7 +256,7 @@ node2
 cluster1::*>
 ----
 ====
-. Sullo switch sw2, verificare che tutte le porte di storage dei nodi siano in funzione:
+. Sullo switch sw2, verificare che tutte le porte di archiviazione del nodo siano attive:
 +
 .Mostra esempio
 [%collapsible]
@@ -279,7 +279,7 @@ UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP
 ...
 ----
 ====
-. Sullo switch sw1, spegnere le porte collegate alle porte di storage dei nodi e degli shelf di dischi.
+. Sullo switch sw1, chiudere le porte collegate alle porte di archiviazione dei nodi e degli scaffali dei dischi.
 +
 .Mostra esempio
 [%collapsible]
@@ -291,8 +291,8 @@ cumulus@sw1:~$ *net pending*
 cumulus@sw1:~$ *net commit*
 ----
 ====
-. Spostare le porte di storage dei nodi del controller e degli shelf di dischi dal vecchio switch S1 al nuovo switch sw1, utilizzando il cablaggio appropriato supportato da NVIDIA SN2100.
-. Sullo switch sw1, richiamare le porte collegate alle porte di storage dei nodi e degli shelf di dischi.
+. Spostare le porte di archiviazione del nodo del controller e gli scaffali dei dischi dal vecchio switch S1 al nuovo switch sw1, utilizzando un cablaggio appropriato supportato da NVIDIA SN2100.
+. Sullo switch sw1, richiamare le porte collegate alle porte di archiviazione dei nodi e degli scaffali dei dischi.
 +
 .Mostra esempio
 [%collapsible]
@@ -304,7 +304,7 @@ cumulus@sw1:~$ *net pending*
 cumulus@sw1:~$ *net commit*
 ----
 ====
-. Le porte di storage su ciascun nodo sono ora collegate agli switch nel modo seguente, dal punto di vista dei nodi:
+. Le porte di archiviazione su ciascun nodo sono ora collegate agli switch nel modo seguente, dal punto di vista dei nodi:
 +
 .Mostra esempio
 [%collapsible]
@@ -330,7 +330,7 @@ node2      /lldp
 `storage port show`
 
 +
-Ogni porta deve visualizzare Enabled per `State` e abilitato per `Status`.
+Ogni porta dovrebbe essere visualizzata come abilitata per `State` e abilitato per `Status` .
 
 +
 .Mostra esempio
@@ -355,7 +355,7 @@ node2
 cluster1::*>
 ----
 ====
-. Sullo switch sw2, verificare che tutte le porte di storage dei nodi siano in funzione:
+. Sullo switch sw2, verificare che tutte le porte di archiviazione del nodo siano attive:
 +
 .Mostra esempio
 [%collapsible]
@@ -378,7 +378,7 @@ UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP
 ...
 ----
 ====
-. Verificare che entrambi i nodi dispongano di una connessione a ciascuno switch:
+. Verificare che entrambi i nodi abbiano una connessione a ciascun switch:
 +
 `net show lldp`
 
@@ -419,7 +419,7 @@ swp6       100G   Trunk/L2  SHFFG1826000102        e0b
 
 === Fase 3: Completare la procedura
 
-. Creare una password per la funzione di raccolta dei log dello switch Ethernet Health monitor:
+. Crea una password per la funzionalità di raccolta dei registri del monitoraggio dello stato dello switch Ethernet:
 +
 `system switch ethernet log setup-password`
 
@@ -453,7 +453,7 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. Attivare la funzione di raccolta dei log dello switch Ethernet Health monitor:
+. Abilita la funzionalità di raccolta dei registri del monitoraggio dello stato dello switch Ethernet:
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 
@@ -477,7 +477,7 @@ Enabling cluster switch log collection.
 ----
 ====
 +
-Attendere 10 minuti, quindi verificare che la raccolta dei log sia completa:
+Attendi 10 minuti e poi verifica che la raccolta dei log sia completata:
 
 +
 `system switch ethernet log show`
@@ -499,13 +499,13 @@ Index  Switch                       Log Timestamp        Status
 ====
 +
 
-CAUTION: Se uno di questi comandi restituisce un errore o se la raccolta dei log non viene completata, contattare il supporto NetApp.
+CAUTION: Se uno di questi comandi restituisce un errore o se la raccolta dei log non viene completata, contattare l'assistenza NetApp .
 
-. Modificare nuovamente il livello di privilegio in admin:
+. Ripristinare il livello di privilegio su amministratore:
 +
 `set -privilege admin`
 
-. Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
+. Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 

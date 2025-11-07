@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/configure-install-initial.html 
 sidebar: sidebar 
 keywords: install cisco 92300YC cluster switch, cisco nx 92300yc 
-summary: 'Questa procedura consente di eseguire l"installazione iniziale dello switch Cisco Nexus 92300YC.' 
+summary: 'È possibile utilizzare questa procedura per eseguire l"installazione iniziale dello switch Cisco Nexus 92300YC.' 
 ---
 = Configurare lo switch Cisco Nexus 92300YC
 :allow-uri-read: 
@@ -11,11 +11,11 @@ summary: 'Questa procedura consente di eseguire l"installazione iniziale dello s
 
 
 [role="lead"]
-Seguire questa procedura per configurare lo switch Cisco Nexus 92300YC.
+Seguire questa procedura per impostare e configurare lo switch Cisco Nexus 92300YC.
 
-.Fasi
-. Collegare la porta seriale a una porta host o seriale.
-. Collegare la porta di gestione (sul lato diverso dalla porta dello switch) alla stessa rete in cui si trova il server SFTP.
+.Passi
+. Collegare la porta seriale a un host o a una porta seriale.
+. Collegare la porta di gestione (sul lato non porta dello switch) alla stessa rete in cui si trova il server SFTP.
 . Nella console, impostare le impostazioni seriali lato host:
 +
 ** 9600 baud
@@ -25,9 +25,9 @@ Seguire questa procedura per configurare lo switch Cisco Nexus 92300YC.
 ** controllo di flusso: nessuno
 
 
-. Quando si avvia per la prima volta o si riavvia dopo aver cancellato la configurazione in esecuzione, lo switch Nexus 92300YC esegue un ciclo di boot. Interrompere questo ciclo digitando *yes* per interrompere il provisioning automatico all'accensione.
+. Quando si avvia per la prima volta o si riavvia dopo aver cancellato la configurazione in esecuzione, lo switch Nexus 92300YC esegue un ciclo di avvio continuo.  Interrompere questo ciclo digitando *yes* per annullare l'accensione del provisioning automatico.
 +
-Viene visualizzata la finestra System Admin account Setup (Configurazione account amministratore di sistema).
+Viene visualizzata la configurazione dell'account amministratore di sistema.
 
 +
 .Mostra esempio
@@ -50,14 +50,14 @@ Do you want to enforce secure password standard (yes/no) [y]:
 ----
 Do you want to enforce secure password standard (yes/no) [y]: *y*
 ----
-. Inserire e confermare la password per l'amministratore utente:
+. Inserisci e conferma la password per l'utente admin:
 +
 [listing]
 ----
 Enter the password for "admin":
 Confirm the password for "admin":
 ----
-. Digitare *yes* per accedere alla finestra di dialogo Basic System Configuration (Configurazione di base del sistema).
+. Digitare *sì* per accedere alla finestra di dialogo Configurazione di base del sistema.
 +
 .Mostra esempio
 [%collapsible]
@@ -79,13 +79,13 @@ to skip the remaining dialogs.
 Would you like to enter the basic configuration dialog (yes/no):
 ----
 ====
-. Creare un altro account di accesso:
+. Crea un altro account di accesso:
 +
 [listing]
 ----
 Create another login account (yes/no) [n]:
 ----
-. Configurare le stringhe di comunità SNMP di sola lettura e di lettura/scrittura:
+. Configurare le stringhe di comunità SNMP di sola lettura e di lettura-scrittura:
 +
 [listing]
 ----
@@ -99,7 +99,7 @@ Configure read-write SNMP community string (yes/no) [n]:
 ----
 Enter the switch name : *cs2*
 ----
-. Configurare l'interfaccia di gestione out-of-band:
+. Configurare l'interfaccia di gestione fuori banda:
 +
 [listing, subs="+quotes"]
 ----
@@ -135,7 +135,7 @@ Enable the ssh service? (yes/no) [y]: *y*
 
        Number of rsa key bits <1024-2048> [1024]: *2048*
 ----
-. Configurare altre impostazioni:
+. Configura altre impostazioni:
 +
 [listing, subs="+quotes"]
 ----
@@ -147,7 +147,7 @@ Configure the ntp server? (yes/no) [n]: *n*
 
   Configure CoPP system profile (strict/moderate/lenient/dense) [strict]: *strict*
 ----
-. Confermare le informazioni sullo switch e salvare la configurazione:
+. Confermare le informazioni dello switch e salvare la configurazione:
 +
 [listing, subs="+quotes"]
 ----
@@ -161,5 +161,5 @@ Copy complete.
 ----
 
 
-.Quali sono le prossime novità?
-link:install-nxos-overview.html["Preparare l'installazione del software NX-OS e RCF"].
+.Cosa succederà ora?
+link:install-nxos-overview.html["Prepararsi all'installazione del software NX-OS e RCF"].

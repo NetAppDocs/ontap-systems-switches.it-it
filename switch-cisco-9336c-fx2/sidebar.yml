@@ -1,8 +1,8 @@
 ---
 section: switch-cisco-9336c-fx2
-title: Cisco Nexus 9336C-FX2 o 9336C-FX2-T.
+title: Cisco Nexus 9336C-FX2 o 9336C-FX2-T
 entries:
-- title: Inizia subito
+- title: Iniziare
   entries:
   - title: Avvio rapido
     url: "/switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"
@@ -12,58 +12,58 @@ entries:
     url: "/switch-cisco-9336c-fx2/components-9336c-cluster.html"
   - title: Documentazione richiesta
     url: "/switch-cisco-9336c-fx2/required-documentation-9336c-cluster.html"
-  - title: Requisiti Smart Call Home
+  - title: Requisiti di Smart Call Home
     url: "/switch-cisco-9336c-fx2/smart-call-9336c-cluster.html"
 - title: Installare l'hardware
-  pdf-filename: Installazione_hardware_9336c-FX2
+  pdf-filename: Install_hardware_9336c-fx2
   entries:
   - title: Flusso di lavoro di installazione dell'hardware
     url: "/switch-cisco-9336c-fx2/install-hardware-workflow.html"
-  - title: Completare il foglio di lavoro per il cablaggio
+  - title: Foglio di lavoro completo sul cablaggio
     url: "/switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html"
-  - title: Installare lo switch
+  - title: Installare l'interruttore
     url: "/switch-cisco-9336c-fx2/install-switch-9336c-cluster.html"
   - title: Installare lo switch nell'armadio NetApp
     url: "/switch-cisco-9336c-fx2/install-switch-and-passthrough-panel-9336c-cluster.html"
-  - title: Analisi del cablaggio e della configurazione
+  - title: Rivedere il cablaggio e la configurazione
     url: "/switch-cisco-9336c-fx2/cabling-considerations-9336c-fx2.html"
 - title: Configurare il software
-  pdf-filename: Configure_software_9336c-FX2
+  pdf-filename: Configure_software_9336c-fx2
   entries:
-  - title: Workflow di installazione del software
+  - title: Flusso di lavoro di installazione del software
     url: "/switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html"
-  - title: Configurare lo switch
+  - title: Configurare l'interruttore
     url: "/switch-cisco-9336c-fx2/setup-switch-9336c-cluster.html"
-  - title: Preparazione all'installazione di NX-OS e RCF
+  - title: Prepararsi all'installazione di NX-OS e RCF
     url: "/switch-cisco-9336c-fx2/install-nxos-overview-9336c-cluster.html"
   - title: Installa o aggiorna il software NX-OS
     url: "/switch-cisco-9336c-fx2/install-nxos-software-9336c-cluster.html"
   - title: Installare o aggiornare l'RCF
-    pdf-filename: Install_upgrade_rcf
+    pdf-filename: Installa_aggiorna_rcf
     entries:
     - title: Panoramica sull'installazione o l'aggiornamento di RCF
       url: "/switch-cisco-9336c-fx2/install-upgrade-rcf-overview-cluster.html"
-    - title: Installare RCF
+    - title: Installare l'RCF
       url: "/switch-cisco-9336c-fx2/install-rcf-software-9336c-cluster.html"
-    - title: Aggiornare la versione RCF
+    - title: Aggiorna la tua versione RCF
       url: "/switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html"
-  - title: Verificare la configurazione SSH
+  - title: Verifica la configurazione SSH
     url: "/switch-cisco-9336c-fx2/configure-ssh-keys.html"
   - title: Ripristinare l'interruttore alle impostazioni predefinite di fabbrica
     url: "/switch-cisco-9336c-fx2/reset-switch-9336c.html"
 - title: Migrare gli switch
-  pdf-filename: Migrare_switch_9336c-FX2
+  pdf-filename: Migrate_switches_9336c-fx2
   entries:
-  - title: Migrazione da switch cluster CN1610
+  - title: Migrazione dagli switch cluster CN1610
     url: "/switch-cisco-9336c-fx2/migrate-cn1610-9336c-cluster.html"
-  - title: Migrare da uno switch Cisco meno recente
+  - title: Migrazione da uno switch Cisco più vecchio
     url: "/switch-cisco-9336c-fx2/migrate-to-9336-cluster.html"
-  - title: Migrare a un cluster con switch a due nodi
+  - title: Migrare a un cluster commutato a due nodi
     url: "/switch-cisco-9336c-fx2/migrate-to-2n-switched-9336-cluster.html"
 - title: Sostituire gli interruttori
-  pdf-filename: REPLACE_Switches_9336c-FX2
+  pdf-filename: Replace_switches_9336c-fx2
   entries:
-  - title: Sostituire lo switch del cluster
+  - title: Sostituire l'interruttore del cluster
     url: "/switch-cisco-9336c-fx2/replace-9336c-cluster.html"
-  - title: Sostituire gli switch del cluster con connessioni senza switch
+  - title: Sostituire gli switch cluster con connessioni switchless
     url: "/switch-cisco-9336c-fx2/migrate-to-switchless-interconnect-9336-cluster.html"

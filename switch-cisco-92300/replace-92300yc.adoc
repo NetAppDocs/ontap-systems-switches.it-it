@@ -2,42 +2,42 @@
 permalink: switch-cisco-92300/replace-92300yc.html 
 sidebar: sidebar 
 keywords: replace,upgrade cisco nexus 92300yc cluster switch 
-summary: La sostituzione di uno switch Nexus 92300YC difettoso in una rete cluster è una procedura senza interruzioni. 
+summary: 'La sostituzione di uno switch Nexus 92300YC difettoso in una rete cluster è una procedura non distruttiva \(NDU\).' 
 ---
-= Sostituire uno switch Cisco Nexus 92300YC
+= Sostituisci uno switch Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-La sostituzione di uno switch Nexus 92300YC difettoso in una rete cluster è una procedura senza interruzioni (NDU).
+La sostituzione di uno switch Nexus 92300YC difettoso in una rete cluster è una procedura non distruttiva (NDU).
 
 
 
-== Verifica dei requisiti
+== Requisiti di revisione
 
 .Prima di iniziare
-Prima di sostituire lo switch, assicurarsi che:
+Prima di procedere alla sostituzione dell'interruttore, assicurarsi che:
 
-* Nel cluster e nell'infrastruttura di rete esistenti:
+* Nell'infrastruttura di cluster e di rete esistente:
 +
-** Il cluster esistente viene verificato come completamente funzionale, con almeno uno switch del cluster completamente connesso.
-** Tutte le porte del cluster sono installate.
-** Tutte le interfacce logiche del cluster (LIFF) sono installate sulle porte domestiche.
-** Il comando ping-cluster -node node1 del cluster ONTAP deve indicare che la connettività di base e le comunicazioni di dimensioni superiori a quelle di PMTU hanno esito positivo su tutti i percorsi.
+** Il cluster esistente è stato verificato come completamente funzionale, con almeno uno switch del cluster completamente connesso.
+** Tutte le porte del cluster sono attive.
+** Tutte le interfacce logiche del cluster (LIF) sono attive e sulle rispettive porte home.
+** Il comando ONTAP cluster ping-cluster -node node1 deve indicare che la connettività di base e la comunicazione di dimensioni superiori a PMTU hanno esito positivo su tutti i percorsi.
 
 
-* Per lo switch sostitutivo Nexus 92300YC:
+* Per l'interruttore sostitutivo Nexus 92300YC:
 +
-** La connettività di rete di gestione sullo switch sostitutivo è funzionale.
-** L'accesso della console allo switch sostitutivo è in posizione.
+** La connettività della rete di gestione sullo switch sostitutivo è funzionante.
+** L'accesso alla console per l'interruttore sostitutivo è a posto.
 ** Le connessioni dei nodi sono le porte da 1/1 a 1/64.
-** Tutte le porte ISL (Inter-Switch link) sono disattivate sulle porte 1/65 e 1/66.
+** Tutte le porte Inter-Switch Link (ISL) sono disabilitate sulle porte 1/65 e 1/66.
 ** Il file di configurazione di riferimento desiderato (RCF) e lo switch dell'immagine del sistema operativo NX-OS vengono caricati sullo switch.
-** La personalizzazione iniziale dello switch è completa, come descritto in: link:configure-install-initial.html["Configurare lo switch Cisco Nexus 92300YC"].
+** La personalizzazione iniziale dello switch è completa, come descritto in dettaglio in:link:configure-install-initial.html["Configurare lo switch Cisco Nexus 92300YC"] .
 +
-Tutte le personalizzazioni precedenti del sito, come STP, SNMP e SSH, vengono copiate nel nuovo switch.
+Tutte le personalizzazioni precedenti del sito, come STP, SNMP e SSH, vengono copiate sul nuovo switch.
 
 
 
@@ -45,34 +45,34 @@ Tutte le personalizzazioni precedenti del sito, come STP, SNMP e SSH, vengono co
 
 
 
-== Attivare la registrazione della console
+== Abilita la registrazione della console
 
-NetApp consiglia vivamente di attivare la registrazione della console sui dispositivi in uso e di eseguire le seguenti operazioni quando si sostituisce lo switch:
+NetApp consiglia vivamente di abilitare la registrazione della console sui dispositivi utilizzati e di adottare le seguenti misure quando si sostituisce lo switch:
 
-* Lasciare attivato AutoSupport durante la manutenzione.
-* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione del caso per tutta la durata della manutenzione. Consultare questo articolo della Knowledge base https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come eliminare la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
-* Attivare la registrazione della sessione per qualsiasi sessione CLI. Per istruzioni su come attivare la registrazione della sessione, consultare la sezione "registrazione dell'output della sessione" in questo articolo della Knowledge base https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare Putty per una connettività ottimale ai sistemi ONTAP"^].
-
-
+* Lasciare AutoSupport abilitato durante la manutenzione.
+* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione di casi per tutta la durata della manutenzione.  Vedi questo articolo della Knowledge Base https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come sopprimere la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
+* Abilita la registrazione delle sessioni per tutte le sessioni CLI.  Per istruzioni su come abilitare la registrazione della sessione, consultare la sezione "Registrazione dell'output della sessione" in questo articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare PuTTY per una connettività ottimale ai sistemi ONTAP"^] .
 
 
-== Sostituire lo switch
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+
+== Sostituire l'interruttore
+
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
 * I nomi degli switch Nexus 92300YC esistenti sono cs1 e cs2.
 * Il nome del nuovo switch Nexus 92300YC è newcs2.
 * I nomi dei nodi sono node1 e node2.
-* Le porte del cluster su ciascun nodo sono denominate e0a e e0b.
-* I nomi LIF del cluster sono node1_clus1 e node1_clus2 per node1 e node2_clus1 e node2_clus2 per node2.
-* Il prompt per le modifiche a tutti i nodi del cluster è cluster1:*>
+* Le porte del cluster su ciascun nodo sono denominate e0a ed e0b.
+* I nomi LIF del cluster sono node1_clus1 e node1_clus2 per node1, e node2_clus1 e node2_clus2 per node2.
+* Il prompt per le modifiche a tutti i nodi del cluster è cluster1::*>
 
 
-.A proposito di questa attività
-È necessario eseguire il comando per la migrazione di un LIF del cluster dal nodo in cui è ospitato il LIF del cluster.
+.Informazioni su questo compito
+È necessario eseguire il comando per migrare un cluster LIF dal nodo in cui è ospitato il cluster LIF.
 
-La seguente procedura si basa sulla seguente topologia di rete del cluster:
+La seguente procedura si basa sulla seguente topologia di rete cluster:
 
 .Mostra topologia
 [%collapsible]
@@ -162,22 +162,22 @@ Total entries displayed: 4
 ====
 
 
-=== Fase 1: Preparazione per la sostituzione
+=== Fase 1: Preparazione alla sostituzione
 
-. Installare l'RCF e l'immagine appropriati sullo switch, newcs2, ed eseguire le operazioni necessarie per la preparazione del sito.
+. Installare l'RCF e l'immagine appropriati sullo switch, newcs2, ed effettuare tutti i preparativi necessari sul sito.
 +
-Se necessario, verificare, scaricare e installare le versioni appropriate del software RCF e NX-OS per il nuovo switch. Se il nuovo switch è stato configurato correttamente e non sono necessari aggiornamenti per il software RCF e NX-OS, passare alla fase 2.
+Se necessario, verificare, scaricare e installare le versioni appropriate del software RCF e NX-OS per il nuovo switch.  Se hai verificato che il nuovo switch è configurato correttamente e non necessita di aggiornamenti del software RCF e NX-OS, continua con il passaggio 2.
 
 +
-.. Accedere alla _pagina Descrizione del file di configurazione di riferimento per gli switch di rete di gestione e cluster NetApp_ sul sito del supporto NetApp.
-.. Fare clic sul link per la _matrice di compatibilità della rete di gestione e di rete del cluster_, quindi annotare la versione del software dello switch richiesta.
-.. Fare clic sulla freccia indietro del browser per tornare alla pagina *Descrizione*, fare clic su *CONTINUA*, accettare il contratto di licenza, quindi passare alla pagina *Download*.
-.. Seguire la procedura riportata nella pagina di download per scaricare i file RCF e NX-OS corretti per la versione del software ONTAP che si sta installando.
+.. Accedere alla _Pagina di descrizione del file di configurazione di riferimento degli switch di rete di gestione e cluster NetApp_ sul sito di supporto NetApp .
+.. Fare clic sul collegamento per la _Matrice di compatibilità della rete di cluster e della rete di gestione_, quindi prendere nota della versione del software dello switch richiesta.
+.. Fai clic sulla freccia indietro del browser per tornare alla pagina *Descrizione*, fai clic su *CONTINUA*, accetta il contratto di licenza e poi vai alla pagina *Download*.
+.. Seguire i passaggi indicati nella pagina Download per scaricare i file RCF e NX-OS corretti per la versione del software ONTAP che si sta installando.
 
 
-. Sul nuovo switch, accedere come admin e chiudere tutte le porte che verranno collegate alle interfacce del cluster di nodi (porte da 1/1 a 1/64).
+. Sul nuovo switch, accedi come amministratore e chiudi tutte le porte che saranno connesse alle interfacce del cluster di nodi (porte da 1/1 a 1/64).
 +
-Se lo switch che si sta sostituendo non funziona e viene spento, passare alla fase 4. Le LIF sui nodi del cluster dovrebbero essere già riuscite a eseguire il failover sull'altra porta del cluster per ciascun nodo.
+Se l'interruttore che stai sostituendo non funziona ed è spento, vai al passaggio 4.  I LIF sui nodi del cluster dovrebbero già aver eseguito il failover sull'altra porta del cluster per ciascun nodo.
 
 +
 .Mostra esempio
@@ -191,7 +191,7 @@ newcs2(config)# *interface e1/1-64*
 newcs2(config-if-range)# *shutdown*
 ----
 ====
-. Verificare che tutte le LIF del cluster abbiano attivato l'autorevert:
+. Verificare che tutti i LIF del cluster abbiano il ripristino automatico abilitato:
 +
 `network interface show -vserver Cluster -fields auto-revert`
 
@@ -221,15 +221,15 @@ Cluster      node2_clus2   true
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
 
 [listing, subs="+quotes"]
 ----
@@ -245,9 +245,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -282,9 +282,9 @@ RPC status:
 ====
 
 
-=== Fase 2: Configurazione di cavi e porte
+=== Passaggio 2: configurare cavi e porte
 
-. Spegnere le porte ISL 1/65 e 1/66 sullo switch Nexus 92300YC cs1:
+. Disattivare le porte ISL 1/65 e 1/66 sullo switch Nexus 92300YC cs1:
 +
 .Mostra esempio
 [%collapsible]
@@ -298,16 +298,16 @@ cs1(config-if-range)# *shutdown*
 cs1(config-if-range)#
 ----
 ====
-. Rimuovere tutti i cavi dallo switch Nexus 92300YC cs2, quindi collegarli alle stesse porte dello switch Nexus 92300YC newcs2.
-. Richiamare le porte ISL 1/65 e 1/66 tra gli switch cs1 e newcs2, quindi verificare lo stato di funzionamento del canale della porta.
+. Rimuovere tutti i cavi dallo switch Nexus 92300YC cs2, quindi collegarli alle stesse porte sullo switch Nexus 92300YC newcs2.
+. Attivare le porte ISL 1/65 e 1/66 tra gli switch cs1 e newcs2, quindi verificare lo stato operativo del canale porta.
 +
-Port-Channel deve indicare PO1(su) e Member Ports deve indicare eth1/65(P) e eth1/66(P).
+Il canale porta deve indicare Po1(SU) e le porte membro devono indicare Eth1/65(P) ed Eth1/66(P).
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-Questo esempio abilita le porte ISL 1/65 e 1/66 e visualizza il riepilogo del canale delle porte sullo switch cs1:
+Questo esempio abilita le porte ISL 1/65 e 1/66 e visualizza il riepilogo del canale porta sullo switch cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -342,7 +342,7 @@ cs1(config-if-range)#
 .Mostra esempio
 [%collapsible]
 ====
-L'output dovrebbe essere simile a quanto segue:
+L'output dovrebbe essere simile al seguente:
 
 [listing, subs="+quotes"]
 ----
@@ -367,14 +367,14 @@ e0b       Cluster      Cluster          up   9000  auto/auto   -        false
 4 entries were displayed.
 ----
 ====
-. Sullo stesso nodo utilizzato nella fase precedente, ripristinare la LIF del cluster associata alla porta nella fase precedente utilizzando il comando di revert dell'interfaccia di rete.
+. Sullo stesso nodo utilizzato nel passaggio precedente, ripristinare il cluster LIF associato alla porta nel passaggio precedente utilizzando il comando network interface revert.
 +
 .Mostra esempio
 [%collapsible]
 ====
-In questo esempio, LIF node1_clus2 su node1 viene invertito correttamente se il valore Home è true e la porta è e0b.
+In questo esempio, LIF node1_clus2 su node1 viene ripristinato correttamente se il valore Home è true e la porta è e0b.
 
-I seguenti comandi restituiscono LIF `node1_clus2` acceso `node1` alla porta home `e0a` E visualizza le informazioni sui LIF su entrambi i nodi. L'attivazione del primo nodo ha esito positivo se la colonna is Home è vera per entrambe le interfacce del cluster e mostra le assegnazioni di porta corrette, in questo esempio `e0a` e. `e0b` al nodo1.
+I seguenti comandi restituiscono LIF `node1_clus2` SU `node1` al porto di casa `e0a` e visualizza informazioni sui LIF su entrambi i nodi.  L'attivazione del primo nodo ha esito positivo se la colonna Is Home è vera per entrambe le interfacce del cluster e mostrano le assegnazioni di porta corrette, in questo esempio `e0a` E `e0b` sul nodo 1.
 
 [listing, subs="+quotes"]
 ----
@@ -392,7 +392,7 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Visualizzare le informazioni sui nodi di un cluster:
+. Visualizza informazioni sui nodi in un cluster:
 +
 `cluster show`
 
@@ -400,7 +400,7 @@ Cluster
 .Mostra esempio
 [%collapsible]
 ====
-Questo esempio mostra che l'integrità del nodo per node1 e node2 in questo cluster è vera:
+Questo esempio mostra che lo stato di integrità del nodo node1 e node2 in questo cluster è corretto:
 
 [listing, subs="+quotes"]
 ----
@@ -412,7 +412,7 @@ node1         false   true
 node2         true    true
 ----
 ====
-. Verificare che tutte le porte del cluster fisico siano installate:
+. Verificare che tutte le porte fisiche del cluster siano attive:
 +
 `network port show ipspace Cluster`
 
@@ -456,15 +456,15 @@ e0b       Cluster      Cluster          up    9000  auto/10000  healthy  false
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
 
 [listing, subs="+quotes"]
 ----
@@ -480,9 +480,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -515,7 +515,7 @@ RPC status:
 ----
 --
 ====
-. [[step2]] confermare la seguente configurazione di rete del cluster:
+. [[step2]] Confermare la seguente configurazione di rete del cluster:
 +
 `network port show`
 
@@ -608,5 +608,5 @@ Total entries displayed: 4
 ====
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].

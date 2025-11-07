@@ -1,14 +1,14 @@
 ---
 indexpage:
-  title: Switch del cluster
+  title: Interruttori a grappolo
   summary: Utilizzare la documentazione presente su questo sito per installare, configurare
     e gestire gli switch del cluster per le distribuzioni del cluster ONTAP .
   keywords: cluster switches, cisco nexus switches, ontap clusters
-  lead: Gli switch cluster consentono di creare cluster ONTAP con più di due nodi.  Questi
-    switch della piattaforma Cisco Nexus 9000 costituiscono la base per soluzioni
+  lead: Gli switch cluster consentono di creare cluster ONTAP con più di due nodi.
+    Questi switch della piattaforma Cisco Nexus 9000 costituiscono la base per soluzioni
     di interconnessione cluster scalabili negli ambienti NetApp ONTAP .
   tiles:
-  - title: Inizia subito
+  - title: Iniziare
     links:
     - title: Broadcom BES-53248
       url: "../switch-bes-53248/configure-new-switch-overview.html"

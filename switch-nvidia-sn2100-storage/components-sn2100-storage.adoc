@@ -2,77 +2,77 @@
 permalink: switch-nvidia-sn2100-storage/components-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: 'Per l"installazione e la manutenzione dello switch NVIDIA SN2100, consultare l"elenco dei componenti e i codici del cabinet e del kit di guide.' 
+summary: 'Per l"installazione e la manutenzione dello switch NVIDIA SN2100, assicurarsi di rivedere l"elenco dei componenti e i codici articolo del cabinet e del kit di guide.' 
 ---
-= Componenti e codici ricambio per switch NVIDIA SN2100
+= Componenti e numeri di parte per gli switch NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dello switch NVIDIA SN2100, consultare l'elenco dei componenti e i codici del cabinet e del kit di guide.
+Per l'installazione e la manutenzione dello switch NVIDIA SN2100, assicurarsi di rivedere l'elenco dei componenti e i codici articolo del cabinet e del kit di guide.
 
 
 
-== Dettagli del cabinet
+== Dettagli del mobile
 
-Lo switch NVIDIA SN2100 (X190006/X190106) viene installato nel cabinet doppio/singolo NVIDIA con le staffe standard incluse con lo switch.
+Installare lo switch NVIDIA SN2100 (X190006/X190106) nell'armadio switch doppio/singolo NVIDIA con le staffe standard incluse con lo switch.
 
 
 
 == Dettagli del kit ferroviario
 
-La seguente tabella elenca il codice ricambio e la descrizione degli switch e dei kit di guide MSN2100:
+Nella tabella seguente sono elencati i codici articolo e la descrizione degli switch e dei kit di guide MSN2100:
 
 [cols="1,2"]
 |===
-| Codice del ricambio | Descrizione 
+| Numero di parte | Descrizione 
 
 
  a| 
 X190006-PE
  a| 
-Switch cluster, NVIDIA SN2100, 16 PUNTI 100G, PTSX
+Switch cluster, NVIDIA SN2100, 16PT 100G, PTSX
 
 
 
  a| 
 X190006-PI
  a| 
-Switch cluster, NVIDIA SN2100, 16 PUNTI 100G, PSIN
+Switch cluster, NVIDIA SN2100, 16PT 100G, PSIN
 
 
 
  a| 
 X190106-FE-PE
  a| 
-Switch, NVIDIA SN2100, 16PT 100G, PTSX, front-end
+Switch, NVIDIA SN2100, 16PT 100G, PTSX, Front End
 
 
 
  a| 
 X190106-FE-PI
  a| 
-Switch, NVIDIA SN2100, 16PT 100G, PSIN, front-end
+Switch, NVIDIA SN2100, 16PT 100G, PSIN, Front End
 
 
 
  a| 
 X-MTEF-KIT-D
  a| 
-Kit di guide, NVIDIA Dual Switch fianco a fianco
+Kit di binari, NVIDIA Dual Switch affiancati
 
 
 
  a| 
 X-MTEF-KIT-E
  a| 
-Kit di guide, NVIDIA Single Switch a breve profondità
+Kit di guide, NVIDIA Single switch profondità ridotta
 
 |===
 
-NOTE: Consultare la documentazione NVIDIA per ulteriori informazioni su https://docs.nvidia.com/networking/display/sn2000pub/Installation["Installazione dello switch SN2100 e del kit guida"^].
+NOTE: Per i dettagli, consultare la documentazione NVIDIA https://docs.nvidia.com/networking/display/sn2000pub/Installation["installazione del kit di switch e rail SN2100"^] .
 
 .Cosa c'è dopo?
 Dopo aver confermato i componenti e i numeri di parte, puoi rivedere il link:required-documentation-sn2100-storage.html["documentazione richiesta"].

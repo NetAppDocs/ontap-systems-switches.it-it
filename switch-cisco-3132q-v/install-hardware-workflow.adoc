@@ -15,16 +15,16 @@ Per installare e configurare l'hardware per uno switch cluster 3132Q-V, atteners
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-worksheet-3132q.html["Completa il foglio di lavoro sul cablaggio"]
 [role="quick-margin-para"]
-Il foglio di lavoro di esempio relativo ai cavi fornisce esempi di assegnazione delle porte consigliate dagli switch ai controller. Il foglio di lavoro vuoto fornisce un modello che è possibile utilizzare per la configurazione del cluster.
+Il foglio di lavoro di cablaggio di esempio fornisce esempi di assegnazioni di porte consigliate dagli switch ai controller.  Il foglio di lavoro vuoto fornisce un modello che puoi utilizzare per configurare il tuo cluster.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:install-switch-3132qv.html["Installare lo switch"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:install-switch-3132qv.html["Installare l'interruttore"]
 [role="quick-margin-para"]
 Installare lo switch 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-cisco-nexus-3132qv.html["Installare lo switch in un armadio NetApp"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-cisco-nexus-3132qv.html["Installare lo switch in un cabinet NetApp"]
 [role="quick-margin-para"]
-Installare lo switch 3132Q-V e il pannello pass-through in un cabinet NetApp , secondo necessità.
+Installare lo switch 3132Q-V e il pannello pass-through in un cabinet NetApp secondo necessità.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:cabling-considerations-3132q-v.html["Analisi del cablaggio e della configurazione"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:cabling-considerations-3132q-v.html["Rivedere il cablaggio e la configurazione"]
 [role="quick-margin-para"]
 Esaminare il supporto per le porte Ethernet NVIDIA .

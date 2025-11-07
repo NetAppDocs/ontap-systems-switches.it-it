@@ -1,34 +1,34 @@
 ---
 section: switch-cshm
-title: Monitorare lo stato degli switch
+title: Monitorare lo stato dell'interruttore
 entries:
-- title: Panoramica del monitoraggio dello stato degli switch
+- title: Panoramica del monitoraggio dello stato dello switch
   url: "/switch-cshm/cshm-overview.html"
-  pdf-filename: Switch_Health_cshm
+  pdf-filename: Cambia_salute_cshm
 - title: Configurare il monitoraggio dello stato dello switch
-  pdf-filename: Configure_switch_Health
+  pdf-filename: Configura_switch_health
   entries:
   - title: Panoramica della configurazione
     url: "/switch-cshm/config-overview.html"
-  - title: Configurare la raccolta di log
+  - title: Configurare la raccolta dei log
     url: "/switch-cshm/config-log-collection.html"
-  - title: Configure SNMPv3 (opzionale)
+  - title: Configurare SNMPv3 (facoltativo)
     url: "/switch-cshm/config-snmpv3.html"
-- title: Controllare lo stato dello switch
-  pdf-filename: Monitor_switch_Health
+- title: Controllare lo stato dell'interruttore
+  pdf-filename: Monitor_switch_health
   entries:
-  - title: Panoramica del controllo di stato
+  - title: Panoramica del controllo sanitario
     url: "/switch-cshm/monitor-overview.html"
   - title: Gestire il monitoraggio degli switch
     url: "/switch-cshm/monitor-manage.html"
   - title: Verificare il monitoraggio dell'interruttore
     url: "/switch-cshm/monitor-verify.html"
-  - title: Risolvere i problemi relativi agli avvisi
+  - title: Risoluzione dei problemi degli avvisi
     url: "/switch-cshm/monitor-troubleshoot.html"
-- title: Raccolta di log
-  pdf-filename: log_collection_switch_health
+- title: Raccolta dei registri
+  pdf-filename: registro_raccolta_switch_salute
   entries:
-  - title: Panoramica della raccolta di log
+  - title: Panoramica della raccolta dei registri
     url: "/switch-cshm/log-collection-overview.html"
-  - title: Risolvere i problemi
+  - title: Risoluzione dei problemi
     url: "/switch-cshm/log-collection-troubleshoot.html"

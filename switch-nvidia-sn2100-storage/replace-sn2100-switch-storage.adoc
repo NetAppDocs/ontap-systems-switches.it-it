@@ -2,25 +2,25 @@
 permalink: switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nvidia, switch, cluster, network, nondisruptive, procedure, ndu, replace a nvidia sn2100 cluster switch - nvidia SN2100 
-summary: Sostituzione di uno switch di storage NVIDIA SN2100 difettoso in una procedura senza interruzioni. 
+summary: 'Sostituzione di uno switch di archiviazione NVIDIA SN2100 difettoso in una procedura non distruttiva \(NDU\).' 
 ---
-= Sostituire uno switch di storage NVIDIA SN2100
+= Sostituisci uno switch di archiviazione NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-È possibile sostituire uno switch di storage NVIDIA SN2100 difettoso. Si tratta di una procedura senza interruzioni.
+È possibile sostituire uno switch di archiviazione NVIDIA SN2100 difettoso. Si tratta di una procedura non distruttiva.
 
 .Prima di iniziare
-Prima di installare il software Cumulus e gli RCF su uno switch di storage NVIDIA SN2100, assicurarsi che:
+Prima di installare il software Cumulus e gli RCF su uno switch di archiviazione NVIDIA SN2100, assicurarsi che:
 
-* Il sistema supporta gli switch storage NVIDIA SN2100.
+* Il tuo sistema può supportare gli switch di archiviazione NVIDIA SN2100.
 * Hai scaricato gli RCF applicabili.
 
 
-Il http://hwu.netapp.com["Hardware Universe"^] fornisce informazioni dettagliate sulle porte supportate e sulle relative configurazioni.
+IL http://hwu.netapp.com["Hardware Universe"^] fornisce dettagli completi sulle porte supportate e sulle relative configurazioni.
 
 La configurazione di rete esistente deve avere le seguenti caratteristiche:
 
@@ -28,38 +28,38 @@ La configurazione di rete esistente deve avere le seguenti caratteristiche:
 * Assicurarsi che la connettività di gestione sia presente su entrambi gli switch.
 +
 
-NOTE: Assicurarsi che tutte le fasi di risoluzione dei problemi siano state completate per confermare che lo switch deve essere sostituito.
+NOTE: Assicurati di aver completato tutti i passaggi per la risoluzione dei problemi per confermare che il tuo switch debba essere sostituito.
 
 
 
 Lo switch NVIDIA SN2100 sostitutivo deve avere le seguenti caratteristiche:
 
-* La connettività di rete per la gestione è funzionale.
+* La connettività della rete di gestione è funzionale.
 * È possibile accedere all'interruttore sostitutivo tramite la console.
 * Sullo switch viene caricata l'immagine appropriata del sistema operativo RCF e Cumulus.
-* La personalizzazione iniziale dello switch è completata.
+* La personalizzazione iniziale dello switch è completa.
 
 
 .Riepilogo della procedura
-Questa procedura sostituisce il secondo switch di storage NVIDIA SN2100 sw2 con il nuovo switch NVIDIA SN2100 nsw2. I due nodi sono node1 e node2.
+Questa procedura sostituisce il secondo switch di archiviazione NVIDIA SN2100 sw2 con il nuovo switch NVIDIA SN2100 nsw2.  I due nodi sono node1 e node2.
 
-Procedura da completare:
+Passaggi per completare:
 
-* Verificare che lo switch da sostituire sia sw2.
-* Scollegare i cavi dallo switch sw2.
+* Verificare che l'interruttore da sostituire sia sw2.
+* Scollegare i cavi dall'interruttore sw2.
 * Ricollegare i cavi allo switch nsw2.
-* Verificare tutte le configurazioni del dispositivo sullo switch nsw2.
+* Verificare tutte le configurazioni dei dispositivi sullo switch nsw2.
 
 
-.Fasi
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+.Passi
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
 +
 _x_ è la durata della finestra di manutenzione in ore.
 
-. Impostare il livello di privilegio su Advanced (avanzato), immettendo *y* quando viene richiesto di continuare:
+. Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare:
 +
 `set -privilege advanced`
 
@@ -90,7 +90,7 @@ node2
 cluster1::*>
 ----
 ====
-. Verificare che lo switch di storage sw1 sia disponibile:
+. Verificare che lo switch di archiviazione sw1 sia disponibile:
 +
 `network device-discovery show -protocol lldp`
 
@@ -121,7 +121,7 @@ Press <space> to page down, <return> for next line, or 'q' to quit...
 10 entries were displayed.
 ----
 ====
-. Eseguire `net show interface` comando sull'interruttore funzionante per confermare che è possibile visualizzare sia i nodi che tutti gli shelf:
+. Esegui il `net show interface` comando sullo switch funzionante per confermare che puoi vedere entrambi i nodi e tutti gli scaffali:
 +
 `net show interface`
 
@@ -148,7 +148,7 @@ UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP
 ...
 ----
 ====
-. Verificare le porte dello shelf nel sistema storage:
+. Verificare le porte degli scaffali nel sistema di archiviazione:
 +
 `storage shelf port show -fields remote-device, remote-port`
 
@@ -172,9 +172,9 @@ shelf   id  remote-port   remote-device
 cluster1::*>
 ----
 ====
-. Rimuovere tutti i cavi collegati allo switch di storage sw2.
+. Rimuovere tutti i cavi collegati allo switch di archiviazione sw2.
 . Ricollegare tutti i cavi allo switch sostitutivo nsw2.
-. Controllare nuovamente lo stato di salute delle porte del nodo di storage:
+. Ricontrollare lo stato di integrità delle porte del nodo di archiviazione:
 +
 `storage port show -port-type ENET`
 
@@ -233,7 +233,7 @@ Press <space> to page down, <return> for next line, or 'q' to quit...
 10 entries were displayed.
 ----
 ====
-. Verificare le porte dello shelf nel sistema storage:
+. Verificare le porte degli scaffali nel sistema di archiviazione:
 +
 `storage shelf port show -fields remote-device, remote-port`
 
@@ -257,15 +257,15 @@ shelf   id    remote-port     remote-device
 cluster1::*>
 ----
 ====
-. Modificare nuovamente il livello di privilegio in admin:
+. Ripristinare il livello di privilegio su amministratore:
 +
 `set -privilege admin`
 
-. Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
+. Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver sostituito gli interruttori, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

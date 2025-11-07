@@ -7,21 +7,21 @@
 * SNMPv3 è supportato solo su ONTAP 9.12.1 e versioni successive.
 * ONTAP 9.13.1P12, 9.14.1P9, 9.15.1P5, 9.16.1 e versioni successive risolvono questi due problemi:
 +
-** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-82891["Per il monitoraggio dello stato ONTAP degli switch Cisco, il traffico SNMPv2 potrebbe essere ancora visualizzato dopo il passaggio a SNMPv3 per il monitoraggio"^]
-** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-119131["Avvisi falsi positivi di ventola e alimentazione dell'interruttore quando si verificano errori SNMP"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-82891["Per il monitoraggio dello stato ONTAP degli switch Cisco , il traffico SNMPv2 potrebbe essere ancora visibile dopo il passaggio a SNMPv3 per il monitoraggio"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-119131["Avvisi falsi positivi sulla ventola e sull'alimentazione quando si verificano errori SNMP"^]
 
 
 
 
 ====
-.A proposito di questa attività
-I seguenti comandi vengono utilizzati per configurare un nome utente SNMPv3 sugli switch *Broadcom*, *Cisco* e *NVIDIA*:
+.Informazioni su questo compito
+I seguenti comandi vengono utilizzati per configurare un nome utente SNMPv3 sugli switch *Broadcom*, * Cisco* e * NVIDIA*:
 
 [role="tabbed-block"]
 ====
 .Switch Broadcom
 --
-Configurare un OPERATORE DI RETE con nome utente SNMPv3 sugli switch Broadcom BES-53248.
+Configurare un nome utente SNMPv3 NETWORK-OPERATOR sugli switch Broadcom BES-53248.
 
 * Per *nessuna autenticazione*:
 +
@@ -43,7 +43,7 @@ snmp-server user SNMPv3UserAuthEncrypt NETWORK-OPERATOR [auth-md5|auth-sha] [pri
 ----
 
 
-Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP:
+Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP :
 
 [source, cli]
 ----
@@ -55,8 +55,8 @@ Il seguente comando stabilisce il nome utente SNMPv3 con CSHM:
 ----
 cluster1::*> system switch ethernet modify -device DEVICE -snmp-version SNMPv3 -community-or-username SNMPv3_USER
 ----
-.Fasi
-. Impostare l'utente SNMPv3 sullo switch per l'utilizzo dell'autenticazione e della crittografia:
+.Passi
+. Impostare l'utente SNMPv3 sullo switch per utilizzare l'autenticazione e la crittografia:
 +
 [source, cli]
 ----
@@ -74,7 +74,7 @@ show snmp status
 ----------------- ------------------ ---- ------ -------------------------
 <username>        network-admin      MD5  AES128 8000113d03d8c497710bee
 ----
-. Impostare l'utente SNMPv3 sul lato ONTAP:
+. Impostare l'utente SNMPv3 sul lato ONTAP :
 +
 [source, cli]
 ----
@@ -183,7 +183,7 @@ snmp-server user SNMPv3_USER AuthEncrypt  auth [md5|sha] AUTH-PASSWORD priv aes-
 ----
 
 
-Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP:
+Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP :
 
 [source, cli]
 ----
@@ -195,8 +195,8 @@ Il seguente comando stabilisce il nome utente SNMPv3 con CSHM:
 ----
 system switch ethernet modify -device DEVICE -snmp-version SNMPv3 -community-or-username SNMPv3_USER
 ----
-.Fasi
-. Impostare l'utente SNMPv3 sullo switch per l'utilizzo dell'autenticazione e della crittografia:
+.Passi
+. Impostare l'utente SNMPv3 sullo switch per utilizzare l'autenticazione e la crittografia:
 +
 [source, cli]
 ----
@@ -227,7 +227,7 @@ User              Auth               Priv
 
 (sw1)(Config)#
 ----
-. Impostare l'utente SNMPv3 sul lato ONTAP:
+. Impostare l'utente SNMPv3 sul lato ONTAP :
 +
 [source, cli]
 ----
@@ -283,7 +283,7 @@ cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1" -snmp-version SNMPv3 -community-or-username <username>*
 cluster1::*>
 ----
-. Verificare che il numero seriale da sottoporre a query con l'utente SNMPv3 appena creato sia lo stesso descritto nel passaggio precedente dopo il completamento del periodo di polling CSHM.
+. Verificare che il numero di serie da interrogare con l'utente SNMPv3 appena creato sia lo stesso specificato nel passaggio precedente una volta completato il periodo di polling CSHM.
 +
 [source, cli]
 ----
@@ -340,7 +340,7 @@ nv set service snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWOR
 ----
 
 
-Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP:
+Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP :
 
 [source, cli]
 ----
@@ -352,8 +352,8 @@ Il seguente comando stabilisce il nome utente SNMPv3 con CSHM:
 ----
 system switch ethernet modify -device DEVICE -snmp-version SNMPv3 -community-or-username SNMPv3_USER
 ----
-.Fasi
-. Impostare l'utente SNMPv3 sullo switch per l'utilizzo dell'autenticazione e della crittografia:
+.Passi
+. Impostare l'utente SNMPv3 sullo switch per utilizzare l'autenticazione e la crittografia:
 +
 [source, cli]
 ----
@@ -428,7 +428,7 @@ Version 3 Usernames                Configured     *<---- Configured here*
 ---------------------------------  ----------------
 cumulus@sw1:~$
 ----
-. Impostare l'utente SNMPv3 sul lato ONTAP:
+. Impostare l'utente SNMPv3 sul lato ONTAP :
 +
 [source, cli]
 ----
@@ -481,7 +481,7 @@ DEPRECATED-Community String or SNMPv3 Username: -
 cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
-. Verificare che il numero seriale da sottoporre a query con l'utente SNMPv3 appena creato sia lo stesso descritto nel passaggio precedente dopo il completamento del periodo di polling CSHM.
+. Verificare che il numero di serie da interrogare con l'utente SNMPv3 appena creato sia lo stesso specificato nel passaggio precedente una volta completato il periodo di polling CSHM.
 +
 [source, cli]
 ----
@@ -536,7 +536,7 @@ nv set system snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD
 ----
 
 
-Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP:
+Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP :
 
 [source, cli]
 ----
@@ -548,8 +548,8 @@ Il seguente comando stabilisce il nome utente SNMPv3 con CSHM:
 ----
 system switch ethernet modify -device DEVICE -snmp-version SNMPv3 -community-or-username SNMPv3_USER
 ----
-.Fasi
-. Impostare l'utente SNMPv3 sullo switch per l'utilizzo dell'autenticazione e della crittografia:
+.Passi
+. Impostare l'utente SNMPv3 sullo switch per utilizzare l'autenticazione e la crittografia:
 +
 [source, cli]
 ----
@@ -575,7 +575,7 @@ trap-link-down
 state                 enabled
 cumulus@sw1:~$
 ----
-. Impostare l'utente SNMPv3 sul lato ONTAP:
+. Impostare l'utente SNMPv3 sul lato ONTAP :
 +
 [source, cli]
 ----
@@ -628,7 +628,7 @@ DEPRECATED-Community String or SNMPv3 Username: -
 cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
-. Verificare che il numero seriale da sottoporre a query con l'utente SNMPv3 appena creato sia lo stesso descritto nel passaggio precedente dopo il completamento del periodo di polling CSHM.
+. Verificare che il numero di serie da interrogare con l'utente SNMPv3 appena creato sia lo stesso specificato nel passaggio precedente una volta completato il periodo di polling CSHM.
 +
 [source, cli]
 ----

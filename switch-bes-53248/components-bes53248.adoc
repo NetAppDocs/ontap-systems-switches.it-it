@@ -2,53 +2,53 @@
 permalink: switch-bes-53248/components-bes53248.html 
 sidebar: sidebar 
 keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
-summary: 'Per l"installazione e la manutenzione dello switch BES-53248, consultare l"elenco dei componenti e dei codici.' 
+summary: 'Per l"installazione e la manutenzione dell"interruttore BES-53248, assicurarsi di rivedere l"elenco dei componenti e i codici articolo.' 
 ---
-= Componenti e codici ricambio per switch cluster BES-53248
+= Componenti e numeri di parte per gli switch cluster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dello switch BES-53248, consultare l'elenco dei componenti e dei codici.
+Per l'installazione e la manutenzione dell'interruttore BES-53248, assicurarsi di rivedere l'elenco dei componenti e i codici articolo.
 
-La seguente tabella elenca il numero di parte, la descrizione e le versioni minime di EFOS e ONTAP per i componenti dello switch cluster BES-53248, inclusi i dettagli del kit per montaggio su rack.
+Nella tabella seguente sono elencati il ​​codice articolo, la descrizione e le versioni minime EFOS e ONTAP per i componenti dello switch cluster BES-53248, inclusi i dettagli del kit di guide per montaggio su rack.
 
 
-NOTE: Per i codici ricambio *X190005-B* e *X190005R-B* è richiesta una versione EFOS minima di *3.10.0.3*.
+NOTE: Per i codici articolo *X190005-B* e *X190005R-B* è richiesta una versione EFOS minima *3.10.0.3*.
 
 [cols="20,40,20,20"]
 |===
-| Codice del ricambio | Descrizione | Versione minima di EFOS | Versione minima di ONTAP 
+| Numero di parte | Descrizione | Versione minima EFOS | Versione minima ONTAP 
 
 
  a| 
-X190005-B.
+X190005-B
  a| 
-BES-53248-B/IX8, CLSW, 16PT10/25GB, PTSX (PTSX = scarico laterale porta)
+BES-53248-B/IX8, CLSW, 16PT10/25GB, PTSX (PTSX = scarico lato sinistro)
  a| 
 3.10.0.3
  a| 
-9.8
+9,8
 
 
 
  a| 
-X190005R-B.
+X190005R-B
  a| 
-BES-53248-B/IX8, CLSW, 16PT10/25GB, PSIN (PSIN = Port Side Intake)
+BES-53248-B/IX8, CLSW, 16PT10/25GB, PSIN (PSIN = ingresso lato porta)
  a| 
 3.10.0.3
  a| 
-9.8
+9,8
 
 
 
  a| 
 X190005
  a| 
-BES-53248, CLSW, 16PT10/25GB, PTSX, BRDCM SUPP
+BES-53248, CLSW, 16Pt10/25GB, PTSX, BRDCM SUPP
  a| 
 3.4.4.6
  a| 
@@ -59,7 +59,7 @@ BES-53248, CLSW, 16PT10/25GB, PTSX, BRDCM SUPP
  a| 
 X190005R
  a| 
-BES-53248, CLSW, 16PT10/25GB, PSIN, BRDCM SUPP
+BES-53248, CLSW, 16Pt10/25GB, PSIN, BRDCM SUPP
  a| 
 3.4.4.6
  a| 
@@ -70,19 +70,19 @@ BES-53248, CLSW, 16PT10/25GB, PSIN, BRDCM SUPP
  a| 
 X-RAIL-4POST-190005
  a| 
-Kit guide per montaggio in rack Ozeki a 4 montanti da 19"
+Kit di montaggio su rack Ozeki 4 montanti 19"
  a| 
-N/A.
+N / A
  a| 
-N/A.
+N / A
 
 |===
 
-IMPORTANT: Prendere nota delle seguenti informazioni relative ai tipi di macchina:
+IMPORTANT: Per quanto riguarda i tipi di macchina, tenere presente le seguenti informazioni:
 
 [cols="50,50"]
 |===
-| Tipo di macchina | Versione minima di EFOS 
+| Tipo di macchina | Versione minima EFOS 
 
 
  a| 
@@ -99,7 +99,7 @@ BES-53248A2
 BES-53248A3
 | 3.10.0.3 
 |===
-È possibile determinare il tipo di macchina specifico utilizzando il comando: `show version`
+Puoi determinare il tipo specifico della tua macchina utilizzando il comando: `show version`
 
 .Mostra esempio
 [%collapsible]

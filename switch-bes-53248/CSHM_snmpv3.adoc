@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/CSHM_snmpv3.html 
 sidebar: sidebar 
 keywords: SNMP,SNMPv3,SNMPv3 setup,BES-53248 Broadcom setup,BES-3248 switches configuration,EFOS 
-summary: 'SNMPv3 può essere utilizzato con il monitor stato switch Ethernet (CSHM).' 
+summary: 'SNMPv3 può essere utilizzato con il monitoraggio dello stato dello switch Ethernet (CSHM).' 
 ---
 = Configurare SNMPv3
 :allow-uri-read: 
@@ -13,7 +13,7 @@ summary: 'SNMPv3 può essere utilizzato con il monitor stato switch Ethernet (CS
 [role="lead"]
 Seguire questa procedura per configurare SNMPv3, che supporta il monitoraggio dello stato dello switch Ethernet (CSHM).
 
-.A proposito di questa attività
+.Informazioni su questo compito
 I seguenti comandi configurano un nome utente SNMPv3 sugli switch Broadcom BES-53248:
 
 * Per *nessuna autenticazione*:
@@ -24,14 +24,14 @@ I seguenti comandi configurano un nome utente SNMPv3 sugli switch Broadcom BES-5
 `snmp-server user SNMPv3UserAuthEncrypt NETWORK-OPERATOR [auth-md5|auth-sha] [priv-aes128|priv-des]`
 
 
-Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP:
+Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP :
 `cluster1::*> security login create -user-or-group-name _SNMPv3_USER_ -application snmp -authentication-method usm -remote-switch-ipaddress _ADDRESS_`
 
 Il seguente comando stabilisce il nome utente SNMPv3 con CSHM:
 `cluster1::*> system switch ethernet modify -device _DEVICE_ -snmp-version SNMPv3 -community-or-username _SNMPv3_USER_`
 
-.Fasi
-. Impostare l'utente SNMPv3 sullo switch per l'utilizzo dell'autenticazione e della crittografia:
+.Passi
+. Impostare l'utente SNMPv3 sullo switch per utilizzare l'autenticazione e la crittografia:
 +
 `show snmp status`
 
@@ -51,7 +51,7 @@ Il seguente comando stabilisce il nome utente SNMPv3 con CSHM:
 <username>        network-admin      MD5  AES128 8000113d03d8c497710bee
 ----
 ====
-. Impostare l'utente SNMPv3 sul lato ONTAP:
+. Impostare l'utente SNMPv3 sul lato ONTAP :
 +
 `security login create -user-or-group-name <username> -application snmp -authentication-method usm -remote-switch-ipaddress 10.231.80.212`
 
@@ -109,7 +109,7 @@ cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1" -snmp-version SNMPv3 -community-or-username <username>*
 ----
 ====
-. Verificare che il numero seriale da sottoporre a query con l'utente SNMPv3 appena creato sia lo stesso descritto nel passaggio precedente dopo il completamento del periodo di polling CSHM.
+. Verificare che il numero di serie da interrogare con l'utente SNMPv3 appena creato sia lo stesso specificato nel passaggio precedente una volta completato il periodo di polling CSHM.
 +
 `system switch ethernet polling-interval show`
 

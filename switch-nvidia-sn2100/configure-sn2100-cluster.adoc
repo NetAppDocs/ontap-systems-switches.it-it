@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/configure-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: switches hardware installation 
-summary: 'Per installare l"hardware SN2100, consultare la documentazione di NVIDIA.' 
+summary: 'Per installare l"hardware SN2100, fare riferimento alla documentazione NVIDIA.' 
 ---
 = Configurare lo switch NVIDIA SN2100
 :allow-uri-read: 
@@ -11,12 +11,12 @@ summary: 'Per installare l"hardware SN2100, consultare la documentazione di NVID
 
 
 [role="lead"]
-Per configurare lo switch SN2100, consultare la documentazione di NVIDIA.
+Per configurare lo switch SN2100, fare riferimento alla documentazione NVIDIA.
 
-.Fasi
-. Esaminare link:configure-reqs-sn2100-cluster.html["requisiti di configurazione"].
-. Seguire le istruzioni riportate in https://docs.nvidia.com/networking/display/sn2000pub/System+Bring-Up["Sistema NVIDIA Bring-Up."^].
+.Passi
+. Rivedere illink:configure-reqs-sn2100-cluster.html["requisiti di configurazione"] .
+. Seguire le istruzioni in https://docs.nvidia.com/networking/display/sn2000pub/System+Bring-Up["Ripristino del sistema NVIDIA ."^] .
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver configurato lo switch, puoilink:install-cumulus-mode-sn2100-cluster.html["installare Cumulus Linux in modalità Cumulus"] Olink:install-onie-mode-sn2100-cluster.html["installare Cumulus Linux in modalità ONIE"] .

@@ -2,53 +2,53 @@
 :allow-uri-read: 
 
 
-.Documentazione consigliata
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Pagina switch Ethernet Cisco"^]
+.Documentazione suggerita
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Pagina dello switch Ethernet Cisco"^]
 +
-Consultare la tabella di compatibilità degli switch per le versioni supportate di ONTAP e NX-OS.
+Consultare la tabella di compatibilità degli switch per le versioni ONTAP e NX-OS supportate.
 
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guide all'aggiornamento e al downgrade del software"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guide per l'aggiornamento e il downgrade del software"^]
 +
-Per la documentazione completa sulle procedure di aggiornamento e di downgrade degli switch Cisco, consultare le guide appropriate per il software e l'aggiornamento disponibili sul sito Web di Cisco.
+Per la documentazione completa sulle procedure di upgrade e downgrade degli switch Cisco , fare riferimento alle guide software e di aggiornamento appropriate disponibili sul sito Web Cisco .
 
-* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Upgrade di Cisco Nexus 9000 e 3000 e matrice ISSU"^]
+* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Aggiornamento Cisco Nexus 9000 e 3000 e matrice ISSU"^]
 +
 Fornisce informazioni sull'aggiornamento/downgrade dirompente per il software Cisco NX-OS sugli switch Nexus serie 9000 in base alle versioni correnti e di destinazione.
 
 +
-Nella pagina, selezionare *Disruptive Upgrade* (aggiornamento distruttivo) e selezionare la release corrente e la release di destinazione dall'elenco a discesa.
+Nella pagina, seleziona *Disruptive Upgrade* e seleziona la versione corrente e quella di destinazione dall'elenco a discesa.
 
 
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
 * I nomi dei due switch Cisco sono cs1 e cs2.
 * I nomi dei nodi sono cluster1-01 e cluster1-02.
 * I nomi LIF del cluster sono cluster1-01_clus1 e cluster1-01_clus2 per cluster1-01 e cluster1-02_clus1 e cluster1-02_clus2 per cluster1-02.
-* Il `cluster1::*>` prompt indica il nome del cluster.
+* IL `cluster1::*>` il prompt indica il nome del cluster.
 
 
-.A proposito di questa attività
-La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 9000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
+.Informazioni su questo compito
+La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 9000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
 
-.Fasi
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=x h`
+.Passi
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=x h`
 +
 dove x è la durata della finestra di manutenzione in ore.
 
 +
 
-NOTE: Il messaggio AutoSupport informa il supporto tecnico di questa attività di manutenzione in modo che la creazione automatica del caso venga soppressa durante la finestra di manutenzione.
+NOTE: Il messaggio AutoSupport avvisa il supporto tecnico di questa attività di manutenzione, in modo che la creazione automatica dei casi venga soppressa durante la finestra di manutenzione.
 
-. Impostare il livello di privilegio su Advanced (avanzato), immettendo *y* quando viene richiesto di continuare:
+. Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare:
 +
 [source, cli]
 ----
 set -privilege advanced
 ----
 +
-Il prompt avanzato (`*>`).
+Il prompt avanzato(`*>` ) appare.
 
 . Visualizza quante interfacce di interconnessione cluster sono configurate in ciascun nodo per ogni switch di interconnessione cluster:
 +
@@ -79,7 +79,7 @@ cluster1-01/cdp
 ====
 . Controllare lo stato amministrativo o operativo di ciascuna interfaccia del cluster.
 +
-.. Visualizzare gli attributi della porta di rete:
+.. Visualizza gli attributi della porta di rete:
 +
 [source, cli]
 ----
@@ -110,7 +110,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 4 entries were displayed.
 ----
 ====
-.. Visualizzare le informazioni sui LIF:
+.. Visualizza informazioni sui LIF:
 +
 [source, cli]
 ----
@@ -145,15 +145,15 @@ Cluster
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
 
 [listing, subs="+quotes"]
 ----
@@ -169,9 +169,9 @@ node2
        3/5/2022 19:21:20 -06:00   cluster1-02_clus2    cluster1-01_clus2   none
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -204,7 +204,7 @@ RPC status:
 ----
 --
 ====
-. [[step6]] verifica che il comando di indirizzamento automatico sia abilitato in tutte le LIF del cluster:
+. [[step6]] Verificare che il comando di ripristino automatico sia abilitato su tutti i LIF del cluster:
 +
 [source, cli]
 ----

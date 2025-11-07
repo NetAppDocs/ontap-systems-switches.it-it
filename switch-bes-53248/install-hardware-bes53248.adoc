@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/install-hardware-bes53248.html 
 sidebar: sidebar 
 keywords: switches hardware installation 
-summary: 'Per installare l"hardware BES-53248, consultare la documentazione di Broadcom.' 
+summary: 'Per installare l"hardware BES-53248, fare riferimento alla documentazione Broadcom.' 
 ---
 = Installare l'hardware per lo switch cluster BES-53248
 :allow-uri-read: 
@@ -11,12 +11,12 @@ summary: 'Per installare l"hardware BES-53248, consultare la documentazione di B
 
 
 [role="lead"]
-Per installare l'hardware BES-53248, consultare la documentazione di Broadcom.
+Per installare l'hardware BES-53248, fare riferimento alla documentazione Broadcom.
 
-.Fasi
-. Esaminare link:configure-reqs-bes53248.html["requisiti di configurazione"].
-. Seguire le istruzioni in https://library.netapp.com/ecm/ecm_download_file/ECMLP2864537["Guida all'installazione dello switch cluster BES-53248 supportato da Broadcom"^].
+.Passi
+. Rivedere illink:configure-reqs-bes53248.html["requisiti di configurazione"] .
+. Seguire le istruzioni nel https://library.netapp.com/ecm/ecm_download_file/ECMLP2864537["Guida all'installazione dello switch cluster BES-53248 supportato da Broadcom"^] .
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver installato l'hardware per lo switch, puoi link:cabling-considerations-bes53248.html["rivedere il cablaggio e la configurazione"] requisiti.

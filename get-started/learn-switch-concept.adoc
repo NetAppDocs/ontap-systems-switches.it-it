@@ -13,16 +13,16 @@ summary: Scopri di più su cluster, storage e switch condivisi.
 [role="lead"]
 NetApp offre sistemi AFX, cluster, storage e switch condivisi che garantiscono comunicazioni interne con la possibilità di spostare dati e interfacce di rete all'interno del cluster senza interruzioni.
 
-Gli switch "front-end" forniscono connettività allo storage host, mentre gli switch cluster "back-end" forniscono connessioni tra due o più controller NetApp.
+Gli switch "front-end" forniscono connettività allo storage host, mentre gli switch cluster "back-end" forniscono connessioni tra due o più controller NetApp .
 
 
-NOTE: Sono supportati solo gli switch back-end validati da NetApp (ordinati da NetApp).
+NOTE: Sono supportati solo gli switch back-end convalidati NetApp(ordinati da NetApp).
 
 
 
 == Interruttori di sistema AFX
 
-Gli switch dei sistemi AFX consentono di creare switch di rete rapidi, efficienti dal punto di vista energetico e salvaspazio.  Le loro dimensioni ridotte e l'elevata densità di porte li rendono ideali per la gestione di reti di grandi dimensioni.  Le porte supportano velocità diverse e possono essere suddivise in più connessioni.  Gli switch dei sistemi AFX supportati da NetApp includono:
+Gli switch dei sistemi AFX consentono di creare switch di rete rapidi, efficienti dal punto di vista energetico e salvaspazio. Le loro dimensioni ridotte e l'elevata densità di porte li rendono ideali per la gestione di reti di grandi dimensioni. Le porte supportano velocità diverse e possono essere suddivise in più connessioni. Gli switch dei sistemi AFX supportati da NetApp includono:
 
 * Cisco Nexus 9332D-GX2B
 * Cisco Nexus 9364D-GX2A
@@ -30,9 +30,9 @@ Gli switch dei sistemi AFX consentono di creare switch di rete rapidi, efficient
 
 
 
-== Switch del cluster
+== Interruttori a grappolo
 
-Gli switch del cluster consentono di creare cluster ONTAP con più di due nodi. Gli switch di cluster supportati da NetApp includono:
+Gli switch cluster consentono di creare cluster ONTAP con più di due nodi. Gli switch cluster supportati da NetApp includono:
 
 * Broadcom BES-53248
 * Cisco Nexus 9336C-FX2
@@ -41,9 +41,9 @@ Gli switch del cluster consentono di creare cluster ONTAP con più di due nodi. 
 
 
 
-== Switch storage
+== Interruttori di archiviazione
 
-Gli switch storage consentono di instradare i dati tra server e array di storage in una SAN (Storage Area Network). Gli switch di storage supportati da NetApp includono:
+Gli switch di archiviazione consentono di instradare i dati tra server e array di archiviazione in una rete SAN (Storage Area Network).  Gli switch di archiviazione supportati da NetApp includono:
 
 * Cisco Nexus 9336C-FX2
 * NVIDIA SN2100
@@ -53,19 +53,19 @@ Gli switch storage consentono di instradare i dati tra server e array di storage
 
 == Switch condivisi
 
-Gli switch condivisi consentono di combinare funzionalità di cluster e storage in una configurazione di switch condivisa, supportando l'utilizzo di RCF di cluster e storage condivisi. Lo switch condiviso supportato da NetApp è:
+Gli switch condivisi consentono di combinare funzionalità di cluster e storage in una configurazione di switch condivisa, supportando l'uso di RCF di cluster e storage condivisi.  Lo switch condiviso supportato da NetApp è:
 
 * Cisco Nexus 9336C-FX2
 
 
 
 
-== Fine della disponibilità
+== Fine disponibilità
 
-I seguenti switch storage non sono più disponibili per l'acquisto, ma sono ancora supportati:
+I seguenti switch di archiviazione non sono più disponibili per l'acquisto, ma sono ancora supportati:
 
 * Cisco Nexus 3232C
-* Cisco Nexus 3132Q-V.
+* Cisco Nexus 3132Q-V
 * Cisco Nexus 92300YC
 * NetApp CN1610
 

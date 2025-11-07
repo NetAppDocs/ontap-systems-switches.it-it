@@ -2,18 +2,18 @@
 permalink: switch-cisco-92300/setup-worksheet-92300yc.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 92300YC 
-summary: Se si desidera documentare le piattaforme supportate, è necessario completare il foglio di lavoro vuoto per il cablaggio utilizzando il foglio di lavoro di esempio completo come guida. 
+summary: Se si desidera documentare le piattaforme supportate, è necessario compilare il foglio di lavoro di cablaggio vuoto utilizzando come guida il foglio di lavoro di cablaggio di esempio completato. 
 ---
-= Completa il foglio di lavoro per il cablaggio di Cisco Nexus 92300YC
+= Foglio di lavoro completo sul cablaggio Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se si desidera documentare le piattaforme supportate, scaricare un PDF di questa pagina e completare il foglio di lavoro relativo al cablaggio.
+Se desideri documentare le piattaforme supportate, scarica un PDF da questa pagina e compila il foglio di lavoro sul cablaggio.
 
-Il foglio di lavoro di esempio relativo ai cavi fornisce esempi di assegnazione delle porte consigliate dagli switch ai controller. Il foglio di lavoro vuoto fornisce un modello che è possibile utilizzare per la configurazione del cluster.
+Il foglio di lavoro di cablaggio di esempio fornisce esempi di assegnazioni di porte consigliate dagli switch ai controller.  Il foglio di lavoro vuoto fornisce un modello che puoi utilizzare per configurare il tuo cluster.
 
 
 
@@ -23,10 +23,10 @@ La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Switch del cluster A 2+| Switch del cluster B 
+2+| Interruttore del cluster A 2+| Interruttore del cluster B 
 
 
-| Porta dello switch | Utilizzo di nodi e porte | Porta dello switch | Utilizzo di nodi e porte 
+| Porta di commutazione | Utilizzo di nodi e porte | Porta di commutazione | Utilizzo di nodi e porte 
 
 
  a| 
@@ -736,36 +736,36 @@ Nodo 40/100 GbE
  a| 
 65
  a| 
-100 GbE ISL alla porta B dello switch 65
+100 GbE ISL per commutare la porta B 65
  a| 
 65
  a| 
-100 GbE ISL per lo switch Di Una porta 65
+100 GbE ISL per commutare la porta A 65
 
 
 
  a| 
 66
  a| 
-100 GbE ISL alla porta B dello switch 66
+100 GbE ISL per commutare la porta B 66
  a| 
 66
  a| 
-100 GbE ISL per lo switch Di Una porta 65
+100 GbE ISL per commutare la porta A 65
 
 |===
 
 
-== Foglio di lavoro di cablaggio vuoto
+== Foglio di lavoro vuoto per il cablaggio
 
-È possibile utilizzare il foglio di lavoro dei cavi vuoto per documentare le piattaforme supportate come nodi in un cluster. La sezione _connessioni cluster supportate_ di https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
+È possibile utilizzare il foglio di lavoro di cablaggio vuoto per documentare le piattaforme supportate come nodi in un cluster.  La sezione _Connessioni cluster supportate_ del https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Switch del cluster A 2+| Switch del cluster B 
+2+| Interruttore del cluster A 2+| Interruttore del cluster B 
 
 
-| Porta dello switch | Utilizzo di nodo/porta | Porta dello switch | Utilizzo di nodo/porta 
+| Porta di commutazione | Utilizzo del nodo/porta | Porta di commutazione | Utilizzo del nodo/porta 
 
 
  a| 
@@ -1347,23 +1347,23 @@ Nodo 40/100 GbE
  a| 
 65
  a| 
-Da ISL a switch B porta 65
+ISL per commutare la porta B 65
  a| 
 65
  a| 
-ISL per lo switch Di Una porta 65
+ISL per commutare la porta A 65
 
 
 
  a| 
 66
  a| 
-Da ISL a switch B porta 66
+ISL per commutare la porta B 66
  a| 
 66
  a| 
-ISL per lo switch Di Una porta 66
+ISL per commutare la porta A 66
 
 |===
 .Cosa c'è dopo?
-link:install-switch-92300yc.html["Installare lo switch"] .
+link:install-switch-92300yc.html["Installare l'interruttore"].

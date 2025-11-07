@@ -4,15 +4,15 @@ sidebar: sidebar
 keywords: cisco, nx-os, software, reference, configuration, file, rcf, install, fx2, cluster, switch, install nx-os software and rcfs on cisco nexus 9364d-gx2a cluster switches - cisco nexus 9364d-gx2a 
 summary: Prepararsi a installare il software NX-OS e RCF. 
 ---
-= Preparare l'installazione del software NX-OS e RCF
+= Prepararsi all'installazione del software NX-OS e RCF
 :allow-uri-read: 
 
 
 [role="lead"]
 Prima di installare il software NX-OS e il file di configurazione di riferimento (RCF), seguire questa procedura.
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
 * I nomi dei due switch Cisco sono cs1 e cs2.
 * I nomi dei nodi sono node1-01, node1-02, node1-03 e node1-04.
@@ -24,29 +24,29 @@ Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e n
 ** node1-04_clus1 e node1-04_clus2 per node1-04
 
 
-* Il `cluster1::*>` prompt indica il nome del cluster.
+* IL `cluster1::*>` il prompt indica il nome del cluster.
 
 
-.A proposito di questa attività
-La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 9000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
+.Informazioni su questo compito
+La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 9000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
 
-.Fasi
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=x h`
+.Passi
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=x h`
 +
 dove x è la durata della finestra di manutenzione in ore.
 
 +
 
-NOTE: Il messaggio AutoSupport informa il supporto tecnico di questa attività di manutenzione in modo che la creazione automatica del caso venga soppressa durante la finestra di manutenzione.
+NOTE: Il messaggio AutoSupport avvisa il supporto tecnico di questa attività di manutenzione, in modo che la creazione automatica dei casi venga soppressa durante la finestra di manutenzione.
 
-. Impostare il livello di privilegio su Advanced (avanzato), immettendo *y* quando viene richiesto di continuare:
+. Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare:
 +
 [source, cli]
 ----
 set -privilege advanced
 ----
 +
-Il prompt avanzato (`*>`).
+Il prompt avanzato(`*>` ) appare.
 
 . Verificare lo stato amministrativo e operativo di ogni porto.
 +
@@ -98,7 +98,7 @@ node1-01/cdp
 .
 ----
 ====
-... Visualizzare gli attributi della porta di rete:
+... Visualizza gli attributi della porta di rete:
 +
 [source, cli]
 ----
@@ -482,5 +482,5 @@ Cluster node1-04_clus2     true
 ====
 
 
-.Quali sono le prossime novità?
-Dopo esserti preparato per installare il software NX-OS e RCF,link:install-nxos-software-9364d-cluster.html["installare o aggiornare il software NX-OS"] .
+.Cosa succederà ora?
+Dopo esserti preparato per installare il software NX-OS e RCF, link:install-nxos-software-9364d-cluster.html["installare o aggiornare il software NX-OS"].

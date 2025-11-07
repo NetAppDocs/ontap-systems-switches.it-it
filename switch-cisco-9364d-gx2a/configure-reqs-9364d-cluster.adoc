@@ -20,18 +20,18 @@ Per l'installazione e la manutenzione dello switch Cisco Nexus 9364D-GX2A, assic
 
 == Requisiti di rete
 
-Sono necessarie le seguenti informazioni di rete per tutte le configurazioni dello switch.
+Per tutte le configurazioni dello switch sono necessarie le seguenti informazioni di rete.
 
 * Subnet IP per il traffico di rete di gestione
-* Nomi host e indirizzi IP per ciascuno dei controller del sistema di storage e per tutti gli switch applicabili
+* Nomi host e indirizzi IP per ciascuno dei controller del sistema di archiviazione e tutti gli switch applicabili
 * La maggior parte dei controller dei sistemi di storage vengono gestiti tramite l'interfaccia e0M, collegandosi alla porta di servizio Ethernet (icona a forma di chiave inglese).
-* Fare riferimento a. https://hwu.netapp.com["Hardware Universe"^] per informazioni aggiornate.
+* Fare riferimento al https://hwu.netapp.com["Hardware Universe"^] per le ultime informazioni.
 
 
 
 
 == Requisiti di cablaggio
 
-* Si dispone del numero e del tipo di cavi e connettori appropriati per gli switch. Vedere https://hwu.netapp.com["Hardware Universe"^].
-* A seconda del tipo di switch che si sta configurando inizialmente, è necessario collegarsi alla porta della console dello switch con il cavo della console incluso.
+* Hai il numero e il tipo di cavi e connettori per i tuoi switch appropriati. Vedi il https://hwu.netapp.com["Hardware Universe"^] .
+* A seconda del tipo di switch che si sta configurando inizialmente, è necessario collegarsi alla porta della console dello switch tramite il cavo della console incluso.
 

@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html
 keywords: shared storage cluster switch cable 
 summary: Utilizzare le immagini dei cavi per completare il cablaggio tra i controller e gli switch. 
 ---
-= Completare il foglio di lavoro per il cablaggio di Cisco Nexus 9336C-FX2
+= Completa il foglio di lavoro sul cablaggio Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -18,29 +18,29 @@ Utilizzare le seguenti immagini di cablaggio per completare il cablaggio tra i c
 
 
 
-== Cavo di storage NS224 collegato allo switch
+== Archiviazione via cavo NS224 come switch-attached
 
-Se si desidera collegare lo storage NS224 come switch-attached, seguire lo schema dello switch-attached:
+Se si desidera cablare l'archiviazione NS224 come collegata allo switch, seguire lo schema relativo:
 
-image:9336c_image1.jpg["Collegato allo switch"]
+image:9336c_image1.jpg["Interruttore collegato"]
 
-Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"] per ulteriori informazioni sulle porte dello switch.
-
-
-
-== Cavo di storage NS224 come collegamento diretto
-
-Se si desidera collegare lo storage NS224 come collegamento diretto invece di utilizzare le porte di storage dello switch condiviso, seguire il diagramma a collegamento diretto:
-
-image:9336c_image2.jpg["Collegamento diretto"]
-
-Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"] per ulteriori informazioni sulle porte dello switch.
+Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"] per maggiori informazioni sulle porte dello switch.
 
 
 
-== Foglio di lavoro per il cablaggio di Cisco Nexus 9336C-FX2
+== Archiviazione via cavo NS224 come collegamento diretto
 
-Se si desidera documentare le piattaforme supportate, è necessario completare il foglio di lavoro dei cavi vuoto utilizzando un foglio di lavoro di esempio completo come guida.
+Se si desidera cablare l'archiviazione NS224 come collegamento diretto anziché utilizzare le porte di archiviazione dello switch condiviso, seguire lo schema del collegamento diretto:
+
+image:9336c_image2.jpg["Attacco diretto"]
+
+Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"] per maggiori informazioni sulle porte dello switch.
+
+
+
+== Foglio di lavoro sul cablaggio Cisco Nexus 9336C-FX2
+
+Se si desidera documentare le piattaforme supportate, è necessario compilare il foglio di lavoro di cablaggio vuoto utilizzando come guida il foglio di lavoro di cablaggio di esempio completato.
 
 La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
 
@@ -48,26 +48,26 @@ image:cabling_worksheet.jpg["Foglio di lavoro sul cablaggio"]
 
 Dove:
 
-* 100G ISL per cambiare una porta 35
-* 100G ISL per cambiare una porta 36
-* 100G ISL alla porta B dello switch 35
-* 100G ISL alla porta B dello switch 36
+* 100G ISL per commutare la porta A 35
+* 100G ISL per commutare la porta A 36
+* 100G ISL per commutare la porta B 35
+* 100G ISL per commutare la porta B 36
 
 
 
 
-== Foglio di lavoro di cablaggio vuoto
+== Foglio di lavoro vuoto per il cablaggio
 
-È possibile utilizzare il foglio di lavoro dei cavi vuoto per documentare le piattaforme supportate come nodi in un cluster. La tabella delle connessioni cluster supportate di Hardware Universe definisce le porte del cluster utilizzate dalla piattaforma.
+È possibile utilizzare il foglio di lavoro di cablaggio vuoto per documentare le piattaforme supportate come nodi in un cluster.  La tabella Connessioni cluster supportate dell'universo Hardware Universe definisce le porte cluster utilizzate dalla piattaforma.
 
-image:blank_cabling_worksheet.jpg["Foglio di lavoro di cablaggio vuoto"]
+image:blank_cabling_worksheet.jpg["Foglio di lavoro vuoto per il cablaggio"]
 
 Dove:
 
-* 100G ISL per cambiare una porta 35
-* 100G ISL per cambiare una porta 36
-* 100G ISL alla porta B dello switch 35
-* 100G ISL alla porta B dello switch 36
+* 100G ISL per commutare la porta A 35
+* 100G ISL per commutare la porta A 36
+* 100G ISL per commutare la porta B 35
+* 100G ISL per commutare la porta B 36
 
 
 .Cosa c'è dopo?

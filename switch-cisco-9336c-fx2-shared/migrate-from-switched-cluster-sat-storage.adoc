@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/migrate-from-switched-cluster-sat-stora
 keywords:  
 summary:  
 ---
-= Migrare da un cluster con switch storage collegato a switch
+= Migrazione da un cluster commutato con storage collegato allo switch
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,14 +14,14 @@ summary:
 
 
 [role="lead"]
-È possibile migrare da un cluster con switch e storage collegato allo switch riutilizzando gli switch storage.
+È possibile migrare da un cluster commutato con storage collegato allo switch riutilizzando gli switch di storage.
 
-Riutilizzando gli switch storage, gli switch storage della coppia ha 1 diventano gli switch condivisi, come mostrato nella figura seguente.
+Riutilizzando gli switch di archiviazione, gli switch di archiviazione della coppia HA 1 diventano switch condivisi, come mostrato nella figura seguente.
 
-image:9336c_image1.jpg["Collegato allo switch"]
+image:9336c_image1.jpg["Interruttore collegato"]
 
-.Fasi
-. Verificare che la configurazione dello storage della coppia ha 1 (e della coppia ha 2) sia corretta e priva di errori:
+.Passi
+. Verificare che la configurazione di archiviazione della coppia HA 1 (e della coppia HA 2) sia corretta e priva di errori:
 +
 `system switch ethernet show`
 
@@ -57,10 +57,10 @@ storage::*>
 ====
 
 
-. [[step2]]spostare i cavi ha Pair 1, NSM224 path A dallo switch storage A alle porte storage NSM224 per la coppia ha 1, percorso A sullo switch storage A.
-. Spostare il cavo dalla coppia ha 1, nodo A, percorso A alla porta storage NSM224 per la coppia ha 1, nodo A sullo switch storage A.
-. Spostare il cavo dalla coppia ha 1, nodo B, percorso A alla porta storage NSM224 per la coppia ha 1, nodo B sullo switch storage A.
-. Verificare che lo storage collegato alla coppia ha 1, lo switch storage A sia integro:
+. [[step2]]Spostare i cavi della coppia HA 1, percorso A NSM224 dallo switch di archiviazione A alle porte di archiviazione NSM224 per la coppia HA 1, percorso A sullo switch di archiviazione A.
+. Spostare il cavo dalla coppia HA 1, nodo A, percorso A alla porta di archiviazione NSM224 per la coppia HA 1, nodo A sullo switch di archiviazione A.
+. Spostare il cavo dalla coppia HA 1, nodo B, percorso A alla porta di archiviazione NSM224 per la coppia HA 1, nodo B sullo switch di archiviazione A.
+. Verificare che l'archiviazione collegata alla coppia HA 1, lo switch di archiviazione A, sia funzionante:
 +
 `storage port show -port-type ENET`
 
@@ -89,8 +89,8 @@ node2
 ====
 
 
-. [[step6]]Sostituisci l'RCF dello storage sullo switch condiviso A con il file RCF condiviso. Vedere link:install-nxos-rcf-9336c-shared.html["Installare RCF su uno switch condiviso Cisco Nexus 9336C-FX2"] per ulteriori dettagli.
-. Verificare che lo storage collegato alla coppia ha 1, lo switch storage A sia integro:
+. [[step6]]Sostituire l'RCF di archiviazione sullo switch condiviso A con il file RCF condiviso.  Vederelink:install-nxos-rcf-9336c-shared.html["Installare l'RCF su uno switch condiviso Cisco Nexus 9336C-FX2"] per ulteriori dettagli.
+. Verificare che l'archiviazione collegata alla coppia HA 1, lo switch di archiviazione A, sia funzionante:
 +
 `system health alert show -instance`
 
@@ -106,10 +106,10 @@ There are no entries matching your query.
 ====
 
 
-. [[step8]]spostare i cavi ha Pair 1, NSM224 percorso B dallo switch di storage B alle porte di storage NS224 condivise per la coppia ha 1, percorso B allo switch di storage B.
-. Spostare il cavo dalla coppia ha 1, nodo A, percorso B alla porta storage condivisa per la coppia ha 1, nodo A, percorso B sullo switch storage B.
-. Spostare il cavo dalla coppia ha 1, nodo B, percorso B alla porta storage condivisa per la coppia ha 1, nodo B, percorso B sullo switch storage B.
-. Verificare che lo storage collegato alla coppia ha 1, lo switch di storage B sia integro:
+. [[step8]]Spostare i cavi della coppia HA 1, percorso B NSM224 dallo switch di archiviazione B alle porte di archiviazione NS224 condivise per la coppia HA 1, percorso B allo switch di archiviazione B.
+. Spostare il cavo dalla coppia HA 1, nodo A, percorso B alla porta di archiviazione condivisa per la coppia HA 1, nodo A, percorso B sullo switch di archiviazione B.
+. Spostare il cavo dalla coppia HA 1, nodo B, percorso B alla porta di archiviazione condivisa per la coppia HA 1, nodo B, percorso B sullo switch di archiviazione B.
+. Verificare che lo storage collegato alla coppia HA 1, lo switch di storage B sia funzionante:
 +
 `system health alert show -instance`
 
@@ -125,8 +125,8 @@ There are no entries matching your query.
 ====
 
 
-. [[step12]]Sostituisci il file RCF dello storage sullo switch condiviso B con il file RCF condiviso. Vedere link:install-nxos-rcf-9336c-shared.html["Installare RCF su uno switch condiviso Cisco Nexus 9336C-FX2"] per ulteriori dettagli.
-. Verificare che lo storage collegato alla coppia ha 1, lo switch di storage B sia integro:
+. [[step12]]Sostituire il file RCF di archiviazione sullo switch condiviso B con il file RCF condiviso.  Vederelink:install-nxos-rcf-9336c-shared.html["Installare l'RCF su uno switch condiviso Cisco Nexus 9336C-FX2"] per ulteriori dettagli.
+. Verificare che lo storage collegato alla coppia HA 1, lo switch di storage B sia funzionante:
 +
 `system health alert show -instance`
 
@@ -142,7 +142,7 @@ There are no entries matching your query.
 ====
 
 
-. [[step14]]verificare che la configurazione dello storage della coppia ha 1 sia corretta e priva di errori:
+. [[step14]]Verificare che la configurazione di archiviazione della coppia HA 1 sia corretta e priva di errori:
 +
 `system switch ethernet show`
 
@@ -178,7 +178,7 @@ storage::*>
 ====
 
 
-. [[step15]]installare gli ISL tra lo switch condiviso A e lo switch condiviso B:
+. [[step15]]Installare gli ISL tra lo switch condiviso A e lo switch condiviso B:
 +
 .Mostra esempio
 [%collapsible]
@@ -203,14 +203,14 @@ sh1 (config)# *exit*
 ====
 
 
-. [[step16]]Migrate la rete del cluster dagli switch del cluster esistenti agli switch condivisi utilizzando la procedura di sostituzione dello switch e l'RCF condiviso. Il nuovo switch condiviso A è "cs1". Il nuovo switch condiviso B è "cs2". Vedere link:replace-9336c-fx2-shared.html["Sostituire uno switch condiviso Cisco Nexus 9336C-FX2"] e. link:install-nxos-rcf-9336c-shared.html["Installare RCF su uno switch condiviso Cisco Nexus 9336C-FX2"] per ulteriori dettagli.
-. Verificare che la configurazione di rete commutata sia valida:
+. [[step16]]Migrare la rete del cluster dagli switch del cluster esistenti agli switch condivisi utilizzando la procedura di sostituzione dello switch e l'RCF condiviso.  Il nuovo switch condiviso A è "cs1".  Il nuovo switch condiviso B è "cs2".  Vederelink:replace-9336c-fx2-shared.html["Sostituisci uno switch condiviso Cisco Nexus 9336C-FX2"] Elink:install-nxos-rcf-9336c-shared.html["Installare l'RCF su uno switch condiviso Cisco Nexus 9336C-FX2"] per ulteriori dettagli.
+. Verificare che la configurazione della rete commutata sia valida:
 +
 `network port show`
 
-. Rimuovere gli switch del cluster inutilizzati.
-. Rimuovere gli switch di storage inutilizzati.
+. Rimuovere gli switch del cluster non utilizzati.
+. Rimuovere gli switch di archiviazione non utilizzati.
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver migrato gli switch, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

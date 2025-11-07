@@ -2,60 +2,60 @@
 permalink: switch-bes-53248/replace-switch-reqs.html 
 sidebar: sidebar 
 keywords: replace, replacing, defective, broadcom-supported, bes, cluster, switch, network, nondisruptive, procedure, ndu, replace a broadcom-supported bes-53428 cluster switch - bes-53428 switches 
-summary: La sostituzione di uno switch cluster BES-53248 difettoso supportato da Broadcom in una rete cluster è una procedura senza interruzioni. 
+summary: 'La sostituzione di uno switch cluster BES-53248 difettoso supportato da Broadcom in una rete cluster è una procedura non distruttiva \(NDU\).' 
 ---
-= Requisiti per la sostituzione
+= Requisiti di sostituzione
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Prima di sostituire lo switch, assicurarsi che siano soddisfatte le seguenti condizioni nell'ambiente corrente e sullo switch sostitutivo.
+Prima di sostituire l'interruttore, assicurarsi che le seguenti condizioni siano soddisfatte nell'ambiente attuale e sull'interruttore sostitutivo.
 
 
 
-== Infrastruttura di rete e cluster esistente
-
-Assicurarsi che:
-
-* Il cluster esistente viene verificato come completamente funzionale, con almeno uno switch del cluster completamente connesso.
-* Tutte le porte del cluster sono *up*.
-* Tutte le interfacce logiche del cluster (LIFF) sono amministrative e operative *up* e sulle porte home.
-* ONTAP `cluster ping-cluster -node node1` il comando deve indicare che le impostazioni, `basic connectivity` e. `larger than PMTU communication`, hanno successo su tutti i percorsi.
-
-
-
-
-== Switch cluster sostitutivo BES-53248
+== Cluster esistente e infrastruttura di rete
 
 Assicurarsi che:
 
-* La connettività di rete di gestione sullo switch sostitutivo è funzionale.
-* L'accesso della console allo switch sostitutivo è in posizione.
-* Le connessioni dei nodi sono porte da 0/1 a 0/16 con licenza predefinita.
-* Tutte le porte ISL (Inter-Switch link) sono disattivate sulle porte 0/55 e 0/56.
+* Il cluster esistente è stato verificato come completamente funzionale, con almeno uno switch del cluster completamente connesso.
+* Tutte le porte del cluster sono *attive*.
+* Tutte le interfacce logiche del cluster (LIF) sono amministrativamente e operativamente *attive* e sulle loro porte home.
+* L' ONTAP `cluster ping-cluster -node node1` il comando deve indicare che le impostazioni, `basic connectivity` E `larger than PMTU communication` , hanno successo su tutti i percorsi.
+
+
+
+
+== Interruttore cluster sostitutivo BES-53248
+
+Assicurarsi che:
+
+* La connettività della rete di gestione sullo switch sostitutivo è funzionante.
+* L'accesso alla console per l'interruttore sostitutivo è pronto.
+* Le connessioni dei nodi sono le porte da 0/1 a 0/16 con licenza predefinita.
+* Tutte le porte Inter-Switch Link (ISL) sono disabilitate sulle porte 0/55 e 0/56.
 * Il file di configurazione di riferimento desiderato (RCF) e l'immagine dello switch del sistema operativo EFOS vengono caricati sullo switch.
-* La personalizzazione iniziale dello switch è completa, come descritto in link:configure-install-initial.html["Configurare lo switch del cluster BES-53248"].
+* La personalizzazione iniziale dello switch è completa, come dettagliato inlink:configure-install-initial.html["Configurare lo switch cluster BES-53248"] .
 
 
-Tutte le personalizzazioni precedenti del sito, come STP, SNMP e SSH, vengono copiate nel nuovo switch.
-
-
-
-== Attivare la registrazione della console
-
-NetApp consiglia vivamente di attivare la registrazione della console sui dispositivi in uso e di eseguire le seguenti operazioni quando si sostituisce lo switch:
-
-* Lasciare attivato AutoSupport durante la manutenzione.
-* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione del caso per tutta la durata della manutenzione. Consultare questo articolo della Knowledge base https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come eliminare la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
-* Attivare la registrazione della sessione per qualsiasi sessione CLI. Per istruzioni su come attivare la registrazione della sessione, consultare la sezione "registrazione dell'output della sessione" in questo articolo della Knowledge base https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare Putty per una connettività ottimale ai sistemi ONTAP"^].
+Tutte le personalizzazioni precedenti del sito, come STP, SNMP e SSH, vengono copiate sul nuovo switch.
 
 
 
+== Abilita la registrazione della console
 
-== Per ulteriori informazioni
+NetApp consiglia vivamente di abilitare la registrazione della console sui dispositivi utilizzati e di adottare le seguenti misure quando si sostituisce lo switch:
+
+* Lasciare AutoSupport abilitato durante la manutenzione.
+* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione di casi per tutta la durata della manutenzione.  Vedi questo articolo della Knowledge Base https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come sopprimere la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
+* Abilita la registrazione delle sessioni per tutte le sessioni CLI.  Per istruzioni su come abilitare la registrazione della sessione, consultare la sezione "Registrazione dell'output della sessione" in questo articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare PuTTY per una connettività ottimale ai sistemi ONTAP"^] .
+
+
+
+
+== Per maggiori informazioni
 
 * https://mysupport.netapp.com/["Sito di supporto NetApp"^]
-* https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^]
+* https://hwu.netapp.com/Home/Index["Hardware Universe NetApp"^]
 

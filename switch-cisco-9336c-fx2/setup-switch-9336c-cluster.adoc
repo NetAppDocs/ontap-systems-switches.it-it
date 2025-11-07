@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/setup-switch-9336c-cluster.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: Seguire questa procedura per configurare lo switch Cisco Nexus 9336C-FX2. 
+summary: Seguire questa procedura per impostare e configurare lo switch Cisco Nexus 9336C-FX2. 
 ---
 = Configurare gli switch cluster 9336C-FX2 e 9336C-FX2-T
 :allow-uri-read: 
@@ -14,182 +14,182 @@ summary: Seguire questa procedura per configurare lo switch Cisco Nexus 9336C-FX
 Seguire questa procedura per configurare gli switch Cisco Nexus 9336C-FX2 e 9336C-FX2-T.
 
 .Prima di iniziare
-Assicurarsi di disporre di quanto segue:
+Assicurati di avere quanto segue:
 
-* Accesso a un server HTTP, FTP o TFTP nel sito di installazione per scaricare le release NX-OS e RCF (Reference Configuration file) applicabili.
-* Versione NX-OS applicabile, scaricata da https://software.cisco.com/download/home["Download del software Cisco"^] pagina.
+* Accesso a un server HTTP, FTP o TFTP nel sito di installazione per scaricare le versioni NX-OS e RCF (Reference Configuration File) applicabili.
+* Versione NX-OS applicabile, scaricata da https://software.cisco.com/download/home["Scarica il software Cisco"^] pagina.
 * Licenze applicabili, informazioni di rete e configurazione e cavi.
-* Completato link:setup-worksheet-9336c-cluster.html["fogli di lavoro per il cablaggio"].
-* RCF di rete cluster e rete di gestione NetApp applicabili scaricati dal NetApp Support Site all'indirizzo http://mysupport.netapp.com/["mysupport.netapp.com"^]. Tutti gli switch della rete cluster e di gestione Cisco vengono forniti con la configurazione standard predefinita di fabbrica di Cisco. Questi switch hanno anche la versione corrente del software NX-OS, ma non hanno gli RCF caricati.
-* link:required-documentation-9336c-cluster.html["Documentazione richiesta su switch e ONTAP"].
+* Completatolink:setup-worksheet-9336c-cluster.html["fogli di lavoro sul cablaggio"] .
+* RCF applicabili alla rete cluster NetApp e alla rete di gestione scaricabili dal sito di supporto NetApp all'indirizzo http://mysupport.netapp.com/["mysupport.netapp.com"^] .  Tutti gli switch di rete cluster e di rete di gestione Cisco vengono forniti con la configurazione predefinita di fabbrica Cisco . Questi switch dispongono anche della versione corrente del software NX-OS, ma non hanno gli RCF caricati.
+* link:required-documentation-9336c-cluster.html["Documentazione richiesta per switch e ONTAP"].
 
 
-.Fasi
+.Passi
 . Eseguire una configurazione iniziale degli switch di rete del cluster.
 +
-Fornire le risposte appropriate alle seguenti domande iniziali di configurazione al primo avvio dello switch. La policy di sicurezza del sito definisce le risposte e i servizi da abilitare.
+Fornire risposte pertinenti alle seguenti domande sulla configurazione iniziale al primo avvio dello switch.  La politica di sicurezza del tuo sito definisce le risposte e i servizi da abilitare.
 
 +
 [cols="1,2"]
 |===
-| Prompt | Risposta 
+| Richiesta | Risposta 
 
 
  a| 
-Interrompere il provisioning automatico e continuare con la normale configurazione? (sì/no)
+Interrompere il provisioning automatico e continuare con la configurazione normale?  (sì/no)
  a| 
-Rispondere con *sì*. Il valore predefinito è no
-
-
-
- a| 
-Applicare lo standard di password sicura? (sì/no)
- a| 
-Rispondere con *sì*. L'impostazione predefinita è sì.
+Rispondi con *sì*.  L'impostazione predefinita è no.
 
 
 
  a| 
-Inserire la password per admin.
+Vuoi applicare uno standard di password sicura?  (sì/no)
  a| 
-La password predefinita è "`admin`"; è necessario creare una nuova password complessa. Una password debole può essere rifiutata.
-
-
-
- a| 
-Accedere alla finestra di dialogo della configurazione di base? (sì/no)
- a| 
-Rispondere con *yes* alla configurazione iniziale dello switch.
+Rispondi con *sì*.  L'impostazione predefinita è sì.
 
 
 
  a| 
-Creare un altro account di accesso? (sì/no)
+Inserisci la password per l'amministratore.
  a| 
-La risposta dipende dalle policy del sito relative agli amministratori alternativi. L'impostazione predefinita è *NO*.
-
-
-
- a| 
-Configurare la stringa di comunità SNMP di sola lettura? (sì/no)
- a| 
-Rispondere con *no*. Il valore predefinito è no
+La password predefinita è "`admin`"; è necessario crearne una nuova, più complessa.  Una password debole può essere rifiutata.
 
 
 
  a| 
-Configurare la stringa di comunità SNMP in lettura/scrittura? (sì/no)
+Desideri accedere alla finestra di dialogo di configurazione di base?  (sì/no)
  a| 
-Rispondere con *no*. Il valore predefinito è no
-
-
-
- a| 
-Inserire il nome dello switch.
- a| 
-Inserire il nome dello switch, che può contenere al massimo 63 caratteri alfanumerici.
+Rispondere con *sì* alla configurazione iniziale dello switch.
 
 
 
  a| 
-Continuare con la configurazione di gestione out-of-band (mgmt0)? (sì/no)
+Vuoi creare un altro account di accesso?  (sì/no)
  a| 
-Rispondere con *yes* (impostazione predefinita) al prompt. Al prompt mgmt0 IPv4 address: (Indirizzo IPv4: Mgmt0), immettere l'indirizzo IP IP: ip_address (Indirizzo_ip).
-
-
-
- a| 
-Configurare il gateway predefinito? (sì/no)
- a| 
-Rispondere con *sì*. Al prompt dell'indirizzo IPv4 del gateway predefinito, immettere default_gateway.
+La risposta dipende dalle policy del tuo sito relative agli amministratori alternativi.  L'impostazione predefinita è *no*.
 
 
 
  a| 
-Configurare le opzioni IP avanzate? (sì/no)
+Configurare la stringa di comunità SNMP di sola lettura?  (sì/no)
  a| 
-Rispondere con *no*. Il valore predefinito è no
-
-
-
- a| 
-Abilitare il servizio telnet? (sì/no)
- a| 
-Rispondere con *no*. Il valore predefinito è no
+Rispondi con *no*.  L'impostazione predefinita è no.
 
 
 
  a| 
-Servizio SSH abilitato? (sì/no)
+Configurare la stringa di comunità SNMP di lettura-scrittura?  (sì/no)
  a| 
-Rispondere con *sì*. L'impostazione predefinita è sì.
-
-
-NOTE: SSH è consigliato quando si utilizza Ethernet Switch Health Monitor (CSHM) per le funzioni di raccolta dei log. SSHv2 è consigliato anche per una maggiore sicurezza.
+Rispondi con *no*.  L'impostazione predefinita è no.
 
 
 
  a| 
-Inserire il tipo di chiave SSH che si desidera generare (dsa/rsa/rsa1).
+Inserisci il nome dello switch.
  a| 
-L'impostazione predefinita è *rsa*.
+Immettere il nome dello switch, che è limitato a 63 caratteri alfanumerici.
+
+
+
+ a| 
+Continuare con la configurazione della gestione fuori banda (mgmt0)?  (sì/no)
+ a| 
+Rispondere con *sì* (impostazione predefinita) a tale richiesta.  Al prompt mgmt0 IPv4 address:, inserisci il tuo indirizzo IP: ip_address.
+
+
+
+ a| 
+Configurare il gateway predefinito?  (sì/no)
+ a| 
+Rispondi con *sì*.  All'indirizzo IPv4 del prompt default-gateway:, immettere default_gateway.
+
+
+
+ a| 
+Configurare le opzioni IP avanzate?  (sì/no)
+ a| 
+Rispondi con *no*.  L'impostazione predefinita è no.
+
+
+
+ a| 
+Abilitare il servizio telnet?  (sì/no)
+ a| 
+Rispondi con *no*.  L'impostazione predefinita è no.
+
+
+
+ a| 
+Servizio SSH abilitato?  (sì/no)
+ a| 
+Rispondi con *sì*.  L'impostazione predefinita è sì.
+
+
+NOTE: Si consiglia di utilizzare SSH quando si utilizza Ethernet Switch Health Monitor (CSHM) per le sue funzionalità di raccolta dei log.  Per una maggiore sicurezza si consiglia anche l'uso di SSHv2.
+
+
+
+ a| 
+Inserisci il tipo di chiave SSH che vuoi generare (dsa/rsa/rsa1).
+ a| 
+Il valore predefinito è *rsa*.
 
 
 
  a| 
 Inserire il numero di bit della chiave (1024-2048).
  a| 
-Inserire il numero di bit della chiave compreso tra 1024 e 2048.
+Inserisci il numero di bit della chiave da 1024 a 2048.
 
 
 
  a| 
-Configurare il server NTP? (sì/no)
+Configurare il server NTP?  (sì/no)
  a| 
-Rispondere con *no*. Il valore predefinito è no
+Rispondi con *no*.  L'impostazione predefinita è no.
 
 
 
  a| 
 Configurare il livello di interfaccia predefinito (L3/L2)
  a| 
-Rispondi con *L2*. L'impostazione predefinita è L2.
+Rispondi con *L2*.  Il valore predefinito è L2.
 
 
 
  a| 
-Configurare lo stato di interfaccia della porta dello switch predefinito (shut/noshut)
+Configura lo stato predefinito dell'interfaccia della porta dello switch (shut/noshut)
  a| 
-Rispondere con *noshut*. L'impostazione predefinita è noshut.
-
-
-
- a| 
-Configurare il profilo di sistema Copp (rigido/moderato/lenient/denso)
- a| 
-Rispondere con *Strict*. L'impostazione predefinita è rigorosa.
+Rispondi con *noshut*.  L'impostazione predefinita è noshut.
 
 
 
  a| 
-Modificare la configurazione? (sì/no)
+Configurare il profilo del sistema CoPP (rigoroso/moderato/indulgente/denso)
  a| 
-A questo punto, viene visualizzata la nuova configurazione. Esaminare e apportare le modifiche necessarie alla configurazione appena inserita. Rispondere con *no* al prompt se si è soddisfatti della configurazione. Rispondere con *yes* se si desidera modificare le impostazioni di configurazione.
+Rispondi con *rigoroso*.  L'impostazione predefinita è rigorosa.
 
 
 
  a| 
-Utilizzare questa configurazione e salvarla? (sì/no)
+Vuoi modificare la configurazione?  (sì/no)
  a| 
-Rispondere con *yes* per salvare la configurazione. In questo modo vengono aggiornate automaticamente le immagini del sistema e del kickstart.
+A questo punto dovresti vedere la nuova configurazione.  Rivedi e apporta tutte le modifiche necessarie alla configurazione appena inserita.  Se sei soddisfatto della configurazione, rispondi *no* al prompt.  Rispondi *sì* se desideri modificare le impostazioni di configurazione.
+
+
+
+ a| 
+Utilizzare questa configurazione e salvarla?  (sì/no)
+ a| 
+Rispondere con *sì* per salvare la configurazione.  In questo modo vengono aggiornate automaticamente le immagini di kickstart e di sistema.
 
 
 NOTE: Se non si salva la configurazione in questa fase, nessuna delle modifiche sarà effettiva al successivo riavvio dello switch.
 
 |===
-. Verificare le opzioni di configurazione effettuate sul display visualizzato al termine dell'installazione e assicurarsi di salvare la configurazione.
-. Controllare la versione degli switch di rete del cluster e, se necessario, scaricare la versione del software supportata da NetApp sugli switch da https://software.cisco.com/download/home["Download del software Cisco"^] pagina.
+. Verificare le scelte di configurazione effettuate nella schermata che appare al termine dell'installazione e assicurarsi di salvare la configurazione.
+. Controllare la versione sugli switch di rete del cluster e, se necessario, scaricare la versione del software supportata da NetApp sugli switch dal https://software.cisco.com/download/home["Scarica il software Cisco"^] pagina.
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver configurato gli switch, puoi link:install-nxos-overview-9336c-cluster.html["prepararsi a installare il software NX-OS e RCF"].

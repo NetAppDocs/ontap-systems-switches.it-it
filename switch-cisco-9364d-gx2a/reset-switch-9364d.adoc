@@ -16,12 +16,12 @@ summary: Ripristinare le impostazioni predefinite di fabbrica dello switch 9364D
 [role="lead"]
 Per ripristinare le impostazioni predefinite di fabbrica dello switch 9364D-GX2A, è necessario cancellare le impostazioni dello switch 9364D-GX2A.
 
-.A proposito di questa attività
-* È necessario essere collegati allo switch mediante la console seriale.
-* Questa attività ripristina la configurazione della rete di gestione.
+.Informazioni su questo compito
+* È necessario connettersi allo switch tramite la console seriale.
+* Questa attività reimposta la configurazione della rete di gestione.
 
 
-.Fasi
+.Passi
 . Cancella la configurazione esistente:
 +
 `write erase`
@@ -46,6 +46,6 @@ Do you wish to proceed anyway? (y/n) [n] *y*
 This command will reboot the system. (y/n)? [n] *y*
 ----
 +
-Il sistema si riavvia e accede alla procedura guidata di configurazione.  Durante l'avvio, se viene visualizzato il messaggio "Interrompere il provisioning automatico e continuare con la configurazione normale?"  (sì/no)[n]”, dovresti rispondere *sì* per procedere.
+Il sistema si riavvia e accede alla procedura guidata di configurazione. Durante l'avvio, se viene visualizzato il messaggio "Interrompere il provisioning automatico e continuare con la configurazione normale?" (sì/no)[n]”, dovresti rispondere *sì* per procedere.
 
 

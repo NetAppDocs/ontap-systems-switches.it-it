@@ -1,32 +1,32 @@
 ---
 indexpage:
   title: Documentazione degli switch per i sistemi hardware ONTAP
-  summary: Utilizza i documenti di questo sito per installare, aggiornare e gestire
-    il tuo cluster, lo storage condiviso e gli switch MetroCluster.
+  summary: Utilizza la documentazione presente su questo sito per installare, aggiornare
+    e gestire il tuo cluster, lo storage condiviso e gli switch MetroCluster .
   keywords: switches
-  lead: NetApp offre cluster, storage e switch condivisi per fornire connettività
-    tra storage host e due o più controller NetApp, consentendoti di trasferire dati
-    e interfacce di rete senza interruzioni nell'infrastruttura storage.
+  lead: NetApp offre cluster, storage e switch condivisi per garantire la connettività
+    tra l'host storage e due o più controller NetApp , consentendo di spostare dati
+    e interfacce di rete senza interruzioni nell'intera infrastruttura di storage.
   tiles:
-  - title: Inizia subito
+  - title: Iniziare
     links:
-    - title: Novità
+    - title: Cosa c'è di nuovo
       url: whats-new.html
     - title: Avvio rapido
       url: "/get-started/get-up-and-running.html"
-    - title: Note di rilascio di ONTAP
+    - title: Note sulla versione ONTAP
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
   - title: Switch supportati
     links:
     - title: Interruttori di sistema AFX
       url: "/afx/index.html"
-    - title: Switch del cluster
+    - title: Interruttori a grappolo
       url: "/cluster/index.html"
-    - title: Switch storage
+    - title: Interruttori di archiviazione
       url: "/storage/index.html"
     - title: Switch condivisi
       url: "/shared/index.html"
-  - title: Switch di fine disponibilità
+  - title: Interruttori di fine disponibilità
     links:
     - title: Switch cluster - Cisco Nexus 3232c
       url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
@@ -34,15 +34,15 @@ indexpage:
       url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
     - title: Switch cluster - Cisco Nexus 92300YC
       url: "/switch-cisco-92300/install-overview-cisco-92300.html"
-    - title: Interruttore quadro strumenti - NetApp CN1610
+    - title: Switch cluster - NetApp CN1610
       url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
-  - title: Monitoraggio dello stato degli switch Ethernet
+  - title: Monitoraggio dello stato dello switch Ethernet
     links:
     - title: Configurare il monitoraggio dello stato dello switch
       url: "/switch-cshm/config-overview.html"
-    - title: Controllare il monitoraggio dello stato degli interruttori
+    - title: Controllare il monitoraggio dello stato di salute dell'interruttore
       url: "/switch-cshm/monitor-overview.html"
-    - title: Raccogliere i registri per il monitoraggio dello stato degli switch
+    - title: Raccogli i registri per il monitoraggio dello stato dello switch
       url: "/switch-cshm/log-collection-overview.html"
   - title: Documenti ONTAP correlati
     links:
@@ -54,9 +54,9 @@ indexpage:
     links:
     - title: Matrice di interoperabilità NetApp
       url: http://mysupport.netapp.com/matrix/
-    - title: NetApp Hardware Universe
+    - title: Hardware Universe NetApp
       url: https://hwu.netapp.com/
-    - title: Knowledge base di NetApp
+    - title: Base di conoscenza NetApp
       url: https://kb.netapp.com/
-    - title: Active IQ (accesso richiesto)
+    - title: Active IQ (richiesto login)
       url: https://activeiq.netapp.com/?source=aiqnsspages

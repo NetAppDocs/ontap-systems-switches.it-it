@@ -2,19 +2,19 @@
 permalink: switch-cisco-3232c/migrate-from-switchless-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: È possibile utilizzare gli switch Cisco Nexus 3232C come switch cluster nel cluster AFF o FAS. 
+summary: È possibile utilizzare gli switch Cisco Nexus 3232C come switch cluster nel cluster AFF o FAS . 
 ---
-= Preparare la migrazione da cluster senza switch a due nodi a cluster con switch a due nodi
+= Prepararsi alla migrazione da cluster switchless a due nodi a cluster switched a due nodi
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questa procedura per preparare il tuo cluster senza switch a due nodi per la migrazione a un cluster con switch a due nodi che include gli switch di rete cluster Cisco Nexus 3232C.
+Seguire questi passaggi per preparare il cluster switchless a due nodi alla migrazione a un cluster switch a due nodi che include switch di rete cluster Cisco Nexus 3232C.
 
-.Fasi
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+.Passi
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
@@ -24,12 +24,12 @@ _x_ è la durata della finestra di manutenzione in ore.
 +
 [NOTE]
 ====
-Il messaggio AutoSupport informa il supporto tecnico di questa attività di manutenzione in modo che la creazione automatica del caso venga soppressa durante la finestra di manutenzione.
+Il messaggio AutoSupport avvisa il supporto tecnico di questa attività di manutenzione, in modo che la creazione automatica dei casi venga soppressa durante la finestra di manutenzione.
 
 ====
-. Determinare lo stato amministrativo o operativo di ciascuna interfaccia del cluster:
+. Determinare lo stato amministrativo o operativo per ciascuna interfaccia del cluster:
 +
-.. Visualizzare gli attributi della porta di rete:
+.. Visualizza gli attributi della porta di rete:
 +
 `network port show -role cluster`
 
@@ -58,7 +58,7 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -
 4 entries were displayed.
 ----
 ====
-.. Visualizzare le informazioni sulle interfacce logiche e sui relativi nodi principali designati:
+.. Visualizza informazioni sulle interfacce logiche e sui nodi home designati:
 +
 `network interface show -role cluster`
 
@@ -82,7 +82,7 @@ Cluster
 4 entries were displayed.
 ----
 ====
-.. Verificare che il rilevamento cluster senza switch sia abilitato utilizzando il comando Advanced Privilege:
+.. Verificare che il rilevamento del cluster senza switch sia abilitato utilizzando il comando con privilegi avanzati:
 +
 `network options detect-switchless-cluster show``
 
@@ -90,7 +90,7 @@ Cluster
 .Mostra esempio
 [%collapsible]
 ====
-L'output dell'esempio seguente mostra che il rilevamento cluster senza switch è abilitato:
+L'output nell'esempio seguente mostra che il rilevamento del cluster senza switch è abilitato:
 
 [listing, subs="+quotes"]
 ----
@@ -100,34 +100,34 @@ Enable Switchless Cluster Detection: true
 ====
 
 
-. Verificare che gli RCF e l'immagine appropriati siano installati sui nuovi switch 3232C e personalizzare il sito, ad esempio aggiungendo utenti, password e indirizzi di rete.
+. Verificare che sui nuovi switch 3232C siano installati gli RCF e l'immagine appropriati ed effettuare le personalizzazioni necessarie al sito, ad esempio aggiungendo utenti, password e indirizzi di rete.
 +
-È necessario preparare entrambi gli switch in questa fase. Se è necessario aggiornare il software RCF e delle immagini, attenersi alla seguente procedura:
+A questo punto è necessario preparare entrambi gli switch.  Se è necessario aggiornare il software RCF e quello delle immagini, è necessario seguire questi passaggi:
 
 +
-.. Accedere alla pagina _Cisco Ethernet Switches_ sul sito del supporto NetApp.
+.. Vai alla pagina _Switch Ethernet Cisco_ sul sito di supporto NetApp .
 +
 link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Switch Ethernet Cisco"^]
 
-.. Annotare lo switch e le versioni software richieste nella tabella riportata in tale pagina.
-.. Scaricare la versione appropriata di RCF.
-.. Selezionare *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza, quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
-.. Scaricare la versione appropriata del software dell'immagine.
+.. Annota il tuo switch e le versioni software richieste nella tabella in quella pagina.
+.. Scarica la versione appropriata di RCF.
+.. Selezionare *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza e quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
+.. Scarica la versione appropriata del software per le immagini.
 +
 link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento per Cisco Cluster and Management Network Switch"^]
 
 
 
-. Selezionare *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza, quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
-. Sugli switch Nexus 3232C C1 e C2, disattivare tutte le porte rivolte ai nodi C1 e C2, ma non disattivare le porte ISL e1/31-32.
+. Selezionare *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza e quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
+. Sugli switch Nexus 3232C C1 e C2, disabilitare tutte le porte C1 e C2 rivolte al nodo, ma non disabilitare le porte ISL e1/31-32.
 +
-Per ulteriori informazioni sui comandi Cisco, vedere il seguente elenco nella https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 Series NX-OS Command References"^] .
+Per ulteriori informazioni sui comandi Cisco , vedere l'elenco seguente in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^] .
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-Nell'esempio seguente vengono mostrate le porte da 1 a 30 disattivate sugli switch cluster Nexus 3232C C1 e C2 utilizzando una configurazione supportata in RCF `NX3232_RCF_v1.0_24p10g_24p100g.txt`:
+L'esempio seguente mostra le porte da 1 a 30 disabilitate sugli switch cluster Nexus 3232C C1 e C2 utilizzando una configurazione supportata in RCF `NX3232_RCF_v1.0_24p10g_24p100g.txt` :
 
 [listing, subs="+quotes"]
 ----
@@ -147,19 +147,19 @@ C2(config-if-range)# exit
 C2(config)# exit
 ----
 ====
-. Collegare le porte 1/31 e 1/32 di C1 alle stesse porte di C2 utilizzando i cavi supportati.
+. Collegare le porte 1/31 e 1/32 su C1 alle stesse porte su C2 utilizzando il cablaggio supportato.
 . Verificare che le porte ISL siano operative su C1 e C2:
 +
 `show port-channel summary`
 
 +
-Per ulteriori informazioni sui comandi Cisco, vedere il seguente elenco nella https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 Series NX-OS Command References"^] .
+Per ulteriori informazioni sui comandi Cisco , vedere l'elenco seguente in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^] .
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra Cisco `show port-channel summary` Comando utilizzato per verificare il funzionamento delle porte ISL su C1 e C2:
+L'esempio seguente mostra Cisco `show port-channel summary` comando utilizzato per verificare che le porte ISL siano operative su C1 e C2:
 
 [listing, subs="+quotes"]
 ----
@@ -189,15 +189,15 @@ Group Port-        Type   Protocol  Member Ports
 1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. Visualizzare l'elenco dei dispositivi vicini sullo switch.
+. Visualizza l'elenco dei dispositivi adiacenti sullo switch.
 +
-Per ulteriori informazioni sui comandi Cisco, vedere il seguente elenco nella https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 Series NX-OS Command References"^] .
+Per ulteriori informazioni sui comandi Cisco , vedere l'elenco seguente in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^] .
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-Nell'esempio riportato di seguito viene illustrato il comando Cisco `show cdp neighbors` utilizzato per visualizzare i dispositivi vicini sullo switch:
+L'esempio seguente mostra il comando Cisco `show cdp neighbors` utilizzato per visualizzare i dispositivi vicini sullo switch:
 
 [listing, subs="+quotes"]
 ----
@@ -219,7 +219,7 @@ C1                 Eth1/32        178    R S I s     N3K-C3232C  Eth1/32
 Total entries displayed: 2
 ----
 ====
-. Visualizzare la connettività della porta del cluster su ciascun nodo:
+. Visualizza la connettività delle porte del cluster su ciascun nodo:
 +
 `network device-discovery show`
 
@@ -227,7 +227,7 @@ Total entries displayed: 2
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra la connettività della porta del cluster visualizzata per una configurazione del cluster senza switch a due nodi:
+L'esempio seguente mostra la connettività delle porte del cluster visualizzata per una configurazione di cluster switchless a due nodi:
 
 [listing, subs="+quotes"]
 ----
@@ -245,5 +245,5 @@ n2         /cdp
 ====
 
 
-.Quali sono le prossime novità?
-link:migrate-from-switchless-configure-ports.html["Configurare le porte"].
+.Cosa succederà ora?
+link:migrate-from-switchless-configure-ports.html["Configura le tue porte"].

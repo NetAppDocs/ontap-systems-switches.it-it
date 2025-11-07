@@ -2,15 +2,15 @@
 :allow-uri-read: 
 
 
-Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione della raccolta, la richiesta di registri *supporto* dettagliati e l'abilitazione di una raccolta oraria di dati *periodici* raccolti da AutoSupport.
+Il monitoraggio dello stato dello switch Ethernet (CSHM) è responsabile di garantire lo stato operativo degli switch di rete Cluster e Storage e di raccogliere i registri degli switch a scopo di debug.  Questa procedura ti guida attraverso il processo di impostazione della raccolta, la richiesta di registri dettagliati di *Supporto* e l'abilitazione di una raccolta oraria di dati *Periodici* raccolti da AutoSupport.
 
-*NOTA:* se si attiva la modalità FIPS, è necessario completare quanto segue:
+*NOTA:* se si abilita la modalità FIPS, è necessario completare quanto segue:
 
 [NOTE]
 ====
-. Rigenerare le chiavi SSH sullo switch utilizzando le istruzioni del fornitore.
-. Rigenerare le chiavi SSH in ONTAP utilizzando `debug system regenerate-systemshell-key-pair`
-. Eseguire nuovamente la routine di impostazione della raccolta di registri utilizzando il `system switch ethernet log setup-password` comando
+. Rigenerare le chiavi SSH sullo switch seguendo le istruzioni del fornitore.
+. Rigenera le chiavi SSH in ONTAP utilizzando `debug system regenerate-systemshell-key-pair`
+. Eseguire nuovamente la routine di configurazione della raccolta dei registri utilizzando `system switch ethernet log setup-password` comando
 
 
 ====
@@ -18,15 +18,15 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
 
 == Prima di iniziare
 
-* L'utente deve avere accesso ai comandi di commutazione `show` . Se non sono disponibili, creare un nuovo utente e concedere le autorizzazioni necessarie all'utente.
-* Il monitoraggio dello stato dello switch deve essere abilitato per lo switch. Verificare questo assicurandosi che `Is Monitored:` il campo è impostato su *true* nell'output di `system switch ethernet show` comando.
-* Per la raccolta dei registri con gli switch Broadcom e Cisco:
+* L'utente deve avere accesso allo switch `show` comandi.  Se non sono disponibili, crea un nuovo utente e concedigli le autorizzazioni necessarie.
+* Per lo switch deve essere abilitato il monitoraggio dello stato di integrità.  Verificare ciò assicurandosi che `Is Monitored:` il campo è impostato su *true* nell'output del `system switch ethernet show` comando.
+* Per la raccolta dei log con gli switch Broadcom e Cisco :
 +
 ** L'utente locale deve disporre dei privilegi di amministratore di rete.
-** È necessario creare un nuovo utente sullo switch per ogni configurazione del cluster con la raccolta di log attivata. Questi switch non supportano più chiavi SSH per lo stesso utente. Qualsiasi impostazione di raccolta di log aggiuntiva eseguita sovrascrive qualsiasi chiave SSH preesistente per l'utente.
+** Per ogni configurazione del cluster con la raccolta dei log abilitata, è necessario creare un nuovo utente sullo switch.  Questi switch non supportano più chiavi SSH per lo stesso utente.  Qualsiasi ulteriore configurazione di raccolta dei log eseguita sovrascrive tutte le chiavi SSH preesistenti per l'utente.
 
 
-* Per la raccolta dei log di supporto con gli switch NVIDIA, la raccolta log _user_ deve essere autorizzata ad eseguire il `cl-support` comando senza dover fornire una password. Per consentire questo utilizzo, eseguire il comando:
+* Per supportare la raccolta dei registri con gli switch NVIDIA , l'_utente_ per la raccolta dei registri deve essere autorizzato a eseguire `cl-support` comando senza dover fornire una password.  Per consentire questo utilizzo, eseguire il comando:
 +
 `echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
 
@@ -34,15 +34,15 @@ Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di gar
 
 
 
-== Fasi
+== Passi
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.15.1 e versioni successive
 --
-. Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.
+. Per impostare la raccolta dei log, eseguire il seguente comando per ogni switch.  Ti verrà richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta dei registri.
 +
-*NOTA:* Se si risponde *y* alla richiesta di specificazione dell'utente, assicurarsi che l'utente disponga delle autorizzazioni necessarie come descritto in <<Prima di iniziare>> .
+*NOTA:* Se si risponde *y* alla richiesta di specifica dell'utente, assicurarsi che l'utente disponga delle autorizzazioni necessarie come descritto in<<Prima di iniziare>> .
 
 +
 [source, cli]
@@ -79,7 +79,7 @@ Enter the password again: *<enter switch password>*
 
 
 
-NOTE: Per CL 5.11.1, creare l'utente *cumulus* e rispondere *y* al seguente prompt: Si desidera specificare un utente diverso da admin per la raccolta dei log? {y|n}: *y*
+NOTE: Per CL 5.11.1, creare l'utente *cumulus* e rispondere *y* al seguente prompt: Si desidera specificare un utente diverso da admin per la raccolta dei log?  {y|n}: *y*
 
 . [[step2]]Abilita la raccolta periodica dei registri:
 +
@@ -110,7 +110,7 @@ cs1                                       true        scheduled   never-run
 cs2                                       true        scheduled   never-run
 2 entries were displayed.
 ----
-. Richiedi raccolta registro assistenza:
+. Richiedi la raccolta dei registri di supporto:
 +
 [source, cli]
 ----
@@ -135,7 +135,7 @@ cs1                                       false       halted      initiated
 cs2                                       true        scheduled   initiated
 2 entries were displayed.
 ----
-. Per visualizzare tutti i dettagli della raccolta di log, inclusi abilitazione, messaggio di stato, data e ora precedenti e nome del file della raccolta periodica, lo stato della richiesta, il messaggio di stato, l'indicatore data e ora precedenti e il nome del file della raccolta di supporto, utilizzare quanto segue:
+. Per visualizzare tutti i dettagli della raccolta dei log, tra cui l'abilitazione, il messaggio di stato, il timestamp precedente e il nome del file della raccolta periodica, lo stato della richiesta, il messaggio di stato, il timestamp precedente e il nome del file della raccolta di supporto, utilizzare quanto segue:
 +
 [source, cli]
 ----
@@ -170,11 +170,11 @@ cluster1::*> *system switch ethernet log show -instance*
 
 
 --
-.ONTAP 9.14.1 e versioni precedenti
+.ONTAP 9.14.1 e precedenti
 --
-. Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.
+. Per impostare la raccolta dei log, eseguire il seguente comando per ogni switch.  Ti verrà richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta dei registri.
 +
-*NOTA:* se si risponde `y` al prompt delle specifiche dell'utente, assicurarsi che l'utente disponga delle autorizzazioni necessarie, come descritto in <<Prima di iniziare>>.
+*NOTA:* Se si risponde `y` alla richiesta di specifica dell'utente, assicurarsi che l'utente disponga delle autorizzazioni necessarie come descritto in<<Prima di iniziare>> .
 
 +
 [source, cli]
@@ -211,9 +211,9 @@ Enter the password again: *<enter switch password>*
 
 
 
-NOTE: Per CL 5.11.1, creare l'utente *cumulus* e rispondere *y* al seguente prompt: Si desidera specificare un utente diverso da admin per la raccolta dei log? {y|n}: *y*
+NOTE: Per CL 5.11.1, creare l'utente *cumulus* e rispondere *y* al seguente prompt: Si desidera specificare un utente diverso da admin per la raccolta dei log?  {y|n}: *y*
 
-. [[step2]] Per richiedere la raccolta del registro di supporto e abilitare la raccolta periodica, eseguire il seguente comando. Questo avvia entrambi i tipi di raccolta di log: I log dettagliati `Support` e una raccolta oraria di `Periodic` dati.
+. [[step2]] Per richiedere la raccolta del registro di supporto e abilitare la raccolta periodica, eseguire il seguente comando.  Questo avvia entrambi i tipi di raccolta dei log: il dettagliato `Support` registri e una raccolta oraria di `Periodic` dati.
 +
 [source, cli]
 ----
@@ -235,7 +235,7 @@ Do you want to modify the cluster switch log collection configuration? {y|n}: [n
 Enabling cluster switch log collection.
 ----
 +
-Attendere 10 minuti, quindi verificare che la raccolta dei log sia completa:
+Attendi 10 minuti e poi verifica che la raccolta dei log sia completata:
 
 +
 [source, cli]

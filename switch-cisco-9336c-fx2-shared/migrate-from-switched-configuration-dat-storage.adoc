@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/migrate-from-switched-configuration-dat
 keywords:  
 summary:  
 ---
-= Migrare da una configurazione commutata con storage direct-attached
+= Migrazione da una configurazione commutata con storage collegato direttamente
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-È possibile eseguire la migrazione da una configurazione commutata con storage direct-attached aggiungendo due nuovi switch condivisi.
+È possibile migrare da una configurazione commutata con storage collegato direttamente aggiungendo due nuovi switch condivisi.
 
 .Switch supportati
 Sono supportati i seguenti switch:
@@ -23,16 +23,16 @@ Sono supportati i seguenti switch:
 * Nexus 3232C
 
 
-Le versioni di ONTAP e NX-OS supportate in questa procedura si trovano nella pagina Switch Ethernet Cisco. Vedere https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"].
+Le versioni ONTAP e NX-OS supportate in questa procedura sono disponibili nella pagina Switch Ethernet Cisco . Vedere https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"] .
 
 .Porte di connessione
-Gli switch utilizzano le seguenti porte per la connessione ai nodi:
+Gli switch utilizzano le seguenti porte per connettersi ai nodi:
 
 * Nexus 9336C-FX2:
 +
-** Porte 1- 3: Modalità di interruzione (4x10G) Porte Intra-Cluster, int e1/1/1-4, e1/2/1-4, e1/3/1-4
-** Porte 4- 6: Modalità breakout (4x25G) Porte Intra-Cluster/ha, int e1/4/1-4, e1/5/1-4, e1/6/1-4
-** Porte 7-34: Porte Intra-Cluster/ha 40/100GbE, int e1/7-34
+** Porte 1-3: Modalità breakout (4x10G) Porte intra-cluster, int e1/1/1-4, e1/2/1-4, e1/3/1-4
+** Porte 4-6: Modalità breakout (4x25G) Porte intra-cluster/HA, int e1/4/1-4, e1/5/1-4, e1/6/1-4
+** Porte 7-34: porte intra-cluster/HA 40/100GbE, int e1/7-34
 
 
 * Nexus 3232C:
@@ -40,7 +40,7 @@ Gli switch utilizzano le seguenti porte per la connessione ai nodi:
 ** Porte 1-30: 10/40/100 GbE
 
 
-* Gli switch utilizzano le seguenti porte ISL (Inter-Switch link):
+* Gli switch utilizzano le seguenti porte Inter-Switch Link (ISL):
 +
 ** Porte int e1/35-36: Nexus 9336C-FX2
 ** Porte e1/31-32: Nexus 3232C
@@ -48,49 +48,49 @@ Gli switch utilizzano le seguenti porte per la connessione ai nodi:
 
 
 
-Il https://hwu.netapp.com["Hardware Universe"] contiene informazioni sul cablaggio supportato per tutti gli switch del cluster.
+IL https://hwu.netapp.com["Hardware Universe"] contiene informazioni sul cablaggio supportato per tutti gli switch cluster.
 
-.Di cosa hai bisogno
-* Assicurarsi di aver completato le seguenti attività:
+.Cosa ti servirà
+* Assicurati di aver completato le seguenti attività:
 +
-** Alcune porte degli switch Nexus 9336C-FX2 sono configurate per funzionare a 100 GbE.
+** Configurate alcune porte sugli switch Nexus 9336C-FX2 per funzionare a 100 GbE.
 ** Connettività 100 GbE pianificata, migrata e documentata dai nodi agli switch Nexus 9336C-FX2.
-** Migrazione senza interruzioni di altri switch cluster Cisco da un cluster ONTAP a switch di rete Cisco Nexus 9336C-FX2.
+** Migrazione senza interruzioni di altri switch cluster Cisco da un cluster ONTAP agli switch di rete Cisco Nexus 9336C-FX2.
 
 
-* La rete di switch esistente è configurata e funziona correttamente.
-* Tutte le porte sono nello stato *up* per garantire operazioni senza interruzioni.
-* Gli switch Nexus 9336C-FX2 sono configurati e funzionano con la versione corretta di NX-OS installato e il file di configurazione di riferimento (RCF) applicato.
-* La configurazione di rete esistente presenta quanto segue:
+* La rete di switch esistente è correttamente configurata e funzionante.
+* Tutte le porte sono in stato *attivo* per garantire operazioni senza interruzioni.
+* Gli switch Nexus 9336C-FX2 sono configurati e funzionano con la versione corretta di NX-OS installata e con il file di configurazione di riferimento (RCF) applicato.
+* La configurazione di rete esistente è la seguente:
 +
-** Un cluster NetApp ridondante e completamente funzionale che utilizza entrambi gli switch Cisco meno recenti.
-** Connettività di gestione e accesso alla console sia agli switch Cisco meno recenti che ai nuovi switch.
-** Tutte le LIF del cluster nello stato *up* con le LIF del cluster si trovano sulle porte home.
+** Un cluster NetApp ridondante e completamente funzionale che utilizza entrambi gli switch Cisco più vecchi.
+** Connettività di gestione e accesso alla console sia per i vecchi switch Cisco sia per quelli nuovi.
+** Tutti i cluster LIF nello stato *up* con i cluster LIF sulle loro porte home.
 ** Porte ISL abilitate e cablate tra gli altri switch Cisco e tra i nuovi switch.
 
 
 
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
 * Gli switch cluster Cisco Nexus 3232C esistenti sono _c1_ e _c2_.
 * I nuovi switch Nexus 9336C-FX2 sono _sh1_ e _sh2_.
 * I nodi sono _node1_ e _node2_.
-* I LIF del cluster sono _node1_clus1_ e _node1_clus2_ sul nodo 1, e _node2_clus1_ e _node2_clus2_ rispettivamente sul nodo 2.
-* L'interruttore c2 viene sostituito dall'interruttore sh2, quindi l'interruttore c1 viene sostituito dall'interruttore sh1.
+* I LIF del cluster sono _node1_clus1_ e _node1_clus2_ sul nodo 1, e _node2_clus1_ e _node2_clus2_ sul nodo 2, rispettivamente.
+* Lo switch c2 viene sostituito prima dallo switch sh2 e poi lo switch c1 viene sostituito dallo switch sh1.
 
 
-.Fasi
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+.Passi
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=x h`
 
 +
 Dove x è la durata della finestra di manutenzione in ore.
 
-. Controllare lo stato amministrativo e operativo di ciascuna porta del cluster.
-. Verificare che tutte le porte del cluster siano funzionanti:
+. Controllare lo stato amministrativo e operativo di ogni porta del cluster.
+. Verificare che tutte le porte del cluster siano attive e integre:
 +
 `network port show –role cluster`
 
@@ -122,7 +122,7 @@ cluster1::*>
 ====
 
 
-. [[step4]]verificare che tutte le interfacce del cluster (LIFF) si trovino sulla porta home:
+. [[step4]]Verificare che tutte le interfacce cluster (LIF) siano sulla porta home:
 +
 `network interface show -role cluster`
 
@@ -147,7 +147,7 @@ cluster1::*>
 ====
 
 
-. [[step5]]verificare che il cluster visualizzi le informazioni per entrambi gli switch del cluster:
+. [[step5]]Verificare che il cluster visualizzi le informazioni per entrambi gli switch del cluster:
 +
 `system cluster-switch show -is-monitoring-enabled-operational true`
 
@@ -179,7 +179,7 @@ cluster1::*>
 ====
 
 
-. [[step6]]Disattiva il ripristino automatico sulle LIF del cluster.
+. [[step6]]Disabilitare il ripristino automatico sui LIF del cluster.
 +
 .Mostra esempio
 [%collapsible]
@@ -191,7 +191,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 ====
 
 
-. [[step7]]Spegni lo switch c2.
+. [[step7]]Spegnere lo switch c2.
 +
 .Mostra esempio
 [%collapsible]
@@ -206,12 +206,12 @@ c2(config)# *shutdown*
 ====
 
 
-. [[step8]]verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch del cluster sh1:
+. [[step8]]Verificare che i LIF del cluster siano migrati alle porte ospitate sullo switch sh1 del cluster:
 +
 `network interface show -role cluster`
 
 +
-Questa operazione potrebbe richiedere alcuni secondi.
+Potrebbero volerci alcuni secondi.
 
 +
 .Mostra esempio
@@ -234,9 +234,9 @@ cluster1::*>
 ====
 
 
-. [[step9]]sostituire lo switch c2 con il nuovo switch sh2 e cablare nuovamente il nuovo switch.
-. Verificare che le porte siano di backup su sh2. *Notare* che i LIF sono ancora sullo switch c1.
-. Spegnere lo switch c1.
+. [[step9]]Sostituisci l'interruttore c2 con il nuovo interruttore sh2 e ricollega il nuovo interruttore.
+. Verificare che le porte siano di nuovo attive su sh2.  *Nota* che i LIF sono ancora sullo switch c1.
+. Spegnere l'interruttore c1.
 +
 .Mostra esempio
 [%collapsible]
@@ -251,7 +251,7 @@ c1(config)# *shutdown*
 ====
 
 
-. [[step12]]verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch del cluster sh2. Questa operazione potrebbe richiedere alcuni secondi.
+. [[step12]]Verificare che i LIF del cluster siano migrati alle porte ospitate sullo switch sh2 del cluster. Potrebbero volerci alcuni secondi.
 +
 .Mostra esempio
 [%collapsible]
@@ -273,9 +273,9 @@ cluster1::*>
 ====
 
 
-. [[step13]]sostituire lo switch c1 con il nuovo switch sh1 e cablare nuovamente il nuovo switch.
-. Verificare che le porte siano di backup su sh1. *Notare* che i LIF sono ancora sullo switch c2.
-. Abilitare il ripristino automatico sulle LIF del cluster:
+. [[step13]]Sostituire l'interruttore c1 con il nuovo interruttore sh1 e ricollegare il nuovo interruttore.
+. Verificare che le porte siano di nuovo attive su sh1.  *Nota* che i LIF sono ancora sullo switch c2.
+. Abilita il ripristino automatico sui LIF del cluster:
 +
 .Mostra esempio
 [%collapsible]
@@ -287,7 +287,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True
 ====
 
 
-. [[step16]]verificare che il cluster funzioni correttamente:
+. [[step16]]Verificare che il cluster sia integro:
 +
 `cluster show`
 
@@ -308,5 +308,5 @@ cluster1::*>
 ====
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver migrato gli switch, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

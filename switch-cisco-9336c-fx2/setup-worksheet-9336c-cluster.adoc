@@ -2,344 +2,344 @@
 permalink: switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html 
 sidebar: sidebar 
 keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2-t 
-summary: Se si desidera documentare le piattaforme supportate, è necessario completare il foglio di lavoro vuoto per il cablaggio utilizzando il foglio di lavoro di esempio completo come guida. 
+summary: Se si desidera documentare le piattaforme supportate, è necessario compilare il foglio di lavoro di cablaggio vuoto utilizzando come guida il foglio di lavoro di cablaggio di esempio completato. 
 ---
-= Completare la scheda di lavoro relativa al cablaggio Cisco Nexus 9336C-FX2 o 9336C-FX2-T.
+= Completare il foglio di lavoro sul cablaggio Cisco Nexus 9336C-FX2 o 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se si desidera documentare le piattaforme supportate, scaricare un PDF di questa pagina e completare il foglio di lavoro relativo al cablaggio.
+Se desideri documentare le piattaforme supportate, scarica un PDF da questa pagina e compila il foglio di lavoro sul cablaggio.
 
-Il foglio di lavoro di esempio relativo ai cavi fornisce esempi di assegnazione delle porte consigliate dagli switch ai controller. Il foglio di lavoro vuoto fornisce un modello che è possibile utilizzare per la configurazione del cluster.
+Il foglio di lavoro di cablaggio di esempio fornisce esempi di assegnazioni di porte consigliate dagli switch ai controller.  Il foglio di lavoro vuoto fornisce un modello che puoi utilizzare per configurare il tuo cluster.
 
-* <<9336C-FX2 esempio di foglio di lavoro per il cablaggio>>
-* <<9336C-FX2 foglio di lavoro cablaggio vuoto>>
-* <<9336C-FX2-T esempio di foglio di lavoro di cablaggio (12 porte)>>
-* <<9336C-FX2-T foglio di lavoro cablaggio vuoto (12 porte)>>
-
-
+* <<Foglio di lavoro di esempio per il cablaggio 9336C-FX2>>
+* <<Foglio di lavoro per il cablaggio vuoto 9336C-FX2>>
+* <<Foglio di lavoro di cablaggio di esempio 9336C-FX2-T (12 porte)>>
+* <<Foglio di lavoro per il cablaggio vuoto 9336C-FX2-T (12 porte)>>
 
 
-== 9336C-FX2 esempio di foglio di lavoro per il cablaggio
+
+
+== Foglio di lavoro di esempio per il cablaggio 9336C-FX2
 
 La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Switch del cluster A 2+| Switch del cluster B 
+2+| Interruttore del cluster A 2+| Interruttore del cluster B 
 
 
-| Porta dello switch | Utilizzo di nodi e porte | Porta dello switch | Utilizzo di nodi e porte 
+| Porta di commutazione | Utilizzo di nodi e porte | Porta di commutazione | Utilizzo di nodi e porte 
 
 
  a| 
 1
  a| 
-Nodo 4 x 10 GbE 1
+Nodo 1 4x10GbE
  a| 
 1
  a| 
-Nodo 4 x 10 GbE 1
+Nodo 1 4x10GbE
 
 
 
  a| 
 2
  a| 
-Nodo 4 x 10 GbE 2
+Nodo 2 4x10GbE
  a| 
 2
  a| 
-Nodo 4 x 10 GbE 2
+Nodo 2 4x10GbE
 
 
 
  a| 
 3
  a| 
-Nodo 4 x 10 GbE 3
+Nodo 4x10GbE 3
  a| 
 3
  a| 
-Nodo 4 x 10 GbE 3
+Nodo 4x10GbE 3
 
 
 
  a| 
 4
  a| 
-Nodo 4 x 25 GbE 4
+Nodo 4x25GbE 4
  a| 
 4
  a| 
-Nodo 4 x 25 GbE 4
+Nodo 4x25GbE 4
 
 
 
  a| 
 5
  a| 
-Nodo 4 x 25 GbE 5
+Nodo 4x25GbE 5
  a| 
 5
  a| 
-Nodo 4 x 25 GbE 5
+Nodo 4x25GbE 5
 
 
 
  a| 
 6
  a| 
-Nodo 4 x 25 GbE 6
+Nodo 4x25GbE 6
  a| 
 6
  a| 
-Nodo 4 x 25 GbE 6
+Nodo 4x25GbE 6
 
 
 
  a| 
 7
  a| 
-40/100GbE nodo 7
+Nodo 7 40/100GbE
  a| 
 7
  a| 
-40/100GbE nodo 7
+Nodo 7 40/100GbE
 
 
 
  a| 
 8
  a| 
-40/100GbE nodo 8
+Nodo 8 40/100GbE
  a| 
 8
  a| 
-40/100GbE nodo 8
+Nodo 8 40/100GbE
 
 
 
  a| 
 9
  a| 
-40/100GbE nodo 9
+Nodo 9 40/100GbE
  a| 
 9
  a| 
-40/100GbE nodo 9
+Nodo 9 40/100GbE
 
 
 
  a| 
 10
  a| 
-40/100GbE nodo 10
+Nodo 40/100GbE 10
  a| 
 10
  a| 
-40/100GbE nodo 10
+Nodo 40/100GbE 10
 
 
 
  a| 
 11
  a| 
-40/100GbE nodo 11
+Nodo 11 40/100GbE
  a| 
 11
  a| 
-40/100GbE nodo 11
+Nodo 11 40/100GbE
 
 
 
  a| 
 12
  a| 
-40/100GbE nodo 12
+Nodo 40/100GbE 12
  a| 
 12
  a| 
-40/100GbE nodo 12
+Nodo 40/100GbE 12
 
 
 
  a| 
 13
  a| 
-40/100GbE nodo 13
+Nodo 40/100GbE 13
  a| 
 13
  a| 
-40/100GbE nodo 13
+Nodo 40/100GbE 13
 
 
 
  a| 
 14
  a| 
-40/100GbE nodo 14
+Nodo 40/100GbE 14
  a| 
 14
  a| 
-40/100GbE nodo 14
+Nodo 40/100GbE 14
 
 
 
  a| 
 15
  a| 
-40/100GbE nodo 15
+Nodo 40/100GbE 15
  a| 
 15
  a| 
-40/100GbE nodo 15
+Nodo 40/100GbE 15
 
 
 
  a| 
 16
  a| 
-40/100GbE nodo 16
+Nodo 40/100GbE 16
  a| 
 16
  a| 
-40/100GbE nodo 16
+Nodo 40/100GbE 16
 
 
 
  a| 
 17
  a| 
-40/100GbE nodo 17
+Nodo 40/100GbE 17
  a| 
 17
  a| 
-40/100GbE nodo 17
+Nodo 40/100GbE 17
 
 
 
  a| 
 18
  a| 
-40/100GbE nodo 18
+Nodo 40/100GbE 18
  a| 
 18
  a| 
-40/100GbE nodo 18
+Nodo 40/100GbE 18
 
 
 
  a| 
 19
  a| 
-40/100GbE nodo 19
+Nodo 40/100GbE 19
  a| 
 19
  a| 
-40/100GbE nodo 19
+Nodo 40/100GbE 19
 
 
 
  a| 
 20
  a| 
-40/100GbE nodo 20
+Nodo 40/100GbE 20
  a| 
 20
  a| 
-40/100GbE nodo 20
+Nodo 40/100GbE 20
 
 
 
  a| 
 21
  a| 
-40/100GbE nodo 21
+Nodo 21 40/100GbE
  a| 
 21
  a| 
-40/100GbE nodo 21
+Nodo 21 40/100GbE
 
 
 
  a| 
 22
  a| 
-40/100GbE nodo 22
+Nodo 22 40/100GbE
  a| 
 22
  a| 
-40/100GbE nodo 22
+Nodo 22 40/100GbE
 
 
 
  a| 
 23
  a| 
-40/100GbE nodo 23
+Nodo 40/100GbE 23
  a| 
 23
  a| 
-40/100GbE nodo 23
+Nodo 40/100GbE 23
 
 
 
  a| 
 24
  a| 
-40/100GbE nodo 24
+Nodo 40/100GbE 24
  a| 
 24
  a| 
-40/100GbE nodo 24
+Nodo 40/100GbE 24
 
 
 
  a| 
-da 25 a 34
+25-34
  a| 
-Riservato
+Prenotato
  a| 
-da 25 a 34
+25-34
  a| 
-Riservato
+Prenotato
 
 
 
  a| 
 35
  a| 
-100GbE ISL alla porta B dello switch 35
+100GbE ISL per commutare la porta B 35
  a| 
 35
  a| 
-100GbE ISL per commutare Una porta 35
+100GbE ISL per commutare la porta A 35
 
 
 
  a| 
 36
  a| 
-100GbE ISL alla porta B dello switch 36
+100GbE ISL per commutare la porta B 36
  a| 
 36
  a| 
-100GbE ISL per commutare Una porta 36
+100GbE ISL per commutare la porta A 36
 
 |===
 
 
-== 9336C-FX2 foglio di lavoro cablaggio vuoto
+== Foglio di lavoro per il cablaggio vuoto 9336C-FX2
 
-È possibile utilizzare il foglio di lavoro dei cavi vuoto per documentare le piattaforme supportate come nodi in un cluster. La sezione _connessioni cluster supportate_ di https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
+È possibile utilizzare il foglio di lavoro di cablaggio vuoto per documentare le piattaforme supportate come nodi in un cluster.  La sezione _Connessioni cluster supportate_ del https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Switch del cluster A 2+| Switch del cluster B 
+2+| Interruttore del cluster A 2+| Interruttore del cluster B 
 
 
  a| 
@@ -559,167 +559,167 @@ Riservato
 
 
  a| 
-da 25 a 34
+25-34
  a| 
-Riservato
+Prenotato
  a| 
-da 25 a 34
+25-34
  a| 
-Riservato
+Prenotato
 
 
 
  a| 
 35
  a| 
-100GbE ISL alla porta B dello switch 35
+100GbE ISL per commutare la porta B 35
  a| 
 35
  a| 
-100GbE ISL per commutare Una porta 35
+100GbE ISL per commutare la porta A 35
 
 
 
  a| 
 36
  a| 
-100GbE ISL alla porta B dello switch 36
+100GbE ISL per commutare la porta B 36
  a| 
 36
  a| 
-100GbE ISL per commutare Una porta 36
+100GbE ISL per commutare la porta A 36
 
 |===
 
 
-== 9336C-FX2-T esempio di foglio di lavoro di cablaggio (12 porte)
+== Foglio di lavoro di cablaggio di esempio 9336C-FX2-T (12 porte)
 
 La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Switch del cluster A 2+| Switch del cluster B 
+2+| Interruttore del cluster A 2+| Interruttore del cluster B 
 
 
-| Porta dello switch | Utilizzo di nodi e porte | Porta dello switch | Utilizzo di nodi e porte 
+| Porta di commutazione | Utilizzo di nodi e porte | Porta di commutazione | Utilizzo di nodi e porte 
 
 
  a| 
 1
  a| 
-Nodo 4 x 10 GbE 1
+Nodo 1 4x10GbE
  a| 
 1
  a| 
-Nodo 4 x 10 GbE 1
+Nodo 1 4x10GbE
 
 
 
  a| 
 2
  a| 
-Nodo 4 x 10 GbE 2
+Nodo 2 4x10GbE
  a| 
 2
  a| 
-Nodo 4 x 10 GbE 2
+Nodo 2 4x10GbE
 
 
 
  a| 
 3
  a| 
-Nodo 4 x 10 GbE 3
+Nodo 4x10GbE 3
  a| 
 3
  a| 
-Nodo 4 x 10 GbE 3
+Nodo 4x10GbE 3
 
 
 
  a| 
 4
  a| 
-Nodo 4 x 25 GbE 4
+Nodo 4x25GbE 4
  a| 
 4
  a| 
-Nodo 4 x 25 GbE 4
+Nodo 4x25GbE 4
 
 
 
  a| 
 5
  a| 
-Nodo 4 x 25 GbE 5
+Nodo 4x25GbE 5
  a| 
 5
  a| 
-Nodo 4 x 25 GbE 5
+Nodo 4x25GbE 5
 
 
 
  a| 
 6
  a| 
-Nodo 4 x 25 GbE 6
+Nodo 4x25GbE 6
  a| 
 6
  a| 
-Nodo 4 x 25 GbE 6
+Nodo 4x25GbE 6
 
 
 
  a| 
 7
  a| 
-40/100GbE nodo 7
+Nodo 7 40/100GbE
  a| 
 7
  a| 
-40/100GbE nodo 7
+Nodo 7 40/100GbE
 
 
 
  a| 
 8
  a| 
-40/100GbE nodo 8
+Nodo 8 40/100GbE
  a| 
 8
  a| 
-40/100GbE nodo 8
+Nodo 8 40/100GbE
 
 
 
  a| 
 9
  a| 
-40/100GbE nodo 9
+Nodo 9 40/100GbE
  a| 
 9
  a| 
-40/100GbE nodo 9
+Nodo 9 40/100GbE
 
 
 
  a| 
 10
  a| 
-40/100GbE nodo 10
+Nodo 40/100GbE 10
  a| 
 10
  a| 
-40/100GbE nodo 10
+Nodo 40/100GbE 10
 
 
 
  a| 
-da 11 a 34
+dall'11 al 34
  a| 
 Richiede licenza
  a| 
-da 11 a 34
+dall'11 al 34
  a| 
 Richiede licenza
 
@@ -728,33 +728,33 @@ Richiede licenza
  a| 
 35
  a| 
-100GbE ISL alla porta B dello switch 35
+100GbE ISL per commutare la porta B 35
  a| 
 35
  a| 
-100GbE ISL per commutare Una porta 35
+100GbE ISL per commutare la porta A 35
 
 
 
  a| 
 36
  a| 
-100GbE ISL alla porta B dello switch 36
+100GbE ISL per commutare la porta B 36
  a| 
 36
  a| 
-100GbE ISL per commutare Una porta 36
+100GbE ISL per commutare la porta A 36
 
 |===
 
 
-== 9336C-FX2-T foglio di lavoro cablaggio vuoto (12 porte)
+== Foglio di lavoro per il cablaggio vuoto 9336C-FX2-T (12 porte)
 
-È possibile utilizzare il foglio di lavoro dei cavi vuoto per documentare le piattaforme supportate come nodi in un cluster. La sezione _connessioni cluster supportate_ di https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
+È possibile utilizzare il foglio di lavoro di cablaggio vuoto per documentare le piattaforme supportate come nodi in un cluster.  La sezione _Connessioni cluster supportate_ del https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Switch del cluster A 2+| Switch del cluster B 
+2+| Interruttore del cluster A 2+| Interruttore del cluster B 
 
 
  a| 
@@ -848,11 +848,11 @@ Richiede licenza
 
 
  a| 
-da 11 a 34
+dall'11 al 34
  a| 
 Richiede licenza
  a| 
-da 11 a 34
+dall'11 al 34
  a| 
 Richiede licenza
 
@@ -861,25 +861,25 @@ Richiede licenza
  a| 
 35
  a| 
-100GbE ISL alla porta B dello switch 35
+100GbE ISL per commutare la porta B 35
  a| 
 35
  a| 
-100GbE ISL per commutare Una porta 35
+100GbE ISL per commutare la porta A 35
 
 
 
  a| 
 36
  a| 
-100GbE ISL alla porta B dello switch 36
+100GbE ISL per commutare la porta B 36
  a| 
 36
  a| 
-100GbE ISL per commutare Una porta 36
+100GbE ISL per commutare la porta A 36
 
 |===
-Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"] per ulteriori informazioni sulle porte dello switch.
+Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"] per maggiori informazioni sulle porte dello switch.
 
 .Cosa c'è dopo?
 Dopo aver completato i fogli di lavoro sui cavi, puoi link:install-switch-9336c-cluster.html["installare l'interruttore"].

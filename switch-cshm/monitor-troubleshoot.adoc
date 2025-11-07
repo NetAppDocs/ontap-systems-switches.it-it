@@ -4,17 +4,17 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: È possibile utilizzare i seguenti comandi ..... 
 ---
-= Risolvere i problemi relativi agli avvisi
+= Risoluzione dei problemi degli avvisi
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Gli avvisi vengono generati in caso di rilevamento di un guasto, di un rischio o di una condizione critica per uno switch Ethernet nel cluster.
+Gli avvisi vengono generati se viene rilevato un guasto, un rischio o una condizione critica per uno switch Ethernet nel cluster.
 
-Se vengono generati degli avvisi, lo stato di salute del sistema indica uno stato degradato per il cluster. Gli avvisi generati includono le informazioni necessarie per rispondere a problemi di integrità del sistema.
+Se vengono generati avvisi, lo stato di integrità del sistema segnala uno stato degradato per il cluster.  Gli avvisi generati includono le informazioni necessarie per rispondere al degrado dello stato del sistema.
 
-Per visualizzare gli avvisi disponibili sul monitor dello stato dello switch Ethernet, eseguire il comando: `system health alert definition show -monitor ethernet-switch`
+Per visualizzare gli avvisi di monitoraggio dello stato dello switch Ethernet disponibili, eseguire il comando: `system health alert definition show -monitor ethernet-switch`
 
-Per informazioni dettagliate sulla risoluzione avanzata degli avvisi, consultare l'articolo della Knowledge base https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["Guida alla risoluzione degli avvisi dello switch Health Monitor"^] .
+Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["Guida alla risoluzione degli avvisi di Switch Health Monitor"^] per dettagli avanzati sulla risoluzione degli avvisi.

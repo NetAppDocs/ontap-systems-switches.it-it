@@ -11,7 +11,7 @@ summary:
 
 
 [role="lead"]
-Le note legali forniscono l'accesso a dichiarazioni di copyright, marchi, brevetti e altro ancora.
+Le note legali forniscono accesso a dichiarazioni di copyright, marchi commerciali, brevetti e altro ancora.
 
 
 
@@ -23,7 +23,7 @@ link:https://www.netapp.com/company/legal/copyright/["https://www.netapp.com/com
 
 == Marchi
 
-NETAPP, il logo NETAPP e i marchi elencati nella pagina dei marchi NetApp sono marchi di NetApp, Inc. Altri nomi di società e prodotti potrebbero essere marchi dei rispettivi proprietari.
+NETAPP, il logo NETAPP e i marchi elencati nella pagina Marchi NetApp sono marchi di NetApp, Inc. Altri nomi di aziende e prodotti possono essere marchi dei rispettivi proprietari.
 
 link:https://www.netapp.com/company/legal/trademarks/["https://www.netapp.com/company/legal/trademarks/"^]
 
@@ -37,6 +37,6 @@ link:https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf["https://
 
 
 
-== Direttiva sulla privacy
+== Politica sulla riservatezza
 
 link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.com/company/legal/privacy-policy/"^]

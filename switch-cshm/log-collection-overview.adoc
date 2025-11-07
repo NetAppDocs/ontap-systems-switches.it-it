@@ -4,13 +4,13 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: È possibile utilizzare i comandi forniti .... 
 ---
-= Panoramica della raccolta di log
+= Panoramica della raccolta dei registri
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Una volta impostata la raccolta dei log, è possibile abilitare una raccolta oraria di dati periodici raccolti da AutoSupport e richiedere log di supporto dettagliati.
+Impostando la raccolta dei registri, è possibile abilitare una raccolta oraria di dati periodici raccolti da AutoSupport e richiedere registri di supporto dettagliati.
 
-Per ulteriori informazioni, vedere link:config-log-collection.html["Configurare la raccolta di log"] .
+Vederelink:config-log-collection.html["Configurare la raccolta dei log"] per ulteriori dettagli.

@@ -2,69 +2,69 @@
 permalink: switch-netapp-cn1610/install-fastpath-rcf-831.html 
 sidebar: sidebar 
 keywords: fastpath, software, install, netapp cluster switches, rcfs, ontap 
-summary: Le fasi di installazione sono le stesse per gli switch di gestione NetApp CN1601 e per gli switch cluster CN1610 con ONTAP 8.3.1 o versione successiva. Tuttavia, i due modelli richiedono software e RCF diversi. 
+summary: I passaggi di installazione sono gli stessi sia per gli switch di gestione NetApp CN1601 che per gli switch cluster CN1610 che eseguono ONTAP 8.3.1 o versioni successive.  Tuttavia, i due modelli richiedono software e RCF diversi. 
 ---
-= Installare il software FASTPATH e gli RCF per ONTAP 8.3.1 e versioni successive
+= Installa il software FASTPATH ​​e RCF per ONTAP 8.3.1 e versioni successive
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Seguire questa procedura per installare il software FASTPATH e gli RCF per ONTAP 8.3.1 e versioni successive.
+Seguire questa procedura per installare il software FASTPATH ​​e gli RCF per ONTAP 8.3.1 e versioni successive.
 
-Le fasi di installazione sono le stesse per gli switch di gestione NetApp CN1601 e per gli switch cluster CN1610 con ONTAP 8.3.1 o versione successiva. Tuttavia, i due modelli richiedono software e RCF diversi.
+I passaggi di installazione sono gli stessi sia per gli switch di gestione NetApp CN1601 che per gli switch cluster CN1610 che eseguono ONTAP 8.3.1 o versioni successive.  Tuttavia, i due modelli richiedono software e RCF diversi.
 
 
 
-== Verifica dei requisiti
+== Requisiti di revisione
 
 .Prima di iniziare
-Assicurarsi di disporre di quanto segue:
+Assicurati di avere quanto segue:
 
-* Backup corrente della configurazione dello switch.
-* Un cluster completamente funzionante (nessun errore nei log e nessuna scheda di interfaccia di rete (NIC) del cluster difettosa o problemi simili).
-* Connessioni delle porte completamente funzionanti sullo switch del cluster.
+* Un backup attuale della configurazione dello switch.
+* Un cluster completamente funzionante (nessun errore nei log, nessuna scheda di interfaccia di rete (NIC) del cluster difettosa o problemi simili).
+* Collegamenti delle porte completamente funzionali sullo switch del cluster.
 * Tutte le porte del cluster sono configurate.
-* Tutte le interfacce logiche del cluster (LIFF) impostate (non devono essere state migrate).
-* Un percorso di comunicazione di successo: ONTAP (privilegio: Avanzato) `cluster ping-cluster -node node1` il comando deve indicare che `larger than PMTU communication` ha successo su tutti i percorsi.
+* Tutte le interfacce logiche del cluster (LIF) configurate (non devono essere state migrate).
+* Un percorso di comunicazione di successo: l' ONTAP (privilegio: avanzato) `cluster ping-cluster -node node1` il comando deve indicare che `larger than PMTU communication` ha successo su tutti i percorsi.
 * Una versione supportata di FASTPATH, RCF e ONTAP.
 +
-Consultare la tabella di compatibilità dello switch sul http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Switch NetApp CN1601 e CN1610"^] Per le versioni supportate di FASTPATH, RCF e ONTAP.
+Assicurati di consultare la tabella di compatibilità degli switch sul http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Switch NetApp CN1601 e CN1610"^] pagina per le versioni FASTPATH, RCF e ONTAP supportate.
 
 
 
 
 
-== Installare il software FASTPATH
+== Installa il software FASTPATH
 
-La seguente procedura utilizza la sintassi di Clustered Data ONTAP 8.2. Di conseguenza, il server virtuale del cluster, i nomi LIF e l'output CLI sono diversi da quelli di Data ONTAP 8.3.
+La seguente procedura utilizza la sintassi clustered Data ONTAP 8.2.  Di conseguenza, il cluster Vserver, i nomi LIF e l'output CLI sono diversi da quelli in Data ONTAP 8.3.
 
-Nelle versioni RCF e FASTPATH possono esserci dipendenze di comando tra la sintassi dei comandi.
+Possono esserci dipendenze tra i comandi della sintassi nelle versioni RCF e FASTPATH.
 
 
-NOTE: In RCF versione 1.2, il supporto per Telnet è stato esplicitamente disattivato a causa di problemi di sicurezza. Per evitare problemi di connettività durante l'installazione di RCF 1.2, verificare che Secure Shell (SSH) sia attivato. Il https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["Guida per l'amministratore dello switch NetApp CN1610"^] Contiene ulteriori informazioni su SSH.
+NOTE: Nella versione 1.2 di RCF, il supporto per Telnet è stato esplicitamente disabilitato per motivi di sicurezza.  Per evitare problemi di connettività durante l'installazione di RCF 1.2, verificare che Secure Shell (SSH) sia abilitato.  IL https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["Guida dell'amministratore dello switch NetApp CN1610"^] contiene maggiori informazioni su SSH.
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
 * I due nomi degli switch NetApp sono cs1 e cs2.
-* I nomi dell'interfaccia logica del cluster (LIF) sono node1_clus1 e node1_clus2 per node1 e node2_clus1 e node2_clus2 per node2. È possibile includere fino a 24 nodi in un cluster.
-* Il nome della macchina virtuale di storage (SVM) è Cluster.
-* Il `cluster1::*>` prompt indica il nome del cluster.
-* Le porte del cluster su ciascun nodo sono denominate e0a e e0b.
+* I nomi dell'interfaccia logica del cluster (LIF) sono node1_clus1 e node1_clus2 per node1, e node2_clus1 e node2_clus2 per node2.  (È possibile avere fino a 24 nodi in un cluster.)
+* Il nome della macchina virtuale di archiviazione (SVM) è Cluster.
+* IL `cluster1::*>` il prompt indica il nome del cluster.
+* Le porte del cluster su ciascun nodo sono denominate e0a ed e0b.
 +
-https://hwu.netapp.com/["Hardware Universe"^] contiene ulteriori informazioni sulle porte cluster effettivamente supportate sulla piattaforma.
+https://hwu.netapp.com/["Hardware Universe"^]contiene maggiori informazioni sulle porte cluster effettivamente supportate sulla tua piattaforma.
 
-* I collegamenti interswitch (ISL) supportati sono le porte da 0/13 a 0/16.
+* I collegamenti Inter-Switch (ISL) supportati sono le porte da 0/13 a 0/16.
 * Le connessioni dei nodi supportate sono le porte da 0/1 a 0/12.
 
 
 
 
-=== Fase 1: Migrazione del cluster
+=== Passaggio 1: migrazione del cluster
 
-. Visualizzare le informazioni sulle porte di rete del cluster:
+. Visualizza informazioni sulle porte di rete sul cluster:
 +
 `network port show -_ipspace cluster_`
 
@@ -72,7 +72,7 @@ https://hwu.netapp.com/["Hardware Universe"^] contiene ulteriori informazioni su
 .Mostra esempio
 [%collapsible]
 ====
-Nell'esempio seguente viene illustrato il tipo di output del comando:
+L'esempio seguente mostra il tipo di output del comando:
 
 [listing]
 ----
@@ -89,7 +89,7 @@ node2
 4 entries were displayed.
 ----
 ====
-. Visualizzare le informazioni relative ai LIF sul cluster:
+. Visualizza informazioni sui LIF nel cluster:
 +
 `network interface show -_role cluster_`
 
@@ -97,7 +97,7 @@ node2
 .Mostra esempio
 [%collapsible]
 ====
-Nell'esempio riportato di seguito vengono illustrate le interfacce logiche del cluster. In questo esempio, il `-role` Il parametro visualizza le informazioni relative alle LIF associate alle porte del cluster:
+L'esempio seguente mostra le interfacce logiche sul cluster.  In questo esempio il `-role` il parametro visualizza informazioni sui LIF associati alle porte del cluster:
 
 [listing]
 ----
@@ -114,12 +114,12 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Su ciascun nodo, utilizzando una LIF di gestione dei nodi, migrare node1_clus2 a e0a su node1 e node2_clus2 a e0a su node2:
+. Su ciascun nodo rispettivo, utilizzando un LIF di gestione dei nodi, migrare node1_clus2 su e0a su node1 e node2_clus2 su e0a su node2:
 +
 `network interface migrate`
 
 +
-È necessario immettere i comandi nelle console dei controller che possiedono le rispettive LIF del cluster.
+È necessario immettere i comandi nelle console del controller che possiedono i rispettivi LIF del cluster.
 
 +
 .Mostra esempio
@@ -133,14 +133,14 @@ cluster1::> network interface migrate -vserver Cluster -lif node2_clus2 -destina
 ====
 +
 
-NOTE: Per questo comando, il nome del cluster fa distinzione tra maiuscole e minuscole e il comando deve essere eseguito su ciascun nodo. Non è possibile eseguire questo comando nella LIF generale del cluster.
+NOTE: Per questo comando, il nome del cluster è sensibile alla distinzione tra maiuscole e minuscole e il comando deve essere eseguito su ciascun nodo.  Non è possibile eseguire questo comando nel cluster generale LIF.
 
-. Verificare che la migrazione sia stata eseguita utilizzando `network interface show` su un nodo.
+. Verificare che la migrazione sia avvenuta utilizzando il `network interface show` comando su un nodo.
 +
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra che clus2 ha eseguito la migrazione alla porta e0a sui nodi node1 e node2:
+L'esempio seguente mostra che clus2 è migrato sulla porta e0a sui nodi node1 e node2:
 
 [listing]
 ----
@@ -156,25 +156,25 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Impostare il livello di privilegio su Advanced (avanzato), immettendo y quando viene richiesto di continuare:
+. Modificare il livello di privilegio in avanzato, immettendo y quando richiesto per continuare:
 +
 `set -privilege advanced`
 
 +
-Viene visualizzato il prompt Advanced (*>).
+Viene visualizzato il prompt avanzato (*>).
 
-. Chiudere la porta del cluster e0b su entrambi i nodi:
+. Chiudere la porta e0b del cluster su entrambi i nodi:
 +
 `network port modify -node _node_name_ -port _port_name_ -up-admin false`
 
 +
-È necessario immettere i comandi nelle console dei controller che possiedono le rispettive LIF del cluster.
+È necessario immettere i comandi nelle console del controller che possiedono i rispettivi LIF del cluster.
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra i comandi per arrestare la porta e0b su tutti i nodi:
+L'esempio seguente mostra i comandi per chiudere la porta e0b su tutti i nodi:
 
 [listing]
 ----
@@ -182,7 +182,7 @@ cluster1::*> network port modify -node node1 -port e0b -up-admin false
 cluster1::*> network port modify -node node2 -port e0b -up-admin false
 ----
 ====
-. Verificare che la porta e0b sia spenta su entrambi i nodi:
+. Verificare che la porta e0b sia chiusa su entrambi i nodi:
 +
 `network port show`
 
@@ -206,7 +206,7 @@ node2
 4 entries were displayed.
 ----
 ====
-. Spegnere le porte ISL (Inter-Switch link) su cs1.
+. Disattivare le porte Inter-Switch Link (ISL) su cs1.
 +
 .Mostra esempio
 [%collapsible]
@@ -252,7 +252,7 @@ Copy operation successful
 
 
 
-=== Fase 2: Installare il software FASTPATH e RCF
+=== Passaggio 2: installare il software FASTPATH e RCF
 
 . Verificare la versione in esecuzione del software FASTPATH.
 +
@@ -283,9 +283,9 @@ Additional Packages............................ FASTPATH QOS
                                                 FASTPATH IPv6 Management
 ----
 ====
-. Scaricare il file immagine sullo switch.
+. Scarica il file immagine sullo switch.
 +
-La copia del file immagine nell'immagine attiva indica che, al riavvio, l'immagine stabilisce la versione di FASTPATH in esecuzione. L'immagine precedente rimane disponibile come backup.
+Copiando il file immagine nell'immagine attiva, al riavvio tale immagine stabilisce la versione FASTPATH in esecuzione.  L'immagine precedente rimane disponibile come backup.
 
 +
 .Mostra esempio
@@ -311,7 +311,7 @@ SFTP Code transfer starting...
 File transfer operation completed successfully.
 ----
 ====
-. Confermare la versione corrente e la successiva immagine di avvio attiva:
+. Confermare le versioni dell'immagine di avvio corrente e successiva:
 +
 `show bootvar`
 
@@ -338,9 +338,9 @@ Image Descriptions
     1     1.1.0.8     1.1.0.8            1.1.0.8            1.2.0.7
 ----
 ====
-. Installare sullo switch l'RCF compatibile per la nuova versione dell'immagine.
+. Installare l'RCF compatibile per la nuova versione dell'immagine sullo switch.
 +
-Se la versione di RCF è già corretta, richiamare le porte ISL.
+Se la versione RCF è già corretta, attivare le porte ISL.
 
 +
 .Mostra esempio
@@ -374,12 +374,12 @@ File transfer operation completed successfully.
 ====
 +
 
-NOTE: Il `.scr` l'estensione deve essere impostata come parte del nome del file prima di richiamare lo script. Questa estensione è per il sistema operativo FASTPATH.
+NOTE: IL `.scr` l'estensione deve essere impostata come parte del nome del file prima di richiamare lo script.  Questa estensione è per il sistema operativo FASTPATH.
 
 +
-Lo switch convalida automaticamente lo script quando viene scaricato sullo switch. L'output viene inviato alla console.
+Lo switch convalida automaticamente lo script quando viene scaricato sullo switch.  L'output va alla console.
 
-. Verificare che lo script sia stato scaricato e salvato nel nome file assegnato.
+. Verifica che lo script sia stato scaricato e salvato con il nome file che gli hai assegnato.
 +
 .Mostra esempio
 [%collapsible]
@@ -463,9 +463,9 @@ System will now restart!
 
 
 
-=== Fase 3: Convalidare l'installazione
+=== Passaggio 3: convalidare l'installazione
 
-. Effettuare nuovamente l'accesso, quindi verificare che lo switch stia eseguendo la nuova versione del software FASTPATH.
+. Effettuare nuovamente l'accesso e verificare che lo switch esegua la nuova versione del software FASTPATH.
 +
 .Mostra esempio
 [%collapsible]
@@ -494,7 +494,7 @@ Additional Packages............................ FASTPATH QOS
 ----
 ====
 +
-Una volta completato il riavvio, è necessario effettuare l'accesso per verificare la versione dell'immagine, visualizzare la configurazione in esecuzione e cercare la descrizione sull'interfaccia 3/64, che è l'etichetta della versione per RCF.
+Dopo aver completato il riavvio, è necessario effettuare l'accesso per verificare la versione dell'immagine, visualizzare la configurazione in esecuzione e cercare la descrizione sull'interfaccia 3/64, che è l'etichetta della versione per RCF.
 
 . Attivare le porte ISL su cs1, lo switch attivo.
 +
@@ -515,7 +515,7 @@ Una volta completato il riavvio, è necessario effettuare l'accesso per verifica
 `show port-channel 3/1`
 
 +
-Il campo link state (Stato collegamento) deve indicare `Up`.
+Il campo Stato collegamento dovrebbe indicare `Up` .
 
 +
 .Mostra esempio
@@ -546,18 +546,18 @@ Ports  Timeout       Speed     Active
        partner/long
 ----
 ====
-. Porta del cluster e0b su tutti i nodi:
+. Attiva la porta e0b del cluster su tutti i nodi:
 +
 `network port modify`
 
 +
-È necessario immettere i comandi nelle console dei controller che possiedono le rispettive LIF del cluster.
+È necessario immettere i comandi nelle console del controller che possiedono i rispettivi LIF del cluster.
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-Nell'esempio seguente viene mostrata la porta e0b attivata su node1 e node2:
+L'esempio seguente mostra la porta e0b attivata su node1 e node2:
 
 [listing]
 ----
@@ -589,7 +589,7 @@ node2
 4 entries were displayed.
 ----
 ====
-. Verificare che il LIF sia ora a casa (`true`) su entrambi i nodi:
+. Verificare che il LIF sia ora a casa(`true` ) su entrambi i nodi:
 +
 `network interface show -_role cluster_`
 
@@ -631,9 +631,9 @@ node2                true    true          false
 2 entries were displayed.
 ----
 ====
-. Tornare al livello di privilegio admin:
+. Torna al livello di privilegio amministratore:
 +
 `set -privilege admin`
 
-. Ripetere i passi precedenti per installare il software FASTPATH e RCF sull'altro switch, cs1.
+. Ripetere i passaggi precedenti per installare il software FASTPATH e RCF sull'altro switch, cs1.
 

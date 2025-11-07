@@ -2,24 +2,24 @@
 permalink: switch-cisco-3232c/migrate-from-switchless-complete-migration.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: È possibile utilizzare gli switch Cisco Nexus 3232C come switch cluster nel cluster AFF o FAS. 
+summary: È possibile utilizzare gli switch Cisco Nexus 3232C come switch cluster nel cluster AFF o FAS . 
 ---
-= Completa la migrazione da un cluster senza switch a due nodi a un cluster con switch a due nodi
+= Completa la migrazione da un cluster switchless a due nodi a un cluster switched a due nodi
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Completare i seguenti passaggi per finalizzare la migrazione del cluster senza switch a due nodi in un cluster con switch a due nodi sugli switch Nexus 3232C.
+Completare i seguenti passaggi per finalizzare la migrazione del cluster switchless a due nodi in un cluster switchato a due nodi su switch Nexus 3232C.
 
-.Fasi
-. Verificare che tutte le porte di interconnessione del cluster siano ora ripristinate alle porte home:
+.Passi
+. Verificare che tutte le porte di interconnessione del cluster siano ora ripristinate alle loro porte home:
 +
 `network interface show -role cluster`
 
 +
-Il `Is Home` la colonna deve visualizzare un valore di `true` per tutte le porte elencate in `Current Port` colonna. Se il valore visualizzato è `false`, la porta non è stata ripristinata.
+IL `Is Home` la colonna dovrebbe visualizzare un valore di `true` per tutte le porte elencate nel `Current Port` colonna.  Se il valore visualizzato è `false` , la porta non è stata ripristinata.
 
 +
 .Mostra esempio
@@ -40,11 +40,11 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Verificare che tutte le porte di interconnessione del cluster si trovino in `up` stato:
+. Verificare che tutte le porte di interconnessione del cluster siano in `up` stato:
 +
 `network port show -role cluster`
 
-. Visualizzare i numeri di porta dello switch del cluster attraverso i quali ciascuna porta del cluster è collegata a ciascun nodo:
+. Visualizza i numeri delle porte dello switch del cluster tramite cui ogni porta del cluster è connessa a ciascun nodo:
 +
 `network device-discovery show`
 
@@ -66,7 +66,7 @@ n2          /cdp
             e4e    C2                  Ethernet1/8      N3K-C3232C
 ----
 ====
-. Switch del cluster rilevati e monitorati:
+. Visualizza gli switch del cluster rilevati e monitorati:
 +
 `system cluster-switch show`
 
@@ -95,7 +95,7 @@ Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I
 Version Source: CDP 2 entries were displayed.
 ----
 ====
-. Verificare che il rilevamento cluster senza switch ha modificato l'opzione cluster senza switch su Disabled (disattivata):
+. Verificare che il rilevamento del cluster senza switch abbia modificato l'opzione del cluster senza switch in disabilitata:
 +
 `network options switchless-cluster show`
 
@@ -106,15 +106,15 @@ Version Source: CDP 2 entries were displayed.
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
 
 [listing, subs="+quotes"]
 ----
@@ -131,9 +131,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -163,11 +163,11 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 ----
 --
 ====
-. [[step7]] se è stata soppressa la creazione automatica dei casi, riattivarla richiamando un messaggio AutoSupport:
+. [[step7]] Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].

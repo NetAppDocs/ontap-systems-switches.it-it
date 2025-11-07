@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: 9332d-gx2b cabling setup, 9332d-gx2b switches configuration, nx-os 
 summary: Prima di configurare lo switch Cisco 9332D-GX2B, leggere le seguenti informazioni. 
 ---
-= Esaminare le considerazioni relative al cablaggio e alla configurazione
+= Esaminare le considerazioni sul cablaggio e sulla configurazione
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -29,4 +29,4 @@ Se si collega una porta dello switch a un controller ONTAP utilizzando porte NIC
 (cs1)(config)# *exit*
 (cs1)# *copy running-config startup-config*
 ----
-Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per ulteriori informazioni sulle porte dello switch.
+Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per maggiori informazioni sulle porte dello switch.

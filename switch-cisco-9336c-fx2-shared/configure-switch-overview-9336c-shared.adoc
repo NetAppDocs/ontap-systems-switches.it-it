@@ -11,7 +11,7 @@ summary: 'Panoramica dell"installazione e della configurazione degli switch cond
 
 
 [role="lead"]
-Lo switch condiviso Cisco Nexus 9336C-FX2 fa parte della piattaforma Cisco Nexus 9000 e può essere installato in un cabinet di sistema NetApp. Gli switch condivisi consentono di combinare funzionalità di cluster e storage in una configurazione di switch condivisa, supportando l'utilizzo di file di configurazione di riferimento di cluster e storage condivisi.
+Lo switch condiviso Cisco Nexus 9336C-FX2 fa parte della piattaforma Cisco Nexus 9000 e può essere installato in un cabinet di sistema NetApp .  Gli switch condivisi consentono di combinare funzionalità di cluster e storage in una configurazione di switch condivisa, supportando l'uso di file di configurazione di riferimento per cluster e storage condivisi.
 
 Seguire questi passaggi del flusso di lavoro per installare e configurare gli switch Cisco 9336C-FX2.
 

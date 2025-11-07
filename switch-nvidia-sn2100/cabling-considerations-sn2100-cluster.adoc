@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
-summary: Prima di configurare lo switch NVIDIA SN2100, consultare le seguenti informazioni. 
+summary: Prima di configurare lo switch NVIDIA SN2100, leggere le seguenti informazioni. 
 ---
-= Esaminare le considerazioni relative al cablaggio e alla configurazione
+= Esaminare le considerazioni sul cablaggio e sulla configurazione
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Prima di configurare lo switch NVIDIA SN2100, fare riferimento alle seguenti considerazioni.
+Prima di configurare lo switch NVIDIA SN2100, leggere le seguenti considerazioni.
 
 
 
@@ -20,43 +20,43 @@ Prima di configurare lo switch NVIDIA SN2100, fare riferimento alle seguenti con
 |===
 
 
-| *Porte switch* | *Utilizzo delle porte* 
+| *Porte di commutazione* | *Utilizzo delle porte* 
 
 
  a| 
 swp1s0-3
  a| 
-4 nodi di porte cluster breakout da 10 GbE
+4 nodi di porta del cluster breakout da 10 GbE
 
 
 
  a| 
 swp2s0-3
  a| 
-4 nodi di porte cluster breakout da 25 GbE
+Nodi di porta del cluster breakout 4x25GbE
 
 
 
  a| 
 swp3-14
  a| 
-Nodi di porta cluster 40/100GbE
+Nodi porta cluster 40/100GbE
 
 
 
  a| 
 swp15-16
  a| 
-100GbE porte Inter-Switch link (ISL)
+Porte Inter-Switch Link (ISL) da 100 GbE
 
 |===
-Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per ulteriori informazioni sulle porte dello switch.
+Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per maggiori informazioni sulle porte dello switch.
 
 
 
 == Ritardi di collegamento con connessioni ottiche
 
-Se si verificano ritardi di collegamento superiori a cinque secondi, Cumulus Linux 5.4 e versioni successive includono il supporto per il collegamento rapido. È possibile configurare i collegamenti utilizzando `nv set` eseguire il comando come segue:
+Se si verificano ritardi di collegamento superiori a cinque secondi, Cumulus Linux 5.4 e versioni successive includono il supporto per il collegamento rapido.  È possibile configurare i collegamenti utilizzando `nv set` comando come segue:
 
 [listing, subs="+quotes"]
 ----
@@ -83,13 +83,13 @@ Only switchd reload required
 
 == Supporto per connessioni in rame
 
-Per risolvere questo problema, sono necessarie le seguenti modifiche alla configurazione.
+Per risolvere questo problema sono necessarie le seguenti modifiche alla configurazione.
 
 [role="tabbed-block"]
 ====
 .Cumulus Linux 4.4.3
 --
-. Identificare il nome di ciascuna interfaccia utilizzando cavi di rame da 40 GbE/100 GbE:
+. Identificare il nome di ciascuna interfaccia utilizzando cavi in rame 40GbE/100GbE:
 +
 [listing, subs="+quotes"]
 ----
@@ -100,12 +100,12 @@ Interface  Identifier     Vendor Name     Vendor PN    Vendor SN      Vendor Rev
 swp3       0x11 (QSFP28)  Molex           112-00576    93A2229911111  B0
 swp4       0x11 (QSFP28)  Molex           112-00576    93A2229922222  B0
 ----
-. Aggiungere le due righe seguenti a `/etc/cumulus/switchd.conf` File per ogni porta (swpg <n>) che utilizza cavi in rame da 40 GbE/100 GbE:
+. Aggiungere le due righe seguenti al `/etc/cumulus/switchd.conf` file per ogni porta (swp<n>) che utilizza cavi in rame 40GbE/100GbE:
 +
 ** `interface.swp<n>.enable_media_depended_linkup_flow=TRUE`
 ** `interface.swp<n>.enable_short_tuning=TRUE`
 +
-Ad esempio:
+Per esempio:
 
 +
 [listing, subs="+quotes"]
@@ -120,13 +120,13 @@ interface.swp4.enable_short_tuning=TRUE
 ----
 
 
-. Riavviare `switchd` servizio:
+. Riavviare il `switchd` servizio:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@cumulus:mgmt:~$ *sudo systemctl restart switchd.service*
 ----
-. Verificare che le porte siano in funzione:
+. Verificare che le porte siano attive:
 +
 [listing, subs="+quotes"]
 ----
@@ -142,7 +142,7 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 --
 .Cumulus Linux 5.x
 --
-. Identificare il nome di ciascuna interfaccia utilizzando cavi di rame da 40 GbE/100 GbE:
+. Identificare il nome di ciascuna interfaccia utilizzando cavi in rame 40GbE/100GbE:
 +
 [listing, subs="+quotes"]
 ----
@@ -153,13 +153,13 @@ Interface  Identifier     Vendor Name     Vendor PN    Vendor SN      Vendor Rev
 swp3       0x11 (QSFP28)  Molex           112-00576    93A2229911111  B0
 swp4       0x11 (QSFP28)  Molex           112-00576    93A2229922222  B0
 ----
-. Configurare i collegamenti utilizzando `nv set` eseguire il comando come segue:
+. Configurare i collegamenti utilizzando il `nv set` comando come segue:
 +
 ** `nv set interface <interface-id> link fast-linkup on`
 ** `nv config apply`
-** Ricaricare `switchd` servizio
+** Ricarica il `switchd` servizio
 +
-Ad esempio:
+Per esempio:
 
 +
 [listing, subs="+quotes"]
@@ -175,7 +175,7 @@ Only switchd reload required
 ----
 
 
-. Verificare che le porte siano in funzione:
+. Verificare che le porte siano attive:
 +
 [listing, subs="+quotes"]
 ----
@@ -190,40 +190,40 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-Per https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Lo switch SN2100 non riesce a collegarsi utilizzando cavi in rame 40/100GbE"^] ulteriori informazioni, consultare l'articolo della Knowledge base.
+Vedi l'articolo della Knowledge Base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Lo switch SN2100 non riesce a connettersi utilizzando cavi in rame 40/100GbE"^] per ulteriori dettagli.
 
-Su Cumulus Linux 4.4.2, le connessioni in rame non sono supportate sugli switch SN2100 con NIC X1151A, NIC X1146A o porte 100GbE integrate. Ad esempio:
+Su Cumulus Linux 4.4.2, le connessioni in rame non sono supportate sugli switch SN2100 con NIC X1151A, NIC X1146A o porte 100GbE integrate. Per esempio:
 
-* AFF A800 sulle porte e0a e e0b
-* AFF A320 sulle porte e0g e e0h
+* AFF A800 sulle porte e0a ed e0b
+* AFF A320 sulle porte e0g ed e0h
 
 
 
 
 == Adattatore QSA
 
-Quando si utilizza un adattatore QSA per connettersi alle porte del cluster 10GbE/25GbE su una piattaforma, il collegamento potrebbe non essere disponibile.
+Quando si utilizza un adattatore QSA per connettersi alle porte del cluster 10GbE/25GbE su una piattaforma, il collegamento potrebbe non essere attivo.
 
-Per risolvere il problema, procedere come segue:
+Per risolvere questo problema, procedere come segue:
 
-* Per 10GbE, impostare manualmente la velocità di collegamento swp1s0-3 su 10000 e impostare la negoziazione automatica su Off.
-* Per 25GbE, impostare manualmente la velocità di collegamento swp2s0-3 su 25000 e impostare la negoziazione automatica su Off.
-
-
-
-NOTE: Quando si utilizzano adattatori QSA 10GbE/25GbE, inserirli nelle porte 40GbE/100GbE senza interruzione (swp3-swp14). Non inserire l'adattatore QSA in una porta configurata per il breakout.
+* Per 10GbE, impostare manualmente la velocità di collegamento swp1s0-3 su 10000 e disattivare la negoziazione automatica.
+* Per 25GbE, impostare manualmente la velocità di collegamento swp2s0-3 su 25000 e disattivare la negoziazione automatica.
 
 
 
-== Impostazione della velocità dell'interfaccia sulle porte di breakout
+NOTE: Quando si utilizzano adattatori QSA 10GbE/25GbE, inserirli nelle porte 40GbE/100GbE non breakout (swp3-swp14).  Non inserire l'adattatore QSA in una porta configurata per il breakout.
 
-A seconda del ricetrasmettitore nella porta dello switch, potrebbe essere necessario impostare la velocità sull'interfaccia dello switch su una velocità fissa. Se si utilizzano porte breakout 10GbE e 25GbE, verificare che la negoziazione automatica sia disattivata e impostare la velocità dell'interfaccia sullo switch.
+
+
+== Impostazione della velocità dell'interfaccia sulle porte breakout
+
+A seconda del ricetrasmettitore nella porta dello switch, potrebbe essere necessario impostare la velocità sull'interfaccia dello switch su una velocità fissa.  Se si utilizzano porte breakout da 10 GbE e 25 GbE, verificare che la negoziazione automatica sia disattivata e impostare la velocità dell'interfaccia sullo switch.
 
 [role="tabbed-block"]
 ====
 .Cumulus Linux 4.4.3
 --
-Ad esempio:
+Per esempio:
 
 [listing, subs="+quotes"]
 ----
@@ -254,7 +254,7 @@ iface swp2s0
      link-autoneg off
      link-speed 25000 *<---- port speed set*
 ----
-Controllare lo stato dell'interfaccia e della porta per verificare che le impostazioni siano applicate:
+Controllare lo stato dell'interfaccia e della porta per verificare che le impostazioni siano state applicate:
 
 [listing, subs="+quotes"]
 ----
@@ -285,7 +285,7 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 --
 .Cumulus Linux 5.x
 --
-Ad esempio:
+Per esempio:
 
 [listing, subs="+quotes"]
 ----
@@ -302,7 +302,7 @@ link                                                   
 [breakout]                                                                                    
   state                 up                      up                      up
 ----
-Controllare lo stato dell'interfaccia e della porta per verificare che le impostazioni siano applicate:
+Controllare lo stato dell'interfaccia e della porta per verificare che le impostazioni siano state applicate:
 
 [listing, subs="+quotes"]
 ----
@@ -332,5 +332,5 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 ----
 --
 ====
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver esaminato i requisiti di cablaggio e configurazione, è possibilelink:install-cable-shelves-sn2100-cluster.html["cablare i ripiani NS224 come spazio di archiviazione collegato all'interruttore"] .

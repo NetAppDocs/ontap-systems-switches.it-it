@@ -2,19 +2,19 @@
 permalink: switch-cisco-3132q-v/migrate-switchless-complete-migration.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: È possibile utilizzare gli switch Cisco Nexus 3132q-v come switch cluster nel cluster AFF o FAS. 
+summary: È possibile utilizzare gli switch Cisco Nexus 3132q-v come switch cluster nel cluster AFF o FAS . 
 ---
-= Completa la migrazione da cluster a due nodi senza switch a cluster a due nodi con switch
+= Completare la migrazione da cluster switchless a due nodi a cluster switched a due nodi
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questi passaggi per completare la migrazione da cluster senza switch a cluster a due nodi con switch.
+Per completare la migrazione da cluster switchless a cluster switched a due nodi, seguire questi passaggi.
 
-.Fasi
-. Visualizzare i numeri di porta dello switch del cluster a cui ciascuna porta del cluster è collegata su ciascun nodo:
+.Passi
+. Visualizza i numeri di porta dello switch del cluster a cui è connessa ciascuna porta del cluster su ciascun nodo:
 +
 `network device-discovery show`
 
@@ -36,7 +36,7 @@ n2         /cdp
             e4e    C2                  Ethernet1/8      N3K-C3132Q-V
 ----
 ====
-. Switch del cluster rilevati e monitorati:
+. Visualizza gli switch del cluster rilevati e monitorati:
 +
 `system cluster-switch show`
 
@@ -69,7 +69,7 @@ C2                          cluster-network      10.10.1.102    NX3132V
 2 entries were displayed.
 ----
 ====
-. Disattivare le impostazioni di configurazione senza switch a due nodi su qualsiasi nodo:
+. Disabilitare le impostazioni di configurazione senza switch a due nodi su qualsiasi nodo:
 +
 `network options switchless-cluster`
 
@@ -78,7 +78,7 @@ C2                          cluster-network      10.10.1.102    NX3132V
 ----
 network options switchless-cluster modify -enabled false
 ----
-. Verificare che il `switchless-cluster` l'opzione è stata disattivata.
+. Verificare che il `switchless-cluster` l'opzione è stata disabilitata.
 +
 [listing]
 ----
@@ -91,9 +91,9 @@ network options switchless-cluster show
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
@@ -116,9 +116,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -151,11 +151,11 @@ RPC status:
 ----
 --
 ====
-. [[step6]]se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
+. [[step6]]Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].

@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/92300-overview.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete cluster supportati. È possibile utilizzare switch di gestione aggiuntivi, opzionali. 
+summary: Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete cluster supportati.  È possibile utilizzare switch di gestione aggiuntivi, che sono facoltativi. 
 ---
 = Panoramica dello switch Cisco Nexus 92300YC
 :allow-uri-read: 
@@ -11,66 +11,66 @@ summary: Se si desidera creare cluster ONTAP con più di due nodi, sono necessar
 
 
 [role="lead"]
-Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete cluster supportati. È possibile utilizzare switch di gestione aggiuntivi, opzionali.
+Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete cluster supportati.  È possibile utilizzare switch di gestione aggiuntivi, che sono facoltativi.
 
-È possibile installare lo switch Cisco Nexus 92300YC (X190003/R) in un cabinet di sistema NetApp o in un cabinet di terze parti con le staffe standard incluse nello switch.
+È possibile installare lo switch Cisco Nexus 92300YC (X190003/R) in un cabinet di sistema NetApp o in un cabinet di terze parti utilizzando le staffe standard incluse con lo switch.
 
-La seguente tabella elenca il codice ricambio e la descrizione dello switch, delle ventole e degli alimentatori 92300YC:
+Nella tabella seguente sono elencati il codice articolo e la descrizione dello switch 92300YC, delle ventole e degli alimentatori:
 
 [cols="1,2"]
 |===
-| Codice del ricambio | Descrizione 
+| Numero di parte | Descrizione 
 
 
  a| 
 190003
  a| 
-Cisco 92300YC, CLSW, 48Pt10/25 GB, 18Pt100G, PTSX (PTSX = Port Side Exhaust)
+Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PTSX (PTSX = scarico lato porta)
 
 
 
  a| 
 190003R
  a| 
-Cisco 92300YC, CLSW, 48Pt10/25 GB, 18Pt100G, PSIN (PSIN = Port Side Intake)
+Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PSIN (PSIN = presa lato porta)
 
 
 
  a| 
-X-NXA-FAN-35CFM-B.
+X-NXA-FAN-35CFM-B
  a| 
-Ventola, flusso d'aria di aspirazione laterale della porta Cisco N9K
+Ventola, flusso d'aria di aspirazione lato porta Cisco N9K
 
 
 
  a| 
-X-NXA-FAN-35CFM-F.
+X-NXA-FAN-35CFM-F
  a| 
 Ventola, flusso d'aria di scarico lato porta Cisco N9K
 
 
 
  a| 
-X-NXA-PAC-650W-B.
+X-NXA-PAC-650W-B
  a| 
-Alimentatore, Cisco 650 W - presa lato porta
+Alimentatore, Cisco 650W - presa lato porta
 
 
 
  a| 
-X-NXA-PAC-650 W-F.
+X-NXA-PAC-650W-F
  a| 
-Alimentatore, Cisco 650 W - scarico lato porta
+Alimentatore, Cisco 650W - scarico lato sinistro
 
 |===
 Dettagli sul flusso d'aria dello switch Cisco Nexus 92300YC:
 
-* Flusso d'aria di scarico lato porta (aria standard) --l'aria fredda entra nel telaio attraverso i moduli di alimentazione e ventola nel corridoio freddo e viene erogata attraverso l'estremità della porta del telaio nel corridoio caldo. Flusso d'aria di scarico lato porta con colorazione blu.
-* Flusso d'aria di aspirazione lato porta (aria inversa) - l'aria fredda entra nel telaio attraverso l'estremità della porta nel corridoio freddo e si scarica attraverso i moduli della ventola e dell'alimentatore nel corridoio caldo. Flusso d'aria di aspirazione lato porta con colorazione bordeaux.
+* Flusso d'aria di scarico lato babordo (aria standard): l'aria fredda entra nello chassis attraverso la ventola e i moduli di alimentazione nel corridoio freddo e viene espulsa attraverso l'estremità babordo dello chassis nel corridoio caldo.  Flusso d'aria di scarico lato sinistro con colorazione blu.
+* Flusso d'aria di aspirazione lato babordo (aria inversa): l'aria fredda entra nel telaio attraverso l'estremità del portello nel corridoio freddo ed esce attraverso la ventola e i moduli di alimentazione nel corridoio caldo.  Presa d'aria lato sinistro con colorazione bordeaux.
 
 
 .Documentazione disponibile
-La seguente tabella elenca la documentazione disponibile per gli switch Cisco Nexus 92300YC.
+Nella tabella seguente è elencata la documentazione disponibile per gli switch Cisco Nexus 92300YC.
 
 |===
 
@@ -79,42 +79,42 @@ La seguente tabella elenca la documentazione disponibile per gli switch Cisco Ne
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/install-overview-cisco-92300.html["_Configurazione degli switch del cluster Cisco® Nexus 92300YC_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/install-overview-cisco-92300.html["_Configurare gli switch cluster Cisco® Nexus 92300YC_"^]
  a| 
-Descrive come configurare e configurare gli switch del cluster Cisco Nexus 92300YC.
+Descrive come impostare e configurare gli switch del cluster Cisco Nexus 92300YC.
 
 
 
  a| 
 https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/install-nxos-overview.html["_Installa NX-OS e file di configurazione di riferimento (RCF)_"^]
  a| 
-Descrive come installare NX-OS e i file di configurazione di riferimento (RCF) sullo switch di cluster Nexus 92300YC.
+Descrive come installare NX-OS e i file di configurazione di riferimento (RCF) sullo switch cluster Nexus 92300YC.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/configure-install-initial.html["_Configura un nuovo switch Cisco Nexus 92300YC_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/configure-install-initial.html["_Configurare un nuovo switch Cisco Nexus 92300YC_"^]
  a| 
-Descrive come eseguire la migrazione da ambienti che utilizzano switch Cisco meno recenti a ambienti che utilizzano switch Cisco 92300YC.
-
-
-
- a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc.html["_Migrare da uno switch Cisco meno recente a uno switch Cisco Nexus 92300YC_"^]
- a| 
-Descrive la procedura per sostituire uno switch Cisco meno recente con uno switch cluster Cisco Nexus 92300YC.
+Descrive come migrare da ambienti che utilizzano switch Cisco meno recenti ad ambienti che utilizzano switch Cisco 92300YC.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-2n-switched.html["_Migrare da un cluster senza switch a due nodi_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc.html["_Migrazione da uno switch Cisco più vecchio a uno switch Cisco Nexus 92300YC_"^]
  a| 
-Descrive come migrare da un ambiente cluster senza switch a due nodi a un ambiente con switch a due nodi utilizzando gli switch cluster Cisco Nexus 92300YC.
+Descrive la procedura per sostituire uno switch Cisco più vecchio con uno switch cluster Cisco Nexus 92300YC.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/replace-92300yc.html["_Sostituire uno switch cluster Cisco Nexus 92300YC_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-2n-switched.html["_Migrazione da un cluster switchless a due nodi_"^]
+ a| 
+Descrive come migrare da un ambiente cluster switchless a due nodi a un ambiente switch a due nodi utilizzando gli switch cluster Cisco Nexus 92300YC.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/replace-92300yc.html["_Sostituisci uno switch cluster Cisco Nexus 92300YC_"^]
  a| 
 Descrive la procedura per sostituire uno switch Cisco Nexus 92300YC difettoso in un cluster e scaricare il sistema operativo dello switch e il file di configurazione di riferimento.
 

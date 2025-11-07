@@ -2,105 +2,105 @@
 permalink: switch-nvidia-sn2100/migrate-cn1610-sn2100-cluster-switch.html 
 sidebar: sidebar 
 keywords: migrate cluster NVIDIA SN2100 cluster switches cn1610 
-summary: È possibile eseguire la migrazione senza interruzioni degli switch cluster CN1610 NetApp per un cluster ONTAP agli switch di rete del cluster NVIDIA SN2100. 
+summary: È possibile migrare senza interruzioni gli switch cluster NetApp CN1610 per un cluster ONTAP verso gli switch di rete cluster NVIDIA SN2100. 
 ---
-= Migrare gli switch del cluster CN1610 agli switch del cluster NVIDIA SN2100
+= Migrazione degli switch cluster CN1610 agli switch cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-È possibile migrare gli switch cluster CN1610 di NetApp per un cluster ONTAP agli switch cluster NVIDIA SN2100. Si tratta di una procedura senza interruzioni.
+È possibile migrare gli switch cluster NetApp CN1610 per un cluster ONTAP verso gli switch cluster NVIDIA SN2100. Si tratta di una procedura non distruttiva.
 
 
 
-== Verifica dei requisiti
+== Requisiti di revisione
 
-Quando si sostituiscono gli switch del cluster NetApp CN1610 con gli switch del cluster NVIDIA SN2100, è necessario conoscere alcune informazioni di configurazione, le connessioni delle porte e i requisiti di cablaggio. Vedere link:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"].
+Quando si sostituiscono gli switch cluster NetApp CN1610 con gli switch cluster NVIDIA SN2100, è necessario conoscere alcune informazioni sulla configurazione, sulle connessioni delle porte e sui requisiti di cablaggio. Vederelink:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"] .
 
 .Switch supportati
-Sono supportati i seguenti switch del cluster:
+Sono supportati i seguenti switch cluster:
 
 * NetApp CN1610
 * NVIDIA SN2100
 
 
-Per informazioni dettagliate sulle porte supportate e sulle relative configurazioni, consultare https://hwu.netapp.com/["Hardware Universe"^].
+Per i dettagli sulle porte supportate e le relative configurazioni, vedere https://hwu.netapp.com/["Hardware Universe"^] .
 
 .Prima di iniziare
-Verificare che la configurazione soddisfi i seguenti requisiti:
+Verifica di soddisfare i seguenti requisiti per la tua configurazione:
 
-* Il cluster esistente è configurato e funziona correttamente.
-* Tutte le porte del cluster sono nello stato *up* per garantire operazioni senza interruzioni.
-* Gli switch del cluster NVIDIA SN2100 sono configurati e funzionano con la versione corretta di Cumulus Linux installata con il file di configurazione di riferimento (RCF) applicato.
-* La configurazione di rete del cluster esistente presenta quanto segue:
+* Il cluster esistente è configurato e funzionante correttamente.
+* Tutte le porte del cluster sono nello stato *attivo* per garantire operazioni senza interruzioni.
+* Gli switch cluster NVIDIA SN2100 sono configurati e funzionano con la versione corretta di Cumulus Linux installata con il file di configurazione di riferimento (RCF) applicato.
+* La configurazione di rete del cluster esistente è la seguente:
 +
 ** Un cluster NetApp ridondante e completamente funzionale che utilizza switch CN1610.
 ** Connettività di gestione e accesso alla console sia per gli switch CN1610 che per i nuovi switch.
-** Tutte le LIF del cluster in stato up con le LIF del cluster sulle porte home.
+** Tutti i cluster LIF sono attivi con i cluster LIf sulle rispettive porte home.
 ** Porte ISL abilitate e cablate tra gli switch CN1610 e tra i nuovi switch.
 
 
-* Alcune porte sono configurate sugli switch NVIDIA SN2100 per funzionare a 40 GbE o 100 GbE.
-* Hai pianificato, migrato e documentato la connettività da 40 GbE e 100 GbE dai nodi agli switch cluster NVIDIA SN2100.
+* Alcune porte sono configurate sugli switch NVIDIA SN2100 per funzionare a 40GbE o 100GbE.
+* Hai pianificato, migrato e documentato la connettività 40GbE e 100GbE dai nodi agli switch cluster NVIDIA SN2100.
 
 
 
 
 == Migrare gli switch
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
-* Gli switch del cluster CN1610 esistenti sono _c1_ e _c2_.
+* Gli switch cluster CN1610 esistenti sono _c1_ e _c2_.
 * I nuovi switch cluster NVIDIA SN2100 sono _sw1_ e _sw2_.
 * I nodi sono _node1_ e _node2_.
-* I LIF del cluster sono _node1_clus1_ e _node1_clus2_ sul nodo 1, e _node2_clus1_ e _node2_clus2_ rispettivamente sul nodo 2.
-* Il `cluster1::*>` prompt indica il nome del cluster.
+* I LIF del cluster sono _node1_clus1_ e _node1_clus2_ sul nodo 1, e _node2_clus1_ e _node2_clus2_ sul nodo 2, rispettivamente.
+* IL `cluster1::*>` il prompt indica il nome del cluster.
 * Le porte del cluster utilizzate in questa procedura sono _e3a_ e _e3b_.
-* Le porte breakout hanno il formato: swp[port]s[breakout port 0-3]. Ad esempio, quattro porte di breakout su swp1 sono _swp1s0_, _swp1s1_, _swp1s2_ e _swp1s3_.
+* Le porte breakout hanno il formato: swp[porta]s[porta breakout 0-3].  Ad esempio, quattro porte breakout su swp1 sono _swp1s0_, _swp1s1_, _swp1s2_ e _swp1s3_.
 
 
-.A proposito di questa attività
-Questa procedura riguarda il seguente scenario:
+.Informazioni su questo compito
+Questa procedura copre il seguente scenario:
 
-* L'interruttore C2 viene sostituito per primo dall'interruttore SW2.
+* Lo switch c2 viene sostituito prima dallo switch sw2.
 +
-** Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.
-** Il cablaggio tra i nodi e C2 viene quindi scollegato da C2 e ricollegato a SW2.
+** Chiudere le porte verso i nodi del cluster.  Per evitare l'instabilità del cluster, tutte le porte devono essere chiuse contemporaneamente.
+** Il cablaggio tra i nodi e c2 viene quindi scollegato da c2 e ricollegato a sw2.
 
 
-* L'interruttore C1 è sostituito dall'interruttore SW1.
+* L'interruttore c1 è sostituito dall'interruttore sw1.
 +
-** Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.
-** Il cablaggio tra i nodi e C1 viene quindi scollegato da C1 e ricollegato a SW1.
+** Chiudere le porte verso i nodi del cluster.  Per evitare l'instabilità del cluster, tutte le porte devono essere chiuse contemporaneamente.
+** Il cablaggio tra i nodi e c1 viene quindi scollegato da c1 e ricollegato a sw1.
 
 
 
 
 
-NOTE: Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue la migrazione di tutte le LIF del cluster allo switch del partner operativo durante l'esecuzione delle operazioni sullo switch di destinazione.
+NOTE: Durante questa procedura non è necessario alcun collegamento inter-switch (ISL) operativo. Ciò è voluto perché le modifiche alla versione RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura migra tutti i LIF del cluster allo switch partner operativo, eseguendo al contempo i passaggi sullo switch di destinazione.
 
 
 
-=== Fase 1: Preparazione per la migrazione
+=== Fase 1: Prepararsi alla migrazione
 
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
 dove _x_ è la durata della finestra di manutenzione in ore.
 
-. Impostare il livello di privilegio su Advanced (avanzato), immettendo *y* quando viene richiesto di continuare:
+. Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare:
 +
 `set -privilege advanced`
 
 +
-Viene visualizzato il prompt Advanced (*>).
+Viene visualizzato il prompt avanzato (*>).
 
-. Disattivare il ripristino automatico sulle LIF del cluster:
+. Disabilitare il ripristino automatico sui LIF del cluster:
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
@@ -108,14 +108,14 @@ Viene visualizzato il prompt Advanced (*>).
 
 
 
-=== Fase 2: Configurare le porte e il cablaggio
+=== Passaggio 2: configurare porte e cablaggio
 
-. Determinare lo stato amministrativo o operativo di ciascuna interfaccia del cluster.
+. Determinare lo stato amministrativo o operativo per ciascuna interfaccia del cluster.
 +
-Ogni porta deve essere visualizzata per `Link` e. `healthy` per `Health Status`.
+Ogni porta dovrebbe essere visualizzata per `Link` E `healthy` per `Health Status` .
 
 +
-.. Visualizzare gli attributi della porta di rete:
+.. Visualizza gli attributi della porta di rete:
 +
 `network port show -ipspace Cluster`
 
@@ -144,12 +144,12 @@ e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
 ----
 ====
-.. Visualizzare le informazioni relative ai LIF e ai relativi nodi principali designati:
+.. Visualizza informazioni sui LIF e sui nodi domestici designati:
 +
 `network interface show -vserver Cluster`
 
 +
-Viene visualizzato ciascun LIF `up/up` per `Status Admin/Oper` e. `true` per `Is Home`.
+Ogni LIF dovrebbe visualizzare `up/up` per `Status Admin/Oper` E `true` per `Is Home` .
 
 +
 .Mostra esempio
@@ -172,7 +172,7 @@ Cluster
 ====
 
 
-. Le porte del cluster su ciascun nodo sono collegate agli switch del cluster esistenti nel seguente modo (dal punto di vista dei nodi) utilizzando il comando:
+. Le porte del cluster su ciascun nodo vengono collegate agli switch del cluster esistenti nel modo seguente (dal punto di vista dei nodi) utilizzando il comando:
 +
 `network device-discovery show -protocol`
 
@@ -194,7 +194,7 @@ node2      /cdp
             e3b    c2 (6a:ad:4f:98:4c:a4)    0/2               -
 ----
 ====
-. Le porte e gli switch del cluster sono collegati nel seguente modo (dal punto di vista degli switch) utilizzando il comando:
+. Le porte e gli switch del cluster vengono collegati nel modo seguente (dal punto di vista degli switch) utilizzando il comando:
 +
 `show cdp neighbors`
 
@@ -243,15 +243,15 @@ c1                    0/16          175    S I s       CN1610           0/16
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
 
 [listing, subs="+quotes"]
 ----
@@ -267,9 +267,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -301,7 +301,7 @@ RPC status:
 ----
 --
 ====
-. [[step5]] sullo switch C2, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster.
+. [[step5]] Sullo switch c2, spegnere le porte connesse alle porte del cluster dei nodi per eseguire il failover dei LIF del cluster.
 +
 [listing, subs="+quotes"]
 ----
@@ -312,8 +312,8 @@ RPC status:
 (c2)(Config)# *exit*
 (c2)#
 ----
-. Spostare le porte del cluster di nodi dal vecchio switch c2 al nuovo switch sw2, utilizzando il cablaggio appropriato supportato da NVIDIA SN2100.
-. Visualizzare gli attributi della porta di rete:
+. Spostare le porte del cluster di nodi dal vecchio switch c2 al nuovo switch sw2, utilizzando un cablaggio appropriato supportato da NVIDIA SN2100.
+. Visualizza gli attributi della porta di rete:
 +
 `network port show -ipspace Cluster`
 
@@ -342,7 +342,7 @@ e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
 ----
 ====
-. Le porte del cluster su ciascun nodo sono ora collegate agli switch del cluster nel seguente modo, dal punto di vista dei nodi:
+. Le porte del cluster su ciascun nodo sono ora collegate agli switch del cluster nel modo seguente, dal punto di vista dei nodi:
 +
 `network device-discovery show -protocol`
 
@@ -365,7 +365,7 @@ node2      /lldp
             e3b    sw2 (b8:ce:f6:19:1b:96)   swp4              -
 ----
 ====
-. Sullo switch sw2, verificare che tutte le porte del cluster di nodi siano in funzione:
+. Sullo switch sw2, verificare che tutte le porte del cluster dei nodi siano attive:
 +
 `net show interface`
 
@@ -387,7 +387,7 @@ UP     swp15        100G  9216   BondMember  sw1 (swp15)       Master: cluster_i
 UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_isl(UP)
 ----
 ====
-. Sullo switch C1, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster.
+. Sullo switch c1, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover dei LIF del cluster.
 +
 [listing, subs="+quotes"]
 ----
@@ -398,13 +398,13 @@ UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_i
 (c1)(Config)# *exit*
 (c1)#
 ----
-. Spostare le porte del cluster di nodi dal vecchio switch c1 al nuovo switch sw1, utilizzando il cablaggio appropriato supportato da NVIDIA SN2100.
+. Spostare le porte del cluster di nodi dal vecchio switch c1 al nuovo switch sw1, utilizzando un cablaggio appropriato supportato da NVIDIA SN2100.
 . Verificare la configurazione finale del cluster:
 +
 `network port show -ipspace Cluster`
 
 +
-Ogni porta dovrebbe essere visualizzata `up` per `Link` e. `healthy` per `Health Status`.
+Ogni porta dovrebbe visualizzare `up` per `Link` E `healthy` per `Health Status` .
 
 +
 .Mostra esempio
@@ -431,7 +431,7 @@ e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
 ----
 ====
-. Le porte del cluster su ciascun nodo sono ora collegate agli switch del cluster nel seguente modo, dal punto di vista dei nodi:
+. Le porte del cluster su ciascun nodo sono ora collegate agli switch del cluster nel modo seguente, dal punto di vista dei nodi:
 +
 `network device-discovery show -protocol`
 
@@ -454,7 +454,7 @@ node2      /lldp
             e3b    sw2 (b8:ce:f6:19:1b:96)   swp4            -
 ----
 ====
-. Sugli switch sw1 e sw2, verificare che tutte le porte del cluster di nodi siano in funzione:
+. Sugli switch sw1 e sw2, verificare che tutte le porte del cluster di nodi siano attive:
 +
 `net show interface`
 
@@ -488,7 +488,7 @@ UP     swp15        100G  9216   BondMember  sw1 (swp15)       Master: cluster_i
 UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_isl(UP)
 ----
 ====
-. Verificare che entrambi i nodi dispongano di una connessione a ciascuno switch:
+. Verificare che entrambi i nodi abbiano una connessione a ciascun switch:
 +
 `net show lldp`
 
@@ -523,13 +523,13 @@ swp16      100G   BondMember  sw1                 swp16
 
 
 
-=== Fase 3: Verificare la configurazione
+=== Passaggio 3: verificare la configurazione
 
-. Abilitare il ripristino automatico sulle LIF del cluster:
+. Abilita il ripristino automatico sui LIF del cluster:
 +
 `cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Verificare che tutte le LIF della rete del cluster siano nuovamente presenti sulle porte domestiche:
+. Verificare che tutti i LIF della rete cluster siano di nuovo sulle loro porte home:
 +
 `network interface show`
 
@@ -551,15 +551,15 @@ Cluster
             node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
 ----
 ====
-. Modificare nuovamente il livello di privilegio in admin:
+. Ripristinare il livello di privilegio su amministratore:
 +
 `set -privilege admin`
 
-. Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
+. Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver migrato gli switch, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

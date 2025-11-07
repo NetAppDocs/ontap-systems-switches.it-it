@@ -2,45 +2,45 @@
 permalink: switch-nvidia-sn2100/upgrade-rcf-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: upgrade rcf script, python script, sn2100 SN2100 switches, cumulus 
-summary: Prima di installare lo script RCF, assicurarsi che sullo switch siano disponibili le seguenti informazioni 
+summary: Assicurarsi che quanto segue sia disponibile sullo switch prima di installare lo script RCF 
 ---
-= Aggiornare lo script RCF (Reference Configuration file)
+= Aggiorna lo script del file di configurazione di riferimento (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Seguire questa procedura per aggiornare lo script RCF.
+Per aggiornare lo script RCF, seguire questa procedura.
 
 .Prima di iniziare
-Prima di aggiornare lo script RCF, assicurarsi che sullo switch siano disponibili le seguenti opzioni:
+Prima di aggiornare lo script RCF, assicurarsi che sullo switch siano disponibili i seguenti elementi:
 
-* Cumulus Linux è installato. Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per le versioni supportate.
-* Indirizzo IP, subnet mask e gateway predefinito definiti tramite DHCP o configurati manualmente.
-
-
-
-NOTE: È necessario specificare un utente nell'RCF (oltre all'utente amministratore) da utilizzare specificamente per la raccolta dei log.
-
-.Versioni correnti degli script RCF
-Sono disponibili due script RCF per le applicazioni cluster e storage. Scaricare gli RCF dalla https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Download del software NVIDIA SN2100"^] pagina. La procedura per ciascuno di essi è la stessa.
-
-* Cluster: *MSN2100-RCF-v1._x_-Cluster-ha-Breakout-LLDP*
-* Storage: *MSN2100-RCF-v1._x_-Storage*
+* Cumulus Linux è installato.  Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per le versioni supportate.
+* Indirizzo IP, maschera di sottorete e gateway predefinito definiti tramite DHCP o configurati manualmente.
 
 
-.A proposito degli esempi
-La seguente procedura di esempio mostra come scaricare e applicare lo script RCF per gli switch del cluster.
 
-L'output di comando di esempio utilizza l'indirizzo IP di gestione dello switch 10.233.204.71, la netmask 255.255.254.0 e il gateway predefinito 10.233.204.1.
+NOTE: È necessario specificare un utente nel RCF (oltre all'utente amministratore) da utilizzare specificamente per la raccolta dei log.
 
-.Fasi
+.Versioni attuali dello script RCF
+Sono disponibili due script RCF per le applicazioni Cluster e Storage.  Scarica RCF da https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Download del software NVIDIA SN2100"^] pagina.  La procedura è la stessa per entrambi.
+
+* Cluster: *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*
+* Archiviazione: *MSN2100-RCF-v1._x_-Archiviazione*
+
+
+.Informazioni sugli esempi
+La seguente procedura di esempio mostra come scaricare e applicare lo script RCF per gli switch Cluster.
+
+L'output del comando di esempio utilizza l'indirizzo IP di gestione dello switch 10.233.204.71, la netmask 255.255.254.0 e il gateway predefinito 10.233.204.1.
+
+.Passi
 [role="tabbed-block"]
 ====
-.Cumulus Linux 5,11
+.Cumulus Linux 5.11
 --
-. Visualizzare le interfacce disponibili sullo switch SN2100:
+. Visualizza le interfacce disponibili sullo switch SN2100:
 +
 [listing, subs="+quotes"]
 ----
@@ -59,7 +59,7 @@ Interface     MTU   Speed State Remote Host         Remote Port- Type      Summa
 + swp15      9216 100G    up sw2                      swp15       swp
 + swp16      9216 100G    up sw2                      swp16       swp
 ----
-. Copiare lo script python RCF sullo switch.
+. Copiare lo script RCF Python sullo switch.
 +
 [listing, subs="+quotes"]
 ----
@@ -70,9 +70,9 @@ MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP          100% 8607   111.2KB/s        
 ----
 +
 
-NOTE: Sebbene `scp` sia utilizzato nell'esempio, è possibile utilizzare il metodo di trasferimento file preferito.
+NOTE: Sebbene `scp` viene utilizzato nell'esempio, puoi usare il tuo metodo preferito per il trasferimento dei file.
 
-. Applicare lo script python RCF *MSN2100-RCF-v1._x_-Cluster-ha-Breakout-LLDP*.
+. Applicare lo script python RCF *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*.
 +
 [listing, subs="+quotes"]
 ----
@@ -95,14 +95,14 @@ Step 12: Configure SNMP
 Step 13: Reboot the switch
 ----
 +
-Lo script RCF completa le istruzioni elencate nell'esempio precedente.
+Lo script RCF completa i passaggi elencati nell'esempio precedente.
 
 +
 
-NOTE: Nel passaggio 3 *aggiornamento del file MOTD* precedente, il comando `cat /etc/issue` è eseguito. Questo consente di verificare il nome file RCF, la versione RCF, le porte da utilizzare e altre informazioni importanti nel banner RCF.
+NOTE: Nel passaggio 3 *Aggiornamento del file MOTD* sopra, il comando `cat /etc/issue` è in esecuzione.  Ciò consente di verificare il nome del file RCF, la versione RCF, le porte da utilizzare e altre informazioni importanti nel banner RCF.
 
 +
-Ad esempio:
+Per esempio:
 
 +
 [listing]
@@ -138,9 +138,9 @@ admin@sw1:mgmt:~$ cat /etc/issue
 ----
 +
 
-NOTE: Per qualsiasi problema di script RCF python che non può essere corretto, contatta https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
+NOTE: Per qualsiasi problema relativo allo script python RCF che non può essere corretto, contattare https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
 
-. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
+. Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.  Fare riferimento alink:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per i dettagli di eventuali ulteriori modifiche richieste.
 . Verificare la configurazione dopo il riavvio:
 +
 [listing, subs="+quotes"]
@@ -255,9 +255,9 @@ Incomplete Command: set interface swp3-16 link fast-linkupp3-16 link fast-linkup
 ----
 +
 
-NOTE: Le eccezioni elencate non influiscono sulle prestazioni e possono essere ignorate in modo sicuro.
+NOTE: Le eccezioni elencate non influiscono sulle prestazioni e possono essere ignorate senza problemi.
 
-. Verificare le informazioni relative al ricetrasmettitore nell'interfaccia:
+. Verificare le informazioni per il ricetrasmettitore nell'interfaccia:
 +
 [listing, subs="+quotes"]
 ----
@@ -282,7 +282,7 @@ swp6       0x00 None
 swp15      0x11 (QSFP28)  Amphenol     112-00595        APF20279210117  B0
 swp16      0x11 (QSFP28)  Amphenol     112-00595        APF20279210166  B0
 ----
-. Verificare che i nodi dispongano di una connessione a ciascuno switch:
+. Verificare che ciascun nodo abbia una connessione con ciascun switch:
 +
 [listing, subs="+quotes"]
 ----
@@ -297,7 +297,7 @@ swp16      100G   BondMember  sw2                      sw
 ----
 . Verificare lo stato delle porte del cluster sul cluster.
 +
-.. Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:
+.. Verificare che le porte del cluster siano attive e funzionanti su tutti i nodi del cluster:
 +
 [listing, subs="+quotes"]
 ----
@@ -319,7 +319,7 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 e3a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
-.. Verificare lo stato dello switch dal cluster (potrebbe non essere visualizzato lo switch sw2, poiché i LIF non sono presenti su e0d).
+.. Verificare lo stato di integrità dello switch dal cluster (potrebbe non essere visualizzato lo switch sw2, poiché i LIF non sono posizionati su e0d).
 +
 [listing, subs="+quotes"]
 ----
@@ -360,9 +360,9 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 
 
 --
-.Cumulus Linux 5,4
+.Cumulus Linux 5.4
 --
-. Visualizzare le interfacce disponibili sullo switch SN2100:
+. Visualizza le interfacce disponibili sullo switch SN2100:
 +
 [listing, subs="+quotes"]
 ----
@@ -381,7 +381,7 @@ Interface     MTU   Speed State Remote Host         Remote Port- Type      Summa
 + swp15      9216 100G    up sw2                      swp15       swp
 + swp16      9216 100G    up sw2                      swp16       swp
 ----
-. Copiare lo script python RCF sullo switch.
+. Copiare lo script RCF Python sullo switch.
 +
 [listing, subs="+quotes"]
 ----
@@ -392,9 +392,9 @@ MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP          100% 8607   111.2KB/s        
 ----
 +
 
-NOTE: Mentre `scp` viene utilizzato nell'esempio, è possibile utilizzare il metodo di trasferimento file preferito.
+NOTE: Mentre `scp` viene utilizzato nell'esempio, puoi usare il tuo metodo preferito per il trasferimento dei file.
 
-. Applicare lo script python RCF *MSN2100-RCF-v1._x_-Cluster-ha-Breakout-LLDP*.
+. Applicare lo script python RCF *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*.
 +
 [listing, subs="+quotes"]
 ----
@@ -417,14 +417,14 @@ Step 12: Configure SNMP
 Step 13: Reboot the switch
 ----
 +
-Lo script RCF completa le istruzioni elencate nell'esempio precedente.
+Lo script RCF completa i passaggi elencati nell'esempio precedente.
 
 +
 
-NOTE: Nel passaggio 3 *aggiornamento del file MOTD* precedente, il comando `cat /etc/issue` è eseguito. Questo consente di verificare il nome file RCF, la versione RCF, le porte da utilizzare e altre informazioni importanti nel banner RCF.
+NOTE: Nel passaggio 3 *Aggiornamento del file MOTD* sopra, il comando `cat /etc/issue` è in esecuzione.  Ciò consente di verificare il nome del file RCF, la versione RCF, le porte da utilizzare e altre informazioni importanti nel banner RCF.
 
 +
-Ad esempio:
+Per esempio:
 
 +
 [listing]
@@ -460,9 +460,9 @@ admin@sw1:mgmt:~$ cat /etc/issue
 ----
 +
 
-NOTE: Per qualsiasi problema di script RCF python che non può essere corretto, contatta https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
+NOTE: Per qualsiasi problema relativo allo script python RCF che non può essere corretto, contattare https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
 
-. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
+. Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.  Fare riferimento alink:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per i dettagli di eventuali ulteriori modifiche richieste.
 . Verificare la configurazione dopo il riavvio:
 +
 [listing, subs="+quotes"]
@@ -577,9 +577,9 @@ Incomplete Command: set interface swp3-16 link fast-linkupp3-16 link fast-linkup
 ----
 +
 
-NOTE: Le eccezioni elencate non influiscono sulle prestazioni e possono essere ignorate in modo sicuro.
+NOTE: Le eccezioni elencate non influiscono sulle prestazioni e possono essere ignorate senza problemi.
 
-. Verificare le informazioni relative al ricetrasmettitore nell'interfaccia:
+. Verificare le informazioni per il ricetrasmettitore nell'interfaccia:
 +
 [listing, subs="+quotes"]
 ----
@@ -604,7 +604,7 @@ swp6       0x00 None
 swp15      0x11 (QSFP28)  Amphenol     112-00595        APF20279210117  B0
 swp16      0x11 (QSFP28)  Amphenol     112-00595        APF20279210166  B0
 ----
-. Verificare che i nodi dispongano di una connessione a ciascuno switch:
+. Verificare che ciascun nodo abbia una connessione con ciascun switch:
 +
 [listing, subs="+quotes"]
 ----
@@ -619,7 +619,7 @@ swp16      100G   BondMember  sw2                      sw
 ----
 . Verificare lo stato delle porte del cluster sul cluster.
 +
-.. Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:
+.. Verificare che le porte del cluster siano attive e funzionanti su tutti i nodi del cluster:
 +
 [listing, subs="+quotes"]
 ----
@@ -641,7 +641,7 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 e3a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
-.. Verificare lo stato dello switch dal cluster (potrebbe non essere visualizzato lo switch sw2, poiché i LIF non sono presenti su e0d).
+.. Verificare lo stato di integrità dello switch dal cluster (potrebbe non essere visualizzato lo switch sw2, poiché i LIF non sono posizionati su e0d).
 +
 [listing, subs="+quotes"]
 ----
@@ -684,7 +684,7 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 --
 .Cumulus Linux 4.4.3
 --
-. Visualizzare le interfacce disponibili sullo switch SN2100:
+. Visualizza le interfacce disponibili sullo switch SN2100:
 +
 [listing, subs="+quotes"]
 ----
@@ -711,7 +711,7 @@ ADMDN  swp14  N/A  9216   NotConfigured
 ADMDN  swp15  N/A  9216   NotConfigured
 ADMDN  swp16  N/A  9216   NotConfigured
 ----
-. Copiare lo script python RCF sullo switch.
+. Copiare lo script RCF Python sullo switch.
 +
 [listing, subs="+quotes"]
 ----
@@ -722,9 +722,9 @@ MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP         100% 8607   111.2KB/s       
 ----
 +
 
-NOTE: Mentre `scp` viene utilizzato nell'esempio, è possibile utilizzare il metodo di trasferimento file preferito.
+NOTE: Mentre `scp` viene utilizzato nell'esempio, puoi usare il tuo metodo preferito per il trasferimento dei file.
 
-. Applicare lo script python RCF *MSN2100-RCF-v1._x_-Cluster-ha-Breakout-LLDP*.
+. Applicare lo script python RCF *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*.
 +
 [listing, subs="+quotes"]
 ----
@@ -746,17 +746,17 @@ Step 12: Configure SNMP
 Step 13: Reboot the switch
 ----
 +
-Lo script RCF completa le istruzioni elencate nell'esempio precedente.
+Lo script RCF completa i passaggi elencati nell'esempio precedente.
 
 +
 
-NOTE: Nel passaggio 3 *aggiornamento del file MOTD* precedente, il comando `cat /etc/motd` è eseguito. Questo consente di verificare il nome file RCF, la versione RCF, le porte da utilizzare e altre informazioni importanti nel banner RCF.
+NOTE: Nel passaggio 3 *Aggiornamento del file MOTD* sopra, il comando `cat /etc/motd` è in esecuzione.  Ciò consente di verificare il nome del file RCF, la versione RCF, le porte da utilizzare e altre informazioni importanti nel banner RCF.
 
 +
 
-NOTE: Per qualsiasi problema di script RCF python che non può essere corretto, contatta https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
+NOTE: Per qualsiasi problema relativo allo script python RCF che non può essere corretto, contattare https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
 
-. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
+. Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.  Fare riferimento alink:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per i dettagli di eventuali ulteriori modifiche richieste.
 . Verificare la configurazione dopo il riavvio:
 +
 [listing, subs="+quotes"]
@@ -821,7 +821,7 @@ switch-priority  TC  ETS
 2                 2  DWRR 28%
 5                 5  DWRR 43%
 ----
-. Verificare le informazioni relative al ricetrasmettitore nell'interfaccia:
+. Verificare le informazioni per il ricetrasmettitore nell'interfaccia:
 +
 [listing, subs="+quotes"]
 ----
@@ -833,7 +833,7 @@ swp4       0x11 (QSFP28)  AVAGO        332-00440        AF1815GU05Z 
 swp15      0x11 (QSFP28)  Amphenol     112-00573        APF21109348001  B0
 swp16      0x11 (QSFP28)  Amphenol     112-00573        APF21109347895  B0
 ----
-. Verificare che i nodi dispongano di una connessione a ciascuno switch:
+. Verificare che ciascun nodo abbia una connessione con ciascun switch:
 +
 [listing, subs="+quotes"]
 ----
@@ -848,7 +848,7 @@ swp16      100G   BondMember  sw14                    swp16
 ----
 . Verificare lo stato delle porte del cluster sul cluster.
 +
-.. Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:
+.. Verificare che le porte del cluster siano attive e funzionanti su tutti i nodi del cluster:
 +
 [listing, subs="+quotes"]
 ----
@@ -870,7 +870,7 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 e3a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
-.. Verificare lo stato dello switch dal cluster (potrebbe non essere visualizzato lo switch sw2, poiché i LIF non sono presenti su e0d).
+.. Verificare lo stato di integrità dello switch dal cluster (potrebbe non essere visualizzato lo switch sw2, poiché i LIF non sono posizionati su e0d).
 +
 [listing, subs="+quotes"]
 ----

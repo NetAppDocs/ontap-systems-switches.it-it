@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/upgrade-switch-overview.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
-summary: Prima di configurare gli switch del cluster BES-53248, esaminare una panoramica del processo e della nomenclatura. 
+summary: Prima di configurare gli switch cluster BES-53248, rivedere una panoramica del processo e della nomenclatura. 
 ---
 = Flusso di lavoro di aggiornamento per gli switch cluster BES-53248
 :allow-uri-read: 
@@ -11,16 +11,16 @@ summary: Prima di configurare gli switch del cluster BES-53248, esaminare una pa
 
 
 [role="lead"]
-Seguire questa procedura per aggiornare il software EFOS e i file di configurazione di riferimento (RCF) sugli switch cluster Broadcom BES-54328, se pertinente.
+Seguire questi passaggi per aggiornare il software EFOS e i file di configurazione di riferimento (RCF) sugli switch cluster Broadcom BES-54328, se applicabile.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:upgrade-efos-software.html["Aggiornare la versione EFOS"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:upgrade-efos-software.html["Aggiorna la tua versione EFOS"]
 [role="quick-margin-para"]
 Scaricare e installare il software Ethernet Fabric OS (EFOS) sullo switch cluster BES-53248.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:upgrade-rcf.html["Aggiornare la versione RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:upgrade-rcf.html["Aggiorna la tua versione RCF"]
 [role="quick-margin-para"]
-Aggiornare l'RCF sullo switch del cluster BES-53248, quindi verificare la presenza di una licenza aggiuntiva nelle porte dopo l'applicazione dell'RCF.
+Aggiornare l'RCF sullo switch cluster BES-53248, quindi verificare le porte per una licenza aggiuntiva dopo l'applicazione dell'RCF.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:replace-verify.html["Verificare la rete del cluster ONTAP dopo l'aggiornamento"]
 [role="quick-margin-para"]
-Verificare lo stato della rete cluster ONTAP dopo un aggiornamento del software EFOS o RCF per gli switch del cluster BES-53248.
+Verificare lo stato di salute della rete cluster ONTAP dopo un aggiornamento del software EFOS o RCF per gli switch cluster BES-53248.

@@ -2,63 +2,63 @@
 permalink: switch-bes-53248/cabling-considerations-bes53248.html 
 sidebar: sidebar 
 keywords: BES-53248 cabling setup, BES-53248 switches configuration, efos 
-summary: Prima di configurare lo switch Broadcom BES-53248, consultare le seguenti informazioni. 
+summary: Prima di configurare lo switch Broadcom BES-53248, leggere le seguenti informazioni. 
 ---
-= Esaminare le considerazioni relative al cablaggio e alla configurazione
+= Esaminare le considerazioni sul cablaggio e sulla configurazione
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Prima di configurare lo switch Broadcom BES-53248, esaminare le seguenti considerazioni.
+Prima di configurare lo switch Broadcom BES-53248, leggere le seguenti considerazioni.
 
 
 
-== Assegnazione degli switch delle porte del cluster
+== Assegnazioni degli switch delle porte del cluster
 
-È possibile utilizzare la tabella di assegnazione delle porte degli switch cluster BES-53248 supportata da Broadcom come guida alla configurazione del cluster.
+È possibile utilizzare la tabella delle assegnazioni delle porte dello switch del cluster BES-53248 supportata da Broadcom come guida per configurare il cluster.
 
 |===
 
 
-| *Porte switch* | *Utilizzo delle porte* 
+| *Porte di commutazione* | *Utilizzo delle porte* 
 
 
  a| 
 0-16
  a| 
-Nodi di porta cluster 10/25GbE, configurazione di base
+Nodi porta cluster 10/25GbE, configurazione di base
 
 
 
  a| 
 17-48
  a| 
-Nodi di porte cluster 10/25GbE, con licenze
+Nodi di porta cluster 10/25GbE, con licenze
 
 
 
  a| 
 49-54
  a| 
-Nodi di porta cluster 40/100GbE, con licenze, aggiunti da destra a sinistra
+Nodi porta cluster 40/100GbE, con licenze, aggiunti da destra a sinistra
 
 
 
  a| 
 55-56
  a| 
-Porte ISL (Inter-Switch link) cluster da 100 GbE, configurazione di base
+Porte Inter-Switch Link (ISL) del cluster 100GbE, configurazione di base
 
 |===
-Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per ulteriori informazioni sulle porte dello switch.
+Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per maggiori informazioni sulle porte dello switch.
 
 
 
-== Limite di velocità del gruppo di porte
+== Vincolo di velocità del gruppo di porte
 
-* Sugli switch cluster BES-53248, le porte 48 10/25GbE (SFP28/SFP+) sono combinate in 12 gruppi a 4 porte come segue: Porte 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 e 45-48.
+* Negli switch cluster BES-53248, le 48 porte 10/25GbE (SFP28/SFP+) sono combinate in 12 gruppi da 4 porte come segue: Porte 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 e 45-48.
 * La velocità della porta SFP28/SFP+ deve essere la stessa (10 GbE o 25 GbE) su tutte le porte del gruppo a 4 porte.
 * Se le velocità in un gruppo a 4 porte sono diverse, le porte dello switch non funzioneranno correttamente.
 
@@ -67,41 +67,41 @@ Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per ulteriori i
 
 == Requisiti FEC
 
-* Per le porte 25g con cavi in rame, vedere la tabella seguente per i dettagli.
+* Per i dettagli sulle porte 25G con cavi in rame, vedere la tabella seguente.
 +
-Se il lato Controller è `auto`, Il lato dell'interruttore è impostato su FEC 25g.
+Se il lato Controller è `auto` , il lato dell'interruttore è impostato su FEC 25G.
 
 +
-image::../media/FEC_copper_table.jpg[25g porte con cavi in rame]
+image::../media/FEC_copper_table.jpg[Porte 25G con cavi in rame]
 
-* Per le porte 25g con cavi in fibra ottica, vedere la tabella seguente per i dettagli:
+* Per le porte 25G con cavi in fibra/ottica, vedere la seguente tabella per i dettagli:
 +
-image::../media/FEC_fiber_table.jpg[25g porte con cavi in fibra ottica]
+image::../media/FEC_fiber_table.jpg[Porte 25G con cavi in fibra/ottica]
 
 
 
 
 
-=== Implementazione Bootarg
+=== Implementazione di Bootarg
 
-Utilizzare il seguente comando per impostare il FEC della porta 25g su uno dei due `auto` oppure `fc`, secondo necessità:
+Utilizzare il seguente comando per impostare la porta 25G FEC su `auto` O `fc` , come richiesto:
 
 [listing]
 ----
 systemshell -node <node> -command sudo sysctl dev.ice.<X>.requested_fec=<auto/fc>
 ----
-* Quando è impostato su *`auto`*:
+* Quando impostato su*`auto` *:
 +
-** Il `auto` l'impostazione propaga immediatamente l'impostazione all'hardware e non è necessario riavviare il sistema.
-** Se `bootarg.cpk_fec_fc_eXx already exists`, viene eliminato dall'archivio di avvio.
-** Dopo un riavvio, l' `auto` l'impostazione rimane attiva da allora `auto` È l'impostazione FEC predefinita.
+** IL `auto` l'impostazione propaga immediatamente l'impostazione all'hardware e non è necessario alcun riavvio.
+** Se `bootarg.cpk_fec_fc_eXx already exists` , viene eliminato dalla memoria bootarg.
+** Dopo un riavvio, il `auto` l'impostazione rimane in vigore da quando `auto` è l'impostazione FEC predefinita.
 
 
-* Quando è impostato su *`fc`*:
+* Quando impostato su*`fc` *:
 +
-** Il `FC-FEC` l'impostazione propaga immediatamente l'impostazione all'hardware e non è necessario riavviare il sistema.
+** IL `FC-FEC` l'impostazione propaga immediatamente l'impostazione all'hardware e non è necessario alcun riavvio.
 ** Un nuovo `bootarg.cpk_fec_fc_eXx` viene creato con il valore impostato su "true".
-** Dopo un riavvio, `FC-FEC` l'impostazione rimane attiva per l'utilizzo del codice conducente.
+** Dopo un riavvio, `FC-FEC` l'impostazione rimane attiva affinché il codice del driver possa utilizzarla.
 
 
 

@@ -4,16 +4,16 @@ sidebar: sidebar
 keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
 summary: Questa versione include il supporto per SNMPv3 per il monitoraggio dei log. 
 ---
-= Configurare SNMPv3 per la raccolta dei log dello switch
+= Configurare SNMPv3 per la raccolta dei registri dello switch
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Seguire questa procedura per configurare SNMPv3, che supporta la raccolta dei log dello switch e Switch Health Monitoring (SHM).
+Seguire questa procedura per configurare SNMPv3, che supporta la raccolta dei registri degli switch e il monitoraggio dello stato dello switch (SHM).
 
-.A proposito di questa attività
+.Informazioni su questo compito
 I seguenti comandi configurano un nome utente SNMPv3 sugli switch NVIDIA SN2100:
 
 * Per *nessuna autenticazione*:
@@ -24,14 +24,14 @@ I seguenti comandi configurano un nome utente SNMPv3 sugli switch NVIDIA SN2100:
 `net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_ [encrypt-aes|encrypt-des] _PRIV-PASSWORD_`
 
 
-Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP:
+Il seguente comando configura un nome utente SNMPv3 sul lato ONTAP :
 `cluster1::*> security login create -user-or-group-name _SNMPv3_USER_ -application snmp -authentication-method usm -remote-switch-ipaddress _ADDRESS_`
 
 Il seguente comando stabilisce il nome utente SNMPv3 con SHM:
 `cluster1::*> system switch ethernet modify -device _DEVICE_ -snmp-version SNMPv3 -community-or-username _SNMPv3_USER_`
 
-.Fasi
-. Impostare l'utente SNMPv3 sullo switch per l'utilizzo dell'autenticazione e della crittografia:
+.Passi
+. Impostare l'utente SNMPv3 sullo switch per utilizzare l'autenticazione e la crittografia:
 +
 `net show snmp status`
 
@@ -109,7 +109,7 @@ Version 3 Usernames                Configured     *<---- Configured here*
 cumulus@sw1:~$
 ----
 ====
-. Impostare l'utente SNMPv3 sul lato ONTAP:
+. Impostare l'utente SNMPv3 sul lato ONTAP :
 +
 `security login create -user-or-group-name SNMPv3User -application snmp -authentication-method usm -remote-switch-ipaddress 10.231.80.212`
 
@@ -136,7 +136,7 @@ Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
 ====
-. Configurare il modulo SHM per il monitoraggio con il nuovo utente SNMPv3:
+. Configurare SHM per il monitoraggio con il nuovo utente SNMPv3:
 +
 `system switch ethernet show-all -device "sw1 (b8:59:9f:09:7c:22)" -instance`
 
@@ -166,7 +166,7 @@ cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
 ====
-. Verificare che il numero di serie da interrogare con l'utente SNMPv3 appena creato sia lo stesso descritto nel passaggio precedente una volta completato il periodo di polling di SHM.
+. Verificare che il numero di serie da interrogare con l'utente SNMPv3 appena creato sia lo stesso specificato nel passaggio precedente una volta completato il periodo di polling SHM.
 +
 `system switch ethernet polling-interval show`
 

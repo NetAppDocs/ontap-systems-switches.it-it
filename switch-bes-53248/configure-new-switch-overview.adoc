@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/configure-new-switch-overview.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
-summary: Prima di configurare gli switch del cluster BES-53248, esaminare la panoramica della configurazione. 
+summary: Prima di configurare gli switch cluster BES-53248, rivedere la panoramica della configurazione. 
 ---
 = Flusso di lavoro di installazione e configurazione per gli switch BES-53248
 :allow-uri-read: 

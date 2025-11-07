@@ -9,7 +9,7 @@ summary: 'Panoramica dell"installazione e della configurazione degli switch clus
 
 
 [role="lead"]
-Lo switch Cisco 9364D-GX2A fa parte della piattaforma Cisco Nexus 9000.  Gli switch dei sistemi AFX consentono di creare cluster ONTAP con più di due nodi.
+Lo switch Cisco 9364D-GX2A fa parte della piattaforma Cisco Nexus 9000. Gli switch dei sistemi AFX consentono di creare cluster ONTAP con più di due nodi.
 
 Seguire questi passaggi del flusso di lavoro per installare e configurare gli switch Cisco 9364D-GX2A.
 

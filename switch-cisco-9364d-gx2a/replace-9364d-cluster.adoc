@@ -15,62 +15,62 @@ Per sostituire uno switch Nexus 9364D-GX2A difettoso in una rete cluster, seguir
 
 
 
-== Verifica dei requisiti
+== Requisiti di revisione
 
-Prima di sostituire lo switch, assicurarsi che:
+Prima di procedere alla sostituzione dell'interruttore, accertarsi che:
 
-* È stato verificato il numero di serie dello switch per assicurarsi che venga sostituito l'interruttore corretto.
-* Sul cluster e sull'infrastruttura di rete esistenti:
+* Hai verificato il numero di serie dello switch per assicurarti che venga sostituito lo switch corretto.
+* Sull'infrastruttura di rete e cluster esistente:
 +
-** Il cluster esistente viene verificato come completamente funzionale, con almeno uno switch del cluster completamente connesso.
-** Tutte le porte del cluster sono installate.
-** Tutte le interfacce logiche del cluster (LIFF) sono installate sulle porte domestiche.
+** Il cluster esistente è stato verificato come completamente funzionale, con almeno uno switch del cluster completamente connesso.
+** Tutte le porte del cluster sono attive.
+** Tutte le interfacce logiche del cluster (LIF) sono attive e sulle rispettive porte home.
 ** L' ONTAP `cluster ping-cluster -node <node-name>` il comando deve indicare che la connettività di base e la comunicazione più grande di PMTU hanno esito positivo su tutti i percorsi.
 
 
 * Sull'interruttore sostitutivo Nexus 9364D-GX2A:
 +
-** La connettività di rete di gestione sullo switch sostitutivo è funzionale.
-** L'accesso della console allo switch sostitutivo è in posizione.
+** La connettività della rete di gestione sullo switch sostitutivo è funzionante.
+** L'accesso alla console per l'interruttore sostitutivo è pronto.
 ** Le connessioni dei nodi sono le porte da 1/1 a 1/62.
 ** Tutte le porte Inter-Switch Link (ISL) sono disabilitate sulle porte 1/63 e 1/64.
-** Il file di configurazione di riferimento desiderato (RCF) e lo switch dell'immagine del sistema operativo NX-OS vengono caricati sullo switch.
+** Il file di configurazione di riferimento (RCF) desiderato e l'immagine del sistema operativo NX-OS vengono caricati sullo switch.
 ** La personalizzazione iniziale dello switch è completa, come dettagliato inlink:setup-switch-9364d-cluster.html["Configurare lo switch cluster 9364D-GX2A"] .
 +
-Tutte le personalizzazioni precedenti del sito, come STP, SNMP e SSH, vengono copiate nel nuovo switch.
+Tutte le personalizzazioni precedenti del sito, come STP, SNMP e SSH, vengono copiate sul nuovo switch.
 
 
 
-* È stato eseguito il comando per la migrazione di un LIF del cluster dal nodo in cui è ospitato il LIF del cluster.
-
-
-
-
-== Attivare la registrazione della console
-
-NetApp consiglia vivamente di attivare la registrazione della console sui dispositivi in uso e di eseguire le seguenti operazioni quando si sostituisce lo switch:
-
-* Lasciare attivato AutoSupport durante la manutenzione.
-* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione del caso per tutta la durata della manutenzione. Consultare questo articolo della Knowledge base https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come eliminare la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
-* Attivare la registrazione della sessione per qualsiasi sessione CLI. Per istruzioni su come attivare la registrazione della sessione, consultare la sezione "registrazione dell'output della sessione" in questo articolo della Knowledge base https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare Putty per una connettività ottimale ai sistemi ONTAP"^].
+* Hai eseguito il comando per migrare un cluster LIF dal nodo in cui è ospitato il cluster LIF.
 
 
 
 
-== Sostituire lo switch
+== Abilita la registrazione della console
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+NetApp consiglia vivamente di abilitare la registrazione della console sui dispositivi utilizzati e di adottare le seguenti misure quando si sostituisce lo switch:
+
+* Lasciare AutoSupport abilitato durante la manutenzione.
+* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione di casi per tutta la durata della manutenzione.  Vedi questo articolo della Knowledge Base https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come sopprimere la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
+* Abilita la registrazione delle sessioni per tutte le sessioni CLI.  Per istruzioni su come abilitare la registrazione della sessione, consultare la sezione "Registrazione dell'output della sessione" in questo articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare PuTTY per una connettività ottimale ai sistemi ONTAP"^] .
+
+
+
+
+== Sostituire l'interruttore
+
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
 * I nomi degli switch Nexus 9364D-GX2A esistenti sono cs1 e cs2.
 * Il nome del nuovo switch Nexus 9364D-GX2A è newcs2.
 * I nomi dei nodi sono node1-01, node1-02, node1-03 e node1-04.
 * I nomi LIF del cluster sono node1-01_clus1 e node1-01_clus2 per node1-01, node1-02_clus1 e node1-02_clus2 per node1-02, node1-03_clus1 e node1-03_clus2 per node1-03 e node1-04_clus1 e node1-04_clus2 per node1-04.
-* Il prompt per le modifiche a tutti i nodi del cluster è cluster1:*>
+* Il prompt per le modifiche a tutti i nodi del cluster è cluster1::*>
 
 
-.A proposito di questa attività
-La seguente procedura si basa sulla seguente topologia di rete del cluster:
+.Informazioni su questo compito
+La seguente procedura si basa sulla seguente topologia di rete cluster:
 
 .Mostra esempio
 [%collapsible]
@@ -208,9 +208,9 @@ Total entries displayed: 18
 ====
 
 
-=== Fase 1: Preparazione per la sostituzione
+=== Fase 1: Preparazione alla sostituzione
 
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
@@ -219,22 +219,22 @@ dove x è la durata della finestra di manutenzione in ore.
 
 +
 
-NOTE: Il messaggio AutoSupport informa il supporto tecnico di questa attività di manutenzione in modo che la creazione automatica del caso venga soppressa durante la finestra di manutenzione.
+NOTE: Il messaggio AutoSupport avvisa il supporto tecnico di questa attività di manutenzione, in modo che la creazione automatica dei casi venga soppressa durante la finestra di manutenzione.
 
-. Installare l'RCF e l'immagine appropriati sullo switch, newcs2, ed eseguire le operazioni necessarie per la preparazione del sito.
+. Installare l'RCF e l'immagine appropriati sullo switch, newcs2, ed effettuare tutti i preparativi necessari sul sito.
 +
-Se necessario, verificare, scaricare e installare le versioni appropriate del software RCF e NX-OS per il nuovo switch. Se il nuovo switch è stato configurato correttamente e non sono necessari aggiornamenti per il software RCF e NX-OS, passare alla fase 2.
+Se necessario, verificare, scaricare e installare le versioni appropriate del software RCF e NX-OS per il nuovo switch.  Se hai verificato che il nuovo switch è configurato correttamente e non necessita di aggiornamenti del software RCF e NX-OS, continua con il passaggio 2.
 
 +
-.. Accedere alla _pagina Descrizione del file di configurazione di riferimento per gli switch di rete di gestione e cluster NetApp_ sul sito del supporto NetApp.
-.. Fare clic sul link per la _matrice di compatibilità della rete di gestione e di rete del cluster_, quindi annotare la versione del software dello switch richiesta.
-.. Fare clic sulla freccia indietro del browser per tornare alla pagina Descrizione, fare clic su *CONTINUA*, accettare il contratto di licenza e accedere alla pagina Download.
-.. Seguire la procedura riportata nella pagina di download per scaricare i file RCF e NX-OS corretti per la versione del software ONTAP che si sta installando.
+.. Accedere alla _Pagina di descrizione del file di configurazione di riferimento degli switch di rete di gestione e cluster NetApp_ sul sito di supporto NetApp .
+.. Fare clic sul collegamento per la _Matrice di compatibilità della rete di cluster e della rete di gestione_, quindi prendere nota della versione del software dello switch richiesta.
+.. Fai clic sulla freccia indietro del browser per tornare alla pagina Descrizione, fai clic su *CONTINUA*, accetta il contratto di licenza e poi vai alla pagina Download.
+.. Seguire i passaggi indicati nella pagina Download per scaricare i file RCF e NX-OS corretti per la versione del software ONTAP che si sta installando.
 
 
-. Sul nuovo switch, accedere come admin e chiudere tutte le porte che verranno collegate alle interfacce del cluster di nodi (porte da 1/1 a 1/64).
+. Sul nuovo switch, accedi come amministratore e chiudi tutte le porte che saranno connesse alle interfacce del cluster di nodi (porte da 1/1 a 1/64).
 +
-Se lo switch che si sta sostituendo non funziona e viene spento, passare alla fase 4. Le LIF sui nodi del cluster dovrebbero essere già riuscite a eseguire il failover sull'altra porta del cluster per ciascun nodo.
+Se l'interruttore che stai sostituendo non funziona ed è spento, vai al passaggio 4.  I LIF sui nodi del cluster dovrebbero già aver eseguito il failover sull'altra porta del cluster per ciascun nodo.
 
 +
 .Mostra esempio
@@ -263,7 +263,7 @@ newcs2(config-if-range)# exit
 newcs2(config)# exit
 ----
 ====
-. Verificare che tutte le LIF del cluster abbiano attivato l'autorevert:
+. Verificare che tutti i LIF del cluster abbiano il ripristino automatico abilitato:
 +
 [source, cli]
 ----
@@ -363,7 +363,7 @@ RPC status:
 
 
 
-=== Fase 2: Configurazione di cavi e porte
+=== Passaggio 2: configurare cavi e porte
 
 . Disattivare le porte ISL 1/63 e 1/64 sullo switch Nexus 9364D-GX2A cs1.
 +
@@ -423,7 +423,7 @@ network port show ipspace Cluster
 .Mostra esempio
 [%collapsible]
 ====
-L'output dovrebbe essere simile a quanto segue:
+L'output dovrebbe essere simile al seguente:
 
 [listing]
 ----
@@ -467,7 +467,7 @@ e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-. Sullo stesso nodo utilizzato nella fase precedente, ripristinare la LIF del cluster associata alla porta nella fase precedente utilizzando il comando di revert dell'interfaccia di rete.
+. Sullo stesso nodo utilizzato nel passaggio precedente, ripristinare il cluster LIF associato alla porta nel passaggio precedente utilizzando il comando network interface revert.
 +
 .Mostra esempio
 [%collapsible]
@@ -493,7 +493,7 @@ Cluster
             .
 ----
 ====
-. Visualizzare le informazioni sui nodi di un cluster:
+. Visualizza informazioni sui nodi in un cluster:
 +
 `cluster show`
 
@@ -501,7 +501,7 @@ Cluster
 .Mostra esempio
 [%collapsible]
 ====
-Questo esempio mostra che l'integrità del nodo per node1 e node2 in questo cluster è vera:
+Questo esempio mostra che lo stato di integrità del nodo node1 e node2 in questo cluster è corretto:
 
 [listing, subs="+quotes"]
 ----
@@ -515,7 +515,7 @@ node1-03      true    true
 node1-04      true    true
 ----
 ====
-. Verificare che tutte le porte del cluster fisico siano installate:
+. Verificare che tutte le porte fisiche del cluster siano attive:
 +
 [source, cli]
 ----
@@ -624,13 +624,13 @@ RPC status:
 
 
 
-=== Fase 3: Verificare la configurazione
+=== Passaggio 3: verificare la configurazione
 
 . Verificare lo stato di tutte le porte del cluster.
 +
 .. *Porte cluster*
 +
-... Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:
+... Verificare che le porte del cluster siano attive e funzionanti su tutti i nodi del cluster:
 +
 [source, cli]
 ----
@@ -980,11 +980,11 @@ shelf id connector-state remote-port    remote-device
 
 
 
-. Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
+. Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver sostituito gli interruttori,link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"] .

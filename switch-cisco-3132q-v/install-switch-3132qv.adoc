@@ -2,7 +2,7 @@
 permalink: switch-cisco-3132q-v/install-switch-3132qv.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 3132q-v 
-summary: Per installare lo switch Cisco Nexus 3132Q-V, seguire questa procedura. 
+summary: Seguire questa procedura per installare lo switch Cisco Nexus 3132Q-V. 
 ---
 = Installare lo switch cluster 3132Q-V
 :allow-uri-read: 
@@ -14,40 +14,40 @@ summary: Per installare lo switch Cisco Nexus 3132Q-V, seguire questa procedura.
 Seguire questa procedura per impostare e configurare lo switch Cisco Nexus 3132Q-V.
 
 .Prima di iniziare
-Assicurarsi di disporre di quanto segue:
+Assicurati di avere quanto segue:
 
-* Accesso a un server HTTP, FTP o TFTP nel sito di installazione per scaricare le release NX-OS e RCF (Reference Configuration file) applicabili.
+* Accesso a un server HTTP, FTP o TFTP nel sito di installazione per scaricare le versioni NX-OS e RCF (Reference Configuration File) applicabili.
 * Versione NX-OS applicabile, scaricata da https://software.cisco.com/download/home["Download del software Cisco"^] pagina.
 * Licenze applicabili, informazioni di rete e configurazione e cavi.
-* Completatolink:setup_worksheet_3132q.html["fogli di lavoro per il cablaggio"] .
-* RCF di rete cluster e rete di gestione NetApp applicabili scaricati dal NetApp Support Site all'indirizzo http://mysupport.netapp.com/["mysupport.netapp.com"^]. Tutti gli switch della rete cluster e di gestione Cisco vengono forniti con la configurazione standard predefinita di fabbrica di Cisco. Questi switch hanno anche la versione corrente del software NX-OS, ma non hanno gli RCF caricati.
-* link:required-documentation-3132q.html["Documentazione richiesta su switch e ONTAP"] .
+* Completatolink:setup_worksheet_3132q.html["fogli di lavoro sul cablaggio"] .
+* RCF applicabili alla rete cluster NetApp e alla rete di gestione scaricabili dal sito di supporto NetApp all'indirizzo http://mysupport.netapp.com/["mysupport.netapp.com"^] .  Tutti gli switch di rete cluster e di rete di gestione Cisco vengono forniti con la configurazione predefinita di fabbrica Cisco . Questi switch dispongono anche della versione corrente del software NX-OS, ma non hanno gli RCF caricati.
+* link:required-documentation-3132q.html["Documentazione richiesta per switch e ONTAP"].
 
 
-.Fasi
-. Rack di switch e controller della rete di gestione e della rete del cluster.
+.Passi
+. Installare gli switch e i controller della rete del cluster e della rete di gestione.
 +
 [cols="1,2"]
 |===
-| Se si sta installando... | Quindi... 
+| Se stai installando... | Poi... 
 
 
  a| 
 Cisco Nexus 9336C-FX2 in un cabinet di sistema NetApp
  a| 
-Consultare la guida _Installazione di uno switch cluster Cisco Nexus 3132Q-V e del pannello pass-through in un cabinet NetApp_ per istruzioni sull'installazione dello switch in un cabinet NetApp.
+Per istruzioni sull'installazione dello switch in un cabinet NetApp , consultare la guida _Installazione di uno switch cluster Cisco Nexus 3132Q-V e di un pannello pass-through in un cabinet NetApp .
 
 
 
  a| 
-Apparecchiatura in un rack Telco
+Apparecchiature in un rack Telco
  a| 
-Consultare le procedure fornite nelle guide all'installazione dell'hardware dello switch e le istruzioni di installazione e configurazione di NetApp.
+Consultare le procedure fornite nelle guide all'installazione dell'hardware dello switch e nelle istruzioni di installazione e configurazione NetApp .
 
 |===
-. Collegare gli switch della rete cluster e della rete di gestione ai controller utilizzando i fogli di lavoro di cablaggio completi.
+. Cablare la rete del cluster e gli switch della rete di gestione ai controller utilizzando i fogli di lavoro di cablaggio compilati.
 . Accendere la rete del cluster e gli switch e i controller della rete di gestione.
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Facoltativamente, puoi link:install-cisco-nexus-3132qv.html["installare uno switch Cisco Nexus 3132Q-V in un cabinet NetApp"]. Altrimenti puoi link:cabling-considerations-3132q-v.html["rivedere il cablaggio e la configurazione"] requisiti.

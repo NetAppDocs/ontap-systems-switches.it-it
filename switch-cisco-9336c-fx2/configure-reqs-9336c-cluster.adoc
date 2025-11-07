@@ -29,7 +29,7 @@ A partire da ONTAP 9.9.1, è possibile utilizzare gli switch Cisco Nexus 9336C-F
 Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete supportati.
 
 
-NOTE: Lo switch Ethernet Health monitor non supporta ONTAP 9.13.1P8 e versioni precedenti e 9.14.1P3 e precedenti o NX-OS 10,3(4a)(M).
+NOTE: Il monitoraggio dello stato dello switch Ethernet non supporta ONTAP 9.13.1P8 e versioni precedenti e 9.14.1P3 e versioni precedenti o NX-OS versione 10.3(4a)(M).
 
 --
 .ONTAP 9.10.1 e versioni successive
@@ -46,23 +46,23 @@ Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due swi
 
 Assicurarsi che:
 
-* Si dispone del numero e del tipo di cavi e connettori appropriati per gli switch. Vedere https://hwu.netapp.com["Hardware Universe"^].
-* A seconda del tipo di switch che si sta configurando inizialmente, è necessario collegarsi alla porta della console dello switch con il cavo della console incluso.
+* Hai il numero e il tipo di cavi e connettori per i tuoi switch appropriati. Vedi il https://hwu.netapp.com["Hardware Universe"^] .
+* A seconda del tipo di switch che si sta configurando inizialmente, è necessario collegarsi alla porta della console dello switch tramite il cavo della console incluso.
 
 
 
 
 == Requisiti di rete
 
-Sono necessarie le seguenti informazioni di rete per tutte le configurazioni dello switch.
+Per tutte le configurazioni dello switch sono necessarie le seguenti informazioni di rete.
 
 * Subnet IP per il traffico di rete di gestione
-* Nomi host e indirizzi IP per ciascuno dei controller del sistema di storage e per tutti gli switch applicabili
-* La maggior parte dei controller del sistema di storage viene gestita tramite l'interfaccia e0M connettendosi alla porta di servizio Ethernet (icona chiave). Nei sistemi AFF A800 e AFF A700s, l'interfaccia e0M utilizza una porta Ethernet dedicata.
-* Fare riferimento a. https://hwu.netapp.com["Hardware Universe"^] per informazioni aggiornate.
+* Nomi host e indirizzi IP per ciascuno dei controller del sistema di archiviazione e tutti gli switch applicabili
+* La maggior parte dei controller dei sistemi di storage vengono gestiti tramite l'interfaccia e0M, collegandosi alla porta di servizio Ethernet (icona a forma di chiave inglese). Nei sistemi AFF A800 e AFF A700s , l'interfaccia e0M utilizza una porta Ethernet dedicata.
+* Fare riferimento al https://hwu.netapp.com["Hardware Universe"^] per le ultime informazioni.
 
 
-Per ulteriori informazioni sulla configurazione iniziale dello switch, consultare la seguente guida: https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guida all'installazione e all'aggiornamento di Cisco Nexus 9336C-FX2"^].
+Per maggiori informazioni sulla configurazione iniziale dello switch, consultare la seguente guida: https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guida all'installazione e all'aggiornamento Cisco Nexus 9336C-FX2"^] .
 
 .Cosa c'è dopo?
-Dopo aver esaminato i requisiti di configurazione, puoi confermare il tuolink:components-9336c-cluster.html["componenti e numeri di parte"] .
+Dopo aver esaminato i requisiti di configurazione, puoi confermare il tuo link:components-9336c-cluster.html["componenti e numeri di parte"].

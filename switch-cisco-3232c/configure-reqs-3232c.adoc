@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c/configure-reqs-3232c.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: È possibile utilizzare gli switch Cisco Nexus 3232C come switch cluster nel cluster AFF o FAS. 
+summary: È possibile utilizzare gli switch Cisco Nexus 3232C come switch cluster nel cluster AFF o FAS . 
 ---
 = Requisiti di configurazione per gli switch Cisco Nexus 3232C
 :allow-uri-read: 
@@ -11,26 +11,26 @@ summary: È possibile utilizzare gli switch Cisco Nexus 3232C come switch cluste
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dello switch Cisco Nexus 3232C, verificare la configurazione e i requisiti di rete.
+Per l'installazione e la manutenzione dello switch Cisco Nexus 3232C, assicurarsi di rivedere la configurazione e i requisiti di rete.
 
 
 
 == Requisiti di configurazione
 
-Per configurare il cluster, sono necessari il numero e il tipo di cavi e connettori appropriati per gli switch. A seconda del tipo di switch che si sta configurando inizialmente, è necessario connettersi alla porta console dello switch con il cavo console incluso; è inoltre necessario fornire informazioni di rete specifiche.
+Per configurare il cluster, è necessario disporre del numero e del tipo appropriati di cavi e connettori per i propri switch.  A seconda del tipo di switch che si sta configurando inizialmente, è necessario connettersi alla porta della console dello switch tramite il cavo della console incluso; è inoltre necessario fornire informazioni di rete specifiche.
 
 
 
 == Requisiti di rete
 
-Sono necessarie le seguenti informazioni di rete per tutte le configurazioni dello switch:
+Per tutte le configurazioni dello switch sono necessarie le seguenti informazioni di rete:
 
 * Subnet IP per il traffico di rete di gestione
-* Nomi host e indirizzi IP per ciascuno dei controller del sistema di storage e per tutti gli switch applicabili
-* La maggior parte dei controller del sistema di storage viene gestita tramite l'interfaccia e0M connettendosi alla porta di servizio Ethernet (icona chiave). Nei sistemi AFF A800 e AFF A700, l'interfaccia e0M utilizza una porta Ethernet dedicata.
+* Nomi host e indirizzi IP per ciascuno dei controller del sistema di archiviazione e tutti gli switch applicabili
+* La maggior parte dei controller dei sistemi di storage vengono gestiti tramite l'interfaccia e0M, collegandosi alla porta di servizio Ethernet (icona a forma di chiave inglese). Nei sistemi AFF A800 e AFF A700 , l'interfaccia e0M utilizza una porta Ethernet dedicata.
 
 
-Fare riferimento a. https://hwu.netapp.com["Hardware Universe"^] per informazioni aggiornate.
+Fare riferimento al https://hwu.netapp.com["Hardware Universe"^] per le ultime informazioni.
 
 .Cosa c'è dopo?
 Dopo aver confermato i requisiti di configurazione, rivedere il link:required-documentation-3232c.html["documentazione richiesta"].

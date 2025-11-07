@@ -2,19 +2,19 @@
 permalink: switch-bes-53248/configure-ssh.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, bes, enable ssh on bes-53248 cluster switches - bes-53248 switches 
-summary: 'SSH è un requisito per l"utilizzo delle funzionalità di monitoraggio dello stato di salute dello switch del cluster (CSHM) e di raccolta dei log. Per attivare SSH sugli switch cluster BES-53248, generare prima le chiavi SSH e quindi attivare SSH.' 
+summary: 'SSH è un requisito quando si utilizzano le funzionalità Cluster Switch Health Monitor \(CSHM\) e di raccolta dei registri. Per abilitare SSH sugli switch cluster BES-53248, è necessario prima generare le chiavi SSH e poi abilitare SSH.' 
 ---
-= Abilitare SSH sugli switch cluster BES-53248
+= Abilita SSH sugli switch cluster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se si utilizzano le funzioni Ethernet Switch Health Monitor (CSHM) e di raccolta dei log, è necessario generare le chiavi SSH e quindi abilitare SSH sugli switch del cluster.
+Se si utilizzano le funzionalità di monitoraggio dello stato dello switch Ethernet (CSHM) e di raccolta dei registri, è necessario generare le chiavi SSH e quindi abilitare SSH sugli switch del cluster.
 
-.Fasi
-. Verificare che SSH sia disattivato:
+.Passi
+. Verificare che SSH sia disabilitato:
 +
 `show ip ssh`
 
@@ -136,10 +136,10 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-. Crittografare le chiavi SSH (solo per *FIPS-mode*):
+. Crittografare le chiavi SSH (solo per la modalità *FIPS*):
 +
 
-CAUTION: In modalità FIPS, le chiavi devono essere crittografate con una passphrase per la protezione. In assenza di una chiave crittografata, l'applicazione non si avvia. Le chiavi vengono create e crittografate utilizzando i seguenti comandi:
+CAUTION: Nella modalità FIPS, per motivi di sicurezza, le chiavi devono essere crittografate con una passphrase.  In assenza di una chiave crittografata, l'applicazione non riesce ad avviarsi.  Le chiavi vengono create e crittografate utilizzando i seguenti comandi:
 
 +
 .Mostra esempio
@@ -188,7 +188,7 @@ Configuration Saved!
 +
 `reload`
 
-. Verificare che SSH sia attivato:
+. Verificare che SSH sia abilitato:
 +
 `show ip ssh`
 
@@ -216,5 +216,5 @@ SCP server Administrative Mode: ............... Enabled
 ====
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver abilitato SSH, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

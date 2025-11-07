@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/migrate-cn1610-9336c-cluster.html 
 sidebar: sidebar 
 keywords: migrate cluster Cisco Nexus 9336C-FX2 cluster switches cn1610 
-summary: È possibile eseguire la migrazione senza interruzioni degli switch di cluster NetApp CN1610 per un cluster ONTAP agli switch di rete del cluster Cisco Nexus 9336C-FX2. 
+summary: È possibile migrare senza interruzioni gli switch cluster NetApp CN1610 per un cluster ONTAP verso gli switch di rete cluster Cisco Nexus 9336C-FX2. 
 ---
 = Migrazione dagli switch cluster NetApp CN1610 agli switch cluster Cisco 9336C-FX2 e 9336C-FX2-T
 :allow-uri-read: 
@@ -15,31 +15,31 @@ summary: È possibile eseguire la migrazione senza interruzioni degli switch di 
 
 
 
-== Verifica dei requisiti
+== Requisiti di revisione
 
 Quando si sostituiscono gli switch cluster NetApp CN1610 con gli switch cluster Cisco 9336C-FX2 e 9336C-FX2-T, è necessario conoscere alcune informazioni sulla configurazione, sulle connessioni delle porte e sui requisiti di cablaggio. È inoltre necessario verificare il numero di serie dello switch per assicurarsi che venga migrato lo switch corretto.
 
 .Switch supportati
-Sono supportati i seguenti switch del cluster:
+Sono supportati i seguenti switch cluster:
 
 * NetApp CN1610
 * Cisco 9336C-FX2
 * Cisco 9336C-FX2-T
 
 
-Per informazioni dettagliate sulle porte supportate e sulle relative configurazioni, consultare https://hwu.netapp.com/["Hardware Universe"^].
+Per i dettagli sulle porte supportate e le relative configurazioni, vedere https://hwu.netapp.com/["Hardware Universe"^] .
 
-.Di cosa hai bisogno
-Verificare che la configurazione soddisfi i seguenti requisiti:
+.Cosa ti servirà
+Verifica che la tua configurazione soddisfi i seguenti requisiti:
 
-* Il cluster esistente è configurato e funziona correttamente.
-* Tutte le porte del cluster sono nello stato *up* per garantire operazioni senza interruzioni.
+* Il cluster esistente è configurato e funzionante correttamente.
+* Tutte le porte del cluster sono nello stato *attivo* per garantire operazioni senza interruzioni.
 * Gli switch cluster Cisco 9336C-FX2 e 9336C-FX2-T sono configurati e funzionano con la versione corretta di NX-OS installata con il file di configurazione di riferimento (RCF) applicato.
-* La configurazione di rete del cluster esistente presenta quanto segue:
+* La configurazione di rete del cluster esistente è la seguente:
 +
 ** Un cluster NetApp ridondante e completamente funzionale che utilizza switch NetApp CN1610.
-** Connettività di gestione e accesso alla console sia per gli switch CN1610 NetApp che per i nuovi switch.
-** Tutte le LIF del cluster in stato up con le LIF del cluster si trovano sulle porte home.
+** Connettività di gestione e accesso alla console sia per gli switch NetApp CN1610 che per i nuovi switch.
+** Tutti i cluster LIF nello stato attivo con i cluster LIF sulle loro porte home.
 
 
 * Alcune porte sono configurate sugli switch Cisco 9336C-FX2 e 9336C-FX2-T per funzionare a 40GbE o 100GbE.
@@ -50,35 +50,35 @@ Verificare che la configurazione soddisfi i seguenti requisiti:
 
 == Migrare gli switch
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
-* Gli switch del cluster CN1610 esistenti sono _C1_ e _C2_.
+* Gli switch cluster CN1610 esistenti sono _C1_ e _C2_.
 * I nuovi switch cluster 9336C-FX2 sono _cs1_ e _cs2_.
 * I nodi sono _node1_ e _node2_.
-* I LIF del cluster sono _node1_clus1_ e _node1_clus2_ sul nodo 1, e _node2_clus1_ e _node2_clus2_ rispettivamente sul nodo 2.
-* Il `cluster1::*>` prompt indica il nome del cluster.
+* I LIF del cluster sono _node1_clus1_ e _node1_clus2_ sul nodo 1, e _node2_clus1_ e _node2_clus2_ sul nodo 2, rispettivamente.
+* IL `cluster1::*>` il prompt indica il nome del cluster.
 * Le porte del cluster utilizzate in questa procedura sono _e3a_ e _e3b_.
 
 
-.A proposito di questa attività
-Questa procedura riguarda il seguente scenario:
+.Informazioni su questo compito
+Questa procedura copre il seguente scenario:
 
-* L'interruttore C2 viene sostituito per primo dall'interruttore CS2.
+* Lo switch C2 viene sostituito prima dallo switch cs2.
 +
-** Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.
+** Chiudere le porte verso i nodi del cluster.  Per evitare l'instabilità del cluster, tutte le porte devono essere chiuse contemporaneamente.
 +
-*** Tutte le LIF del cluster eseguono il failover sul nuovo switch CS2.
+*** Tutti i cluster LIF eseguono il failover sul nuovo switch cs2.
 
 
-** Il cablaggio tra i nodi e C2 viene quindi scollegato da C2 e ricollegato a CS2.
+** Il cablaggio tra i nodi e C2 viene quindi scollegato da C2 e ricollegato a cs2.
 
 
-* L'interruttore C1 è sostituito dall'interruttore CS1.
+* Lo switch C1 è sostituito dallo switch cs1.
 +
-** Chiudere le porte ai nodi del cluster. Tutte le porte devono essere chiuse contemporaneamente per evitare l'instabilità del cluster.
+** Chiudere le porte verso i nodi del cluster.  Per evitare l'instabilità del cluster, tutte le porte devono essere chiuse contemporaneamente.
 +
-*** Tutte le LIF del cluster eseguono il failover sul nuovo switch CS1.
+*** Tutti i cluster LIF eseguono il failover sul nuovo switch cs1.
 
 
 ** Il cablaggio tra i nodi e C1 viene quindi scollegato da C1 e ricollegato a cs1.
@@ -87,29 +87,29 @@ Questa procedura riguarda il seguente scenario:
 
 
 
-NOTE: Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire le operazioni senza interruzioni del cluster, viene eseguita la seguente procedura per il failover di tutte le LIF del cluster allo switch partner operativo, eseguendo al tempo stesso la procedura sullo switch target.
+NOTE: Durante questa procedura non è necessario alcun collegamento inter-switch (ISL) operativo. Ciò è voluto perché le modifiche alla versione RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue il failover di tutti i LIF del cluster sullo switch partner operativo, eseguendo al contempo i passaggi sullo switch di destinazione.
 
 
 
-=== Fase 1: Preparazione per la migrazione
+=== Fase 1: Prepararsi alla migrazione
 
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
 dove _x_ è la durata della finestra di manutenzione in ore.
 
-. Impostare il livello di privilegio su Advanced (avanzato), immettendo *y* quando viene richiesto di continuare:
+. Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare:
 +
 `set -privilege advanced`
 
 +
-Viene visualizzato il prompt Advanced (*>).
+Viene visualizzato il prompt avanzato (*>).
 
-. Disattiva l'autorevert sulle LIF del cluster.
+. Disabilitare il ripristino automatico sui LIF del cluster.
 +
-Disabilitando l'opzione di auto-revert per questa procedura, le LIF del cluster non torneranno automaticamente alla porta home. Rimangono sulla porta corrente mentre continua ad essere attiva e operativa.
+Disabilitando il ripristino automatico per questa procedura, i LIF del cluster non torneranno automaticamente alla loro porta home.  Rimangono sulla porta attuale finché questa continua a essere attiva e operativa.
 
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
@@ -118,14 +118,14 @@ Disabilitando l'opzione di auto-revert per questa procedura, le LIF del cluster 
 
 
 
-=== Fase 2: Configurare le porte e il cablaggio
+=== Passaggio 2: configurare porte e cablaggio
 
-. Determinare lo stato amministrativo o operativo di ciascuna interfaccia del cluster.
+. Determinare lo stato amministrativo o operativo per ciascuna interfaccia del cluster.
 +
-Ogni porta deve essere visualizzata per `Link` e. `healthy` per `Health Status`.
+Ogni porta dovrebbe essere visualizzata per `Link` E `healthy` per `Health Status` .
 
 +
-.. Visualizzare gli attributi della porta di rete:
+.. Visualizza gli attributi della porta di rete:
 +
 `network port show -ipspace Cluster`
 
@@ -154,12 +154,12 @@ e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
 ----
 ====
-.. Visualizzare le informazioni relative ai LIF e ai relativi nodi principali designati:
+.. Visualizza informazioni sui LIF e sui nodi domestici designati:
 +
 `network interface show -vserver Cluster`
 
 +
-Viene visualizzato ciascun LIF `up/up` per `Status Admin/Oper` e. `true` per `Is Home`.
+Ogni LIF dovrebbe visualizzare `up/up` per `Status Admin/Oper` E `true` per `Is Home` .
 
 +
 .Mostra esempio
@@ -182,7 +182,7 @@ Cluster
 ====
 
 
-. Le porte del cluster su ciascun nodo sono collegate agli switch del cluster esistenti nel seguente modo (dal punto di vista dei nodi) utilizzando il comando:
+. Le porte del cluster su ciascun nodo vengono collegate agli switch del cluster esistenti nel modo seguente (dal punto di vista dei nodi) utilizzando il comando:
 +
 `network device-discovery show -protocol`
 
@@ -204,7 +204,7 @@ node2      /cdp
             e3b    C2 (6a:ad:4f:98:4c:a4)    0/2               -
 ----
 ====
-. Le porte e gli switch del cluster sono collegati nel seguente modo (dal punto di vista degli switch) utilizzando il comando:
+. Le porte e gli switch del cluster vengono collegati nel modo seguente (dal punto di vista degli switch) utilizzando il comando:
 +
 `show cdp neighbors`
 
@@ -253,15 +253,15 @@ C1                    0/16          175    S I s       CN1610           0/16
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
 
 [listing, subs="+quotes"]
 ----
@@ -277,9 +277,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -311,10 +311,10 @@ RPC status:
 ----
 --
 ====
-. [[step5]] sullo switch C2, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster.
+. [[step5]] Sullo switch C2, spegnere le porte connesse alle porte del cluster dei nodi per eseguire il failover dei LIF del cluster.
 +
 
-CAUTION: Non tentare di migrare manualmente le LIF del cluster.
+CAUTION: Non tentare di migrare manualmente i LIF del cluster.
 
 +
 [listing, subs="+quotes"]
@@ -326,7 +326,7 @@ CAUTION: Non tentare di migrare manualmente le LIF del cluster.
 (C2)(Config)# *exit*
 ----
 . Spostare le porte del cluster di nodi dal vecchio switch C2 al nuovo switch cs2, utilizzando il cablaggio appropriato supportato da Cisco 9336C-FX2 e 9336C-FX2-T.
-. Visualizzare gli attributi della porta di rete:
+. Visualizza gli attributi della porta di rete:
 +
 `network port show -ipspace Cluster`
 
@@ -355,7 +355,7 @@ e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
 ----
 ====
-. Le porte del cluster su ciascun nodo sono ora collegate agli switch del cluster nel seguente modo, dal punto di vista dei nodi:
+. Le porte del cluster su ciascun nodo sono ora collegate agli switch del cluster nel modo seguente, dal punto di vista dei nodi:
 +
 `network device-discovery show -protocol`
 
@@ -378,7 +378,7 @@ node2      /cdp
             e3b    cs2 (b8:ce:f6:19:1b:96)   Ethernet1/1/2     N9K-C9336C-FX2
 ----
 ====
-. Sullo switch cs2, verificare che tutte le porte del cluster di nodi siano in funzione:
+. Sullo switch cs2, verificare che tutte le porte del cluster dei nodi siano attive:
 +
 `network interface show -vserver Cluster`
 
@@ -399,7 +399,7 @@ Cluster
             node2_clus2  up/up      169.254.3.9/16     node2       e0b     true
 ----
 ====
-. Sullo switch C1, chiudere le porte collegate alle porte del cluster dei nodi per eseguire il failover delle LIF del cluster.
+. Sullo switch C1, spegnere le porte collegate alle porte del cluster dei nodi per eseguire il failover dei LIF del cluster.
 +
 [listing, subs="+quotes"]
 ----
@@ -415,7 +415,7 @@ Cluster
 `network port show -ipspace Cluster`
 
 +
-Ogni porta dovrebbe essere visualizzata `up` per `Link` e. `healthy` per `Health Status`.
+Ogni porta dovrebbe visualizzare `up` per `Link` E `healthy` per `Health Status` .
 
 +
 .Mostra esempio
@@ -442,7 +442,7 @@ e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
 ----
 ====
-. Le porte del cluster su ciascun nodo sono ora collegate agli switch del cluster nel seguente modo, dal punto di vista dei nodi:
+. Le porte del cluster su ciascun nodo sono ora collegate agli switch del cluster nel modo seguente, dal punto di vista dei nodi:
 +
 `network device-discovery show -protocol`
 
@@ -465,7 +465,7 @@ node2      /cdp
             e3b    cs2 (b8:ce:f6:19:1b:96)   Ethernet1/1/2   N9K-C9336C-FX2
 ----
 ====
-. Sugli switch cs1 e cs2, verificare che tutte le porte del cluster di nodi siano in funzione:
+. Sugli switch cs1 e cs2, verificare che tutte le porte del cluster di nodi siano attive:
 +
 `network port show -ipspace Cluster`
 
@@ -494,7 +494,7 @@ e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-. Verificare che entrambi i nodi dispongano di una connessione a ciascuno switch:
+. Verificare che entrambi i nodi abbiano una connessione a ciascun switch:
 +
 `network device-discovery show -protocol`
 
@@ -523,13 +523,13 @@ node2      /cdp
 
 
 
-=== Fase 3: Verificare la configurazione
+=== Passaggio 3: verificare la configurazione
 
-. Abilitare il ripristino automatico sulle LIF del cluster:
+. Abilita il ripristino automatico sui LIF del cluster:
 +
 `cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Verificare che tutte le LIF della rete del cluster siano nuovamente presenti sulle porte domestiche:
+. Verificare che tutti i LIF della rete cluster siano di nuovo sulle loro porte home:
 +
 `network interface show`
 
@@ -551,15 +551,15 @@ Cluster
             node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
 ----
 ====
-. Modificare nuovamente il livello di privilegio in admin:
+. Ripristinare il livello di privilegio su amministratore:
 +
 `set -privilege admin`
 
-. Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
+. Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver migrato gli switch, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

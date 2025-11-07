@@ -13,23 +13,23 @@ summary: Panoramica della configurazione software per gli switch cluster Cisco N
 [role="lead"]
 Per installare e configurare il software per uno switch Cisco Nexus 3232C e installare o aggiornare il file di configurazione di riferimento (RCF), attenersi alla seguente procedura:
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-switch.html["Configurare lo switch"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-switch.html["Configurare l'interruttore"]
 [role="quick-margin-para"]
 Configurare lo switch cluster 3232C.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:prepare-install-cisco-nexus-3232c.html["Preparare l'installazione del software NX-OS e di RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:prepare-install-cisco-nexus-3232c.html["Prepararsi all'installazione del software NX-OS e RCF"]
 [role="quick-margin-para"]
 Il software Cisco NX-OS e i file di configurazione di riferimento (RCF) devono essere installati sugli switch cluster Cisco 3232C.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-nx-os-software-3232c.html["Installare o aggiornare il software NX-OS"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-nx-os-software-3232c.html["Installa o aggiorna il software NX-OS"]
 [role="quick-margin-para"]
 Scaricare e installare o aggiornare il software NX-OS sullo switch cluster Cisco 3232C.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:install-rcf-3232c.html["Installare RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:install-rcf-3232c.html["Installare l'RCF"]
 [role="quick-margin-para"]
 Installare l'RCF dopo aver configurato per la prima volta lo switch Cisco 3232C.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-ssh-keys.html["Verificare la configurazione SSH"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-ssh-keys.html["Verifica la configurazione SSH"]
 [role="quick-margin-para"]
 Verificare che SSH sia abilitato sugli switch per utilizzare le funzionalità di monitoraggio dello stato dello switch Ethernet (CSHM) e di raccolta dei registri.
 

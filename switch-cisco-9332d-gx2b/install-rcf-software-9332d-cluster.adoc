@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install rcf, cisco switches 
 summary: 'È possibile installare l"RCF dopo aver configurato per la prima volta lo switch Nexus 9332D-GX2B.' 
 ---
-= Installazione del file di configurazione di riferimento (RCF)
+= Installare il file di configurazione di riferimento (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -16,26 +16,26 @@ Dopo aver configurato per la prima volta lo switch Nexus 9332D-GX2B, installare 
 .Prima di iniziare
 Verificare le seguenti installazioni e connessioni:
 
-* Collegamento della console allo switch. Il collegamento alla console è opzionale se si dispone dell'accesso remoto allo switch.
-* Lo switch CS1 e lo switch CS2 sono accesi e la configurazione iniziale dello switch è completa (l'indirizzo IP di gestione e SSH è impostato).
-* È stata installata la versione NX-OS desiderata.
-* Le connessioni ISL tra gli switch sono collegate.
+* Una connessione della console allo switch.  La connessione alla console è facoltativa se si ha accesso remoto allo switch.
+* Gli switch cs1 e cs2 vengono accesi e la configurazione iniziale dello switch è completata (l'indirizzo IP di gestione e SSH sono configurati).
+* La versione NX-OS desiderata è stata installata.
+* Le connessioni ISL tra gli switch sono connesse.
 
 
 
 
-== Fase 1: Installare l'RCF sugli interruttori
+== Fase 1: installare l'RCF sugli switch
 
-. Accedere allo switch CS1 usando SSH o usando una console seriale.
-. Copiare l'RCF nella memoria di avvio dello switch CS1 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
+. Accedi per cambiare cs1 tramite SSH o tramite una console seriale.
+. Copiare l'RCF nel bootflash dello switch cs1 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
 +
-Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS Command Reference"^] guide.
+Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] guide.
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-Questo esempio mostra l'utilizzo di TFTP per copiare un RCF nel bootflash dello switch CS1:
+Questo esempio mostra come TFTP viene utilizzato per copiare un RCF nel bootflash sullo switch cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -49,7 +49,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Applicare l'RCF precedentemente scaricato al bootflash.
 +
-Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS Command Reference"^] guide.
+Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] guide.
 
 +
 Questo esempio mostra il file RCF `NX9332D-GX2B-RCF-v10.0-Shared.txt` in fase di installazione sullo switch cs1:
@@ -59,7 +59,7 @@ Questo esempio mostra il file RCF `NX9332D-GX2B-RCF-v10.0-Shared.txt` in fase di
 ----
 cs1# *copy NX9332D-GX2B-RCF-v10.0-Shared.txt running-config echo-commands*
 ----
-. Esaminare l'output dello striscione da `show banner motd` comando. Leggere e seguire queste istruzioni per garantire la corretta configurazione e il corretto funzionamento dello switch.
+. Esaminare l'output del banner dal `show banner motd` comando. Per garantire la corretta configurazione e il corretto funzionamento dello switch, è necessario leggere e seguire queste istruzioni.
 +
 .Mostra esempio
 [%collapsible]
@@ -89,14 +89,14 @@ cs1# show banner motd
 `show running-config`
 
 +
-Quando si controlla l'output per verificare che l'RCF sia corretto, assicurarsi che le seguenti informazioni siano corrette:
+Quando controlli l'output per verificare di avere l'RCF corretto, assicurati che le seguenti informazioni siano corrette:
 
 +
-** Il banner RCF
-** Le impostazioni di nodo e porta
+** Lo striscione RCF
+** Le impostazioni del nodo e della porta
 ** Personalizzazioni
 +
-L'output varia in base alla configurazione del sito. Controllare le impostazioni della porta e fare riferimento alle note di rilascio per eventuali modifiche specifiche all'RCF installato.
+L'output varia in base alla configurazione del sito.  Controllare le impostazioni della porta e fare riferimento alle note di rilascio per eventuali modifiche specifiche all'RCF installato.
 
 
 
@@ -135,7 +135,7 @@ Assicurati di configurare quanto segue:
 `cs1# echo "hardware access-list tcam region ing-l2-qos 1536" >> bootflash:write_erase.cfg`
 
 +
-Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch Cisco Interconnect mantenendo la connettività remota"^] per ulteriori dettagli.
+Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori dettagli.
 
 . Verificare che il `write_erase.cfg` il file è popolato come previsto:
 +
@@ -168,7 +168,7 @@ Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/
 
 
 
-== Fase 2: Verificare i collegamenti dello switch
+== Passaggio 2: verificare le connessioni dello switch
 
 . Verificare che le porte dello switch collegate alle porte del cluster siano attive:
 +
@@ -447,9 +447,9 @@ Po1           1
 ====
 +
 
-NOTE: Per informazioni dettagliate sull'utilizzo di porte e VLAN specifiche, fare riferimento alla sezione banner e note importanti nell'RCF.
+NOTE: Per informazioni specifiche sull'utilizzo di porte e VLAN, fare riferimento alla sezione banner e note importanti nel RCF.
 
-. Verificare che l'ISL tra cs1 e cs2 funzioni correttamente:
+. Verificare che l'ISL tra cs1 e cs2 sia funzionante:
 +
 [source, cli]
 ----
@@ -483,13 +483,13 @@ cs1#
 
 
 
-== Fase 3: Configurare il cluster ONTAP
+== Passaggio 3: configura il tuo cluster ONTAP
 
 NetApp consiglia di utilizzare System Manager per configurare nuovi cluster.
 
-System Manager offre un workflow semplice e facile per la configurazione e la configurazione del cluster, che include l'assegnazione di un indirizzo IP di gestione dei nodi, l'inizializzazione del cluster, la creazione di un Tier locale, la configurazione dei protocolli e il provisioning dello storage iniziale.
+System Manager fornisce un flusso di lavoro semplice e facile per l'impostazione e la configurazione del cluster, tra cui l'assegnazione di un indirizzo IP di gestione del nodo, l'inizializzazione del cluster, la creazione di un livello locale, la configurazione dei protocolli e il provisioning dello storage iniziale.
 
-Passare a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurare ONTAP su un nuovo cluster con Gestione di sistema"] per le istruzioni di installazione.
+Vai a https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurare ONTAP su un nuovo cluster con System Manager"] per le istruzioni di installazione.
 
-.Quali sono le prossime novità?
-Dopo aver installato l'RCF,link:configure-ssh-keys.html["verificare la configurazione SSH"] .
+.Cosa succederà ora?
+Dopo aver installato l'RCF, link:configure-ssh-keys.html["verificare la configurazione SSH"].

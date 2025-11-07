@@ -2,19 +2,19 @@
 permalink: switch-cisco-3132q-v/migrate-switchless-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: È possibile utilizzare gli switch Cisco Nexus 3132q-v come switch cluster nel cluster AFF o FAS. 
+summary: È possibile utilizzare gli switch Cisco Nexus 3132q-v come switch cluster nel cluster AFF o FAS . 
 ---
-= Preparare la migrazione da cluster senza switch a cluster con switch
+= Prepararsi alla migrazione da cluster switchless a cluster switching
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questa procedura per preparare il tuo cluster senza switch per la migrazione a un cluster a due nodi con switch.
+Segui questi passaggi per preparare il tuo cluster switchless per la migrazione a un cluster switched a due nodi.
 
-.Fasi
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+.Passi
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
@@ -24,12 +24,12 @@ _x_ è la durata della finestra di manutenzione in ore.
 +
 [NOTE]
 ====
-Il messaggio AutoSupport informa il supporto tecnico di questa attività di manutenzione in modo che la creazione automatica del caso venga soppressa durante la finestra di manutenzione.
+Il messaggio AutoSupport avvisa il supporto tecnico di questa attività di manutenzione, in modo che la creazione automatica dei casi venga soppressa durante la finestra di manutenzione.
 
 ====
-. Determinare lo stato amministrativo o operativo di ciascuna interfaccia del cluster:
+. Determinare lo stato amministrativo o operativo per ciascuna interfaccia del cluster:
 +
-.. Visualizzare gli attributi della porta di rete:
+.. Visualizza gli attributi della porta di rete:
 +
 `network port show`
 
@@ -84,20 +84,20 @@ Cluster
 ====
 
 
-. Verificare che gli RCF e l'immagine appropriati siano installati sui nuovi switch 3132Q-V in base alle proprie esigenze e personalizzare il sito in modo essenziale, ad esempio utenti e password, indirizzi di rete e così via.
+. Verificare che sui nuovi switch 3132Q-V siano installati gli RCF e l'immagine appropriati in base alle proprie esigenze ed effettuare eventuali personalizzazioni essenziali del sito, come utenti e password, indirizzi di rete e così via.
 +
-È necessario preparare entrambi gli switch in questa fase. Se è necessario aggiornare il software RCF e delle immagini, attenersi alla seguente procedura:
+A questo punto è necessario preparare entrambi gli switch.  Se è necessario aggiornare il software RCF e quello delle immagini, è necessario seguire questi passaggi:
 
 +
 .. Vai alink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^] sul sito di supporto NetApp .
-.. Annotare lo switch e le versioni software richieste nella tabella riportata in tale pagina.
-.. Scaricare la versione appropriata di RCF.
-.. Selezionare *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza, quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
-.. Scaricare la versione appropriata del software dell'immagine.
+.. Annota il tuo switch e le versioni software richieste nella tabella in quella pagina.
+.. Scarica la versione appropriata di RCF.
+.. Selezionare *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza e quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
+.. Scarica la versione appropriata del software per le immagini.
 
 
-. Selezionare *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza, quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
+. Selezionare *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza e quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
 
 
-.Quali sono le prossime novità?
-link:migrate-switchless-configure-ports.html["Configurare le porte"].
+.Cosa succederà ora?
+link:migrate-switchless-configure-ports.html["Configura le tue porte"].

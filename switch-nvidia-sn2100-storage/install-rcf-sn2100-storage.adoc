@@ -2,9 +2,9 @@
 permalink: switch-nvidia-sn2100-storage/install-rcf-sn2100-storage.html 
 sidebar: sidebar 
 keywords: install rcf script, python script, sn2100 SN2100 switches, cumulus 
-summary: Seguire questa procedura per installare lo script RCF. 
+summary: Per installare lo script RCF, seguire questa procedura. 
 ---
-= Installare o aggiornare lo script RCF
+= Installa o aggiorna lo script RCF
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,27 +14,27 @@ summary: Seguire questa procedura per installare lo script RCF.
 Seguire questa procedura per installare o aggiornare lo script RCF.
 
 .Prima di iniziare
-Prima di installare o aggiornare lo script RCF, assicurarsi che sullo switch siano disponibili le seguenti opzioni:
+Prima di installare o aggiornare lo script RCF, assicurarsi che sullo switch siano disponibili i seguenti elementi:
 
 * Cumulus Linux 4.4.3 è installato.
-* Indirizzo IP, subnet mask e gateway predefinito definiti tramite DHCP o configurati manualmente.
+* Indirizzo IP, maschera di sottorete e gateway predefinito definiti tramite DHCP o configurati manualmente.
 
 
-.Versioni correnti degli script RCF
-Sono disponibili due script RCF per le applicazioni di clustering e storage. La procedura per ciascuno di essi è la stessa.
+.Versioni attuali dello script RCF
+Sono disponibili due script RCF per le applicazioni di clustering e storage.  La procedura è la stessa per entrambi.
 
 * Clustering: *MSN2100-RCF-v1._x_-Cluster*
-* Storage: *MSN2100-RCF-v1._x_-Storage*
+* Archiviazione: *MSN2100-RCF-v1._x_-Archiviazione*
 
 
 
-NOTE: La seguente procedura di esempio mostra come scaricare e applicare lo script RCF per gli switch del cluster.
+NOTE: La seguente procedura di esempio mostra come scaricare e applicare lo script RCF per gli switch Cluster.
 
 
-NOTE: L'output di comando di esempio utilizza l'indirizzo IP di gestione dello switch 10.233.204.71, la netmask 255.255.254.0 e il gateway predefinito 10.233.204.1.
+NOTE: L'output del comando di esempio utilizza l'indirizzo IP di gestione dello switch 10.233.204.71, la netmask 255.255.254.0 e il gateway predefinito 10.233.204.1.
 
-.Fasi
-. Visualizzare le interfacce disponibili sullo switch SN2100:
+.Passi
+. Visualizza le interfacce disponibili sullo switch SN2100:
 +
 `net show interface all`
 
@@ -68,7 +68,7 @@ ADMDN  swp15  N/A  9216   NotConfigured
 ADMDN  swp16  N/A  9216   NotConfigured
 ----
 ====
-. Copiare lo script python RCF sullo switch:
+. Copia lo script RCF Python sullo switch:
 +
 [listing, subs="+quotes"]
 ----
@@ -101,13 +101,13 @@ Step 12: Configure SNMP
 Step 13: Reboot the switch
 ----
 +
-Lo script RCF completa le istruzioni elencate sopra.
+Lo script RCF completa i passaggi elencati sopra.
 
 +
 
-NOTE: Per qualsiasi problema di script RCF python che non può essere corretto, contatta https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
+NOTE: Per qualsiasi problema relativo allo script python RCF che non può essere corretto, contattare https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
 
-. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-sn2100-storage.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
+. Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.  Fare riferimento alink:cabling-considerations-sn2100-storage.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per i dettagli di eventuali ulteriori modifiche richieste.
 . Verificare la configurazione dopo il riavvio:
 +
 `net show interface all`
@@ -179,7 +179,7 @@ switch-priority  TC  ETS
 5                 5  DWRR 43%
 ----
 ====
-. Verificare le informazioni relative al ricetrasmettitore nell'interfaccia:
+. Verificare le informazioni per il ricetrasmettitore nell'interfaccia:
 +
 `net show interface pluggables`
 
@@ -198,7 +198,7 @@ swp15      0x11 (QSFP28)  Amphenol     112-00573        APF21109348001
 swp16      0x11 (QSFP28)  Amphenol     112-00573        APF21109347895  B0
 ----
 ====
-. Verificare che i nodi dispongano di una connessione a ciascuno switch:
+. Verificare che ciascun nodo abbia una connessione con ciascun switch:
 +
 `net show lldp`
 
@@ -220,7 +220,7 @@ swp16      100G   BondMember  sw14                    swp16
 ====
 . Verificare lo stato delle porte del cluster sul cluster.
 +
-.. Verificare che le porte e0d siano in buone condizioni su tutti i nodi del cluster:
+.. Verificare che le porte e0d siano attive e funzionanti su tutti i nodi del cluster:
 +
 `network port show -role cluster`
 
@@ -249,7 +249,7 @@ e3a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-.. Verificare lo stato dello switch dal cluster (potrebbe non essere visualizzato lo switch sw2, poiché i LIF non sono presenti su e0d).
+.. Verificare lo stato di integrità dello switch dal cluster (potrebbe non essere visualizzato lo switch sw2, poiché i LIF non sono posizionati su e0d).
 +
 .Mostra esempio
 [%collapsible]
@@ -293,5 +293,5 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver installato o aggiornato RCF, puoilink:setup-install-cshm-file.html["installare il file CSHM"] .

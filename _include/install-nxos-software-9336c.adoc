@@ -1,55 +1,54 @@
-= Verifica dei requisiti
+= Requisiti di revisione
 :allow-uri-read: 
 
 
 
 
-== Verifica dei requisiti
+== Requisiti di revisione
 
 .Prima di iniziare
-Assicurarsi di disporre di quanto segue:
+Assicurati di avere quanto segue:
 
-* Backup corrente della configurazione dello switch.
+* Un backup attuale della configurazione dello switch.
 * Un cluster completamente funzionante (nessun errore nei log o problemi simili).
 
 
-.Documentazione consigliata
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Pagina switch Ethernet Cisco"^]
+.Documentazione suggerita
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Pagina dello switch Ethernet Cisco"^]
 +
-Consultare la tabella di compatibilità degli switch per le versioni supportate di ONTAP e NX-OS.
+Consultare la tabella di compatibilità degli switch per le versioni ONTAP e NX-OS supportate.
 
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guide all'aggiornamento e al downgrade del software"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guide per l'aggiornamento e il downgrade del software"^]
 +
-Per la documentazione completa sulle procedure di aggiornamento e di downgrade degli switch Cisco, consultare le guide appropriate per il software e l'aggiornamento disponibili sul sito Web di Cisco.
+Per la documentazione completa sulle procedure di upgrade e downgrade degli switch Cisco , fare riferimento alle guide software e di aggiornamento appropriate disponibili sul sito Web Cisco .
 
-* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Upgrade di Cisco Nexus 9000 e 3000 e matrice ISSU"^]
+* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Aggiornamento Cisco Nexus 9000 e 3000 e matrice ISSU"^]
 +
-Fornisce informazioni su Disruptive Upgrade/Downgrade del software Cisco NX-OS sugli switch della serie Nexus 9000
-in base alle release attuali e a quelle di destinazione.
+Fornisce informazioni sull'aggiornamento/downgrade dirompente per il software Cisco NX-OS sugli switch Nexus serie 9000 in base alle versioni correnti e di destinazione.
 
 +
-Nella pagina, selezionare *Disruptive Upgrade* (aggiornamento distruttivo) e selezionare la release corrente e la release di destinazione dall'elenco a discesa.
+Nella pagina, seleziona *Disruptive Upgrade* e seleziona la versione corrente e quella di destinazione dall'elenco a discesa.
 
 
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
 * I nomi dei due switch Cisco sono cs1 e cs2.
 * I nomi dei nodi sono cluster1-01, cluster1-02, cluster1-03 e cluster1-04.
-* I nomi LIF del cluster sono cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2 , cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 e cluster1-04_clus2.
-* Il `cluster1::*>` prompt indica il nome del cluster.
+* I nomi LIF dei cluster sono cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 e cluster1-04_clus2.
+* IL `cluster1::*>` il prompt indica il nome del cluster.
 
 
 
 
-== Installare il software
+== Installa il software
 
-La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 9000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
+La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 9000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
 
-.Fasi
+.Passi
 . Collegare lo switch del cluster alla rete di gestione.
-. Utilizzare il comando ping per verificare la connettività al server che ospita il software NX-OS e RCF.
+. Utilizzare il comando ping per verificare la connettività al server che ospita il software NX-OS e l'RCF.
 +
 .Mostra esempio
 [%collapsible]
@@ -64,7 +63,7 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. Visualizzare le porte del cluster su ciascun nodo collegato agli switch del cluster:
+. Visualizza le porte del cluster su ciascun nodo connesso agli switch del cluster:
 +
 `network device-discovery show`
 
@@ -93,9 +92,9 @@ cluster1-04/cdp
 cluster1::*>
 ----
 ====
-. Controllare lo stato amministrativo e operativo di ciascuna porta del cluster.
+. Controllare lo stato amministrativo e operativo di ogni porta del cluster.
 +
-.. Verificare che tutte le porte del cluster siano *up* con uno stato integro:
+.. Verificare che tutte le porte del cluster siano *attive* e in stato di integrità:
 +
 `network port show -role cluster`
 
@@ -143,7 +142,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. Verificare che tutte le interfacce del cluster (LIF) siano sulla porta home:
+.. Verificare che tutte le interfacce cluster (LIF) siano sulla porta home:
 +
 `network interface show -role cluster`
 
@@ -203,11 +202,11 @@ cluster1::*>
 ====
 
 
-. Disattiva l'autorevert sulle LIF del cluster. Le LIF del cluster eseguono il failover sullo switch del cluster partner e rimangono nella pagina man mano che si esegue la procedura di upgrade sullo switch target:
+. Disabilitare il ripristino automatico sui LIF del cluster.  I LIF del cluster eseguono il failover sullo switch del cluster partner e vi rimangono mentre si esegue la procedura di aggiornamento sullo switch di destinazione:
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. Copia il software NX-OS e le immagini EPLD sullo switch Nexus 9336C-FX2.
+. Copiare il software NX-OS e le immagini EPLD sullo switch Nexus 9336C-FX2.
 +
 .Mostra esempio
 [%collapsible]
@@ -313,7 +312,7 @@ cs2#
 ====
 . Installare l'immagine NX-OS.
 +
-L'installazione del file immagine ne provoca il caricamento ogni volta che lo switch viene riavviato.
+L'installazione del file immagine fa sì che questo venga caricato ogni volta che lo switch viene riavviato.
 
 +
 .Mostra esempio
@@ -494,7 +493,7 @@ EPLDs upgraded.
 Module 1 EPLD upgrade is successful.
 ----
 ====
-. Dopo il riavvio dello switch, accedere nuovamente e verificare che la nuova versione di EPLD sia stata caricata correttamente.
+. Dopo il riavvio dello switch, effettuare nuovamente l'accesso e verificare che la nuova versione di EPLD sia stata caricata correttamente.
 +
 .Mostra esempio
 [%collapsible]
@@ -516,7 +515,7 @@ GEM  FPGA                        0x2
 ====
 . Verificare lo stato delle porte del cluster sul cluster.
 +
-.. Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:
+.. Verificare che le porte del cluster siano attive e funzionanti su tutti i nodi del cluster:
 +
 `network port show -role cluster`
 
@@ -562,7 +561,7 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-.. Verificare lo stato dello switch dal cluster.
+.. Verificare lo stato di integrità dello switch dal cluster.
 +
 `network device-discovery show -protocol cdp`
 
@@ -610,7 +609,7 @@ cs2                         cluster-network    10.233.205.91    N9K-C9336C-FX2
 
 2 entries were displayed.
 ----
-A seconda della versione RCF precedentemente caricata sullo switch, sulla console dello switch cs1 potrebbero essere presenti i seguenti output:
+A seconda della versione RCF precedentemente caricata sullo switch, è possibile che venga visualizzato il seguente output sulla console dello switch cs1:
 
 [listing]
 ----
@@ -621,7 +620,7 @@ A seconda della versione RCF precedentemente caricata sullo switch, sulla consol
 ====
 
 
-. Verificare che il cluster funzioni correttamente:
+. Verificare che il cluster sia integro:
 +
 `cluster show`
 
@@ -642,12 +641,12 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Ripetere i passaggi da 6 a 13 per installare il software NX-OS sullo switch CS1.
-. Abilitare il ripristino automatico sulle LIF del cluster.
+. Ripetere i passaggi da 6 a 13 per installare il software NX-OS sullo switch cs1.
+. Abilita il ripristino automatico sui LIF del cluster.
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Verificare che le LIF del cluster siano tornate alla porta home:
+. Verificare che i LIF del cluster siano tornati alla loro porta home:
 +
 `network interface show -role cluster`
 
@@ -675,7 +674,7 @@ cluster1::*>
 ----
 ====
 +
-In caso di mancato ritorno delle LIF del cluster alle porte home, puoi ripristinarle manualmente dal nodo locale:
+Se alcuni LIF del cluster non sono tornati alle loro porte home, ripristinarli manualmente dal nodo locale:
 
 +
 `network interface revert -vserver Cluster -lif <lif_name>`

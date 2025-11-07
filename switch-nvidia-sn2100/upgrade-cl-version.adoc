@@ -2,24 +2,24 @@
 permalink: switch-nvidia-sn2100/upgrade-cl-version.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: Completare i seguenti passaggi per aggiornare la versione di Cumulus Linux. 
+summary: Completa i seguenti passaggi per aggiornare la tua versione di Cumulus Linux. 
 ---
-= Aggiornare le versioni di Cumulus Linux
+= Aggiorna le versioni di Cumulus Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Completare la seguente procedura per aggiornare la versione di Cumulus Linux secondo necessità.
+Completa la seguente procedura per aggiornare la tua versione di Cumulus Linux come richiesto.
 
 .Prima di iniziare
-Assicurarsi di disporre di quanto segue:
+Assicurati di avere quanto segue:
 
-* Conoscenza di livello intermedio di Linux.
-* Familiarità con la modifica di base del testo, le autorizzazioni dei file UNIX e il monitoraggio dei processi. Sono preinstallati diversi editor di testo, tra cui `vi` e. `nano`.
-* Accesso a una shell Linux o UNIX. Se si utilizza Windows, utilizzare un ambiente Linux come strumento della riga di comando per interagire con Cumulus Linux.
-* Il requisito della velocità di trasmissione è impostato su 115200 sullo switch della console seriale per l'accesso alla console dello switch NVIDIA SN2100, come segue:
+* Conoscenza di Linux di livello intermedio.
+* Familiarità con le nozioni di base di modifica del testo, autorizzazioni dei file UNIX e monitoraggio dei processi.  Sono preinstallati diversi editor di testo, tra cui `vi` E `nano` .
+* Accesso a una shell Linux o UNIX.  Se utilizzi Windows, utilizza un ambiente Linux come strumento da riga di comando per interagire con Cumulus Linux.
+* Il requisito di velocità in baud è impostato su 115200 sullo switch della console seriale per l'accesso alla console dello switch NVIDIA SN2100, come segue:
 +
 ** 115200 baud
 ** 8 bit di dati
@@ -30,35 +30,35 @@ Assicurarsi di disporre di quanto segue:
 
 
 
-.A proposito di questa attività
-Tenere presente quanto segue:
+.Informazioni su questo compito
+Siate consapevoli di quanto segue:
 
 
-NOTE: Ogni volta che Cumulus Linux viene aggiornato, l'intera struttura del file system viene cancellata e ricostruita. La configurazione esistente verrà cancellata. È necessario salvare e registrare la configurazione dello switch prima di aggiornare Cumulus Linux.
+NOTE: Ogni volta che Cumulus Linux viene aggiornato, l'intera struttura del file system viene cancellata e ricostruita.  La configurazione esistente verrà cancellata.  Prima di aggiornare Cumulus Linux, è necessario salvare e registrare la configurazione dello switch.
 
 
-CAUTION: La password predefinita per l'account utente cumulus è *cumulus*. La prima volta che si accede a Cumulus Linux, è necessario modificare questa password predefinita. È necessario aggiornare gli script di automazione prima di installare una nuova immagine. Cumulus Linux offre opzioni della riga di comando per modificare automaticamente la password predefinita durante il processo di installazione.
+CAUTION: La password predefinita per l'account utente Cumulus è *cumulus*.  La prima volta che accedi a Cumulus Linux, devi modificare questa password predefinita.  È necessario aggiornare tutti gli script di automazione prima di installare una nuova immagine.  Cumulus Linux fornisce opzioni da riga di comando per modificare automaticamente la password predefinita durante il processo di installazione.
 
-Per ulteriori informazioni, vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-510/Installation-Management/Installing-a-New-Cumulus-Linux-Image/["Installazione di una nuova immagine Cumulus Linux"^].
+Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-510/Installation-Management/Installing-a-New-Cumulus-Linux-Image/["Installazione di una nuova immagine Cumulus Linux"^] per ulteriori informazioni.
 
-.Fasi
+.Passi
 [role="tabbed-block"]
 ====
 .Da Cumulus Linux 4.4.x a Cumulus Linux 5.4.0
 --
 . Collegare lo switch del cluster alla rete di gestione.
 . Utilizzare il comando ping per verificare la connettività al server che ospita Cumulus Linux e RCF.
-. Visualizzare le porte del cluster su ciascun nodo collegato agli switch del cluster:
+. Visualizza le porte del cluster su ciascun nodo connesso agli switch del cluster:
 +
 `network device-discovery show`
 
-. Controllare lo stato amministrativo e operativo di ciascuna porta del cluster.
+. Controllare lo stato amministrativo e operativo di ogni porta del cluster.
 +
-.. Verificare che tutte le porte del cluster siano funzionanti:
+.. Verificare che tutte le porte del cluster siano attive e integre:
 +
 `network port show -role cluster`
 
-.. Verificare che tutte le interfacce del cluster (LIF) siano sulla porta home:
+.. Verificare che tutte le interfacce cluster (LIF) siano sulla porta home:
 +
 `network interface show -role cluster`
 
@@ -68,11 +68,11 @@ Per ulteriori informazioni, vedere https://docs.nvidia.com/networking-ethernet-s
 
 
 
-. Disattiva l'autorevert sulle LIF del cluster. Le LIF del cluster eseguono il failover sullo switch del cluster partner e rimangono nella pagina man mano che si esegue la procedura di upgrade sullo switch target:
+. Disabilitare il ripristino automatico sui LIF del cluster.  I LIF del cluster eseguono il failover sullo switch del cluster partner e vi rimangono mentre si esegue la procedura di aggiornamento sullo switch di destinazione:
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. Controllare la versione corrente di Cumulus Linux e le porte collegate:
+. Controlla la versione corrente di Cumulus Linux e le porte connesse:
 +
 [listing, subs="+quotes"]
 ----
@@ -109,7 +109,7 @@ UP     swp6    100G  9216   Trunk/L2    SHFFG1826000102 (e0b)   Master: bridge(U
 .
 .
 ----
-. Scarica l'immagine di Cumulux Linux 5.4.0:
+. Scarica l'immagine Cumulux Linux 5.4.0:
 +
 [listing, subs="+quotes"]
 ----
@@ -141,7 +141,7 @@ Reboot required to take effect.
 ----
 cumulus@cumulus:mgmt:~$ *sudo reboot*
 ----
-. Modificare la password:
+. Cambia la password:
 +
 [listing, subs="+quotes"]
 ----
@@ -158,7 +158,7 @@ Welcome to NVIDIA Cumulus (R) Linux (R)
 
 ZTP in progress. To disable, do 'ztp -d'
 ----
-. Controllare la versione di Cumulus Linux: `nv show system`
+. Controlla la versione di Cumulus Linux: `nv show system`
 +
 [listing, subs="+quotes"]
 ----
@@ -170,7 +170,7 @@ build      Cumulus Linux 5.4.0
 uptime     14:07:08
 timezone   Etc/UTC
 ----
-. Modificare il nome host:
+. Cambia il nome host:
 +
 [listing, subs="+quotes"]
 ----
@@ -182,7 +182,7 @@ Warning: The following files have been changed since the last save, and they WIL
 .
 .
 ----
-. Disconnettersi e accedere nuovamente allo switch per visualizzare il nome aggiornato dello switch al prompt:
+. Disconnettersi e accedere nuovamente allo switch per visualizzare il nome dello switch aggiornato al prompt:
 +
 [listing, subs="+quotes"]
 ----
@@ -203,7 +203,7 @@ ZTP in progress. To disable, do 'ztp -d'
 
 cumulus@sw1:mgmt:~$
 ----
-. Impostare l'indirizzo IP:
+. Imposta l'indirizzo IP:
 +
 [listing, subs="+quotes"]
 ----
@@ -217,7 +217,7 @@ unreachable default metric 4278198272
 10.231.80.0/22 dev eth0 proto kernel scope link src 10.231.80.206
 127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
 ----
-. Creare un nuovo utente e aggiungerlo a. `sudo` gruppo. Questo utente diventa effettivo solo dopo il riavvio della sessione console/SSH.
+. Crea un nuovo utente e aggiungilo a `sudo` gruppo.  Questo utente diventa effettivo solo dopo il riavvio della sessione console/SSH.
 +
 `sudo adduser --ingroup netedit admin`
 
@@ -262,7 +262,7 @@ http://www.cumulusnetworks.com/support
 The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
 admin@sw1:mgmt:~$
 ----
-. Aggiungere ulteriori gruppi di utenti a cui l'utente amministratore può accedere `nv` comandi:
+. Aggiungere gruppi di utenti aggiuntivi a cui l'utente amministratore può accedere `nv` comandi:
 +
 [listing, subs="+quotes"]
 ----
@@ -273,7 +273,7 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["NVIDIA User account (account utente NVIDIA)"^] per ulteriori informazioni.
+Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Account utente NVIDIA"^] per maggiori informazioni.
 
 
 
@@ -282,17 +282,17 @@ Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/Sys
 --
 . Collegare lo switch del cluster alla rete di gestione.
 . Utilizzare il comando ping per verificare la connettività al server che ospita Cumulus Linux e RCF.
-. Visualizzare le porte del cluster su ciascun nodo collegato agli switch del cluster:
+. Visualizza le porte del cluster su ciascun nodo connesso agli switch del cluster:
 +
 `network device-discovery show`
 
-. Controllare lo stato amministrativo e operativo di ciascuna porta del cluster.
+. Controllare lo stato amministrativo e operativo di ogni porta del cluster.
 +
-.. Verificare che tutte le porte del cluster siano funzionanti:
+.. Verificare che tutte le porte del cluster siano attive e integre:
 +
 `network port show -role cluster`
 
-.. Verificare che tutte le interfacce del cluster (LIF) siano sulla porta home:
+.. Verificare che tutte le interfacce cluster (LIF) siano sulla porta home:
 +
 `network interface show -role cluster`
 
@@ -302,11 +302,11 @@ Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/Sys
 
 
 
-. Disattiva l'autorevert sulle LIF del cluster. Le LIF del cluster eseguono il failover sullo switch del cluster partner e rimangono nella pagina man mano che si esegue la procedura di upgrade sullo switch target:
+. Disabilitare il ripristino automatico sui LIF del cluster.  I LIF del cluster eseguono il failover sullo switch del cluster partner e vi rimangono mentre si esegue la procedura di aggiornamento sullo switch di destinazione:
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. Controllare la versione corrente di Cumulus Linux e le porte collegate:
+. Controlla la versione corrente di Cumulus Linux e le porte connesse:
 +
 [listing, subs="+quotes"]
 ----
@@ -333,7 +333,7 @@ Interface     MTU   Speed State Remote Host         Remote Port- Type      Summa
 + swp15      9216 100G    up sw2                      swp15       swp
 + swp16      9216 100G    up sw2                      swp16       swp
 ----
-. Scarica l'immagine di Cumulux Linux 5.4.0:
+. Scarica l'immagine Cumulux Linux 5.4.0:
 +
 [listing, subs="+quotes"]
 ----
@@ -365,7 +365,7 @@ Reboot required to take effect.
 ----
 cumulus@sw1:mgmt:~$ *sudo reboot*
 ----
-. Modificare la password:
+. Cambia la password:
 +
 [listing, subs="+quotes"]
 ----
@@ -382,7 +382,7 @@ Welcome to NVIDIA Cumulus (R) Linux (R)
 
 ZTP in progress. To disable, do 'ztp -d'
 ----
-. Controllare la versione di Cumulus Linux: `nv show system`
+. Controlla la versione di Cumulus Linux: `nv show system`
 +
 [listing, subs="+quotes"]
 ----
@@ -394,7 +394,7 @@ build          Cumulus Linux 5.4.0
 uptime         14:07:08
 timezone       Etc/UTC
 ----
-. Modificare il nome host:
+. Cambia il nome host:
 +
 [listing, subs="+quotes"]
 ----
@@ -406,7 +406,7 @@ Warning: The following files have been changed since the last save, and they WIL
 .
 .
 ----
-. Disconnettersi e accedere nuovamente allo switch per visualizzare il nome aggiornato dello switch al prompt:
+. Disconnettersi e riconnettersi allo switch per visualizzare il nome dello switch aggiornato nel prompt:
 +
 [listing, subs="+quotes"]
 ----
@@ -427,7 +427,7 @@ ZTP in progress. To disable, do 'ztp -d'
 
 cumulus@sw1:mgmt:~$
 ----
-. Impostare l'indirizzo IP:
+. Imposta l'indirizzo IP:
 +
 [listing, subs="+quotes"]
 ----
@@ -442,7 +442,7 @@ unreachable default metric 4278198272
 10.231.80.0/22 dev eth0 proto kernel scope link src 10.231.80.206
 127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
 ----
-. Creare un nuovo utente e aggiungerlo a. `sudo` gruppo. Questo utente diventa effettivo solo dopo il riavvio della sessione console/SSH.
+. Crea un nuovo utente e aggiungilo a `sudo` gruppo.  Questo utente diventa effettivo solo dopo il riavvio della sessione console/SSH.
 +
 `sudo adduser --ingroup netedit admin`
 
@@ -487,7 +487,7 @@ http://www.cumulusnetworks.com/support
 The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
 admin@sw1:mgmt:~$
 ----
-. Aggiungere ulteriori gruppi di utenti a cui l'utente amministratore può accedere `nv` comandi:
+. Aggiungere gruppi di utenti aggiuntivi a cui l'utente amministratore può accedere `nv` comandi:
 +
 [listing, subs="+quotes"]
 ----
@@ -498,7 +498,7 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["NVIDIA User account (account utente NVIDIA)"^] per ulteriori informazioni.
+Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Account utente NVIDIA"^] per maggiori informazioni.
 
 
 
@@ -507,17 +507,17 @@ Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/Sys
 --
 . Collegare lo switch del cluster alla rete di gestione.
 . Utilizzare il comando ping per verificare la connettività al server che ospita Cumulus Linux e RCF.
-. Visualizzare le porte del cluster su ciascun nodo collegato agli switch del cluster:
+. Visualizza le porte del cluster su ciascun nodo connesso agli switch del cluster:
 +
 `network device-discovery show`
 
-. Controllare lo stato amministrativo e operativo di ciascuna porta del cluster.
+. Controllare lo stato amministrativo e operativo di ogni porta del cluster.
 +
-.. Verificare che tutte le porte del cluster siano funzionanti:
+.. Verificare che tutte le porte del cluster siano attive e integre:
 +
 `network port show -role cluster`
 
-.. Verificare che tutte le interfacce del cluster (LIF) siano sulla porta home:
+.. Verificare che tutte le interfacce cluster (LIF) siano sulla porta home:
 +
 `network interface show -role cluster`
 
@@ -527,11 +527,11 @@ Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/Sys
 
 
 
-. Disattiva l'autorevert sulle LIF del cluster. Le LIF del cluster eseguono il failover sullo switch del cluster partner e rimangono nella pagina man mano che si esegue la procedura di upgrade sullo switch target:
+. Disabilitare il ripristino automatico sui LIF del cluster.  I LIF del cluster eseguono il failover sullo switch del cluster partner e vi rimangono mentre si esegue la procedura di aggiornamento sullo switch di destinazione:
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. Controllare la versione corrente di Cumulus Linux e le porte collegate:
+. Controlla la versione corrente di Cumulus Linux e le porte connesse:
 +
 [listing, subs="+quotes"]
 ----
@@ -558,7 +558,7 @@ Interface     MTU   Speed State Remote Host         Remote Port- Type      Summa
 + swp15      9216 100G    up sw2                      swp15       swp
 + swp16      9216 100G    up sw2                      swp16       swp
 ----
-. Scarica l'immagine di Cumulux Linux 5.11.0:
+. Scarica l'immagine Cumulux Linux 5.11.0:
 +
 [listing, subs="+quotes"]
 ----
@@ -590,7 +590,7 @@ Reboot required to take effect.
 ----
 cumulus@sw1:mgmt:~$ *sudo reboot*
 ----
-. Modificare la password:
+. Cambia la password:
 +
 [listing, subs="+quotes"]
 ----
@@ -607,7 +607,7 @@ Welcome to NVIDIA Cumulus (R) Linux (R)
 
 ZTP in progress. To disable, do 'ztp -d'
 ----
-. Controllare la versione di Cumulus Linux: `nv show system`
+. Controlla la versione di Cumulus Linux: `nv show system`
 +
 [listing, subs="+quotes"]
 ----
@@ -619,7 +619,7 @@ build          Cumulus Linux 5.11.0
 uptime         14:07:08
 timezone       Etc/UTC
 ----
-. Modificare il nome host:
+. Cambia il nome host:
 +
 [listing, subs="+quotes"]
 ----
@@ -631,7 +631,7 @@ Warning: The following files have been changed since the last save, and they WIL
 .
 .
 ----
-. Disconnettersi e riconnettersi allo switch per visualizzare il nome dello switch aggiornato al prompt:
+. Disconnettersi e riconnettersi allo switch per visualizzare il nome dello switch aggiornato nel prompt:
 +
 [listing, subs="+quotes"]
 ----
@@ -652,7 +652,7 @@ ZTP in progress. To disable, do 'ztp -d'
 
 cumulus@sw1:mgmt:~$
 ----
-. Impostare l'indirizzo IP:
+. Imposta l'indirizzo IP:
 +
 [listing, subs="+quotes"]
 ----
@@ -671,5 +671,5 @@ unreachable default metric 4278198272
 
 --
 ====
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver aggiornato la versione di Cumulus Linux, puoilink:install-rcf-sn2100-cluster.html["installare o aggiornare lo script RCF"] .

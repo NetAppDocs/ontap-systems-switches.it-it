@@ -17,11 +17,11 @@ Per installare e configurare il software per uno switch Cisco 9364D-GX2A e per i
 [role="quick-margin-para"]
 Configurare lo switch Cisco 9364D-GX2A.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"] link:install-nxos-overview-9364d-cluster.html["Preparare l'installazione del software NX-OS e di RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"] link:install-nxos-overview-9364d-cluster.html["Prepararsi all'installazione del software NX-OS e RCF"]
 [role="quick-margin-para"]
 Installare il software Cisco NX-OS e i file di configurazione di riferimento (RCF) sugli switch Cisco 9364D-GX2A.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-nxos-software-9364d-cluster.html["Installare o aggiornare il software NX-OS"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-nxos-software-9364d-cluster.html["Installa o aggiorna il software NX-OS"]
 [role="quick-margin-para"]
 Scaricare e installare o aggiornare il software NX-OS sullo switch Cisco 9364D-GX2A.
 

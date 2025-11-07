@@ -2,30 +2,30 @@
 permalink: switch-bes-53248/replace-switch.html 
 sidebar: sidebar 
 keywords: replace, replacing, defective, broadcom-supported, bes, cluster, switch, network, nondisruptive, procedure, ndu, replace a broadcom-supported bes-53428 cluster switch - bes-53428 switches 
-summary: La sostituzione di uno switch cluster BES-53248 difettoso supportato da Broadcom in una rete cluster è una procedura senza interruzioni. 
+summary: 'La sostituzione di uno switch cluster BES-53248 difettoso supportato da Broadcom in una rete cluster è una procedura non distruttiva \(NDU\).' 
 ---
-= Sostituire uno switch cluster BES-53248 supportato da Broadcom
+= Sostituisci uno switch cluster BES-53248 supportato da Broadcom
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Seguire questa procedura per sostituire uno switch del cluster BES-53248 supportato da Broadcom difettoso in una rete cluster. Si tratta di una procedura senza interruzioni (NDU).
+Per sostituire uno switch cluster BES-53248 difettoso supportato da Broadcom in una rete cluster, seguire questi passaggi. Si tratta di una procedura non distruttiva (NDU).
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
-* I nomi degli switch BES-53248 esistenti sono `cs1` e. `cs2`.
-* Il nome del nuovo switch BES-53248 è `newcs2`.
-* I nomi dei nodi sono `node1` e. `node2`.
-* Le porte del cluster su ciascun nodo sono denominate `e0a` e. `e0b`.
-* I nomi LIF del cluster sono `node1_clus1` e. `node1_clus2` per il node1, e. `node2_clus1` e. `node2_clus2` per il node2.
-* Il prompt per le modifiche a tutti i nodi del cluster è `cluster1::>`
+* I nomi degli switch BES-53248 esistenti sono `cs1` E `cs2` .
+* Il nome del nuovo switch BES-53248 è `newcs2` .
+* I nomi dei nodi sono `node1` E `node2` .
+* Le porte del cluster su ciascun nodo sono denominate `e0a` E `e0b` .
+* I nomi LIF del cluster sono `node1_clus1` E `node1_clus2` per il nodo 1 e `node2_clus1` E `node2_clus2` per il nodo 2.
+* La richiesta di modifiche a tutti i nodi del cluster è `cluster1::>`
 
 
-.Sulla topologia
-Questa procedura si basa sulla seguente topologia di rete del cluster:
+.Informazioni sulla topologia
+Questa procedura si basa sulla seguente topologia di rete cluster:
 
 .Mostra topologia di esempio
 [%collapsible]
@@ -102,9 +102,9 @@ cs1                      0/55      179       R          BES-53248        0/55
 cs1                      0/56      179       R          BES-53248        0/56
 ----
 ====
-.Fasi
-. Esaminare link:replace-switch-reqs.html["Requisiti per la sostituzione"].
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+.Passi
+. Rivedere illink:replace-switch-reqs.html["Requisiti di sostituzione"] .
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
@@ -113,28 +113,28 @@ dove _x_ è la durata della finestra di manutenzione in ore.
 
 +
 
-NOTE: Il messaggio AutoSupport informa il supporto tecnico di questa attività di manutenzione in modo che la creazione automatica del caso venga soppressa durante la finestra di manutenzione.
+NOTE: Il messaggio AutoSupport avvisa il supporto tecnico di questa attività di manutenzione, in modo che la creazione automatica dei casi venga soppressa durante la finestra di manutenzione.
 
-. Installare il file di configurazione di riferimento (RCF) e l'immagine appropriati sullo switch, newcs2, ed eseguire le operazioni necessarie per la preparazione del sito.
+. Installare il file di configurazione di riferimento (RCF) e l'immagine appropriati sullo switch, newcs2, ed effettuare le necessarie preparazioni del sito.
 +
-Se necessario, verificare, scaricare e installare le versioni appropriate del software RCF ed EFOS per il nuovo switch. Se il nuovo switch è stato configurato correttamente e non sono necessari aggiornamenti per il software RCF ed EFOS, passare alla fase 2.
-
-+
-.. È possibile scaricare il software Broadcom EFOS applicabile per gli switch del cluster da https://www.broadcom.com/support/bes-switch["Supporto per switch Ethernet Broadcom"^] sito. Seguire la procedura riportata nella pagina di download per scaricare il file EFOS per la versione del software ONTAP che si sta installando.
-.. L'RCF appropriato è disponibile sul sito https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom Cluster Switch"^] pagina. Seguire la procedura indicata nella pagina di download per scaricare l'RCF corretto per la versione del software ONTAP che si sta installando.
-
-
-. Sul nuovo switch, accedere come `admin` e chiudere tutte le porte che verranno collegate alle interfacce del cluster di nodi (porte da 1 a 16).
-+
-
-NOTE: Se sono state acquistate licenze aggiuntive per porte aggiuntive, chiudere anche queste porte.
+Se necessario, verificare, scaricare e installare le versioni appropriate del software RCF ed EFOS per il nuovo switch.  Se hai verificato che il nuovo switch è configurato correttamente e non necessita di aggiornamenti del software RCF ed EFOS, continua con il passaggio 2.
 
 +
-Se lo switch che si sta sostituendo non è funzionale e viene spento, i LIF sui nodi del cluster dovrebbero essere già in esecuzione il failover sull'altra porta del cluster per ciascun nodo.
+.. È possibile scaricare il software Broadcom EFOS applicabile per gli switch del cluster da https://www.broadcom.com/support/bes-switch["Supporto per switch Ethernet Broadcom"^] sito.  Seguire i passaggi indicati nella pagina Download per scaricare il file EFOS per la versione del software ONTAP che si sta installando.
+.. L'RCF appropriato è disponibile presso https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Switch cluster Broadcom"^] pagina.  Seguire i passaggi indicati nella pagina Download per scaricare il file RCF corretto per la versione del software ONTAP che si sta installando.
+
+
+. Sul nuovo switch, accedi come `admin` e chiudere tutte le porte che saranno connesse alle interfacce del cluster di nodi (porte da 1 a 16).
++
+
+NOTE: Se hai acquistato licenze aggiuntive per porte aggiuntive, chiudi anche queste porte.
+
++
+Se lo switch che si sta sostituendo non è funzionante ed è spento, i LIF sui nodi del cluster dovrebbero aver già eseguito il failover sull'altra porta del cluster per ciascun nodo.
 
 +
 
-NOTE: Non è richiesta alcuna password per l'immissione `enable` modalità.
+NOTE: Non è richiesta alcuna password per entrare `enable` modalità.
 
 +
 .Mostra esempio
@@ -153,7 +153,7 @@ Password:
 (newcs2)#
 ----
 ====
-. Verificare che tutte le LIF del cluster siano disponibili `auto-revert` abilitato:
+. Verificare che tutti i cluster LIF abbiano `auto-revert` abilitato:
 +
 `network interface show -vserver Cluster -fields auto-revert`
 
@@ -174,7 +174,7 @@ Cluster   node2_clus1  true
 Cluster   node2_clus2  true
 ----
 ====
-. Spegnere le porte ISL 0/55 e 0/56 sullo switch BES-53248 cs1:
+. Disattivare le porte ISL 0/55 e 0/56 sullo switch BES-53248 cs1:
 +
 .Mostra topologia di esempio
 [%collapsible]
@@ -186,16 +186,16 @@ Cluster   node2_clus2  true
 (cs1)(interface 0/55-0/56)# *shutdown*
 ----
 ====
-. Rimuovere tutti i cavi dallo switch BES-53248 cs2, quindi collegarli alle stesse porte dello switch BES-53248 newcs2.
-. Richiamare le porte ISL 0/55 e 0/56 tra gli switch cs1 e newcs2, quindi verificare lo stato di funzionamento del canale della porta.
+. Rimuovere tutti i cavi dallo switch BES-53248 cs2, quindi collegarli alle stesse porte sullo switch BES-53248 newcs2.
+. Attivare le porte ISL 0/55 e 0/56 tra gli switch cs1 e newcs2, quindi verificare lo stato operativo del canale porta.
 +
-Il link state per il port-channel 1/1 deve essere *up* e tutte le porte membro devono essere True sotto l'intestazione Port Active (porta attiva).
+Lo stato del collegamento per il canale porta 1/1 dovrebbe essere *attivo* e tutte le porte membro dovrebbero essere impostate su True sotto l'intestazione Porta attiva.
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-Questo esempio abilita le porte ISL 0/55 e 0/56 e visualizza lo stato del collegamento per il canale della porta 1/1 sullo switch cs1:
+Questo esempio abilita le porte ISL 0/55 e 0/56 e visualizza lo stato del collegamento per il canale porta 1/1 sullo switch cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -223,10 +223,10 @@ Ports  Timeout       Speed      Active
        partner/long
 ----
 ====
-. Sul nuovo switch newcs2, riattivare tutte le porte collegate alle interfacce del cluster di nodi (porte da 1 a 16).
+. Sul nuovo switch newcs2, riattivare tutte le porte connesse alle interfacce del cluster di nodi (porte da 1 a 16).
 +
 
-NOTE: Se sono state acquistate licenze aggiuntive per porte aggiuntive, chiudere anche queste porte.
+NOTE: Se hai acquistato licenze aggiuntive per porte aggiuntive, chiudi anche queste porte.
 
 +
 .Mostra esempio
@@ -244,7 +244,7 @@ Password:
 (newcs2)(config)# *exit*
 ----
 ====
-. Verificare che la porta e0b sia *up*:
+. Verificare che la porta e0b sia *attiva*:
 +
 `network port show -ipspace Cluster`
 
@@ -252,7 +252,7 @@ Password:
 .Mostra esempio
 [%collapsible]
 ====
-L'output dovrebbe essere simile a quanto segue:
+L'output dovrebbe essere simile al seguente:
 
 [listing, subs="+quotes"]
 ----
@@ -275,14 +275,14 @@ e0a       Cluster      Cluster          up   9000  auto/10000  healthy  false
 e0b       Cluster      Cluster          up   9000  auto/auto   -        false
 ----
 ====
-. Sullo stesso nodo utilizzato nel passaggio precedente, attendere che il cluster LIF node1_clus2 sul node1 si ripristinino automaticamente.
+. Sullo stesso nodo utilizzato nel passaggio precedente, attendi che il cluster LIF node1_clus2 sul nodo 1 venga ripristinato automaticamente.
 +
 .Mostra esempio
 [%collapsible]
 ====
-In questo esempio, LIF node1_clus2 su node1 viene invertito correttamente se `Is Home` è `true` e la porta è e0b.
+In questo esempio, LIF node1_clus2 su node1 viene ripristinato correttamente se `Is Home` È `true` e la porta è e0b.
 
-Il seguente comando visualizza le informazioni relative ai LIF su entrambi i nodi. L'avvio del primo nodo ha esito positivo se `Is Home` è `true` per entrambe le interfacce del cluster e mostrano le assegnazioni di porta corrette, in questo esempio `e0a` e. `e0b` al nodo1.
+Il seguente comando visualizza informazioni sui LIF su entrambi i nodi.  L'attivazione del primo nodo ha esito positivo se `Is Home` È `true` per entrambe le interfacce del cluster e mostrano le assegnazioni delle porte corrette, in questo esempio `e0a` E `e0b` sul nodo 1.
 
 [listing, subs="+quotes"]
 ----
@@ -298,7 +298,7 @@ Cluster
             node2_clus2  up/up      169.254.19.183/16  node2      e0a     false
 ----
 ====
-. Visualizzare le informazioni sui nodi di un cluster:
+. Visualizza informazioni sui nodi in un cluster:
 +
 `cluster show`
 
@@ -306,7 +306,7 @@ Cluster
 .Mostra esempio
 [%collapsible]
 ====
-Questo esempio mostra che lo stato del nodo per `node1` e. `node2` in questo cluster è `true`:
+Questo esempio mostra che lo stato di salute del nodo per `node1` E `node2` in questo cluster è `true` :
 
 [listing, subs="+quotes"]
 ----
@@ -361,7 +361,7 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Verificare che la rete del cluster sia in buone condizioni:
+. Verificare che la rete del cluster sia integra:
 +
 `show isdp neighbors`
 
@@ -393,11 +393,11 @@ cs1          0/55    179         R             BES-53248   0/55
 cs1          0/56    179         R             BES-53248   0/56
 ----
 ====
-. Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
+. Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver sostituito gli interruttori, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

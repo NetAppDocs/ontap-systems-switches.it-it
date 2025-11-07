@@ -14,26 +14,26 @@ sidebar:
   entries:
   - title: Documentazione Switch per sistemi hardware ONTAP
     url: "/index.html"
-  - title: Inizia subito
+  - title: Iniziare
     entries:
-    - title: Novità
+    - title: Cosa c'è di nuovo
       url: "/whats-new.html"
     - title: Scopri di più sugli switch dei sistemi ONTAP
       url: "/get-started/learn-switch-concept.html"
-    - title: Iniziare a lavorare
+    - title: Alzati e corri
       url: "/get-started/get-up-and-running.html"
   - title: Interruttori di sistema AFX
     url: "/afx/index.html"
     entries:
     - section: switch-cisco-9332d-gx2b
     - section: switch-cisco-9364d-gx2a
-  - title: Switch del cluster
+  - title: Interruttori a grappolo
     url: "/cluster/index.html"
     entries:
     - section: switch-bes-53248
     - section: switch-cisco-9336c-fx2
     - section: switch-nvidia-sn2100
-  - title: Switch storage
+  - title: Interruttori di archiviazione
     url: "/storage/index.html"
     entries:
     - section: switch-cisco-9336c-fx2-storage
@@ -44,7 +44,7 @@ sidebar:
     - section: switch-cisco-9336c-fx2-shared
       pdf-filename: switch-cisco-9336c-fx2-storage
   - section: switch-cshm
-  - title: Switch di fine disponibilità
+  - title: Interruttori di fine disponibilità
     entries:
     - title: Panoramica
       url: "/overview-eod.html"

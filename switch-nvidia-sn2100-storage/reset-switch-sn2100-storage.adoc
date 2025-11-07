@@ -15,15 +15,15 @@ Per ripristinare le impostazioni predefinite di fabbrica dello switch di archivi
 * Per Cumulus Linux 5.11 e versioni successive, utilizzare `nv action reset system factory-default` comando.
 
 
-.A proposito di questa attività
-* È necessario essere collegati allo switch mediante la console seriale.
+.Informazioni su questo compito
+* È necessario connettersi allo switch tramite la console seriale.
 * Per accedere ai comandi tramite sudo è necessario disporre della password di root.
 
 
 
-NOTE: Per ulteriori informazioni sull'installazione di Cumulus Linux, vederelink:configure-software-sn2100-storage.html["Workflow di installazione del software per switch NVIDIA SN2100"] .
+NOTE: Per ulteriori informazioni sull'installazione di Cumulus Linux, vederelink:configure-software-sn2100-storage.html["Flusso di lavoro di installazione del software per gli switch NVIDIA SN2100"] .
 
-.Fasi
+.Passi
 [role="tabbed-block"]
 ====
 .Cumulus Linux 5.10 e versioni precedenti
@@ -34,7 +34,7 @@ NOTE: Per ulteriori informazioni sull'installazione di Cumulus Linux, vederelink
 ----
 cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://<web-server>/<path>/cumulus-linux-5.10.0-mlx-amd64.bin*
 ----
-. Il programma di installazione avvia il download.  Digitare *y* quando richiesto per confermare l'installazione quando l'immagine è stata scaricata e verificata.
+. Il programma di installazione avvia il download. Digitare *y* quando richiesto per confermare l'installazione quando l'immagine è stata scaricata e verificata.
 . Riavviare lo switch per installare il nuovo software.
 +
 `sudo reboot`
@@ -46,7 +46,7 @@ cumulus@sw1:mgmt:~$ *sudo reboot*
 ----
 +
 
-NOTE: Lo switch si riavvia e avvia l'installazione del software, operazione che richiede un po' di tempo.  Una volta completata l'installazione, lo switch si riavvia e rimane allo stato `log-in` richiesta.
+NOTE: Lo switch si riavvia e avvia l'installazione del software, operazione che richiede un po' di tempo. Una volta completata l'installazione, lo switch si riavvia e rimane allo stato `log-in` richiesta.
 
 
 
@@ -58,7 +58,7 @@ NOTE: Lo switch si riavvia e avvia l'installazione del software, operazione che 
 `nv action reset system factory-default`
 
 +
-Ad esempio:
+Per esempio:
 
 +
 [listing, subs="+quotes"]

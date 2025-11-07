@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3232c 
 summary: 'SSH è un requisito quando si utilizzano le funzionalità Cluster Switch Health Monitor \(CSHM\) e di raccolta dei registri. Per abilitare SSH sugli switch del cluster Cisco 3232c, è necessario prima generare le chiavi SSH e poi abilitare SSH.' 
 ---
-= Installazione del file di configurazione di riferimento (RCF)
+= Installare il file di configurazione di riferimento (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -16,30 +16,30 @@ Dopo aver configurato per la prima volta gli switch Nexus 3232C, installare il f
 .Prima di iniziare
 Verificare le seguenti installazioni e connessioni:
 
-* Backup corrente della configurazione dello switch.
+* Un backup attuale della configurazione dello switch.
 * Un cluster completamente funzionante (nessun errore nei log o problemi simili).
-* RCF corrente.
-* Una connessione console allo switch, necessaria per l'installazione di RCF.
+* L'attuale RCF.
+* Una connessione della console allo switch, necessaria durante l'installazione dell'RCF.
 
 
-.A proposito di questa attività
-La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 3000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
+.Informazioni su questo compito
+La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 3000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
 
-Durante questa procedura non è necessario alcun collegamento inter-switch (ISL) operativo.  Ciò è voluto perché le modifiche alla versione RCF possono influire temporaneamente sulla connettività ISL.  Per abilitare operazioni cluster senza interruzioni, la seguente procedura migra tutti i LIF del cluster allo switch partner operativo, eseguendo al contempo i passaggi sullo switch di destinazione.
+Durante questa procedura non è necessario alcun collegamento inter-switch (ISL) operativo. Ciò è voluto perché le modifiche alla versione RCF possono influire temporaneamente sulla connettività ISL. Per abilitare operazioni cluster senza interruzioni, la seguente procedura migra tutti i LIF del cluster allo switch partner operativo, eseguendo al contempo i passaggi sullo switch di destinazione.
 
-Assicurarsi di completare la procedura descritta in link:prepare-install-cisco-nexus-3232c.html["Preparazione all'installazione di NX-OS e RCF"], quindi seguire la procedura riportata di seguito.
+Assicurati di completare la procedura inlink:prepare-install-cisco-nexus-3232c.html["Prepararsi all'installazione di NX-OS e RCF"] e poi seguire i passaggi sottostanti.
 
 
 
-== Fase 1: Installare l'RCF sugli interruttori
+== Fase 1: installare l'RCF sugli switch
 
 . Accedi per cambiare cs2 tramite SSH o tramite una console seriale.
-. Copiare l'RCF nel bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.  Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS Command Reference"^] .
+. Copiare l'RCF nel bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] .
 +
 .Mostra esempio
 [%collapsible]
 ====
-Questo esempio mostra l'utilizzo di TFTP per copiare un RCF nella flash di avvio sullo switch cs2:
+Questo esempio mostra come TFTP viene utilizzato per copiare un RCF nel bootflash sullo switch cs2:
 
 [listing, subs="+quotes"]
 ----
@@ -53,7 +53,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Applicare l'RCF precedentemente scaricato al bootflash.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS Command Reference"^] .
+Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] .
 
 +
 .Mostra esempio
@@ -69,27 +69,27 @@ cs2# *copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-comm
 +
 [NOTE]
 ====
-Assicuratevi di leggere attentamente le sezioni *Note di installazione*, *Note importanti* e *banner* del vostro RCF.  Per garantire la corretta configurazione e il corretto funzionamento dello switch, è necessario leggere e seguire queste istruzioni.
+Assicuratevi di leggere attentamente le sezioni *Note di installazione*, *Note importanti* e *banner* del vostro RCF. Per garantire la corretta configurazione e il corretto funzionamento dello switch, è necessario leggere e seguire queste istruzioni.
 
 ====
-. Esaminare l'output dello striscione da `show banner motd` comando. Leggere e seguire le istruzioni riportate nella sezione *Note importanti* per verificare la corretta configurazione e il corretto funzionamento dello switch.
+. Esaminare l'output del banner dal `show banner motd` comando.  È necessario leggere e seguire le istruzioni riportate nella sezione *Note importanti* per garantire la corretta configurazione e il corretto funzionamento dello switch.
 . Verificare che il file RCF sia la versione più recente corretta:
 +
 `show running-config`
 
 +
-Quando si controlla l'output per verificare che l'RCF sia corretto, assicurarsi che le seguenti informazioni siano corrette:
+Quando controlli l'output per verificare di avere l'RCF corretto, assicurati che le seguenti informazioni siano corrette:
 
 +
-** Il banner RCF
-** Le impostazioni di nodo e porta
+** Lo striscione RCF
+** Le impostazioni del nodo e della porta
 ** Personalizzazioni
 +
-L'output varia in base alla configurazione del sito. Controllare le impostazioni della porta e fare riferimento alle note di rilascio per eventuali modifiche specifiche all'RCF installato.
+L'output varia in base alla configurazione del sito.  Controllare le impostazioni della porta e fare riferimento alle note di rilascio per eventuali modifiche specifiche all'RCF installato.
 
 
 
-. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-3232c.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
+. Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.  Fare riferimento alink:cabling-considerations-3232c.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per i dettagli di eventuali ulteriori modifiche richieste.
 . Salva i dettagli di configurazione di base nel `write_erase.cfg` file sul bootflash.
 +
 [NOTE]
@@ -120,7 +120,7 @@ Assicurati di configurare quanto segue: * Nome utente e password * Indirizzo IP 
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
 +
-Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch Cisco Interconnect mantenendo la connettività remota"^] per ulteriori dettagli.
+Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori dettagli.
 
 . Verificare che il `write_erase.cfg` il file è popolato come previsto:
 +
@@ -148,14 +148,14 @@ Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/Switches/Cisc
 `This command will reboot the system. (y/n)?  [n] *y*`
 
 . Ripetere i passaggi da 1 a 12 sullo switch cs1.
-. Collegare le porte del cluster di tutti i nodi nel cluster ONTAP agli switch CS1 e CS2.
+. Collegare le porte del cluster di tutti i nodi nel cluster ONTAP agli switch cs1 e cs2.
 
 
 
 
 == Passaggio 2: verificare le connessioni dello switch
 
-. Verificare che le porte dello switch collegate alle porte del cluster siano *up*.
+. Verificare che le porte dello switch collegate alle porte del cluster siano *attive*.
 +
 `show interface brief | grep up`
 
@@ -176,7 +176,7 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 .
 ----
 ====
-. Verificare che l'ISL tra cs1 e cs2 funzioni correttamente:
+. Verificare che l'ISL tra cs1 e cs2 sia funzionante:
 +
 `show port-channel summary`
 
@@ -203,7 +203,7 @@ Group Port-       Type     Protocol  Member Ports
 cs1#
 ----
 ====
-. Verificare che le LIF del cluster siano tornate alla porta home:
+. Verificare che i LIF del cluster siano tornati alla loro porta home:
 +
 `network interface show -role cluster`
 
@@ -234,7 +234,7 @@ cluster1::*>
 Se alcuni LIFS del cluster non sono tornati alle loro porte home, ripristinarli manualmente:
 `network interface revert -vserver <vserver_name> -lif <lif_name>`
 
-. Verificare che il cluster funzioni correttamente:
+. Verificare che il cluster sia integro:
 +
 `cluster show`
 
@@ -265,7 +265,7 @@ NetApp consiglia di utilizzare System Manager per configurare nuovi cluster.
 
 System Manager fornisce un flusso di lavoro semplice e facile per l'impostazione e la configurazione del cluster, tra cui l'assegnazione di un indirizzo IP di gestione del nodo, l'inizializzazione del cluster, la creazione di un livello locale, la configurazione dei protocolli e il provisioning dello storage iniziale.
 
-Fare riferimento a https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurare ONTAP su un nuovo cluster con Gestione di sistema"] per le istruzioni di installazione.
+Fare riferimento a https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurare ONTAP su un nuovo cluster con System Manager"] per le istruzioni di installazione.
 
-.Quali sono le prossime novità?
-Dopo aver installato l'RCF,link:configure-ssh-keys.html["verificare la configurazione SSH"] .
+.Cosa succederà ora?
+Dopo aver installato l'RCF, link:configure-ssh-keys.html["verificare la configurazione SSH"].

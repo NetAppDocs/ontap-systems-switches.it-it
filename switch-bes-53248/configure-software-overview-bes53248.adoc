@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
 summary: Esaminare la panoramica del software. 
 ---
-= Workflow di installazione del software per switch BES-53248
+= Flusso di lavoro di installazione del software per gli switch BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,25 +13,25 @@ summary: Esaminare la panoramica del software.
 [role="lead"]
 Per installare e configurare il software per uno switch cluster BES-53248, attenersi alla seguente procedura:
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-install-initial.html["Configurare lo switch"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-install-initial.html["Configurare l'interruttore"]
 [role="quick-margin-para"]
 Configurare lo switch cluster BES-53248.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:configure-efos-software.html["Installare il software EFOS"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:configure-efos-software.html["Installa il software EFOS"]
 [role="quick-margin-para"]
 Scaricare e installare il software Ethernet Fabric OS (EFOS) sullo switch cluster BES-53248.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:configure-licenses.html["Installare le licenze per gli switch cluster BES-53248"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:configure-licenses.html["Installa le licenze per gli switch cluster BES-53248"]
 [role="quick-margin-para"]
-Facoltativamente, aggiungere nuove porte acquistando e installando ulteriori licenze. Il modello di base dello switch è concesso in licenza per 16 porte 10GbE o 25GbE e due porte 100GbE.
+Facoltativamente, puoi aggiungere nuove porte acquistando e installando più licenze.  Il modello base dello switch è concesso in licenza per 16 porte 10GbE o 25GbE e due porte 100GbE.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:configure-install-rcf.html["Installazione del file di configurazione di riferimento (RCF)"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:configure-install-rcf.html["Installare il file di configurazione di riferimento (RCF)"]
 [role="quick-margin-para"]
-Installare o aggiornare l'RCF sullo switch del cluster BES-53248, quindi verificare le porte per una licenza aggiuntiva dopo l'applicazione dell'RCF.
+Installare o aggiornare l'RCF sullo switch cluster BES-53248, quindi verificare le porte per una licenza aggiuntiva dopo l'applicazione dell'RCF.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-ssh.html["Abilitare SSH sugli switch cluster BES-53248"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-ssh.html["Abilita SSH sugli switch cluster BES-53248"]
 [role="quick-margin-para"]
-Se si utilizzano le funzioni CSHM (Ethernet Switch Health Monitor) e di raccolta dei registri, attivare SSH sugli switch.
+Se si utilizzano le funzionalità di monitoraggio dello stato dello switch Ethernet (CSHM) e di raccolta dei registri, abilitare SSH sugli switch.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:reset-switch-bes-53248.html["Ripristinare l'interruttore alle impostazioni predefinite di fabbrica"]
 [role="quick-margin-para"]

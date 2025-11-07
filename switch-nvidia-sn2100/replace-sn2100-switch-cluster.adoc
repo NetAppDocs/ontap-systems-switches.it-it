@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/replace-sn2100-switch-cluster.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nvidia, switch, cluster, network, nondisruptive, procedure, ndu, replace a nvidia msn2100 cluster switch - nvidia SN2100 
-summary: La sostituzione di uno switch NVIDIA SN2100 difettoso in una rete cluster è una procedura senza interruzioni. 
+summary: 'La sostituzione di uno switch NVIDIA SN2100 difettoso in una rete cluster è una procedura non distruttiva \(NDU\).' 
 ---
 = Sostituire uno switch cluster NVIDIA SN2100
 :allow-uri-read: 
@@ -11,66 +11,66 @@ summary: La sostituzione di uno switch NVIDIA SN2100 difettoso in una rete clust
 
 
 [role="lead"]
-Seguire questa procedura per sostituire uno switch NVIDIA SN2100 difettoso in una rete cluster. Si tratta di una procedura senza interruzioni (NDU).
+Seguire questa procedura per sostituire uno switch NVIDIA SN2100 difettoso in una rete cluster. Si tratta di una procedura non distruttiva (NDU).
 
 
 
-== Verifica dei requisiti
+== Requisiti di revisione
 
-.Infrastruttura di rete e cluster esistente
+.Cluster esistente e infrastruttura di rete
 Assicurarsi che:
 
-* Il cluster esistente viene verificato come completamente funzionale, con almeno uno switch del cluster completamente connesso.
-* Tutte le porte del cluster sono installate.
-* Tutte le interfacce logiche del cluster (LIFF) sono installate sulle porte domestiche.
-* ONTAP `cluster ping-cluster -node node1` Il comando indica che la connettività di base e le comunicazioni di dimensioni superiori a quelle di PMTU hanno esito positivo su tutti i percorsi.
+* Il cluster esistente è stato verificato come completamente funzionale, con almeno uno switch del cluster completamente connesso.
+* Tutte le porte del cluster sono attive.
+* Tutte le interfacce logiche del cluster (LIF) sono attive e sulle rispettive porte home.
+* L' ONTAP `cluster ping-cluster -node node1` il comando indica che la connettività di base e la comunicazione più grande di PMTU hanno esito positivo su tutti i percorsi.
 
 
-.Switch sostitutivo NVIDIA SN2100
+.Interruttore sostitutivo NVIDIA SN2100
 Assicurarsi che:
 
-* La connettività di rete di gestione sullo switch sostitutivo è funzionale.
-* L'accesso della console allo switch sostitutivo è in posizione.
-* Le connessioni dei nodi sono porte da swp1 a swp14.
-* Tutte le porte ISL (Inter-Switch link) sono disattivate sulle porte swp15 e swp16.
+* La connettività della rete di gestione sullo switch sostitutivo è funzionante.
+* L'accesso alla console per l'interruttore sostitutivo è a posto.
+* Le connessioni dei nodi sono le porte da swp1 a swp14.
+* Tutte le porte Inter-Switch Link (ISL) sono disabilitate sulle porte swp15 e swp16.
 * Il file di configurazione di riferimento desiderato (RCF) e lo switch dell'immagine del sistema operativo Cumulus vengono caricati sullo switch.
-* La personalizzazione iniziale dello switch è completata.
+* La personalizzazione iniziale dello switch è completa.
 
 
-Assicurarsi inoltre che eventuali personalizzazioni precedenti del sito, come STP, SNMP e SSH, vengano copiate nel nuovo switch.
+Assicurarsi inoltre che tutte le personalizzazioni precedenti del sito, come STP, SNMP e SSH, vengano copiate sul nuovo switch.
 
 
-NOTE: È necessario eseguire il comando per la migrazione di un LIF del cluster dal nodo in cui è ospitato il LIF del cluster.
-
-
-
-== Attivare la registrazione della console
-
-NetApp consiglia vivamente di attivare la registrazione della console sui dispositivi in uso e di eseguire le seguenti operazioni quando si sostituisce lo switch:
-
-* Lasciare attivato AutoSupport durante la manutenzione.
-* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione del caso per tutta la durata della manutenzione. Consultare questo articolo della Knowledge base https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come eliminare la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
-* Attivare la registrazione della sessione per qualsiasi sessione CLI. Per istruzioni su come attivare la registrazione della sessione, consultare la sezione "registrazione dell'output della sessione" in questo articolo della Knowledge base https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare Putty per una connettività ottimale ai sistemi ONTAP"^].
+NOTE: È necessario eseguire il comando per migrare un cluster LIF dal nodo in cui è ospitato il cluster LIF.
 
 
 
+== Abilita la registrazione della console
 
-== Sostituire lo switch
+NetApp consiglia vivamente di abilitare la registrazione della console sui dispositivi utilizzati e di adottare le seguenti misure quando si sostituisce lo switch:
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+* Lasciare AutoSupport abilitato durante la manutenzione.
+* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione di casi per tutta la durata della manutenzione.  Vedi questo articolo della Knowledge Base https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come sopprimere la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
+* Abilita la registrazione delle sessioni per tutte le sessioni CLI.  Per istruzioni su come abilitare la registrazione della sessione, consultare la sezione "Registrazione dell'output della sessione" in questo articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare PuTTY per una connettività ottimale ai sistemi ONTAP"^] .
+
+
+
+
+== Sostituire l'interruttore
+
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
 * I nomi degli switch NVIDIA SN2100 esistenti sono _sw1_ e _sw2_.
 * Il nome del nuovo switch NVIDIA SN2100 è _nsw2_.
 * I nomi dei nodi sono _node1_ e _node2_.
 * Le porte del cluster su ciascun nodo sono denominate _e3a_ e _e3b_.
-* I nomi LIF del cluster sono _node1_clus1_ e _node1_clus2_ per node1 e _node2_clus1_ e _node2_clus2_ per node2_.
-* Il prompt per le modifiche a tutti i nodi del cluster è `cluster1::*>`
-* Le porte breakout hanno il formato: swp[port]s[breakout port 0-3]. Ad esempio, quattro porte di breakout su swp1 sono _swp1s0_, _swp1s1_, _swp1s2_ e _swp1s3_.
+* I nomi LIF del cluster sono _node1_clus1_ e _node1_clus2_ per node1, e _node2_clus1_ e _node2_clus2_ per node2.
+* La richiesta di modifiche a tutti i nodi del cluster è `cluster1::*>`
+* Le porte breakout hanno il formato: swp[porta]s[porta breakout 0-3].  Ad esempio, quattro porte breakout su swp1 sono _swp1s0_, _swp1s1_, _swp1s2_ e _swp1s3_.
 
 
 .Informazioni sulla topologia della rete del cluster
-Questa procedura si basa sulla seguente topologia di rete del cluster:
+Questa procedura si basa sulla seguente topologia di rete cluster:
 
 .Mostra topologia di esempio
 [%collapsible]
@@ -145,44 +145,44 @@ swp16      100G   BondMember  sw1                swp16
 ====
 
 
-=== Fase 1: Preparazione per la sostituzione
+=== Fase 1: Preparazione alla sostituzione
 
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
 dove _x_ è la durata della finestra di manutenzione in ore.
 
-. Impostare il livello di privilegio su Advanced (avanzato), immettendo *y* quando viene richiesto di continuare:
+. Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare:
 +
 `set -privilege advanced`
 
 +
-Viene visualizzato il prompt Advanced (*>).
+Viene visualizzato il prompt avanzato (*>).
 
-. Installare l'RCF e l'immagine appropriati sullo switch, nsw2, ed eseguire le operazioni necessarie per la preparazione del sito.
+. Installare l'RCF e l'immagine appropriati sullo switch, nsw2, ed effettuare tutti i preparativi necessari sul sito.
 +
 Se necessario, verificare, scaricare e installare le versioni appropriate del software RCF e Cumulus per il nuovo switch.
 
 +
-.. È possibile scaricare il software Cumulus applicabile per gli switch del cluster dal sito _NVIDIA Support_. Seguire la procedura indicata nella pagina di download per scaricare Cumulus Linux per la versione del software ONTAP che si sta installando.
-.. L'RCF appropriato è disponibile sul sito link:https://mysupport.netapp.com/site/products/all/details/nvidia-cluster-storage-switch/downloads-tab["_Cluster NVIDIA e switch storage_"^] pagina. Seguire la procedura indicata nella pagina di download per scaricare l'RCF corretto per la versione del software ONTAP che si sta installando.
+.. È possibile scaricare il software Cumulus applicabile agli switch del cluster dal sito _NVIDIA Support_.  Seguire i passaggi indicati nella pagina Download per scaricare Cumulus Linux per la versione del software ONTAP che si sta installando.
+.. L'RCF appropriato è disponibile pressolink:https://mysupport.netapp.com/site/products/all/details/nvidia-cluster-storage-switch/downloads-tab["_Switch di cluster e storage NVIDIA_"^] pagina.  Seguire i passaggi indicati nella pagina Download per scaricare il file RCF corretto per la versione del software ONTAP che si sta installando.
 
 
 
 
 
 
-=== Fase 2: Configurare le porte e il cablaggio
+=== Passaggio 2: configurare porte e cablaggio
 
 [role="tabbed-block"]
 ====
 .Cumulus Linux 4.4.3
 --
-. Sul nuovo switch nsw2, accedere come admin e chiudere tutte le porte che saranno connesse alle interfacce del cluster di nodi (porte da swp1 a swp14).
+. Sul nuovo switch nsw2, accedi come amministratore e chiudi tutte le porte che saranno connesse alle interfacce del cluster di nodi (porte da swp1 a swp14).
 +
-Le LIF sui nodi del cluster dovrebbero essere già riuscite a eseguire il failover sull'altra porta del cluster per ciascun nodo.
+I LIF sui nodi del cluster dovrebbero già aver eseguito il failover sull'altra porta del cluster per ciascun nodo.
 
 +
 [listing, subs="+quotes"]
@@ -191,7 +191,7 @@ cumulus@nsw2:~$ *net add interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@nsw2:~$ *net pending*
 cumulus@nsw2:~$ *net commit*
 ----
-. Disattivare il ripristino automatico sulle LIF del cluster:
+. Disabilitare il ripristino automatico sui LIF del cluster:
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
@@ -202,11 +202,11 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 
 Warning: Disabling the auto-revert feature of the cluster logical interface may effect the availability of your cluster network. Are you sure you want to continue? {y|n}: *y*
 ----
-. Verificare che il ripristino automatico sia disabilitato per tutti i LIF del cluster:
+. Verificare che il ripristino automatico sia disabilitato in tutti i cluster LIF:
 +
 `net interface show -vserver Cluster -fields auto-revert`
 
-. Spegnere le porte ISL swp15 e swp16 sullo switch SN2100 sw1.
+. Chiudere le porte ISL swp15 e swp16 sullo switch SN2100 sw1.
 +
 [listing, subs="+quotes"]
 ----
@@ -214,7 +214,7 @@ cumulus@sw1:~$ *net add interface swp15-16 link down*
 cumulus@sw1:~$ *net pending*
 cumulus@sw1:~$ *net commit*
 ----
-. Rimuovere tutti i cavi dallo switch SN2100 sw1, quindi collegarli alle stesse porte dello switch SN2100 nsw2.
+. Rimuovere tutti i cavi dallo switch SN2100 sw1, quindi collegarli alle stesse porte sullo switch SN2100 nsw2.
 . Attivare le porte ISL swp15 e swp16 tra gli switch sw1 e nsw2.
 +
 I seguenti comandi abilitano le porte ISL swp15 e swp16 sullo switch sw1:
@@ -227,7 +227,7 @@ cumulus@sw1:~$ *net pending*
 cumulus@sw1:~$ *net commit*
 ----
 +
-L'esempio seguente mostra che le porte ISL sono installate sullo switch sw1:
+L'esempio seguente mostra che le porte ISL sono attive sullo switch sw1:
 
 +
 [listing, subs="+quotes"]
@@ -242,7 +242,7 @@ UP     swp15        100G  9216   BondMember  nsw2 (swp15)   Master: cluster_isl(
 UP     swp16        100G  9216   BondMember  nsw2 (swp16)   Master: cluster_isl(UP)
 ----
 +
-L'esempio seguente mostra che le porte ISL sono installate sullo switch nsw2:
+L'esempio seguente mostra che le porte ISL sono attive sullo switch nsw2:
 
 +
 [listing, subs="+quotes"]
@@ -256,12 +256,12 @@ State  Name         Spd   MTU    Mode        LLDP           Summary
 UP     swp15        100G  9216   BondMember  sw1 (swp15)    Master: cluster_isl(UP)
 UP     swp16        100G  9216   BondMember  sw1 (swp16)    Master: cluster_isl(UP)
 ----
-. Verificare la porta `e3b` è attivo su tutti i nodi:
+. Verificare che la porta `e3b` è attivo su tutti i nodi:
 +
 `network port show -ipspace Cluster`
 
 +
-L'output dovrebbe essere simile a quanto segue:
+L'output dovrebbe essere simile al seguente:
 
 +
 [listing, subs="+quotes"]
@@ -285,7 +285,7 @@ Port      IPspace      Broadcast Domain Link MTU   Admin/Oper  Status    Status
 e3a       Cluster      Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster      Cluster          up   9000  auto/100000  healthy  false
 ----
-. Le porte del cluster su ciascun nodo sono ora collegate agli switch del cluster nel seguente modo, dal punto di vista dei nodi:
+. Le porte del cluster su ciascun nodo sono ora collegate agli switch del cluster nel modo seguente, dal punto di vista dei nodi:
 +
 [listing, subs="+quotes"]
 ----
@@ -300,7 +300,7 @@ node2      /lldp
             e3a    sw1  (b8:ce:f6:19:1a:7e)   swp4          -
             e3b    nsw2 (b8:ce:f6:19:1b:b6)   swp4          -
 ----
-. Verificare che tutte le porte del cluster di nodi siano in funzione:
+. Verificare che tutte le porte del cluster dei nodi siano attive:
 +
 `net show interface`
 
@@ -318,7 +318,7 @@ UP     swp4         100G  9216   Trunk/L2                      Master: bridge(UP
 UP     swp15        100G  9216   BondMember  sw1 (swp15)       Master: cluster_isl(UP)
 UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_isl(UP)
 ----
-. Verificare che entrambi i nodi dispongano di una connessione a ciascuno switch:
+. Verificare che entrambi i nodi abbiano una connessione a ciascun switch:
 +
 `net show lldp`
 
@@ -347,11 +347,11 @@ swp4       100G   Trunk/L2    node2                e3b
 swp15      100G   BondMember  sw1                swp15
 swp16      100G   BondMember  sw1                swp16
 ----
-. Abilitare il ripristino automatico sulle LIF del cluster:
+. Abilita il ripristino automatico sui LIF del cluster:
 +
 `cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Sullo switch nsw2, richiamare le porte collegate alle porte di rete dei nodi.
+. Sullo switch nsw2, richiamare le porte connesse alle porte di rete dei nodi.
 +
 [listing, subs="+quotes"]
 ----
@@ -359,12 +359,12 @@ cumulus@nsw2:~$ *net del interface swp1-14 link down*
 cumulus@nsw2:~$ *net pending*
 cumulus@nsw2:~$ *net commit*
 ----
-. Visualizzare le informazioni sui nodi di un cluster:
+. Visualizza informazioni sui nodi in un cluster:
 +
 `cluster show`
 
 +
-Questo esempio mostra che l'integrità del nodo per node1 e node2 in questo cluster è vera:
+Questo esempio mostra che lo stato di integrità del nodo node1 e node2 in questo cluster è corretto:
 
 +
 [listing, subs="+quotes"]
@@ -376,7 +376,7 @@ Node          Health  Eligibility
 node1         true    true
 node2         true    true
 ----
-. Verificare che tutte le porte del cluster fisico siano installate:
+. Verificare che tutte le porte fisiche del cluster siano attive:
 +
 `network port show ipspace Cluster`
 
@@ -405,9 +405,9 @@ e3b       Cluster      Cluster          up    9000  auto/10000  healthy  false
 --
 .Cumulus Linux 5.x
 --
-. Sul nuovo switch nsw2, accedere come admin e chiudere tutte le porte che saranno connesse alle interfacce del cluster di nodi (porte da swp1 a swp14).
+. Sul nuovo switch nsw2, accedi come amministratore e chiudi tutte le porte che saranno connesse alle interfacce del cluster di nodi (porte da swp1 a swp14).
 +
-Le LIF sui nodi del cluster dovrebbero essere già riuscite a eseguire il failover sull'altra porta del cluster per ciascun nodo.
+I LIF sui nodi del cluster dovrebbero già aver eseguito il failover sull'altra porta del cluster per ciascun nodo.
 
 +
 [listing, subs="+quotes"]
@@ -415,7 +415,7 @@ Le LIF sui nodi del cluster dovrebbero essere già riuscite a eseguire il failov
 cumulus@nsw2:~$ *nv set interface swp15-16 link state down*
 cumulus@nsw2:~$ *nv config apply*
 ----
-. Disattivare il ripristino automatico sulle LIF del cluster:
+. Disabilitare il ripristino automatico sui LIF del cluster:
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
@@ -426,18 +426,18 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 
 Warning: Disabling the auto-revert feature of the cluster logical interface may effect the availability of your cluster network. Are you sure you want to continue? {y|n}: *y*
 ----
-. Verificare che il ripristino automatico sia disabilitato per tutti i LIF del cluster:
+. Verificare che il ripristino automatico sia disabilitato in tutti i cluster LIF:
 +
 `network interface show -vserver Cluster -fields auto-revert`
 
-. Spegnere le porte ISL swp15 e swp16 sullo switch SN2100 sw1.
+. Chiudere le porte ISL swp15 e swp16 sullo switch SN2100 sw1.
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *nv set interface swp15-16 link state down*
 cumulus@sw1:~$ *nv config apply*
 ----
-. Rimuovere tutti i cavi dallo switch SN2100 sw1, quindi collegarli alle stesse porte dello switch SN2100 nsw2.
+. Rimuovere tutti i cavi dallo switch SN2100 sw1, quindi collegarli alle stesse porte sullo switch SN2100 nsw2.
 . Attivare le porte ISL swp15 e swp16 tra gli switch sw1 e nsw2.
 +
 I seguenti comandi abilitano le porte ISL swp15 e swp16 sullo switch sw1:
@@ -449,7 +449,7 @@ cumulus@sw1:~$ *nv set interface swp15-16 link state down*
 cumulus@sw1:~$ *nv config apply*
 ----
 +
-L'esempio seguente mostra che le porte ISL sono installate sullo switch sw1:
+L'esempio seguente mostra che le porte ISL sono attive sullo switch sw1:
 
 +
 [listing, subs="+quotes"]
@@ -464,7 +464,7 @@ UP     swp15        100G  9216   BondMember  nsw2 (swp15)   Master: cluster_isl(
 UP     swp16        100G  9216   BondMember  nsw2 (swp16)   Master: cluster_isl(UP)
 ----
 +
-L'esempio seguente mostra che le porte ISL sono installate sullo switch nsw2:
+L'esempio seguente mostra che le porte ISL sono attive sullo switch nsw2:
 
 +
 [listing, subs="+quotes"]
@@ -478,12 +478,12 @@ State  Name         Spd   MTU    Mode        LLDP           Summary
 UP     swp15        100G  9216   BondMember  sw1 (swp15)    Master: cluster_isl(UP)
 UP     swp16        100G  9216   BondMember  sw1 (swp16)    Master: cluster_isl(UP)
 ----
-. Verificare la porta `e3b` è attivo su tutti i nodi:
+. Verificare che la porta `e3b` è attivo su tutti i nodi:
 +
 `network port show -ipspace Cluster`
 
 +
-L'output dovrebbe essere simile a quanto segue:
+L'output dovrebbe essere simile al seguente:
 
 +
 [listing, subs="+quotes"]
@@ -507,7 +507,7 @@ Port      IPspace      Broadcast Domain Link MTU   Admin/Oper  Status    Status
 e3a       Cluster      Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster      Cluster          up   9000  auto/100000  healthy  false
 ----
-. Le porte del cluster su ciascun nodo sono ora collegate agli switch del cluster nel seguente modo, dal punto di vista dei nodi:
+. Le porte del cluster su ciascun nodo sono ora collegate agli switch del cluster nel modo seguente, dal punto di vista dei nodi:
 +
 [listing, subs="+quotes"]
 ----
@@ -522,7 +522,7 @@ node2      /lldp
             e3a    sw1  (b8:ce:f6:19:1a:7e)   swp4          -
             e3b    nsw2 (b8:ce:f6:19:1b:b6)   swp4          -
 ----
-. Verificare che tutte le porte del cluster di nodi siano in funzione:
+. Verificare che tutte le porte del cluster dei nodi siano attive:
 +
 `nv show interface`
 
@@ -540,7 +540,7 @@ UP     swp4         100G  9216   Trunk/L2                      Master: bridge(UP
 UP     swp15        100G  9216   BondMember  sw1 (swp15)       Master: cluster_isl(UP)
 UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_isl(UP)
 ----
-. Verificare che entrambi i nodi dispongano di una connessione a ciascuno switch:
+. Verificare che entrambi i nodi abbiano una connessione a ciascun switch:
 +
 `nv show interface lldp`
 
@@ -569,23 +569,23 @@ swp4       100G   Trunk/L2    node2                e3b
 swp15      100G   BondMember  sw1                swp15
 swp16      100G   BondMember  sw1                swp16
 ----
-. Abilitare il ripristino automatico sulle LIF del cluster:
+. Abilita il ripristino automatico sui LIF del cluster:
 +
 `cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Sullo switch nsw2, richiamare le porte collegate alle porte di rete dei nodi.
+. Sullo switch nsw2, richiamare le porte connesse alle porte di rete dei nodi.
 +
 [listing, subs="+quotes"]
 ----
 cumulus@nsw2:~$ *nv set interface swp1-14 link state up*
 cumulus@nsw2:~$ *nv config apply*
 ----
-. Visualizzare le informazioni sui nodi di un cluster:
+. Visualizza informazioni sui nodi in un cluster:
 +
 `cluster show`
 
 +
-Questo esempio mostra che l'integrità del nodo per node1 e node2 in questo cluster è vera:
+Questo esempio mostra che lo stato di integrità del nodo node1 e node2 in questo cluster è corretto:
 
 +
 [listing, subs="+quotes"]
@@ -597,7 +597,7 @@ Node          Health  Eligibility
 node1         true    true
 node2         true    true
 ----
-. Verificare che tutte le porte del cluster fisico siano installate:
+. Verificare che tutte le porte fisiche del cluster siano attive:
 +
 `network port show ipspace Cluster`
 
@@ -627,13 +627,13 @@ e3b       Cluster      Cluster          up    9000  auto/10000  healthy  false
 ====
 
 
-=== Fase 3: Verificare la configurazione
+=== Passaggio 3: verificare la configurazione
 
 [role="tabbed-block"]
 ====
 .Cumulus Linux 4.4.3
 --
-. Verificare che la rete del cluster sia in buone condizioni.
+. Verificare che la rete del cluster sia integra.
 +
 [listing, subs="+quotes"]
 ----
@@ -651,7 +651,7 @@ swp16      100G   BondMember  nsw2            swp16
 --
 .Cumulus Linux 5.x
 --
-. Verificare che la rete del cluster sia in buone condizioni.
+. Verificare che la rete del cluster sia integra.
 +
 [listing, subs="+quotes"]
 ----
@@ -668,15 +668,15 @@ swp16      100G   BondMember  nsw2            swp16
 
 --
 ====
-. [[step2]] riportare il livello di privilegio ad admin:
+. [[step2]] Ripristina il livello di privilegio su amministratore:
 +
 `set -privilege admin`
 
-. Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
+. Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver sostituito gli interruttori, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

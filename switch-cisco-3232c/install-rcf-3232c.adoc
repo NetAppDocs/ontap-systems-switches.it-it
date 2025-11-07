@@ -2,9 +2,9 @@
 permalink: switch-cisco-3232c/install-rcf-3232c.html 
 sidebar: sidebar 
 keywords: install, rcf 
-summary: È possibile installare RCF dopo aver configurato lo switch Nexus 3232C per la prima volta. È inoltre possibile utilizzare questa procedura per aggiornare la versione RCF. 
+summary: È possibile installare RCF dopo aver configurato per la prima volta lo switch Nexus 3232C. È anche possibile utilizzare questa procedura per aggiornare la versione RCF. 
 ---
-= Installare o aggiornare il file di configurazione di riferimento (RCF)
+= Installa o aggiorna il file di configurazione di riferimento (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,43 +13,43 @@ summary: È possibile installare RCF dopo aver configurato lo switch Nexus 3232C
 [role="lead"]
 Seguire questa procedura per installare l'RCF dopo aver configurato lo switch Nexus 3232C per la prima volta.
 
-È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF. Consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/Switches/Cisco/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch Cisco Interconnect mantenendo la connettività remota"^] Per ulteriori informazioni sull'aggiornamento dell'RCF.
+Puoi usare questa procedura anche per aggiornare la tua versione RCF. Vedi l'articolo della Knowledge Base https://kb.netapp.com/onprem/Switches/Cisco/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori informazioni sull'aggiornamento del tuo RCF.
 
 
 
-== Verifica dei requisiti
+== Requisiti di revisione
 
 .Prima di iniziare
-* Backup corrente della configurazione dello switch.
+* Un backup attuale della configurazione dello switch.
 * Un cluster completamente funzionante (nessun errore nei log o problemi simili).
-* Il file di configurazione di riferimento corrente (RCF).
-* Una connessione console allo switch, necessaria per l'installazione di RCF.
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Pagina switch Ethernet Cisco"^] Consultare la tabella di compatibilità degli switch per le versioni ONTAP e RCF supportate. Si noti che esistono dipendenze di comando tra la sintassi del comando in RCF e quella presente nelle versioni di NX-OS.
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switch Cisco Nexus serie 3000"^]. Consultare le guide all'aggiornamento e al software appropriate disponibili sul sito Web di Cisco per la documentazione completa sulle procedure di aggiornamento e downgrade dello switch Cisco.
+* L'attuale file di configurazione di riferimento (RCF).
+* Una connessione della console allo switch, necessaria durante l'installazione dell'RCF.
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Pagina dello switch Ethernet Cisco"^]Consultare la tabella di compatibilità degli switch per le versioni ONTAP e RCF supportate.  Si noti che possono esserci dipendenze tra la sintassi dei comandi nella RCF e quella presente nelle versioni di NX-OS.
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switch Cisco Nexus serie 3000"^]. Per la documentazione completa sulle procedure di upgrade e downgrade degli switch Cisco , fare riferimento alle guide software e di aggiornamento appropriate disponibili sul sito Web Cisco .
 
 
 
 
-== Installare il file
+== Installa il file
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
-* I nomi dei due switch Cisco sono `cs1` e. `cs2`.
-* I nomi dei nodi sono `cluster1-01`, `cluster1-02`, `cluster1-03`, e. `cluster1-04`.
-* I nomi LIF del cluster sono `cluster1-01_clus1`, `cluster1-01_clus2`, `cluster1-02_clus1`, `cluster1-02_clus2` , `cluster1-03_clus1`, `cluster1-03_clus2`, `cluster1-04_clus1`, e. `cluster1-04_clus2`.
-* Il `cluster1::*>` prompt indica il nome del cluster.
+* I nomi dei due switch Cisco sono `cs1` E `cs2` .
+* I nomi dei nodi sono `cluster1-01` , `cluster1-02` , `cluster1-03` , E `cluster1-04` .
+* I nomi LIF del cluster sono `cluster1-01_clus1` , `cluster1-01_clus2` , `cluster1-02_clus1` , `cluster1-02_clus2` , `cluster1-03_clus1` , `cluster1-03_clus2` , `cluster1-04_clus1` , E `cluster1-04_clus2` .
+* IL `cluster1::*>` il prompt indica il nome del cluster.
 
 
-.A proposito di questa attività
-La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 3000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
+.Informazioni su questo compito
+La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 3000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
 
-Durante questa procedura non è necessario alcun collegamento interswitch operativo (ISL). Ciò è dovuto alla progettazione, in quanto le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura esegue la migrazione di tutte le LIF del cluster allo switch del partner operativo durante l'esecuzione delle operazioni sullo switch di destinazione.
+Durante questa procedura non è necessario alcun collegamento inter-switch (ISL) operativo. Ciò è voluto perché le modifiche alla versione RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura migra tutti i LIF del cluster allo switch partner operativo, eseguendo al contempo i passaggi sullo switch di destinazione.
 
-Assicurarsi di completare la procedura descritta in link:prepare-install-cisco-nexus-3232c.html["Preparazione all'installazione di NX-OS e RCF"], quindi seguire la procedura riportata di seguito.
+Assicurati di completare la procedura inlink:prepare-install-cisco-nexus-3232c.html["Prepararsi all'installazione di NX-OS e RCF"] e poi seguire i passaggi sottostanti.
 
-.Fasi
-. Visualizzare le porte del cluster su ciascun nodo collegato agli switch del cluster:
+.Passi
+. Visualizza le porte del cluster su ciascun nodo connesso agli switch del cluster:
 +
 `network device-discovery show`
 
@@ -78,9 +78,9 @@ cluster1-04/cdp
 cluster1::*>
 ----
 ====
-. Controllare lo stato amministrativo e operativo di ciascuna porta del cluster.
+. Controllare lo stato amministrativo e operativo di ogni porta del cluster.
 +
-.. Verificare che tutte le porte del cluster siano funzionanti:
+.. Verificare che tutte le porte del cluster siano attive e integre:
 +
 `network port show –role cluster`
 
@@ -128,7 +128,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. Verificare che tutte le interfacce del cluster (LIF) siano sulla porta home:
+.. Verificare che tutte le interfacce cluster (LIF) siano sulla porta home:
 +
 `network interface show -role cluster`
 
@@ -189,7 +189,7 @@ cs2                         cluster-network    10.233.205.93    NX3232C
 ====
 
 
-. Disattiva l'autorevert sulle LIF del cluster.
+. Disabilitare il ripristino automatico sui LIF del cluster.
 +
 .Mostra esempio
 [%collapsible]
@@ -199,7 +199,7 @@ cs2                         cluster-network    10.233.205.93    NX3232C
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
 ====
-. Sullo switch del cluster cs2, spegnere le porte collegate alle porte del cluster dei nodi.
+. Sullo switch del cluster cs2, chiudere le porte connesse alle porte del cluster dei nodi.
 +
 .Mostra esempio
 [%collapsible]
@@ -210,7 +210,7 @@ cs2(config)# *interface eth1/1/1-2,eth1/7-8*
 cs2(config-if-range)# *shutdown*
 ----
 ====
-. Verificare che le porte del cluster siano migrate alle porte ospitate sullo switch del cluster cs1. Questa operazione potrebbe richiedere alcuni secondi.
+. Verificare che le porte del cluster siano state migrate alle porte ospitate sullo switch del cluster cs1. Potrebbero volerci alcuni secondi.
 +
 `network interface show -role cluster`
 
@@ -237,7 +237,7 @@ Cluster
 cluster1::*>
 ----
 ====
-. Verificare che il cluster funzioni correttamente:
+. Verificare che il cluster sia integro:
 +
 `cluster show`
 
@@ -258,7 +258,7 @@ cluster1-04          true    true          false
 cluster1::*>
 ----
 ====
-. Se non è già stato fatto, salvare una copia della configurazione corrente dello switch copiando l'output del seguente comando in un file di testo:
+. Se non lo hai già fatto, salva una copia della configurazione corrente dello switch copiando l'output del seguente comando in un file di testo:
 +
 `show running-config`
 
@@ -266,7 +266,7 @@ cluster1::*>
 . Salva i dettagli di configurazione di base nel `write_erase.cfg` file sul bootflash.
 +
 
-NOTE: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base.  Per configurare nuovamente lo switch, è necessario essere connessi alla porta della console seriale.
+NOTE: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base. Per configurare nuovamente lo switch, è necessario essere connessi alla porta della console seriale.
 
 +
 `cs2# show run | section "switchname" > bootflash:write_erase.cfg`
@@ -291,7 +291,7 @@ NOTE: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le 
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
 +
-Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch Cisco Interconnect mantenendo la connettività remota"^] per ulteriori dettagli.
+Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori dettagli.
 
 . Verificare che il `write_erase.cfg` il file è popolato come previsto:
 +
@@ -311,19 +311,19 @@ Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/
 +
 `cs2# *copy bootflash:write_erase.cfg startup-config*`
 
-. Riavviare lo switch:
+. Eseguire un riavvio dello switch:
 +
 `cs2# *reload*`
 
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Copiare l'RCF nel bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.  Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nellink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS Command Reference"^] guide.
+. Copiare l'RCF nel bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nellink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] guide.
 +
 .Mostra esempio
 [%collapsible]
 ====
-Questo esempio mostra l'utilizzo di TFTP per copiare un RCF nella flash di avvio sullo switch cs2:
+Questo esempio mostra come TFTP viene utilizzato per copiare un RCF nel bootflash sullo switch cs2:
 
 [listing, subs="+quotes"]
 ----
@@ -337,7 +337,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Applicare l'RCF precedentemente scaricato al bootflash.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nellink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS Command Reference"^] guide.
+Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nellink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] guide.
 
 +
 .Mostra esempio
@@ -350,7 +350,7 @@ Questo esempio mostra il file RCF `Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt`
 cs2# *copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands*
 ----
 ====
-. Esaminare l'output dello striscione da `show banner motd` comando. Leggere e seguire le istruzioni riportate nella sezione *Note importanti* per verificare la corretta configurazione e il corretto funzionamento dello switch.
+. Esaminare l'output del banner dal `show banner motd` comando.  È necessario leggere e seguire le istruzioni riportate nella sezione *Note importanti* per garantire la corretta configurazione e il corretto funzionamento dello switch.
 +
 .Mostra esempio
 [%collapsible]
@@ -401,35 +401,35 @@ cs2# show banner motd
 ====
 +
 
-NOTE: Quando si applica RCF per la prima volta, il messaggio *ERROR: Failed to write VSH comands* (ERRORE: Impossibile scrivere i comandi VSH) è previsto e può essere ignorato.
+NOTE: Quando si applica RCF per la prima volta, è previsto il messaggio *ERROR: Failed to write VSH commands*, che può essere ignorato.
 
 . Verificare che il file RCF sia la versione più recente corretta:
 +
 `show running-config`
 
 +
-Quando si controlla l'output per verificare che l'RCF sia corretto, assicurarsi che le seguenti informazioni siano corrette:
+Quando controlli l'output per verificare di avere l'RCF corretto, assicurati che le seguenti informazioni siano corrette:
 
 +
-** Il banner RCF
-** Le impostazioni di nodo e porta
+** Lo striscione RCF
+** Le impostazioni del nodo e della porta
 ** Personalizzazioni
 +
-L'output varia in base alla configurazione del sito. Controllare le impostazioni della porta e fare riferimento alle note di rilascio per eventuali modifiche specifiche all'RCF installato.
+L'output varia in base alla configurazione del sito.  Controllare le impostazioni della porta e fare riferimento alle note di rilascio per eventuali modifiche specifiche all'RCF installato.
 
 
 
-. Riapplicare le eventuali personalizzazioni precedenti alla configurazione dello switch. Fare riferimento a link:cabling-considerations-3232c.html["Esaminare le considerazioni relative al cablaggio e alla configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
+. Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.  Fare riferimento alink:cabling-considerations-3232c.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per i dettagli di eventuali ulteriori modifiche richieste.
 . Dopo aver verificato che le versioni RCF e le impostazioni dello switch siano corrette, copiare il file running-config nel file startup-config.
 +
-Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS Command Reference"^] guide.
+Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] guide.
 
 +
 [listing]
 ----
 cs2# copy running-config startup-config [########################################] 100% Copy complete
 ----
-. Riavviare lo switch cs2. È possibile ignorare gli eventi di "interruzione delle porte del cluster" riportati sui nodi durante il riavvio dello switch.
+. Riavviare lo switch cs2.  È possibile ignorare gli eventi "porte cluster inattive" segnalati sui nodi mentre lo switch si riavvia.
 +
 [listing, subs="+quotes"]
 ----
@@ -449,7 +449,7 @@ cs2# copy running-config startup-config [#######################################
 ====
 . Verificare lo stato delle porte del cluster sul cluster.
 +
-.. Verificare che le porte e0d siano in buone condizioni su tutti i nodi del cluster:
+.. Verificare che le porte e0d siano attive e funzionanti su tutti i nodi del cluster:
 +
 `network port show -role cluster`
 
@@ -495,7 +495,7 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-.. Verificare lo stato dello switch dal cluster (potrebbe non essere visualizzato lo switch cs2, poiché le LIF non sono presenti su e0d).
+.. Verificare lo stato di integrità dello switch dal cluster (potrebbe non essere visualizzato lo switch cs2, poiché i LIF non sono posizionati su e0d).
 +
 .Mostra esempio
 [%collapsible]
@@ -544,7 +544,7 @@ cs2                         cluster-network    10.233.205.91    N3K-C3232C
 +
 [NOTE]
 ====
-A seconda della versione RCF precedentemente caricata sullo switch, è possibile osservare i seguenti output sulla console dello switch cs1
+Potresti osservare il seguente output sulla console dello switch cs1 a seconda della versione RCF precedentemente caricata sullo switch
 
 ....
 2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
@@ -556,14 +556,14 @@ A seconda della versione RCF precedentemente caricata sullo switch, è possibile
 
 +
 
-NOTE: I nodi del cluster possono richiedere fino a 5 minuti per il reporting come integri.
+NOTE: Possono essere necessari fino a 5 minuti prima che i nodi del cluster vengano segnalati come integri.
 
-. Sullo switch del cluster cs1, spegnere le porte collegate alle porte del cluster dei nodi.
+. Sullo switch del cluster cs1, chiudere le porte collegate alle porte del cluster dei nodi.
 +
 .Mostra esempio
 [%collapsible]
 ====
-Nell'esempio seguente viene utilizzato l'output dell'esempio di interfaccia del passo 1:
+L'esempio seguente utilizza l'output dell'esempio di interfaccia del passaggio 1:
 
 [listing, subs="+quotes"]
 ----
@@ -571,7 +571,7 @@ cs1(config)# *interface eth1/1/1-2,eth1/7-8*
 cs1(config-if-range)# *shutdown*
 ----
 ====
-. Verificare che le LIF del cluster siano migrate alle porte ospitate sullo switch cs2. Questa operazione potrebbe richiedere alcuni secondi.
+. Verificare che i LIF del cluster siano stati migrati alle porte ospitate sullo switch cs2. Potrebbero volerci alcuni secondi.
 +
 `network interface show -role cluster`
 
@@ -598,7 +598,7 @@ Cluster
 cluster1::*>
 ----
 ====
-. Verificare che il cluster funzioni correttamente:
+. Verificare che il cluster sia integro:
 +
 `cluster show`
 
@@ -620,13 +620,13 @@ cluster1::*>
 ----
 ====
 . Ripetere i passaggi da 7 a 23 sullo switch cs1.
-. Abilitare il ripristino automatico sulle LIF del cluster.
+. Abilita il ripristino automatico sui LIF del cluster.
 +
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
-. Verificare che le porte dello switch collegate alle porte del cluster siano in funzione.
+. Verificare che le porte dello switch collegate alle porte del cluster siano attive.
 +
 .Mostra esempio
 [%collapsible]
@@ -644,7 +644,7 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 .
 ----
 ====
-. Verificare che l'ISL tra cs1 e cs2 funzioni correttamente:
+. Verificare che l'ISL tra cs1 e cs2 sia funzionante:
 +
 `show port-channel summary`
 
@@ -671,7 +671,7 @@ Group Port-       Type     Protocol  Member Ports
 cs1#
 ----
 ====
-. Verificare che le LIF del cluster siano tornate alla porta home:
+. Verificare che i LIF del cluster siano tornati alla loro porta home:
 +
 `network interface show -role cluster`
 
@@ -699,10 +699,10 @@ cluster1::*>
 ----
 ====
 +
-Se i LIFS del cluster non sono tornati alle porte home, ripristinarli manualmente:
+Se alcuni LIFS del cluster non sono tornati alle loro porte home, ripristinarli manualmente:
 `network interface revert -vserver _vserver_name_ -lif _lif_name_`
 
-. Verificare che il cluster funzioni correttamente:
+. Verificare che il cluster sia integro:
 +
 `cluster show`
 
@@ -730,15 +730,15 @@ cluster1::*>
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
 
 [listing, subs="+quotes"]
 ----
@@ -768,9 +768,9 @@ cluster1-04
 .
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -815,5 +815,5 @@ RPC status:
 ----
 --
 ====
-.Quali sono le prossime novità?
-link:configure-ssh-keys.html["Verificare la configurazione SSH"].
+.Cosa succederà ora?
+link:configure-ssh-keys.html["Verifica la configurazione SSH"].

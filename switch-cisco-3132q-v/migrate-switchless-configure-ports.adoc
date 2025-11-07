@@ -2,24 +2,24 @@
 permalink: switch-cisco-3132q-v/migrate-switchless-configure-ports.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: È possibile utilizzare gli switch Cisco Nexus 3132q-v come switch cluster nel cluster AFF o FAS. 
+summary: È possibile utilizzare gli switch Cisco Nexus 3132q-v come switch cluster nel cluster AFF o FAS . 
 ---
-= Configura le porte per la migrazione da cluster senza switch a cluster con switch
+= Configura le tue porte per la migrazione da cluster switchless a cluster switching
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questi passaggi per configurare le porte per la migrazione da cluster senza switch a due nodi a cluster con switch a due nodi.
+Seguire questi passaggi per configurare le porte per la migrazione da cluster switchless a due nodi a cluster switched a due nodi.
 
-.Fasi
-. Sugli switch Nexus 3132Q-V C1 e C2, disattivare tutte le porte C1 e C2 rivolte ai nodi, ma non disattivare le porte ISL.
+.Passi
+. Sugli switch Nexus 3132Q-V C1 e C2, disabilitare tutte le porte C1 e C2 rivolte al nodo, ma non disabilitare le porte ISL.
 +
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra la disattivazione delle porte da 1 a 30 sugli switch cluster Nexus 3132Q-V C1 e C2 utilizzando una configurazione supportata in RCF `NX3132_RCF_v1.1_24p10g_26p40g.txt`:
+L'esempio seguente mostra le porte da 1 a 30 disabilitate sugli switch cluster Nexus 3132Q-V C1 e C2 utilizzando una configurazione supportata in RCF `NX3132_RCF_v1.1_24p10g_26p40g.txt` :
 
 [listing]
 ----
@@ -42,7 +42,7 @@ C2(config-if-range)# exit
 C2(config)# exit
 ----
 ====
-. Collegare le porte 1/31 e 1/32 di C1 alle stesse porte di C2 utilizzando i cavi supportati.
+. Collegare le porte 1/31 e 1/32 su C1 alle stesse porte su C2 utilizzando il cablaggio supportato.
 . Verificare che le porte ISL siano operative su C1 e C2:
 +
 `show port-channel summary`
@@ -80,7 +80,7 @@ Group Port-        Type   Protocol  Member Ports
 1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. Visualizzare l'elenco dei dispositivi vicini sullo switch:
+. Visualizza l'elenco dei dispositivi vicini sullo switch:
 +
 `show cdp neighbors`
 
@@ -115,7 +115,7 @@ C1                 Eth1/32        178    R S I s     N3K-C3132Q-V  Eth1/32
 Total entries displayed: 2
 ----
 ====
-. Visualizzare la connettività della porta del cluster su ciascun nodo:
+. Visualizza la connettività delle porte del cluster su ciascun nodo:
 +
 `network device-discovery show`
 
@@ -123,7 +123,7 @@ Total entries displayed: 2
 .Mostra esempio
 [%collapsible]
 ====
-Nell'esempio seguente viene illustrata una configurazione cluster senza switch a due nodi.
+L'esempio seguente mostra una configurazione di cluster switchless a due nodi.
 
 [listing]
 ----
@@ -139,7 +139,7 @@ n2         /cdp
             e4e    n1                  e4e              FAS9000
 ----
 ====
-. Migrare l'interfaccia del clus1 alla porta fisica che ospita il clus2:
+. Migrare l'interfaccia clus1 alla porta fisica che ospita clus2:
 +
 `network interface migrate`
 
@@ -182,7 +182,7 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Chiudere il cluster di porte clus1 LIF su entrambi i nodi:
+. Arrestare le porte del cluster clus1 LIF su entrambi i nodi:
 +
 `network port modify`
 
@@ -199,9 +199,9 @@ cluster::*> network port modify -node n2 -port e4a -up-admin false
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
@@ -224,9 +224,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -259,24 +259,24 @@ RPC status:
 ----
 --
 ====
-. [[step10]]scollegare il cavo da e4a sul nodo n1.
+. [[step10]]Scollegare il cavo da e4a sul nodo n1.
 +
-Fare riferimento alla configurazione in esecuzione e collegare la prima porta 40 GbE dello switch C1 (porta 1/7 in questo esempio) a e4a su n1 utilizzando il cablaggio supportato su Nexus 3132Q-V.
+È possibile fare riferimento alla configurazione in esecuzione e collegare la prima porta 40 GbE sullo switch C1 (porta 1/7 in questo esempio) a e4a su n1 utilizzando il cablaggio supportato su Nexus 3132Q-V.
 
 +
 
-NOTE: Quando si ricollegano i cavi a un nuovo switch cluster Cisco, i cavi utilizzati devono essere in fibra o supportati da Cisco.
+NOTE: Quando si ricollegano i cavi a un nuovo switch cluster Cisco , i cavi utilizzati devono essere in fibra ottica o cavi supportati da Cisco.
 
 . Scollegare il cavo da e4a sul nodo n2.
 +
-È possibile fare riferimento alla configurazione in esecuzione e collegare e4a alla successiva porta 40 GbE disponibile su C1, porta 1/8, utilizzando i cavi supportati.
+È possibile fare riferimento alla configurazione in esecuzione e collegare e4a alla successiva porta 40 GbE disponibile su C1, porta 1/8, utilizzando il cablaggio supportato.
 
 . Abilitare tutte le porte rivolte al nodo su C1.
 +
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra le porte da 1 a 30 abilitate sugli switch cluster Nexus 3132Q-V C1 e C2 utilizzando la configurazione supportata in RCF `NX3132_RCF_v1.1_24p10g_26p40g.txt`:
+L'esempio seguente mostra le porte da 1 a 30 abilitate sugli switch cluster Nexus 3132Q-V C1 e C2 utilizzando la configurazione supportata in RCF `NX3132_RCF_v1.1_24p10g_26p40g.txt` :
 
 [listing]
 ----
@@ -331,7 +331,7 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 4 entries were displayed.
 ----
 ====
-. Per ciascun nodo, ripristinare tutte le LIF di interconnessione del cluster migrate:
+. Per ogni nodo, ripristinare tutti i LIF di interconnessione del cluster migrati:
 +
 `network interface revert`
 
@@ -339,7 +339,7 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 .Mostra esempio
 [%collapsible]
 ====
-Nell'esempio seguente vengono riportati i file LIF migrati alle porte home.
+L'esempio seguente mostra i LIF migrati che vengono ripristinati alle loro porte di origine.
 
 [listing]
 ----
@@ -347,12 +347,12 @@ cluster::*> network interface revert -vserver Cluster -lif n1_clus1
 cluster::*> network interface revert -vserver Cluster -lif n2_clus1
 ----
 ====
-. Verificare che tutte le porte di interconnessione del cluster siano ora ripristinate alle porte home:
+. Verificare che tutte le porte di interconnessione del cluster siano ora ripristinate alle loro porte home:
 +
 `network interface show`
 
 +
-Il `Is Home` la colonna deve visualizzare un valore di `true` per tutte le porte elencate in `Current Port` colonna. Se il valore visualizzato è `false`, la porta non è stata ripristinata.
+IL `Is Home` la colonna dovrebbe visualizzare un valore di `true` per tutte le porte elencate nel `Current Port` colonna.  Se il valore visualizzato è `false` , la porta non è stata ripristinata.
 
 +
 .Mostra esempio
@@ -373,7 +373,7 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Visualizzare la connettività della porta del cluster su ciascun nodo:
+. Visualizza la connettività delle porte del cluster su ciascun nodo:
 +
 `network device-discovery show`
 
@@ -395,7 +395,7 @@ n2         /cdp
             e4e    n1                  e4e              FAS9000
 ----
 ====
-. Sulla console di ciascun nodo, migrare il clus2 alla porta e4a:
+. Sulla console di ciascun nodo, migrare clus2 sulla porta e4a:
 +
 `network interface migrate`
 
@@ -411,7 +411,7 @@ cluster::*> network interface migrate -vserver Cluster -lif n2_clus2 -source-nod
 -destination-node n2 -destination-port e4a
 ----
 ====
-. Chiudere il cluster di porte clus2 LIF su entrambi i nodi:
+. Arrestare le porte del cluster clus2 LIF su entrambi i nodi:
 +
 `network port modify`
 
@@ -449,18 +449,18 @@ Cluster
 ====
 . Scollegare il cavo da e4e sul nodo n1.
 +
-Fare riferimento alla configurazione in esecuzione e collegare la prima porta 40 GbE dello switch C2 (porta 1/7 in questo esempio) a e4e su n1 utilizzando il cablaggio supportato su Nexus 3132Q-V.
+È possibile fare riferimento alla configurazione in esecuzione e collegare la prima porta 40 GbE sullo switch C2 (porta 1/7 in questo esempio) a e4e su n1 utilizzando il cablaggio supportato su Nexus 3132Q-V.
 
 . Scollegare il cavo da e4e sul nodo n2.
 +
-È possibile fare riferimento alla configurazione in esecuzione e collegare e4e alla successiva porta 40 GbE disponibile su C2, porta 1/8, utilizzando i cavi supportati.
+È possibile fare riferimento alla configurazione in esecuzione e collegare e4e alla successiva porta 40 GbE disponibile su C2, porta 1/8, utilizzando il cablaggio supportato.
 
-. Abilitare tutte le porte rivolte al nodo su C2.
+. Abilitare tutte le porte rivolte verso il nodo su C2.
 +
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra le porte da 1 a 30 abilitate sugli switch cluster Nexus 3132Q-V C1 e C2 utilizzando una configurazione supportata in RCF `NX3132_RCF_v1.1_24p10g_26p40g.txt`:
+L'esempio seguente mostra le porte da 1 a 30 abilitate sugli switch cluster Nexus 3132Q-V C1 e C2 utilizzando una configurazione supportata in RCF `NX3132_RCF_v1.1_24p10g_26p40g.txt` :
 
 [listing]
 ----
@@ -476,7 +476,7 @@ C2(config)# exit
 `network port modify`
 
 +
-L'esempio seguente mostra le porte specificate che vengono avviate:
+L'esempio seguente mostra le porte specificate attivate:
 
 +
 [listing]
@@ -484,12 +484,12 @@ L'esempio seguente mostra le porte specificate che vengono avviate:
 cluster::*> network port modify -node n1 -port e4e -up-admin true
 cluster::*> network port modify -node n2 -port e4e -up-admin true
 ----
-. Per ciascun nodo, ripristinare tutte le LIF di interconnessione del cluster migrate:
+. Per ogni nodo, ripristinare tutti i LIF di interconnessione del cluster migrati:
 +
 `network interface revert`
 
 +
-Nell'esempio seguente vengono riportati i file LIF migrati alle porte home.
+L'esempio seguente mostra i LIF migrati che vengono ripristinati alle loro porte di origine.
 
 +
 [listing]
@@ -497,12 +497,12 @@ Nell'esempio seguente vengono riportati i file LIF migrati alle porte home.
 cluster::*> network interface revert -vserver Cluster -lif n1_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 ----
-. Verificare che tutte le porte di interconnessione del cluster siano ora ripristinate alle porte home:
+. Verificare che tutte le porte di interconnessione del cluster siano ora ripristinate alle loro porte home:
 +
 `network interface show`
 
 +
-Il `Is Home` la colonna deve visualizzare un valore di `true` per tutte le porte elencate in `Current Port` colonna. Se il valore visualizzato è `false`, la porta non è stata ripristinata.
+IL `Is Home` la colonna dovrebbe visualizzare un valore di `true` per tutte le porte elencate nel `Current Port` colonna.  Se il valore visualizzato è `false` , la porta non è stata ripristinata.
 
 +
 .Mostra esempio
@@ -523,7 +523,7 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Verificare che tutte le porte di interconnessione del cluster si trovino in `up` stato.
+. Verificare che tutte le porte di interconnessione del cluster siano in `up` stato.
 +
 `network port show -role cluster`
 
@@ -555,5 +555,5 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 ====
 
 
-.Quali sono le prossime novità?
-link:migrate-switchless-complete-migration.html["Completa la migrazione"].
+.Cosa succederà ora?
+link:migrate-switchless-complete-migration.html["Completa la tua migrazione"].

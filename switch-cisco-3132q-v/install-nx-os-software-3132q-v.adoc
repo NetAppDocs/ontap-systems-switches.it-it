@@ -2,43 +2,43 @@
 permalink: switch-cisco-3132q-v/install-nx-os-software-3132q-v.html 
 sidebar: sidebar 
 keywords: install, nx-os software 
-summary: Questa procedura consente di installare il software NX-OS sullo switch del cluster Nexus 3132Q-V. 
+summary: È possibile utilizzare questa procedura per installare il software NX-OS sullo switch cluster Nexus 3132Q-V. 
 ---
-= Installare il software NX-OS
+= Installa il software NX-OS
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Seguire questa procedura per installare il software NX-OS sullo switch del cluster Nexus 3132Q-V.
+Seguire questa procedura per installare il software NX-OS sullo switch cluster Nexus 3132Q-V.
 
 
 
-== Verifica dei requisiti
+== Requisiti di revisione
 
 .Prima di iniziare
-* Backup corrente della configurazione dello switch.
+* Un backup attuale della configurazione dello switch.
 * Un cluster completamente funzionante (nessun errore nei log o problemi simili).
 
 
-.Documentazione consigliata
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]. Consultare la tabella di compatibilità degli switch per le versioni supportate di ONTAP e NX-OS.
-* https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switch Cisco Nexus serie 3000"^]. Consultare le guide all'aggiornamento e al software appropriate disponibili sul sito Web di Cisco per la documentazione completa sulle procedure di aggiornamento e downgrade dello switch Cisco.
+.Documentazione suggerita
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]. Consultare la tabella di compatibilità degli switch per le versioni ONTAP e NX-OS supportate.
+* https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switch Cisco Nexus serie 3000"^]. Per la documentazione completa sulle procedure di upgrade e downgrade degli switch Cisco , consultare le guide software e di aggiornamento appropriate disponibili sul sito Web Cisco .
 
 
 
 
-== Installare il software
+== Installa il software
 
-.A proposito di questa attività
-La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 3000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
+.Informazioni su questo compito
+La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 3000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
 
-Assicurarsi di completare la procedura descritta in link:prepare-install-cisco-nexus-3132q.html["Preparare l'installazione del software NX-OS e del file di configurazione di riferimento"], quindi seguire la procedura riportata di seguito.
+Assicurati di completare la procedura inlink:prepare-install-cisco-nexus-3132q.html["Prepararsi all'installazione del software NX-OS e del file di configurazione di riferimento"] e poi seguire i passaggi sottostanti.
 
-.Fasi
+.Passi
 . Collegare lo switch del cluster alla rete di gestione.
-. Utilizzare `ping` Comando per verificare la connettività al server che ospita il software NX-OS e RCF.
+. Utilizzare il `ping` comando per verificare la connettività al server che ospita il software NX-OS e l'RCF.
 +
 .Mostra esempio
 [%collapsible]
@@ -51,7 +51,7 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. Visualizzare le porte del cluster su ciascun nodo collegato agli switch del cluster:
+. Visualizza le porte del cluster su ciascun nodo connesso agli switch del cluster:
 +
 `network device-discovery show`
 
@@ -80,9 +80,9 @@ cluster1-04/cdp
 cluster1::*>
 ----
 ====
-. Controllare lo stato amministrativo e operativo di ciascuna porta del cluster.
+. Controllare lo stato amministrativo e operativo di ogni porta del cluster.
 +
-.. Verificare che tutte le porte del cluster siano *up* con uno stato integro:
+.. Verificare che tutte le porte del cluster siano *attive* e in stato di integrità:
 +
 `network port show -role cluster`
 
@@ -130,7 +130,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. Verificare che tutte le interfacce del cluster (LIF) siano sulla porta home:
+.. Verificare che tutte le interfacce cluster (LIF) siano sulla porta home:
 +
 `network interface show -role Cluster`
 
@@ -190,11 +190,11 @@ cluster1::*>
 ====
 
 
-. Disattiva l'autorevert sulle LIF del cluster. Le LIF del cluster eseguono il failover sullo switch del cluster partner e rimangono nella pagina man mano che si esegue la procedura di upgrade sullo switch target:
+. Disabilitare il ripristino automatico sui LIF del cluster.  I LIF del cluster eseguono il failover sullo switch del cluster partner e vi rimangono mentre si esegue la procedura di aggiornamento sullo switch di destinazione:
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. Copiare il software NX-OS sullo switch Nexus 3132Q-V utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide di riferimento per Cisco Nexus 3000 Series NX-OS Command"^].
+. Copiare il software NX-OS sullo switch Nexus 3132Q-V utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.  Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide di riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] .
 +
 .Mostra esempio
 [%collapsible]
@@ -281,7 +281,7 @@ cs2#
 ====
 . Installare l'immagine NX-OS.
 +
-L'installazione del file immagine ne provoca il caricamento ogni volta che lo switch viene riavviato.
+L'installazione del file immagine fa sì che questo venga caricato ogni volta che lo switch viene riavviato.
 
 +
 .Mostra esempio
@@ -413,7 +413,7 @@ cs2#
 ====
 . Verificare lo stato delle porte del cluster sul cluster.
 +
-.. Verificare che le porte del cluster siano funzionanti in tutti i nodi del cluster:
+.. Verificare che le porte del cluster siano attive e funzionanti su tutti i nodi del cluster:
 +
 `network port show -role cluster`
 
@@ -459,7 +459,7 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-.. Verificare lo stato dello switch dal cluster.
+.. Verificare lo stato di integrità dello switch dal cluster.
 +
 `network device-discovery show -protocol cdp`
 
@@ -507,7 +507,7 @@ cs2                         cluster-network    10.233.205.91    N3K-C3132Q-V
 
 2 entries were displayed.
 ----
-A seconda della versione RCF precedentemente caricata sullo switch, sulla console dello switch cs1 potrebbero essere presenti i seguenti output:
+A seconda della versione RCF precedentemente caricata sullo switch, è possibile che venga visualizzato il seguente output sulla console dello switch cs1:
 
 [listing]
 ----
@@ -518,7 +518,7 @@ A seconda della versione RCF precedentemente caricata sullo switch, sulla consol
 ====
 
 
-. Verificare che il cluster funzioni correttamente:
+. Verificare che il cluster sia integro:
 +
 `cluster show`
 
@@ -539,12 +539,12 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Ripetere i passaggi da 6 a 11 sull'interruttore CS1.
-. Abilitare il ripristino automatico sulle LIF del cluster.
+. Ripetere i passaggi da 6 a 11 sullo switch cs1.
+. Abilita il ripristino automatico sui LIF del cluster.
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Verificare che le LIF del cluster siano tornate alla porta home:
+. Verificare che i LIF del cluster siano tornati alla loro porta home:
 +
 `network interface show -role cluster`
 
@@ -572,12 +572,12 @@ cluster1::*>
 ----
 ====
 +
-In caso di mancato ritorno delle LIF del cluster alle porte home, puoi ripristinarle manualmente dal nodo locale:
+Se alcuni LIF del cluster non sono tornati alle loro porte home, ripristinarli manualmente dal nodo locale:
 
 +
 `network interface revert -vserver Cluster -lif <lif_name>`
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo aver installato il software NX-OS, puoi link:install-upgrade-rcf-overview-3132q-v.html["installare o aggiornare il file di configurazione di riferimento (RCF)"].

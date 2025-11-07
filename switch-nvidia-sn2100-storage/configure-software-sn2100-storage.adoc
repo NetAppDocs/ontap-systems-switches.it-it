@@ -2,36 +2,36 @@
 permalink: switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
-summary: Panoramica del processo di configurazione software per gli switch storage NVIDIA SN2100. 
+summary: Panoramica del processo di configurazione software per gli switch di archiviazione NVIDIA SN2100. 
 ---
-= Workflow di installazione del software per switch storage NVIDIA SN2100
+= Flusso di lavoro di installazione del software per gli switch di archiviazione NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per installare e configurare il software per uno switch NVIDIA SN2100, attenersi alla seguente procedura:
+Per installare e configurare il software per uno switch NVIDIA SN2100, seguire questi passaggi:
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-sn2100-storage.html["Configurare lo switch"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-sn2100-storage.html["Configurare l'interruttore"]
 [role="quick-margin-para"]
 Configurare lo switch NVIDIA SN2100.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:install-cumulus-mode-sn2100-storage.html["Installare Cumulus Linux in modalità Cumulus"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:install-cumulus-mode-sn2100-storage.html["Installa Cumulus Linux in modalità Cumulus"]
 [role="quick-margin-para"]
 È possibile installare il sistema operativo Cumulus Linux (CL) quando lo switch esegue Cumulus Linux.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-onie-mode-sn2100-storage.html["Installare Cumulus Linux in modalità ONIE"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-onie-mode-sn2100-storage.html["Installa Cumulus Linux in modalità ONIE"]
 [role="quick-margin-para"]
 In alternativa, è possibile installare il sistema operativo Cumulus Linux (CL) quando lo switch esegue Cumulus Linux in modalità ONIE.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:install-rcf-sn2100-storage.html["Installare lo script del file di configurazione di riferimento (RCF)"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:install-rcf-sn2100-storage.html["Installa lo script del file di configurazione di riferimento (RCF)"]
 [role="quick-margin-para"]
-Sono disponibili due script RCF per le applicazioni di clustering e storage. La procedura per ciascuno di essi è la stessa.
+Sono disponibili due script RCF per le applicazioni di clustering e storage.  La procedura è la stessa per entrambi.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:setup-install-cshm-file.html["Installare il file CSHM"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:setup-install-cshm-file.html["Installa il file CSHM"]
 [role="quick-margin-para"]
-È possibile installare il file di configurazione applicabile per il monitoraggio dello stato degli switch Ethernet degli switch cluster NVIDIA.
+È possibile installare il file di configurazione applicabile per il monitoraggio dello stato degli switch Ethernet degli switch cluster NVIDIA .
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:reset-switch-sn2100-storage.html["Ripristinare l'interruttore alle impostazioni predefinite di fabbrica"]
 [role="quick-margin-para"]

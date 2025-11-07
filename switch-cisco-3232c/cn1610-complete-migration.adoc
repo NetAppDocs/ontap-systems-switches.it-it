@@ -2,9 +2,9 @@
 permalink: switch-cisco-3232c/cn1610-complete-migration.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: È possibile utilizzare gli switch Cisco Nexus 3232C come switch cluster nel cluster AFF o FAS. 
+summary: È possibile utilizzare gli switch Cisco Nexus 3232C come switch cluster nel cluster AFF o FAS . 
 ---
-= Completa la migrazione da switch CN1610 a switch 3232C
+= Completa la migrazione dagli switch CN1610 agli switch 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,8 +13,8 @@ summary: È possibile utilizzare gli switch Cisco Nexus 3232C come switch cluste
 [role="lead"]
 Completare i seguenti passaggi per finalizzare la migrazione degli switch CN1610 agli switch Nexus 3232C.
 
-.Fasi
-. Ripristinare tutte le LIF di interconnessione cluster migrate originariamente collegate a C1 su tutti i nodi:
+.Passi
+. Ripristinare tutti i LIF di interconnessione del cluster migrati che erano originariamente connessi a C1 su tutti i nodi:
 +
 `network interface revert -server cluster -lif _lif-name_`
 
@@ -22,7 +22,7 @@ Completare i seguenti passaggi per finalizzare la migrazione degli switch CN1610
 .Mostra esempio
 [%collapsible]
 ====
-È necessario migrare ciascun LIF singolarmente, come illustrato nell'esempio seguente:
+È necessario migrare ogni LIF singolarmente, come mostrato nell'esempio seguente:
 
 [listing, subs="+quotes"]
 ----
@@ -32,7 +32,7 @@ cluster::*> *network interface revert -vserver cluster -lif n2_clus1*
 cluster::*> *network interface revert -vserver cluster -lif n2_clus4*
 ----
 ====
-. Verificare che l'interfaccia sia in posizione iniziale:
+. Verificare che l'interfaccia sia ora nella posizione home:
 +
 `network interface show -role cluster`
 
@@ -40,7 +40,7 @@ cluster::*> *network interface revert -vserver cluster -lif n2_clus4*
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra lo stato delle interfacce di interconnessione del cluster `up` E "is Home" per i nodi n1 e n2:
+L'esempio seguente mostra lo stato delle interfacce di interconnessione del cluster: `up` e "Is Home" per i nodi n1 e n2:
 
 [listing, subs="+quotes"]
 ----
@@ -69,15 +69,15 @@ Cluster
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
 
 [listing, subs="+quotes"]
 ----
@@ -94,9 +94,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -145,8 +145,8 @@ RPC status:
 ----
 --
 ====
-. [[step4]] espandere il cluster aggiungendo nodi agli switch del cluster Nexus 3232C.
-. Visualizzare le informazioni relative ai dispositivi nella configurazione:
+. [[step4]] Espandere il cluster aggiungendo nodi agli switch del cluster Nexus 3232C.
+. Visualizza le informazioni sui dispositivi nella tua configurazione:
 +
 ** `network device-discovery show`
 ** `network port show -role cluster`
@@ -156,7 +156,7 @@ RPC status:
 .Mostra esempio
 [%collapsible]
 ====
-I seguenti esempi mostrano i nodi n3 e n4 con porte cluster da 40 GbE collegate rispettivamente alle porte e1/7 e e1/8 su entrambi gli switch cluster Nexus 3232C. Entrambi i nodi sono Uniti al cluster. Le porte di interconnessione del cluster da 40 GbE utilizzate sono e4a e e4e.
+Gli esempi seguenti mostrano i nodi n3 e n4 con porte cluster da 40 GbE connesse rispettivamente alle porte e1/7 ed e1/8 su entrambi gli switch cluster Nexus 3232C.  Entrambi i nodi sono uniti al cluster.  Le porte di interconnessione del cluster 40 GbE utilizzate sono e4a ed e4e.
 
 [listing, subs="+quotes"]
 ----
@@ -290,7 +290,7 @@ CL2                         cluster-network  10.10.1.102    CN1610
 .Mostra esempio
 [%collapsible]
 ====
-È necessario eliminare entrambi i dispositivi singolarmente, come illustrato nell'esempio seguente:
+È necessario eliminare entrambi i dispositivi singolarmente, come mostrato nell'esempio seguente:
 
 [listing, subs="+quotes"]
 ----
@@ -298,7 +298,7 @@ cluster::> *system cluster-switch delete –device CL1*
 cluster::> *system cluster-switch delete –device CL2*
 ----
 ====
-. Verificare che siano monitorati gli switch del cluster corretti:
+. Verificare che siano monitorati gli switch del cluster appropriati:
 +
 `system cluster-switch show`
 
@@ -306,7 +306,7 @@ cluster::> *system cluster-switch delete –device CL2*
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra che gli switch del cluster C1 e C2 sono monitorati:
+L'esempio seguente mostra che gli switch del cluster C1 e C2 vengono monitorati:
 
 [listing, subs="+quotes"]
 ----
@@ -334,11 +334,11 @@ C2                          cluster-network    10.10.1.104      NX3232C
 2 entries were displayed.
 ----
 ====
-. Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
+. Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].

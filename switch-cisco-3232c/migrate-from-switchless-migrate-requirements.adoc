@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c/migrate-from-switchless-migrate-requirements.html 
 sidebar: sidebar 
 keywords: install, cisco nexus 3232c switch, 
-summary: Prima di configurare gli switch Cisco Nexus 3232c, esaminare una panoramica del processo e della nomenclatura. 
+summary: Prima di configurare gli switch Cisco Nexus 3232c, è opportuno esaminare una panoramica del processo e della nomenclatura. 
 ---
 = Requisiti di migrazione
 :allow-uri-read: 
@@ -10,36 +10,36 @@ summary: Prima di configurare gli switch Cisco Nexus 3232c, esaminare una panora
 
 
 [role="lead"]
-Se utilizzi un cluster senza switch a due nodi, puoi migrare verso un cluster con switch a due nodi che include gli switch di rete del cluster Cisco Nexus 3232C. Si tratta di una procedura senza interruzioni.
+Se si dispone di un cluster switchless a due nodi, è possibile migrare a un cluster switch a due nodi che include switch di rete cluster Cisco Nexus 3232C. Si tratta di una procedura non distruttiva.
 
 .Prima di iniziare
 Verificare le seguenti installazioni e connessioni:
 
-* Le porte sono disponibili per le connessioni dei nodi. Gli switch del cluster utilizzano le porte ISL (Inter-Switch link) e1/31-32.
-* Si dispone di cavi appropriati per le connessioni cluster:
+* Sono disponibili porte per le connessioni dei nodi.  Gli switch cluster utilizzano le porte Inter-Switch Link (ISL) e1/31-32.
+* Si dispone di cavi adatti per le connessioni del cluster:
 +
-** I nodi con connessioni cluster da 10 GbE richiedono moduli ottici QSFP con cavi in fibra breakout o cavi breakout in rame da QSFP a SFP+.
-** I nodi con connessioni cluster da 40/100 GbE richiedono moduli ottici QSFP/QSFP28 supportati con cavi in fibra o cavi a collegamento diretto in rame QSFP/QSFP28.
-** Gli switch cluster richiedono il cablaggio ISL appropriato:
+** I nodi con connessioni cluster 10 GbE richiedono moduli ottici QSFP con cavi in fibra ottica breakout o cavi breakout in rame da QSFP a SFP+.
+** I nodi con connessioni cluster 40/100 GbE richiedono moduli ottici QSFP/QSFP28 supportati con cavi in fibra o cavi di collegamento diretto in rame QSFP/QSFP28.
+** Gli switch del cluster richiedono il cablaggio ISL appropriato:
 +
-*** 2x QSFP28 cavi a collegamento diretto in fibra o rame.
+*** 2 cavi QSFP28 in fibra o rame a collegamento diretto.
 
 
 
 
-* Le configurazioni sono configurate e funzionano correttamente.
+* Le configurazioni sono impostate correttamente e funzionano.
 +
-I due nodi devono essere connessi e funzionanti in un'impostazione di cluster senza switch a due nodi.
+I due nodi devono essere connessi e funzionare in un ambiente cluster senza switch a due nodi.
 
-* Tutte le porte del cluster si trovano nello stato *up*.
-* Lo switch cluster Cisco Nexus 3232C è supportato.
-* La configurazione di rete del cluster esistente presenta quanto segue:
+* Tutte le porte del cluster sono nello stato *attivo*.
+* Sono supportati gli switch cluster Cisco Nexus 3232C.
+* La configurazione di rete del cluster esistente è la seguente:
 +
-** Un'infrastruttura di cluster Nexus 3232C ridondante e completamente funzionale su entrambi gli switch
-** Le ultime versioni di RCF e NX-OS sugli switch
+** Un'infrastruttura cluster Nexus 3232C ridondante e completamente funzionale su entrambi gli switch
+** Le ultime versioni RCF e NX-OS sui tuoi switch
 ** Connettività di gestione su entrambi gli switch
-** Accesso da console a entrambi gli switch
-** Tutte le interfacce logiche del cluster (LIFF) in stato *up* senza essere state migrate
+** Accesso alla console per entrambi gli switch
+** Tutte le interfacce logiche del cluster (LIF) nello stato *attivo* senza essere state migrate
 ** Personalizzazione iniziale dello switch
 ** Tutte le porte ISL abilitate e cablate
 
@@ -47,25 +47,25 @@ I due nodi devono essere connessi e funzionanti in un'impostazione di cluster se
 
 
 .Informazioni sugli esempi utilizzati
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
 * Switch cluster Nexus 3232C, *C1* e *C2*.
 * I nodi sono *n1* e *n2*.
 
 
-Negli esempi di questa procedura vengono utilizzati due nodi, ciascuno dei quali utilizza due porte di interconnessione cluster 40 GbE *e4a* e *E4E*. link:https://hwu.netapp.com/["_Hardware Universe_"^]Dispone di dettagli sulle porte cluster sulle piattaforme.
+Gli esempi in questa procedura utilizzano due nodi, ciascuno con due porte di interconnessione cluster da 40 GbE *e4a* e *e4e*.  ILlink:https://hwu.netapp.com/["_Universo Hardware_"^] contiene dettagli sulle porte del cluster sulle tue piattaforme.
 
-* *n1_clus1* è la prima interfaccia logica del cluster (LIF) ad essere collegata allo switch del cluster *C1* per il nodo *n1*.
-* *n1_clus2* è il primo cluster LIF ad essere collegato al cluster switch *C2* per il nodo *n1*.
-* *n2_clus1* è il primo cluster LIF ad essere collegato al cluster switch *C1* per il nodo *n2*.
-* *n2_clus2* è il secondo cluster LIF da collegare al cluster switch *C2* per il nodo *n2*.
-* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili su https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento di Cisco® Cluster Network Switch"^] pagina.
+* *n1_clus1* è la prima interfaccia logica del cluster (LIF) da connettere allo switch del cluster *C1* per il nodo *n1*.
+* *n1_clus2* è il primo cluster LIF ad essere connesso allo switch del cluster *C2* per il nodo *n1*.
+* *n2_clus1* è il primo cluster LIF ad essere connesso allo switch del cluster *C1* per il nodo *n2*.
+* *n2_clus2* è il secondo cluster LIF da connettere allo switch del cluster *C2* per il nodo *n2*.
+* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili sul https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download del file di configurazione di riferimento dello switch di rete Cisco® Cluster"^] pagina.
 
 
 [NOTE]
 ====
-La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 3000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
+La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 3000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
 
 ====
-.Quali sono le prossime novità?
-link:migrate-from-switchless-prepare-to-migrate.html["Preparazione per la migrazione"].
+.Cosa succederà ora?
+link:migrate-from-switchless-prepare-to-migrate.html["Prepararsi alla migrazione"].

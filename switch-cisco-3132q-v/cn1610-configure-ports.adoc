@@ -2,39 +2,39 @@
 permalink: switch-cisco-3132q-v/cn1610-configure-ports.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: È possibile utilizzare gli switch Cisco Nexus 3132q-v come switch cluster nel cluster AFF o FAS. 
+summary: È possibile utilizzare gli switch Cisco Nexus 3132q-v come switch cluster nel cluster AFF o FAS . 
 ---
-= Configurare le porte per la migrazione da switch CN1610 a switch 3132Q-V.
+= Configura le tue porte per la migrazione dagli switch CN1610 agli switch 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questa procedura per configurare le porte per la migrazione dagli switch CN1610 ai nuovi switch Nexus 3132Q-V.
+Seguire questi passaggi per configurare le porte per la migrazione dagli switch CN1610 ai nuovi switch Nexus 3132Q-V.
 
-.Fasi
+.Passi
 . Su tutti i nodi, rimuovere i cavi collegati allo switch CN1610 CL2.
 +
-Con il cablaggio supportato, è necessario ricollegare le porte disconnesse di tutti i nodi allo switch Nexus 3132Q-V C2.
+Con il cablaggio supportato, è necessario ricollegare le porte disconnesse su tutti i nodi allo switch Nexus 3132Q-V C2.
 
-. Rimuovere i quattro cavi ISL dalle porte da 13 a 16 dello switch CN1610 CL1.
+. Rimuovere quattro cavi ISL dalle porte da 13 a 16 sullo switch CN1610 CL1.
 +
-È necessario collegare i cavi di breakout Cisco QSFP appropriati alla porta 1/24 del nuovo switch Cisco 3132Q-V C2, alle porte da 13 a 16 dello switch CN1610 CL1 esistente.
+È necessario collegare cavi breakout Cisco QSFP-SFP+ appropriati che colleghino la porta 1/24 del nuovo switch Cisco 3132Q-V C2 alle porte da 13 a 16 dello switch CN1610 CL1 esistente.
 
 +
 
-NOTE: Quando si ricollegano cavi al nuovo switch Cisco 3132Q-V, è necessario utilizzare cavi in fibra ottica o cavi twinax Cisco.
+NOTE: Quando si ricollegano i cavi al nuovo switch Cisco 3132Q-V, è necessario utilizzare cavi in ​​fibra ottica o cavi Cisco twinax.
 
-. Per rendere l'ISL dinamico, configurare l'interfaccia ISL 3/1 sullo switch CN1610 attivo per disattivare la modalità statica: `no port-channel static`
+. Per rendere dinamico l'ISL, configurare l'interfaccia ISL 3/1 sullo switch CN1610 attivo per disabilitare la modalità statica: `no port-channel static`
 +
-Questa configurazione corrisponde alla configurazione ISL sullo switch a 3132Q V C2 quando gli ISL vengono attivati su entrambi gli switch nel passaggio 11.
+Questa configurazione corrisponde alla configurazione ISL sullo switch 3132Q-V C2 quando gli ISL vengono attivati su entrambi gli switch nel passaggio 11.
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra la configurazione dell'interfaccia ISL 3/1 utilizzando `no port-channel static` Comando per rendere l'ISL dinamico:
+L'esempio seguente mostra la configurazione dell'interfaccia ISL 3/1 utilizzando `no port-channel static` comando per rendere dinamico l'ISL:
 
 [listing]
 ----
@@ -46,12 +46,12 @@ L'esempio seguente mostra la configurazione dell'interfaccia ISL 3/1 utilizzando
 (CL1)#
 ----
 ====
-. Richiamare gli ISL da 13 a 16 sullo switch CN1610 CL1 attivo.
+. Attivare gli ISL da 13 a 16 sullo switch CN1610 attivo CL1.
 +
 .Mostra esempio
 [%collapsible]
 ====
-Il seguente esempio illustra il processo di attivazione delle porte ISL da 13 a 16 sull'interfaccia del canale di porta 3/1:
+L'esempio seguente illustra il processo di attivazione delle porte ISL da 13 a 16 sull'interfaccia port-channel 3/1:
 
 [listing]
 ----
@@ -63,12 +63,12 @@ Il seguente esempio illustra il processo di attivazione delle porte ISL da 13 a 
 (CL1)#
 ----
 ====
-. Verificare che gli ISL siano `up` Sullo switch CN1610 CL1:
+. Verificare che gli ISL siano `up` sullo switch CN1610 CL1:
 +
 `show port-channel`
 
 +
-Lo stato del collegamento deve essere `Up`, "Tipo" deve essere `Dynamic`E la colonna "porta attiva" deve essere `True` per le porte da 0/13 a 0/16:
+Lo "Stato del collegamento" dovrebbe essere `Up` , "Tipo" dovrebbe essere `Dynamic` e la colonna "Porta attiva" dovrebbe essere `True` per le porte da 0/13 a 0/16:
 
 +
 .Mostra esempio
@@ -98,7 +98,7 @@ Ports  Timeout       Speed       Active
        partner/long
 ----
 ====
-. Verificare che gli ISL siano `up` Sullo switch C2 3132Q-V:
+. Verificare che gli ISL siano `up` sullo switch 3132Q-V C2:
 +
 `show port-channel summary`
 
@@ -106,7 +106,7 @@ Ports  Timeout       Speed       Active
 .Mostra esempio
 [%collapsible]
 ====
-Le porte da eth1/24/1 a eth1/24/4 devono indicare `(P)`, Ovvero che tutte e quattro le porte ISL sono installate nel canale di porta. Eth1/31 e eth1/32 dovrebbero indicare `(D)` poiché non sono connessi:
+Le porte Eth1/24/1 fino a Eth1/24/4 dovrebbero indicare `(P)` , il che significa che tutte e quattro le porte ISL sono attive nel port-channel.  Eth1/31 e Eth1/32 dovrebbero indicare `(D)` poiché non sono collegati:
 
 [listing]
 ----
@@ -127,7 +127,7 @@ Group Port-       Type     Protocol  Member Ports
                                      Eth1/24/4(P)
 ----
 ====
-. Visualizzare tutte le porte di interconnessione del cluster collegate allo switch 3132Q-V C2 su tutti i nodi:
+. Attivare tutte le porte di interconnessione del cluster collegate allo switch 3132Q-V C2 su tutti i nodi:
 +
 `network port modify`
 
@@ -145,7 +145,7 @@ cluster::*> network port modify -node n2 -port e0b -up-admin true
 cluster::*> network port modify -node n2 -port e0c -up-admin true
 ----
 ====
-. Ripristinare tutte le LIF di interconnessione cluster migrate collegate a C2 su tutti i nodi:
+. Ripristina tutti i LIF di interconnessione del cluster migrati che sono connessi a C2 su tutti i nodi:
 +
 `network interface revert`
 
@@ -161,7 +161,7 @@ cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus3
 ----
 ====
-. Verificare che tutte le porte di interconnessione del cluster siano ripristinate alle porte home:
+. Verificare che tutte le porte di interconnessione del cluster siano state ripristinate alle rispettive porte home:
 +
 `network interface show`
 
@@ -169,7 +169,7 @@ cluster::*> network interface revert -vserver Cluster -lif n2_clus3
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra che i LIF su clus2 vengono ripristinati alle porte home e mostra che i LIF vengono ripristinati correttamente se le porte nella colonna "Current Port" (porta corrente) hanno uno stato di `true` Nella colonna "is Home". Se il valore è Home è `false`, Quindi la LIF non viene ripristinata.
+L'esempio seguente mostra che i LIF su clus2 vengono ripristinati alle loro porte home e mostra che i LIF vengono ripristinati correttamente se le porte nella colonna "Porta corrente" hanno uno stato di `true` nella colonna "È casa".  Se il valore Is Home è `false` , allora il LIF non viene ripristinato.
 
 [listing]
 ----
@@ -192,7 +192,7 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Verificare che tutte le porte del cluster siano collegate:
+. Verificare che tutte le porte del cluster siano connesse:
 +
 `network port show`
 
@@ -200,7 +200,7 @@ Cluster
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra il risultato del precedente `network port modify` verificare che tutte le interconnessioni del cluster siano `up`:
+L'esempio seguente mostra il risultato del precedente `network port modify` comando, verificando che tutte le interconnessioni del cluster siano `up` :
 
 [listing]
 ----
@@ -235,9 +235,9 @@ e0d   cluster   cluster     up    9000  auto/10000     -        -
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
@@ -260,9 +260,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2   n1_clus2       none
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -312,7 +312,7 @@ RPC status:
 ----
 --
 ====
-. [[step12]] su ciascun nodo del cluster, migrare le interfacce associate al primo switch CN1610 CL1, da sostituire:
+. [[step12]] Su ciascun nodo del cluster, migrare le interfacce associate al primo switch CN1610 CL1, da sostituire:
 +
 `network interface migrate`
 
@@ -338,7 +338,7 @@ cluster::*> network interface migrate -vserver Cluster -lif n2_clus4 -destinatio
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra che le LIF del cluster richieste sono state migrate alle porte del cluster appropriate ospitate sullo switch del cluster C2:
+L'esempio seguente mostra che i LIF del cluster richiesti sono stati migrati alle porte del cluster appropriate ospitate sullo switch del cluster C2:
 
 [listing]
 ----
@@ -361,7 +361,7 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Chiudere le porte del nodo collegate a CL1 su tutti i nodi:
+. Disattivare le porte dei nodi collegate a CL1 su tutti i nodi:
 +
 `network port modify`
 
@@ -379,7 +379,7 @@ cluster::*> network port modify -node n2 -port e0a -up-admin false
 cluster::*> network port modify -node n2 -port e0d -up-admin false
 ----
 ====
-. Spegnere le porte ISL 24, 31 e 32 sullo switch 3132Q-V C2 attivo:
+. Disattivare le porte ISL 24, 31 e 32 sullo switch 3132Q-V attivo C2:
 +
 `shutdown`
 
@@ -387,7 +387,7 @@ cluster::*> network port modify -node n2 -port e0d -up-admin false
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra come arrestare gli ISL 24, 31 e 32 sullo switch C2 3132Q-V attivo:
+L'esempio seguente mostra come arrestare gli ISL 24, 31 e 32 sullo switch 3132Q-V attivo C2:
 
 [listing]
 ----
@@ -406,16 +406,16 @@ C2#
 +
 Con il cablaggio supportato, è necessario ricollegare le porte disconnesse su tutti i nodi allo switch Nexus 3132Q-V C1.
 
-. Rimuovere i cavi QSFP dalla porta C2 E1/24 Nexus 3132Q-V.
+. Rimuovere i cavi QSFP dalla porta e1/24 del Nexus 3132Q-V C2.
 +
-È necessario collegare le porte e1/31 e e1/32 su C1 alle porte e1/31 e e1/32 su C2 utilizzando cavi Cisco QSFP in fibra ottica o a collegamento diretto supportati.
+È necessario collegare le porte e1/31 ed e1/32 su C1 alle porte e1/31 ed e1/32 su C2 utilizzando cavi in ​​fibra ottica Cisco QSFP supportati o cavi a collegamento diretto.
 
-. Ripristinare la configurazione sulla porta 24 e rimuovere il canale 2 della porta temporanea su C2, copiando `running-configuration` sul `startup-configuration` file.
+. Ripristinare la configurazione sulla porta 24 e rimuovere il canale porta temporaneo 2 su C2, copiando il `running-configuration` file al `startup-configuration` file.
 +
 .Mostra esempio
 [%collapsible]
 ====
-Nell'esempio riportato di seguito viene copiato il `running-configuration` sul `startup-configuration` file:
+L'esempio seguente copia il `running-configuration` file al `startup-configuration` file:
 
 [listing]
 ----
@@ -434,7 +434,7 @@ C2# copy running-config startup-config
 Copy Complete.
 ----
 ====
-. Porta ISL 31 e 32 su C2, lo switch 3132Q-V attivo:
+. Attivare le porte ISL 31 e 32 su C2, lo switch 3132Q-V attivo:
 +
 `no shutdown`
 
@@ -459,5 +459,5 @@ Copy Complete.
 ====
 
 
-.Quali sono le prossime novità?
-link:cn1610-complete-migration.html["Completa la migrazione"].
+.Cosa succederà ora?
+link:cn1610-complete-migration.html["Completa la tua migrazione"].

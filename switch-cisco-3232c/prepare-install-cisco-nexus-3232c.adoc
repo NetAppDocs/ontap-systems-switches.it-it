@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: nx-os software, install, cisco nexus cluster switches, 3232c, rcfs 
 summary: 'Il software Cisco NX-OS e i file di configurazione di riferimento (RCF) devono essere installati sugli switch cluster Cisco Nexus 3232C.' 
 ---
-= Preparazione all'installazione del software NX-OS e del file di configurazione di riferimento (RCF)
+= Prepararsi all'installazione del software NX-OS e del file di configurazione di riferimento (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,30 +13,30 @@ summary: 'Il software Cisco NX-OS e i file di configurazione di riferimento (RCF
 [role="lead"]
 Prima di installare il software NX-OS e il file di configurazione di riferimento (RCF), seguire questa procedura.
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano due nodi. Questi nodi utilizzano due porte di interconnessione cluster da 10 GbE `e0a` e. `e0b`.
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano due nodi.  Questi nodi utilizzano due porte di interconnessione cluster 10GbE `e0a` E `e0b` .
 
-Vedere link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte cluster corrette sulle piattaforme.
+Vedi illink:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte cluster corrette sulle tue piattaforme.
 
 [NOTE]
 ====
-Gli output dei comandi possono variare a seconda delle diverse versioni di ONTAP.
+Gli output dei comandi potrebbero variare a seconda delle diverse versioni di ONTAP.
 
 ====
 .Nomenclatura di switch e nodi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
-* I nomi dei due switch Cisco sono `cs1` e. `cs2`.
-* I nomi dei nodi sono `cluster1-01` e. `cluster1-02`.
-* I nomi LIF del cluster sono `cluster1-01_clus1` e. `cluster1-01_clus2` per i cluster1-01 e. `cluster1-02_clus1` e. `cluster1-02_clus2` per il cluster1-02.
-* Il `cluster1::*>` prompt indica il nome del cluster.
+* I nomi dei due switch Cisco sono `cs1` E `cs2` .
+* I nomi dei nodi sono `cluster1-01` E `cluster1-02` .
+* I nomi LIF del cluster sono `cluster1-01_clus1` E `cluster1-01_clus2` per cluster1-01 e `cluster1-02_clus1` E `cluster1-02_clus2` per cluster1-02.
+* IL `cluster1::*>` il prompt indica il nome del cluster.
 
 
-.A proposito di questa attività
-La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 3000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
+.Informazioni su questo compito
+La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 3000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
 
-.Fasi
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+.Passi
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 `system node autosupport invoke -node * -type all -message MAINT=x h`
 +
 dove _x_ è la durata della finestra di manutenzione in ore.
@@ -44,15 +44,15 @@ dove _x_ è la durata della finestra di manutenzione in ore.
 +
 [NOTE]
 ====
-Il messaggio AutoSupport informa il supporto tecnico di questa attività di manutenzione in modo che la creazione automatica del caso venga soppressa durante la finestra di manutenzione.
+Il messaggio AutoSupport avvisa il supporto tecnico di questa attività di manutenzione, in modo che la creazione automatica dei casi venga soppressa durante la finestra di manutenzione.
 
 ====
-. Impostare il livello di privilegio su Advanced (avanzato), immettendo *y* quando viene richiesto di continuare:
+. Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare:
 +
 `set -privilege advanced`
 
 +
-Il prompt avanzato (`*>`).
+Il prompt avanzato(`*>` ) appare.
 
 . Visualizza quante interfacce di interconnessione cluster sono configurate in ciascun nodo per ogni switch di interconnessione cluster:
 +
@@ -81,7 +81,7 @@ cluster1-01/cdp
 ====
 . Controllare lo stato amministrativo o operativo di ciascuna interfaccia del cluster.
 +
-.. Visualizzare gli attributi della porta di rete:
+.. Visualizza gli attributi della porta di rete:
 +
 `network port show –ipspace Cluster`
 
@@ -110,7 +110,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 4 entries were displayed.
 ----
 ====
-.. Visualizzare le informazioni sui LIF:
+.. Visualizza informazioni sui LIF:
 `network interface show -vserver Cluster`
 +
 .Mostra esempio
@@ -141,15 +141,15 @@ Cluster
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
 
 [listing, subs="+quotes"]
 ----
@@ -167,9 +167,9 @@ cluster1-02
        3/5/2022 19:21:20 -06:00   cluster1-02_clus2   cluster1-01_clus2   none
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -201,7 +201,7 @@ RPC status:
 ----
 --
 ====
-. [[step6]]verifica che il `auto-revert` comando sia abilitato in tutte le LIF del cluster:
+. [[step6]]Verificare che il `auto-revert` il comando è abilitato su tutti i LIF del cluster:
 `network interface show -vserver Cluster -fields auto-revert`
 +
 .Mostra esempio
@@ -224,5 +224,5 @@ Cluster
 ====
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 Dopo esserti preparato per installare il software NX-OS e RCF, link:install-nx-os-software-3232c.html["installare il software NX-OS"].

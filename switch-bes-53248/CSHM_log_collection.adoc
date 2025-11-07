@@ -2,24 +2,24 @@
 permalink: switch-bes-53248/CSHM_log_collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,BES-53248 Broadcom setup,BES-53248 switches configuration,EFOS 
-summary: 'La funzione di raccolta dei log del monitor stato switch Ethernet (CSHM) viene utilizzata per raccogliere i log da switch cluster o di rete di storage in ONTAP.' 
+summary: 'La funzionalità di raccolta dei registri del monitoraggio dello stato di salute dello switch Ethernet (CSHM) viene utilizzata per raccogliere i registri dagli switch di rete di cluster o di storage in ONTAP.' 
 ---
-= Raccolta registro monitoraggio stato switch Ethernet
+= Raccolta di log di monitoraggio dello stato dello switch Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Il monitor dello stato degli switch Ethernet (CSHM) ha la responsabilità di garantire lo stato operativo degli switch del cluster e della rete di storage e di raccogliere i registri degli switch a scopo di debug. Questa procedura guida l'utente attraverso il processo di impostazione e avvio della raccolta di registri *supporto* dettagliati dal centralino e avvia una raccolta oraria di dati *periodici* raccolti da AutoSupport.
+Il monitoraggio dello stato dello switch Ethernet (CSHM) è responsabile di garantire lo stato operativo degli switch di rete Cluster e Storage e di raccogliere i registri degli switch a scopo di debug.  Questa procedura ti guida attraverso il processo di impostazione e avvio della raccolta di registri dettagliati di *Supporto* dallo switch e avvia una raccolta oraria di dati *Periodici* raccolti da AutoSupport.
 
 .Prima di iniziare
-* Per attivare la funzione di raccolta dei registri, è necessario eseguire ONTAP versione 9.10.1P15, 9.11.1P12 o 9.12.1 o successiva ed EFOS 3.8.0.2 o successiva.
-* Il monitoraggio dello stato dello switch deve essere abilitato per lo switch. Verificare questo assicurandosi che `Is Monitored:` il campo è impostato su *true* nell'output di `system switch ethernet show` comando.
+* Per abilitare la funzionalità di raccolta dei log, è necessario eseguire ONTAP versione 9.10.1P15, 9.11.1P12 o 9.12.1 o successiva ed EFOS 3.8.0.2 o successiva.
+* Per lo switch deve essere abilitato il monitoraggio dello stato di integrità.  Verificare ciò assicurandosi che `Is Monitored:` il campo è impostato su *true* nell'output del `system switch ethernet show` comando.
 
 
-.Fasi
-. Per impostare la raccolta di log, eseguire il comando seguente per ogni switch. Viene richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta del registro.
+.Passi
+. Per impostare la raccolta dei log, eseguire il seguente comando per ogni switch.  Ti verrà richiesto di immettere il nome dello switch, il nome utente e la password per la raccolta dei registri.
 +
 `system switch ethernet log setup-password`
 
@@ -53,7 +53,7 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. Per avviare la raccolta dei log, eseguire il comando seguente, sostituendo DEVICE con lo switch utilizzato nel comando precedente. Questo avvia entrambi i tipi di raccolta di log: I log dettagliati *Support* e una raccolta oraria di dati *Periodic*.
+. Per avviare la raccolta dei log, eseguire il comando seguente, sostituendo DEVICE con l'opzione utilizzata nel comando precedente.  In questo modo vengono avviati entrambi i tipi di raccolta dei registri: i registri dettagliati di *Supporto* e una raccolta oraria di dati *Periodici*.
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 
@@ -77,57 +77,57 @@ Enabling cluster switch log collection.
 ----
 ====
 +
-Attendere 10 minuti, quindi verificare che la raccolta dei log sia completa:
+Attendi 10 minuti e poi verifica che la raccolta dei log sia completata:
 
 +
 `system switch ethernet log show`
 
 +
 
-CAUTION: Se uno di questi comandi restituisce un errore o se la raccolta dei log non viene completata, contattare il supporto NetApp.
+CAUTION: Se uno di questi comandi restituisce un errore o se la raccolta dei log non viene completata, contattare l'assistenza NetApp .
 
 
 
-.Risolvere i problemi
-Se si verifica uno dei seguenti stati di errore segnalati dalla funzione di raccolta registri (visibile nell'output di `system switch ethernet log show`), provare i passi di debug corrispondenti:
+.Risoluzione dei problemi
+Se si verifica uno dei seguenti stati di errore segnalati dalla funzionalità di raccolta dei log (visibili nell'output di `system switch ethernet log show` ), provare i passaggi di debug corrispondenti:
 
 |===
 
 
-| *Stato errore raccolta log* | *Risoluzione* 
+| *Stato di errore nella raccolta dei log* | *Risoluzione* 
 
 
  a| 
 *Chiavi RSA non presenti*
  a| 
-Rigenerare le chiavi SSH ONTAP. Contattare l'assistenza NetApp.
+Rigenera le chiavi SSH ONTAP . Contattare l'assistenza NetApp .
 
 
 
  a| 
-*errore password cambio*
+*errore di cambio password*
  a| 
-Verificare le credenziali, verificare la connettività SSH e rigenerare le chiavi SSH ONTAP. Consultare la documentazione dello switch o contattare il supporto NetApp per le istruzioni.
+Verificare le credenziali, testare la connettività SSH e rigenerare le chiavi SSH ONTAP .  Per istruzioni, consultare la documentazione dello switch o contattare l'assistenza NetApp .
 
 
 
  a| 
 *Chiavi ECDSA non presenti per FIPS*
  a| 
-Se la modalità FIPS è attivata, le chiavi ECDSA devono essere generate sullo switch prima di riprovare.
+Se la modalità FIPS è abilitata, è necessario generare le chiavi ECDSA sullo switch prima di riprovare.
 
 
 
  a| 
-*trovato log preesistente*
+*trovato registro preesistente*
  a| 
-Rimuovere il file di raccolta del registro precedente sullo switch.
+Rimuovere il file di raccolta dei registri precedente sullo switch.
 
 
 
  a| 
-*errore registro dump switch*
+*errore di cambio registro dump*
  a| 
-Assicurarsi che l'utente dello switch disponga delle autorizzazioni per la raccolta dei registri. Fare riferimento ai prerequisiti riportati sopra.
+Assicurarsi che l'utente che effettua lo switch disponga delle autorizzazioni per la raccolta dei log.  Fare riferimento ai prerequisiti sopra indicati.
 
 |===

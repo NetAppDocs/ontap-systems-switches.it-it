@@ -2,43 +2,43 @@
 :allow-uri-read: 
 
 
-Per configurare il monitoraggio dello stato dello switch Ethernet sugli switch Ethernet NVIDIA, seguire questa procedura.
+Per configurare il monitoraggio dello stato dello switch Ethernet sugli switch Ethernet NVIDIA , seguire questa procedura.
 
-Queste istruzioni si applicano se gli switch NVIDIA X190006-PE e X190006-PI non vengono rilevati correttamente, il che può essere confermato eseguendo  `system switch ethernet show` e controlla se *OTHER* è visualizzato per il tuo modello. Per identificare il modello del tuo switch NVIDIA, trova il codice prodotto con il comando  `nv show platform hardware` per NVIDIA CL 5.8 e precedenti o  `nv show platform` per le versioni successive.
+Queste istruzioni si applicano se gli switch NVIDIA X190006-PE e X190006-PI non vengono rilevati correttamente, il che può essere confermato eseguendo `system switch ethernet show` e controlla se per il tuo modello viene visualizzato *ALTRO*.  Per identificare il modello del tuo switch NVIDIA , trova il numero di parte con il comando `nv show platform hardware` per NVIDIA CL 5.8 e precedenti o `nv show platform` per le versioni successive.
 
 [NOTE]
 ====
-Questi passaggi sono consigliati anche se si desidera che il monitoraggio dello stato e la raccolta dei log funzionino correttamente quando si utilizza NVIDIA CL 5.11.x con le seguenti release di ONTAP. Sebbene il monitoraggio dello stato e la raccolta dei log possano comunque funzionare anche senza questi passaggi, seguirli garantisce il corretto funzionamento di tutto.
+Questi passaggi sono consigliati anche se si desidera che il monitoraggio dello stato e la raccolta dei registri funzionino come previsto quando si utilizza NVIDIA CL 5.11.x con le seguenti versioni ONTAP .  Anche se il monitoraggio dello stato di salute e la raccolta dei registri potrebbero funzionare anche senza questi passaggi, seguirli garantisce che tutto funzioni correttamente.
 
 * 9.10.1P20, 9.11.1P18, 9.12.1P16, 9.13.1P8, 9.14.1, 9.15.1 e versioni successive
 
 
 ====
 .Prima di iniziare
-* Assicurarsi che il cluster ONTAP sia attivo e in esecuzione.
+* Assicurarsi che il cluster ONTAP sia attivo e funzionante.
 * Abilitare SSH sullo switch per utilizzare tutte le funzionalità disponibili in CSHM.
-* Cancellare la `/mroot/etc/cshm_nod/nod_sign/` directory su tutti i nodi:
+* Cancella il `/mroot/etc/cshm_nod/nod_sign/` directory su tutti i nodi:
 +
-.. Immettere la notoresella:
+.. Entra nel nodeshell:
 +
 `system node run -node <name>`
 
-.. Modifica dei privilegi avanzati:
+.. Passa ai privilegi avanzati:
 +
 `priv set advanced`
 
-.. Elencare i file di configurazione nella `/etc/cshm_nod/nod_sign` directory. Se la directory esiste e contiene file di configurazione, elenca i nomi dei file.
+.. Elenca i file di configurazione in `/etc/cshm_nod/nod_sign` elenco.  Se la directory esiste e contiene file di configurazione, elenca i nomi dei file.
 +
 `ls /etc/cshm_nod/nod_sign`
 
-.. Eliminare tutti i file di configurazione corrispondenti ai modelli di switch collegati.
+.. Elimina tutti i file di configurazione corrispondenti ai modelli di switch connessi.
 +
-In caso di dubbi, rimuovere tutti i file di configurazione per i modelli supportati elencati sopra, quindi scaricare e installare i file di configurazione più recenti per gli stessi modelli.
+In caso di dubbi, rimuovere tutti i file di configurazione per i modelli supportati elencati sopra, quindi scaricare e installare i file di configurazione più recenti per quegli stessi modelli.
 
 +
 `rm /etc/cshm_nod/nod_sign/<filename>`
 
-.. Verificare che i file di configurazione eliminati non siano più nella directory:
+.. Verificare che i file di configurazione eliminati non siano più presenti nella directory:
 +
 `ls /etc/cshm_nod/nod_sign`
 
@@ -46,13 +46,13 @@ In caso di dubbi, rimuovere tutti i file di configurazione per i modelli support
 
 
 
-.Fasi
-. Scaricare il file zip di configurazione dello switch Ethernet Health monitor in base alla versione di ONTAP corrispondente. Questo file è disponibile nella https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switch Ethernet NVIDIA"^] pagina .
+.Passi
+. Scaricare il file zip di configurazione del monitoraggio dello stato dello switch Ethernet in base alla versione di rilascio ONTAP corrispondente.  Questo file è disponibile presso https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switch Ethernet NVIDIA"^] pagina.
 +
-.. Nella pagina di download del software NVIDIA SN2100, selezionare *Nvidia CSHM file*.
-.. Nella pagina attenzione/da leggere, selezionare la casella di controllo per accettare.
-.. Nella pagina Contratto di licenza con l'utente finale, selezionare la casella di controllo Accetto e fare clic su *Accetta e continua*.
-.. Nella pagina file Nvidia CSHM - Download, selezionare il file di configurazione appropriato. Sono disponibili i seguenti file:
+.. Nella pagina di download del software NVIDIA SN2100, seleziona *File Nvidia CSHM*.
+.. Nella pagina Attenzione/Da leggere assolutamente, seleziona la casella di controllo per accettare.
+.. Nella pagina del Contratto di licenza con l'utente finale, seleziona la casella di controllo per accettare e fai clic su *Accetta e continua*.
+.. Nella pagina Nvidia CSHM File - Download, seleziona il file di configurazione applicabile.  Sono disponibili i seguenti file:
 
 
 
@@ -68,7 +68,7 @@ In caso di dubbi, rimuovere tutti i file di configurazione per i modelli support
 
 
 --
-.ONTAP da 9.11.1 a 9.14.1
+.ONTAP 9.11.1 attraverso 9.14.1
 --
 * MSN2100-CB2FC_PRIOR_R9.15.1-v1.4.zip
 * MSN2100-CB2RC_PRIOR_R9.15.1-v1.4.zip
@@ -78,18 +78,18 @@ In caso di dubbi, rimuovere tutti i file di configurazione per i modelli support
 
 --
 ====
-. [[step2]]caricare il file zip applicabile sul server Web interno.
-. Accedi alle impostazioni della modalità avanzata da uno dei sistemi ONTAP nel cluster.
+. [[step2]]Carica il file zip applicabile sul tuo server web interno.
+. Accedere all'impostazione della modalità avanzata da uno dei sistemi ONTAP nel cluster.
 +
 `set -privilege advanced`
 
-. Eseguire il comando di configurazione dello switch Health monitor.
+. Eseguire il comando di configurazione del monitor di integrità dello switch.
 +
 [listing, subs="+quotes"]
 ----
 cluster1::> *system switch ethernet configure-health-monitor*
 ----
-. Verificare che l'output del comando termini con il seguente testo per la versione di ONTAP in uso:
+. Verificare che l'output del comando termini con il seguente testo per la versione ONTAP :
 
 
 [role="tabbed-block"]
@@ -99,7 +99,7 @@ cluster1::> *system switch ethernet configure-health-monitor*
 Il monitoraggio dello stato dello switch Ethernet ha installato il file di configurazione.
 
 --
-.ONTAP da 9.11.1 a 9.14.1
+.ONTAP 9.11.1 attraverso 9.14.1
 --
 SHM ha installato il file di configurazione.
 
@@ -110,9 +110,9 @@ Pacchetto scaricato CSHM elaborato correttamente.
 
 --
 ====
-In caso di errore, contattare il supporto NetApp.
+Se si verifica un errore, contattare l'assistenza NetApp .
 
-. [[step6]]attendere fino a due volte l'intervallo di polling del monitor dello stato dello switch Ethernet, rilevato eseguendo `system switch ethernet polling-interval show`, prima di completare il passaggio successivo.
+. [[step6]]Attendi fino al doppio dell'intervallo di polling del monitor di integrità dello switch Ethernet, rilevato eseguendo `system switch ethernet polling-interval show` , prima di completare il passaggio successivo.
 . Esegui il comando `system switch ethernet configure-health-monitor show` sul sistema ONTAP e assicurarsi che gli switch del cluster vengano rilevati con il campo monitorato impostato su *True* e che il campo del numero di serie non mostri *Unknown*.
 +
 [listing, subs="+quotes"]
@@ -122,6 +122,6 @@ cluster1::> *system switch ethernet configure-health-monitor show*
 
 
 
-NOTE: Se il modello mostra ancora *ALTRO* dopo aver applicato il file di configurazione, contattare il supporto NetApp.
+NOTE: Se il modello continua a visualizzare *OTHER* dopo aver applicato il file di configurazione, contattare l'assistenza NetApp .
 
 Vedi il https://docs.netapp.com/us-en/ontap-cli/system-switch-ethernet-configure-health-monitor.html["switch di sistema ethernet configura-monitor-stato"^] comando per ulteriori dettagli.

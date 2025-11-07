@@ -2,52 +2,52 @@
 permalink: switch-cisco-3232c/replace-storage-switch.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus, 3232c storage switch 
-summary: È possibile sostituire senza interruzioni uno switch storage Cisco Nexus 3232C difettoso eseguendo una sequenza specifica di attività. 
+summary: È possibile sostituire senza interruzioni uno switch di archiviazione Cisco Nexus 3232C difettoso eseguendo una sequenza specifica di attività. 
 ---
-= Sostituire uno switch di storage Cisco Nexus 3232C
+= Sostituire uno switch di archiviazione Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per sostituire uno switch storage Cisco Nexus 3232C difettoso, procedere come segue. Si tratta di una procedura senza interruzioni.
+Per sostituire uno switch di archiviazione Cisco Nexus 3232C difettoso, seguire questi passaggi. Si tratta di una procedura non distruttiva.
 
 
 
-== Verifica dei requisiti
+== Requisiti di revisione
 
 La configurazione di rete esistente deve avere le seguenti caratteristiche:
 
-* La pagina Cisco Ethernet Switches (Switch Ethernet Cisco) contiene le ultime versioni RCF e NX-OS sugli switch.
-* La connettività di gestione deve esistere su entrambi gli switch.
+* Nella pagina relativa agli switch Ethernet Cisco sono disponibili le versioni RCF e NX-OS più recenti sui tuoi switch.
+* La connettività di gestione deve essere presente su entrambi gli switch.
 +
 [NOTE]
 ====
-Assicurarsi che tutte le fasi di risoluzione dei problemi siano state completate per confermare che lo switch deve essere sostituito.
+Assicurati di aver completato tutti i passaggi per la risoluzione dei problemi per confermare che il tuo switch debba essere sostituito.
 
 ====
 
 
-Lo switch Cisco Nexus 3232C sostitutivo deve avere le seguenti caratteristiche:
+Lo switch sostitutivo Cisco Nexus 3232C deve avere le seguenti caratteristiche:
 
 * La connettività della rete di gestione deve essere funzionale.
-* L'accesso della console allo switch sostitutivo deve essere in posizione.
+* Deve essere presente l'accesso alla console per l'interruttore sostitutivo.
 * Sullo switch deve essere caricata l'immagine appropriata del sistema operativo RCF e NX-OS.
-* La personalizzazione iniziale dello switch deve essere completata.
+* La personalizzazione iniziale dello switch deve essere completa.
 
 
 
 
-== Sostituire lo switch
+== Sostituire l'interruttore
 
-Questa procedura sostituisce il secondo switch di storage Nexus 3232C S2 con il nuovo switch NS2 3232C. I due nodi sono node1 e node2.
+Questa procedura sostituisce il secondo switch di archiviazione Nexus 3232C S2 con il nuovo switch 3232C NS2.  I due nodi sono node1 e node2.
 
 
 
-=== Fase 1: Verificare che l'interruttore da sostituire sia S2
+=== Passaggio 1: confermare che l'interruttore da sostituire è S2
 
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 +
 _x_ è la durata della finestra di manutenzione in ore.
@@ -55,10 +55,10 @@ _x_ è la durata della finestra di manutenzione in ore.
 +
 [NOTE]
 ====
-Il messaggio AutoSupport informa il supporto tecnico di questa attività di manutenzione in modo che la creazione automatica del caso venga soppressa durante la finestra di manutenzione.
+Il messaggio AutoSupport avvisa il supporto tecnico di questa attività di manutenzione, in modo che la creazione automatica dei casi venga soppressa durante la finestra di manutenzione.
 
 ====
-. Controllare lo stato delle porte dei nodi di storage per verificare che vi sia una connessione allo switch di storage S1:
+. Controllare lo stato di integrità delle porte del nodo di archiviazione per assicurarsi che vi sia una connessione allo switch di archiviazione S1:
 +
 `storage port show -port-type ENET`
 
@@ -84,7 +84,7 @@ node2
                    e7b  ENET  storage      0 enabled  offline     30
 ----
 ====
-. Verificare che lo switch di storage S1 sia disponibile:
+. Verificare che lo switch di archiviazione S1 sia disponibile:
 +
 `network device-discovery show`
 
@@ -116,7 +116,7 @@ node2/lldp
             e4e    node1                     e4e               -
 ----
 ====
-. Eseguire `show lldp neighbors` comando sull'interruttore funzionante per confermare che è possibile visualizzare sia i nodi che tutti gli shelf:
+. Esegui il `show lldp neighbors` comando sullo switch funzionante per confermare che puoi vedere entrambi i nodi e tutti gli scaffali:
 +
 `show lldp neighbors`
 
@@ -143,9 +143,9 @@ SHFGD2008000022         Eth1/8          120        S           e0a
 
 
 
-=== Fase 2: Configurare il cablaggio
+=== Passaggio 2: configurare il cablaggio
 
-. [[five]]verificare le porte dello shelf nel sistema storage:
+. [[cinque]]Verificare le porte dello scaffale nel sistema di archiviazione:
 +
 `storage shelf port show -fields remote-device,remote-port`
 
@@ -169,15 +169,15 @@ shelf  id  remote-port  remote-device
 3.20   3   -            -
 ----
 ====
-. Rimuovere tutti i cavi collegati allo switch di storage S2.
-. Ricollegare tutti i cavi allo switch NS2 sostitutivo.
+. Rimuovere tutti i cavi collegati all'interruttore di archiviazione S2.
+. Ricollegare tutti i cavi allo switch sostitutivo NS2.
 
 
 
 
-=== Fase 3: Verificare tutte le configurazioni del dispositivo sullo switch NS2
+=== Passaggio 3: verificare tutte le configurazioni dei dispositivi sullo switch NS2
 
-. Verificare lo stato di integrità delle porte del nodo di storage:
+. Verificare lo stato di integrità delle porte del nodo di archiviazione:
 +
 `storage port show -port-type ENET`
 
@@ -239,7 +239,7 @@ node2/lldp
             e7b    NS2                       Ethernet1/2       -
 ----
 ====
-. Verificare le porte dello shelf nel sistema storage:
+. Verificare le porte degli scaffali nel sistema di archiviazione:
 +
 `storage shelf port show -fields remote-device,remote-port`
 
@@ -262,11 +262,11 @@ shelf id remote-port remote-device
 3.20  3  Ethernet1/8 NS2
 ----
 ====
-. Se è stata eliminata la creazione automatica del caso, riattivarla richiamando un messaggio AutoSupport:
+. Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"]

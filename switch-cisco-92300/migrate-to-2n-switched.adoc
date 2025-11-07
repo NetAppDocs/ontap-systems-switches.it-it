@@ -2,52 +2,52 @@
 permalink: switch-cisco-92300/migrate-to-2n-switched.html 
 sidebar: sidebar 
 keywords: 2-node switched Cisco 92300YC cluster switch migration 
-summary: Se si dispone di un ambiente cluster senza switch a due nodi, è possibile migrare a un ambiente cluster con switch a due nodi utilizzando gli switch Cisco Nexus 92300YC per consentire la scalabilità oltre due nodi nel cluster. 
+summary: Se si dispone di un ambiente cluster switchless a due nodi esistente, è possibile migrare a un ambiente cluster switchato a due nodi utilizzando gli switch Cisco Nexus 92300YC per poter scalare oltre due nodi nel cluster. 
 ---
-= Migrare a un cluster con switch a due nodi con uno switch Cisco Nexus 92300YC
+= Migrare a un cluster commutato a due nodi con uno switch Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se si dispone di un ambiente di cluster _switchless_ a due nodi, è possibile migrare a un ambiente di cluster _switched_ a due nodi utilizzando gli switch Cisco Nexus 92300YC per consentire la scalabilità oltre due nodi nel cluster.
+Se si dispone di un ambiente cluster a due nodi _senza switch_, è possibile migrare a un ambiente cluster a due nodi _con switch_ utilizzando gli switch Cisco Nexus 92300YC per poter scalare oltre due nodi nel cluster.
 
-La procedura da seguire dipende dalla presenza di due porte cluster-network dedicate su ciascun controller o di una singola porta cluster su ciascun controller. Il processo documentato funziona per tutti i nodi che utilizzano porte ottiche o twinax, ma non è supportato su questo switch se i nodi utilizzano porte RJ45 10GB BASE-T integrate per le porte di rete del cluster.
+La procedura da utilizzare varia a seconda che si disponga di due porte di rete cluster dedicate su ciascun controller o di una singola porta cluster su ciascun controller.  Il processo documentato funziona per tutti i nodi che utilizzano porte ottiche o twinax, ma non è supportato su questo switch se i nodi utilizzano porte RJ45 BASE-T da 10 Gb integrate per le porte della rete cluster.
 
-La maggior parte dei sistemi richiede due porte cluster-network dedicate su ciascun controller.
-
-
-NOTE: Una volta completata la migrazione, potrebbe essere necessario installare il file di configurazione richiesto per supportare Cluster Switch Health Monitor (CSHM) per gli switch cluster 92300YC. Vedere link:../switch-cshm/cshm-overview.html["Monitoraggio dello stato di salute degli switch (CSHM)"] .
+La maggior parte dei sistemi richiede due porte di rete cluster dedicate su ciascun controller.
 
 
+NOTE: Una volta completata la migrazione, potrebbe essere necessario installare il file di configurazione richiesto per supportare Cluster Switch Health Monitor (CSHM) per gli switch cluster 92300YC. Vederelink:../switch-cshm/cshm-overview.html["Monitoraggio dello stato di salute degli switch (CSHM)"] .
 
-== Verifica dei requisiti
+
+
+== Requisiti di revisione
 
 .Prima di iniziare
-Assicurarsi di disporre di quanto segue:
+Assicurati di avere quanto segue:
 
 Per una configurazione senza switch a due nodi, assicurarsi che:
 
-* La configurazione senza switch a due nodi è configurata e funziona correttamente.
+* La configurazione switchless a due nodi è correttamente configurata e funzionante.
 * I nodi eseguono ONTAP 9.6 e versioni successive.
-* Tutte le porte del cluster si trovano nello stato *up*.
-* Tutte le interfacce logiche del cluster (LIFF) si trovano nello stato *up* e nelle porte home.
+* Tutte le porte del cluster sono nello stato *attivo*.
+* Tutte le interfacce logiche del cluster (LIF) sono nello stato *attivo* e sulle loro porte home.
 
 
 Per la configurazione dello switch Cisco Nexus 92300YC:
 
 * Entrambi gli switch dispongono di connettività di rete di gestione.
-* Gli switch del cluster sono accessibili dalla console.
-* Le connessioni switch nodo-nodo e switch-to-switch Nexus 92300YC utilizzano cavi twinax o in fibra.
+* È disponibile l'accesso alla console per gli switch del cluster.
+* Le connessioni da nodo a nodo e da switch a switch del Nexus 92300YC utilizzano cavi twinax o in fibra.
 +
-https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switch"^] contiene ulteriori informazioni sul cablaggio.
+https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruttori"^]contiene maggiori informazioni sul cablaggio.
 
-* I cavi ISL (Inter-Switch link) sono collegati alle porte 1/65 e 1/66 su entrambi gli switch 92300YC.
-* La personalizzazione iniziale di entrambi gli switch 92300YC è stata completata. In modo che:
+* I cavi Inter-Switch Link (ISL) sono collegati alle porte 1/65 e 1/66 su entrambi gli switch 92300YC.
+* La personalizzazione iniziale di entrambi gli switch 92300YC è stata completata.  In modo che:
 +
-** Gli switch 92300YC utilizzano la versione più recente del software
-** I file di configurazione di riferimento (RCF) vengono applicati agli switch. Qualsiasi personalizzazione del sito, ad esempio SMTP, SNMP e SSH, viene configurata sui nuovi switch.
+** Gli switch 92300YC eseguono l'ultima versione del software
+** I file di configurazione di riferimento (RCF) vengono applicati agli switch. Qualsiasi personalizzazione del sito, come SMTP, SNMP e SSH, viene configurata sui nuovi switch.
 
 
 
@@ -56,31 +56,31 @@ https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switch"^] contiene ulte
 
 == Migrare lo switch
 
-.A proposito degli esempi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di nodi e switch del cluster:
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di cluster switch e nodi:
 
 * I nomi degli switch 92300YC sono cs1 e cs2.
-* I nomi delle SVM del cluster sono node1 e node2.
-* I nomi delle LIF sono rispettivamente node1_clus1 e node1_clus2 sul nodo 1 e node2_clus1 e node2_clus2 sul nodo 2.
-* Il `cluster1::*>` prompt indica il nome del cluster.
-* Le porte del cluster utilizzate in questa procedura sono e0a e e0b.
+* I nomi degli SVM del cluster sono node1 e node2.
+* I nomi dei LIF sono node1_clus1 e node1_clus2 sul nodo 1, e node2_clus1 e node2_clus2 sul nodo 2, rispettivamente.
+* IL `cluster1::*>` il prompt indica il nome del cluster.
+* Le porte cluster utilizzate in questa procedura sono e0a ed e0b.
 +
-https://hwu.netapp.com["Hardware Universe"^] contiene le informazioni più recenti sulle porte cluster effettive per le piattaforme in uso.
+https://hwu.netapp.com["Hardware Universe"^]contiene le informazioni più recenti sulle porte cluster effettive per le tue piattaforme.
 
 
 
 
 
-=== Fase 1: Preparazione per la migrazione
+=== Fase 1: Prepararsi alla migrazione
 
-. Impostare il livello di privilegio su Advanced (avanzato), immettendo `y` quando viene richiesto di continuare:
+. Cambia il livello di privilegio in avanzato, inserendo `y` quando viene richiesto di continuare:
 +
 `set -privilege advanced`
 
 +
-Il prompt avanzato (`*>`).
+Il prompt avanzato(`*>` ) appare.
 
-. Se AutoSupport è attivato su questo cluster, eliminare la creazione automatica del caso richiamando un messaggio AutoSupport:
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
@@ -89,13 +89,13 @@ dove x è la durata della finestra di manutenzione in ore.
 
 +
 
-NOTE: Il messaggio AutoSupport informa il supporto tecnico di questa attività di manutenzione in modo che la creazione automatica del caso venga soppressa durante la finestra di manutenzione.
+NOTE: Il messaggio AutoSupport avvisa il supporto tecnico di questa attività di manutenzione, in modo che la creazione automatica dei casi venga soppressa durante la finestra di manutenzione.
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-Il seguente comando elimina la creazione automatica del caso per due ore:
+Il seguente comando sopprime la creazione automatica dei casi per due ore:
 
 [listing, subs="+quotes"]
 ----
@@ -106,17 +106,17 @@ cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
-=== Fase 2: Configurazione di cavi e porte
+=== Passaggio 2: configurare cavi e porte
 
-. Disattivare tutte le porte rivolte ai nodi (non le porte ISL) su entrambi i nuovi switch del cluster cs1 e cs2.
+. Disabilitare tutte le porte rivolte verso il nodo (non le porte ISL) su entrambi i nuovi switch del cluster cs1 e cs2.
 +
-Non è necessario disattivare le porte ISL.
+Non è consentito disattivare le porte ISL.
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra che le porte rivolte al nodo da 1 a 64 sono disattivate sullo switch cs1:
+L'esempio seguente mostra che le porte da 1 a 64 rivolte al nodo sono disabilitate sullo switch cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -126,7 +126,7 @@ cs1(config)# *interface e/1-64*
 cs1(config-if-range)# *shutdown*
 ----
 ====
-. Verificare che le porte ISL e fisiche dell'ISL tra i due switch 92300YC cs1 e cs2 siano installate sulle porte 1/65 e 1/66:
+. Verificare che l'ISL e le porte fisiche sull'ISL tra i due switch 92300YC cs1 e cs2 siano attivi sulle porte 1/65 e 1/66:
 +
 `show port-channel summary`
 
@@ -134,7 +134,7 @@ cs1(config-if-range)# *shutdown*
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra che le porte ISL sono installate sullo switch cs1:
+L'esempio seguente mostra che le porte ISL sono attive sullo switch cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -154,7 +154,7 @@ Group Port-       Type     Protocol  Member Ports
 --------------------------------------------------------------------------------
 1     Po1(SU)     Eth      LACP      Eth1/65(P)   Eth1/66(P)
 ----
-+ il seguente esempio mostra che le porte ISL sono installate sullo switch cs2 :
++ L'esempio seguente mostra che le porte ISL sono attive sullo switch cs2:
 
 +
 
@@ -177,7 +177,7 @@ Group Port-       Type     Protocol  Member Ports
 1     Po1(SU)     Eth      LACP      Eth1/65(P)   Eth1/66(P)
 ----
 ====
-. Visualizzare l'elenco dei dispositivi vicini:
+. Visualizza l'elenco dei dispositivi vicini:
 +
 `show cdp neighbors`
 
@@ -188,7 +188,7 @@ Questo comando fornisce informazioni sui dispositivi collegati al sistema.
 .Mostra esempio
 [%collapsible]
 ====
-Nell'esempio riportato di seguito sono elencati i dispositivi adiacenti sullo switch cs1:
+L'esempio seguente elenca i dispositivi adiacenti sullo switch cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -205,7 +205,7 @@ cs2(FDO220329V5)    Eth1/66        175    R S I s   N9K-C92300YC  Eth1/66
 
 Total entries displayed: 2
 ----
-+ nell'esempio seguente sono elencati i dispositivi adiacenti sullo switch cs2:
++ L'esempio seguente elenca i dispositivi adiacenti sullo switch cs2:
 
 +
 
@@ -225,12 +225,12 @@ cs1(FDO220329KU)    Eth1/66        177    R S I s   N9K-C92300YC  Eth1/66
 Total entries displayed: 2
 ----
 ====
-. Verificare che tutte le porte del cluster siano installate:
+. Verificare che tutte le porte del cluster siano attive:
 +
 `network port show -ipspace Cluster`
 
 +
-Ogni porta deve essere visualizzata per `Link` e sano per `Health Status`.
+Ogni porta dovrebbe essere visualizzata per `Link` e sano per `Health Status` .
 
 +
 .Mostra esempio
@@ -259,12 +259,12 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 4 entries were displayed.
 ----
 ====
-. Verificare che tutte le LIF del cluster siano operative:
+. Verificare che tutti i cluster LIF siano attivi e operativi:
 +
 `network interface show -vserver Cluster`
 
 +
-Ogni LIF del cluster dovrebbe visualizzare true per `Is Home` e hanno un `Status Admin/Oper` di up/up
+Ogni cluster LIF dovrebbe visualizzare true per `Is Home` e avere un `Status Admin/Oper` di su/su
 
 +
 .Mostra esempio
@@ -285,7 +285,7 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Verificare che l'autorevert sia attivato su tutte le LIF del cluster:
+. Verificare che il ripristino automatico sia abilitato su tutti i LIF del cluster:
 +
 `network interface show -vserver Cluster -fields auto-revert`
 
@@ -309,17 +309,17 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Scollegare il cavo dalla porta del cluster e0a sul nodo 1, quindi collegare e0a alla porta 1 sullo switch del cluster cs1, utilizzando il cablaggio appropriato supportato dagli switch 92300YC.
+. Scollegare il cavo dalla porta e0a del cluster sul nodo 1, quindi collegare e0a alla porta 1 sullo switch cs1 del cluster, utilizzando il cablaggio appropriato supportato dagli switch 92300YC.
 +
-Il https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe - Switch_"^] contiene ulteriori informazioni sul cablaggio.
+IL https://hwu.netapp.com/SWITCH/INDEX["_Universo Hardware - Interruttori_"^] contiene maggiori informazioni sul cablaggio.
 
-. Scollegare il cavo dalla porta del cluster e0a sul nodo 2, quindi collegare e0a alla porta 2 sullo switch del cluster cs1, utilizzando il cablaggio appropriato supportato dagli switch 92300YC.
-. Abilitare tutte le porte rivolte ai nodi sullo switch cluster cs1.
+. Scollegare il cavo dalla porta e0a del cluster sul nodo 2, quindi collegare e0a alla porta 2 sullo switch cs1 del cluster, utilizzando il cablaggio appropriato supportato dagli switch 92300YC.
+. Abilitare tutte le porte rivolte verso il nodo sullo switch del cluster cs1.
 +
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra che le porte da 1/1 a 1/64 sono attivate sullo switch cs1:
+L'esempio seguente mostra che le porte da 1/1 a 1/64 sono abilitate sullo switch cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -329,7 +329,7 @@ cs1(config)# *interface e1/1-64*
 cs1(config-if-range)# *no shutdown*
 ----
 ====
-. Verificare che tutte le LIF del cluster siano funzionanti, operative e visualizzate come vere per `Is Home`:
+. Verificare che tutti i cluster LIF siano attivi, operativi e visualizzati come veri per `Is Home` :
 +
 `network interface show -vserver Cluster`
 
@@ -337,7 +337,7 @@ cs1(config-if-range)# *no shutdown*
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra che tutte le LIF sono in su su node1 e node2 e questo `Is Home` i risultati sono veri:
+L'esempio seguente mostra che tutti i LIF sono attivi su node1 e node2 e che `Is Home` i risultati sono veri:
 
 [listing, subs="+quotes"]
 ----
@@ -363,7 +363,7 @@ Cluster
 .Mostra esempio
 [%collapsible]
 ====
-Nell'esempio seguente vengono visualizzate informazioni sullo stato e sull'idoneità dei nodi nel cluster:
+L'esempio seguente mostra informazioni sullo stato di integrità e sull'idoneità dei nodi nel cluster:
 
 [listing, subs="+quotes"]
 ----
@@ -377,14 +377,14 @@ node2                true    true          false
 2 entries were displayed.
 ----
 ====
-. Scollegare il cavo dalla porta del cluster e0b sul nodo 1, quindi collegare e0b alla porta 1 sullo switch del cluster cs2, utilizzando il cablaggio appropriato supportato dagli switch 92300YC.
-. Scollegare il cavo dalla porta del cluster e0b sul nodo 2, quindi collegare e0b alla porta 2 sullo switch del cluster cs2, utilizzando il cablaggio appropriato supportato dagli switch 92300YC.
-. Abilitare tutte le porte rivolte ai nodi sullo switch cluster cs2.
+. Scollegare il cavo dalla porta e0b del cluster sul nodo 1, quindi collegare e0b alla porta 1 sullo switch cs2 del cluster, utilizzando il cablaggio appropriato supportato dagli switch 92300YC.
+. Scollegare il cavo dalla porta e0b del cluster sul nodo 2, quindi collegare e0b alla porta 2 sullo switch cs2 del cluster, utilizzando il cablaggio appropriato supportato dagli switch 92300YC.
+. Abilitare tutte le porte rivolte verso il nodo sullo switch cluster cs2.
 +
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra che le porte da 1/1 a 1/64 sono attivate sullo switch cs2:
+L'esempio seguente mostra che le porte da 1/1 a 1/64 sono abilitate sullo switch cs2:
 
 [listing, subs="+quotes"]
 ----
@@ -398,9 +398,9 @@ cs2(config-if-range)# *no shutdown*
 
 
 
-=== Fase 3: Verificare la configurazione
+=== Passaggio 3: verificare la configurazione
 
-. Verificare che tutte le porte del cluster siano installate:
+. Verificare che tutte le porte del cluster siano attive:
 +
 `network port show -ipspace Cluster`
 
@@ -408,7 +408,7 @@ cs2(config-if-range)# *no shutdown*
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra che tutte le porte del cluster sono su node1 e node2:
+L'esempio seguente mostra che tutte le porte del cluster sono attive su node1 e node2:
 
 [listing, subs="+quotes"]
 ----
@@ -433,19 +433,19 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 4 entries were displayed.
 ----
 ====
-. Verificare che tutte le interfacce visualizzino true per `Is Home`:
+. Verificare che tutte le interfacce visualizzino true per `Is Home` :
 +
 `network interface show -vserver Cluster`
 
 +
 
-NOTE: Il completamento di questa operazione potrebbe richiedere alcuni minuti.
+NOTE: L'operazione potrebbe richiedere diversi minuti.
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra che tutte le LIF sono in su su node1 e node2 e questo `Is Home` i risultati sono veri:
+L'esempio seguente mostra che tutti i LIF sono attivi su node1 e node2 e che `Is Home` i risultati sono veri:
 
 [listing, subs="+quotes"]
 ----
@@ -463,7 +463,7 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Verificare che entrambi i nodi dispongano di una connessione a ciascuno switch:
+. Verificare che entrambi i nodi abbiano una connessione a ciascun switch:
 +
 `show cdp neighbors`
 
@@ -509,7 +509,7 @@ cs1(FDO220329KU)
 Total entries displayed: 4
 ----
 ====
-. Visualizzare le informazioni relative ai dispositivi di rete rilevati nel cluster:
+. Visualizza informazioni sui dispositivi di rete rilevati nel tuo cluster:
 +
 `network device-discovery show -protocol cdp`
 
@@ -533,19 +533,19 @@ node1      /cdp
 4 entries were displayed.
 ----
 ====
-. Verificare che le impostazioni siano disattivate:
+. Verificare che le impostazioni siano disabilitate:
 +
 `network options switchless-cluster show`
 
 +
 
-NOTE: Il completamento del comando potrebbe richiedere alcuni minuti. Attendere l'annuncio "3 minuti di scadenza".
+NOTE: Potrebbero essere necessari diversi minuti affinché il comando venga completato.  Attendi l'annuncio "Scadenza della durata di 3 minuti".
 
 +
 .Mostra esempio
 [%collapsible]
 ====
-L'output falso nell'esempio seguente mostra che le impostazioni di configurazione sono disattivate:
+L'output false nell'esempio seguente mostra che le impostazioni di configurazione sono disabilitate:
 
 [listing, subs="+quotes"]
 ----
@@ -561,7 +561,7 @@ Enable Switchless Cluster: false
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra informazioni sullo stato e sull'idoneità dei nodi nel cluster:
+L'esempio seguente mostra informazioni sullo stato di integrità e sull'idoneità dei nodi nel cluster:
 
 [listing, subs="+quotes"]
 ----
@@ -580,15 +580,15 @@ node2                true    true          false
 ====
 .ONTAP 9.9.1 e versioni successive
 --
-È possibile utilizzare `network interface check cluster-connectivity` per avviare un controllo di accessibilità per la connettività del cluster e visualizzare i dettagli:
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start` e. `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
 
 [listing, subs="+quotes"]
 ----
@@ -604,9 +604,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Tutte le release di ONTAP
+.Tutte le versioni ONTAP
 --
-Per tutte le release di ONTAP, è possibile utilizzare anche `cluster ping-cluster -node <name>` comando per controllare la connettività:
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
 
 `cluster ping-cluster -node <name>`
 
@@ -640,7 +640,7 @@ RPC status:
 ----
 --
 ====
-. [[step8]] se è stata soppressa la creazione automatica dei casi, riattivarla richiamando un messaggio AutoSupport:
+. [[step8]] Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
@@ -653,11 +653,11 @@ RPC status:
 cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=END*
 ----
 ====
-. Modificare nuovamente il livello di privilegio in admin:
+. Ripristinare il livello di privilegio su amministratore:
 +
 `set -privilege admin`
 
 
 
-.Quali sono le prossime novità?
+.Cosa succederà ora?
 link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].

@@ -2,51 +2,51 @@
 permalink: switch-cisco-92300/install-nxos-rcf.html 
 sidebar: sidebar 
 keywords: install rcf,rcf configure 
-summary: È possibile installare RCF dopo aver configurato lo switch Nexus 92300YC per la prima volta. 
+summary: 'È possibile installare l"RCF dopo aver configurato per la prima volta lo switch Nexus 92300YC.' 
 ---
-= Installazione del file di configurazione di riferimento (RCF)
+= Installare il file di configurazione di riferimento (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-È possibile installare RCF dopo aver configurato lo switch Nexus 92300YC per la prima volta.
+È possibile installare l'RCF dopo aver configurato per la prima volta lo switch Nexus 92300YC.
 
 .Nomenclatura di switch e nodi
-Gli esempi di questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
-* I nomi dei due switch Cisco sono `cs1` e. `cs2`.
-* I nomi dei nodi sono `node1` e. `node2`.
-* I nomi LIF del cluster sono `node1_clus1` e. `node1_clus2` per il node1 e. `node2_clus1` e. `node2_clus2` per il node2.
-* Il `cluster1::*>` prompt indica il nome del cluster.
-* Le porte del cluster su ciascun nodo sono denominate `e0a` e. `e0b`.
+* I nomi dei due switch Cisco sono `cs1` E `cs2` .
+* I nomi dei nodi sono `node1` E `node2` .
+* I nomi LIF del cluster sono `node1_clus1` E `node1_clus2` per il nodo 1 e `node2_clus1` E `node2_clus2` per il nodo 2.
+* IL `cluster1::*>` il prompt indica il nome del cluster.
+* Le porte del cluster su ciascun nodo sono denominate `e0a` E `e0b` .
 +
-Vedere link:https://hwu.netapp.com/Home/Index["_Hardware Universe^_"] per le porte cluster effettivamente supportate sulla piattaforma.
+Vedi illink:https://hwu.netapp.com/Home/Index["_Universo Hardware^_"] per le porte cluster effettivamente supportate sulla tua piattaforma.
 
 
 
-.Porte e connessioni di nodi supportate
+.Porte supportate e connessioni dei nodi
 * I collegamenti Inter-Switch (ISL) supportati per gli switch Nexus 92300YC sono le porte 1/65 e 1/66.
 * Le connessioni dei nodi supportate per gli switch Nexus 92300YC sono le porte da 1/1 a 1/66.
-* Gli esempi di questa procedura utilizzano due nodi. Questi nodi utilizzano due porte di interconnessione cluster da 10 GbE `e0a` e. `e0b`. Vedere https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte cluster corrette sulle piattaforme.
+* Gli esempi in questa procedura utilizzano due nodi.  Questi nodi utilizzano due porte di interconnessione cluster 10GbE `e0a` E `e0b` .  Vedi il https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte cluster corrette sulle tue piattaforme.
 
 
 .Prima di iniziare
 * È necessario disporre dell'RCF corrente.
-* Il cluster deve essere completamente funzionante (non devono essere presenti errori nei log o problemi simili).
-* Se si installa solo NX-OS e si mantiene la versione corrente di RCF, è necessario aver controllato o impostato la configurazione di boot desiderata in RCF per riflettere le immagini di boot desiderate.
-* Se è necessario modificare la configurazione di avvio per riflettere le immagini di avvio correnti, è necessario farlo prima di riapplicare RCF in modo che venga creata un'istanza della versione corretta in caso di riavvio futuro.
-* È necessario consultare la tabella di compatibilità degli switch sul https://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^] Per le versioni supportate di ONTAP, NX-OS e RCF.
-* Esistono dipendenze di comando tra la sintassi del comando in RCF e quella presente nelle versioni di NX-OS.
+* Il cluster deve essere perfettamente funzionante (non devono esserci errori nei log o problemi simili).
+* Se si installa solo NX-OS e si mantiene la versione RCF corrente, è necessario aver selezionato o impostato la configurazione di avvio desiderata in RCF in modo che rifletta le immagini di avvio desiderate.
+* Se è necessario modificare la configurazione di avvio per riflettere le immagini di avvio correnti, è necessario farlo prima di riapplicare l'RCF, in modo che ai riavvii futuri venga istanziata la versione corretta.
+* È necessario aver consultato la tabella di compatibilità degli switch sul https://support.netapp.com/NOW/download/software/cm_switches/["Switch Ethernet Cisco"^] pagina per le versioni ONTAP, NX-OS e RCF supportate.
+* Possono esserci dipendenze tra la sintassi dei comandi presente in RCF e quella presente nelle versioni di NX-OS.
 
 
-.A proposito di questa attività
-La procedura richiede l'utilizzo di entrambi i comandi ONTAP e Cisco Nexus 9000 Series Switches; i comandi ONTAP vengono utilizzati se non diversamente indicato.
+.Informazioni su questo compito
+La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 9000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
 
-Gli output dei comandi possono variare a seconda delle diverse versioni di ONTAP.
+Gli output dei comandi potrebbero variare a seconda delle diverse versioni di ONTAP.
 
-.Fasi
+.Passi
 . Collegare lo switch del cluster alla rete di gestione.
 . Utilizzare il comando ping per verificare la connettività al server che ospita RCF.
 +
@@ -80,7 +80,7 @@ sftp> exit
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
-. Unire RCF con running-config dello switch:
+. Unisci l'RCF con la configurazione in esecuzione dello switch:
 +
 [listing, subs="+quotes"]
 ----
@@ -108,7 +108,7 @@ Edge Port Type (Portfast) has been configured on Ethernet1/1 but will only
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
-. Verificare sullo switch che l'RCF sia stato Unito correttamente:
+. Verificare sullo switch che l'RCF sia stato unito correttamente:
 +
 `show running-config`
 
@@ -159,7 +159,7 @@ cs2# *copy running-config startup-config*
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
-. Per ONTAP 9.6P8 e versioni successive, attivare la funzione di raccolta dei log dello switch Ethernet per la raccolta dei file di log relativi allo switch, utilizzando i comandi seguenti: `system cluster-switch log setup-password` e. `system cluster-switch log enable-collection`
+. Per ONTAP 9.6P8 e versioni successive, abilitare la funzionalità di raccolta dei log del monitoraggio dello stato dello switch Ethernet per raccogliere i file di log correlati allo switch, utilizzando i comandi: `system cluster-switch log setup-password` E `system cluster-switch log enable-collection`
 +
 [listing, subs="+quotes"]
 ----

@@ -13,15 +13,15 @@ summary: Panoramica della configurazione software per gli switch cluster Cisco N
 [role="lead"]
 Per installare e configurare il software per gli switch Cisco Nexus 9336C-FX2 e 9336C-FX2-T e per installare o aggiornare il file di configurazione di riferimento (RCF), attenersi alla seguente procedura:
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-switch-9336c-cluster.html["Configurare lo switch"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:setup-switch-9336c-cluster.html["Configurare l'interruttore"]
 [role="quick-margin-para"]
 Configurare gli switch cluster 9336C-FX2 e 9336C-FX2-T.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:install-nxos-overview-9336c-cluster.html["Preparare l'installazione del software NX-OS e di RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:install-nxos-overview-9336c-cluster.html["Prepararsi all'installazione del software NX-OS e RCF"]
 [role="quick-margin-para"]
 Il software Cisco NX-OS e i file di configurazione di riferimento (RCF) devono essere installati sugli switch cluster Cisco 9336C-FX2 e 9336C-FX2-T.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-nxos-software-9336c-cluster.html["Installare o aggiornare il software NX-OS"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-nxos-software-9336c-cluster.html["Installa o aggiorna il software NX-OS"]
 [role="quick-margin-para"]
 Scarica e installa o aggiorna il software NX-OS sugli switch cluster Cisco 9336C-FX2 e 9336C-FX2-T.
 
@@ -29,7 +29,7 @@ Scarica e installa o aggiorna il software NX-OS sugli switch cluster Cisco 9336C
 [role="quick-margin-para"]
 Installare o aggiornare l'RCF dopo aver configurato per la prima volta gli switch Cisco 9336C-FX2 e 9336C-FX2-T. Puoi usare questa procedura anche per aggiornare la tua versione RCF.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-ssh-keys.html["Verificare la configurazione SSH"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-ssh-keys.html["Verifica la configurazione SSH"]
 [role="quick-margin-para"]
 Verificare che SSH sia abilitato sugli switch per utilizzare le funzionalità di monitoraggio dello stato dello switch Ethernet (CSHM) e di raccolta dei registri.
 
