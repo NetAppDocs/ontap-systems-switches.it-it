@@ -124,4 +124,4 @@ Per attivare più di 12 porte sullo switch cluster Cisco Nexus 9336C-FX-T, è ne
 NOTE: Una volta acquistata la licenza Smart, installare l'RCF appropriato per abilitare e configurare tutte le 36 porte disponibili per l'uso.
 
 .Cosa c'è dopo?
-Dopo aver confermato i componenti e i numeri di parte, rivedi illink:required-documentation-9336c-cluster.html["documentazione richiesta"] .
+Dopo aver confermato i componenti e i numeri di parte, puoi rivedere il link:required-documentation-9336c-cluster.html["documentazione richiesta"].

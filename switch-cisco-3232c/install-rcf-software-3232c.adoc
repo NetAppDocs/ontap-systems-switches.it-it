@@ -112,7 +112,7 @@ Assicurati di configurare quanto segue: * Nome utente e password * Indirizzo IP 
 +
 `cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
-. Per RCF versione 1.12 e successive, eseguire i seguenti comandi:
+. Quando si installa RCF versione 1.12 e successive, eseguire i seguenti comandi:
 +
 `cs2# echo "hardware access-list tcam region racl-lite 512" >> bootflash:write_erase.cfg`
 

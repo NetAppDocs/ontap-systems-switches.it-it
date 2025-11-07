@@ -76,3 +76,5 @@ Vedi NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-5
 
 --
 ====
+.Cosa c'è dopo?
+Dopo aver ripristinato gli switch, puoilink:configure-overview-sn2100-storage.html["riconfigurare"] secondo necessità.

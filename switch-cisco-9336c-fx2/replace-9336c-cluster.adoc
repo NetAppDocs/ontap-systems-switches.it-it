@@ -618,4 +618,4 @@ Total entries displayed: 4
 
 
 .Quali sono le prossime novità?
-Dopo aver sostituito gli interruttori,link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"] .
+Dopo aver sostituito gli interruttori, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

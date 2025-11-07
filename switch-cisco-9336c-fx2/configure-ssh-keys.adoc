@@ -64,4 +64,4 @@ sshServer              1          enabled
 IMPORTANT: Quando si attiva FIPS, è necessario cambiare il conteggio dei bit a 256 sullo switch utilizzando il comando `ssh key ecdsa 256 force`. Per ulteriori informazioni, vedere https://docs.netapp.com/us-en/ontap/networking/configure_network_security_using_federal_information_processing_standards_@fips@.html#enable-fips["Configurare la sicurezza di rete utilizzando FIPS"^].
 
 .Quali sono le prossime novità?
-Dopo aver verificato la configurazione SSH,link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"] .
+Dopo aver verificato la configurazione SSH, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

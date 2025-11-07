@@ -701,4 +701,4 @@ RPC status:
 
 
 .Quali sono le prossime novità?
-Dopo aver migrato gli switch,link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"] .
+Dopo aver migrato gli switch, puoilink:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"] .

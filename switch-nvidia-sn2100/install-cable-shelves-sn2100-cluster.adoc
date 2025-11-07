@@ -24,4 +24,4 @@ https://hwu.netapp.com/["NetApp Hardware Universe"^]
 
 
 .Quali sono le prossime novità?
-Dopo aver cablato i tuoi scaffali, link:configure-sn2100-cluster.html["configurare lo switch"].
+Dopo aver cablato i tuoi scaffali, puoilink:configure-sn2100-cluster.html["configurare lo switch"] .

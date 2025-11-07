@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install rcf, cisco switches, storage 
 summary: 'È possibile installare l"RCF dopo aver configurato per la prima volta lo switch di archiviazione Nexus 9336C-FX2. È inoltre possibile utilizzare questa procedura per aggiornare la versione di RCF.' 
 ---
-= Installare o aggiornare il file di configurazione di riferimento
+= Installare il file di configurazione di riferimento
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -122,7 +122,7 @@ cs1# copy running-config startup-config [#######################################
 +
 `cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
 
-. Per RCF versione 1.12 e successive, eseguire i seguenti comandi:
+. Quando si installa RCF versione 1.12 e successive, eseguire i seguenti comandi:
 +
 `cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
 
@@ -137,7 +137,7 @@ Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/
 
 . Verificare che il `write_erase.cfg` il file è popolato come previsto:
 +
-`show file bootflash:write_erase.cfg`
+`*show file bootflash:write_erase.cfg*`
 
 . Emettere il `write erase` comando per cancellare la configurazione salvata corrente:
 +
@@ -486,4 +486,4 @@ System Manager offre un workflow semplice e facile per la configurazione e il se
 Passare a. https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurare ONTAP su un nuovo cluster con Gestione di sistema"] per le istruzioni di installazione.
 
 .Quali sono le prossime novità?
-Dopo aver installato o aggiornato il tuo RCF,link:configure-ssh-keys.html["verificare la configurazione SSH"]
+Dopo aver installato il tuo RCF, puoilink:configure-ssh-keys.html["verificare la configurazione SSH"]

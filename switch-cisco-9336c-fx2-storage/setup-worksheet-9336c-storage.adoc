@@ -1023,4 +1023,4 @@ Richiede licenza
 Vedere https://hwu.netapp.com/Switch/Index["Hardware Universe"] per ulteriori informazioni sulle porte dello switch.
 
 .Cosa c'è dopo?
-Dopo aver completato i fogli di lavoro sul cablaggio,link:install-9336c-storage.html["installare l'interruttore"] .
+Dopo aver completato i fogli di lavoro sui cavi, puoi link:install-9336c-storage.html["installare l'interruttore"].

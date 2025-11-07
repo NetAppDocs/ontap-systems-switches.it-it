@@ -696,4 +696,4 @@ In caso di mancato ritorno delle LIF del cluster alle porte home, puoi ripristin
 
 
 .Quali sono le prossime novità?
-Dopo aver installato o aggiornato il software NX-OS,link:install-rcf-software-9336c-storage.html["installare o aggiornare l'RCF"] .
+Dopo aver installato o aggiornato il software NX-OS, puoilink:install-rcf-software-9336c-storage.html["installare o aggiornare l'RCF"] .
