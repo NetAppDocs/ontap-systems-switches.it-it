@@ -1366,4 +1366,4 @@ ISL per commutare la porta A 66
 
 |===
 .Cosa c'è dopo?
-link:install-switch-92300yc.html["Installare l'interruttore"].
+Dopo aver completato i fogli di lavoro sui cavi, puoi link:install-switch-92300yc.html["installare l'interruttore"].

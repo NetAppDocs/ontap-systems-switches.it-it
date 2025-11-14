@@ -227,4 +227,4 @@ Cluster
 
 
 .Cosa succederà ora?
-link:install-nxos-software.html["Installa il software NX-OS"].
+Dopo esserti preparato per installare il software NX-OS e RCF, puoi link:install-nxos-software.html["installare il software NX-OS"].

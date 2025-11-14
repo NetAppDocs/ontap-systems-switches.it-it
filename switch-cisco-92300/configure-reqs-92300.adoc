@@ -35,4 +35,4 @@ Per tutte le configurazioni dello switch sono necessarie le seguenti informazion
 Fare riferimento al https://hwu.netapp.com["Hardware Universe"^] per le ultime informazioni.
 
 .Cosa c'è dopo?
-link:components-92300.html["Componenti e numeri di parte"].
+Dopo aver esaminato i requisiti di configurazione, puoi confermare il tuo link:components-92300.html["componenti e numeri di parte"].

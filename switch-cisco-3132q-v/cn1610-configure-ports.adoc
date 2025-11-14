@@ -460,4 +460,4 @@ Copy Complete.
 
 
 .Cosa succederà ora?
-link:cn1610-complete-migration.html["Completa la tua migrazione"].
+Dopo aver configurato le porte dello switch, puoilink:cn1610-complete-migration.html["completa la tua migrazione"] .

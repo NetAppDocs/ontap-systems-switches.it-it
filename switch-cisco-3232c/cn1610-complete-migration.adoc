@@ -341,4 +341,4 @@ C2                          cluster-network    10.10.1.104      NX3232C
 
 
 .Cosa succederà ora?
-link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].
+Dopo aver completato la migrazione dello switch, puoilink:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"] .

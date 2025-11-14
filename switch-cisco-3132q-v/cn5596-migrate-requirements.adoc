@@ -133,4 +133,4 @@ Questa procedura copre i seguenti scenari:
 
 
 .Cosa succederà ora?
-link:cn5596-prepare-to-migrate.html["Prepararsi alla migrazione"].
+Dopo aver esaminato i requisiti di migrazione, puoilink:cn5596-prepare-to-migrate.html["preparati a migrare i tuoi switch"] .

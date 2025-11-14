@@ -100,4 +100,4 @@ A questo punto è necessario preparare entrambi gli switch.  Se è necessario ag
 
 
 .Cosa succederà ora?
-link:migrate-switchless-configure-ports.html["Configura le tue porte"].
+Dopo esserti preparato a migrare i tuoi switch, puoilink:migrate-switchless-configure-ports.html["configura le tue porte"] .

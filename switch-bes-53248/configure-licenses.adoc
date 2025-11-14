@@ -54,6 +54,9 @@ EFOS 3.4.4.6 e versioni successive
 
 |===
 
+NOTE: Per riscattare una chiave di transazione per un file di chiave di licenza della porta, vai alink:https://support.broadcom.com/web/csg/license-generation["Portale delle licenze per gli switch Ethernet supportati da Broadcom"^] pagina. Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/Broadcom-KBs/How_to_add_Additional_Port_Licensing_for_the_Broadcom_BES_53248_Switch["Come aggiungere licenze di porta aggiuntive per lo switch Broadcom BES-53248"^] per ulteriori dettagli.
+
+
 
 == Licenze legacy
 

@@ -33,4 +33,4 @@ Per tutte le configurazioni dello switch sono necessarie le seguenti informazion
 Fare riferimento al https://hwu.netapp.com["Hardware Universe"^] per le ultime informazioni.
 
 .Cosa c'è dopo?
-Dopo aver confermato i requisiti di configurazione, rivedere il link:required-documentation-3232c.html["documentazione richiesta"].
+Dopo aver confermato i requisiti di configurazione, è possibile rivedere illink:required-documentation-3232c.html["documentazione richiesta"] .

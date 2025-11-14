@@ -219,4 +219,4 @@ Cluster
 
 
 .Cosa succederà ora?
-link:cn1610-replace-CL2.html["Sostituire l'interruttore CN1610 CL2 con l'interruttore 3232C C2"].
+Dopo esserti preparato a migrare i tuoi switch, puoilink:cn1610-replace-CL2.html["sostituire l'interruttore CN1610 CL2 con l'interruttore 3232C C2"] .

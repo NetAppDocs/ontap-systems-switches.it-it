@@ -389,4 +389,4 @@ cluster::*> *network interface revert -vserver Cluster -lif n2_clus2*
 
 
 .Cosa succederà ora?
-link:migrate-from-switchless-complete-migration.html["Completa la tua migrazione"].
+Dopo aver configurato le porte, puoilink:migrate-from-switchless-complete-migration.html["completa la tua migrazione"] .

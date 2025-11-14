@@ -105,4 +105,4 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e n
 
 
 .Cosa succederà ora?
-link:cn1610-prepare-to-migrate.html["Prepararsi alla migrazione"].
+Dopo aver esaminato i requisiti di migrazione, puoilink:cn1610-prepare-to-migrate.html["preparati a migrare i tuoi switch"] .

@@ -382,4 +382,4 @@ C2(config-if)# exit
 
 
 .Cosa succederà ora?
-link:cn5596-configure-ports.html["Configura le tue porte"].
+Dopo esserti preparato a migrare i tuoi switch, puoilink:cn5596-configure-ports.html["configura le tue porte"] .

@@ -104,4 +104,4 @@ Per i dettagli delle configurazioni RCF disponibili, vederelink:configure-softwa
 La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 3000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
 
 .Cosa succederà ora?
-Dopo aver esaminato la procedura di installazione o aggiornamento RCF, è possibilelink:install-rcf-software-3232c.html["installare l'RCF"] Olink:upgrade-rcf-software-3232c.html["aggiorna il tuo RCF"] come richiesto.
+Dopo aver esaminato la panoramica della procedura di installazione o aggiornamento RCF, è possibilelink:install-rcf-software-3232c.html["installare l'RCF"] Olink:upgrade-rcf-software-3232c.html["aggiorna il tuo RCF"] come richiesto.

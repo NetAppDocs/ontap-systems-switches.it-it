@@ -694,4 +694,4 @@ cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=EN
 
 
 .Cosa succederà ora?
-link:../switch-cshm/config-overview.html["Configurare il monitoraggio dello stato dello switch"].
+Dopo aver verificato la configurazione SSH, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

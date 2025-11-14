@@ -422,4 +422,4 @@ Copy Complete.
 
 
 .Cosa succederà ora?
-link:cn5596-complete-migration.html["Completa la tua migrazione"].
+Dopo aver configurato le porte dello switch, puoilink:cn5596-complete-migration.html["completa la tua migrazione"] .

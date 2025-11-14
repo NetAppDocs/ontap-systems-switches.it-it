@@ -109,4 +109,4 @@ La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch C
 
 
 .Cosa succederà ora?
-link:migrate-switchless-prepare-to-migrate.html["Prepararsi alla migrazione"].
+Dopo aver esaminato i requisiti di migrazione, puoilink:migrate-switchless-prepare-to-migrate.html["preparati a migrare i tuoi switch"] .

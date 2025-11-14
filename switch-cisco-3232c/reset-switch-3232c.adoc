@@ -44,3 +44,6 @@ This command will reboot the system. (y/n)? [n] *y*
 Il sistema si riavvia e accede alla procedura guidata di configurazione. Durante l'avvio, se viene visualizzato il messaggio "Interrompere il provisioning automatico e continuare con la configurazione normale?" (sì/no)[n]”, dovresti rispondere *sì* per procedere.
 
 
+
+.Cosa c'è dopo?
+Dopo aver ripristinato l'interruttore, è possibilelink:install-overview-cisco-3232c.html["riconfigurare"] in base alle tue esigenze.

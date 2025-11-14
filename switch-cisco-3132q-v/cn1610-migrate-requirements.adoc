@@ -88,4 +88,4 @@ ILlink:https://hwu.netapp.com/["Hardware Universe"^] elenca le porte cluster eff
 
 
 .Cosa succederà ora?
-link:cn5596-prepare-to-migrate.html["Prepararsi alla migrazione"].
+Dopo aver esaminato i requisiti di migrazione, puoilink:cn1610-prepare-to-migrate.html["preparati a migrare i tuoi switch"] .
