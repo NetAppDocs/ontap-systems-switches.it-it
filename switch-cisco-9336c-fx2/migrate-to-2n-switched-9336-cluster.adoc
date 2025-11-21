@@ -415,6 +415,39 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 === Passaggio 3: verificare la configurazione
 
+. Abilita il ripristino automatico sui LIF del cluster.
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
+. Sullo switch cs2, arrestare e riavviare tutte le porte del cluster per attivare un ripristino automatico di tutti i LIF del cluster che non si trovano sulle rispettive porte home.
++
+[listing, subs="+quotes"]
+----
+cs2> *enable*
+cs2# *configure*
+cs2(config)# *interface eth1/1-1/2*
+cs2(config-if-range)# *shutdown*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cs2(config-if-range)# *no shutdown*
+
+(After executing the no shutdown command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+
+cs2(config-if-range)# *exit*
+cs2(config)# *exit*
+cs2#
+----
+. Verificare che i LIF del cluster siano tornati alle loro porte home (l'operazione potrebbe richiedere un minuto):
++
+`network interface show -vserver Cluster`
+
++
+Se uno qualsiasi dei LIF del cluster non è tornato alla propria porta home, ripristinarlo manualmente. È necessario connettersi a ciascuna console di sistema LIF o SP/ BMC di gestione nodi del nodo locale proprietario del LIF:
+
++
+`network interface revert -vserver Cluster -lif *`
+
 . Verificare che tutte le interfacce visualizzino true per `Is Home` :
 +
 `network interface show -vserver Cluster`
@@ -521,17 +554,14 @@ node1      /cdp
 NOTE: Potrebbero essere necessari diversi minuti affinché il comando venga completato.  Attendi l'annuncio "Scadenza della durata di 3 minuti".
 
 +
-.Mostra esempio
-[%collapsible]
-====
 L'output false nell'esempio seguente mostra che le impostazioni di configurazione sono disabilitate:
 
-[listing]
++
+[listing, subs="+quotes"]
 ----
 cluster1::*> network options switchless-cluster show
-Enable Switchless Cluster: false
+Enable Switchless Cluster: *false*
 ----
-====
 . Verificare lo stato dei membri del nodo nel cluster:
 +
 `cluster show`
@@ -618,7 +648,7 @@ RPC status:
 ----
 --
 ====
-. [[step7]] Ripristinare il livello di privilegio su amministratore:
+. [[step10]]Riporta il livello di privilegio su amministratore:
 +
 `set -privilege admin`
 

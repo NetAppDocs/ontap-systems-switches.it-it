@@ -694,6 +694,56 @@ Cluster
           node2_clus2   true
 ----
 ====
+. Sullo switch sw2, arrestare e riavviare tutte le porte del cluster per attivare un ripristino automatico di tutti i LIF del cluster che non si trovano sulle loro porte home.
+
+
+[role="tabbed-block"]
+====
+.Cumulus 4.4.3
+--
+[listing, subs="+quotes"]
+----
+cumulus@sw2:mgmt:~$ *net add interface swp1-14 link down*
+cumulus@sw2:mgmt:~$ *net pending*
+cumulus@sw2:mgmt:~$ *net commit*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cumulus@sw2:mgmt:~$ *net add interface swp1-14 link up*
+cumulus@sw2:mgmt:~$ *net pending*
+cumulus@sw2:mgmt:~$ *net commit*
+
+(After executing the link state up command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+----
+--
+.Cumulus 5.x
+--
+[listing, subs="+quotes"]
+----
+cumulus@sw2:mgmt:~$ *nv set interface swp1-14 link state down*
+cumulus@sw2:mgmt:~$ *nv config apply*
+cumulus@sw2:mgmt:~$ *nv show interface*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cumulus@sw2:mgmt:~$ *nv set interface swp1-14 link state up*
+cumulus@sw2:mgmt:~$ *nv config apply*
+cumulus@sw2:mgmt:~$ *nv show interface*
+
+(After executing the link state up command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+----
+--
+====
+. [[step3]]Verificare che i LIF del cluster siano tornati alle loro porte home (potrebbe volerci un minuto):
++
+`network interface show -vserver Cluster`
+
++
+Se uno qualsiasi dei LIF del cluster non è tornato alla propria porta home, ripristinarlo manualmente. È necessario connettersi a ciascuna console di sistema LIF o SP/ BMC di gestione nodi del nodo locale proprietario del LIF:
+
++
+`network interface revert -vserver Cluster -lif *`
+
 . Verificare che tutte le interfacce siano visualizzate `true` per `Is Home` :
 +
 `net interface show -vserver Cluster`
@@ -728,17 +778,14 @@ Cluster
 `network options switchless-cluster show`
 
 +
-.Mostra esempio
-[%collapsible]
-====
 L'output false nell'esempio seguente mostra che le impostazioni di configurazione sono disabilitate:
 
++
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network options switchless-cluster show*
+cluster1::*> network options switchless-cluster show
 Enable Switchless Cluster: *false*
 ----
-====
 . Verificare lo stato dei membri del nodo nel cluster:
 +
 `cluster show`
@@ -825,7 +872,7 @@ RPC status:
 ----
 --
 ====
-. [[step6]] Ripristina il livello di privilegio su amministratore:
+. [[step8]]Riporta il livello di privilegio su amministratore:
 +
 `set -privilege admin`
 
