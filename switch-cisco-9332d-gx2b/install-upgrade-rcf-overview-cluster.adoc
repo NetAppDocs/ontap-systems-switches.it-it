@@ -16,10 +16,10 @@ Dopo aver configurato per la prima volta lo switch Nexus 9332D-GX2B, installare 
 Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori informazioni sull'installazione o l'aggiornamento del tuo RCF.
 
 .Configurazione RCF disponibile
-* *Cluster-HA-Storage* - Supporta il traffico cluster/HA/storage condiviso sulle porte (NX9332D-GX2B-RCF-v10.0-Shared.txt).
+* *Cluster-HA-Storage AFX* - Tutte le porte sono configurate in modalità breakout 4x100GbE che supporta universalmente cluster di nodi AFX, HA, porte di storage e porte di storage shelf NX224.  ISL 400GbE tra switch.  (_Cluster-HA-Storage AFX RCF_vxx.x_).
 
 
-Per informazioni specifiche sull'utilizzo di porte e VLAN, fare riferimento alla sezione banner e note importanti nel RCF.
+Per informazioni specifiche sull'utilizzo di porte e VLAN, fare riferimento alla sezione banner e note importanti nel RCF. Vederelink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^] per maggiori informazioni.
 
 .Documentazione suggerita
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco (NSS)"^]

@@ -73,6 +73,28 @@ Magazzinaggio
 Tutte le porte sono configurate per connessioni di archiviazione NVMe da 100 GbE.
 
 |===
+.RCF disponibili
+Nella tabella seguente sono elencati gli RCF disponibili per gli switch 3132Q-V.  Scegli la versione RCF applicabile alla tua configurazione. Vederelink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^] per maggiori informazioni.
+
+[cols="1"]
+|===
+| Nome RCF 
+
+
+ a| 
+Cluster-HA-Breakout RCF v1._xx_
+
+
+
+ a| 
+Cluster-HA RCF v1._xx_
+
+
+
+ a| 
+Gruppo RCF 1._xx_
+
+|===
 .Documentazione suggerita
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco (NSS)"^]
 +
