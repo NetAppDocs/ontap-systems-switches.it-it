@@ -53,32 +53,6 @@ entries:
 - title: Migrare gli switch
   pdf-filename: Migrate_switches_3132q-v
   entries:
-  - title: Migrazione dello switch CN1610
-    pdf-filename: CN1610_switch_migration
-    entries:
-    - title: Flusso di lavoro di migrazione dello switch CN1610
-      url: "/switch-cisco-3132q-v/cn1610-migrate-workflow.html"
-    - title: Requisiti di migrazione
-      url: "/switch-cisco-3132q-v/cn1610-migrate-requirements.html"
-    - title: Prepararsi alla migrazione
-      url: "/switch-cisco-3132q-v/cn1610-prepare-to-migrate.html"
-    - title: Configura le tue porte
-      url: "/switch-cisco-3132q-v/cn1610-configure-ports.html"
-    - title: Completa la tua migrazione
-      url: "/switch-cisco-3132q-v/cn1610-complete-migration.html"
-  - title: Migrazione dello switch Cisco Nexus 5596
-    pdf-filename: CN5596_switch_migration
-    entries:
-    - title: Flusso di lavoro di migrazione dello switch Cisco Nexus 5596
-      url: "/switch-cisco-3132q-v/cn5596-migrate-workflow.html"
-    - title: Requisiti di migrazione
-      url: "/switch-cisco-3132q-v/cn5596-migrate-requirements.html"
-    - title: Prepararsi alla migrazione
-      url: "/switch-cisco-3132q-v/cn5596-prepare-to-migrate.html"
-    - title: Configura le tue porte
-      url: "/switch-cisco-3132q-v/cn5596-configure-ports.html"
-    - title: Completa la tua migrazione
-      url: "/switch-cisco-3132q-v/cn5596-complete-migration.html"
   - title: Migrazione da cluster senza switch a cluster con switch a due nodi
     pdf-filename: Migrare da un cluster senza switch a uno con switch
     entries:
