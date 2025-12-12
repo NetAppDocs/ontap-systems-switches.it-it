@@ -5,9 +5,8 @@ indexpage:
     e gestire gli switch di archiviazione per le distribuzioni di cluster ONTAP .
   keywords: storage switches, cisco nexus switches, cluster switches, ontap clusters
   lead: Gli switch di archiviazione consentono di creare cluster ONTAP con più di
-    due nodi. Questi switch della piattaforma Cisco Nexus 9000 costituiscono la base
-    per soluzioni di interconnessione cluster scalabili negli ambienti NetApp ONTAP
-    .
+    due nodi. Questi switch di storage Ethernet costituiscono la base per soluzioni
+    di interconnessione cluster scalabili negli ambienti NetApp ONTAP .
   tiles:
   - title: Iniziare
     links:

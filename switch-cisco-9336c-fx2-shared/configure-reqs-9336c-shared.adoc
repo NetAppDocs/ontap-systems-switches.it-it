@@ -41,7 +41,7 @@ Per tutte le configurazioni dello switch sono necessarie le seguenti informazion
 * Subnet IP per il traffico di rete di gestione
 * Nomi host e indirizzi IP per ciascuno dei controller del sistema di archiviazione e tutti gli switch applicabili
 * La maggior parte dei controller dei sistemi di storage vengono gestiti tramite l'interfaccia e0M, collegandosi alla porta di servizio Ethernet (icona a forma di chiave inglese). Nei sistemi AFF A800 e AFF A700s , l'interfaccia e0M utilizza una porta Ethernet dedicata.
-* Fare riferimento al https://hwu.netapp.com["Hardware Universe"] per le ultime informazioni.
+* Fare riferimento al https://hwu.netapp.com["Hardware Universe"] per le ultime informazioni. Vedere link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per maggiori informazioni sui requisiti di installazione degli switch.
 
 
 Per maggiori informazioni sulla configurazione iniziale dello switch, consultare la seguente guida: https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guida all'installazione e all'aggiornamento Cisco Nexus 9336C-FX2"] .

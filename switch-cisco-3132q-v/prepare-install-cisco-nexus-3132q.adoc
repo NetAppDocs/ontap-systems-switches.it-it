@@ -16,7 +16,7 @@ Prima di installare il software NX-OS e il file di configurazione di riferimento
 .Informazioni sugli esempi
 Gli esempi in questa procedura utilizzano due nodi.  Questi nodi utilizzano due porte di interconnessione cluster 10GbE `e0a` E `e0b` .
 
-Vedi illink:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte cluster corrette sulle tue piattaforme.
+Vedi illink:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte cluster corrette sulle tue piattaforme. Vedere link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per maggiori informazioni sui requisiti di installazione degli switch.
 
 
 NOTE: Gli output dei comandi potrebbero variare a seconda delle diverse versioni di ONTAP.

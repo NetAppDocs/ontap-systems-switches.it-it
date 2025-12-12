@@ -50,7 +50,7 @@ swp15-16
 Porte Inter-Switch Link (ISL) da 100 GbE
 
 |===
-Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per maggiori informazioni sulle porte dello switch.
+Vedi il link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per maggiori informazioni sulle porte dello switch.
 
 
 
@@ -190,7 +190,7 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-Vedi l'articolo della Knowledge Base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Lo switch SN2100 non riesce a connettersi utilizzando cavi in rame 40/100GbE"^] per ulteriori dettagli.
+Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Lo switch SN2100 non riesce a connettersi utilizzando cavi in rame 40/100GbE"^] per ulteriori dettagli.
 
 Su Cumulus Linux 4.4.2, le connessioni in rame non sono supportate sugli switch SN2100 con NIC X1151A, NIC X1146A o porte 100GbE integrate. Per esempio:
 
@@ -200,24 +200,23 @@ Su Cumulus Linux 4.4.2, le connessioni in rame non sono supportate sugli switch 
 
 
 
-== Adattatore QSA
+== modulo QSA
 
-Quando si utilizza un adattatore QSA per connettersi alle porte del cluster 10GbE/25GbE su una piattaforma, il collegamento potrebbe non essere attivo.
+Quando si utilizzano adattatori da QSFP+ (40GbE) a SFP+ (10GbE) o adattatori da QSFP28 (100GbE) a SFP28 (25GbE) (QSA), inserirli nelle porte dello switch 40GbE/100GbE non breakout (swp3-swp14). Non inserire il modulo QSA in una porta configurata per il breakout.
+
+Quando si utilizza un modulo QSA per connettersi alle porte del cluster 10GbE/25GbE su una piattaforma, il collegamento potrebbe non essere attivo.
 
 Per risolvere questo problema, procedere come segue:
 
-* Per 10GbE, impostare manualmente la velocità di collegamento swp1s0-3 su 10000 e disattivare la negoziazione automatica.
-* Per 25GbE, impostare manualmente la velocità di collegamento swp2s0-3 su 25000 e disattivare la negoziazione automatica.
+* Per 10GbE, impostare manualmente la velocità di collegamento su 10000 e disattivare la negoziazione automatica.
+* Per 25GbE, impostare manualmente la velocità di collegamento su 25000 e disattivare la negoziazione automatica.
 
-
-
-NOTE: Quando si utilizzano adattatori QSA 10GbE/25GbE, inserirli nelle porte 40GbE/100GbE non breakout (swp3-swp14).  Non inserire l'adattatore QSA in una porta configurata per il breakout.
 
 
 
 == Impostazione della velocità dell'interfaccia sulle porte breakout
 
-A seconda del ricetrasmettitore nella porta dello switch, potrebbe essere necessario impostare la velocità sull'interfaccia dello switch su una velocità fissa.  Se si utilizzano porte breakout da 10 GbE e 25 GbE, verificare che la negoziazione automatica sia disattivata e impostare la velocità dell'interfaccia sullo switch.
+A seconda del ricetrasmettitore nella porta dello switch, potrebbe essere necessario impostare la velocità sull'interfaccia dello switch su una velocità fissa. Se si utilizzano porte breakout da 10 GbE e 25 GbE o un modulo QSA, verificare che la negoziazione automatica sia disattivata e impostare la velocità dell'interfaccia sullo switch.
 
 [role="tabbed-block"]
 ====
@@ -332,5 +331,7 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 ----
 --
 ====
+Vedi il link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^]e l'articolo della Knowledge Base link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è in HWU?"^] per maggiori informazioni.
+
 .Cosa succederà ora?
 Dopo aver esaminato i requisiti di cablaggio e configurazione, è possibilelink:install-cable-shelves-sn2100-cluster.html["cablare i ripiani NS224 come spazio di archiviazione collegato all'interruttore"] .

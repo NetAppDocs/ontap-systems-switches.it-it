@@ -17,7 +17,7 @@ Per l'installazione e la manutenzione dello switch BES-53248, assicurarsi di riv
 
 == Supporto EFOS e ONTAP
 
-Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe NetApp"^] E https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Matrice di compatibilità degli switch Broadcom"^] per informazioni sulla compatibilità EFOS e ONTAP con gli switch BES-53248.  Il supporto EFOS e ONTAP può variare in base al tipo di macchina specifico dello switch BES-53248.  Per i dettagli di tutti i tipi di macchine di commutazione BES-52348, vederelink:components-bes53248.html["Componenti e numeri di parte per gli switch cluster BES-53248"] .
+Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe NetApp"^] E https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Matrice di compatibilità degli switch Broadcom"^] per informazioni sulla compatibilità EFOS e ONTAP con gli switch BES-53248. Il supporto EFOS e ONTAP può variare in base al tipo di macchina specifico dello switch BES-53248. Per i dettagli di tutti i tipi di macchine di commutazione BES-52348, vederelink:components-bes53248.html["Componenti e numeri di parte per gli switch cluster BES-53248"] . Vedere link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"]^ per maggiori informazioni sui requisiti di installazione dello switch.
 
 
 
@@ -63,7 +63,7 @@ Nodi porta cluster 40/100GbE, con licenze, aggiunti da destra a sinistra
 Porte Inter-Switch Link (ISL) del cluster 100GbE, configurazione di base
 
 |===
-Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"] per maggiori informazioni sulle porte dello switch.
+Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"] per maggiori informazioni sulle porte dello switch. Vedere link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per maggiori informazioni sui requisiti di installazione degli switch.
 
 
 

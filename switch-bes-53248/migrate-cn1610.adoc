@@ -61,7 +61,7 @@ Gli switch del cluster utilizzano le seguenti porte di collegamento inter-switch
 * BES-53248: porte 0/55-0/56 (100GbE)
 
 
-IL https://hwu.netapp.com/Home/Index["_Universo hardware NetApp_"^] contiene informazioni sulla compatibilità ONTAP , sul firmware EFOS supportato e sul cablaggio per gli switch cluster BES-53248.
+IL link:https://hwu.netapp.com/Home/Index["_Universo hardware NetApp_"^] contiene informazioni sulla compatibilità ONTAP , sul firmware EFOS supportato e sul cablaggio per gli switch cluster BES-53248. Vedere link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per maggiori informazioni sui requisiti di installazione degli switch.
 
 
 
