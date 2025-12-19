@@ -445,7 +445,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 . Notare quanto segue:
 +
-.. Se sullo switch sono state installate licenze di porta aggiuntive, è necessario modificare l'RCF per configurare le porte con licenza aggiuntive. Vederelink:configure-licenses.html#activate-newly-licensed-ports["Attiva le porte appena concesse in licenza"] per i dettagli.
+.. Se sullo switch sono state installate licenze di porta aggiuntive, è necessario modificare l'RCF per configurare le porte con licenza aggiuntive. Vedere link:configure-licenses.html#activate-newly-licensed-ports["Attiva le porte appena concesse in licenza"] per i dettagli. Tuttavia, quando si esegue l'aggiornamento a RCF 1.12 o versioni successive, le modifiche non sono più necessarie perché tutte le interfacce sono ora preconfigurate.
 .. Registrare tutte le personalizzazioni apportate nel precedente RCF e applicarle al nuovo RCF.  Ad esempio, impostando la velocità delle porte o codificando la modalità FEC.
 
 
