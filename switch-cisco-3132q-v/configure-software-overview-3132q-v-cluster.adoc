@@ -25,9 +25,9 @@ Il software Cisco NX-OS e RCF devono essere installati sugli switch cluster Cisc
 [role="quick-margin-para"]
 Scaricare e installare o aggiornare il software NX-OS sullo switch cluster Cisco 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:install-rcf-3132q-v.html["Installare l'RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:install-upgrade-rcf-overview-3132q-v.html["Installare o aggiornare l'RCF"]
 [role="quick-margin-para"]
-Installare l'RCF dopo aver configurato per la prima volta lo switch Cisco 3132Q-V.
+Installare o aggiornare l'RCF dopo aver configurato lo switch Cisco 3132Q-V.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-ssh-keys.html["Verifica la configurazione SSH"]
 [role="quick-margin-para"]

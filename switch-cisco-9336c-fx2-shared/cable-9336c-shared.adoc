@@ -44,7 +44,7 @@ Se si desidera documentare le piattaforme supportate, è necessario compilare il
 
 La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
 
-image:cabling_worksheet.jpg["Foglio di lavoro sul cablaggio"]
+image:cabling-worksheet.jpg["Foglio di lavoro sul cablaggio"]
 
 Dove:
 
@@ -60,7 +60,7 @@ Dove:
 
 È possibile utilizzare il foglio di lavoro di cablaggio vuoto per documentare le piattaforme supportate come nodi in un cluster.  La tabella Connessioni cluster supportate dell'universo Hardware Universe definisce le porte cluster utilizzate dalla piattaforma.
 
-image:blank_cabling_worksheet.jpg["Foglio di lavoro vuoto per il cablaggio"]
+image:blank-cabling-worksheet.jpg["Foglio di lavoro vuoto per il cablaggio"]
 
 Dove:
 
