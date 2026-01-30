@@ -1,0 +1,228 @@
+---
+permalink: switch-cisco-3232c-storage/prepare-install-cisco-nexus-3232c-storage.html 
+sidebar: sidebar 
+keywords: nx-os software, install, cisco nexus storage switches, 3232c, rcfs 
+summary: 'Il software Cisco NX-OS e i file di configurazione di riferimento (RCF) devono essere installati sugli switch di archiviazione Cisco Nexus 3232C.' 
+---
+= Prepararsi all'installazione del software NX-OS e del file di configurazione di riferimento (RCF)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di installare il software NX-OS e il file di configurazione di riferimento (RCF), seguire questa procedura.
+
+.Informazioni sugli esempi
+Gli esempi in questa procedura utilizzano due nodi.  Questi nodi utilizzano due porte di interconnessione cluster 10GbE `e0a` E `e0b` .
+
+Vedi illink:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte cluster corrette sulle tue piattaforme. Vedere link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per maggiori informazioni sui requisiti di installazione degli switch.
+
+[NOTE]
+====
+Gli output dei comandi potrebbero variare a seconda delle diverse versioni di ONTAP.
+
+====
+.Nomenclatura di switch e nodi
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+
+* I nomi dei due switch Cisco sono `cs1` E `cs2` .
+* I nomi dei nodi sono `cluster1-01` E `cluster1-02` .
+* I nomi LIF del cluster sono `cluster1-01_clus1` E `cluster1-01_clus2` per cluster1-01 e `cluster1-02_clus1` E `cluster1-02_clus2` per cluster1-02.
+* IL `cluster1::*>` il prompt indica il nome del cluster.
+
+
+.Informazioni su questo compito
+La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 3000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
+
+.Passi
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
+`system node autosupport invoke -node * -type all -message MAINT=x h`
++
+dove _x_ è la durata della finestra di manutenzione in ore.
+
++
+[NOTE]
+====
+Il messaggio AutoSupport avvisa il supporto tecnico di questa attività di manutenzione, in modo che la creazione automatica dei casi venga soppressa durante la finestra di manutenzione.
+
+====
+. Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare:
++
+`set -privilege advanced`
+
++
+Il prompt avanzato(`*>` ) appare.
+
+. Visualizza quante interfacce di interconnessione cluster sono configurate in ciascun nodo per ogni switch di interconnessione cluster:
++
+`network device-discovery show -protocol cdp`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- --------
+cluster1-02/cdp
+            e0a    cs1                       Eth1/2            N3K-C3232C
+            e0b    cs2                       Eth1/2            N3K-C3232C
+cluster1-01/cdp
+            e0a    cs1                       Eth1/1            N3K-C3232C
+            e0b    cs2                       Eth1/1            N3K-C3232C
+
+4 entries were displayed.
+----
+====
+. Controllare lo stato amministrativo o operativo di ciascuna interfaccia del cluster.
++
+.. Visualizza gli attributi della porta di rete:
++
+`network port show -ipspace Cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: cluster1-02
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: cluster1-01
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+4 entries were displayed.
+----
+====
+.. Visualizza informazioni sui LIF:
+`network interface show -vserver Cluster`
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical            Status     Network            Current       Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node          Port    Home
+----------- ------------------ ---------- ------------------ ------------- ------- ----
+Cluster
+            cluster1-01_clus1  up/up      169.254.209.69/16  cluster1-01   e0a     true
+            cluster1-01_clus2  up/up      169.254.49.125/16  cluster1-01   e0b     true
+            cluster1-02_clus1  up/up      169.254.47.194/16  cluster1-02   e0a     true
+            cluster1-02_clus2  up/up      169.254.19.183/16  cluster1-02   e0b     true
+
+4 entries were displayed.
+----
+====
+
+
+. Verificare la connettività delle interfacce del cluster remoto:
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9.1 e versioni successive
+--
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
+
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source              Destination         Packet
+Node   Date                       LIF                 LIF                 Loss
+------ -------------------------- ------------------- ------------------- -----------
+cluster1-01
+       3/5/2022 19:21:18 -06:00   cluster1-01_clus2   cluster1-02_clus1   none
+       3/5/2022 19:21:20 -06:00   cluster1-01_clus2   cluster1-02_clus2   none
+.
+.
+cluster1-02
+       3/5/2022 19:21:18 -06:00   cluster1-02_clus2   cluster1-01_clus1   none
+       3/5/2022 19:21:20 -06:00   cluster1-02_clus2   cluster1-01_clus2   none
+----
+--
+.Tutte le versioni ONTAP
+--
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is cluster1-02
+Getting addresses from network interface table...
+Cluster cluster1-01_clus1 169.254.209.69 cluster1-01     e0a
+Cluster cluster1-01_clus2 169.254.49.125 cluster1-01     e0b
+Cluster cluster1-02_clus1 169.254.47.194 cluster1-02     e0a
+Cluster cluster1-02_clus2 169.254.19.183 cluster1-02     e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+    Local 169.254.19.183 to Remote 169.254.209.69
+    Local 169.254.19.183 to Remote 169.254.49.125
+    Local 169.254.47.194 to Remote 169.254.209.69
+    Local 169.254.47.194 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+--
+====
+. [[step6]]Verificare che il `auto-revert` il comando è abilitato su tutti i LIF del cluster:
+`network interface show -vserver Cluster -fields auto-revert`
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
+
+          Logical
+Vserver   Interface           Auto-revert
+--------- ------------------- ------------
+Cluster
+          cluster1-01_clus1   true
+          cluster1-01_clus2   true
+          cluster1-02_clus1   true
+          cluster1-02_clus2   true
+4 entries were displayed.
+----
+====
+
+
+.Cosa succederà ora?
+Dopo aver preparato l'installazione del software NX-OS e RCF, puoi link:install-nx-os-software-3232c-storage.html["installare il software NX-OS"].

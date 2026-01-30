@@ -1,5 +1,5 @@
 ---
-permalink: switch-cisco-3232c/upgrade-3232c-storage-switches.html 
+permalink: switch-cisco-3232c-storage/upgrade-3232c-storage-switches.html 
 sidebar: sidebar 
 keywords: upgrade, cisco nexus, 3232c storage switch 
 summary: 'Il software Cisco NX-OS e i file di configurazione di riferimento (RCF) possono essere aggiornati sugli switch di archiviazione Cisco Nexus 3232C.' 
@@ -25,8 +25,8 @@ Prima di aggiornare il software NX-OS e gli RCF sullo switch di archiviazione, a
 +
 Se è necessario modificare le variabili di avvio per riflettere le immagini di avvio correnti, è necessario farlo prima di riapplicare l'RCF, in modo che ai riavvii futuri venga istanziata la versione corretta.
 
-* Hai fatto riferimento alle guide software e di aggiornamento appropriate disponibili sul http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Switch Cisco Nexus serie 3000"^] pagina per la documentazione completa sulle procedure di upgrade e downgrade dello storage Cisco .
-* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili sul https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco®"^] pagina.
+* Hai fatto riferimento alle guide software e di upgrade appropriate disponibili nella pagina link:http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Switch Cisco Nexus serie 3000"^] per la documentazione completa sulle procedure di upgrade e downgrade dello storage Cisco.
+* Il numero di porte 10 GbE e 40/100 GbE è definito nei file di configurazione di riferimento (RCF) disponibili nella pagina link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco®"^].
 
 
 
@@ -141,7 +141,7 @@ There are no entries matching your query.
 
 . Copiare l'RCF sullo switch S2 nel bootflash dello switch utilizzando uno dei seguenti protocolli di trasferimento: FTP, HTTP, TFTP, SFTP o SCP.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^] .
+Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata nel link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^].
 
 +
 .Mostra esempio
@@ -245,7 +245,7 @@ NOTE: Quando si applica RCF per la prima volta, è previsto il messaggio *ERROR:
 
 . Dopo aver verificato che le versioni del software e le impostazioni degli switch siano corrette, copiare il file `running-config` file al `startup-config` file sullo switch S2.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^] .
+Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata nel link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^].
 
 +
 .Mostra esempio
@@ -378,7 +378,7 @@ S2#
 ====
 . Salvare la configurazione.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^] .
+Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata nel link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^].
 
 +
 Ti verrà richiesto di riavviare il sistema.
@@ -540,3 +540,6 @@ There are no entries matching your query.
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
+
+.Cosa succederà ora?
+Dopo aver aggiornato il tuo switch, puoi link:../switch-cshm/config-overview.html["configurare il monitoraggio dello stato dello switch"].

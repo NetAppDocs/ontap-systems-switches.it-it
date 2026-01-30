@@ -1,0 +1,688 @@
+---
+permalink: switch-cisco-3232c-storage/install-nx-os-software-3232c-storage.html 
+sidebar: sidebar 
+keywords: install, nx-os software 
+summary: È possibile utilizzare questa procedura per installare il software NX-OS sullo switch di storage Nexus 3232C. 
+---
+= Installa il software NX-OS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile utilizzare questa procedura per installare il software NX-OS sullo switch di storage Nexus 3232C.
+
+
+
+== Requisiti di revisione
+
+.Prima di iniziare
+Verificare di disporre di quanto segue: * Un backup aggiornato della configurazione dello switch. * Un cluster completamente funzionante (nessun errore nei log o problemi simili). * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Pagina dello switch Ethernet Cisco"^]. Consultare la tabella di compatibilità dello switch per le versioni ONTAP e NX-OS supportate. * link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switch Cisco Nexus serie 3000"^]. Fare riferimento alle guide software e di aggiornamento appropriate disponibili sul sito web Cisco per la documentazione completa sulle procedure di upgrade e downgrade dello switch Cisco.
+
+
+
+== Installa il software
+
+La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 3000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
+
+Completare la procedura in link:prepare-install-cisco-nexus-3232c-storage.html["Prepararsi all'installazione di NX-OS e RCF"], e quindi seguire i passaggi seguenti.
+
+.Passi
+. Collegare lo switch del cluster alla rete di gestione.
+. Utilizzare il `ping` comando per verificare la connettività al server che ospita il software NX-OS e l'RCF.
++
+.Mostra esempio
+[%collapsible]
+====
+Questo esempio verifica che lo switch possa raggiungere il server all'indirizzo IP 172.19.2.1:
+
+[listing, subs="+quotes"]
+----
+cs2# *ping 172.19.2.1*
+Pinging 172.19.2.1 with 0 bytes of data:
+
+Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
+----
+====
+. Visualizza le porte del cluster su ciascun nodo connesso agli switch del cluster:
++
+`network device-discovery show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------
+cluster1-01/cdp
+            e0a    cs1                       Ethernet1/7       N3K-C3232C
+            e0d    cs2                       Ethernet1/7       N3K-C3232C
+cluster1-02/cdp
+            e0a    cs1                       Ethernet1/8       N3K-C3232C
+            e0d    cs2                       Ethernet1/8       N3K-C3232C
+cluster1-03/cdp
+            e0a    cs1                       Ethernet1/1/1     N3K-C3232C
+            e0b    cs2                       Ethernet1/1/1     N3K-C3232C
+cluster1-04/cdp
+            e0a    cs1                       Ethernet1/1/2     N3K-C3232C
+            e0b    cs2                       Ethernet1/1/2     N3K-C3232C
+cluster1::*>
+----
+====
+. Controllare lo stato amministrativo e operativo di ogni porta del cluster.
++
+.. Verificare che tutte le porte del cluster siano *attive* e in stato di integrità:
++
+`network port show -role cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -role cluster*
+
+Node: cluster1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: cluster1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+8 entries were displayed.
+
+Node: cluster1-03
+
+   Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: cluster1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+cluster1::*>
+----
+====
+.. Verificare che tutte le interfacce cluster (LIF) siano sulla porta home:
++
+`network interface show -role cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+            Logical            Status     Network           Current      Current Is
+Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
+----------- ------------------ ---------- ----------------- ------------ ------- ----
+Cluster
+            cluster1-01_clus1  up/up     169.254.3.4/23     cluster1-01  e0a     true
+            cluster1-01_clus2  up/up     169.254.3.5/23     cluster1-01  e0d     true
+            cluster1-02_clus1  up/up     169.254.3.8/23     cluster1-02  e0a     true
+            cluster1-02_clus2  up/up     169.254.3.9/23     cluster1-02  e0d     true
+            cluster1-03_clus1  up/up     169.254.1.3/23     cluster1-03  e0a     true
+            cluster1-03_clus2  up/up     169.254.1.1/23     cluster1-03  e0b     true
+            cluster1-04_clus1  up/up     169.254.1.6/23     cluster1-04  e0a     true
+            cluster1-04_clus2  up/up     169.254.1.7/23     cluster1-04  e0b     true
+8 entries were displayed.
+cluster1::*>
+----
+====
+.. Verificare che il cluster visualizzi le informazioni per entrambi gli switch del cluster:
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ----------
+cs1                         cluster-network    10.233.205.90    N3K-C3232C
+     Serial Number: FOCXXXXXXGD
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+
+cs2                         cluster-network    10.233.205.91    N3K-C3232C
+     Serial Number: FOCXXXXXXGS
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+cluster1::*>
+----
+====
+
+
+. Disabilitare il ripristino automatico sui LIF del cluster.  I LIF del cluster eseguono il failover sullo switch del cluster partner e vi rimangono mentre si esegue la procedura di aggiornamento sullo switch di destinazione:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
+. Copiare il software NX-OS e le immagini EPLD sullo switch Nexus 3232C.
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/nxos.9.3.4.bin*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
+
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+user1@172.19.2.1's password:
+sftp> progress
+Progress meter enabled
+sftp> get   /code/nxos.9.3.4.bin  /bootflash/nxos.9.3.4.bin
+/code/nxos.9.3.4.bin  100% 1261MB   9.3MB/s   02:15
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+
+
+cs2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/n9000-epld.9.3.4.img*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: user1
+
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+user1@172.19.2.1's password:
+sftp> progress
+Progress meter enabled
+sftp> get   /code/n9000-epld.9.3.4.img  /bootflash/n9000-epld.9.3.4.img
+/code/n9000-epld.9.3.4.img  100%  161MB   9.5MB/s   00:16
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+====
+. Verificare la versione in esecuzione del software NX-OS:
++
+`show version`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs2# *show version*
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 08.37
+  NXOS: version 9.3(3)
+  BIOS compile time:  01/28/2020
+  NXOS image file is: bootflash:///nxos.9.3.3.bin
+  NXOS compile time:  12/22/2019 2:00:00 [12/22/2019 14:00:37]
+
+Hardware
+  cisco Nexus3000 C3232C Chassis (Nexus 9000 Series)
+  Intel(R) Xeon(R) CPU E5-2403 v2 @ 1.80GHz with 8154432 kB of memory.
+  Processor Board ID FOCXXXXXXGD
+
+  Device name: cs2
+  bootflash:   53298520 kB
+Kernel uptime is 0 day(s), 0 hour(s), 3 minute(s), 36 second(s)
+
+Last reset at 74117 usecs after Tue Nov 24 06:24:23 2020
+  Reason: Reset Requested by CLI command reload
+  System version: 9.3(3)
+  Service:
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+
+cs2#
+----
+====
+. Installare l'immagine NX-OS.
++
+L'installazione del file immagine fa sì che questo venga caricato ogni volta che lo switch viene riavviato.
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs2# *install all nxos bootflash:nxos.9.3.4.bin*
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos.9.3.4.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos.9.3.4.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos.9.3.4.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+Compatibility check is done:
+Module  bootable          Impact              Install-type  Reason
+------- ----------------- ------------------- ------------- ----------
+     1     Yes            Disruptive          Reset         Default upgrade is not hitless
+
+
+Images will be upgraded according to following table:
+Module       Image       Running-Version(pri:alt)                New-Version          Upg-Required
+------------ ----------- --------------------------------------- -------------------- ------------
+     1       nxos        9.3(3)                                  9.3(4)               yes
+     1       bios        v08.37(01/28/2020):v08.32(10/18/2016)   v08.37(01/28/2020)   no
+
+
+Switch will be reloaded for disruptive upgrade.
+Do you want to continue with the installation (y/n)?  [n] *y*
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+cs2#
+----
+====
+. Verificare la nuova versione del software NX-OS dopo il riavvio dello switch:
++
+`show version`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs2# *show version*
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2020, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 08.37
+  NXOS: version 9.3(4)
+  BIOS compile time:  01/28/2020
+  NXOS image file is: bootflash:///nxos.9.3.4.bin
+  NXOS compile time:  4/28/2020 21:00:00 [04/29/2020 06:28:31]
+
+Hardware
+ cisco Nexus3000 C3232C Chassis (Nexus 9000 Series)
+  Intel(R) Xeon(R) CPU E5-2403 v2 @ 1.80GHz with 8154432 kB of memory.
+  Processor Board ID FOCXXXXXXGS
+
+  Device name: rtpnpi-mcc01-8200-ms-A1
+  bootflash:   53298520 kB
+Kernel uptime is 0 day(s), 0 hour(s), 3 minute(s), 14 second(s)
+
+Last reset at 196755 usecs after Tue Nov 24 06:37:36 2020
+  Reason: Reset due to upgrade
+  System version: 9.3(3)
+  Service:
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+
+cs2#
+----
+====
+. Aggiornare l'immagine EPLD e riavviare lo switch.
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs2# *show version module 1 epld*
+
+EPLD Device                     Version
+---------------------------------------
+MI   FPGA                       0x12
+IO   FPGA                       0x11
+
+cs2# *install epld bootflash:n9000-epld.9.3.4.img module 1*
+Compatibility check:
+Module        Type         Upgradable    Impact      Reason
+------  -----------------  ----------    ----------  -----------------
+     1         SUP         Yes           Disruptive  Module Upgradable
+
+Retrieving EPLD versions.... Please wait.
+Images will be upgraded according to following table:
+Module  Type   EPLD              Running-Version   New-Version  Upg-Required
+------  ----  -----------------  ---------------   -----------  ------------
+     1   SUP   MI FPGA                0x12         0x12         No
+     1   SUP   IO FPGA                0x11         0x12         Yes
+The above modules require upgrade.
+The switch will be reloaded at the end of the upgrade
+Do you want to continue (y/n) ?  [n] *y*
+
+Proceeding to upgrade Modules.
+
+Starting Module 1 EPLD Upgrade
+
+Module 1 : IO FPGA [Programming] : 100.00% (     64 of      64 sectors)
+Module 1 EPLD upgrade is successful.
+Module        Type  Upgrade-Result
+------  ------------------  --------------
+     1         SUP         Success
+
+Module 1 EPLD upgrade is successful.
+cs2#
+----
+====
+. Se si esegue l'aggiornamento alla versione NX-OS 9.3(11), è necessario aggiornare l'EPLD `golden` immagine e riavviare nuovamente lo switch.  Altrimenti, passare al passaggio 12.
++
+Vedere https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/93x/epld-rn/nxos_n9K_epldRN_9311.html["Note di rilascio dell'aggiornamento EPLD, versione 9.3(11)"^] per ulteriori dettagli.
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs2# *install epld bootflash:n9000-epld.9.3.11.img module 1 golden*
+Digital signature verification is successful
+Compatibility check:
+Module        Type         Upgradable     Impact      Reason
+------  -----------------  -------------  ----------  -----------------
+     1        SUP          Yes            Disruptive  Module Upgradable
+
+Retrieving EPLD versions.... Please wait.
+The above modules require upgrade.
+The switch will be reloaded at the end of the upgrade
+Do you want to continue (y/n) ?  [n] *y*
+
+Proceeding to upgrade Modules.
+
+ Starting Module 1 EPLD Upgrade
+
+Module 1 : MI FPGA [Programming] : 100.00% (     64 of      64 sect)
+Module 1 : IO FPGA [Programming] : 100.00% (     64 of      64 sect)
+Module 1 EPLD upgrade is successful.
+Module        Type          Upgrade-Result
+------  ------------------  --------------
+     1         SUP          Success
+
+EPLDs upgraded.
+
+Module 1 EPLD upgrade is successful.
+cs2#
+----
+====
+. Dopo il riavvio dello switch, effettuare l'accesso per verificare che la nuova versione di EPLD sia stata caricata correttamente.
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs2# *show version module 1 epld*
+
+EPLD Device                     Version
+---------------------------------------
+MI   FPGA                        0x12
+IO   FPGA                        0x12
+----
+====
+. Verificare lo stato delle porte del cluster sul cluster.
++
+.. Verificare che le porte del cluster siano attive e funzionanti su tutti i nodi del cluster:
++
+`network port show -role cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -role cluster*
+
+Node: cluster1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: cluster1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: cluster1-03
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: cluster1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+8 entries were displayed.
+----
+====
+.. Verificare lo stato di integrità dello switch dal cluster.
++
+`network device-discovery show -protocol cdp`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- ----------
+cluster1-01/cdp
+            e0a    cs1                       Ethernet1/7       N3K-C3232C
+            e0d    cs2                       Ethernet1/7       N3K-C3232C
+cluster01-2/cdp
+            e0a    cs1                       Ethernet1/8       N3K-C3232C
+            e0d    cs2                       Ethernet1/8       N3K-C3232C
+cluster01-3/cdp
+            e0a    cs1                       Ethernet1/1/1     N3K-C3232C
+            e0b    cs2                       Ethernet1/1/1     N3K-C3232C
+cluster1-04/cdp
+            e0a    cs1                       Ethernet1/1/2     N3K-C3232C
+            e0b    cs2                       Ethernet1/1/2     N3K-C3232C
+
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ----------
+cs1                         cluster-network    10.233.205.90    N3K-C3232C
+     Serial Number: FOCXXXXXXGD
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+
+cs2                         cluster-network    10.233.205.91    N3K-C3232C
+     Serial Number: FOCXXXXXXGS
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+
+2 entries were displayed.
+----
+A seconda della versione RCF precedentemente caricata sullo switch, è possibile che venga visualizzato il seguente output sulla console dello switch cs1:
+
+[listing]
+----
+2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
+2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Blocking port-channel1 on VLAN0001. Inconsistent peer vlan.
+2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
+----
+====
+
+
+. Verificare che il cluster sia integro:
++
+`cluster show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node                 Health   Eligibility   Epsilon
+-------------------- -------- ------------- -------
+cluster1-01          true     true          false
+cluster1-02          true     true          false
+cluster1-03          true     true          true
+cluster1-04          true     true          false
+4 entries were displayed.
+cluster1::*>
+----
+====
+. Ripetere i passaggi da 6 a 14 sullo switch cs1.
+. Abilita il ripristino automatico sui LIF del cluster.
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
+. Verificare che i LIF del cluster siano tornati alla loro porta home:
++
+`network interface show -role cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+            Logical            Status     Network            Current             Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
+----------- ------------------ ---------- ------------------ ------------------- ------- ----
+Cluster
+            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0d     true
+            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0d     true
+            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0d     true
+            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0d     true
+            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0b     true
+            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
+            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     true
+            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
+8 entries were displayed.
+cluster1::*>
+----
+====
++
+Se alcuni LIF del cluster non sono tornati alle loro porte home, ripristinarli manualmente dal nodo locale:
+
++
+`network interface revert -vserver Cluster -lif <lif_name>`
+
+
+
+.Cosa succederà ora?
+Dopo aver installato il software NX-OS, puoi link:install-rcf-software-3232c-storage.html["installare o aggiornare il file di configurazione di riferimento (RCF)"].

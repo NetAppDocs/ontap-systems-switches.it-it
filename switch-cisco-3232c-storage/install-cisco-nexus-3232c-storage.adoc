@@ -1,0 +1,133 @@
+---
+permalink: switch-cisco-3232c-storage/install-cisco-nexus-3232c-storage.html 
+sidebar: sidebar 
+keywords: install, cisco nexus, 3232c storage switch, pass-through panel, netapp cabinet 
+summary: È possibile installare lo switch di archiviazione Cisco Nexus 3232C e il pannello pass-through in un NetApp cabinet con le staffe standard incluse con lo switch. 
+---
+= Installare uno switch di archiviazione Cisco Nexus 3232C in un NetApp cabinet
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A seconda della configurazione, potrebbe essere necessario installare lo switch di archiviazione Cisco Nexus 3232C e il pannello pass-through in un NetApp cabinet con le staffe standard incluse con lo switch.
+
+.Prima di iniziare
+Verificare di disporre di quanto segue: * I requisiti di preparazione iniziale, il contenuto del kit e le precauzioni di sicurezza nel link:http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guida all'installazione dell'hardware Cisco Nexus serie 3000"^]. * Per ogni switch, le otto viti 10-32 o 12-24 e i dadi a clip per montare le staffe e le guide scorrevoli sui montanti anteriori e posteriori del cabinet. * Cisco standard rail kit per installare lo switch in un NetApp cabinet.
+
+[NOTE]
+====
+I cavi di collegamento non sono inclusi nel kit pass-through e dovrebbero essere inclusi con gli switch.  Se non sono stati spediti con gli switch, è possibile ordinarli da NetApp (codice articolo X1558A-R6).
+
+====
+.Passi
+. Installare il pannello cieco passante nell'armadio NetApp .
++
+Il kit del pannello passante è disponibile presso NetApp (codice articolo X8784-R6).
+
++
+Il kit del pannello pass-through NetApp contiene il seguente hardware:
+
++
+** Un pannello cieco passante
+** Quattro viti 10-32 x .75
+** Quattro dadi a clip 10-32
++
+... Determinare la posizione verticale degli interruttori e del pannello cieco nell'armadio.
++
+In questa procedura, il pannello cieco verrà installato in U40.
+
+... Installare due dadi a clip su ciascun lato nei fori quadrati appropriati per le guide anteriori del mobile.
+... Centrare il pannello verticalmente per evitare intrusioni nello spazio rack adiacente, quindi serrare le viti.
+... Inserire i connettori femmina di entrambi i cavi jumper da 48 pollici dalla parte posteriore del pannello e attraverso il gruppo spazzole.
++
+image::../media/cisco_9148_jumper_cords.gif[]
+
+
+
+
+
+
+
+_(1) Connettore femmina del cavo di collegamento._
+
+. Installare le staffe di montaggio su rack sullo chassis dello switch di storage Nexus 3232C.
++
+.. Posizionare una staffa di montaggio su rack anteriore su un lato del telaio dello switch in modo che l'aletta di montaggio sia allineata con la piastra frontale del telaio (sul lato dell'alimentatore o della ventola), quindi utilizzare quattro viti M4 per fissare la staffa al telaio.
++
+image::../media/3132q_front_bracket.gif[staffa anteriore]
+
+.. Ripetere il passaggio 2a con l'altra staffa di montaggio su rack anteriore sull'altro lato dello switch.
+.. Installare la staffa di montaggio posteriore sul telaio dello switch.
+.. Ripetere il passaggio 2c con l'altra staffa di montaggio su rack posteriore sull'altro lato dello switch.
+
+
+. Installare i dadi a clip nelle posizioni dei fori quadrati per tutti e quattro i pali IEA.
++
+image::../media/ru_locations_for_3132q_v.gif[]
+
++
+I due switch 3232C saranno sempre montati nella parte superiore 2U dell'armadio RU41 e 42.
+
+. Installare le guide scorrevoli nel mobile.
++
+.. Posizionare la prima guida scorrevole sul segno RU42 sul lato posteriore del montante posteriore sinistro, inserire le viti con il tipo di filettatura corrispondente e quindi serrare le viti con le dita.
++
+image::../media/3132q_v_slider_rails.gif[]
+
++
+_(1) Mentre fai scorrere delicatamente la guida scorrevole, allineala ai fori delle viti nel rack._ + _(2) Stringi le viti delle guide scorrevoli ai montanti del mobile._
+
+.. Ripetere il passaggio 4a per il montante posteriore destro.
+.. Ripetere i passaggi 4a e 4b nelle posizioni RU41 sull'armadio.
+
+
+. Installare l'interruttore nell'armadio.
++
+[NOTE]
+====
+Per questa operazione sono necessarie due persone: una persona sostiene l'interruttore dalla parte anteriore e un'altra lo guida nelle guide scorrevoli posteriori.
+
+====
++
+.. Posizionare la parte posteriore dell'interruttore su RU41.
++
+image::../media/3132q_v_positioning.gif[Posizionamento 3232C a U39-40]
+
++
+_(1) Mentre il telaio viene spinto verso i montanti posteriori, allineare le due guide di montaggio posteriori del rack con le guide scorrevoli._
+
++
+_(2) Far scorrere delicatamente l'interruttore finché le staffe di montaggio sul rack anteriore non sono a filo con i montanti anteriori._
+
+.. Fissare l'interruttore all'armadietto.
++
+image::../media/3132q_attaching.gif[]
+
++
+_(1) Mentre una persona tiene in piano la parte anteriore del telaio, l'altra persona deve stringere completamente le quattro viti posteriori ai montanti del mobile._
+
+.. Ora che il telaio è supportato senza assistenza, serrare completamente le viti anteriori ai montanti.
+.. Ripetere i passaggi da 5a a 5c per il secondo interruttore nella posizione RU42.
++
+[NOTE]
+====
+Utilizzando come supporto l'interruttore completamente installato, non è necessario tenere ferma la parte anteriore del secondo interruttore durante il processo di installazione.
+
+====
+
+
+. Una volta installati gli interruttori, collegare i cavi di collegamento alle prese di alimentazione degli interruttori.
+. Collegare le spine maschio di entrambi i cavi di collegamento alle prese PDU più vicine disponibili.
++
+[NOTE]
+====
+Per mantenere la ridondanza, i due cavi devono essere collegati a PDU diverse.
+
+====
+. Collegare la porta di gestione su ogni switch 3232C a uno degli switch di gestione (se ordinati) oppure collegarli direttamente alla rete di gestione.
++
+La porta di gestione è la porta in alto a destra situata sul lato PSU dello switch. Dopo l'installazione degli switch, il cavo CAT6 di ogni switch deve essere instradato attraverso il pannello passante per connettersi agli switch di gestione o alla rete di gestione.
+
+
