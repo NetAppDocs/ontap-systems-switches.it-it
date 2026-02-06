@@ -360,7 +360,7 @@ network interface modify -vserver Cluster -lif * -auto-revert true
 +
 [source, cli]
 ----
-network interface show -role Cluster
+network interface show -vserver Cluster
 ----
 +
 Per ulteriori dettagli, vederelink:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Ripristinare un LIF alla sua porta di origine"] .
@@ -550,7 +550,7 @@ network interface modify -vserver Cluster -lif * -auto-revert true
 +
 [source, cli]
 ----
-network interface show -role Cluster
+network interface show -vserver Cluster
 ----
 +
 Per ulteriori dettagli, vederelink:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Ripristinare un LIF alla sua porta di origine"] .

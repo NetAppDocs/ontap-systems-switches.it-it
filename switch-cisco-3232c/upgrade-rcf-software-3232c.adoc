@@ -277,9 +277,6 @@ Assicurati di configurare quanto segue: * Nome utente e password * Indirizzo IP 
 +
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
-+
-Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori dettagli.
-
 . Verificare che il `write_erase.cfg` il file è popolato come previsto:
 +
 `*show file bootflash:write_erase.cfg*`
