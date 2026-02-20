@@ -35,6 +35,20 @@ CAUTION: Prima di installare una nuova versione del software dello switch e degl
 
 == Passaggio 1: Prepararsi all'aggiornamento
 
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+Dove _x_ è la durata della finestra di manutenzione in ore.
+
+. Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare:
++
+`set -privilege advanced`
+
++
+Viene visualizzato il prompt avanzato (*>).
+
 . Visualizza le porte del cluster su ciascun nodo connesso agli switch del cluster:
 +
 `network device-discovery show`

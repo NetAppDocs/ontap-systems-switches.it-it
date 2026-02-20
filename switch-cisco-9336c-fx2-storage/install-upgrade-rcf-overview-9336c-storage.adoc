@@ -15,91 +15,9 @@ Dopo aver configurato per la prima volta lo switch di archiviazione Nexus 9336C-
 
 Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori informazioni sull'installazione o l'aggiornamento del tuo RCF.
 
-.Configurazioni RCF disponibili
-Nella tabella seguente vengono descritti gli RCF disponibili per diverse configurazioni. Scegli l'RCF applicabile alla tua configurazione. Vederelink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^] per maggiori informazioni.
+.Configurazione RCF disponibile
+Storage - (Storage RCF 1._xx_) è la configurazione RCF disponibile in cui tutte le porte sono configurate per connessioni storage NVMe 100GbE.
 
-Per informazioni specifiche sull'utilizzo di porte e VLAN, fare riferimento alla sezione banner e note importanti nel RCF.
-
-[cols="1,2"]
-|===
-| Nome RCF | Descrizione 
-
-
- a| 
-Breakout di 2 cluster HA
- a| 
-Supporta due cluster ONTAP con almeno otto nodi, inclusi i nodi che utilizzano porte Cluster+HA condivise.
-
-
-
- a| 
-Breakout di 4 cluster HA
- a| 
-Supporta quattro cluster ONTAP con almeno quattro nodi, inclusi i nodi che utilizzano porte Cluster+HA condivise.
-
-
-
- a| 
-1-Cluster-HA
- a| 
-Tutte le porte sono configurate per 40/100GbE.  Supporta il traffico cluster/HA condiviso sulle porte.  Richiesto per i sistemi AFF A320, AFF A250 e FAS500f .  Inoltre, tutte le porte possono essere utilizzate come porte cluster dedicate.
-
-
-
- a| 
-1-Cluster-HA-Breakout
- a| 
-Le porte sono configurate per breakout 4x10GbE, breakout 4x25GbE (RCF 1.6+ su switch 100GbE) e 40/100GbE.  Supporta il traffico cluster/HA condiviso sulle porte per i nodi che utilizzano porte cluster/HA condivise: sistemi AFF A320, AFF A250 e FAS500f .  Inoltre, tutte le porte possono essere utilizzate come porte cluster dedicate.
-
-
-
- a| 
-Cluster-HA-Storage
- a| 
-Le porte sono configurate per 40/100 GbE per Cluster+HA, breakout 4x10 GbE per Cluster e breakout 4x25 GbE per Cluster+HA e 100 GbE per ogni coppia di storage HA.
-
-
-
- a| 
-Grappolo
- a| 
-Due tipi di RCF con diverse allocazioni di 4 porte 10GbE (breakout) e porte 40/100GbE. Sono supportati tutti i nodi FAS e AFF , ad eccezione dei sistemi AFF A320, AFF A250 e FAS500f .
-
-
-
- a| 
-Magazzinaggio
- a| 
-Tutte le porte sono configurate per connessioni di archiviazione NVMe da 100 GbE.
-
-|===
-.RCF disponibili
-Nella tabella seguente sono elencati gli RCF disponibili per gli switch 9336C-FX2 e 9336C-FX2-T.  Scegli la versione RCF applicabile alla tua configurazione. Vederelink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^] per maggiori informazioni.
-
-[cols="1"]
-|===
-| Nome RCF 
-
-
- a| 
-Cluster-HA-Breakout RCF 1._xx_
-
-
-
- a| 
-Cluster-HA-Storage RCF 1._xx_
-
-
-
- a| 
-RCF di stoccaggio 1._xx_
-
-
-
- a| 
-MultiCluster-HA RCF 1._xx_
-
-|===
 .Documentazione suggerita
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]
 +
@@ -114,10 +32,8 @@ Per la documentazione completa sulle procedure di upgrade e downgrade degli swit
 .Informazioni sugli esempi
 Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
-* I nomi dei due switch Cisco sono cs1 e cs2.
-* I nomi dei nodi sono node1-01, node1-02, node1-03 e node1-04.
-* I nomi LIF del cluster sono node1-01_clus1, node1-01_clus2, node1-02_clus1, node1-02_clus2, node1-03_clus1, node1-03_clus2, node1-04_clus1 e node1-04_clus2.
-* IL `cluster1::*>` il prompt indica il nome del cluster.
+* I nomi dei due switch Cisco sono s1 e s2.
+* I nomi dei nodi sono cluster1-01 e cluster1-02.
 
 
 Vedi il https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte corrette sulla tua piattaforma.

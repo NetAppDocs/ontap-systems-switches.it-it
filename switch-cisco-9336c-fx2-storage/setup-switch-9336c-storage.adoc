@@ -20,12 +20,12 @@ Assicurati di avere quanto segue:
 * Versione NX-OS applicabile, scaricata da https://software.cisco.com/download/home["Scarica il software Cisco"^] pagina.
 * Licenze applicabili, informazioni di rete e configurazione e cavi.
 * Completatolink:setup-worksheet-9336c-storage.html["fogli di lavoro sul cablaggio"] .
-* RCF applicabili alla rete cluster NetApp e alla rete di gestione scaricabili dal sito di supporto NetApp all'indirizzo http://mysupport.netapp.com/["mysupport.netapp.com"^] .  Tutti gli switch di rete cluster e di rete di gestione Cisco vengono forniti con la configurazione predefinita di fabbrica Cisco . Questi switch dispongono anche della versione corrente del software NX-OS, ma non hanno gli RCF caricati.
+* RCF di rete e di gestione NetApp applicabili scaricati dal sito di supporto NetApp su  http://mysupport.netapp.com/["mysupport.netapp.com"^]. Tutti gli switch di rete e di gestione Cisco arrivano con la configurazione standard di fabbrica Cisco. Questi switch hanno anche la versione corrente del software NX-OS ma non hanno gli RCF caricati.
 * Documentazione richiesta per lo switch. Vederelink:required-documentation-9336c-storage.html["Documentazione richiesta"] per maggiori informazioni.
 
 
 .Passi
-. Eseguire una configurazione iniziale degli switch di rete del cluster.
+. Eseguire una configurazione iniziale degli switch di rete.
 +
 Fornire risposte pertinenti alle seguenti domande sulla configurazione iniziale al primo avvio dello switch.  La politica di sicurezza del tuo sito definisce le risposte e i servizi da abilitare.
 
@@ -188,7 +188,7 @@ NOTE: Se non si salva la configurazione in questa fase, nessuna delle modifiche 
 
 |===
 . Verificare le scelte di configurazione effettuate nella schermata che appare al termine dell'installazione e assicurarsi di salvare la configurazione.
-. Controllare la versione sugli switch di rete del cluster e, se necessario, scaricare la versione del software supportata da NetApp sugli switch dal https://software.cisco.com/download/home["Scarica il software Cisco"^] pagina.
+. Controllare la versione sugli switch di rete e, se necessario, scaricare la versione del software supportata da NetApp sugli switch dalla  https://software.cisco.com/download/home["Scarica il software Cisco"^] pagina.
 
 
 .Cosa succederà ora?

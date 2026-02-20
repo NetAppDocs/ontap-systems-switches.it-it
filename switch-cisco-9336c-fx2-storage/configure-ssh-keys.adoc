@@ -11,7 +11,7 @@ summary: 'SSH è un requisito quando si utilizzano le funzionalità Cluster Swit
 
 
 [role="lead"]
-Se si utilizzano le funzionalità di monitoraggio dello stato dello switch Ethernet (CSHM) e di raccolta dei registri, verificare che SSH e le chiavi SSH siano abilitati sugli switch del cluster.
+Se si utilizzano le funzionalità di monitoraggio dello stato dello switch Ethernet (CSHM) e di raccolta dei registri, verificare che SSH e le chiavi SSH siano abilitati sugli switch.
 
 .Passi
 . Verificare che SSH sia abilitato:

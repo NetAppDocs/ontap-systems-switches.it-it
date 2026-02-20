@@ -16,7 +16,7 @@ Seguire questa procedura per impostare e configurare lo switch Cisco Nexus 3232C
 .Prima di iniziare
 * Accesso a un server HTTP, FTP o TFTP nel sito di installazione per scaricare le versioni NX-OS e RCF (Reference Configuration File) applicabili.
 * Versione NX-OS applicabile, scaricata da https://software.cisco.com/download/home["Scarica il software Cisco"^] pagina.
-* Documentazione richiesta per la rete cluster e per lo switch di rete di gestione.
+* Documentazione richiesta per la rete e per lo switch di rete di gestione.
 +
 Vedere link:required-documentation-3232c-storage.html["Documentazione richiesta"] per ulteriori informazioni.
 
@@ -25,12 +25,11 @@ Vedere link:required-documentation-3232c-storage.html["Documentazione richiesta"
 https://netapp.com/us/documenation/index.aspx["Documentazione NetApp"^]
 
 * Licenze applicabili, informazioni di rete e configurazione e cavi.
-* Schede di lavoro sui cablaggi completate.
-* RCF applicabili alla rete di cluster NetApp e alla rete di gestione, scaricabili dal sito di supporto NetApp all'indirizzo http://mysupport.netapp.com/["mysupport.netapp.com"^] per gli switch che ricevi.  Tutti gli switch di rete cluster e di rete di gestione Cisco vengono forniti con la configurazione predefinita di fabbrica Cisco .  Questi switch dispongono anche della versione corrente del software NX-OS, ma non hanno gli RCF caricati.
+* RCF applicabili per la rete di storage NetApp e la rete di gestione, scaricati dal sito di supporto NetApp all'indirizzo  http://mysupport.netapp.com/["mysupport.netapp.com"^] per gli switch che ricevi. Tutti gli switch di rete di storage e di gestione Cisco arrivano con la configurazione standard di fabbrica Cisco predefinita. Questi switch dispongono anche della versione corrente del software NX-OS, ma non hanno gli RCF caricati.
 
 
 .Passi
-. Installare gli switch e i controller della rete del cluster e della rete di gestione.
+. Installare su rack gli switch della rete di storage, della rete di gestione e i controller.
 +
 [cols="1,2"]
 |===
@@ -50,9 +49,9 @@ Apparecchiature in un rack Telco
 Consultare le procedure fornite nelle guide all'installazione dell'hardware dello switch e nelle istruzioni di installazione e configurazione NetApp .
 
 |===
-. Cablare la rete del cluster e gli switch della rete di gestione ai controller utilizzando i fogli di lavoro di cablaggio compilati.
-. Accendere la rete del cluster e gli switch e i controller della rete di gestione.
-. Eseguire una configurazione iniziale degli switch di rete del cluster.
+. Collegare gli switch della rete di archiviazione e della rete di gestione ai controller utilizzando i fogli di lavoro di cablaggio compilati.
+. Accendere gli switch di rete di archiviazione, gli switch di rete di gestione e i controller.
+. Eseguire una configurazione iniziale degli switch di rete di archiviazione.
 +
 Fornire risposte pertinenti alle seguenti domande sulla configurazione iniziale al primo avvio dello switch.  La politica di sicurezza del tuo sito definisce le risposte e i servizi da abilitare.
 
@@ -215,7 +214,7 @@ NOTE: Se non si salva la configurazione in questa fase, nessuna delle modifiche 
 
 |===
 . Verificare le scelte di configurazione effettuate nella schermata che appare al termine dell'installazione e assicurarsi di salvare la configurazione.
-. Controllare la versione sugli switch di rete del cluster e, se necessario, scaricare la versione del software supportata da NetApp sugli switch dalla pagina  https://software.cisco.com/download/home["Scarica il software Cisco"^].
+. Controllare la versione sugli switch di rete e, se necessario, scaricare la versione del software supportata da NetApp sugli switch dalla  https://software.cisco.com/download/home["Scarica il software Cisco"^] pagina.
 
 
 .Cosa succederà ora?

@@ -20,3 +20,7 @@ Installare lo switch storage 3232C.
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:install-cisco-nexus-3232c-storage.html["Installare lo switch in un cabinet NetApp"]
 [role="quick-margin-para"]
 Installare lo switch di storage 3232C e il pannello pass-through in un NetApp cabinet, come richiesto.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:cabling-considerations-3232c-storage.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"]
+[role="quick-margin-para"]
+Esaminare le considerazioni sul cablaggio e sulla configurazione per lo switch di storage 3232C.

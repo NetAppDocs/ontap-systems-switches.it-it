@@ -1,5 +1,5 @@
 ---
-permalink: switch-cisco-9336c-fx2-storage/upgrade-rcf-software-9336c-storage.html 
+permalink: switch-cisco-3232c-storage/upgrade-rcf-software-3232c-storage.html 
 sidebar: sidebar 
 keywords: install rcf, cisco switches 
 summary: È possibile utilizzare questa procedura per aggiornare la versione RCF. 
@@ -21,7 +21,7 @@ Assicurati di avere quanto segue:
 * L'attuale RCF.
 * Se si aggiorna la versione RCF, è necessaria una configurazione di avvio in RCF che rifletta le immagini di avvio desiderate.
 +
-Se è necessario modificare la configurazione di avvio per riflettere le immagini di avvio correnti, è necessario farlo prima di riapplicare l'RCF, in modo che ai riavvii futuri venga istanziata la versione corretta.
+Se è necessario modificare la configurazione di avvio per riflettere le immagini di avvio correnti, è necessario farlo prima di riapplicare l'RCF, in modo che la versione corretta sia inclusa nei riavvii futuri.
 
 
 
@@ -63,12 +63,11 @@ Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID) Interface       Platform
 ----------- ------ ------------------------ --------------- ---------
 cluster1-01/cdp
-            e5a    s1                       Ethernet1/7     N9K-C9336C
-            e3b    s2                       Ethernet1/7     N9K-C9336C
+            e5a    s1                       Ethernet1/7     N3K-C3232C
+            e3b    s2                       Ethernet1/7     N3K-C3232C
 cluster1-02/cdp
-            e5a    s1                       Ethernet1/8     N9K-C9336C
-            e3b    s2                       Ethernet1/8     N9K-C9336C
-.
+            e5a    s1                       Ethernet1/8     N3K-C3232C
+            e3b    s2                       Ethernet1/8     N3K-C3232C
 .
 .
 ----
@@ -143,14 +142,14 @@ system switch ethernet show
 cluster1::*> *system switch ethernet show*
   Switch            Type               Address          Model
   ----------------- ------------------ ---------------- ---------------
-  s1                storage-network    1.2.3.4          N9K-C9336C-FX2
+  s1                storage-network    1.2.3.4          N3K-C3232C
      Serial Number: FFFXXXXXXX1
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
                     10.3(4a)
     Version Source: CDP/ISDP
-  s2                storage-network    2.3.4.5          N9K-C9336C-FX2
+  s2                storage-network    2.3.4.5          N3K-C3232C
      Serial Number: FEEXXXXXXX2
       Is Monitored: true
             Reason: None
@@ -167,14 +166,14 @@ cluster1::*> *system switch ethernet show*
 
 == Fase 2: Aggiorna l'RCF
 
-. Accedere allo switch s2 utilizzando SSH o utilizzando una console seriale.
-. Spegnere le porte collegate a tutte le porte dei nodi.
+. Accedi allo switch s2 utilizzando SSH o utilizzando una console seriale.
+. Disattivare le porte collegate a tutte le porte dei nodi.
 +
 [listing, subs="+quotes"]
 ----
 s2> *enable*
 s2# *configure*
-s2(config)# *interface e1/1-36*
+s2(config)# *interface e1/1-32*
 s2(config-if-range)# *shutdown*
 s2(config-if-range)# *exit*
 s2(config)# *exit*
@@ -206,16 +205,19 @@ Assicurati di configurare quanto segue:
 
 ====
 +
-`s2# show run | i "username admin password" > bootflash:write_erase.cfg`
+`s2# show run | section "switchname" > bootflash:write_erase.cfg`
+
++
+`s2# show run | section "hostname" >> bootflash:write_erase.cfg`
+
++
+`s2# show run | i "username admin password" >> bootflash:write_erase.cfg`
 
 +
 `s2# show run | section "vrf context management" >> bootflash:write_erase.cfg`
 
 +
 `s2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
-
-+
-`s2# show run | section "switchname" >> bootflash:write_erase.cfg`
 
 +
 Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori dettagli.
@@ -251,7 +253,7 @@ Potrebbe essere necessario aggiornare le voci del file host relative alle chiavi
 
 . Copia l'RCF nel bootflash dello switch s2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata nella  https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html#CommandReferences["Documentazione Cisco Nexus 3000 Series NX-OS"^].
 
 +
 .Mostra esempio
@@ -262,7 +264,7 @@ Questo esempio mostra TFTP utilizzato per copiare un RCF nel bootflash sullo swi
 [listing, subs="+quotes"]
 ----
 s2# *copy tftp: bootflash: vrf management*
-Enter source filename: *NX9336C-FX2-RCF-v1.13-1-Storage.txt*
+Enter source filename: *NX3232C-RCF-v1.13-1-Storage.txt*
 Enter hostname for the tftp server: *172.22.201.50*
 Trying to connect to tftp server......Connection to Server Established.
 TFTP get operation was successful
@@ -271,15 +273,15 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Applicare l'RCF precedentemente scaricato al bootflash.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata nella  https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Documentazione della serie Cisco Nexus 3000"^].
 
 +
-Questo esempio mostra il file RCF `NX9336C-FX2-RCF-v1.13-1-Storage.txt` installato sullo switch s2:
+Questo esempio mostra il file RCF `NX3232C-RCF-v1.13-1-Storage.txt` installato sullo switch s2:
 
 +
 [listing, subs="+quotes"]
 ----
-s2# *copy NX9336C-FX2-RCF-v1.13-1-Storage.txt running-config echo-commands*
+s2# *copy NX3232C-RCF-v1.13-1-Storage.txt running-config echo-commands*
 ----
 +
 [CAUTION]
@@ -306,7 +308,7 @@ L'output varia in base alla configurazione del sito.  Controllare le impostazion
 . Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.
 . Dopo aver verificato che le versioni RCF, le aggiunte personalizzate e le impostazioni degli switch siano corrette, copiare il file `running-config` file al `startup-config` file.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata nella  https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Documentazione Cisco Nexus 9000 Series"^].
 
 +
 `s2# *copy running-config startup-config*`
@@ -388,17 +390,17 @@ system switch ethernet show
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::> *system switch ethernet show*
+cluster1::*> *system switch ethernet show*
   Switch           Type               Address          Model
   ---------------- ------------------ ---------------- ---------------
-  s1               storage-network    1.2.3.4          N9K-C9336C-FX2
+  s1               storage-network    1.2.3.4          N3K-C3232C
      Serial Number: FFFXXXXXXX1
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
                     10.3(4a)
     Version Source: CDP/ISDP
-  s2               storage-network    2.3.4.5          N9K-C9336C-FX2
+  s2               storage-network    2.3.4.5          N3K-C3232C
      Serial Number: FEEXXXXXXX2
       Is Monitored: true
             Reason: None
@@ -418,7 +420,7 @@ cluster1::> *system switch ethernet show*
 
 Completare i seguenti passaggi su ogni switch di archiviazione per verificare che la rete di archiviazione funzioni correttamente dopo l'aggiornamento RCF.
 
-. Verificare che le porte dello switch collegate alle porte storage del nodo e alle porte dello storage shelf siano *up*.
+. Verificare che le porte dello switch siano *up*.
 +
 [source, cli]
 ----

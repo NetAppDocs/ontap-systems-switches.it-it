@@ -23,6 +23,8 @@ entries:
     url: "/switch-cisco-9336c-fx2-shared/install-9336c-shared.html"
   - title: Installare lo switch nell'armadio NetApp
     url: "/switch-cisco-9336c-fx2-shared/install-switch-and-passthrough-panel-9336c-shared.html"
+  - title: Rivedere il cablaggio e la configurazione
+    url: "/switch-cisco-9336c-fx2-shared/cabling-considerations-9336c-shared.html"
 - title: Configurare il software
   pdf-filename: Configura_software_9336c-fx2-condiviso
   entries:

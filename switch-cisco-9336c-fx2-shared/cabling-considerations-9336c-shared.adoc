@@ -1,0 +1,67 @@
+---
+permalink: switch-cisco-9336c-fx2-shared/cabling-considerations-9336c-shared.html 
+sidebar: sidebar 
+keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
+summary: Prima di configurare lo switch Cisco 9336C-FX2, leggere le seguenti informazioni. 
+---
+= Esaminare le considerazioni sul cablaggio e sulla configurazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di configurare i tuoi switch 9336C-FX2 e 9336C-FX2-T, esamina i requisiti di cablaggio e configurazione.
+
+
+
+== Supporto per porte Ethernet NVIDIA CX6, CX6-DX e CX7
+
+Se si collega una porta dello switch a un controller ONTAP utilizzando le porte NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) o ConnectX-7 (CX7), è necessario impostare manualmente la velocità della porta dello switch.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# interface Ethernet1/19
+*For 100GbE speed:*
+(cs1)(config-if)# *speed 100000*
+*For 40GbE speed:*
+(cs1)(config-if)# *speed 40000*
+(cs1)(config-if)# no negotiate auto
+(cs1)(config-if)# exit
+(cs1)(config)# exit
+*Save the changes:*
+(cs1)# *copy running-config startup-config*
+----
+
+
+== Requisiti FEC 25GbE
+
+
+
+=== Porte FAS2820 e0a/e0b
+
+Le porte FAS2820 e0a ed e0b richiedono modifiche alla configurazione FEC per collegarsi alle porte dello switch 9336C-FX2 e 9336C-FX2-T. Per le porte dello switch e0a ed e0b, l'impostazione  `fec` è impostata su  `rs-cons16`.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# interface Ethernet1/8-9
+(cs1)(config-if-range)# *fec rs-cons16*
+(cs1)(config-if-range)# exit
+(cs1)(config)# exit
+*Save the changes:*
+(cs1)# *copy running-config startup-config*
+----
+
+
+== Le porte non si collegano a causa delle risorse TCAM
+
+Sugli switch 9336C-FX2 e 9336C-FX2-T, le risorse TCAM (Ternary Content Addressable Memory) configurate nella configurazione utilizzata dallo switch sono esaurite.
+
+
+
+== Informazioni correlate
+
+* Fare riferimento a https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per ulteriori informazioni sulle porte dello switch.
+* Vedere  https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per ulteriori informazioni sui requisiti di installazione degli switch.
+* Vedere l'articolo della Knowledge Base https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["Le porte non si collegano su Cisco Nexus 9336C-FX2 a causa delle risorse TCAM"^] per dettagli su come risolvere i problemi TCAM.
+

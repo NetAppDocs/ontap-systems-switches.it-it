@@ -36,11 +36,11 @@ Se è necessario modificare le variabili di avvio per riflettere le immagini di 
 .Informazioni sugli esempi
 Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 
-* I nomi dei due switch di archiviazione sono S1 e S2.
-* I nodi sono node1 e node2.
+* I nomi dei due storage switch sono s1 e s2.
+* I nodi sono cluster1-01 e cluster1-02.
 
 
-Gli esempi in questa procedura utilizzano due nodi: node1 con due porte di archiviazione e node2 con due porte di archiviazione. Vedi illink:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte di archiviazione corrette sulle tue piattaforme. Vedere link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per maggiori informazioni sui requisiti di installazione degli switch.
+Gli esempi in questa procedura utilizzano due nodi: cluster1-01 con due porte di storage e cluster1-02 con due porte di storage. Consultare la link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte di storage corrette sulle piattaforme. Consultare link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per ulteriori informazioni sui requisiti di installazione degli switch.
 
 
 NOTE: La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 3000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .  Gli output dei comandi potrebbero variare a seconda delle diverse versioni di ONTAP.
@@ -69,10 +69,10 @@ NOTE: Il messaggio AutoSupport avvisa il supporto tecnico di questa attività di
 [listing, subs="+quotes"]
 ----
 storage::*> *system switch ethernet show*
-Switch                      Type               Address          Model
---------------------------- ------------------ ---------------- ---------------
-S1
-                            storage-network    172.17.227.5     NX3232C
+Switch                  Type               Address          Model
+----------------------- ------------------ ---------------- ---------------
+s1
+                        storage-network    172.17.227.5     NX3232C
      Serial Number: FOC221206C2
       Is Monitored: true
             Reason: None
@@ -80,8 +80,8 @@ S1
                     9.3(3)
     Version Source: CDP
 
-S2
-                            storage-network    172.17.227.6     NX3232C
+s2
+                        storage-network    172.17.227.6     NX3232C
      Serial Number: FOC220443LZ
       Is Monitored: true
             Reason: None
@@ -107,16 +107,18 @@ storage::*> *storage port show -port-type ENET*
                                       Speed                       VLAN
 Node               Port Type  Mode    (Gb/s) State    Status        ID
 ------------------ ---- ----- ------- ------ -------- ----------- ----
-node1
-                   e3a  ENET  storage    100 enabled  online        30
+cluster1-01
+                   e5a  ENET  storage    100 enabled  online        30
                    e3b  ENET  storage      0 enabled  offline       30
                    e7a  ENET  storage      0 enabled  offline       30
                    e7b  ENET  storage    100 enabled  online        30
-node2
-                   e3a  ENET  storage    100 enabled  online        30
+cluster1-02
+                   e5a  ENET  storage    100 enabled  online        30
                    e3b  ENET  storage      0 enabled  offline       30
                    e7a  ENET  storage      0 enabled  offline       30
                    e7b  ENET  storage    100 enabled  online        30
+.
+.
 ----
 ====
 . Verificare che non vi siano problemi con l'interruttore di archiviazione o con il cablaggio:
@@ -137,9 +139,9 @@ There are no entries matching your query.
 
 
 
-=== Passaggio 2: copiare l'RCF sullo switch Cisco S2
+=== Passaggio 2: copia l'RCF sullo switch Cisco s2
 
-. Copiare l'RCF sullo switch S2 nel bootflash dello switch utilizzando uno dei seguenti protocolli di trasferimento: FTP, HTTP, TFTP, SFTP o SCP.
+. Copia l'RCF sullo switch s2 nel bootflash dello switch utilizzando uno dei seguenti protocolli di trasferimento: FTP, HTTP, TFTP, SFTP o SCP.
 +
 Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata nel link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^].
 
@@ -147,17 +149,17 @@ Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata ne
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra l'utilizzo di HTTP per copiare un RCF nel bootflash sullo switch S2:
+Il seguente esempio mostra l'utilizzo di HTTP per copiare un RCF nel bootflash sullo switch s2:
 
 [listing, subs="+quotes"]
 ----
-S2# *copy http://172.16.10.1//cfg/Nexus_3232C_RCF_v1.6-Storage.txt bootflash: vrf management*
+s2# *copy http://172.16.10.1//cfg/Nexus_3232C_RCF_v1.6-Storage.txt bootflash: vrf management*
 % Total    % Received % Xferd  Average  Speed   Time    Time     Time                          Current
                                Dload    Upload  Total   Spent    Left                          Speed
   100        3254       100    3254     0       0       8175     0 --:--:-- --:--:-- --:--:-   8301
 Copy complete, now saving to disk (please wait)...
 Copy complete.
-S2#
+s2#
 ----
 ====
 . Applicare l'RCF precedentemente scaricato al bootflash:
@@ -168,11 +170,11 @@ S2#
 .Mostra esempio
 [%collapsible]
 ====
-L'esempio seguente mostra il file RCF `Nexus_3232C_RCF_v1.6-Storage.txt` in fase di installazione sullo switch S2:
+Il seguente esempio mostra il file RCF `Nexus_3232C_RCF_v1.6-Storage.txt` installato sullo switch s2:
 
 [listing, subs="+quotes"]
 ----
-S2# *copy Nexus_3232C_RCF_v1.6-Storage.txt running-config echo-commands*
+s2# *copy Nexus_3232C_RCF_v1.6-Storage.txt running-config echo-commands*
 ----
 ====
 . Verificare che il file RCF sia la versione più recente corretta:
@@ -201,7 +203,7 @@ Nel banner di output dal `show banner motd` comando, è necessario leggere e seg
 ====
 [listing]
 ----
-S2# show banner motd
+s2# show banner motd
 
 ******************************************************************************
 * NetApp Reference Configuration File (RCF)
@@ -234,7 +236,7 @@ S2# show banner motd
 *
 *   (4) Save running-configuration again
 ******************************************************************************
-S2#
+s2#
 ----
 ====
 +
@@ -243,7 +245,7 @@ NOTE: Quando si applica RCF per la prima volta, è previsto il messaggio *ERROR:
 
 
 
-. Dopo aver verificato che le versioni del software e le impostazioni degli switch siano corrette, copiare il file `running-config` file al `startup-config` file sullo switch S2.
+. Dopo aver verificato che le versioni del software e le impostazioni dello switch siano corrette, copia il `running-config` file nel `startup-config` file sullo switch s2.
 +
 Per ulteriori informazioni sui comandi Cisco, consultare la guida appropriata nel link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^].
 
@@ -255,7 +257,7 @@ L'esempio seguente mostra il `running-config` file copiato correttamente nel `st
 
 [listing]
 ----
-S2# copy running-config startup-config
+s2# copy running-config startup-config
 [########################################] 100% Copy complete.
 ----
 ====
@@ -263,16 +265,16 @@ S2# copy running-config startup-config
 
 
 
-=== Passaggio 3: copiare l'immagine NX-OS sullo switch Cisco S2 e riavviare
+=== Passaggio 3: copia l'immagine NX-OS sullo switch Cisco s2 e riavvia
 
-. Copiare l'immagine NX-OS sullo switch S2.
+. Copia l'immagine NX-OS sullo switch s2.
 +
 .Mostra esempio
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-S2# *copy sftp: bootflash: vrf management*
+s2# *copy sftp: bootflash: vrf management*
 Enter source filename: */code/nxos.9.3.4.bin*
 Enter hostname for the sftp server: *172.19.2.1*
 Enter username: *user1*
@@ -288,7 +290,7 @@ sftp> exit
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 
-cs2# *copy sftp: bootflash: vrf management*
+s2# *copy sftp: bootflash: vrf management*
 Enter source filename: */code/n9000-epld.9.3.4.img*
 Enter hostname for the sftp server: *172.19.2.1*
 Enter username: *user1*
@@ -315,7 +317,7 @@ Lo switch verrà riavviato tra 10 secondi con la nuova immagine, come mostrato n
 ====
 [listing, subs="+quotes"]
 ----
-S2# *install all nxos bootflash:nxos.9.3.4.bin*
+s2# *install all nxos bootflash:nxos.9.3.4.bin*
 Installer will perform compatibility check first. Please wait.
 Installer is forced disruptive
 
@@ -373,7 +375,7 @@ Warning: please do not remove or power off the module at this time.
 
 
 Finishing the upgrade, switch will reboot in 10 seconds.
-S2#
+s2#
 ----
 ====
 . Salvare la configurazione.
@@ -389,9 +391,9 @@ Ti verrà richiesto di riavviare il sistema.
 ====
 [listing, subs="+quotes"]
 ----
-S2# *copy running-config startup-config*
+s2# *copy running-config startup-config*
 [########################################] 100% Copy complete.
-S2# *reload*
+s2# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
 ====
@@ -402,7 +404,7 @@ This command will reboot the system. (y/n)?  [n] *y*
 ====
 [listing, subs="+quotes"]
 ----
-S2# *show version*
+s2# *show version*
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
 Copyright (C) 2002-2020, Cisco and/or its affiliates.
@@ -450,7 +452,7 @@ plugin
 
 Active Package(s):
 
-S2#
+s2#
 ----
 ====
 
@@ -472,7 +474,7 @@ S2#
 storage::*> *system switch ethernet show*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- ---------------
-S1
+s1
                             storage-network    172.17.227.5     NX3232C
      Serial Number: FOC221206C2
       Is Monitored: true
@@ -481,7 +483,7 @@ S1
                     9.3(4)
     Version Source: CDP
 
-S2
+s2
                             storage-network    172.17.227.6    NX3232C
      Serial Number: FOC220443LZ
       Is Monitored: true
@@ -489,9 +491,6 @@ S2
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
                     9.3(4)
     Version Source: CDP
-
-2 entries were displayed.
-storage::*>
 ----
 ====
 . Verificare che le porte dello switch siano funzionanti e integre dopo il riavvio:
@@ -508,13 +507,13 @@ storage::*> *storage port show -port-type ENET*
                                       Speed                       VLAN
 Node               Port Type  Mode    (Gb/s) State    Status        ID
 ------------------ ---- ----- ------- ------ -------- ----------- ----
-node1
-                   e3a  ENET  storage    100 enabled  online        30
+cluster1-01
+                   e5a  ENET  storage    100 enabled  online        30
                    e3b  ENET  storage      0 enabled  offline       30
                    e7a  ENET  storage      0 enabled  offline       30
                    e7b  ENET  storage    100 enabled  online        30
-node2
-                   e3a  ENET  storage    100 enabled  online        30
+cluster1-02
+                   e5a  ENET  storage    100 enabled  online        30
                    e3b  ENET  storage      0 enabled  offline       30
                    e7a  ENET  storage      0 enabled  offline       30
                    e7b  ENET  storage    100 enabled  online        30
@@ -534,7 +533,7 @@ storage::*> *system health alert show -instance*
 There are no entries matching your query.
 ----
 ====
-. Ripetere la procedura per aggiornare il software NX-OS e RCF sullo switch S1.
+. Ripetere la procedura per aggiornare il software NX-OS e RCF sullo switch s1.
 . Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`

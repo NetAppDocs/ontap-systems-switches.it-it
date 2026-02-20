@@ -1,8 +1,8 @@
 ---
 permalink: switch-cisco-9336c-fx2-storage/install-9336c-storage.html 
 sidebar: sidebar 
-keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: Se non si dispone già delle informazioni di configurazione e della documentazione necessarie, è necessario raccogliere tali informazioni prima di configurare il cluster e gli switch di rete di gestione. 
+keywords: require, configuration, information, documentation, storage, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
+summary: Se non si dispone già delle informazioni di configurazione e della documentazione necessarie, è necessario raccogliere tali informazioni prima di configurare gli switch di rete storage e di gestione. 
 ---
 = Installare gli switch di archiviazione 9336C-FX2 e 9336C-FX2-T
 :allow-uri-read: 
@@ -20,12 +20,15 @@ Assicurati di avere quanto segue:
 * Versione NX-OS applicabile, scaricata da https://software.cisco.com/download/home["Download del software Cisco"^] pagina.
 * Licenze applicabili, informazioni di rete e configurazione e cavi.
 * Completatolink:setup-worksheet-9336c-storage.html["fogli di lavoro sul cablaggio"] .
-* RCF applicabili alla rete cluster NetApp e alla rete di gestione scaricabili dal sito di supporto NetApp all'indirizzo http://mysupport.netapp.com/["mysupport.netapp.com"^] .  Tutti gli switch di rete cluster e di rete di gestione Cisco vengono forniti con la configurazione predefinita di fabbrica Cisco . Questi switch dispongono anche della versione corrente del software NX-OS, ma non hanno gli RCF caricati.
+* RCF applicabili alla rete di storage NetApp e alla rete di gestione scaricati dal NetApp Support Site su  http://mysupport.netapp.com/["mysupport.netapp.com"^].
++
+Tutti gli switch Cisco per la rete storage e la rete di gestione arrivano con la configurazione standard predefinita di fabbrica di Cisco. Questi switch dispongono anche della versione corrente del software NX-OS, ma non hanno gli RCF caricati.
+
 * Documentazione richiesta per lo switch. Vederelink:required-documentation-9336c-storage.html["Documentazione richiesta"] per maggiori informazioni.
 
 
 .Passi
-. Installare gli switch e i controller della rete del cluster e della rete di gestione.
+. Montare in rack gli switch di rete, gli switch di rete di gestione e i controller.
 +
 [cols="1,2"]
 |===
@@ -45,8 +48,8 @@ Apparecchiature in un rack Telco
 Consultare le procedure fornite nelle guide all'installazione dell'hardware dello switch e nelle istruzioni di installazione e configurazione NetApp .
 
 |===
-. Cablare la rete del cluster e gli switch della rete di gestione ai controller utilizzando i fogli di lavoro di cablaggio compilati.
-. Accendere la rete del cluster e gli switch e i controller della rete di gestione.
+. Collegare gli switch di rete e di rete di gestione ai controller utilizzando i fogli di lavoro di cablaggio completati.
+. Accendere la rete e gli switch e i controller della rete di gestione.
 
 
 .Cosa succederà ora?

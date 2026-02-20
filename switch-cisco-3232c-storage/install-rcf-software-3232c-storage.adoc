@@ -25,26 +25,24 @@ Verificare le seguenti installazioni e connessioni:
 .Informazioni su questo compito
 La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 3000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .
 
-Durante questa procedura non è necessario alcun collegamento inter-switch (ISL) operativo. Ciò è voluto perché le modifiche alla versione RCF possono influire temporaneamente sulla connettività ISL. Per abilitare operazioni cluster senza interruzioni, la seguente procedura migra tutti i LIF del cluster allo switch partner operativo, eseguendo al contempo i passaggi sullo switch di destinazione.
-
 Completare la procedura in link:prepare-install-cisco-nexus-3232c-storage.html["Prepararsi all'installazione di NX-OS e RCF"], e quindi seguire i passaggi seguenti.
 
 
 
 == Fase 1: installare l'RCF sugli switch
 
-. Accedi per cambiare cs2 tramite SSH o tramite una console seriale.
-. Copiare l'RCF nel bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] .
+. Accedi allo switch s2 utilizzando SSH o utilizzando una console seriale.
+. Copia l'RCF nella bootflash dello switch s2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco, consulta la guida appropriata nella  https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^].
 +
 .Mostra esempio
 [%collapsible]
 ====
-Questo esempio mostra come TFTP viene utilizzato per copiare un RCF nel bootflash sullo switch cs2:
+Questo esempio mostra TFTP utilizzato per copiare un RCF nel bootflash sullo switch s2:
 
 [listing, subs="+quotes"]
 ----
-cs2# *copy tftp: bootflash: vrf management*
-Enter source filename: *Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt*
+s2# *copy tftp: bootflash: vrf management*
+Enter source filename: *NX3232C-RCF-v1.13-1-Storage.txt*
 Enter hostname for the tftp server: *172.22.201.50*
 Trying to connect to tftp server......Connection to Server Established.
 TFTP get operation was successful
@@ -59,11 +57,11 @@ Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata n
 .Mostra esempio
 [%collapsible]
 ====
-Questo esempio mostra il file RCF `Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt` in fase di installazione sullo switch cs2:
+Questo esempio mostra il file RCF `NX9336C-FX2-RCF-v1.13-1-Storage.txt` installato sullo switch s2:
 
 [listing, subs="+quotes"]
 ----
-cs2# *copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands*
+s2# *copy NX9336C-FX2-RCF-v1.13-1-Storage.txt running-config echo-commands*
 ----
 ====
 +
@@ -90,171 +88,36 @@ L'output varia in base alla configurazione del sito.  Controllare le impostazion
 
 
 . Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.
-. Salva i dettagli di configurazione di base nel `write_erase.cfg` file sul bootflash.
+. Dopo aver verificato che le versioni RCF e le impostazioni degli switch siano corrette, copiare il file `running-config` file al `startup-config` file.
 +
-[NOTE]
-====
-Assicurati di configurare quanto segue: * Nome utente e password * Indirizzo IP di gestione * Gateway predefinito * Nome dello switch
+`s2# copy running-config startup-config [########################################] 100% Copy complete`
 
-====
+. Riavvia switch s2:
 +
-`cs2# show run | section "switchname" > bootflash:write_erase.cfg`
-
-+
-`cs2# show run | section "hostname" >> bootflash:write_erase.cfg`
-
-+
-`cs2# show run | i "username admin password" >> bootflash:write_erase.cfg`
-
-+
-`cs2# show run | section "vrf context management" >> bootflash:write_erase.cfg`
-
-+
-`cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
-
-. Quando si installa RCF versione 1.12 e successive, eseguire i seguenti comandi:
-+
-`cs2# echo "hardware access-list tcam region racl-lite 512" >> bootflash:write_erase.cfg`
-
-+
-`cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
-
-+
-Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori dettagli.
-
-. Verificare che il `write_erase.cfg` il file è popolato come previsto:
-+
-`show file bootflash:write_erase.cfg`
-
-. Emettere il `write erase` comando per cancellare la configurazione salvata corrente:
-+
-`cs2# *write erase*`
-
-+
-`Warning: This command will erase the startup-configuration.`
-
-+
-`Do you wish to proceed anyway? (y/n)  [n] *y*`
-
-. Copiare la configurazione di base salvata in precedenza nella configurazione di avvio.
-+
-`cs2# *copy bootflash:write_erase.cfg startup-config*`
-
-. Riavviare lo switch cs2:
-+
-`cs2# *reload*`
+`s2# *reload*`
 
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Ripetere i passaggi da 1 a 12 sullo switch cs1.
-. Collegare le porte del cluster di tutti i nodi nel cluster ONTAP agli switch cs1 e cs2.
+. Ripetere i passaggi da 1 a 8 sullo switch s1.
+. Collegare le porte di storage del nodo e le porte di storage shelf di tutti i nodi nel cluster ONTAP agli switch s1 e s2.
 
 
 
 
 == Passaggio 2: verificare le connessioni dello switch
 
-. Verificare che le porte dello switch collegate alle porte del cluster siano *attive*.
+. Verificare che le porte dello switch siano *up*.
 +
-`show interface brief | grep up`
+`show interface brief`
+
+. Verificare che le porte di storage del nodo e le porte dello storage shelf siano nelle VLAN corrette utilizzando i seguenti comandi:
++
+`show vlan brief`
 
 +
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cs1# *show interface brief | grep up*
-.
-.
-Eth1/1/1      1       eth  access up      none                    10G(D) --
-Eth1/1/2      1       eth  access up      none                    10G(D) --
-Eth1/7        1       eth  trunk  up      none                   100G(D) --
-Eth1/8        1       eth  trunk  up      none                   100G(D) --
-.
-.
-----
-====
-. Verificare che l'ISL tra cs1 e cs2 sia funzionante:
-+
-`show port-channel summary`
+`show interface trunk`
 
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cs1# *show port-channel summary*
-Flags:  D - Down        P - Up in port-channel (members)
-        I - Individual  H - Hot-standby (LACP only)
-        s - Suspended   r - Module-removed
-        b - BFD Session Wait
-        S - Switched    R - Routed
-        U - Up (port-channel)
-        p - Up in delay-lacp mode (member)
-        M - Not in use. Min-links not met
---------------------------------------------------------------------------------
-Group Port-       Type     Protocol  Member Ports
-      Channel
---------------------------------------------------------------------------------
-1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
-cs1#
-----
-====
-. Verificare che i LIF del cluster siano tornati alla loro porta home:
-+
-`network interface show -role cluster`
-
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface show -role cluster*
-            Logical            Status     Network            Current             Current Is
-Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
------------ ------------------ ---------- ------------------ ------------------- ------- ----
-Cluster
-            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0d     true
-            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0d     true
-            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0d     true
-            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0d     true
-            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0b     true
-            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
-            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     true
-            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
-8 entries were displayed.
-cluster1::*>
-----
-====
-+
-Se alcuni LIFS del cluster non sono tornati alle loro porte home, ripristinarli manualmente:
-`network interface revert -vserver <vserver_name> -lif <lif_name>`
-
-. Verificare che il cluster sia integro:
-+
-`cluster show`
-
-+
-.Mostra esempio
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *cluster show*
-Node                 Health  Eligibility   Epsilon
--------------------- ------- ------------- -------
-cluster1-01          true    true          false
-cluster1-02          true    true          false
-cluster1-03          true    true          true
-cluster1-04          true    true          false
-4 entries were displayed.
-cluster1::*>
-----
-====
 
 
 

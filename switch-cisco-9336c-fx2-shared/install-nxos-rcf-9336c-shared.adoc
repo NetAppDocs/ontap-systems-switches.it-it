@@ -134,50 +134,6 @@ L'output varia in base alla configurazione del sito.  Controllare le impostazion
 ----
 cs1# copy running-config startup-config [########################################] 100% Copy complete
 ----
-. Salva i dettagli di configurazione di base nel `write_erase.cfg` file sul bootflash.
-+
-`cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
-
-+
-`cs1# show run | section "vrf context management" >> bootflash:write_erase.cfg`
-
-+
-`cs1# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
-
-+
-`cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
-
-. Per RCF versione 1.12 e successive, eseguire i seguenti comandi:
-+
-`cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
-
-+
-`cs1# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
-
-+
-`cs1# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
-
-+
-Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori dettagli.
-
-. Verificare che il `write_erase.cfg` il file è popolato come previsto:
-+
-`show file bootflash:write_erase.cfg`
-
-. Emettere il comando write erase per cancellare la configurazione salvata corrente:
-+
-`cs1# *write erase*`
-
-+
-`Warning: This command will erase the startup-configuration.`
-
-+
-`Do you wish to proceed anyway? (y/n)  [n] *y*`
-
-. Copiare la configurazione di base salvata in precedenza nella configurazione di avvio.
-+
-`cs1# *copy bootflash:write_erase.cfg startup-config*`
-
 . Riavviare l'interruttore cs1.
 +
 `cs1# *reload*`
@@ -185,7 +141,7 @@ Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Ripetere i passaggi da 1 a 13 sullo switch cs2.
+. Ripetere i passaggi da 1 a 8 sullo switch cs2.
 . Collegare le porte del cluster di tutti i nodi nel cluster ONTAP agli switch cs1 e cs2.
 
 

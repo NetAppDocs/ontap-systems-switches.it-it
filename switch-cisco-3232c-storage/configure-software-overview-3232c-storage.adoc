@@ -21,7 +21,7 @@ Configura lo switch di storage 3232C.
 [role="quick-margin-para"]
 Il software Cisco NX-OS e i file di configurazione di riferimento (RCF) devono essere installati sugli switch di archiviazione Cisco 3232C.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-nx-os-software-3232c-storage.html["Installa il software NX-OS"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install-nx-os-software-3232c-storage.html["Installa o aggiorna il software NX-OS"]
 [role="quick-margin-para"]
 Scarica e installa o aggiorna il software NX-OS sullo switch di archiviazione Cisco 3232C.
 
@@ -29,10 +29,14 @@ Scarica e installa o aggiorna il software NX-OS sullo switch di archiviazione Ci
 [role="quick-margin-para"]
 Installare l'RCF dopo aver configurato per la prima volta lo switch di archiviazione Cisco 3232C.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-ssh-keys.html["Verifica la configurazione SSH"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:upgrade-rcf-software-3232c-storage.html["Aggiorna l'RCF"]
+[role="quick-margin-para"]
+Aggiorna la versione RCF esistente se necessario.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:configure-ssh-keys.html["Verifica la configurazione SSH"]
 [role="quick-margin-para"]
 Verificare che SSH sia abilitato sugli switch per utilizzare le funzionalità di monitoraggio dello stato dello switch Ethernet (CSHM) e di raccolta dei registri.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:reset-switch-3232c-storage.html["Ripristinare l'interruttore alle impostazioni predefinite di fabbrica"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]link:reset-switch-3232c-storage.html["Ripristinare l'interruttore alle impostazioni predefinite di fabbrica"]
 [role="quick-margin-para"]
 Cancella le impostazioni dello switch di storage 3232C.
