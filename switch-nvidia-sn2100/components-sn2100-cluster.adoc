@@ -58,7 +58,7 @@ Kit di guide, NVIDIA Single switch profondità ridotta
 
 |===
 
-NOTE: Per i dettagli, consultare la documentazione NVIDIA https://docs.nvidia.com/networking/display/sn2000pub/Installation["installazione del kit di switch e rail SN2100"^] .
+NOTE: Per dettagli, consultare la documentazione NVIDIA link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["installazione del kit di switch e rail SN2100"^].
 
 .Cosa succederà ora?
 Dopo aver confermato i componenti e i numeri di parte, puoi rivedere il link:required-documentation-sn2100-cluster.html["documentazione richiesta"].
