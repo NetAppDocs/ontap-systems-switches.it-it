@@ -193,7 +193,7 @@ cs2# *exit*
 ----
 +
 
-CAUTION: Assicurarsi di chiudere *tutte* le porte del cluster connesse per evitare problemi di connessione di rete.  Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nodo fuori quorum durante la migrazione del cluster LIF durante l'aggiornamento del sistema operativo dello switch"^] per ulteriori dettagli.
+CAUTION: Assicurati di chiudere *tutte* le porte del cluster connesse per evitare problemi di connessione di rete. Consulta l'articolo della Knowledge Base link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nodo fuori quorum durante la migrazione del cluster LIF durante l'aggiornamento del sistema operativo dello switch"^] per ulteriori dettagli.
 
 . Verificare che le porte del cluster siano state sottoposte a failover sulle porte ospitate sullo switch del cluster cs1. Potrebbero volerci alcuni secondi.
 +
@@ -306,7 +306,7 @@ Assicurati di configurare quanto segue: * Nome utente e password * Indirizzo IP 
 +
 Potrebbe essere necessario aggiornare le voci del file host relative alle chiavi SSH.
 
-. Copiare l'RCF nel bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] guide.
+. Copia il file RCF nella bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^].
 +
 .Mostra esempio
 [%collapsible]
@@ -325,7 +325,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Applicare l'RCF precedentemente scaricato al bootflash.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata in link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^].
 
 +
 .Mostra esempio
@@ -363,7 +363,7 @@ L'output varia in base alla configurazione del sito.  Controllare le impostazion
 . Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.  Fare riferimento alink:cabling-considerations-3232c.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per i dettagli di eventuali ulteriori modifiche richieste.
 . Dopo aver verificato che le versioni RCF e le impostazioni dello switch siano corrette, copiare il file running-config nel file startup-config.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata in link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^].
 
 +
 [listing]

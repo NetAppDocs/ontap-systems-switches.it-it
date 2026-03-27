@@ -21,7 +21,7 @@ Sono supportati i seguenti switch di archiviazione:
 
 * Cisco Nexus 9336C-FX2
 * Cisco Nexus 3232C
-* Vedi il https://hwu.netapp.com/["Hardware Universe"^] per i dettagli completi sulle porte supportate e sulle relative configurazioni.
+* Fare riferimento alla link:https://hwu.netapp.com/["Hardware Universe"^] per i dettagli completi sulle porte supportate e le relative configurazioni.
 
 
 .Prima di iniziare
@@ -38,7 +38,7 @@ Assicurati di avere quanto segue:
 ** Porte ISL abilitate e cablate tra i vecchi switch Cisco e tra i nuovi switch.
 
 
-* Vedi il https://hwu.netapp.com/["Hardware Universe"^] per i dettagli completi sulle porte supportate e sulle relative configurazioni.
+* Fare riferimento alla link:https://hwu.netapp.com/["Hardware Universe"^] per i dettagli completi sulle porte supportate e le relative configurazioni.
 * Alcune porte sono configurate sugli switch NVIDIA SN2100 per funzionare a 100 GbE.
 * Hai pianificato, migrato e documentato la connettività 100 GbE dai nodi agli switch di archiviazione NVIDIA SN2100.
 

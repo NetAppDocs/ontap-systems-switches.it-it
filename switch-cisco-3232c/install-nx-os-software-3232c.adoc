@@ -468,7 +468,7 @@ cs2#
 ====
 . Se si esegue l'aggiornamento alla versione NX-OS 9.3(11), è necessario aggiornare l'EPLD `golden` immagine e riavviare nuovamente lo switch.  Altrimenti, passare al passaggio 12.
 +
-Vedere https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/93x/epld-rn/nxos_n9K_epldRN_9311.html["Note di rilascio dell'aggiornamento EPLD, versione 9.3(11)"^] per ulteriori dettagli.
+Consultare link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/93x/epld-rn/nxos_n9K_epldRN_9311.html["Note di rilascio dell'aggiornamento EPLD, versione 9.3(11)"^] per ulteriori dettagli.
 
 +
 .Mostra esempio

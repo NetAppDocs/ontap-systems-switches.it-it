@@ -36,7 +36,7 @@ Assicurarsi che:
 * Le connessioni tra switch e nodi NVIDIA SN2100 utilizzano cavi Twinax o in fibra.
 +
 
-IMPORTANT: Vederelink:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per avvertenze e ulteriori dettagli.  IL https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruttori"^] contiene anche maggiori informazioni sul cablaggio.
+IMPORTANT: Consultare link:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per avvertenze e ulteriori dettagli. Il link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruttori"^] contiene anche maggiori informazioni sul cablaggio.
 
 * I cavi Inter-Switch Link (ISL) sono collegati alle porte swp15 e swp16 su entrambi gli switch NVIDIA SN2100.
 * La personalizzazione iniziale di entrambi gli switch SN2100 è stata completata, in modo che:
@@ -45,7 +45,7 @@ IMPORTANT: Vederelink:cabling-considerations-sn2100-cluster.html["Esaminare le c
 ** I file di configurazione di riferimento (RCF) vengono applicati agli switch
 ** Sui nuovi switch vengono configurate tutte le personalizzazioni del sito, come SMTP, SNMP e SSH.
 +
-IL https://hwu.netapp.com["Hardware Universe"^] contiene le informazioni più recenti sulle porte cluster effettive per le tue piattaforme.
+Il link:https://hwu.netapp.com["Hardware Universe"^] contiene le informazioni più recenti sulle porte del cluster effettive per le tue piattaforme.
 
 
 

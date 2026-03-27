@@ -25,7 +25,7 @@ Il processo di migrazione funziona per tutti i nodi che utilizzano porte ottiche
 ** La configurazione switchless a due nodi è correttamente configurata e funzionante.
 ** Tutte le porte del cluster sono nello stato *attivo*.
 ** Tutte le interfacce logiche del cluster (LIF) sono nello stato *attivo* e sulle loro porte home.
-** Vedere https://hwu.netapp.com["Hardware Universe"^] per tutte le versioni ONTAP supportate.
+** Consultare la  https://hwu.netapp.com["Hardware Universe"^] per tutte le versioni ONTAP supportate.
 
 
 * Per la configurazione dello switch Cisco Nexus 9332D-GX2B:
@@ -34,7 +34,7 @@ Il processo di migrazione funziona per tutti i nodi che utilizzano porte ottiche
 ** È disponibile l'accesso alla console per gli switch del cluster.
 ** Le connessioni da nodo a nodo e da switch a switch del Nexus 9332D-GX2B utilizzano cavi Twinax o in fibra.
 +
-Vedere https://hwu.netapp.com["Hardware Universe"^] per maggiori informazioni sul cablaggio.
+Consultare la  https://hwu.netapp.com["Hardware Universe"^] per ulteriori informazioni sul cablaggio.
 
 
 
@@ -57,7 +57,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di cluster sw
 * Le porte cluster utilizzate in questa procedura sono e0a ed e0b.
 
 
-Vedere https://hwu.netapp.com["Hardware Universe"^] per informazioni sulle porte del cluster per le tue piattaforme. Vedere link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per maggiori informazioni sui requisiti di installazione degli switch.
+Consultare  https://hwu.netapp.com["Hardware Universe"^] per informazioni sulle porte del cluster per le proprie piattaforme. Consultare link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per ulteriori informazioni sui requisiti di installazione dello switch.
 
 
 
@@ -291,9 +291,6 @@ Cluster
 . Scollegare il cavo dalla porta e0a del cluster sul nodo 1, quindi collegare e0a alla porta 1 sullo switch cs1 del cluster, utilizzando il cablaggio appropriato supportato dagli switch 9332D-GX2B.
 +
 IL https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruttori"^] contiene maggiori informazioni sul cablaggio.
-
-+
-https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruttori"^]
 
 . Scollegare il cavo dalla porta e0a del cluster sul nodo 2, quindi collegare e0a alla porta 2 sullo switch cs1 del cluster, utilizzando il cablaggio appropriato supportato dagli switch 9332D-GX2B.
 . Abilitare tutte le porte rivolte verso il nodo sullo switch del cluster cs1.

@@ -21,8 +21,5 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Informazioni per 
 +
 https://docs.netapp.com/us-en/ontap-systems-switches/index.html["Documentazione sugli switch AFF e FAS"^]
 
-* Verifica l'hardware supportato, come switch e cavi di archiviazione, per il tuo modello di piattaforma:
-+
-https://hwu.netapp.com/["Hardware Universe NetApp"^]
-
+* Verifica l'hardware supportato, come switch e cavi di archiviazione, per il modello della tua piattaforma. Consulta la link:https://hwu.netapp.com/["Hardware Universe"^] per i dettagli.
 

@@ -16,7 +16,7 @@ Seguire questa procedura per installare o aggiornare lo script RCF.
 .Prima di iniziare
 Prima di installare o aggiornare lo script RCF, assicurarsi che sullo switch siano disponibili i seguenti elementi:
 
-* Cumulus Linux è installato.  Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per le versioni supportate.
+* Cumulus Linux è installato. Consultare la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per le versioni supportate.
 * Indirizzo IP, maschera di sottorete e gateway predefinito definiti tramite DHCP o configurati manualmente.
 
 
@@ -30,7 +30,7 @@ Sono disponibili le seguenti categorie di configurazione di riferimento:
 |===
 
 
-| Grappolo | Sulle porte configurate per il breakout 4x10GbE, una porta è configurata per il breakout 4x25GbE e le altre porte sono configurate per 40/100GbE. Supporta il traffico cluster/HA condiviso sulle porte per i nodi che utilizzano porte cluster/HA condivise. Consultare la tabella delle piattaforme nell'articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_AFF_ASA_and_FAS_platforms_use_shared_Cluster_and_HA_Ethernet_ports["Quali piattaforme AFF, ASA e FAS utilizzano porte Ethernet Cluster e HA condivise?"^] . Tutte le porte possono essere utilizzate anche come porte cluster dedicate. 
+| Grappolo | Sulle porte configurate per breakout 4x10GbE, una porta è configurata per breakout 4x25GbE e le altre porte sono configurate per 40/100GbE. Supporta il traffico cluster/HA condiviso sulle porte per i nodi che utilizzano porte cluster/HA condivise. Fare riferimento alla tabella della piattaforma nell'articolo della Knowledge Base link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_AFF_ASA_and_FAS_platforms_use_shared_Cluster_and_HA_Ethernet_ports["Quali piattaforme AFF, ASA e FAS utilizzano porte Ethernet Cluster e HA condivise?"^]. Tutte le porte possono essere utilizzate anche come porte cluster dedicate. 
 
 
  a| 

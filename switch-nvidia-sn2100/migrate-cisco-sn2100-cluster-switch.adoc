@@ -17,7 +17,7 @@ summary: È possibile migrare i vecchi switch cluster Cisco non disruptivi per u
 
 == Requisiti di revisione
 
-Quando si sostituiscono alcuni vecchi switch cluster Cisco con switch cluster NVIDIA SN2100, è necessario conoscere alcune informazioni sulla configurazione, sui collegamenti delle porte e sui requisiti di cablaggio. Vederelink:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"] .
+È necessario essere a conoscenza di alcune informazioni di configurazione, connessioni delle porte e requisiti di cablaggio quando si sostituiscono alcuni vecchi switch cluster Cisco con switch cluster NVIDIA SN2100. Fare riferimento a link:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"].
 
 .Switch supportati
 Sono supportati i seguenti switch cluster Cisco :
@@ -29,7 +29,7 @@ Sono supportati i seguenti switch cluster Cisco :
 * Nexus 3132Q-V
 
 
-Per i dettagli sulle porte supportate e le relative configurazioni, vedere https://hwu.netapp.com/["Hardware Universe"^] .
+Per i dettagli sulle porte supportate e le relative configurazioni, fare riferimento a link:https://hwu.netapp.com/["Hardware Universe"^] .
 
 .Cosa ti servirà
 Assicurarsi che:
@@ -41,7 +41,7 @@ Assicurarsi che:
 +
 ** Un cluster NetApp ridondante e completamente funzionale che utilizza entrambi gli switch Cisco più vecchi.
 ** Connettività di gestione e accesso alla console sia per i vecchi switch Cisco sia per quelli nuovi.
-** Tutti i cluster LIF nello stato attivo con i cluster LIf sulle loro porte home.
+** Tutti i cluster LIF nello stato attivo con i cluster LIF sulle loro porte home.
 ** Porte ISL abilitate e cablate tra i vecchi switch Cisco e tra i nuovi switch.
 
 
@@ -50,7 +50,7 @@ Assicurarsi che:
 
 
 
-NOTE: Se si modifica la velocità delle porte cluster e0a ed e1a sui sistemi AFF A800 o AFF C800 , è possibile che vengano ricevuti pacchetti malformati dopo la conversione della velocità.  Vedere https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Errore 1570339"^] e l'articolo della Knowledge Base https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Errori CRC sulle porte T6 dopo la conversione da 40 GbE a 100 GbE"^] per avere una guida.
+NOTE: Se si modifica la velocità delle porte cluster e0a ed e1a sui sistemi AFF A800 o AFF C800, è possibile che vengano ricevuti pacchetti non validi dopo la conversione della velocità. Fare riferimento a link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Errore 1570339"^] e all'articolo della Knowledge Base link:https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Errori CRC sulle porte T6 dopo la conversione da 40 GbE a 100 GbE"^] per indicazioni.
 
 
 

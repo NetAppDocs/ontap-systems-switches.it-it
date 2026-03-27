@@ -147,7 +147,7 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 
 . Abilitare tutte le porte rivolte al nodo su C1.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare le guide elencate in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^] .
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alle guide elencate in link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^].
 
 +
 .Mostra esempio

@@ -20,7 +20,7 @@ Prima di installare il software Cumulus e gli RCF su uno switch di archiviazione
 * Hai scaricato gli RCF applicabili.
 
 
-IL http://hwu.netapp.com["Hardware Universe"^] fornisce dettagli completi sulle porte supportate e sulle relative configurazioni.
+Il link:http://hwu.netapp.com["Hardware Universe"^] fornisce dettagli completi sulle porte supportate e sulle relative configurazioni.
 
 La configurazione di rete esistente deve avere le seguenti caratteristiche:
 

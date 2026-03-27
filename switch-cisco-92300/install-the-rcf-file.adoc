@@ -13,7 +13,7 @@ summary: 'È possibile installare l"RCF dopo aver configurato per la prima volta
 [role="lead"]
 È possibile installare l'RCF dopo aver configurato per la prima volta lo switch Nexus 92300YC. Puoi usare questa procedura anche per aggiornare la tua versione RCF.
 
-Vedi l'articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori informazioni sull'installazione o l'aggiornamento del tuo RCF.
+Fare riferimento all'articolo della Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori informazioni durante l'installazione o l'aggiornamento del proprio RCF.
 
 .Informazioni su questo compito
 Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
@@ -224,7 +224,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 
 
-. Copiare l'RCF nel bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switch Cisco Nexus serie 9000"^] guide.
+. Copia il file RCF nella bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switch Cisco Nexus serie 9000"^].
 +
 Questo esempio mostra come TFTP viene utilizzato per copiare un RCF nel bootflash sullo switch cs2:
 
@@ -249,7 +249,7 @@ Copy complete.
 ----
 . Applicare l'RCF precedentemente scaricato al bootflash.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switch Cisco Nexus serie 9000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switch Cisco Nexus serie 9000"^].
 
 +
 Questo esempio mostra il file RCF `Nexus_92300YC_RCF_v1.0.2.txt` in fase di installazione sullo switch cs2:
@@ -344,7 +344,7 @@ L'output varia in base alla configurazione del sito.  Controllare le impostazion
 . Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.  Fare riferimento alink:cabling-considerations-92300.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per i dettagli di eventuali ulteriori modifiche richieste.
 . Dopo aver verificato che le versioni RCF e le impostazioni dello switch siano corrette, copiare il file running-config nel file startup-config.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switch Cisco Nexus serie 9000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switch Cisco Nexus serie 9000"^].
 
 +
 [listing, subs="+quotes"]

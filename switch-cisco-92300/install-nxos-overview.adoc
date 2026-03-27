@@ -21,7 +21,7 @@ Assicurati di avere quanto segue:
 
 
 .Informazioni sugli esempi
-Gli esempi in questa procedura utilizzano due nodi.  Questi nodi utilizzano due porte di interconnessione cluster 10GbE `e0a` E `e0b` .  Vedi il https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte cluster corrette sulle tue piattaforme.
+Gli esempi in questa procedura utilizzano due nodi. Questi nodi utilizzano due porte di interconnessione cluster 10GbE `e0a` e `e0b`. Fare riferimento a link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte cluster corrette sulle proprie piattaforme.
 
 Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 

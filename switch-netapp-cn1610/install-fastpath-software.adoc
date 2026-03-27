@@ -49,7 +49,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e n
 * IL `cluster::*>` il prompt indica il nome del cluster.
 * Le porte del cluster su ciascun nodo sono denominate e1a ed e2a.
 +
-https://hwu.netapp.com/["Hardware Universe"^]contiene maggiori informazioni sulle porte cluster effettivamente supportate sulla tua piattaforma.
+Il link:https://hwu.netapp.com/["Hardware Universe"^] contiene maggiori informazioni sulle porte del cluster effettivamente supportate sulla tua piattaforma.
 
 * I collegamenti Inter-Switch (ISL) supportati sono le porte da 0/13 a 0/16.
 * Le connessioni dei nodi supportate sono le porte da 0/1 a 0/12.

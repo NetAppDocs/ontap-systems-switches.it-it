@@ -1,6 +1,6 @@
 ---
 indexpage:
-  title: Documentazione degli switch per i sistemi hardware ONTAP
+  title: Documentazione relativa agli switch per i sistemi di storage ONTAP
   summary: Utilizza la documentazione presente su questo sito per installare, aggiornare
     e gestire il tuo cluster, lo storage condiviso e gli switch MetroCluster .
   keywords: switches

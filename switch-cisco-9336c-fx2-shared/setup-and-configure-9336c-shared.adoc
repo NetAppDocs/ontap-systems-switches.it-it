@@ -19,9 +19,9 @@ Seguire queste istruzioni per configurare gli switch condivisi Cisco Nexus 9336C
 .Prima di iniziare
 Assicurati di avere quanto segue:
 
-* Documentazione richiesta per lo switch condiviso, la documentazione del controller e la documentazione ONTAP .  Vederelink:required-documentation-9336c-shared.html["Requisiti di documentazione per gli switch condivisi Cisco Nexus 9336C-FX2"] E https://docs.netapp.com/us-en/ontap/index.html["Documentazione NetApp ONTAP"^] .
+* Documentazione richiesta per lo switch condiviso, la documentazione del controller e la documentazione ONTAP. Fare riferimento a link:required-documentation-9336c-shared.html["Requisiti di documentazione per gli switch condivisi Cisco Nexus 9336C-FX2"] e  https://docs.netapp.com/us-en/ontap/index.html["Documentazione NetApp ONTAP"^].
 * Licenze applicabili, informazioni di rete e configurazione e cavi.
-* Schede di lavoro sui cablaggi completate. Vederelink:cable-9336c-shared.html["Completa il foglio di lavoro sul cablaggio Cisco Nexus 9336C-FX2"] .  Per maggiori informazioni sul cablaggio, fare riferimento a https://hwu.netapp.com["Hardware Universe"] .
+* Fogli di lavoro per il cablaggio completati. Fare riferimento a link:cable-9336c-shared.html["Completa il foglio di lavoro sul cablaggio Cisco Nexus 9336C-FX2"]. Per ulteriori informazioni sul cablaggio, fare riferimento a link:https://hwu.netapp.com["Hardware Universe"^].
 
 
 .Passi

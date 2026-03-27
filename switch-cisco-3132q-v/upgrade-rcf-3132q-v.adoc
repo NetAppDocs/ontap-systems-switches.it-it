@@ -333,7 +333,7 @@ NOTE: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le 
 +
 Potrebbe essere necessario aggiornare le voci del file host relative alle chiavi SSH.
 
-. Copiare l'RCF nel bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nellink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] guide.
+. Copia il file RCF nella bootflash dello switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP. Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^].
 +
 .Mostra esempio
 [%collapsible]
@@ -350,7 +350,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Applicare l'RCF precedentemente scaricato al bootflash.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata in  https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^].
 
 +
 .Mostra esempio
@@ -383,17 +383,17 @@ L'output varia in base alla configurazione del sito.  Controllare le impostazion
 
 +
 
-NOTE: Per i passaggi su come portare online le porte 10GbE dopo un aggiornamento dell'RCF, consultare l'articolo della Knowledge Baselink:https://kb.netapp.com/onprem%2FSwitches%2FCisco%2F10GbE_ports_on_Cisco_3132Q_cluster_switch_do_not_come_online["Le porte 10GbE su uno switch cluster Cisco 3132Q non sono online"^] .
+NOTE: Per le istruzioni su come attivare le porte 10GbE dopo un aggiornamento dell'RCF, consultare l'articolo della Knowledge Base link:https://kb.netapp.com/onprem%2FSwitches%2FCisco%2F10GbE_ports_on_Cisco_3132Q_cluster_switch_do_not_come_online["Le porte 10GbE su uno switch cluster Cisco 3132Q non sono online"^].
 
 
 
 . Dopo aver verificato che le versioni RCF e le impostazioni degli switch siano corrette, copiare il file `running-config` file al `startup-config` file.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nellink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 3000"^]. .Mostra esempio
 
-+
-.Mostra esempio
-[%collapsible]
+
+
+[]
 ====
 [listing]
 ----

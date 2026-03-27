@@ -16,7 +16,7 @@ Per aggiornare lo script RCF, seguire questa procedura.
 .Prima di iniziare
 Prima di aggiornare lo script RCF, assicurarsi che sullo switch siano disponibili i seguenti elementi:
 
-* Cumulus Linux è installato.  Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per le versioni supportate.
+* Cumulus Linux è installato. Consultare la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per le versioni supportate.
 * Indirizzo IP, maschera di sottorete e gateway predefinito definiti tramite DHCP o configurati manualmente.
 
 

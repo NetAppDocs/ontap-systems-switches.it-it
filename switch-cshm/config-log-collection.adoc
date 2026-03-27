@@ -256,7 +256,7 @@ system switch ethernet log show
 --
 ====
 
-CAUTION: Se vengono segnalati stati di errore dalla funzionalità di raccolta dei log (visibili nell'output di `system switch ethernet log show` ), Vederelink:log-collection-troubleshoot.html["Risoluzione dei problemi di raccolta dei registri"] per ulteriori dettagli.
+CAUTION: Se la funzione di raccolta dei log segnala stati di errore (visibili nell'output di  `system switch ethernet log show`), fare riferimento a link:log-collection-troubleshoot.html["Risoluzione dei problemi di raccolta dei registri"] per ulteriori dettagli.
 
 .Cosa succederà ora?
 link:config-snmpv3.html["Configurare SNMPv3 (facoltativo)"].

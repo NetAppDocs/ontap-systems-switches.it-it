@@ -11,13 +11,13 @@ summary: 'Per l"installazione e la manutenzione dello switch Cisco Nexus 3232C, 
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dello switch Cisco Nexus 3232C, assicurarsi di consultare tutta la documentazione consigliata.
+Per l'installazione dello switch Cisco Nexus 3232C, assicurarsi di consultare tutta la documentazione consigliata.
 
 
 
 == Documentazione dello switch
 
-Per configurare gli switch Cisco Nexus 3232C, è necessaria la seguente documentazione dal https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Supporto per gli switch Cisco Nexus serie 3000"^] pagina.
+Per configurare gli switch Cisco Nexus 3232C, è necessaria la seguente documentazione da link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Supporto per gli switch Cisco Nexus serie 3000"^].
 
 [cols="1,2"]
 |===
@@ -83,7 +83,7 @@ Fornisce informazioni sulla conformità alle agenzie internazionali, sulla sicur
 
 == Documentazione dei sistemi ONTAP
 
-Per configurare un sistema ONTAP , sono necessari i seguenti documenti per la versione del sistema operativo da https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^] .
+Per configurare un sistema ONTAP, sono necessari i seguenti documenti per la versione del sistema operativo.
 
 [cols="1,2"]
 |===
@@ -98,14 +98,14 @@ Descrive come installare l'hardware NetApp .
 
 
  a| 
-Documentazione ONTAP
+link:https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^]
  a| 
 Fornisce informazioni dettagliate su tutti gli aspetti delle versioni ONTAP .
 
 
 
  a| 
-https://hwu.netapp.com["Hardware Universe"^]
+link:https://hwu.netapp.com["Hardware Universe"^]
  a| 
 Fornisce informazioni sulla configurazione hardware e sulla compatibilità NetApp .
 
@@ -122,7 +122,7 @@ Per installare uno switch Cisco 3232C in un cabinet NetApp , consultare la segue
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Armadio di sistema 42U, guida profonda"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Armadio di sistema 42U, guida profonda"^]
  a| 
 Descrive le FRU associate al cabinet del sistema 42U e fornisce istruzioni per la manutenzione e la sostituzione delle FRU.
 

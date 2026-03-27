@@ -105,7 +105,7 @@ There are no entries matching your query.
 ====
 
 
-. [[step7]]Sostituire l'RCF di archiviazione sullo switch condiviso A con il file RCF condiviso.  Vederelink:install-nxos-rcf-9336c-shared.html["Installare l'RCF su uno switch condiviso Cisco Nexus 9336C-FX2"] per ulteriori dettagli.
+. [[step7]]Sostituire il file RCF di archiviazione sullo switch condiviso A con il file RCF condiviso. Fare riferimento a link:install-nxos-rcf-9336c-shared.html["Installare l'RCF su uno switch condiviso Cisco Nexus 9336C-FX2"] per ulteriori dettagli.
 . Verificare che lo storage collegato alla coppia HA 1, lo switch di storage B sia funzionante:
 +
 `system health alert show -instance`
@@ -141,7 +141,7 @@ There are no entries matching your query.
 ====
 
 
-. [[step13]]Sostituire il file RCF di archiviazione sullo switch condiviso B con il file RCF condiviso.  Vederelink:install-nxos-rcf-9336c-shared.html["Installare l'RCF su uno switch condiviso Cisco Nexus 9336C-FX2"] per ulteriori dettagli.
+. [[step13]]Sostituire il file RCF di archiviazione sullo switch condiviso B con il file RCF condiviso. Fare riferimento a link:install-nxos-rcf-9336c-shared.html["Installare l'RCF su uno switch condiviso Cisco Nexus 9336C-FX2"] per ulteriori dettagli.
 . Verificare che lo storage collegato alla coppia HA 1, lo switch di storage B sia funzionante:
 +
 `system health alert show -instance`
@@ -183,7 +183,7 @@ sh1 (config)# *exit*
 ====
 
 
-. [[step16]]Convertire la coppia HA 1 da un cluster senza switch a un cluster commutato.  Utilizzare le assegnazioni delle porte del cluster definite dall'RCF condiviso.  Vederelink:prepare-nxos-rcf-9336c-shared.html["Installare il software NX-OS e i file di configurazione di riferimento (RCF)"] per ulteriori dettagli.
+. [[step16]]Converti la coppia HA 1 da un cluster senza switch a un cluster con switch. Utilizza le assegnazioni delle porte del cluster definite dall'RCF condiviso. Consulta link:prepare-nxos-rcf-9336c-shared.html["Installare il software NX-OS e i file di configurazione di riferimento (RCF)"] per ulteriori dettagli.
 . Verificare che la configurazione di rete commutata sia valida:
 +
 `network port show`

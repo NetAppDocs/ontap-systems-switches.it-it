@@ -331,7 +331,7 @@ Prenotato
 
 == Foglio di lavoro vuoto per il cablaggio
 
-È possibile utilizzare il foglio di lavoro di cablaggio vuoto per documentare le piattaforme supportate come nodi in un cluster.  La sezione _Connessioni cluster supportate_ del https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
+È possibile utilizzare il foglio di lavoro vuoto per il cablaggio per documentare le piattaforme supportate come nodi in un cluster. La sezione _Connessioni cluster supportate_ link:https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
 
 [cols="1, 1, 1, 1"]
 |===

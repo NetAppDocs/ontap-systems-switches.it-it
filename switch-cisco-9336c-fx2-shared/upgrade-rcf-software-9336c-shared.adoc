@@ -260,7 +260,7 @@ cs2
 
 +
 
-CAUTION: Assicurarsi di chiudere *tutte* le porte del cluster connesse per evitare problemi di connessione di rete.  Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nodo fuori quorum durante la migrazione del cluster LIF durante l'aggiornamento del sistema operativo dello switch"^] per ulteriori dettagli.
+CAUTION: Assicurati di chiudere *tutte* le porte del cluster connesse per evitare problemi di connessione di rete. Consulta l'articolo della Knowledge Base link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nodo fuori quorum durante la migrazione del cluster LIF durante l'aggiornamento del sistema operativo dello switch"^] per ulteriori dettagli.
 
 . Verificare che i LIF del cluster abbiano eseguito il failover sulle porte ospitate sullo switch del cluster cs1. Potrebbero volerci alcuni secondi.
 +
@@ -339,7 +339,7 @@ cluster1-04          true    true          false
 `cs1# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
 
 +
-Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori dettagli.
+Fare riferimento all'articolo della Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori dettagli.
 
 . Verificare che il `write_erase.cfg` il file è popolato come previsto:
 +
@@ -372,7 +372,7 @@ Potrebbe essere necessario aggiornare le voci del file host relative alle chiavi
 
 . Copiare l'RCF nel bootflash dello switch cs1 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^].
 
 +
 .Mostra esempio
@@ -392,7 +392,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Applicare l'RCF precedentemente scaricato al bootflash.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^].
 
 +
 .Mostra esempio
@@ -467,7 +467,7 @@ L'output varia in base alla configurazione del sito.  Controllare le impostazion
 . Fare riferimento a link:cabling-considerations-9336c-shared.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per dettagli su eventuali ulteriori modifiche necessarie.
 . Dopo aver verificato che le versioni RCF, le aggiunte personalizzate e le impostazioni degli switch siano corrette, copiare il file running-config nel file startup-config.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^].
 
 +
 `cs1# copy running-config startup-config`

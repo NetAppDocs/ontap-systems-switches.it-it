@@ -33,7 +33,7 @@ Il kit del pannello pass-through NetApp contiene il seguente hardware:
 
 NOTE: I cavi di collegamento non sono inclusi nel kit pass-through e dovrebbero essere inclusi con gli switch.  Se non sono stati spediti con gli switch, è possibile ordinarli da NetApp (codice articolo X1558A-R6).
 
-* Per i requisiti di preparazione iniziale, il contenuto del kit e le precauzioni di sicurezza, vedere https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Guida all'installazione dell'hardware Cisco Nexus serie 9000"^] .
+* Per i requisiti di preparazione iniziale, il contenuto del kit e le precauzioni di sicurezza, fare riferimento al link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Guida all'installazione dell'hardware Cisco Nexus serie 9000"^].
 
 
 .Passi

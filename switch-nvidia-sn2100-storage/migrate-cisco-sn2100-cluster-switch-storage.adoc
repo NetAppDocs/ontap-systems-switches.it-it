@@ -36,7 +36,7 @@ Sono supportati i seguenti switch cluster Cisco :
 ** Porte ISL abilitate e cablate tra i vecchi switch Cisco e tra i nuovi switch.
 
 
-* Vedi il https://hwu.netapp.com/["Hardware Universe"^] per i dettagli completi sulle porte supportate e sulle relative configurazioni.
+* Fare riferimento alla link:https://hwu.netapp.com/["Hardware Universe"^] per i dettagli completi sulle porte supportate e le relative configurazioni.
 * Hai configurato alcune porte sugli switch NVIDIA SN2100 per funzionare a 40 GbE o 100 GbE.
 * Hai pianificato, migrato e documentato la connettività 40 GbE e 100 GbE dai nodi agli switch cluster NVIDIA SN2100.
 +

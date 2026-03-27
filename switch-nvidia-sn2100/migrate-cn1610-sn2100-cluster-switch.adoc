@@ -17,7 +17,7 @@ summary: È possibile migrare senza interruzioni gli switch cluster NetApp CN161
 
 == Requisiti di revisione
 
-Quando si sostituiscono gli switch cluster NetApp CN1610 con gli switch cluster NVIDIA SN2100, è necessario conoscere alcune informazioni sulla configurazione, sulle connessioni delle porte e sui requisiti di cablaggio. Vederelink:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"] .
+È necessario essere a conoscenza di alcune informazioni di configurazione, connessioni delle porte e requisiti di cablaggio quando si sostituiscono gli switch cluster NetApp CN1610 con gli switch cluster NVIDIA SN2100. Fare riferimento a link:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"].
 
 .Switch supportati
 Sono supportati i seguenti switch cluster:
@@ -26,7 +26,7 @@ Sono supportati i seguenti switch cluster:
 * NVIDIA SN2100
 
 
-Per i dettagli sulle porte supportate e le relative configurazioni, vedere https://hwu.netapp.com/["Hardware Universe"^] .
+Per i dettagli sulle porte supportate e le relative configurazioni, fare riferimento alla link:https://hwu.netapp.com/["Hardware Universe"^].
 
 .Prima di iniziare
 Verifica di soddisfare i seguenti requisiti per la tua configurazione:

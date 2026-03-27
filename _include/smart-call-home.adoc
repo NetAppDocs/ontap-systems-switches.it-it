@@ -4,8 +4,6 @@
 
 Smart Call Home monitora i componenti hardware e software della tua rete. Quando si verifica una configurazione critica del sistema, viene generata una notifica tramite e-mail e viene inviato un avviso a tutti i destinatari configurati nel profilo di destinazione.
 
-Smart Call Home monitora i componenti hardware e software della tua rete. Quando si verifica una configurazione critica del sistema, viene generata una notifica tramite e-mail e viene inviato un avviso a tutti i destinatari configurati nel profilo di destinazione.
-
 Prima di poter utilizzare Smart Call Home, è necessario tenere presente i seguenti requisiti:
 
 * Deve essere presente un server di posta elettronica.

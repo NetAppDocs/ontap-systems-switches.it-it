@@ -23,7 +23,7 @@ Sono supportati i seguenti switch:
 * Nexus 3232C
 
 
-Le versioni ONTAP e NX-OS supportate in questa procedura sono disponibili nella pagina Switch Ethernet Cisco . Vedere https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"] .
+Le versioni di ONTAP e NX-OS supportate in questa procedura sono disponibili nella pagina Cisco Ethernet Switches. Fare riferimento a  https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^].
 
 .Porte di connessione
 Gli switch utilizzano le seguenti porte per connettersi ai nodi:
@@ -48,7 +48,7 @@ Gli switch utilizzano le seguenti porte per connettersi ai nodi:
 
 
 
-IL https://hwu.netapp.com["Hardware Universe"] contiene informazioni sul cablaggio supportato per tutti gli switch cluster.
+Il link:https://hwu.netapp.com["Hardware Universe"^] contiene informazioni sul cablaggio supportato per tutti gli switch del cluster.
 
 .Cosa ti servirà
 * Assicurati di aver completato le seguenti attività:

@@ -17,10 +17,7 @@ Se si dispone di un sistema in cui gli scaffali delle unità NS224 devono essere
 +
 https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Cablaggio degli scaffali dell'unità NS224 collegati all'interruttore"^]
 
-* Verifica l'hardware supportato, come switch e cavi di archiviazione, per il tuo modello di piattaforma:
-+
-https://hwu.netapp.com/["Hardware Universe NetApp"^]
-
+* Verifica l'hardware supportato, come switch e cavi di archiviazione, per il modello della tua piattaforma. Consulta la link:https://hwu.netapp.com/["Hardware Universe"^] per i dettagli.
 
 
 .Cosa succederà ora?

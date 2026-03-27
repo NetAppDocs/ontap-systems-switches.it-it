@@ -38,7 +38,7 @@ Esaminare i seguenti requisiti per l'ambiente cluster.
 ** È disponibile l'accesso alla console per gli switch del cluster.
 ** Le connessioni tra switch e nodi BES-53248 utilizzano cavi Twinax o in fibra.
 +
-IL link:https://hwu.netapp.com/Home/Index["_Universo hardware NetApp_"^] contiene informazioni sulla compatibilità ONTAP , sul firmware EFOS supportato e sul cablaggio per gli switch BES-53248. Vedere link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per maggiori informazioni sui requisiti di installazione degli switch.
+Il link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contiene informazioni sulla compatibilità ONTAP, sul firmware EFOS supportato e sul cablaggio per gli switch BES-53248. Consultare link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per ulteriori informazioni sui requisiti di installazione dello switch.
 
 
 
@@ -72,7 +72,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di cluster sw
 * IL `cluster1::*>` il prompt indica il nome del cluster.
 * Le porte del cluster utilizzate in questa procedura sono `e0a` E `e0b` .
 +
-IL https://hwu.netapp.com/Home/Index["_Universo hardware NetApp_"^] contiene le informazioni più recenti sulle porte cluster effettive per le tue piattaforme.
+Il link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contiene le informazioni più recenti sulle porte del cluster effettive per le tue piattaforme.
 
 
 
@@ -280,7 +280,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 ----
 . Scollegare il cavo dalla porta e0a del cluster sul nodo 1, quindi collegare e0a alla porta 1 sullo switch cs1 del cluster, utilizzando il cablaggio appropriato supportato dagli switch BES-53248.
 +
-IL https://hwu.netapp.com/Home/Index["_Universo hardware NetApp_"^] contiene maggiori informazioni sul cablaggio.
+Il link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contiene maggiori informazioni sul cablaggio.
 
 . Scollegare il cavo dalla porta e0a del cluster sul nodo 2, quindi collegare e0a alla porta 2 sullo switch cs1 del cluster, utilizzando il cablaggio appropriato supportato dagli switch BES-53248.
 . Abilitare tutte le porte rivolte verso il nodo sullo switch del cluster cs1.

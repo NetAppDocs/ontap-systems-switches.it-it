@@ -18,7 +18,7 @@ La procedura da utilizzare varia a seconda che si disponga di due porte di rete 
 La maggior parte dei sistemi richiede due porte di rete cluster dedicate su ciascun controller.
 
 
-NOTE: Una volta completata la migrazione, potrebbe essere necessario installare il file di configurazione richiesto per supportare Cluster Switch Health Monitor (CSHM) per gli switch cluster 92300YC. Vederelink:../switch-cshm/cshm-overview.html["Monitoraggio dello stato di salute degli switch (CSHM)"] .
+NOTE: Al termine della migrazione, potrebbe essere necessario installare il file di configurazione richiesto per supportare il Cluster Switch Health Monitor (CSHM) per gli switch cluster 92300YC. Fare riferimento a link:../switch-cshm/cshm-overview.html["Monitoraggio dello stato di salute degli switch (CSHM)"].
 
 
 
@@ -41,7 +41,7 @@ Per la configurazione dello switch Cisco Nexus 92300YC:
 * È disponibile l'accesso alla console per gli switch del cluster.
 * Le connessioni da nodo a nodo e da switch a switch del Nexus 92300YC utilizzano cavi twinax o in fibra.
 +
-https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruttori"^]contiene maggiori informazioni sul cablaggio.
+Il link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruttori"^] contiene maggiori informazioni sul cablaggio.
 
 * I cavi Inter-Switch Link (ISL) sono collegati alle porte 1/65 e 1/66 su entrambi gli switch 92300YC.
 * La personalizzazione iniziale di entrambi gli switch 92300YC è stata completata.  In modo che:
@@ -65,7 +65,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di cluster sw
 * IL `cluster1::*>` il prompt indica il nome del cluster.
 * Le porte cluster utilizzate in questa procedura sono e0a ed e0b.
 +
-https://hwu.netapp.com["Hardware Universe"^]contiene le informazioni più recenti sulle porte cluster effettive per le tue piattaforme.
+Il link:https://hwu.netapp.com["Hardware Universe"^] contiene le informazioni più recenti sulle porte del cluster effettive per le tue piattaforme.
 
 
 
@@ -311,7 +311,7 @@ Cluster
 ====
 . Scollegare il cavo dalla porta e0a del cluster sul nodo 1, quindi collegare e0a alla porta 1 sullo switch cs1 del cluster, utilizzando il cablaggio appropriato supportato dagli switch 92300YC.
 +
-IL https://hwu.netapp.com/SWITCH/INDEX["_Universo Hardware - Interruttori_"^] contiene maggiori informazioni sul cablaggio.
+Il link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruttori"^] contiene maggiori informazioni sul cablaggio.
 
 . Scollegare il cavo dalla porta e0a del cluster sul nodo 2, quindi collegare e0a alla porta 2 sullo switch cs1 del cluster, utilizzando il cablaggio appropriato supportato dagli switch 92300YC.
 . Abilitare tutte le porte rivolte verso il nodo sullo switch del cluster cs1.

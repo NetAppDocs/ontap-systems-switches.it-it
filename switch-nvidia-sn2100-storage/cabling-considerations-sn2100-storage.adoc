@@ -50,7 +50,7 @@ swp15-16
 Porte Inter-Switch Link (ISL) da 100 GbE
 
 |===
-Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per maggiori informazioni sulle porte dello switch.
+Consultare la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per ulteriori informazioni sulle porte degli switch.
 
 
 
@@ -190,7 +190,7 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-Vedi l'articolo della Knowledge Base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Lo switch SN2100 non riesce a connettersi utilizzando cavi in rame 40/100GbE"^] per ulteriori dettagli.
+Fare riferimento all'articolo della Knowledge Base link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Lo switch SN2100 non riesce a connettersi utilizzando cavi in rame 40/100GbE"^] per ulteriori dettagli.
 
 Su Cumulus Linux 4.4.2, le connessioni in rame non sono supportate sugli switch SN2100 con NIC X1151A, NIC X1146A o porte 100GbE integrate. Per esempio:
 

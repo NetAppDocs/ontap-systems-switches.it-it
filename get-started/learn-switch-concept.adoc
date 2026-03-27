@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: Scopri di più su cluster, storage e switch condivisi. 
 ---
-= Scopri di più sui sistemi AFX, Cluster, Storage e Switch condivisi
+= Scopri i sistemi AFX, i cluster, lo storage e gli switch condivisi
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -46,6 +46,7 @@ Gli switch cluster consentono di creare cluster ONTAP con più di due nodi. Gli 
 Gli switch di archiviazione consentono di instradare i dati tra server e array di archiviazione in una rete SAN (Storage Area Network).  Gli switch di archiviazione supportati da NetApp includono:
 
 * Cisco Nexus 9336C-FX2
+* Cisco Nexus 3232C
 * NVIDIA SN2100
 
 
@@ -60,12 +61,6 @@ Gli switch condivisi consentono di combinare funzionalità di cluster e storage 
 
 
 
-== Fine disponibilità
+== Interruttori di fine disponibilità
 
-I seguenti switch di archiviazione non sono più disponibili per l'acquisto, ma sono ancora supportati:
-
-* Cisco Nexus 3232C
-* Cisco Nexus 3132Q-V
-* Cisco Nexus 92300YC
-* NetApp CN1610
-
+Per un elenco degli switch di rete non più disponibili per l'acquisto, ma ancora supportati, consultare link:../overview-eod.html["Interruttori di fine disponibilità"].

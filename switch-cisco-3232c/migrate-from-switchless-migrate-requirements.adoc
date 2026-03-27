@@ -53,7 +53,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e n
 * I nodi sono *n1* e *n2*.
 
 
-Gli esempi in questa procedura utilizzano due nodi, ciascuno con due porte di interconnessione cluster da 40 GbE *e4a* e *e4e*.  ILlink:https://hwu.netapp.com/["_Universo Hardware_"^] contiene dettagli sulle porte del cluster sulle tue piattaforme.
+Gli esempi in questa procedura utilizzano due nodi, ciascuno con due porte di interconnessione cluster da 40 GbE *e4a* e *e4e*.  ILlink:https://hwu.netapp.com/["Hardware Universe"^] contiene dettagli sulle porte del cluster sulle tue piattaforme.
 
 * *n1_clus1* è la prima interfaccia logica del cluster (LIF) da connettere allo switch del cluster *C1* per il nodo *n1*.
 * *n1_clus2* è il primo cluster LIF ad essere connesso allo switch del cluster *C2* per il nodo *n1*.

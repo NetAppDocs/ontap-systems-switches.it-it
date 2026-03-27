@@ -17,7 +17,7 @@ summary: È possibile migrare i vecchi switch Cisco non disruptivi per un cluste
 
 == Requisiti di revisione
 
-Quando si sostituiscono alcuni vecchi switch Cisco con switch di archiviazione NVIDIA SN2100, è necessario conoscere alcune informazioni sulla configurazione, sui collegamenti delle porte e sui requisiti di cablaggio. Vederelink:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"] .
+È necessario essere a conoscenza di alcune informazioni di configurazione, connessioni delle porte e requisiti di cablaggio quando si sostituiscono alcuni switch Cisco meno recenti con switch di storage NVIDIA SN2100. Fare riferimento a link:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"].
 
 .Switch supportati
 Sono supportati i seguenti switch di archiviazione:
@@ -26,7 +26,7 @@ Sono supportati i seguenti switch di archiviazione:
 * Cisco Nexus 3232C
 
 
-Per i dettagli sulle porte supportate e le relative configurazioni, vedere https://hwu.netapp.com/["Hardware Universe"^] .
+Per i dettagli sulle porte supportate e le relative configurazioni, fare riferimento alla link:https://hwu.netapp.com/["Hardware Universe"^].
 
 .Cosa ti servirà
 Assicurarsi che:

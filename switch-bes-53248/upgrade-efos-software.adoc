@@ -20,7 +20,7 @@ Il software EFOS include una serie di funzionalità e protocolli di rete avanzat
 == Preparati per l'aggiornamento
 
 .Prima di iniziare
-* Scarica il software Broadcom EFOS applicabile per i tuoi switch cluster da https://www.broadcom.com/support/bes-switch["Supporto per switch Ethernet Broadcom"^] sito.
+* Scarica il software Broadcom EFOS appropriato per i tuoi switch di cluster dal sito link:https://www.broadcom.com/support/bes-switch["Supporto per switch Ethernet Broadcom"^].
 * Rivedere le seguenti note relative alle versioni EFOS.
 
 
@@ -143,7 +143,7 @@ NOTE: Aggiornare EFOS su uno switch alla volta per garantire il funzionamento co
 Per aggiornare il software EFOS, procedere come segue.
 
 
-IMPORTANT: Si noti che dopo l'aggiornamento degli switch cluster BES-53248 da EFOS 3.3.xx o 3.4.xx a EFOS 3.7.0.4 o 3.8.0.2, i collegamenti inter-switch (ISL) e i canali delle porte vengono contrassegnati nello stato *Down*.  Si tratta di un comportamento previsto ed è possibile continuare l'aggiornamento in tutta sicurezza, a meno che non si riscontrino problemi con i LIF di ripristino automatico.  Consultare l'articolo della Knowledge Base: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["BES-53248 Cluster Switch NDU non è riuscito ad aggiornare a EFOS 3.7.0.4 e versioni successive"^] per ulteriori dettagli.
+IMPORTANT: Si noti che dopo l'aggiornamento degli switch di cluster BES-53248 da EFOS 3.3.x.x o 3.4.x.x a EFOS 3.7.0.4 o 3.8.0.2, i collegamenti Inter-Switch (ISL) e i port channel vengono contrassegnati nello stato *Down*. Questo è il comportamento previsto ed è sicuro continuare con l'aggiornamento, a meno che non si riscontrino problemi con il ripristino automatico dei LIF. Consultare l'articolo della Knowledge Base link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["BES-53248 Cluster Switch NDU non è riuscito ad aggiornare a EFOS 3.7.0.4 e versioni successive"^] per ulteriori dettagli.
 
 .Passi
 . Collegare lo switch cluster BES-53248 alla rete di gestione.
@@ -363,7 +363,7 @@ network interface modify -vserver Cluster -lif * -auto-revert true
 network interface show -vserver Cluster
 ----
 +
-Per ulteriori dettagli, vederelink:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Ripristinare un LIF alla sua porta di origine"] .
+Per ulteriori dettagli, consultare link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Ripristinare un LIF alla sua porta di origine"^].
 
 
 
@@ -553,6 +553,6 @@ network interface modify -vserver Cluster -lif * -auto-revert true
 network interface show -vserver Cluster
 ----
 +
-Per ulteriori dettagli, vederelink:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Ripristinare un LIF alla sua porta di origine"] .
+Per ulteriori dettagli, consultare link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Ripristinare un LIF alla sua porta di origine"^].
 
 

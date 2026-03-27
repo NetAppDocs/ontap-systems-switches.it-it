@@ -39,7 +39,7 @@ NOTE: Ogni volta che Cumulus Linux viene aggiornato, l'intera struttura del file
 
 CAUTION: La password predefinita per l'account utente Cumulus è *cumulus*.  La prima volta che accedi a Cumulus Linux, devi modificare questa password predefinita.  È necessario aggiornare tutti gli script di automazione prima di installare una nuova immagine.  Cumulus Linux fornisce opzioni da riga di comando per modificare automaticamente la password predefinita durante il processo di installazione.
 
-Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-510/Installation-Management/Installing-a-New-Cumulus-Linux-Image/["Installazione di una nuova immagine Cumulus Linux"^] per ulteriori informazioni.
+Fare riferimento a link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-510/Installation-Management/Installing-a-New-Cumulus-Linux-Image/["Installazione di una nuova immagine Cumulus Linux"^] per ulteriori informazioni.
 
 .Passi
 [role="tabbed-block"]
@@ -273,7 +273,7 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Account utente NVIDIA"^] per maggiori informazioni.
+Fare riferimento a link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Account utente NVIDIA"^] per maggiori informazioni.
 
 
 
@@ -498,7 +498,7 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-Vedere https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Account utente NVIDIA"^] per maggiori informazioni.
+Consultare link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Account utente NVIDIA"^] per ulteriori informazioni.
 
 
 

@@ -35,14 +35,14 @@ Assicurati di avere quanto segue:
  a| 
 Cisco Nexus 3232C in un cabinet di sistema NetApp
  a| 
-Per istruzioni sull'installazione dello switch in un cabinet NetApp , consultare la guida _Installazione di uno switch cluster Cisco Nexus 3232C e di un pannello pass-through in un cabinet NetApp .
+Fare riferimento alla guida _Installing a Cisco Nexus 3232C cluster switch and pass-through panel in a NetApp cabinet_ per le istruzioni su come installare lo switch in un armadio NetApp.
 
 
 
  a| 
 Apparecchiature in un rack Telco
  a| 
-Consultare le procedure fornite nelle guide all'installazione dell'hardware dello switch e nelle istruzioni di installazione e configurazione NetApp .
+Fare riferimento alle procedure fornite nelle guide di installazione dell'hardware dello switch e alle istruzioni di installazione e configurazione NetApp.
 
 |===
 . Cablare la rete del cluster e gli switch della rete di gestione ai controller utilizzando i fogli di lavoro di cablaggio compilati.

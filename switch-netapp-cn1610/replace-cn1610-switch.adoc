@@ -33,8 +33,8 @@ Prima di procedere alla sostituzione dello switch, è necessario che siano soddi
 NetApp consiglia vivamente di abilitare la registrazione della console sui dispositivi utilizzati e di adottare le seguenti misure quando si sostituisce lo switch:
 
 * Lasciare AutoSupport abilitato durante la manutenzione.
-* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione di casi per tutta la durata della manutenzione.  Vedi questo articolo della Knowledge Base https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come sopprimere la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
-* Abilita la registrazione delle sessioni per tutte le sessioni CLI.  Per istruzioni su come abilitare la registrazione della sessione, consultare la sezione "Registrazione dell'output della sessione" in questo articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare PuTTY per una connettività ottimale ai sistemi ONTAP"^] .
+* Avvia una manutenzione AutoSupport prima e dopo la manutenzione per disabilitare la creazione di casi per tutta la durata della manutenzione. Consulta questo articolo della Knowledge Base link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come sopprimere la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
+* Abilita la registrazione delle sessioni per tutte le sessioni CLI.  Per istruzioni su come abilitare la registrazione della sessione, consultare la sezione "Registrazione dell'output della sessione" in questo articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare PuTTY per una connettività ottimale ai sistemi ONTAP"^] .
 
 
 
@@ -97,8 +97,8 @@ NOTE: Puoi usare qualsiasi nome di file tranne `CN1610_CS_RCF_v1.2.scr` .  Il no
 (old_cs1)# *copy nvram:script filename.scr scp://<Username>@<remote_IP_address>/path_to_file/filename.scr*
 ----
 ====
-. Verificare che le versioni dello switch e ONTAP corrispondano nella matrice di compatibilità.  Vedi il https://mysupport.netapp.com/site/info/netapp-cluster-switch["Switch NetApp CN1601 e CN1610"^] pagina per i dettagli.
-. Dal https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/downloads-tab["Pagina di download del software"^] sul sito di supporto NetApp , selezionare NetApp Cluster Switches per scaricare le versioni RCF e FASTPATH ​​appropriate.
+. Verificare che le versioni dello switch e di ONTAP corrispondano nella matrice di compatibilità. Consultare link:https://mysupport.netapp.com/site/info/netapp-cluster-switch["Switch NetApp CN1601 e CN1610"^] per i dettagli.
+. Dal link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/downloads-tab["Pagina di download del software"^] sito di supporto NetApp, selezionare NetApp Cluster Switches per scaricare le versioni appropriate di RCF e FASTPATH.
 . Impostare un server TFTP (Trivial File Transfer Protocol) con FASTPATH, RCF e configurazione salvata `.scr` file da utilizzare con il nuovo switch.
 . Collegare la porta seriale (il connettore RJ-45 etichettato “IOIOI” sul lato destro dello switch) a un host disponibile con emulazione di terminale.
 . Sull'host, impostare le impostazioni di connessione del terminale seriale:

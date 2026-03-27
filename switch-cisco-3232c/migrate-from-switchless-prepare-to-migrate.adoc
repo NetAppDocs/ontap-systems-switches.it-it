@@ -121,7 +121,7 @@ link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storag
 . Selezionare *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza e quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
 . Sugli switch Nexus 3232C C1 e C2, disabilitare tutte le porte C1 e C2 rivolte al nodo, ma non disabilitare le porte ISL e1/31-32.
 +
-Per ulteriori informazioni sui comandi Cisco , vedere l'elenco seguente in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^] .
+Per ulteriori informazioni sui comandi Cisco, fare riferimento al seguente elenco nella link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^].
 
 +
 .Mostra esempio
@@ -153,7 +153,7 @@ C2(config)# exit
 `show port-channel summary`
 
 +
-Per ulteriori informazioni sui comandi Cisco , vedere l'elenco seguente in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^] .
+Per ulteriori informazioni sui comandi Cisco, fare riferimento al seguente elenco nella link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^].
 
 +
 .Mostra esempio
@@ -191,7 +191,7 @@ Group Port-        Type   Protocol  Member Ports
 ====
 . Visualizza l'elenco dei dispositivi adiacenti sullo switch.
 +
-Per ulteriori informazioni sui comandi Cisco , vedere l'elenco seguente in https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^] .
+Per ulteriori informazioni sui comandi Cisco, fare riferimento al seguente elenco nella link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Riferimenti ai comandi NX-OS della serie Cisco Nexus 3000"^].
 
 +
 .Mostra esempio

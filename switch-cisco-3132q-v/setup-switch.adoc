@@ -15,11 +15,11 @@ Seguire questa procedura per configurare lo switch Cisco Nexus 3132Q-V.
 
 .Prima di iniziare
 * Accesso a un server HTTP, FTP o TFTP nel sito di installazione per scaricare le versioni NX-OS e RCF (Reference Configuration File) applicabili.
-* Versione NX-OS applicabile, scaricata da https://software.cisco.com/download/home["Scarica il software Cisco"^] pagina.
-* Documentazione richiesta per lo switch di rete, la documentazione del controller e la documentazione ONTAP . Per maggiori informazioni, vedere link:required-documentation-3132q.html["Documentazione richiesta"].
+* Versione NX-OS applicabile, scaricata da link:https://software.cisco.com/download/home["Scarica il software Cisco"^].
+* Documentazione necessaria per lo switch di rete, il controller e la documentazione ONTAP. Per ulteriori informazioni, consultare link:required-documentation-3132q.html["Documentazione richiesta"].
 * Licenze applicabili, informazioni di rete e configurazione e cavi.
-* Schede di lavoro sui cablaggi completate. Vederelink:setup_worksheet_3132q.html["Foglio di lavoro completo sul cablaggio Cisco Nexus 3132Q-V"] .
-* RCF applicabili alla rete di cluster NetApp e alla rete di gestione, scaricabili dal sito di supporto NetApp all'indirizzo http://mysupport.netapp.com/["mysupport.netapp.com"^] per gli switch che ricevi.  Tutti gli switch di rete cluster e di rete di gestione Cisco vengono forniti con la configurazione predefinita di fabbrica Cisco .  Questi switch dispongono anche della versione corrente del software NX-OS, ma non hanno gli RCF caricati.
+* Fogli di lavoro per il cablaggio completati. Fare riferimento a link:setup_worksheet_3132q.html["Foglio di lavoro completo sul cablaggio Cisco Nexus 3132Q-V"].
+* Applicable NetApp cluster network and management network RCFs, downloaded from the NetApp Support Site at link:http://mysupport.netapp.com/["mysupport.netapp.com"^] per gli switch che ricevete. Tutti gli switch di rete cluster e di gestione Cisco arrivano con la configurazione predefinita di fabbrica Cisco standard. Questi switch dispongono anche della versione corrente del software NX-OS, ma non hanno i RCF caricati.
 
 
 .Passi
@@ -33,14 +33,14 @@ Seguire questa procedura per configurare lo switch Cisco Nexus 3132Q-V.
  a| 
 Cisco Nexus 3132Q-V in un cabinet di sistema NetApp
  a| 
-Per istruzioni sull'installazione dello switch in un cabinet NetApp , consultare la guida _Installazione di uno switch cluster Cisco Nexus 3132Q-V e di un pannello pass-through in un cabinet NetApp .
+Per le istruzioni su come installare lo switch in un armadio NetApp, fare riferimento alla guida _Installing a Cisco Nexus 3132Q-V cluster switch and pass-through panel in a NetApp cabinet_.
 
 
 
  a| 
 Apparecchiature in un rack Telco
  a| 
-Consultare le procedure fornite nelle guide all'installazione dell'hardware dello switch e nelle istruzioni di installazione e configurazione NetApp .
+Fare riferimento alle procedure fornite nelle guide di installazione dell'hardware dello switch e alle istruzioni di installazione e configurazione NetApp.
 
 |===
 . Cablare la rete del cluster e gli switch della rete di gestione ai controller utilizzando il foglio di lavoro di cablaggio compilato, come descritto inlink:setup_worksheet_3132q.html["Foglio di lavoro completo sul cablaggio Cisco Nexus 3132Q-V"] .

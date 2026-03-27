@@ -17,4 +17,4 @@ Se vengono generati avvisi, lo stato di integrità del sistema segnala uno stato
 
 Per visualizzare gli avvisi di monitoraggio dello stato dello switch Ethernet disponibili, eseguire il comando: `system health alert definition show -monitor ethernet-switch`
 
-Vedi l'articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["Guida alla risoluzione degli avvisi di Switch Health Monitor"^] per dettagli avanzati sulla risoluzione degli avvisi.
+Consultare l'articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["Guida alla risoluzione degli avvisi di Switch Health Monitor"^] per dettagli avanzati sulla risoluzione degli avvisi.

@@ -36,7 +36,7 @@ Verificare le seguenti installazioni e connessioni:
 . Accedi per cambiare cs1 tramite SSH o tramite una console seriale.
 . Copiare l'RCF nel bootflash dello switch cs1 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] .
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^].
 
 +
 .Mostra esempio
@@ -56,7 +56,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Applicare l'RCF precedentemente scaricato al bootflash.
 +
-Per ulteriori informazioni sui comandi Cisco , consultare la guida appropriata nel https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] .
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^].
 
 +
 .Mostra esempio

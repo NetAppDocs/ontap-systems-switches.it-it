@@ -50,7 +50,7 @@ link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storag
 NetApp consiglia vivamente di abilitare la registrazione della console sui dispositivi utilizzati e di adottare le seguenti misure quando si sostituisce lo switch:
 
 * Lasciare AutoSupport abilitato durante la manutenzione.
-* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione di casi per tutta la durata della manutenzione.  Vedi questo articolo della Knowledge Baselink:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come sopprimere la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
+* Avvia una manutenzione AutoSupport prima e dopo la manutenzione per disabilitare la creazione di casi per tutta la durata della manutenzione. Consulta questo articolo della Knowledge Base link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come sopprimere la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
 * Abilita la registrazione delle sessioni per tutte le sessioni CLI.  Per istruzioni su come abilitare la registrazione della sessione, consultare la sezione "Registrazione dell'output della sessione" in questo articolo della Knowledge Baselink:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare PuTTY per una connettività ottimale ai sistemi ONTAP"^] .
 
 
@@ -68,7 +68,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e n
 * n1_clus3 è il secondo LIF connesso allo switch del cluster C2, per il nodo n1.
 * n1_clus4 è il secondo LIF connesso allo switch del cluster CL1, per il nodo n1.
 * Il numero di porte 10 GbE e 40 GbE è definito nei file di configurazione di riferimento (RCF) disponibili all'indirizzolink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento dello switch di rete Cisco® Cluster"^] .
-* I nodi sono n1, n2, n3 e n4.  - Gli esempi in questa procedura utilizzano quattro nodi: due nodi utilizzano quattro porte di interconnessione cluster da 10 GB: e0a, e0b, e0c ed e0d.  Gli altri due nodi utilizzano due porte di interconnessione cluster da 40 GB: e4a ed e4e.  Vedi illink:https://hwu.netapp.com/["Hardware Universe"^] per le porte cluster effettive sulle tue piattaforme.
+* I nodi sono n1, n2, n3 e n4. - Gli esempi in questa procedura utilizzano quattro nodi: due nodi utilizzano quattro porte di interconnessione cluster da 10 GB: e0a, e0b, e0c ed e0d. Gli altri due nodi utilizzano due porte di interconnessione cluster da 40 GB: e4a ed e4e. Fare riferimento a link:https://hwu.netapp.com/["Hardware Universe"^] per le porte cluster effettive sulle proprie piattaforme.
 
 
 .Informazioni su questo compito
@@ -261,7 +261,7 @@ CL2                          cluster-network   10.10.1.102      NX3132V
 A questo punto è necessario preparare l'interruttore sostitutivo.  Se è necessario aggiornare RCF e immagine, è necessario seguire questi passaggi:
 
 +
-.. Sul sito di supporto NetApp , vederelink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Switch Ethernet Cisco"^] .
+.. Sul sito di supporto NetApp, fare riferimento a link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Switch Ethernet Cisco"^].
 .. Annota il tuo switch e le versioni software richieste nella tabella in quella pagina.
 .. Scarica la versione appropriata dell'RCF.
 .. Fare clic su *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza e quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.

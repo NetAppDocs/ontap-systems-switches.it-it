@@ -24,7 +24,7 @@ Se si desidera cablare l'archiviazione NS224 come collegata allo switch, seguire
 
 image:9336c_image1.jpg["Interruttore collegato"]
 
-Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"] per maggiori informazioni sulle porte dello switch. Vedere link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per maggiori informazioni sui requisiti di installazione degli switch.
+Consultare la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per ulteriori informazioni sulle porte dello switch. Consultare link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per ulteriori informazioni sui requisiti di installazione dello switch.
 
 
 
@@ -34,7 +34,7 @@ Se si desidera cablare l'archiviazione NS224 come collegamento diretto anziché 
 
 image:9336c_image2.jpg["Attacco diretto"]
 
-Vedi il https://hwu.netapp.com/Switch/Index["Hardware Universe"] per maggiori informazioni sulle porte dello switch.
+Consultare la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per ulteriori informazioni sulle porte degli switch.
 
 
 
@@ -58,7 +58,7 @@ Dove:
 
 == Foglio di lavoro vuoto per il cablaggio
 
-È possibile utilizzare il foglio di lavoro di cablaggio vuoto per documentare le piattaforme supportate come nodi in un cluster.  La tabella Connessioni cluster supportate dell'universo Hardware Universe definisce le porte cluster utilizzate dalla piattaforma.
+È possibile utilizzare il foglio di lavoro vuoto per il cablaggio per documentare le piattaforme supportate come nodi in un cluster. La tabella Supported Cluster Connections del link:https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
 
 image:blank-cabling-worksheet.jpg["Foglio di lavoro vuoto per il cablaggio"]
 

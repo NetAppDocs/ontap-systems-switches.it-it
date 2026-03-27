@@ -21,7 +21,7 @@ Per ripristinare le impostazioni predefinite di fabbrica dello switch di archivi
 
 
 
-NOTE: Per ulteriori informazioni sull'installazione di Cumulus Linux, vederelink:configure-software-sn2100-storage.html["Flusso di lavoro di installazione del software per gli switch NVIDIA SN2100"] .
+NOTE: Per ulteriori informazioni sull'installazione di Cumulus Linux, fare riferimento a link:configure-software-sn2100-storage.html["Flusso di lavoro di installazione del software per gli switch NVIDIA SN2100"].
 
 .Passi
 [role="tabbed-block"]
@@ -72,7 +72,7 @@ Do you want to continue? [y/n] *y*
 ----
 
 
-Vedi NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Ripristino delle impostazioni di fabbrica"^] documentazione per ulteriori dettagli.
+Consultare la documentazione NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Ripristino delle impostazioni di fabbrica"^] per ulteriori dettagli.
 
 --
 ====

@@ -25,13 +25,13 @@ Per tutte le configurazioni dello switch sono necessarie le seguenti informazion
 * Subnet IP per il traffico di rete di gestione
 * Nomi host e indirizzi IP per ciascuno dei controller del sistema di archiviazione e tutti gli switch applicabili
 * La maggior parte dei controller dei sistemi di storage vengono gestiti tramite l'interfaccia e0M, collegandosi alla porta di servizio Ethernet (icona a forma di chiave inglese).
-* Fare riferimento al https://hwu.netapp.com["Hardware Universe"^] per le ultime informazioni.
+* Consultare il link:https://hwu.netapp.com["Hardware Universe"^] per le informazioni più recenti.
 
 
 
 
 == Requisiti di cablaggio
 
-* Hai il numero e il tipo di cavi e connettori per i tuoi switch appropriati. Vedi il https://hwu.netapp.com["Hardware Universe"^] .
+* Hai a disposizione il numero e il tipo di cavi e connettori per cavi appropriati per i tuoi switch. Fai riferimento a link:https://hwu.netapp.com["Hardware Universe"^].
 * A seconda del tipo di switch che si sta configurando inizialmente, è necessario collegarsi alla porta della console dello switch tramite il cavo della console incluso.
 

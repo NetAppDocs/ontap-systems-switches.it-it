@@ -11,7 +11,7 @@ summary: Scopri i nuovi switch per i sistemi FAS e AFF .
 
 
 [role="lead"]
-Scopri i nuovi switch per i sistemi FAS e AFF .  Per ulteriori informazioni sullo switch, vedere https://hwu.netapp.com/Switch/Index["Hardware Universe NetApp"^] .
+Scopri i nuovi switch per i sistemi di storage ONTAP. Per ulteriori informazioni sugli switch, consulta link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^].
 
 
 

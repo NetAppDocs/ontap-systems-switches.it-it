@@ -49,7 +49,7 @@ NOTE: È necessario eseguire il comando per migrare un cluster LIF dal nodo in c
 NetApp consiglia vivamente di abilitare la registrazione della console sui dispositivi utilizzati e di adottare le seguenti misure quando si sostituisce lo switch:
 
 * Lasciare AutoSupport abilitato durante la manutenzione.
-* Attivare un AutoSupport di manutenzione prima e dopo la manutenzione per disattivare la creazione di casi per tutta la durata della manutenzione.  Vedi questo articolo della Knowledge Base https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come sopprimere la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
+* Avvia una manutenzione AutoSupport prima e dopo la manutenzione per disabilitare la creazione di casi per tutta la durata della manutenzione. Consulta questo articolo della Knowledge Base link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Come sopprimere la creazione automatica dei casi durante le finestre di manutenzione programmata"^] per ulteriori dettagli.
 * Abilita la registrazione delle sessioni per tutte le sessioni CLI.  Per istruzioni su come abilitare la registrazione della sessione, consultare la sezione "Registrazione dell'output della sessione" in questo articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Come configurare PuTTY per una connettività ottimale ai sistemi ONTAP"^] .
 
 

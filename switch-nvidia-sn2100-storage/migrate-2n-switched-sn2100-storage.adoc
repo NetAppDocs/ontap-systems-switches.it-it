@@ -35,10 +35,10 @@ Per la configurazione dello switch cluster NVIDIA SN2100, assicurarsi che:
 * Le connessioni tra switch e nodi NVIDIA SN2100 utilizzano cavi Twinax o in fibra.
 +
 
-NOTE: Vederelink:cabling-considerations-sn2100-storage.html["Considerazioni sul cablaggio e sulla configurazione"] per avvertenze e ulteriori dettagli.
+NOTE: Consultare link:cabling-considerations-sn2100-storage.html["Considerazioni sul cablaggio e sulla configurazione"] per avvertenze e ulteriori dettagli.
 
 +
-IL https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruttori"^] contiene maggiori informazioni sul cablaggio.
+Il link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruttori"^] contiene maggiori informazioni sul cablaggio.
 
 * I cavi Inter-Switch Link (ISL) sono collegati alle porte swp15 e swp16 su entrambi gli switch NVIDIA SN2100.
 * La personalizzazione iniziale di entrambi gli switch SN2100 è stata completata, in modo che:
@@ -64,7 +64,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di cluster sw
 * Le porte del cluster utilizzate in questa procedura sono _e3a_ e _e3b_.
 * Le porte breakout hanno il formato: swp[porta]s[porta breakout 0-3].  Ad esempio, quattro porte breakout su swp1 sono _swp1s0_, _swp1s1_, _swp1s2_ e _swp1s3_.
 +
-IL https://hwu.netapp.com["Hardware Universe"^] contiene le informazioni più recenti sulle porte cluster effettive per le tue piattaforme.
+Il link:https://hwu.netapp.com["Hardware Universe"^] contiene le informazioni più recenti sulle porte del cluster effettive per le tue piattaforme.
 
 
 

@@ -21,7 +21,7 @@ Assicurati di avere quanto segue:
 * Licenze applicabili, informazioni di rete e configurazione e cavi.
 * Completatolink:setup-worksheet-9336c-storage.html["fogli di lavoro sul cablaggio"] .
 * RCF di rete e di gestione NetApp applicabili scaricati dal sito di supporto NetApp su  http://mysupport.netapp.com/["mysupport.netapp.com"^]. Tutti gli switch di rete e di gestione Cisco arrivano con la configurazione standard di fabbrica Cisco. Questi switch hanno anche la versione corrente del software NX-OS ma non hanno gli RCF caricati.
-* Documentazione richiesta per lo switch. Vederelink:required-documentation-9336c-storage.html["Documentazione richiesta"] per maggiori informazioni.
+* Documentazione necessaria per lo switch. Consultare link:required-documentation-9336c-storage.html["Documentazione richiesta"] per ulteriori informazioni.
 
 
 .Passi

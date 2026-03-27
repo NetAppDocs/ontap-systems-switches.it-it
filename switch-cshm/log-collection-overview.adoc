@@ -13,4 +13,4 @@ summary: È possibile utilizzare i comandi forniti ....
 [role="lead"]
 Impostando la raccolta dei registri, è possibile abilitare una raccolta oraria di dati periodici raccolti da AutoSupport e richiedere registri di supporto dettagliati.
 
-Vederelink:config-log-collection.html["Configurare la raccolta dei log"] per ulteriori dettagli.
+Consultare link:config-log-collection.html["Configurare la raccolta dei log"] per ulteriori dettagli.

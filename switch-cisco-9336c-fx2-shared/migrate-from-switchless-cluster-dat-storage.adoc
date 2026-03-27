@@ -18,7 +18,7 @@ summary:
 
 La procedura da utilizzare varia a seconda che si disponga di due porte di rete cluster dedicate su ciascun controller o di una singola porta cluster su ciascun controller.  Il processo documentato funziona per tutti i nodi che utilizzano porte ottiche o Twinax, ma non è supportato su questo switch se i nodi utilizzano porte RJ45 BASE-T da 10 Gb integrate per le porte della rete cluster.
 
-La maggior parte dei sistemi richiede due porte di rete cluster dedicate su ciascun controller. Vedere https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"] per maggiori informazioni.
+La maggior parte dei sistemi richiede due porte di rete cluster dedicate su ciascun controller. Fare riferimento a link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^] per ulteriori informazioni.
 
 Se si dispone di un ambiente cluster switchless a due nodi esistente, è possibile migrare a un ambiente cluster switchato a due nodi utilizzando gli switch Cisco Nexus 9336C-FX2 per poter scalare oltre due nodi nel cluster.
 
@@ -41,7 +41,7 @@ Assicurarsi che:
 ** Entrambi gli switch dispongono di connettività di rete di gestione.
 ** È disponibile l'accesso alla console per gli switch del cluster.
 ** Le connessioni da nodo a nodo e da switch a switch del Nexus 9336C-FX2 utilizzano cavi Twinax o in fibra.
-** NetApp https://hwu.netapp.com["Hardware Universe"] contiene maggiori informazioni sul cablaggio.
+** Il link:https://hwu.netapp.com["Hardware Universe"^] contiene maggiori informazioni sul cablaggio.
 ** I cavi Inter-Switch Link (ISL) sono collegati alle porte 1/35 e 1/36 su entrambi gli switch 9336C-FX2.
 
 
@@ -65,7 +65,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di cluster sw
 * I nomi degli SVM del cluster sono _node1_ e _node2_.
 * I nomi dei LIF sono _node1_clus1_ e _node1_clus2_ sul nodo 1, e _node2_clus1_ e _node2_clus2_ sul nodo 2, rispettivamente.
 * Il prompt cluster1::*> indica il nome del cluster.
-* Le porte cluster utilizzate in questa procedura sono _e3a_ e _e3b_, come per il controller AFF A400 .  IL https://hwu.netapp.com["Hardware Universe"] contiene le informazioni più recenti sulle porte cluster effettive per le tue piattaforme.
+* Le porte cluster utilizzate in questa procedura sono _e3a_ e _e3b_, come specificato nel controller AFF A400. Il link:https://hwu.netapp.com["Hardware Universe"^] contiene le informazioni più aggiornate sulle porte cluster effettive per le vostre piattaforme.
 
 
 
@@ -283,7 +283,7 @@ Cluster
 
 . [[step9]]Scollegare il cavo dalla porta e3a del cluster sul nodo 1, quindi collegare e3a alla porta 1 sullo switch cs1 del cluster, utilizzando il cablaggio appropriato supportato dagli switch 9336C-FX2.
 +
-NetApp https://hwu.netapp.com["Hardware Universe"] contiene maggiori informazioni sul cablaggio. Vedere link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per maggiori informazioni sui requisiti di installazione degli switch.
+Il link:https://hwu.netapp.com["Hardware Universe"^] contiene maggiori informazioni sul cablaggio. Consultare link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per ulteriori informazioni sui requisiti di installazione dello switch.
 
 . Scollegare il cavo dalla porta e3a del cluster sul nodo 2, quindi collegare e3a alla porta 2 sullo switch cs1 del cluster, utilizzando il cablaggio appropriato supportato dagli switch 9336C-FX2.
 . Abilitare tutte le porte rivolte verso il nodo sullo switch del cluster cs1.
