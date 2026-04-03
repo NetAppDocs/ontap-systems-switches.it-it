@@ -11,4 +11,4 @@ summary: 'Il monitoraggio dello stato dello switch Ethernet (CSHM) è responsabi
 
 
 [role="lead"]
-Il monitoraggio dello stato dello switch Ethernet (CSHM) è responsabile di garantire lo stato operativo degli switch di rete Cluster e Storage e di raccogliere i registri degli switch a scopo di debug.
+L'health monitor dello switch Ethernet (CSHM) è responsabile di garantire lo stato operativo degli switch di rete e di raccogliere i log degli switch per scopi di debug.

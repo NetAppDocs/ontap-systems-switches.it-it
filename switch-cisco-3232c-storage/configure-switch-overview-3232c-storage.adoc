@@ -34,3 +34,7 @@ Installare l'hardware dello switch.
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-software-overview-3232c-storage.html["Configurare il software"]
 [role="quick-margin-para"]
 Configurare il software dello switch.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:../switch-cshm/config-overview.html["Configura CSHM"]
+[role="quick-margin-para"]
+Configurare il monitoraggio health monitor dello switch.

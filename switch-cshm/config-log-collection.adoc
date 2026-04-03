@@ -11,7 +11,7 @@ summary: 'La funzionalità di raccolta dei registri del monitoraggio dello stato
 
 
 [role="lead"]
-Il monitoraggio dello stato dello switch Ethernet (CSHM) è responsabile di garantire lo stato operativo degli switch di rete Cluster e Storage e di raccogliere i registri degli switch a scopo di debug.  Questa procedura ti guida attraverso il processo di impostazione della raccolta, la richiesta di registri dettagliati di *Supporto* e l'abilitazione di una raccolta oraria di dati *Periodici* raccolti da AutoSupport.
+L'health monitor dello switch Ethernet (CSHM) è responsabile di garantire lo stato operativo degli switch di rete e di raccogliere i log degli switch per scopi di debug. Questa procedura ti guida attraverso il processo di configurazione della raccolta, richiesta di log *Support* dettagliati e abilitazione di una raccolta oraria di dati *Periodic* che vengono raccolti da AutoSupport.
 
 *NOTA:* se si abilita la modalità FIPS, è necessario completare quanto segue:
 

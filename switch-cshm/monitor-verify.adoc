@@ -11,7 +11,7 @@ summary: Scopri come verificare il funzionamento del monitoraggio di uno switch 
 
 
 [role="lead"]
-Il monitoraggio dello stato dello switch Ethernet (CSHM) tenta automaticamente di monitorare gli switch che rileva; tuttavia, il monitoraggio potrebbe non avvenire automaticamente se gli switch non sono configurati correttamente.  È necessario verificare che il monitoraggio dello stato sia configurato correttamente per monitorare gli switch.
+L'health monitor dello switch Ethernet (CSHM) tenta automaticamente di monitorare gli switch di rete che rileva; tuttavia, il monitoraggio potrebbe non avvenire automaticamente se gli switch non sono configurati correttamente. È necessario verificare che l'health monitor sia configurato correttamente per monitorare gli switch.
 
 
 
