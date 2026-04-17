@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/configure-ssh.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, bes, enable ssh on bes-53248 cluster switches - bes-53248 switches 
-summary: 'SSH è un requisito quando si utilizzano le funzionalità Cluster Switch Health Monitor \(CSHM\) e di raccolta dei registri. Per abilitare SSH sugli switch cluster BES-53248, è necessario prima generare le chiavi SSH e poi abilitare SSH.' 
+summary: 'SSH è un requisito quando si utilizzano le funzionalità Cluster Switch Health Monitor (CSHM) e di raccolta dei log. Per abilitare SSH sugli switch di cluster BES-53248, è necessario prima generare le chiavi SSH e poi abilitare SSH.' 
 ---
 = Abilita SSH sugli switch cluster BES-53248
 :allow-uri-read: 

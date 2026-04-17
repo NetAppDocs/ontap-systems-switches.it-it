@@ -253,7 +253,7 @@ A questo punto è necessario preparare entrambi gli switch.  Se è necessario ag
 .. Fare clic su *CONTINUA* nella pagina *Descrizione*, accettare il contratto di licenza e quindi seguire le istruzioni nella pagina *Download* per scaricare l'RCF.
 .. Scarica la versione appropriata del software per le immagini.
 +
-link:shttps://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento per Cisco® Cluster and Management Network Switch"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento per Cisco® Cluster and Management Network Switch"^]
 
 
 

@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/replace-storage-switch-9336c-cluster.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9336c-fx2 cluster switch - cisco nexus 9336c-fx2 
-summary: 'La sostituzione di uno switch Nexus 9336C-FX2 difettoso in una rete cluster è una procedura non distruttiva \(NDU\).' 
+summary: 'La sostituzione di uno switch Nexus 9336C-FX2 difettoso in una rete cluster è una procedura non distruttiva (NDU).' 
 ---
 = Sostituire uno switch di archiviazione Cisco Nexus 9336C-FX2
 :allow-uri-read: 
