@@ -28,10 +28,10 @@ entries:
   - title: Installa o aggiorna il software NX-OS
     url: "/switch-cisco-9364d-gx2a/install-nxos-software-9364d-cluster.html"
   - title: Installare o aggiornare l'RCF
-    pdf-filename: Installa_aggiorna_rcf
+    pdf-filename: Install_upgrade_rcf_9364d-gx2a
     entries:
     - title: Panoramica sull'installazione o l'aggiornamento di RCF
-      url: "/switch-cisco-9364d-gx2a/install-upgrade-rcf-overview-cluster.html"
+      url: "/switch-cisco-9364d-gx2a/install-upgrade-rcf-overview-cluster-9364d.html"
     - title: Installare l'RCF
       url: "/switch-cisco-9364d-gx2a/install-rcf-software-9364d-cluster.html"
     - title: Aggiorna la tua versione RCF

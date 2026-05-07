@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/CSHM_log_collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,BES-53248 Broadcom setup,BES-53248 switches configuration,EFOS 
-summary: 'La funzionalità di raccolta dei registri del monitoraggio dello stato di salute dello switch Ethernet (CSHM) viene utilizzata per raccogliere i registri dagli switch di rete di cluster o di storage in ONTAP.' 
+summary: 'La funzionalità di raccolta dei log CSHM dell"Ethernet switch health monitor viene utilizzata per raccogliere i log dagli switch di rete cluster o di storage in ONTAP.' 
 ---
 = Raccolta di log di monitoraggio dello stato dello switch Ethernet
 :allow-uri-read: 

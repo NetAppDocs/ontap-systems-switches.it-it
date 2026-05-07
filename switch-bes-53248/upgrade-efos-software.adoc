@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/upgrade-efos-software.html 
 sidebar: sidebar 
 keywords: BES-53248 cluster switches,upgrading EFOS software 
-summary: 'Per aggiornare il software Ethernet Fabric OS (EFOS) sullo switch cluster BES-53248, seguire questi passaggi.' 
+summary: Segui questi passaggi per aggiornare il software Ethernet Fabric OS EFOS sullo switch di cluster BES-53248. 
 ---
 = Aggiorna il software EFOS
 :allow-uri-read: 

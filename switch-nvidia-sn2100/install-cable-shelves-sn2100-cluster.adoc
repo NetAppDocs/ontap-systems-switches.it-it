@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/install-cable-shelves-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
-summary: 'Se si dispone di un sistema in cui gli scaffali delle unità NS224 devono essere cablati come storage collegato allo switch (non come storage collegato direttamente), utilizzare le informazioni fornite qui.' 
+summary: Se nel vostro sistema gli alloggiamenti per unità NS224 devono essere cablati come storage collegato allo switch e non come storage collegato direttamente, utilizzate le informazioni fornite qui. 
 ---
 = Cablare gli scaffali NS224 come spazio di archiviazione collegato all'interruttore
 :allow-uri-read: 

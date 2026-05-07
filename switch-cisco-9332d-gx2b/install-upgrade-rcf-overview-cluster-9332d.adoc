@@ -1,5 +1,5 @@
 ---
-permalink: switch-cisco-9332d-gx2b/install-upgrade-rcf-overview-cluster.html 
+permalink: switch-cisco-9332d-gx2b/install-upgrade-rcf-overview-cluster-9332d.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
 summary: 'È possibile installare l"RCF dopo aver configurato per la prima volta lo switch Nexus 9332D-GX2B. Puoi usare questa procedura anche per aggiornare la tua versione RCF.' 

@@ -2,7 +2,7 @@
 permalink: switch-cshm/config-log-collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: 'La funzionalità di raccolta dei registri del monitoraggio dello stato di salute dello switch Ethernet (CSHM) viene utilizzata per raccogliere i registri dagli switch di rete di cluster o di storage in ONTAP.' 
+summary: 'La funzionalità di raccolta dei log CSHM dell"Ethernet switch health monitor viene utilizzata per raccogliere i log dagli switch di rete cluster o di storage in ONTAP.' 
 ---
 = Configurare la raccolta dei log
 :allow-uri-read: 
