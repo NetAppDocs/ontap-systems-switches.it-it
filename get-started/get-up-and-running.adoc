@@ -68,7 +68,8 @@ Installa il tuo sistema di stoccaggio e i ripiani di stoccaggio nell'armadio o n
  a| 
  a| 
 * https://docs.netapp.com/us-en/ontap-afx/index.html["Sistemi AFX"^]
-* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Sistemi AFF"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["Sistemi AFF serie A"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-cseries/index.html["Sistemi AFF serie C"^]
 * https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Sistemi ASA"^]
 * https://docs.netapp.com/us-en/asa-r2/index.html["Sistemi ASA r2"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas/index.html["Sistemi FAS"^]
@@ -172,7 +173,8 @@ Dopo aver configurato gli switch e installato il software necessario, accedi all
  a| 
  a| 
 * https://docs.netapp.com/us-en/ontap-afx/index.html["Sistemi AFX"^]
-* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Sistemi AFF"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["Sistemi AFF serie A"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-cseries/index.html["Sistemi AFF serie C"^]
 * https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Sistemi ASA"^]
 * https://docs.netapp.com/us-en/asa-r2/index.html["Sistemi ASA r2"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas/index.html["Sistemi FAS"^]
