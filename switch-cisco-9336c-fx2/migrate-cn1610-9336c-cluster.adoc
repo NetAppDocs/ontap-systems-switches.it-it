@@ -15,6 +15,7 @@ summary: È possibile migrare senza interruzioni gli switch cluster NetApp CN161
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 Quando si sostituiscono gli switch cluster NetApp CN1610 con gli switch cluster Cisco 9336C-FX2 e 9336C-FX2-T, è necessario conoscere alcune informazioni sulla configurazione, sulle connessioni delle porte e sui requisiti di cablaggio. È inoltre necessario verificare il numero di serie dello switch per assicurarsi che venga migrato lo switch corretto.
@@ -48,6 +49,7 @@ Verifica che la tua configurazione soddisfi i seguenti requisiti:
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 .Informazioni sugli esempi
@@ -91,6 +93,7 @@ NOTE: Durante questa procedura non è necessario alcun collegamento inter-switch
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
@@ -118,6 +121,7 @@ Disabilitando il ripristino automatico per questa procedura, i LIF del cluster n
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Passaggio 2: configurare porte e cablaggio
 
 . Determinare lo stato amministrativo o operativo per ciascuna interfaccia del cluster.
@@ -523,6 +527,7 @@ node2      /cdp
 
 
 
+[[step-3-verify-the-configuration]]
 === Passaggio 3: verificare la configurazione
 
 . Abilita il ripristino automatico sui LIF del cluster:

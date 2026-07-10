@@ -21,6 +21,7 @@ Gli switch seguenti non sono più disponibili per l'acquisto, ma sono ancora sup
 
 
 
+[[end-of-sale-and-end-of-life-announcements]]
 == Annunci di fine vendita e fine vita
 
 * link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/n3k-c3232c-eol.html["Annuncio di fine vendita e fine vita del Cisco Nexus 3232C"]

@@ -15,6 +15,7 @@ Seguire questa procedura per sostituire uno switch Cisco Nexus 3132Q-V difettoso
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Requisiti per l'interruttore
@@ -45,6 +46,7 @@ link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storag
 
 
 
+[[enable-console-logging]]
 == Abilita la registrazione della console
 
 NetApp consiglia vivamente di abilitare la registrazione della console sui dispositivi utilizzati e di adottare le seguenti misure quando si sostituisce lo switch:
@@ -56,6 +58,7 @@ NetApp consiglia vivamente di abilitare la registrazione della console sui dispo
 
 
 
+[[replace-the-switch]]
 == Sostituire l'interruttore
 
 Questa procedura sostituisce il secondo switch cluster Nexus 3132Q-V CL2 con il nuovo switch 3132Q-V C2.
@@ -86,6 +89,7 @@ Questa procedura copre il seguente scenario:
 
 
 
+[[step-1-prepare-for-replacement]]
 === Fase 1: Preparazione alla sostituzione
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
@@ -476,6 +480,7 @@ Questo esempio mostra le porte ISL 1/31 e 1/32 disattivate sullo switch CL1:
 
 
 
+[[step-2-configure-ports]]
 === Passaggio 2: configurare le porte
 
 . Rimuovere tutti i cavi collegati allo switch CL2 del Nexus 3132Q-V e ricollegarli allo switch sostitutivo C2 su tutti i nodi.
@@ -775,6 +780,7 @@ RPC status:
 ====
 
 
+[[step-3-verify-the-configuration]]
 === Passaggio 3: verificare la configurazione
 
 . Visualizza le informazioni sui dispositivi nella tua configurazione:

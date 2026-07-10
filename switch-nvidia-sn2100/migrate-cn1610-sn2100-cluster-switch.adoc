@@ -15,6 +15,7 @@ summary: È possibile migrare senza interruzioni gli switch cluster NetApp CN161
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 È necessario essere a conoscenza di alcune informazioni di configurazione, connessioni delle porte e requisiti di cablaggio quando si sostituiscono gli switch cluster NetApp CN1610 con gli switch cluster NVIDIA SN2100. Fare riferimento a link:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"].
@@ -48,6 +49,7 @@ Verifica di soddisfare i seguenti requisiti per la tua configurazione:
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 .Informazioni sugli esempi
@@ -84,6 +86,7 @@ NOTE: Durante questa procedura non è necessario alcun collegamento inter-switch
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
@@ -108,6 +111,7 @@ Viene visualizzato il prompt avanzato (*>).
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Passaggio 2: configurare porte e cablaggio
 
 . Determinare lo stato amministrativo o operativo per ciascuna interfaccia del cluster.
@@ -523,6 +527,7 @@ swp16      100G   BondMember  sw1                 swp16
 
 
 
+[[step-3-verify-the-configuration]]
 === Passaggio 3: verificare la configurazione
 
 . Abilita il ripristino automatico sui LIF del cluster:

@@ -15,6 +15,7 @@ Prima di sostituire l'interruttore, assicurarsi che le seguenti condizioni siano
 
 
 
+[[existing-cluster-and-network-infrastructure]]
 == Cluster esistente e infrastruttura di rete
 
 Assicurarsi che:
@@ -27,6 +28,7 @@ Assicurarsi che:
 
 
 
+[[bes-53248-replacement-cluster-switch]]
 == Interruttore cluster sostitutivo BES-53248
 
 Assicurarsi che:
@@ -43,6 +45,7 @@ Tutte le personalizzazioni precedenti del sito, come STP, SNMP e SSH, vengono co
 
 
 
+[[enable-console-logging]]
 == Abilita la registrazione della console
 
 NetApp consiglia vivamente di abilitare la registrazione della console sui dispositivi utilizzati e di adottare le seguenti misure quando si sostituisce lo switch:
@@ -54,6 +57,7 @@ NetApp consiglia vivamente di abilitare la registrazione della console sui dispo
 
 
 
+[[related-information]]
 == Informazioni correlate
 
 * https://mysupport.netapp.com/["Sito di supporto NetApp"^]

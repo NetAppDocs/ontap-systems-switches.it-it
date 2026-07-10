@@ -23,6 +23,7 @@ Il foglio di lavoro di cablaggio di esempio fornisce esempi di assegnazioni di p
 
 
 
+[[9336c-fx2-sample-cabling-worksheet]]
 == Foglio di lavoro di esempio per il cablaggio 9336C-FX2
 
 La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
@@ -333,6 +334,7 @@ Prenotato
 |===
 
 
+[[9336c-fx2-blank-cabling-worksheet]]
 == Foglio di lavoro per il cablaggio vuoto 9336C-FX2
 
 È possibile utilizzare il foglio di lavoro di cablaggio vuoto per documentare le piattaforme supportate come nodi in un cluster.  La sezione _Connessioni cluster supportate_ del https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.
@@ -592,6 +594,7 @@ Prenotato
 |===
 
 
+[[9336c-fx2-t-sample-cabling-worksheet-12-port]]
 == Foglio di lavoro di cablaggio di esempio 9336C-FX2-T (12 porte)
 
 La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
@@ -748,6 +751,7 @@ Richiede licenza
 |===
 
 
+[[9336c-fx2-t-blank-cabling-worksheet-12-port]]
 == Foglio di lavoro per il cablaggio vuoto 9336C-FX2-T (12 porte)
 
 È possibile utilizzare il foglio di lavoro di cablaggio vuoto per documentare le piattaforme supportate come nodi in un cluster.  La sezione _Connessioni cluster supportate_ del https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.

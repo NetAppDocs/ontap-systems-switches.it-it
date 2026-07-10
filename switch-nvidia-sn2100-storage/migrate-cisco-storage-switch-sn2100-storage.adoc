@@ -15,6 +15,7 @@ summary: È possibile migrare i vecchi switch Cisco non disruptivi per un cluste
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 Sono supportati i seguenti switch di archiviazione:
@@ -45,6 +46,7 @@ Assicurati di avere quanto segue:
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 .Informazioni sugli esempi
@@ -69,6 +71,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e n
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Se AutoSupport è abilitato, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
@@ -93,6 +96,7 @@ Ogni porta dovrebbe essere visualizzata come abilitata per `Status` .
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Passaggio 2: configurare cavi e porte
 
 . Visualizza gli attributi della porta di rete:
@@ -336,6 +340,7 @@ node2      /lldp
 
 
 
+[[step-3-verify-the-configuration]]
 === Passaggio 3: verificare la configurazione
 
 . Verificare la configurazione finale:

@@ -22,7 +22,7 @@ Consultare link:required-documentation-3232c.html["Documentazione richiesta"] pe
 
 * Documentazione richiesta del controller e documentazione ONTAP .
 +
-link:https://netapp.com/us/documenation/index.aspx["Documentazione NetApp"^]
+link:https://docs.netapp.com/us-en/ontap/index.html["Documentazione ONTAP 9"^]
 
 * Licenze applicabili, informazioni di rete e configurazione e cavi.
 * Schede di lavoro sui cablaggi completate.

@@ -15,6 +15,7 @@ Scopri i nuovi switch per i sistemi di storage ONTAP. Per ulteriori informazioni
 
 
 
+[[new-switch-support]]
 == Nuovo supporto per gli switch
 
 [cols="25h,~,~"]

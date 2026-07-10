@@ -18,6 +18,7 @@ Utilizzare le seguenti immagini di cablaggio per completare il cablaggio tra i c
 
 
 
+[[cable-ns224-storage-as-switch-attached]]
 == Archiviazione via cavo NS224 come switch-attached
 
 Se si desidera cablare l'archiviazione NS224 come collegata allo switch, seguire lo schema relativo:
@@ -28,6 +29,7 @@ Consultare la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per
 
 
 
+[[cable-ns224-storage-as-direct-attached]]
 == Archiviazione via cavo NS224 come collegamento diretto
 
 Se si desidera cablare l'archiviazione NS224 come collegamento diretto anziché utilizzare le porte di archiviazione dello switch condiviso, seguire lo schema del collegamento diretto:
@@ -38,6 +40,7 @@ Consultare la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per
 
 
 
+[[cisco-nexus-9336c-fx2-cabling-worksheet]]
 == Foglio di lavoro sul cablaggio Cisco Nexus 9336C-FX2
 
 Se si desidera documentare le piattaforme supportate, è necessario compilare il foglio di lavoro di cablaggio vuoto utilizzando come guida il foglio di lavoro di cablaggio di esempio completato.
@@ -56,6 +59,7 @@ Dove:
 
 
 
+[[blank-cabling-worksheet]]
 == Foglio di lavoro vuoto per il cablaggio
 
 È possibile utilizzare il foglio di lavoro vuoto per il cablaggio per documentare le piattaforme supportate come nodi in un cluster. La tabella Supported Cluster Connections del link:https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.

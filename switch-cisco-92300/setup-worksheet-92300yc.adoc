@@ -17,6 +17,7 @@ Il foglio di lavoro di cablaggio di esempio fornisce esempi di assegnazioni di p
 
 
 
+[[sample-cabling-worksheet]]
 == Esempio di foglio di lavoro per il cablaggio
 
 La definizione di porta di esempio su ciascuna coppia di switch è la seguente:
@@ -756,6 +757,7 @@ Nodo 40/100 GbE
 |===
 
 
+[[blank-cabling-worksheet]]
 == Foglio di lavoro vuoto per il cablaggio
 
 È possibile utilizzare il foglio di lavoro vuoto per il cablaggio per documentare le piattaforme supportate come nodi in un cluster. La sezione _Connessioni cluster supportate_ link:https://hwu.netapp.com["Hardware Universe"^] definisce le porte del cluster utilizzate dalla piattaforma.

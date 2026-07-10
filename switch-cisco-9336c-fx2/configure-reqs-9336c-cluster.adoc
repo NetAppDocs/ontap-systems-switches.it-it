@@ -18,6 +18,7 @@ Per l'installazione e la manutenzione degli switch Cisco Nexus 9336C-FX2 e 9336C
 
 
 
+[[ontap-support]]
 == Supporto ONTAP
 
 [role="tabbed-block"]
@@ -42,6 +43,7 @@ Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due swi
 ====
 
 
+[[configuration-requirements]]
 == Requisiti di configurazione
 
 Assicurarsi che:
@@ -52,6 +54,7 @@ Assicurarsi che:
 
 
 
+[[network-requirements]]
 == Requisiti di rete
 
 Per tutte le configurazioni dello switch sono necessarie le seguenti informazioni di rete.

@@ -15,6 +15,7 @@ Per sostituire gli switch cluster CN1610 esistenti in un cluster con switch clus
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 Prima della migrazione, assicurati di rivederelink:migrate-requirements-3232c.html["Requisiti di migrazione"] .
@@ -32,6 +33,7 @@ Se necessario, per ulteriori informazioni fare riferimento a quanto segue:
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 .Informazioni sugli esempi
@@ -52,6 +54,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e n
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
@@ -260,6 +263,7 @@ Cluster
 
 
 
+[[step-2-replace-cluster-switch-cl2-with-c2]]
 === Passaggio 2: sostituire l'interruttore del cluster CL2 con C2
 
 . Disattivare le porte di interconnessione del cluster fisicamente collegate allo switch CL2:
@@ -744,6 +748,7 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus4 -source-no
 
 
 
+[[step-3-replace-cluster-switch-cl1-with-c1]]
 === Passaggio 3: sostituire l'interruttore del cluster CL1 con C1
 
 . Verificare lo stato del cluster:
@@ -979,6 +984,7 @@ e0d   cluster   cluster    up    9000  auto/10000     -
 
 
 
+[[step-4-complete-the-procedure]]
 === Fase 4: Completare la procedura
 
 . Ripristinare tutti i LIF di interconnessione del cluster migrati che erano originariamente connessi a C1 su tutti i nodi:

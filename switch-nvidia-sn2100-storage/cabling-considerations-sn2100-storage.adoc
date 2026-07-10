@@ -15,6 +15,7 @@ Prima di configurare lo switch NVIDIA SN2100, leggere le seguenti considerazioni
 
 
 
+[[nvidia-port-details]]
 == Dettagli della porta NVIDIA
 
 |===
@@ -54,6 +55,7 @@ Consultare la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] per
 
 
 
+[[link-up-delays-with-optical-connections]]
 == Ritardi di collegamento con connessioni ottiche
 
 Se si verificano ritardi di collegamento superiori a cinque secondi, Cumulus Linux 5.4 e versioni successive includono il supporto per il collegamento rapido.  È possibile configurare i collegamenti utilizzando `nv set` comando come segue:
@@ -81,6 +83,7 @@ Only switchd reload required
 ====
 
 
+[[support-for-copper-connections]]
 == Supporto per connessioni in rame
 
 Per risolvere questo problema sono necessarie le seguenti modifiche alla configurazione.
@@ -200,6 +203,7 @@ Su Cumulus Linux 4.4.2, le connessioni in rame non sono supportate sugli switch 
 
 
 
+[[qsa-adapter]]
 == Adattatore QSA
 
 Quando si utilizza un adattatore QSA per connettersi alle porte del cluster 10GbE/25GbE su una piattaforma, il collegamento potrebbe non essere attivo.
@@ -215,6 +219,7 @@ NOTE: Quando si utilizzano adattatori QSA 10GbE/25GbE, inserirli nelle porte 40G
 
 
 
+[[set-interface-speed-on-breakout-ports]]
 == Imposta la velocità dell'interfaccia sulle porte breakout
 
 A seconda del ricetrasmettitore nella porta dello switch, potrebbe essere necessario impostare la velocità sull'interfaccia dello switch su una velocità fissa.  Se si utilizzano porte breakout da 10 GbE e 25 GbE, verificare che la negoziazione automatica sia disattivata e impostare la velocità dell'interfaccia sullo switch.

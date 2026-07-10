@@ -1,0 +1,69 @@
+= 
+:allow-uri-read: 
+
+
+La versione di ONTAP in esecuzione sul tuo sistema AFX e la versione di NX-OS sui tuoi switch determinano le versioni di RCF supportate dai tuoi switch. Le versioni di RCF hanno configurazioni di velocità delle porte preimpostate che determinano quante porte dello switch sono in modalità breakout (4x100GbE) e quante in modalità non breakout.
+
+[NOTE]
+====
+Per l'elenco aggiornato delle versioni di RCF supportate, vedi la pagina link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet NetApp Cisco"^].
+
+Le informazioni sulla porta dello switch puoi trovarle anche nel  https://hwu.netapp.com["Hardware Universe NetApp"^].
+
+====
+* Se possiedi un sistema AFX 1K, RCF 10.0 e versioni successive sono supportate.
+* Se possiedi un sistema AFX 2K, RCF 10.1 e versioni successive sono supportate.
+* RCF 10.0 ha un file e supporta gli switch condivisi `Cluster-HA-Storage AFX RCF_10.0`.
++
+Ad esempio, la tabella seguente mostra i raggruppamenti preimpostati delle porte dello switch, le relative velocità delle porte e l'utilizzo per questo file RCF.
+
++
+[cols="1,2"]
+|===
+| Gruppi di porte switch | Velocità e utilizzo delle porte 
+
+
+ a| 
+Da Ethernet1/1/1-4 a Ethernet1/30/1-4
+ a| 
+Modalità 4x100GbE per connessioni cluster, HA e storage
+
+
+
+ a| 
+Ethernet1/31, Ethernet1/32
+ a| 
+400GbE ISL
+
+|===
+* RCF 10.1 prevede file diversi per i diversi casi d'uso dei sistemi AFX 1K e AFX 2K. A seconda di come vuoi usare gli switch nella configurazione del sistema AFX 1K o AFX 2K (condiviso, solo storage o solo cluster e HA), scegli il file RCF appropriato.
++
+Ad esempio, se usi gli switch come switch condivisi in un sistema AFX 2K, usi il file RCF appropriato per quel caso d'uso. Il file RCF appropriato potrebbe avere un nome simile a  `RCF-v10.1-NX9332D-GX2B-CL1-ST1-100GBR15-400G15.txt`. La tabella seguente mostra i gruppi preimpostati delle porte dello switch, le loro velocità e l'utilizzo per questo file RCF.
+
++
+[cols="1,2"]
+|===
+| Gruppi di porte switch | Velocità e utilizzo delle porte 
+
+
+ a| 
+Ethernet1/1/1-4 a Ethernet1/15/1-4
+ a| 
+Modalità 4x100GbE per connessioni intra-cluster, HA e shelf di storage
+
+
+
+ a| 
+Ethernet1/16 a Ethernet1/30
+ a| 
+Modalità 400GbE per connessioni intra-cluster, HA e di storage
+
+
+
+ a| 
+Ethernet1/31, Ethernet1/32
+ a| 
+Connessioni ISL intra-cluster da 400GbE
+
+|===
+

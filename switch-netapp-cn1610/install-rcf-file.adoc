@@ -17,6 +17,7 @@ Prima di installare un RCF, è necessario migrare i LIF del cluster dallo switch
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Prima di iniziare
@@ -36,6 +37,7 @@ Assicurati di consultare la tabella di compatibilità degli switch sul http://my
 
 
 
+[[install-the-rcf]]
 == Installare l'RCF
 
 La seguente procedura utilizza la sintassi clustered Data ONTAP 8.2.  Di conseguenza, il cluster Vserver, i nomi LIF e l'output CLI sono diversi da quelli in Data ONTAP 8.3.
@@ -66,6 +68,7 @@ Assicurati di consultare la tabella di compatibilità degli switch sul http://my
 
 
 
+[[step-1-migrate-cluster]]
 === Passaggio 1: migrazione del cluster
 
 . Salva le informazioni di configurazione correnti dello switch:
@@ -180,6 +183,7 @@ node2
 
 
 
+[[step-2-install-rcf]]
 === Passaggio 2: installare RCF
 
 . Copiare l'RCF sullo switch.
@@ -369,6 +373,7 @@ cluster::*> network port modify -node node2 -port e2a -up-admin true
 
 
 
+[[step-3-validate-installation]]
 === Passaggio 3: convalidare l'installazione
 
 . Verificare che la porta e2a sia attiva su entrambi i nodi:

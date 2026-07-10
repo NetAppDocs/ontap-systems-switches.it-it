@@ -20,6 +20,7 @@ NOTE: Sono supportati solo gli switch back-end convalidati NetApp(ordinati da Ne
 
 
 
+[[afx-systems-switches]]
 == Interruttori di sistema AFX
 
 Gli switch dei sistemi AFX consentono di creare switch di rete rapidi, efficienti dal punto di vista energetico e salvaspazio. Le loro dimensioni ridotte e l'elevata densità di porte li rendono ideali per la gestione di reti di grandi dimensioni. Le porte supportano velocità diverse e possono essere suddivise in più connessioni. Gli switch dei sistemi AFX supportati da NetApp includono:
@@ -30,6 +31,7 @@ Gli switch dei sistemi AFX consentono di creare switch di rete rapidi, efficient
 
 
 
+[[cluster-switches]]
 == Interruttori a grappolo
 
 Gli switch cluster consentono di creare cluster ONTAP con più di due nodi. Gli switch cluster supportati da NetApp includono:
@@ -41,6 +43,7 @@ Gli switch cluster consentono di creare cluster ONTAP con più di due nodi. Gli 
 
 
 
+[[storage-switches]]
 == Interruttori di archiviazione
 
 Gli switch di archiviazione consentono di instradare i dati tra server e array di archiviazione in una rete SAN (Storage Area Network).  Gli switch di archiviazione supportati da NetApp includono:
@@ -52,6 +55,7 @@ Gli switch di archiviazione consentono di instradare i dati tra server e array d
 
 
 
+[[shared-switches]]
 == Switch condivisi
 
 Gli switch condivisi consentono di combinare funzionalità di cluster e storage in una configurazione di switch condivisa, supportando l'uso di RCF di cluster e storage condivisi.  Lo switch condiviso supportato da NetApp è:
@@ -61,6 +65,7 @@ Gli switch condivisi consentono di combinare funzionalità di cluster e storage 
 
 
 
+[[end-of-availability-switches]]
 == Interruttori di fine disponibilità
 
 Per un elenco degli switch di rete non più disponibili per l'acquisto, ma ancora supportati, consultare link:../overview-eod.html["Interruttori di fine disponibilità"].

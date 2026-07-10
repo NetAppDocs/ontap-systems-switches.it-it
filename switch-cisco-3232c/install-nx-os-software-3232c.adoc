@@ -15,6 +15,7 @@ summary: È possibile utilizzare questa procedura per installare il software NX-
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Prima di iniziare
@@ -26,6 +27,7 @@ summary: È possibile utilizzare questa procedura per installare il software NX-
 
 
 
+[[install-the-software]]
 == Installa il software
 
 La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 3000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .

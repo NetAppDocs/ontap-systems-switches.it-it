@@ -19,7 +19,7 @@ Per l'installazione dello switch NVIDIA SN2100, assicurarsi di consultare tutta 
 
 
  a| 
-link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guida all'installazione dello switch NVIDIA"^]
+link:https://networking-docs.nvidia.com/sn2000hw/latest["Guida all'installazione dello switch NVIDIA"^]
  a| 
 Descrive come installare gli switch NVIDIA SN2100.
 
@@ -33,6 +33,7 @@ Panoramica e illustrazioni che mostrano come configurare il cablaggio per gli sc
 |===
 
 
+[[ontap-systems-documentation]]
 == Documentazione dei sistemi ONTAP
 
 Per configurare un sistema ONTAP, sono necessari i seguenti documenti per la versione del sistema operativo.

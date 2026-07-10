@@ -1,0 +1,37 @@
+---
+permalink: switch-cisco-9808/install-switches-9808.html 
+sidebar: sidebar 
+keywords: switches, hardware installation, Cisco Nexus, 9808 switches 
+summary: 'L"installazione degli switch Cisco Nexus 9808 come parte di una nuova installazione del sistema AFX 2K include l"installazione degli switch in un rack o armadio, il cablaggio ai controller di sistema e agli shelf, e poi l"accensione.' 
+---
+= Installa gli switch Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'installazione degli switch Cisco Nexus 9808 come parte di una nuova installazione del sistema AFX 2K include l'installazione degli switch in un rack o armadio, il cablaggio ai controller di sistema e agli shelf, e poi l'accensione.
+
+.Prima di iniziare
+Devi aver completato i passaggi di preparazione dello switch in link:install-prepare-9808.html["Preparati a installare gli switch"].
+
+.Informazioni su questo compito
+Usi il workflow di installazione e configurazione del sistema AFX 2K applicabile sul sito della documentazione del sistema AFX per installare e cablare l'hardware del sistema e poi accendere gli switch.
+
+Il flusso di lavoro di installazione e configurazione del sistema include istruzioni quali:
+
+* Istruzioni per preparare il sito, disimballare le scatole e confrontare il contenuto delle scatole con la bolla di accompagnamento, nonché registrare il sistema per accedere ai vantaggi dell'assistenza.
+* Istruzioni per l'installazione di switch, controller e shelf storage in un NetApp cabinet o telco rack.
+* Istruzioni per il cablaggio del sistema, incluso il cablaggio dei controller alle connessioni degli switch e il cablaggio dei ripiani storage alle connessioni degli switch.
+
+
+.Passaggio
+. Installa gli switch come parte del flusso di lavoro di installazione e configurazione del sistema AFX 2K, vai a link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/install-setup-workflow.html["Flusso di lavoro di installazione e configurazione di AFX 2K"^].
+
+
+
+NOTE: Dopo aver installato gli switch, le istruzioni del flusso di lavoro di installazione e configurazione di AFX ti reindirizzano a questa documentazione sugli switch per configurarli.
+
+.Cosa succederà ora?
+Dopo che hai installato, cablato e acceso gli switch come parte dell'installazione del sistema AFX 2K, link:install-configure-switches-in-afx-workflow-9808.html#configure-switches["configura i tuoi switch"] e poi link:install-configure-switches-in-afx-workflow-9808.html#complete-afx-system-setup["completa la configurazione del sistema AFX"].

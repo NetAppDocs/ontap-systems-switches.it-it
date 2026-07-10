@@ -15,6 +15,7 @@ Per l'installazione dello switch Cisco Nexus 3232C, assicurarsi di consultare tu
 
 
 
+[[switch-documentation]]
 == Documentazione dello switch
 
 Per configurare gli switch Cisco Nexus 3232C, è necessaria la seguente documentazione da link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Supporto per gli switch Cisco Nexus serie 3000"^].
@@ -81,6 +82,7 @@ Fornisce informazioni sulla conformità alle agenzie internazionali, sulla sicur
 |===
 
 
+[[ontap-systems-documentation]]
 == Documentazione dei sistemi ONTAP
 
 Per configurare un sistema ONTAP, sono necessari i seguenti documenti per la versione del sistema operativo.
@@ -112,6 +114,7 @@ Fornisce informazioni sulla configurazione hardware e sulla compatibilità NetAp
 |===
 
 
+[[rail-kit-and-cabinet-documentation]]
 == Documentazione del kit ferroviario e dell'armadio
 
 Per installare uno switch Cisco 3232C in un NetApp cabinet, fare riferimento alla seguente documentazione hardware.

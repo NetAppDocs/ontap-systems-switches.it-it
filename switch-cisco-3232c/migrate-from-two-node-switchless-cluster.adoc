@@ -15,6 +15,7 @@ Se si dispone di un cluster _senza switch_ a due nodi, è possibile migrare a un
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Prima di iniziare
@@ -70,6 +71,7 @@ La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch C
 ====
 
 
+[[step-1-display-and-migrate-physical-and-logical-ports]]
 == Passaggio 1: visualizzare e migrare le porte fisiche e logiche
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
@@ -323,6 +325,7 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-no
 
 
 
+[[step-2-shut-down-the-reassigned-lifs-and-disconnect-the-cables]]
 == Passaggio 2: spegnere i LIF riassegnati e scollegare i cavi
 
 . Verificare che le interfacce del cluster siano state migrate correttamente:
@@ -438,6 +441,7 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 
 
 
+[[step-3-enable-the-cluster-ports]]
 == Passaggio 3: abilitare le porte del cluster
 
 . Scollegare il cavo da e4a sul nodo n2.
@@ -554,6 +558,7 @@ Cluster
 
 
 
+[[step-4-enable-the-reassigned-lifs]]
 == Passaggio 4: abilitare i LIF riassegnati
 
 . Visualizza la connettività delle porte del cluster su ciascun nodo:

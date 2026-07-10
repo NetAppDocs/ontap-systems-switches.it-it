@@ -17,6 +17,7 @@ La procedura da utilizzare varia a seconda che si disponga di due porte di rete 
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Configurazione switchless a due nodi
@@ -53,6 +54,7 @@ Il link:https://hwu.netapp.com["Hardware Universe"^] contiene le informazioni pi
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 .Informazioni sugli esempi
@@ -68,6 +70,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di cluster sw
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
@@ -82,6 +85,7 @@ Il prompt avanzato(`*>` ) appare.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Passaggio 2: configurare porte e cablaggio
 
 [role="tabbed-block"]
@@ -670,6 +674,7 @@ e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 
+[[step-3-verify-the-configuration]]
 === Passaggio 3: verificare la configurazione
 
 . Abilita il ripristino automatico su tutti i LIF del cluster:

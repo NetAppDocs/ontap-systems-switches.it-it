@@ -15,6 +15,7 @@ summary: È possibile migrare i vecchi switch Cisco non disruptivi per un cluste
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 È necessario essere a conoscenza di alcune informazioni di configurazione, connessioni delle porte e requisiti di cablaggio quando si sostituiscono alcuni switch Cisco meno recenti con switch di storage NVIDIA SN2100. Fare riferimento a link:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"].
@@ -48,6 +49,7 @@ Assicurarsi che:
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 .Informazioni sugli esempi
@@ -72,6 +74,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e n
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Se AutoSupport è abilitato, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
@@ -89,6 +92,7 @@ Viene visualizzato il prompt avanzato (*>).
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Passaggio 2: configurare porte e cablaggio
 
 . Determinare lo stato amministrativo o operativo per ciascuna interfaccia di archiviazione.
@@ -417,6 +421,7 @@ swp6       100G   Trunk/L2  SHFFG1826000102        e0b
 
 
 
+[[step-3-complete-the-procedure]]
 === Fase 3: Completare la procedura
 
 . Crea una password per la funzionalità di raccolta dei registri del monitoraggio dello stato dello switch Ethernet:

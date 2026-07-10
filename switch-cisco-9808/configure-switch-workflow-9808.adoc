@@ -1,0 +1,49 @@
+---
+permalink: switch-cisco-9808/configure-switch-workflow-9808.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-cisco-9808 switch 
+summary: Configuri gli switch Cisco 9808 come parte di una nuova installazione del sistema AFX 2K, della sostituzione di un modulo supervisor o del ripristino dello switch alle impostazioni di fabbrica. 
+---
+= Configura il workflow dello switch - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configuri gli switch Cisco Nexus 9808 come parte di una nuova installazione del sistema AFX 2K, della sostituzione di un modulo supervisor o del ripristino dello switch alle impostazioni di fabbrica.
+
+Potresti essere indirizzato a questo flusso di lavoro o a singoli argomenti in questo flusso di lavoro a seconda delle necessità quando link:install-configure-switches-in-afx-workflow-9808.html["Installa e configura un nuovo sistema AFX 2K"], link:maintain-replace-frus-9808.html["Sostituisci i FRU"] o link:maintain-reset-switch-9808.html["Reimposta uno switch alle impostazioni predefinite di fabbrica"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-complete-initial-setup-9808.html["Completa la configurazione iniziale dello switch"]
+[role="quick-margin-para"]
+Dopo aver acceso gli switch, questi iniziano il processo di avvio ed entrano nella procedura guidata di configurazione. Ti viene chiesto di rispondere a una serie di domande per eseguire la configurazione iniziale (di avvio) degli switch.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:configure-review-cabling-config-requirements-9808.html["Rivedi i requisiti di cablaggio e configurazione"]
+[role="quick-margin-para"]
+Controlla i requisiti di cablaggio e configurazione.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:configure-install-nxos-9808.html["Installa NX-OS"]
+[role="quick-margin-para"]
+Installa la versione attuale di NX-OS sugli switch che supportano il tuo sistema AFX 2K.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:configure-install-upgrade-rcf-overview-9808.html["Installa RCF"]
+[role="quick-margin-para"]
+Installa la versione corrente del file di configurazione di riferimento (RCF) sugli switch che supportano il tuo sistema AFX 2K. Il link ti porta all'argomento panoramico sull'installazione o l'aggiornamento del file di configurazione di riferimento (RCF), che contiene le informazioni che devi conoscere prima di installare l'RCF.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-verify-ssh-9808.html["Verifica SSH per la raccolta dei log"]
+[role="quick-margin-para"]
+Verifica che SSH sia abilitato così puoi utilizzare la funzionalità di raccolta dei log del health monitor dello switch Ethernet (CSHM).
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:../switch-cshm/cshm-overview.html["Configura il monitoraggio dello stato di salute dello switch Ethernet"]
+[role="quick-margin-para"]
+Configura il monitoraggio dello stato di salute degli switch Ethernet (CSHM) per garantire il corretto funzionamento degli switch e per la raccolta dei log degli switch a fini di debug e risoluzione dei problemi.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]link:configure-smart-call-9808.html["Configura Smart Call Home (opzionale)"]
+[role="quick-margin-para"]
+ONTAP supporta il monitoraggio dello stato di salute degli switch Ethernet (CSHM) per monitorare gli switch del cluster AFX, oltre alla possibilità di raccogliere i log diagnostici degli switch. Cisco Smart Call Home è un'opzione che offre supporto proattivo e ti aiuta a risolvere eventuali problemi che potrebbero sorgere con gli switch.
+
+.Cosa succederà ora?
+* Se hai configurato lo switch come parte di una nuova installazione di sistema AFX 2K, devi link:install-complete-afx-setup-9808.html["completa la configurazione del sistema AFX"].
+* Se hai configurato lo switch nell'ambito della sostituzione di un modulo supervisore o se lo hai ripristinato alle impostazioni di fabbrica, dovrebbe funzionare normalmente.
+

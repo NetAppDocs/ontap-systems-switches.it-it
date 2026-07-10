@@ -15,6 +15,7 @@ Se si dispone di sistemi FAS22xx in un cluster switchless a due nodi esistente i
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Prima di iniziare
@@ -32,12 +33,14 @@ https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 Questa procedura è una procedura non distruttiva che rimuove la connettività diretta del cluster in un ambiente switchless e sostituisce ogni connessione allo switch con una connessione al nodo partner.
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Cambia il livello di privilegio in avanzato, inserendo `y` quando viene richiesto di continuare:
@@ -150,6 +153,7 @@ Al prompt del nodo danneggiato, premere `Ctrl-C` e poi rispondere `y` per fermar
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Passaggio 2: configurare cavi e porte
 
 . Su ciascun modulo controller, scollegare il cavo che collega la porta del cluster 10 GbE al cluster switchless.
@@ -301,6 +305,7 @@ RPC status:
 ====
 
 
+[[step-3-complete-the-procedure]]
 === Fase 3: Completare la procedura
 
 . Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :

@@ -18,6 +18,7 @@ Per l'installazione e la manutenzione degli switch Cisco Nexus 9336C-FX2 e 9336C
 
 
 
+[[configuration-requirements]]
 == Requisiti di configurazione
 
 Per la configurazione, è necessario disporre del numero e del tipo appropriati di cavi e connettori per i propri switch.
@@ -26,6 +27,7 @@ A seconda del tipo di switch che si sta configurando inizialmente, è necessario
 
 
 
+[[network-requirements]]
 == Requisiti di rete
 
 Per tutte le configurazioni dello switch sono necessarie le seguenti informazioni di rete.

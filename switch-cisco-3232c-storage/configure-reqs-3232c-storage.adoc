@@ -18,12 +18,14 @@ Per l'installazione e la manutenzione dello switch Cisco Nexus 3232C, assicurars
 
 
 
+[[configuration-requirements]]
 == Requisiti di configurazione
 
 È necessario disporre del numero e del tipo appropriati di cavi e connettori per i propri switch. A seconda del tipo di switch che si sta configurando inizialmente, è necessario collegarsi alla porta console dello switch con il cavo console incluso; è inoltre necessario fornire informazioni di rete specifiche.
 
 
 
+[[network-requirements]]
 == Requisiti di rete
 
 Per tutte le configurazioni dello switch sono necessarie le seguenti informazioni di rete:

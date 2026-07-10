@@ -15,6 +15,7 @@ Se si dispone di un ambiente cluster switchless a due nodi esistente, è possibi
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Prima di iniziare
@@ -53,6 +54,7 @@ Qualsiasi precedente personalizzazione del sito, come SMTP, SNMP e SSH, deve ess
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 .Informazioni sugli esempi
@@ -70,6 +72,7 @@ ILlink:https://hwu.netapp.com/["Hardware Universe"^] contiene le informazioni pi
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Cambia il livello di privilegio in avanzato, inserendo `y` quando viene richiesto di continuare:
@@ -105,6 +108,7 @@ cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
+[[step-2-configure-ports]]
 === Passaggio 2: configurare le porte
 
 . Disabilitare tutte le porte rivolte verso il nodo (non le porte ISL) su entrambi i nuovi switch del cluster cs1 e cs2.
@@ -865,6 +869,7 @@ NOTE: Per la versione 8.3 e successive, i comandi sono:
 
 
 
+[[step-3-complete-the-configuration]]
 === Passaggio 3: Completa la configurazione
 
 . Verificare che tutte le interfacce siano visualizzate `true` nella colonna "È a casa":

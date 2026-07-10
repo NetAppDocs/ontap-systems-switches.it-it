@@ -1,0 +1,1359 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-upgrade-rcf-9332d.html 
+sidebar: sidebar 
+keywords: install rcf, cisco switches 
+summary: 'Aggiorni la versione del Reference Configuration File (RCF) sugli switch Cisco Nexus 9332D-GX2B per supportare nuovo hardware, una nuova versione di ONTAP o per allinearti a una nuova versione di NX-OS nella configurazione del tuo sistema AFX 1K o AFX 2K.' 
+---
+= Aggiorna la versione RCF - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aggiorni la versione del Reference Configuration File (RCF) sugli switch Cisco Nexus 9332D-GX2B per supportare nuovo hardware, una nuova versione di ONTAP o per allinearti a una nuova versione di NX-OS nella configurazione del tuo sistema AFX 1K o AFX 2K.
+
+
+NOTE: Non aggiornare o effettuare il downgrade della versione di RCF a una versione non supportata.
+
+.Prima di iniziare
+* Devi aver letto la link:configure-install-upgrade-rcf-overview-9332d.html["Panoramica sull'installazione o l'aggiornamento di RCF"] pagina.
+* Assicurati di avere un backup aggiornato della configurazione dello switch.
+* Verifica che il cluster sia perfettamente funzionante, ovvero che non ci siano errori nei log o problemi simili.
+* Devi avere la versione attuale di RCF.
+* Hai bisogno di una configurazione di avvio nell'RCF che rifletta le immagini di avvio desiderate.
++
+Se è necessario modificare la configurazione di avvio per riflettere le immagini di avvio correnti, è necessario farlo prima di riapplicare l'RCF, in modo che ai riavvii futuri venga istanziata la versione corretta.
+
+
+
+.Informazioni su questo compito
+* Per garantire operazioni del cluster senza interruzioni, questa procedura ti fa migrare tutti i cluster LIF allo switch partner operativo mentre esegui i passaggi sullo switch di destinazione.
+* Durante questa procedura non è necessario alcun collegamento inter-switch operativo (ISL). Questa scelta è voluta perché le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL.
+* Poiché questa procedura richiede l'utilizzo dei comandi ONTAP e dei comandi degli switch Cisco Nexus 9000 Series, i passaggi indicano quale CLI stai utilizzando per inserire i comandi.
+* Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
++
+** I nomi dei due switch Cisco sono cs1 e cs2.
+** I nomi dei nodi sono node1-01, node1-02, node1-03 e node1-04.
+** I nomi dei cluster LIF sono:
++
+*** node1-01_clus1 e node1-01_clus2 per node1-01
+*** node1-02_clus1 e node1-02_clus2 per node1-02
+*** node1-03_clus1 e node1-03_clus2 per node1-03
+*** node1-04_clus1 e node1-04_clus2 per node1-04
+
+
+** IL `cluster1::*>` il prompt indica il nome del cluster.
+
+
+* Gli esempi mostrati in questa procedura si riferiscono a sistemi AFX 1K con switch che utilizzano RCF 10.0. Se hai un sistema AFX 2K, l'input e l'output possono variare.
+
+
+
+
+[[step-1-prepare-for-the-upgrade]]
+== Passaggio 1: Prepararsi all'aggiornamento
+
+Utilizzando la ONTAP CLI per i seguenti passaggi, preparati all'aggiornamento RCF sopprimendo la creazione automatica dei casi, se necessario, verificando lo stato amministrativo e operativo delle porte e disabilitando il ripristino automatico sulle LIF del cluster.
+
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message MAINT=<number of hours down>h
+----
+. Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare:
++
+[source, cli]
+----
+set -privilege advanced
+----
++
+Viene visualizzato il prompt avanzato (*>).
+
+. Visualizza le porte del cluster su ciascun nodo connesso agli switch:
++
+[source, cli]
+----
+network device-discovery show
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1-01/cdp
+            e10a   cs1(FLMXXXXXXXX)          Ethernet1/16/3    N9K-C9332D-GX2B
+            e10b   cs2(FDOXXXXXXXX)          Ethernet1/16/3    N9K-C9332D-GX2B
+            e11a   cs1(FLMXXXXXXXX)          Ethernet1/16/4    N9K-C9332D-GX2B
+            e11b   cs2(FDOXXXXXXXX)          Ethernet1/16/4    N9K-C9332D-GX2B
+            e1a    cs1(FLMXXXXXXXX)          Ethernet1/16/1    N9K-C9332D-GX2B
+            e1b    cs2(FDOXXXXXXXX)          Ethernet1/16/1    N9K-C9332D-GX2B
+            .
+            .
+            .
+            e7a    cs1(FLMXXXXXXXX)          Ethernet1/16/2    N9K-C9332D-GX2B
+            e7b    cs2(FDOXXXXXXXX)          Ethernet1/16/2    N9K-C9332D-GX2B
+
+node1-01/lldp
+            e10a   cs1 (c8:60:8f:xx:xx:xx)   Ethernet1/16/3    -
+            e10b   cs2 (04:e3:87:xx:xx:xx)   Ethernet1/16/3    -
+            e11a   cs1 (c8:60:8f:xx:xx:xx)   Ethernet1/16/4    -
+            e11b   cs2 (04:e3:87:xx:xx:xx)   Ethernet1/16/4    -
+            e1a    cs1 (c8:60:8f:xx:xx:xx)   Ethernet1/16/1    -
+            e1b    cs2 (04:e3:87:xx:xx:xx)   Ethernet1/16/1    -
+            .
+            .
+            .
+            e7a    cs1 (c8:60:8f:xx:xx:xx)   Ethernet1/16/2    -
+            e7b    cs2 (04:e3:87:xx:xx:xx)   Ethernet1/16/2    -
+.
+.
+.
+----
+====
+. Verificare lo stato amministrativo e operativo di ogni porto.
++
+.. *Porte cluster*
++
+... Verificare che tutte le porte del cluster siano attive e integre:
++
+[source, cli]
+----
+network port show -ipspace Cluster
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: node1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: node1-03
+
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+----
+====
+... Verificare che tutte le interfacce cluster (LIF) siano sulla porta home:
++
+[source, cli]
+----
+network interface show -role cluster
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+            Logical            Status     Network           Current      Current Is
+Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
+----------- ------------------ ---------- ----------------- ------------ ------- ----
+Cluster
+            node1-01_clus1     up/up      169.254.3.4/23     node1-01    e7a     true
+            node1-01_clus2     up/up      169.254.3.5/23     node1-01    e7b     true
+            node1-02_clus1     up/up      169.254.3.8/23     node1-02    e7a     true
+            node1-02_clus2     up/up      169.254.3.9/23     node1-02    e7b     true
+            node1-03_clus1     up/up      169.254.1.3/23     node1-03    e7a     true
+            node1-03_clus2     up/up      169.254.1.1/23     node1-03    e7b     true
+            node1-04_clus1     up/up      169.254.1.6/23     node1-04    e7a     true
+            node1-04_clus2     up/up      169.254.1.7/23     node1-04    e7b     true
+8 entries were displayed.
+----
+====
+... Verificare che il cluster visualizzi le informazioni per entrambi gli switch:
++
+[source, cli]
+----
+system cluster-switch show -is-monitoring-enabled-operational true
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs2(FDOXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9332D-GX2B
+     Serial Number: FDOXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.4(2)
+    Version Source: CDP/ISDP
+
+
+cs2(FLMXXXXXXXX)            cluster-network    10.228.137.234   N9K-C9332D-GX2B
+     Serial Number: FLMXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.4(2)
+    Version Source: CDP/ISDP
+
+2 entries were displayed.
+----
+====
+
+
+.. *Porte HA*
++
+... Verificare che tutte le porte HA siano attive e in stato di integrità:
++
+[source, cli]
+----
+ha interconnect status show -node <node-name>
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect status show -node node1-01*
+  (system ha interconnect status show)
+
+                       Node: node1-01
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+
+cluster1::*> *ha interconnect status show -node node1-01*
+  (system ha interconnect status show)
+
+                       Node: node1-01
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+.
+.
+.
+----
+====
+
+
+.. *Porte di archiviazione*
++
+... Verificare che tutte le porte di archiviazione siano attive e integre:
++
+[source, cli]
+----
+storage port show -port-type ENET
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+node1-01
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+node1-02
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+node1-03
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+node1-04
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+16 entries were displayed.
+----
+====
+
+
+.. *Porte per ripiani portaoggetti*
++
+... Verificare che tutte le porte dello scaffale di archiviazione siano attive e in buono stato:
++
+[source, cli]
+----
+storage shelf port show
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show*
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.1
+       0 A      connected    false
+       1 A      connected    false
+       2 A      connected    false
+       3 A      connected    false
+       4 A      connected    false
+       5 A      connected    false
+       6 A      connected    false
+       7 A      connected    false
+       8 B      connected    false
+       9 B      connected    false
+      10 B      connected    false
+      11 B      connected    false
+      12 B      connected    false
+      13 B      connected    false
+      14 B      connected    false
+      15 B      connected    false
+
+16 entries were displayed.
+----
+====
+... Verificare che tutte le porte dello scaffale di archiviazione siano attive e in buono stato:
++
+[source, cli]
+----
+storage shelf port show -fields remote-device,remote-port,connector-state
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show -fields remote-device,remote-port,connector-state*
+
+shelf id connector-state remote-port    remote-device
+----- -- --------------- -------------- -----------------
+1.1   0  connected       Ethernet1/17/1 CX9332D-cs1
+1.1   1  connected       Ethernet1/15/1 CX9364D-cs1
+1.1   2  connected       Ethernet1/17/2 CX9332D-cs1
+1.1   3  connected       Ethernet1/15/2 CX9364D-cs1
+1.1   4  connected       Ethernet1/17/3 CX9332D-cs1
+1.1   5  connected       Ethernet1/15/3 CX9364D-cs1
+1.1   6  connected       Ethernet1/17/4 CX9332D-cs1
+1.1   7  connected       Ethernet1/15/4 CX9364D-cs1
+1.1   8  connected       Ethernet1/19/1 CX9332D-cs1
+1.1   9  connected       Ethernet1/17/1 CX9364D-cs1
+1.1   10 connected       Ethernet1/19/2 CX9332D-cs1
+1.1   11 connected       Ethernet1/17/2 CX9364D-cs1
+1.1   12 connected       Ethernet1/19/3 CX9332D-cs1
+1.1   13 connected       Ethernet1/17/3 CX9364D-cs1
+1.1   14 connected       Ethernet1/19/4 CX9332D-cs1
+1.1   15 connected       Ethernet1/17/4 CX9364D-cs1
+
+16 entries were displayed.
+----
+====
+
+
+
+
+. Disabilita il ripristino automatico sulle LIF del cluster. Le LIF del cluster eseguono il failover sullo switch del cluster partner e vi rimangono mentre esegui questa procedura sullo switch di destinazione:
++
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert false
+----
+
+
+
+
+[[step-2-upgrade-the-rcf]]
+== Fase 2: Aggiorna l'RCF
+
+Usi la CLI dello switch e la CLI di ONTAP (come indicato nei passaggi successivi) per l'aggiornamento dell'RCF. Aggiorni l'RCF sul primo switch (cs1) e poi ripeti questi passaggi per il secondo switch (cs2).
+
+. Tramite la CLI dello switch, sullo switch cs1, chiudi le porte collegate a tutte le porte dei nodi.
++
+
+CAUTION: Assicurati di chiudere *tutte* le porte connesse per evitare problemi di connessione di rete. Consulta l'articolo della Knowledge Base https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nodo fuori quorum durante la migrazione del cluster LIF durante l'aggiornamento del sistema operativo dello switch"^] per ulteriori dettagli.
+
++
+[listing, subs="+quotes"]
+----
+cs1# *config*
+cs1(config)# *interface e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7/1-4,e1/8/1-4*
+cs1(config-if-range)# *shutdown*
+cs1(config)# *interface e1/9/1-4,e1/10/1-4,e1/11/1-4,e1/12/1-4,e1/13/1-4,e1/14/1-4,e1/15/1-4,e1/16/1-4*
+cs1(config-if-range)# *shutdown*
+cs1(config)# *interface e1/17/1-4,e1/18/1-4,e1/19/1-4,e1/20/1-4,e1/21/1-4,e1/22/1-4,e1/23/1-4*
+cs1(config-if-range)# *shutdown*
+cs1(config)# *interface e1/24/1-4,e1/25/1-4,e1/26/1-4,e1/27/1-4,e1/28/1-4,e1/29/1-4,e1/30/1-4*
+cs1(config-if-range)# *shutdown*
+cs1(config-if-range)# *exit*
+cs1(config)# *exit*
+----
+. Utilizzando la ONTAP CLI, verifica che i cluster LIF siano passati alle porte ospitate sullo switch cs1. Potrebbe volerci qualche secondo.
++
+[source, cli]
+----
+network interface show -role cluster
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+
+            Logical         Status     Network            Current     Current Is
+Vserver     Interface       Admin/Oper Address/Mask       Node        Port    Home
+----------- --------------- ---------- ------------------ ----------- ------- ----
+Cluster
+            node1-01_clus1  up/up      169.254.36.44/16   node1-01    e7a     true
+            node1-01_clus2  up/up      169.254.7.5/16     node1-01    e7b     true
+            node1-02_clus1  up/up      169.254.197.206/16 node1-02    e7a     true
+            node1-02_clus2  up/up      169.254.195.186/16 node1-02    e7b     true
+            node1-03_clus1  up/up      169.254.192.49/16  node1-03    e7a     true
+            node1-03_clus2  up/up      169.254.182.76/16  node1-03    e7b     true
+            node1-04_clus1  up/up      169.254.59.49/16   node1-04    e7a     true
+            node1-04_clus2  up/up      169.254.62.244/16  node1-04    e7b     true
+
+8 entries were displayed.
+----
+====
+. Utilizzando la ONTAP CLI, verifica che il cluster sia integro:
++
+[source, cli]
+----
+cluster show
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node              Health  Eligibility   Epsilon
+----------------- ------- ------------  -------
+node1-01          true    true          false
+node1-02          true    true          false
+node1-03          true    true          true
+node1-04          true    true          false
+
+4 entries were displayed.
+----
+====
+. Se non l'hai ancora fatto, usa la CLI dello switch per salvare una copia della configurazione corrente dello switch copiando l'output del seguente comando in un file di testo:
++
+`show running-config`
+
++
+.. Utilizza il  `show diff running-config` comando per confrontare con il file RCF salvato nella bootflash. Altrimenti, usa uno strumento di diff/confronto di terze parti.
+
+
+. Salva i dettagli di configurazione di base nel `write_erase.cfg` file sul bootflash.
++
+[NOTE]
+====
+Assicurati di configurare quanto segue:
+
+** Nome utente e password
+** Indirizzo IP di gestione
+** Gateway predefinito
+** Cambia nome
+
+
+====
++
+[CAUTION]
+====
+Se il  `write_erase.cfg` file esiste già, rinominalo in  `write_erase_old.cfg`, come segue:
+
+`cs1# move bootflash:write_erase.cfg write_erase_old.cfg`
+
+====
++
+`cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
+
++
+`cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
+
++
+`cs1# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
+
++
+`cs1# echo "hardware access-list tcam region ing-l2-qos 1536" >> bootflash:write_erase.cfg`
+
++
+Fare riferimento all'articolo della Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori dettagli.
+
+. Utilizzando la CLI dello switch, verifica che il file  `write_erase.cfg` sia popolato come previsto:
++
+`show file bootflash:write_erase.cfg`
+
+. Utilizzando la CLI dello switch, cancella la configurazione attualmente salvata:
++
+`write erase`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
+
+. Utilizzando la CLI dello switch, copia la configurazione di base salvata in precedenza nella configurazione di avvio:
++
+`copy bootflash:write_erase.cfg startup-config`
+
+. Utilizzando l'interfaccia a riga di comando dello switch, riavvia lo switch:
++
+`reload`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. Una volta che l'indirizzo IP di gestione è nuovamente raggiungibile, accedere allo switch tramite SSH.
++
+Potrebbe essere necessario aggiornare le voci del file host relative alle chiavi SSH.
+
+. Tramite la CLI dello switch, copia l'RCF nella bootflash dello switch cs1 usando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
++
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^].
+
++
+`copy <protocol>: bootflash: vrf management`
+
++
+.Mostra esempio
+[%collapsible]
+====
+Questo esempio mostra come TFTP viene utilizzato per copiare un RCF nel bootflash sullo switch cs1:
+
+[listing, subs="+quotes"]
+----
+cs1# *copy tftp: bootflash: vrf management*
+Enter source filename: *NX9332D-GX2B-RCF-v10.0-Shared.txt*
+Enter hostname for the tftp server: *172.22.201.50*
+Trying to connect to tftp server......Connection to Server Established.
+TFTP get operation was successful
+Copy complete, now saving to disk (please wait)...
+----
+====
+. Utilizzando la CLI dello switch, applica l'RCF precedentemente scaricato alla bootflash.
++
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^].
+
++
+Questo esempio mostra il file RCF `NX9332D-GX2B-RCF-v10.0-Shared.txt` in fase di installazione sullo switch cs1:
+
++
+[listing, subs="+quotes"]
+----
+cs1# *copy NX9332D-GX2B-RCF-v10.0-Shared.txt running-config echo-commands*
+----
++
+[CAUTION]
+====
+Assicurati di leggere attentamente le sezioni *Note di installazione*, *Note importanti* e *banner* del tuo RCF.
+
+Devi leggere e seguire queste istruzioni per garantire la corretta configurazione e il corretto funzionamento dello switch.
+
+====
+. Utilizzando la CLI dello switch, verifica che il file RCF sia la versione più recente corretta:
++
+`show running-config`
+
++
+Quando controlli l'output per verificare di avere l'RCF corretto, assicurati che le seguenti informazioni siano corrette:
+
++
+** Lo striscione RCF
+** Le impostazioni del nodo e della porta
+** Personalizzazioni
++
+L'output varia in base alla configurazione del sito.  Controllare le impostazioni della porta e fare riferimento alle note di rilascio per eventuali modifiche specifiche all'RCF installato.
+
+
+
+. Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.
++
+Se i tuoi switch utilizzano RCF 10.1 o versioni successive, puoi link:configure-install-upgrade-rcf-overview-9332d.html#change-port-speed-configuration["modifica la configurazione della velocità della porta"] se necessario.
+
+. Utilizzando la CLI dello switch, dopo aver verificato che le versioni RCF, le aggiunte personalizzate e le impostazioni dello switch siano corrette, copia il file running-config nel file startup-config.
++
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^].
+
++
+`copy running-config startup-config`
+
++
+`[########################################] 100% Copy complete`
+
+. Utilizzando la CLI dello switch, riavvia lo switch cs1. Puoi ignorare gli avvisi "`cluster switch health monitor`" e gli eventi "`cluster ports down`" segnalati sui nodi durante il riavvio dello switch.
++
+`reload`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. Utilizzando la ONTAP CLI, verifica lo stato di tutte le porte del cluster:
++
+.. *Porte cluster*
++
+... Verificare che le porte del cluster siano attive e funzionanti su tutti i nodi del cluster:
++
+[source, cli]
+----
+network port show -ipspace cluster
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node1-03
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: node1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+8 entries were displayed.
+----
+====
+... Verificare lo stato di integrità dello switch dal cluster.
++
+[source, cli]
+----
+network device-discovery show -protocol cdp
+----
++
+[source, cli]
+----
+system cluster-switch show -is-monitoring-enabled-operational true
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1-01/cdp
+            e10a   cs1(FLMXXXXXXXX)          Ethernet1/16/3    N9K-C9332D-GX2B
+            e10b   cs2(FDOXXXXXXXX)          Ethernet1/16/3    N9K-C9332D-GX2B
+            e11a   cs1(FLMXXXXXXXX)          Ethernet1/16/4    N9K-C9332D-GX2B
+            e11b   cs2(FDOXXXXXXXX)          Ethernet1/16/4    N9K-C9332D-GX2B
+            e1a    cs1(FLMXXXXXXXX)          Ethernet1/16/1    N9K-C9332D-GX2B
+            e1b    cs2(FDOXXXXXXXX)          Ethernet1/16/1    N9K-C9332D-GX2B
+            .
+            .
+            .
+            e7a    cs1(FLMXXXXXXXX)          Ethernet1/16/2    N9K-C9332D-GX2B
+            e7b    cs2(FDOXXXXXXXX)          Ethernet1/16/2    N9K-C9332D-GX2B
+
+
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs2(FDOXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9332D-GX2B
+     Serial Number: FDOXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.4(2)
+    Version Source: CDP/ISDP
+
+cs1(FLMXXXXXXXX)            cluster-network    10.228.137.234   N9K-C9332D-GX2B
+     Serial Number: FLMXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.4(2)
+    Version Source: CDP/ISDP
+
+2 entries were displayed.
+----
+====
+
+
+.. *Porte HA*
++
+... Verificare che tutte le porte HA siano attive e in stato di integrità:
++
+[source, cli]
+----
+ha interconnect status show -node <node-name>
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect status show -node node1-01*
+  (system ha interconnect status show)
+
+                       Node: node1-01
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+
+cluster1::*> *ha interconnect status show -node node1-02*
+  (system ha interconnect status show)
+
+                       Node: node1-02
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+.
+.
+.
+----
+====
+
+
+.. *Porte di archiviazione*
++
+... Verificare che tutte le porte di archiviazione siano attive e integre:
++
+[source, cli]
+----
+storage port show -port-type ENET
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+node1-01
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+node1-02
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+node1-03
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+node1-04
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+16 entries were displayed.
+----
+====
+
+
+.. *Porte per ripiani portaoggetti*
++
+... Verificare che tutte le porte dello scaffale di archiviazione siano attive e in buono stato:
++
+[source, cli]
+----
+storage shelf port show
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show*
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.1
+       0 A      connected    false
+       1 A      connected    false
+       2 A      connected    false
+       3 A      connected    false
+       4 A      connected    false
+       5 A      connected    false
+       6 A      connected    false
+       7 A      connected    false
+       8 B      connected    false
+       9 B      connected    false
+      10 B      connected    false
+      11 B      connected    false
+      12 B      connected    false
+      13 B      connected    false
+      14 B      connected    false
+      15 B      connected    false
+
+16 entries were displayed.
+----
+====
+... Verificare lo stato di connessione di tutte le porte dello scaffale di archiviazione:
++
+[source, cli]
+----
+storage shelf port show -fields remote-device,remote-port,connector-state
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show -fields remote-device,remote-port,connector-state*
+
+shelf id connector-state remote-port    remote-device
+----- -- --------------- -------------- -----------------
+1.1   0  connected       Ethernet1/17/1 CX9332D-cs1
+1.1   1  connected       Ethernet1/15/1 CX9364D-cs1
+1.1   2  connected       Ethernet1/17/2 CX9332D-cs1
+1.1   3  connected       Ethernet1/15/2 CX9364D-cs1
+1.1   4  connected       Ethernet1/17/3 CX9332D-cs1
+1.1   5  connected       Ethernet1/15/3 CX9364D-cs1
+1.1   6  connected       Ethernet1/17/4 CX9332D-cs1
+1.1   7  connected       Ethernet1/15/4 CX9364D-cs1
+1.1   8  connected       Ethernet1/19/1 CX9332D-cs1
+1.1   9  connected       Ethernet1/17/1 CX9364D-cs1
+1.1   10 connected       Ethernet1/19/2 CX9332D-cs1
+1.1   11 connected       Ethernet1/17/2 CX9364D-cs1
+1.1   12 connected       Ethernet1/19/3 CX9332D-cs1
+1.1   13 connected       Ethernet1/17/3 CX9364D-cs1
+1.1   14 connected       Ethernet1/19/4 CX9332D-cs1
+1.1   15 connected       Ethernet1/17/4 CX9364D-cs1
+
+16 entries were displayed.
+----
+====
+
+
+
+
+. Utilizzando la ONTAP CLI, verifica che il cluster sia integro:
++
+[source, cli]
+----
+cluster show
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node              Health   Eligibility   Epsilon
+----------------- -------- ------------- -------
+node1-01          true     true          false
+node1-02          true     true          false
+node1-03          true     true          true
+node1-04          true     true          false
+
+4 entries were displayed.
+----
+====
+. Ripetere i passaggi da 4 a 18 sullo switch cs2.
+. Usando la ONTAP CLI, abilita il ripristino automatico sulle LIF del cluster.
++
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert true
+----
+
+
+
+
+[[step-3-verify-the-cluster-network-configuration-and-cluster-health]]
+== Passaggio 3: verificare la configurazione della rete del cluster e lo stato del cluster
+
+Dopo l'aggiornamento di RCF su entrambi gli switch, verifica la configurazione della rete del cluster e lo stato di salute del cluster.
+
+. Utilizzando la CLI dello switch, verifica che le porte dello switch collegate alle porte del cluster siano *attive*.
++
+`show interface brief`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show interface brief | grep up*
+.
+.
+Eth1/9/3        1       eth  trunk  up      none                     100G(D) --
+Eth1/9/4        1       eth  trunk  up      none                     100G(D) --
+Eth1/15/1       1       eth  trunk  up      none                     100G(D) --
+Eth1/15/2       1       eth  trunk  up      none                     100G(D) --
+Eth1/15/3       1       eth  trunk  up      none                     100G(D) --
+Eth1/15/4       1       eth  trunk  up      none                     100G(D) --
+Eth1/16/1       1       eth  trunk  up      none                     100G(D) --
+Eth1/16/2       1       eth  trunk  up      none                     100G(D) --
+Eth1/16/3       1       eth  trunk  up      none                     100G(D) --
+Eth1/16/4       1       eth  trunk  up      none                     100G(D) --
+Eth1/17/1       1       eth  trunk  up      none                     100G(D) --
+Eth1/17/2       1       eth  trunk  up      none                     100G(D) --
+Eth1/17/3       1       eth  trunk  up      none                     100G(D) --
+Eth1/17/4       1       eth  trunk  up      none                     100G(D) --
+.
+.
+.
+----
+====
+. Usando la CLI dello switch, verifica che i nodi previsti siano ancora connessi:
++
+`show cdp neighbors`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show cdp neighbors*
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform         Port ID
+cs2(FDOXXXXXXXX)    Eth1/31        179    R S I s   N9K-C9364D-GX2A   Eth1/63
+cs2(FDOXXXXXXXX)    Eth1/32        179    R S I s   N9K-C9364D-GX2A   Eth1/64
+node1-01            Eth1/4/1       123    H         AFX-1K            e1a
+node1-01            Eth1/4/2       123    H         AFX-1K            e7a
+node1-01            Eth1/4/3       123    H         AFX-1K            e10a
+node1-01            Eth1/4/4       123    H         AFX-1K            e11a
+node1-02            Eth1/9/1       138    H         AFX-1K            e1a
+node1-02            Eth1/9/2       138    H         AFX-1K            e7a
+node1-02            Eth1/9/3       138    H         AFX-1K            e10a
+node1-02            Eth1/9/4       138    H         AFX-1K            e11a
+node1-03            Eth1/15/1      138    H         AFX-1K            e1a
+node1-03            Eth1/15/2      138    H         AFX-1K            e7a
+node1-03            Eth1/15/3      138    H         AFX-1K            e10a
+node1-03            Eth1/15/4      138    H         AFX-1K            e11a
+node1-04            Eth1/16/1      173    H         AFX-1K            e1a
+node1-04            Eth1/16/2      173    H         AFX-1K            e7a
+node1-04            Eth1/16/3      173    H         AFX-1K            e10a
+node1-04            Eth1/16/4      173    H         AFX-1K            e11a
+
+Total entries displayed: 18
+----
+====
+. Utilizzando la CLI dello switch, verifica che i nodi del cluster si trovino nelle VLAN del cluster corrette utilizzando i seguenti comandi:
++
+`show vlan brief`
+
++
+`show interface trunk`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show vlan brief*
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Po1, Po999, Eth1/31, Eth1/32
+                                                Eth1/33, Eth1/34, Eth1/1/1
+                                                Eth1/1/2, Eth1/1/3, Eth1/1/4
+.
+.
+.
+                                                Eth1/29/1, Eth1/29/2, Eth1/29/3
+                                                Eth1/29/4, Eth1/30/1, Eth1/30/2
+                                                Eth1/30/3, Eth1/30/4
+17   VLAN0017                         active    Eth1/1/1, Eth1/1/2, Eth1/1/3
+                                                Eth1/1/4, Eth1/2/1, Eth1/2/2
+                                                Eth1/2/3, Eth1/2/4, Eth1/3/1
+.
+.
+.
+                                                Eth1/29/3, Eth1/29/4, Eth1/30/1
+                                                Eth1/30/2, Eth1/30/3, Eth1/30/4
+18   VLAN0018                         active    Eth1/1/1, Eth1/1/2, Eth1/1/3
+                                                Eth1/1/4, Eth1/2/1, Eth1/2/2
+                                                Eth1/2/3, Eth1/2/4, Eth1/3/1
+.
+.
+.
+                                                Eth1/29/3, Eth1/29/4, Eth1/30/1
+                                                Eth1/30/2, Eth1/30/3, Eth1/30/4
+30   VLAN0030                         active    Eth1/1/1, Eth1/1/2, Eth1/1/3
+                                                Eth1/1/4, Eth1/2/1, Eth1/2/2
+                                                Eth1/2/3, Eth1/2/4, Eth1/3/1
+.
+.
+.
+                                                Eth1/29/3, Eth1/29/4, Eth1/30/1
+                                                Eth1/30/2, Eth1/30/3, Eth1/30/4
+40   VLAN0040                         active    Eth1/1/1, Eth1/1/2, Eth1/1/3
+                                                Eth1/1/4, Eth1/2/1, Eth1/2/2
+                                                Eth1/2/3, Eth1/2/4, Eth1/3/1
+.
+.
+.
+                                                Eth1/29/3, Eth1/29/4, Eth1/30/1
+                                                Eth1/30/2, Eth1/30/3, Eth1/30/4
+
+
+cs1# *show interface trunk*
+--------------------------------------------------------------------------------
+Port          Native  Status        Port
+              Vlan                  Channel
+--------------------------------------------------------------------------------
+Eth1/1/1      1       trunking      --
+Eth1/1/2      1       trunking      --
+Eth1/1/3      1       trunking      --
+Eth1/1/4      1       trunking      --
+Eth1/2/1      1       trunking      --
+Eth1/2/2      1       trunking      --
+Eth1/2/3      1       trunking      --
+Eth1/2/4      1       trunking      --
+.
+.
+.
+Eth1/30/1     none
+Eth1/30/2     none
+Eth1/30/3     none
+Eth1/30/4     none
+Eth1/31       none
+Eth1/32       none
+Po1           1
+----
+====
++
+
+NOTE: Per informazioni specifiche sull'utilizzo di porte e VLAN, fare riferimento alla sezione banner e note importanti nel RCF.
+
+. Usando la CLI dello switch, verifica che l'ISL tra cs1 e cs2 sia funzionante:
++
+`show port-channel summary`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
+999   Po999(SD)   Eth      NONE      --
+cs1#
+----
+====
+. Utilizzando la ONTAP CLI, verifica che le LIF del cluster siano tornate alla loro porta home:
++
+[source, cli]
+----
+network interface show -role cluster
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+
+            Logical         Status     Network            Current     Current Is
+Vserver     Interface       Admin/Oper Address/Mask       Node        Port    Home
+----------- --------------- ---------- ------------------ ----------- ------- ----
+Cluster
+            node1-01_clus1  up/up      169.254.36.44/16   node1-01    e7a     true
+            node1-01_clus2  up/up      169.254.7.5/16     node1-01    e7b     true
+            node1-02_clus1  up/up      169.254.197.206/16 node1-02    e7a     true
+            node1-02_clus2  up/up      169.254.195.186/16 node1-02    e7b     true
+            node1-03_clus1  up/up      169.254.192.49/16  node1-03    e7a     true
+            node1-03_clus2  up/up      169.254.182.76/16  node1-03    e7b     true
+            node1-04_clus1  up/up      169.254.59.49/16   node1-04    e7a     true
+            node1-04_clus2  up/up      169.254.62.244/16  node1-04    e7b     true
+
+8 entries were displayed.
+----
+====
++
+Se alcuni LIF del cluster non sono tornati alle loro porte home, ripristinarli manualmente dal nodo locale:
+
++
+[source, cli]
+----
+network interface revert -vserver vserver_name -lif <lif-name>
+----
+. Utilizzando la ONTAP CLI, verifica che il cluster sia integro:
++
+[source, cli]
+----
+cluster show
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node              Health  Eligibility   Epsilon
+----------------- ------- ------------- -------
+node1-01          true    true          false
+node1-02          true    true          false
+node1-03          true    true          true
+node1-04          true    true          false
+
+4 entries were displayed.
+----
+====
+. Usando la ONTAP CLI, verifica la connettività delle interfacce del cluster remoto.
++
+** Puoi usare il seguente comando per visualizzare i dettagli di un controllo di accessibilità per la connettività del cluster:
++
+[source, cli]
+----
+network interface check cluster-connectivity show
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+
+                                  Source           Destination     Packet
+Node   Date                       LIF              LIF             Loss
+------ -------------------------- ---------------- --------------- -----------
+node1-01
+       6/4/2025 03:13:33 -04:00   node1-01_clus2  node1-02_clus1   none
+       6/4/2025 03:13:34 -04:00   node1-01_clus2  node1-02_clus1   none
+
+
+node1-02
+       6/4/2025 03:13:33 -04:00   node1-02_clus2  node1-01_clus1   none
+       6/4/2025 03:13:34 -04:00   node1-02_clus2  node1-01_clus2   none
+.
+.
+.
+----
+====
+** In alternativa, puoi usare il seguente comando per verificare la connettività:
++
+[source, cli]
+----
+cluster ping-cluster -node <node-name>
+----
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is node1-04
+Getting addresses from network interface table...
+Cluster node1-01_clus1 169.254.36.44 node1-01 e7a
+Cluster node1-01_clus2 169.254.7.5   node1-01 e7b
+Cluster node1-02_clus1 169.254.197.206 node1-02 e7a
+Cluster node1-02_clus2 169.254.195.186 node1-02 e7b
+Cluster node1-03_clus1 169.254.192.49 node1-03 e7a
+Cluster node1-03_clus2 169.254.182.76 node1-03 e7b
+Cluster node1-04_clus1 169.254.59.49 node1-04 e7a
+Cluster node1-04_clus2 169.254.62.244 node1-04 e7b
+Local = 169.254.59.49 169.254.62.244
+Remote = 169.254.36.44 169.254.7.5 169.254.197.206 169.254.195.186 169.254.192.49 169.254.182.76
+Cluster Vserver Id = 4294967293
+Ping status:
+............
+Basic connectivity succeeds on 12 path(s)
+Basic connectivity fails on 0 path(s)
+................................................
+Detected 9000 byte MTU on 12 path(s):
+    Local 169.254.59.49 to Remote 169.254.182.76
+    Local 169.254.59.49 to Remote 169.254.192.49
+    Local 169.254.59.49 to Remote 169.254.195.186
+    Local 169.254.59.49 to Remote 169.254.197.206
+    Local 169.254.59.49 to Remote 169.254.36.44
+    Local 169.254.59.49 to Remote 169.254.7.5
+    Local 169.254.62.244 to Remote 169.254.182.76
+    Local 169.254.62.244 to Remote 169.254.192.49
+    Local 169.254.62.244 to Remote 169.254.195.186
+    Local 169.254.62.244 to Remote 169.254.197.206
+    Local 169.254.62.244 to Remote 169.254.36.44
+    Local 169.254.62.244 to Remote 169.254.7.5
+Larger than PMTU communication succeeds on 12 path(s)
+RPC status:
+6 paths up, 0 paths down (tcp check)
+6 paths up, 0 paths down (udp check)
+----
+====
+
+
+
+
+.Cosa succederà ora?
+Dopo aver aggiornato l'RCF sui tuoi switch, link:configure-verify-ssh-9332d.html["Verifica SSH per la raccolta dei log"].

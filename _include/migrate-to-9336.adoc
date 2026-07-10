@@ -4,6 +4,7 @@
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 Assicurarsi che:
@@ -29,6 +30,7 @@ NOTE: Se si modifica la velocità delle porte cluster e0a ed e1a sui sistemi AFF
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 .Informazioni sugli esempi
@@ -82,6 +84,7 @@ NOTE: Durante questa procedura non è necessario alcun collegamento inter-switch
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
@@ -103,6 +106,7 @@ Viene visualizzato il prompt avanzato (*>).
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Passaggio 2: configurare porte e cablaggio
 
 . Sui nuovi switch, verificare che l'ISL sia cablato e funzionante tra gli switch cs1-new e cs2-new:
@@ -609,6 +613,7 @@ Group Port-       Type     Protocol  Member Ports
 
 
 
+[[step-3-verify-the-configuration]]
 === Passaggio 3: verificare la configurazione
 
 . Abilita il ripristino automatico sui LIF del cluster.

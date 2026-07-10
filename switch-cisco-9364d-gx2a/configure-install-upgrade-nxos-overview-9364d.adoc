@@ -1,0 +1,27 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-install-upgrade-nxos-overview-9364d.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9364d-gx2a 
+summary: Puoi installare o aggiornare NX-OS sugli switch Nexus 9364D-GX2A per i sistemi AFX 1K e AFX 2K. 
+---
+= Installa o aggiorna la panoramica di NX-OS - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puoi installare o aggiornare NX-OS sugli switch Nexus 9364D-GX2A per i sistemi AFX 1K e AFX 2K.
+
+
+NOTE: L'installazione o l'aggiornamento di NX-OS è indipendente dall'installazione o dall'aggiornamento di RCF. Se stai installando o aggiornando sia NX-OS che RCF, ti consiglio di installare o aggiornare prima NX-OS.
+
+* link:configure-install-nxos-9364d.html["Installa NX-OS"]
++
+Installi NX-OS sugli switch come parte dell'installazione di un nuovo sistema AFX 1K o AFX 2K, della sostituzione di uno switch o del ripristino di uno switch alle impostazioni di fabbrica.
+
+* link:configure-upgrade-nxos-9364d.html["Aggiorna NX-OS"]
++
+Aggiorni NX-OS sugli switch per supportare nuovo hardware o una nuova versione di ONTAP sul tuo sistema AFX 1K o AFX 2K.
+
+

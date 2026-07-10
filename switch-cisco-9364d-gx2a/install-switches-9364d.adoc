@@ -1,0 +1,42 @@
+---
+permalink: switch-cisco-9364d-gx2a/install-switches-9364d.html 
+sidebar: sidebar 
+keywords: switches, hardware installation, Cisco Nexus, 9364D-GX2A switches 
+summary: 'L"installazione degli switch Cisco Nexus 9364D-GX2A come parte di una nuova installazione di un sistema AFX 1K o AFX 2K include l"installazione degli switch in un rack o armadio, il cablaggio verso i controller di sistema e gli shelf, e poi l"accensione.' 
+---
+= Installa gli switch Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'installazione degli switch Cisco Nexus 9364D-GX2A come parte di una nuova installazione di un sistema AFX 1K o AFX 2K include l'installazione degli switch in un rack o armadio, il cablaggio verso i controller di sistema e gli shelf, e poi l'accensione.
+
+.Prima di iniziare
+Devi aver completato i passaggi di preparazione dello switch in link:install-prepare-9364d.html["Preparati a installare gli switch"].
+
+.Informazioni su questo compito
+Usi il workflow di installazione e configurazione del sistema AFX 1K o AFX 2K applicabile sul sito della documentazione del sistema AFX per installare e cablare l'hardware del sistema e poi accendere gli switch.
+
+Il flusso di lavoro di installazione e configurazione del sistema include istruzioni quali:
+
+* Istruzioni per preparare il sito, disimballare le scatole e confrontare il contenuto delle scatole con la bolla di accompagnamento, nonché registrare il sistema per accedere ai vantaggi dell'assistenza.
+* Istruzioni per l'installazione di switch, controller e shelf storage in un NetApp cabinet o telco rack.
+* Istruzioni per il cablaggio del sistema, incluso il cablaggio dei controller alle connessioni degli switch e il cablaggio dei ripiani storage alle connessioni degli switch.
+
+
+.Passi
+. Installa gli switch come parte del flusso di lavoro di installazione e configurazione del tuo sistema AFX 1K o AFX 2K:
++
+** Per un sistema AFX 1K, vai a link:https://docs.netapp.com/us-en/ontap-afx/install-setup/install-setup-workflow.html["Flusso di lavoro di installazione e configurazione di AFX 1K"^].
+** Per un sistema AFX 2K, vai a link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/install-setup-workflow.html["Flusso di lavoro di installazione e configurazione di AFX 2K"^].
+
+
+
+
+
+NOTE: Dopo aver installato gli switch, le istruzioni del flusso di lavoro di installazione e configurazione di AFX ti reindirizzano a questa documentazione sugli switch per configurarli.
+
+.Cosa succederà ora?
+Dopo che hai installato, cablato e acceso gli switch come parte dell'installazione del tuo sistema AFX 1K o AFX 2K, link:https://review.docs.netapp.com/us-en/ontap-systems-switches_hotfix-refactor-phase1/switch-cisco-9364d-gx2a/install-configure-switches-in-afx-workflow-9364d.html#configure-switches["configura i tuoi switch"] e poi link:https://review.docs.netapp.com/us-en/ontap-systems-switches_hotfix-refactor-phase1/switch-cisco-9364d-gx2a/install-configure-switches-in-afx-workflow-9364d.html#complete-afx-system-setup["completa la configurazione del sistema AFX"].

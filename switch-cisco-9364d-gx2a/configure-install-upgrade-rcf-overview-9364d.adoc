@@ -1,0 +1,180 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-install-upgrade-rcf-overview-9364d.html 
+sidebar: sidebar 
+keywords: install, upgrade, cluster, switch, cisco 9364d-gx2a 
+summary: 'Puoi installare o aggiornare il file di configurazione di riferimento (RCF) sugli switch Nexus 9364D-GX2A. Installi una versione supportata dell"RCF sugli switch come parte di una nuova installazione di sistema AFX 1K o AFX 2K, di una sostituzione dello switch o di un ripristino dello switch alle impostazioni di fabbrica predefinite. Aggiorni a una versione supportata dell"RCF sugli switch per supportare nuovo hardware, una nuova versione di ONTAP o per allinearti a una nuova versione di NX-OS nella configurazione del tuo sistema AFX.' 
+---
+= Installa o aggiorna la panoramica RCF - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puoi installare o aggiornare il file di configurazione di riferimento (RCF) sugli switch Nexus 9364D-GX2A. Installi una versione supportata dell'RCF sugli switch come parte di una nuova installazione di sistema AFX 1K o AFX 2K, di una sostituzione dello switch o di un ripristino dello switch alle impostazioni di fabbrica predefinite. Aggiorni a una versione supportata dell'RCF sugli switch per supportare nuovo hardware, una nuova versione di ONTAP o per allinearti a una nuova versione di NX-OS nella configurazione del tuo sistema AFX.
+
+
+NOTE: L'installazione o l'aggiornamento di RCF è indipendente dall'installazione o dall'aggiornamento di NX-OS. Se installi o aggiorni sia NX-OS che RCF, ti consiglio di installare o aggiornare prima NX-OS.
+
+
+
+[[understand-the-supported-rcf-versions]]
+=== Comprendi le versioni RCF supportate
+
+La versione di ONTAP in esecuzione sul tuo sistema AFX e la versione di NX-OS sui tuoi switch determinano le versioni di RCF supportate dai tuoi switch. Le versioni di RCF hanno configurazioni di velocità delle porte preimpostate che determinano quante porte dello switch sono in modalità breakout (4x100GbE) e quante in modalità non breakout.
+
+[NOTE]
+====
+Per l'elenco aggiornato delle versioni di RCF supportate, vedi la pagina link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet NetApp Cisco"^].
+
+Le informazioni sulla porta dello switch puoi trovarle anche nel  https://hwu.netapp.com["Hardware Universe NetApp"^].
+
+====
+* Se possiedi un sistema AFX 1K, RCF 10.0 e versioni successive sono supportate.
+* Se possiedi un sistema AFX 2K, RCF 10.1 e versioni successive sono supportate.
+* RCF 10.0 ha un file e supporta gli switch condivisi `Cluster-HA-Storage AFX RCF_10.0`.
++
+Ad esempio, la tabella seguente mostra i raggruppamenti preimpostati delle porte dello switch, le relative velocità delle porte e l'utilizzo per questo file RCF.
+
++
+[cols="1,2"]
+|===
+| Gruppi di porte switch | Velocità e utilizzo delle porte 
+
+
+ a| 
+Da Ethernet1/1/1-4 a Ethernet1/62/1-4
+ a| 
+Modalità 4x100GbE per connessioni cluster, HA e storage
+
+
+
+ a| 
+Ethernet1/63, Ethernet1/64
+ a| 
+400GbE ISL
+
+|===
+* RCF 10.1 prevede file diversi per i diversi casi d'uso dei sistemi AFX 1K e AFX 2K. A seconda di come vuoi usare gli switch nella configurazione del sistema AFX 1K o AFX 2K (condiviso, solo storage o solo cluster e HA), scegli il file RCF appropriato.
++
+Ad esempio, se usi gli switch come switch condivisi in un sistema AFX 2K, usi il file RCF appropriato per quel caso d'uso. Il file RCF appropriato potrebbe avere un nome simile a  `RCF-v10.1-NX9364D-GX2A-CL1-ST1-100GBR31-400G31.txt`. La tabella seguente mostra i gruppi preimpostati delle porte dello switch, le loro velocità e l'utilizzo per questo file RCF.
+
++
+[cols="1,2"]
+|===
+| Gruppi di porte switch | Velocità e utilizzo delle porte 
+
+
+ a| 
+Ethernet1/1/1-4 a Ethernet1/31/1-4
+ a| 
+Modalità 4x100GbE per connessioni intra-cluster, HA e shelf di storage
+
+
+
+ a| 
+Ethernet1/32 a Ethernet1/62
+ a| 
+Modalità 400GbE per connessioni intra-cluster, HA e di storage
+
+
+
+ a| 
+Ethernet1/63, Ethernet1/64
+ a| 
+Connessioni ISL intra-cluster da 400GbE
+
+|===
++
+[NOTE]
+====
+Puoi modificare i gruppi preimpostati per regolare il numero di porte switch in modalità breakout (4x100GbE) e in modalità 400GbE quando devi adattare una configurazione di velocità delle porte diversa per il tuo sistema AFX.
+
+Questa operazione la fai in un secondo momento, come parte della procedura di installazione o aggiornamento di RCF.
+
+====
+
+
+
+
+[[change-port-speed-configuration]]
+=== Modifica la configurazione della velocità della porta
+
+Per gli switch con RCF 10.1 e versioni successive, puoi modificare la configurazione della velocità delle porte per regolare il numero di porte dello switch in modalità breakout (4x100GbE) e in modalità non breakout (400GbE) quando devi adattare una diversa configurazione della velocità delle porte per il tuo sistema AFX.
+
+Esegui questa modifica come parte della procedura di installazione o aggiornamento di RCF. Le procedure includono passaggi che rimandano a questa pagina.
+
+Inserisci i comandi su entrambi gli switch.
+
+[cols="1,2"]
+|===
+| Modifica la velocità delle porte | Passi 
+
+
+ a| 
+Trasforma le porte non breakout in porte breakout
+ a| 
+. Entra in modalità di configurazione nella CLI.
+. Modifica la velocità delle porte e le modalità breakout sugli switch:
++
+Per designare le porte breakout, usa il comando  `interface breakout module`.
+
++
+Ad esempio, per designare le porte 15-19 in modalità 400GbE come porte breakout (4x100GbE), usa quanto segue:
+
++
+`interface breakout module 1 port 15-19 map 100g-4x`
+
+. Modifica l'elenco delle porte con le nuove porte che devono utilizzare il profilo di porta per la velocità di porta desiderata.
++
+Ad esempio, per modificare l'elenco delle porte con le nuove porte, 15-19, per il profilo di porta a 100G, usa quanto segue:
+
++
+`interface e1/15/1-4, e1/16/1-4, e1/17/1-4, e1/18/1-4, e1/19/1-4`
+
+. Imposta in modo fisso le porte breakout (4x100GbE) dello switch a 100GbE. Se non imposti la velocità in modo fisso, le porte non si attiveranno e rimarranno in uno stato di errore disabilitato.
++
+`speed 100000`
+
++
+`no negotiate auto`
+
+
+
+
+
+ a| 
+Riporta le porte breakout alle porte non breakout
+ a| 
+. Entra in modalità di configurazione nella CLI.
+. Per riportare le porte breakout a porte non breakout, usa il comando  `no interface breakout` in modalità config.
++
+Ad esempio, per riportare le porte 15-19 alla modalità 400GbE, usa quanto segue:
+
++
+`no interface breakout module 1 port 15-19`
+
+
+
+|===
+
+
+[[suggested-documentation]]
+=== Documentazione suggerita
+
+Prima di installare o aggiornare l'RCF sugli switch, ti consigliamo di consultare la seguente documentazione:
+
+* Consulta l'articolo della Knowledge Base di NetApp link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori informazioni quando installi o aggiorni il tuo RCF.
+* Consultare la  https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per verificare le porte corrette sulla propria piattaforma.
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco (NSS)"^]
++
+Consultare la tabella di compatibilità degli switch per le versioni ONTAP e RCF supportate sul sito di supporto NetApp .  Si noti che possono esserci dipendenze tra la sintassi dei comandi nella RCF e la sintassi presente in versioni specifiche di NX-OS.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Switch Cisco Nexus serie 9000"^]
++
+Per la documentazione completa sulle procedure di upgrade e downgrade degli switch Cisco , fare riferimento alle guide software e di aggiornamento appropriate disponibili sul sito Web Cisco .
+
+
+
+.Cosa succederà ora?
+Dopo aver esaminato la panoramica di installazione o aggiornamento di RCF, puoi link:configure-install-rcf-9364d.html["installare l'RCF"] o link:configure-upgrade-rcf-9364d.html["aggiornare l'RCF"] come necessario.

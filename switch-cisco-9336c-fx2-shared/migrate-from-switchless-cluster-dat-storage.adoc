@@ -24,6 +24,7 @@ Se si dispone di un ambiente cluster switchless a due nodi esistente, è possibi
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 Assicurarsi che:
@@ -56,6 +57,7 @@ Assicurarsi che:
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 .Informazioni sugli esempi
@@ -70,6 +72,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di cluster sw
 
 
 
+[[step-1-migrate-from-a-switchless-cluster-with-direct-attached]]
 === Passaggio 1: Migrazione da un cluster switchless con collegamento diretto
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh` .
@@ -649,6 +652,7 @@ RPC status:
 
 
 
+[[step-2-set-up-the-shared-switch]]
 === Passaggio 2: configurare lo switch condiviso
 
 Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:

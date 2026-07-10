@@ -6,6 +6,7 @@
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Linee guida
@@ -25,6 +26,7 @@ Assicurati di avere quanto segue:
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 .Informazioni su questo compito
@@ -37,6 +39,7 @@ Gli esempi nella seguente procedura mostrano nodi che utilizzano "e0a" e "e0b" c
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Cambia il livello di privilegio in avanzato, inserendo `y` quando viene richiesto di continuare:
@@ -92,6 +95,7 @@ cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Passaggio 2: configurare porte e cablaggio
 
 . Organizzare le porte del cluster su ogni switch in gruppi in modo che le porte del cluster nel gruppo 1 vadano al cluster switch 1 e le porte del cluster nel gruppo 2 vadano al cluster switch 2.  Questi gruppi saranno necessari più avanti nella procedura.
@@ -399,6 +403,7 @@ image::../media/tnsc_node1_and_node2_direct_connection.PNG[Connessione diretta t
 
 
 
+[[step-3-verify-the-configuration]]
 === Passaggio 3: verificare la configurazione
 
 . Verificare che le porte su entrambi i nodi siano collegate correttamente:

@@ -15,6 +15,7 @@ Seguire questa procedura per sostituire uno switch NVIDIA SN2100 difettoso in un
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Cluster esistente e infrastruttura di rete
@@ -44,6 +45,7 @@ NOTE: È necessario eseguire il comando per migrare un cluster LIF dal nodo in c
 
 
 
+[[enable-console-logging]]
 == Abilita la registrazione della console
 
 NetApp consiglia vivamente di abilitare la registrazione della console sui dispositivi utilizzati e di adottare le seguenti misure quando si sostituisce lo switch:
@@ -55,6 +57,7 @@ NetApp consiglia vivamente di abilitare la registrazione della console sui dispo
 
 
 
+[[replace-the-switch]]
 == Sostituire l'interruttore
 
 .Informazioni sugli esempi
@@ -145,6 +148,7 @@ swp16      100G   BondMember  sw1                swp16
 ====
 
 
+[[step-1-prepare-for-replacement]]
 === Fase 1: Preparazione alla sostituzione
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
@@ -174,6 +178,7 @@ Se necessario, verificare, scaricare e installare le versioni appropriate del so
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Passaggio 2: configurare porte e cablaggio
 
 [role="tabbed-block"]
@@ -627,6 +632,7 @@ e3b       Cluster      Cluster          up    9000  auto/10000  healthy  false
 ====
 
 
+[[step-3-verify-the-configuration]]
 === Passaggio 3: verificare la configurazione
 
 [role="tabbed-block"]

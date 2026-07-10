@@ -1,0 +1,37 @@
+---
+permalink: switch-cisco-9808/configure-review-cabling-config-requirements-9808.html 
+sidebar: sidebar 
+keywords: 9808 cabling setup, 9808 switches configuration, nx-os 
+summary: Se stai installando nuovi switch Cisco Nexus 9808 come parte di una nuova installazione del sistema AFX 2K, sostituendo un modulo supervisor o ripristinando uno switch alle impostazioni di fabbrica, devi esaminare i seguenti requisiti di cablaggio e configurazione. 
+---
+= Verifica i requisiti di cablaggio e configurazione - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se stai installando switch Cisco Nexus 9808 come parte di una nuova installazione del sistema AFX 2K, sostituendo un modulo supervisor o ripristinando uno switch alle impostazioni di fabbrica, devi esaminare i seguenti requisiti di cablaggio e configurazione.
+
+
+
+[[hard-code-the-speed-on-breakout-ports]]
+== Imposta la velocità in modo fisso sulle porte breakout
+
+Devi impostare manualmente le porte breakout dello switch (4x100GbE) su 100GbE. Se non imposti manualmente la velocità, le porte non si attiveranno e saranno in uno stato di errore disabilitato.
+
+Ad esempio, per impostare la velocità 100GbE sulle porte breakout 19-35, fai così in modalità di configurazione. L'esempio mostra i comandi applicati al primo switch (cs1). Ripeti questi comandi per il secondo switch.
+
+[listing, subs="+quotes"]
+----
+(cs1)# *configure terminal*
+Enter configuration commands, one per line. End with CNTL/Z.
+(cs1)(config)# *interface e1/19/1-4,e1/20/1-4,e1/21/1-4,e1/22/1-4,e1/23/1-4,e1/24/1-4,e1/25/1-4,e1/26/1-4,e1/27/1-4,e1/28/1-4,e1/29/1-4,e1/30/1-4,e1/31/1-4,e1/32/1-4,e1/33/1-4,e1/34/1-4,e1/35/1-4*
+(cs1)(config-if)# *speed 100000*
+(cs1)(config-if)# *no negotiate auto*
+(cs1)(config-if)# *exit*
+(cs1)(config)# *exit*
+(cs1)# *copy running-config startup-config*
+----
+.Cosa succederà ora?
+Dopo che hai soddisfatto i requisiti di cablaggio e configurazione, tu link:configure-install-nxos-9808.html["installa NX-OS"].

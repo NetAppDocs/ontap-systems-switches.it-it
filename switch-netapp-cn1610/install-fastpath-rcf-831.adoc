@@ -17,6 +17,7 @@ I passaggi di installazione sono gli stessi sia per gli switch di gestione NetAp
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Prima di iniziare
@@ -36,6 +37,7 @@ Assicurati di consultare la tabella di compatibilità degli switch sul http://my
 
 
 
+[[install-the-fastpath-software]]
 == Installa il software FASTPATH
 
 La seguente procedura utilizza la sintassi clustered Data ONTAP 8.2.  Di conseguenza, il cluster Vserver, i nomi LIF e l'output CLI sono diversi da quelli in Data ONTAP 8.3.
@@ -62,6 +64,7 @@ Il link:https://hwu.netapp.com/["Hardware Universe"^] contiene maggiori informaz
 
 
 
+[[step-1-migrate-cluster]]
 === Passaggio 1: migrazione del cluster
 
 . Visualizza informazioni sulle porte di rete sul cluster:
@@ -252,6 +255,7 @@ Copy operation successful
 
 
 
+[[step-2-install-the-fastpath-software-and-rcf]]
 === Passaggio 2: installare il software FASTPATH e RCF
 
 . Verificare la versione in esecuzione del software FASTPATH.
@@ -463,6 +467,7 @@ System will now restart!
 
 
 
+[[step-3-validate-installation]]
 === Passaggio 3: convalidare l'installazione
 
 . Effettuare nuovamente l'accesso e verificare che lo switch esegua la nuova versione del software FASTPATH.

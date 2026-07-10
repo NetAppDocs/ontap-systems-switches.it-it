@@ -1,0 +1,49 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-switch-workflow-9364d.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure 9364d-gx2a switch 
+summary: 'Configuri gli switch Cisco 9332D-GX2B come parte dell"installazione di un nuovo sistema AFX 1K o AFX 2K, della sostituzione di uno switch o del ripristino alle impostazioni di fabbrica.' 
+---
+= Configura il flusso di lavoro dello switch - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configuri gli switch Cisco 9364D-GX2A come parte dell'installazione di un nuovo sistema AFX 1K o AFX 2K, della sostituzione di uno switch o del ripristino alle impostazioni di fabbrica.
+
+Potresti essere indirizzato a questo flusso di lavoro o a singoli argomenti in questo flusso di lavoro, secondo le necessità della tua procedura specifica per link:install-configure-switches-in-afx-workflow-9364d.html["Installa e configura un nuovo sistema AFX 1K o AFX 2K"], link:replace-9364d-cluster.html["Sostituisci uno switch"] o link:maintain-reset-switch-9364d.html["Reimposta uno switch alle impostazioni predefinite di fabbrica"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-complete-initial-setup-9364d.html["Completa la configurazione iniziale dello switch"]
+[role="quick-margin-para"]
+Dopo aver acceso gli switch, questi iniziano il processo di avvio ed entrano nella procedura guidata di configurazione. Ti viene chiesto di rispondere a una serie di domande per eseguire la configurazione iniziale (di avvio) degli switch.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:configure-review-cabling-config-requirements-9364d.html["Rivedi i requisiti di cablaggio e configurazione"]
+[role="quick-margin-para"]
+Controlla i requisiti di cablaggio e configurazione.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:configure-install-nxos-9364d.html["Installa NX-OS"]
+[role="quick-margin-para"]
+Installa la versione corrente di NX-OS sugli switch che supportano il tuo sistema AFX 1K o AFX 2K.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:configure-install-upgrade-rcf-overview-9364d.html["Installa RCF"]
+[role="quick-margin-para"]
+Installa la versione corrente di RCF sugli switch che supportano il tuo sistema AFX 1K o AFX 2K. Il link ti porta all'argomento di panoramica sull'installazione o l'aggiornamento di RCF, che contiene le informazioni che devi conoscere prima di installare l'RCF.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-verify-ssh-9364d.html["Verifica SSH per la raccolta dei log"]
+[role="quick-margin-para"]
+Verifica che SSH sia abilitato così puoi utilizzare la funzionalità di raccolta dei log del health monitor dello switch Ethernet (CSHM).
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:../switch-cshm/cshm-overview.html["Configura il monitoraggio dello stato di salute dello switch Ethernet"]
+[role="quick-margin-para"]
+Configura il monitoraggio dello stato di salute degli switch Ethernet (CSHM) per garantire il corretto funzionamento degli switch e per la raccolta dei log degli switch a fini di debug e risoluzione dei problemi.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]link:configure-smart-call-9364d.html["Configura Smart Call Home (opzionale)"]
+[role="quick-margin-para"]
+ONTAP supporta il monitoraggio dello stato di salute degli switch Ethernet (CSHM) per monitorare gli switch del cluster AFX, oltre alla possibilità di raccogliere i log diagnostici degli switch. Cisco Smart Call Home è un'opzione che offre supporto proattivo e ti aiuta a risolvere eventuali problemi che potrebbero sorgere con gli switch.
+
+.Cosa succederà ora?
+* Se hai configurato lo switch nell'ambito di una nuova installazione di sistema AFX 1K o AFX 2K, devi link:install-complete-afx-setup-9364d.html["completa la configurazione del sistema AFX"].
+* Se hai configurato lo switch durante la sostituzione o lo hai ripristinato alle impostazioni di fabbrica, dovrebbe funzionare normalmente.
+

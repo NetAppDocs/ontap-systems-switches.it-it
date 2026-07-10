@@ -15,6 +15,7 @@ summary: È possibile migrare i vecchi switch cluster Cisco non disruptivi per u
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 È necessario essere a conoscenza di alcune informazioni di configurazione, connessioni delle porte e requisiti di cablaggio quando si sostituiscono alcuni vecchi switch cluster Cisco con switch cluster NVIDIA SN2100. Fare riferimento a link:configure-overview-sn2100-cluster.html["Panoramica dell'installazione e della configurazione degli switch NVIDIA SN2100"].
@@ -54,6 +55,7 @@ NOTE: Se si modifica la velocità delle porte cluster e0a ed e1a sui sistemi AFF
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 .Informazioni sugli esempi
@@ -89,6 +91,7 @@ Questa procedura copre il seguente scenario:
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
@@ -113,6 +116,7 @@ Viene visualizzato il prompt avanzato (*>).
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Passaggio 2: configurare porte e cablaggio
 
 . Determinare lo stato amministrativo o operativo per ciascuna interfaccia del cluster.
@@ -522,6 +526,7 @@ swp16      100G   BondMember  sw1                 swp16
 
 
 
+[[step-3-verify-the-configuration]]
 === Passaggio 3: verificare la configurazione
 
 . Abilita il ripristino automatico sui LIF del cluster:

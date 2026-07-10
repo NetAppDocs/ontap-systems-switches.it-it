@@ -25,6 +25,7 @@ L'health monitor dello switch Ethernet (CSHM) è responsabile di garantire lo st
 ====
 
 
+[[before-you-begin]]
 == Prima di iniziare
 
 * L'utente deve avere accesso allo switch `show` comandi.  Se non sono disponibili, crea un nuovo utente e concedigli le autorizzazioni necessarie.
@@ -43,6 +44,7 @@ L'health monitor dello switch Ethernet (CSHM) è responsabile di garantire lo st
 
 
 
+[[steps]]
 == Passi
 
 [role="tabbed-block"]

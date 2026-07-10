@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9364d-gx2a/maintain-reset-switch-9364d.html 
+keywords: reset switch factory defaults 
+summary: Puoi ripristinare uno switch Cisco Nexus 9364D-GX2A alle impostazioni di fabbrica originali quando lo switch viene dismesso o quando si verifica un guasto e non può essere recuperato, richiedendo di riconfigurarlo manualmente. 
+---
+= Reimposta uno switch alle impostazioni di fabbrica - Cisco Nexus 9364D-GX2A
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puoi ripristinare uno switch Cisco Nexus 9364D-GX2A alle impostazioni di fabbrica originali quando lo switch viene dismesso o quando si verifica un guasto e non può essere recuperato, richiedendo di riconfigurarlo manualmente.
+
+.Prima di iniziare
+È necessario connettersi allo switch tramite la console seriale.
+
+.Informazioni su questo compito
+* Questa attività reimposta la configurazione della rete di gestione.
+* Il  `reload`comando utilizzato in questa procedura riavvia lo switch, interrompendo tutto il traffico di rete che lo attraversa. (Dovresti eseguire questa procedura durante una finestra di manutenzione, quando lo switch non è in uso.)
+
+
+.Passi
+. Elimina la configurazione di avvio esistente:
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Ricarica NX-OS:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+Il sistema si riavvia ed entra nella procedura guidata di configurazione.
+
++
+
+NOTE: Durante il riavvio, se viene visualizzato il messaggio "Interrompere il provisioning automatico e continuare con la configurazione normale? (sì/no)[n]", rispondi *sì* per procedere.
+
+. Se lo switch è in fase di dismissione, la procedura è completata; altrimenti, devi configurare lo switch utilizzando il link:configure-switch-workflow-9364d.html["Configura il flusso di lavoro dello switch"].
+

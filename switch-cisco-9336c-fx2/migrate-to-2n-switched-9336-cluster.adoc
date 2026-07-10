@@ -17,6 +17,7 @@ Il processo di migrazione funziona per tutti i nodi che utilizzano porte ottiche
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Cosa ti servirà
@@ -61,10 +62,12 @@ Consultare la link:https://hwu.netapp.com["Hardware Universe"^] per informazioni
 
 
 
+[[migrate-the-switches]]
 == Migrare gli switch
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
@@ -89,6 +92,7 @@ Il prompt avanzato(`*>` ) appare.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Passaggio 2: configurare porte e cablaggio
 
 . Disabilitare tutte le porte rivolte verso il nodo (non le porte ISL) su entrambi i nuovi switch del cluster cs1 e cs2.
@@ -410,6 +414,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 
+[[step-3-verify-the-configuration]]
 === Passaggio 3: verificare la configurazione
 
 . Abilita il ripristino automatico sui LIF del cluster.

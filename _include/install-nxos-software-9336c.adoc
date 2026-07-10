@@ -4,6 +4,7 @@
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Prima di iniziare
@@ -44,6 +45,7 @@ Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e n
 
 
 
+[[install-the-software]]
 == Installa il software
 
 La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi degli switch Cisco Nexus serie 9000; salvo diversa indicazione, vengono utilizzati i comandi ONTAP .

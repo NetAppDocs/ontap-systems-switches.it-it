@@ -1,0 +1,80 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-verify-ssh-9332d.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
+summary: 'Se stai configurando gli switch come parte di una nuova installazione di un sistema AFX 1K o AFX 2K, di una sostituzione di uno switch o di un ripristino delle impostazioni di fabbrica, e vuoi usare le funzionalità di Cluster Switch Health Monitor (CSHM) e di raccolta dei log, devi verificare che SSH e le chiavi SSH siano abilitati sugli switch.' 
+---
+= Verifica SSH per la raccolta dei log - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se stai configurando gli switch come parte di una nuova installazione di un sistema AFX 1K o AFX 2K, di una sostituzione di uno switch o di un ripristino delle impostazioni di fabbrica, per utilizzare la funzionalità di raccolta dei log del health monitor degli switch Ethernet (CSHM), devi verificare che SSH sia abilitato sugli switch.
+
+.Prima di iniziare
+È necessario connettersi allo switch tramite la console seriale.
+
+.Passi
+. Verificare che SSH sia abilitato:
++
+[listing, subs="+quotes"]
+----
+(switch) *show ssh server*
+ssh version 2 is enabled
+----
+. Verificare che le chiavi SSH siano abilitate:
++
+`show ssh key`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *show ssh key*
+
+**************************************
+rsa Keys generated:Wed May 14 18:49:37 2025
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQCndfdJesautdCwk5Mk/7pKOFl0IeShc9uBtj74F52vbjyf1FHOCXX7Xf3Vopxs6L1hbzgCpFLo9E7pZBd3I+1AoLyQULtR3svzNieGY8mlWZGLtpKf/P2fDCd8JVJaejrwQhm49WUPiC6ziEqBDMOGhJpD2e9++umyDdr6
+NbmK8Q==
+
+
+bitcount:1024
+fingerprint:
+SHA256:QtNU+Qq2I4ZfYwEfMEB1+z8w7xaKTlantTdsjLBx+OU
+**************************************
+could not retrieve dsa key information
+**************************************
+ecdsa Keys generated:Wed May 14 18:50:56 2025
+
+
+ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAAYnv17T+JlGmH8rg81xiOow0mPmkbkIG0o7h9EchixO3i3KjgQr8AwqkRHNTcQC3lRnizhJFUeMGCwuQTurziRCwE6fAOkWa2MRyXA1DYRKKXjVEOnW9+MvinMipHQ0cCc
+YSExhh7j4HvWHIuYv8RmD7e3rmDQFlyyiLwdmpGfas2yaw==
+
+
+bitcount:521
+fingerprint:
+SHA256:7cpZ5NGnIq5Iamw67ke+9o4qG9D3xxmGPauVl4X5934
+**************************************
+
+(switch)# *show feature | include scpServer*
+scpServer              1          enabled
+(switch)# *show feature | include ssh*
+sshServer              1          enabled
+(switch)#
+----
+====
+
+
+.Cosa succederà ora?
+* Dopo che hai verificato che SSH è abilitato per la raccolta dei log, link:../switch-cshm/cshm-overview.html["configura il monitoraggio dello stato di salute dello switch Ethernet"].
++
+** Dopo che hai configurato il monitoraggio dello stato di salute dello switch Ethernet, se vuoi sfruttare la funzionalità di supporto Smart Call Home di Cisco, devi link:configure-smart-call-9332d.html["configurare Smart Call Home"].
+
+
+* Se hai configurato lo switch nell'ambito di una nuova installazione di sistema AFX 1K o AFX 2K, devi link:install-complete-afx-setup-9332d.html["completa la configurazione del sistema AFX"].
+

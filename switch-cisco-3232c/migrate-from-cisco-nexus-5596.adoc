@@ -15,6 +15,7 @@ Seguire questa procedura per migrare gli switch cluster Cisco Nexus 5596 esisten
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 Prima della migrazione, assicurati di rivederelink:migrate-requirements-3232c.html["Requisiti di migrazione"] .
@@ -33,6 +34,7 @@ Per maggiori informazioni, fare riferimento a:
 
 
 
+[[migrate-the-switch]]
 == Migrare lo switch
 
 .Informazioni sugli esempi
@@ -82,6 +84,7 @@ Questa procedura copre i seguenti scenari:
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
@@ -311,6 +314,7 @@ Cluster
 
 
 
+[[step-2-configure-ports]]
 === Passaggio 2: configurare le porte
 
 . Disattivare le porte di interconnessione del cluster fisicamente collegate allo switch CL2:
@@ -1230,6 +1234,7 @@ cluster::> system cluster-switch delete –device CL2
 
 
 
+[[step-3-complete-the-procedure]]
 === Fase 3: Completare la procedura
 
 . Verificare che siano monitorati gli switch del cluster appropriati:

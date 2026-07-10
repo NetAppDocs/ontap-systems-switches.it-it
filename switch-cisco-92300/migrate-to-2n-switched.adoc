@@ -22,6 +22,7 @@ NOTE: Al termine della migrazione, potrebbe essere necessario installare il file
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Prima di iniziare
@@ -54,6 +55,7 @@ Il link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Interruttori"^]
 
 
 
+[[migrate-the-switch]]
 == Migrare lo switch
 
 .Informazioni sugli esempi
@@ -71,6 +73,7 @@ Il link:https://hwu.netapp.com["Hardware Universe"^] contiene le informazioni pi
 
 
 
+[[step-1-prepare-for-migration]]
 === Fase 1: Prepararsi alla migrazione
 
 . Cambia il livello di privilegio in avanzato, inserendo `y` quando viene richiesto di continuare:
@@ -106,6 +109,7 @@ cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Passaggio 2: configurare cavi e porte
 
 . Disabilitare tutte le porte rivolte verso il nodo (non le porte ISL) su entrambi i nuovi switch del cluster cs1 e cs2.
@@ -398,6 +402,7 @@ cs2(config-if-range)# *no shutdown*
 
 
 
+[[step-3-verify-the-configuration]]
 === Passaggio 3: verificare la configurazione
 
 . Abilita il ripristino automatico sui LIF del cluster.

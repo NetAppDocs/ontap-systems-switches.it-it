@@ -33,6 +33,7 @@ CAUTION: Prima di installare una nuova versione del software dello switch e degl
 
 
 
+[[step-1-prepare-for-the-upgrade]]
 == Passaggio 1: Prepararsi all'aggiornamento
 
 . Visualizza le porte del cluster su ciascun nodo connesso agli switch del cluster:
@@ -249,6 +250,7 @@ cs2
 
 
 
+[[step-2-configure-ports]]
 == Passaggio 2: configurare le porte
 
 . Sullo switch del cluster cs1, chiudere le porte collegate alle porte del cluster dei nodi.
@@ -700,6 +702,7 @@ cluster1::*>
 
 
 
+[[step-3-verify-the-cluster-network-configuration-and-cluster-health]]
 == Passaggio 3: verificare la configurazione della rete del cluster e lo stato del cluster
 
 . Verificare che le porte dello switch collegate alle porte del cluster siano *attive*.

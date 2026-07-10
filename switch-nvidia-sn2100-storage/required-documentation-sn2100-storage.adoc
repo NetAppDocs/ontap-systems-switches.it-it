@@ -49,6 +49,7 @@ Descrive la procedura per sostituire uno switch di archiviazione NVIDIA SN2100 d
 |===
 
 
+[[ontap-systems-documentation]]
 == Documentazione dei sistemi ONTAP
 
 Per configurare un sistema ONTAP, sono necessari i seguenti documenti per la versione del sistema operativo.

@@ -1,0 +1,59 @@
+---
+section: switch-cisco-9808
+title: Cisco Nexus 9808
+entries:
+- title: Documentazione di riferimento
+  pdf-filename: Reference_documents_9808
+  url: "/switch-cisco-9808/reference-documentation-9808.html"
+- title: Installa e configura gli switch nei sistemi AFX
+  pdf-filename: Installa e configura gli switch nei sistemi AFX 9808
+  entries:
+  - title: Flusso di lavoro per installare e configurare gli switch
+    url: "/switch-cisco-9808/install-configure-switches-in-afx-workflow-9808.html"
+  - title: Prepararsi all'installazione
+    url: "/switch-cisco-9808/install-prepare-9808.html"
+  - title: Installa switch
+    url: "/switch-cisco-9808/install-switches-9808.html"
+    pdf-filename: Install_hardware_9808
+  - title: Configurazione completa del sistema AFX
+    url: "/switch-cisco-9808/install-complete-afx-setup-9808.html"
+- title: Configura gli switch
+  pdf-filename: configure_switch_9808
+  entries:
+  - title: Configura il flusso di lavoro dello switch
+    url: "/switch-cisco-9808/configure-switch-workflow-9808.html"
+  - title: Completa la configurazione iniziale dello switch
+    url: "/switch-cisco-9808/configure-complete-initial-setup-9808.html"
+  - title: Rivedi i requisiti di cablaggio e configurazione
+    url: "/switch-cisco-9808/configure-review-cabling-config-requirements-9808.html"
+  - title: Installa o aggiorna NX-OS
+    pdf-filename: Installa_aggiornamento_nx-os
+    entries:
+    - title: Panoramica sull'installazione o l'aggiornamento di NX-OS
+      url: "/switch-cisco-9808/configure-install-upgrade-nxos-overview-9808.html"
+    - title: Installa NX-OS
+      url: "/switch-cisco-9808/configure-install-nxos-9808.html"
+    - title: Aggiorna NX-OS
+      url: "/switch-cisco-9808/configure-upgrade-nxos-9808.html"
+  - title: Installa o aggiorna RCF
+    pdf-filename: Installa_aggiorna_rcf
+    entries:
+    - title: Panoramica sull'installazione o l'aggiornamento di RCF
+      url: "/switch-cisco-9808/configure-install-upgrade-rcf-overview-9808.html"
+    - title: Installa RCF
+      url: "/switch-cisco-9808/configure-install-rcf-9808.html"
+    - title: Aggiornamento RCF
+      url: "/switch-cisco-9808/configure-upgrade-rcf-9808.html"
+  - title: Verifica SSH per la raccolta dei log
+    url: "/switch-cisco-9808/configure-verify-ssh-9808.html"
+  - title: Configura Smart Call Home
+    url: "/switch-cisco-9808/configure-smart-call-9808.html"
+- title: Mantenere
+  pdf-filename: Maintain_switches_9808
+  entries:
+  - title: Mantieni la panoramica
+    url: "/switch-cisco-9808/maintain-overview-9808.html"
+  - title: Sostituisci i FRU
+    url: "/switch-cisco-9808/maintain-replace-frus-9808.html"
+  - title: Ripristinare l'interruttore alle impostazioni predefinite di fabbrica
+    url: "/switch-cisco-9808/maintain-reset-switch-9808.html"

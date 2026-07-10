@@ -1,0 +1,76 @@
+---
+permalink: switch-cisco-9808/install-configure-switches-in-afx-workflow-9808.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-cisco-9808 switch 
+summary: Per installare e configurare i tuoi switch Cisco Nexus 9808 come parte del tuo nuovo sistema AFX 2K, usi una combinazione di documentazione da questo sito degli switch e dal sito dei sistemi AFX. La documentazione fornisce link che ti guidano secondo necessità. 
+---
+= Installa e configura gli switch in un workflow di sistema AFX - Cisco Nexus 9808
+:allow-uri-read: 
+
+
+[role="lead"]
+Per installare e configurare i tuoi switch Cisco Nexus 9808 come parte del tuo nuovo sistema AFX 2K, usi una combinazione di documentazione da questo sito degli switch e dal sito dei sistemi AFX. La documentazione fornisce link che ti guidano secondo necessità.
+
+
+
+[[install-switches]]
+=== Installa switch
+
+Per installare gli switch, devi preparare l'installazione e poi installare gli switch (insieme all'hardware del sistema AFX), il che include il cablaggio e l'accensione degli switch.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:install-prepare-9808.html["Preparati per l'installazione"]
+[role="quick-margin-para"]
+Preparati a installare e configurare gli switch consultando la documentazione dei sistemi Cisco e ONTAP, preparando il tuo sito e comprendendo la configurazione predefinita delle porte dello switch per la versione di RCF supportata dal tuo sistema AFX.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:install-switches-9808.html["Installa gli switch"]
+[role="quick-margin-para"]
+Sei indirizzato al flusso di lavoro di installazione e configurazione del sistema AFX 2K per installare gli switch (insieme all'hardware del sistema AFX), collegare i cavi agli switch e poi accenderli. Poi vieni reindirizzato a questo flusso di lavoro per configurare gli switch.
+
+
+
+[[configure-switches]]
+=== Configura gli switch
+
+Per configurare gli switch, devi completare la configurazione iniziale dello switch, verificare i requisiti di cablaggio e configurazione, installare NX-OS, installare RCF, verificare SSH per la raccolta dei log, configurare il monitoraggio dello stato dello switch Ethernet (CSHM) e configurare Smart Call Home (opzionale).
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-complete-initial-setup-9808.html["Completa la configurazione iniziale dello switch"]
+[role="quick-margin-para"]
+Dopo aver acceso gli switch, questi iniziano il processo di avvio ed entrano nella procedura guidata di configurazione. Ti viene chiesto di rispondere a una serie di domande per eseguire la configurazione iniziale (di avvio) degli switch.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:configure-review-cabling-config-requirements-9808.html["Rivedi i requisiti di cablaggio e configurazione"]
+[role="quick-margin-para"]
+Controlla i requisiti di cablaggio e configurazione.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:configure-install-nxos-9808.html["Installa NX-OS"]
+[role="quick-margin-para"]
+Installa la versione attuale di NX-OS sugli switch che supportano il tuo sistema AFX 2K.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:configure-install-upgrade-rcf-overview-9808.html["Installare l'RCF"]
+[role="quick-margin-para"]
+Installa la versione corrente di RCF sugli switch che supportano il tuo sistema AFX 2K. Il link ti porta all'argomento di panoramica sull'installazione o l'aggiornamento di RCF, che contiene le informazioni che devi conoscere prima di installare l'RCF.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-verify-ssh-9808.html["Verifica SSH per la raccolta dei log"]
+[role="quick-margin-para"]
+Verifica che SSH sia abilitato così puoi utilizzare la funzionalità di raccolta dei log del health monitor dello switch Ethernet (CSHM).
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:../switch-cshm/cshm-overview.html["Configura il monitoraggio dello stato di salute dello switch Ethernet"]
+[role="quick-margin-para"]
+Configura il monitoraggio dello stato di salute degli switch Ethernet (CSHM) per garantire il corretto funzionamento degli switch e per la raccolta dei log degli switch a fini di debug e risoluzione dei problemi.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]link:configure-smart-call-9808.html["Configura Smart Call Home (opzionale)"]
+[role="quick-margin-para"]
+ONTAP supporta il monitoraggio dello stato di salute degli switch Ethernet (CSHM) per monitorare gli switch del cluster AFX, oltre alla possibilità di raccogliere i log diagnostici degli switch. Cisco Smart Call Home è un'opzione che offre supporto proattivo e ti aiuta a risolvere eventuali problemi che potrebbero sorgere con gli switch.
+
+
+
+[[complete-afx-system-setup]]
+=== Configurazione completa del sistema AFX
+
+Per completare la configurazione del sistema AFX 2K, devi accendere i componenti del sistema AFX e completare le procedure di configurazione del sistema.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:install-complete-afx-setup-9808.html["Completa la configurazione del sistema AFX"]
+[role="quick-margin-para"]
+Consulta la documentazione dei sistemi AFX per completare la configurazione del tuo sistema AFX 2K accendendo gli shelf di storage e i controller, verificando la connettività degli switch e poi completando le procedure di configurazione del sistema.
+
+.Cosa succederà ora?
+Dopo aver completato la configurazione del sistema AFX, puoi iniziare a usare il tuo sistema AFX. Puoi anche link:https://docs.netapp.com/us-en/ontap-afx/index.html["Scopri di più sul tuo sistema AFX e su come usarlo"^].

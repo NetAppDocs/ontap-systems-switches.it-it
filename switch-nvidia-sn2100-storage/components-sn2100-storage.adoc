@@ -15,12 +15,14 @@ Per l'installazione e la manutenzione dello switch NVIDIA SN2100, assicurarsi di
 
 
 
+[[cabinet-details]]
 == Dettagli del mobile
 
 Installare lo switch NVIDIA SN2100 (X190006/X190106) nell'armadio switch doppio/singolo NVIDIA con le staffe standard incluse con lo switch.
 
 
 
+[[rail-kit-details]]
 == Dettagli del kit ferroviario
 
 Nella tabella seguente sono elencati i codici articolo e la descrizione degli switch e dei kit di guide MSN2100:
@@ -72,7 +74,7 @@ Kit di guide, NVIDIA Single switch profondità ridotta
 
 |===
 
-NOTE: Per dettagli, consultare la documentazione NVIDIA link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["installazione del kit di switch e rail SN2100"^].
+NOTE: Per dettagli, consultare la documentazione NVIDIA link:https://networking-docs.nvidia.com/sn2000hw/latest/installation["installazione del kit di switch e rail SN2100"^].
 
 .Cosa c'è dopo?
 Dopo aver confermato i componenti e i numeri di parte, puoi rivedere il link:required-documentation-sn2100-storage.html["documentazione richiesta"].

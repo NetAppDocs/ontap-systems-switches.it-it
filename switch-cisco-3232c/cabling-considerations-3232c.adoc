@@ -15,6 +15,7 @@ Prima di configurare lo switch Cisco 3232C, leggere le seguenti considerazioni.
 
 
 
+[[support-for-nvidia-cx6-cx6-dx-and-cx7-ethernet-ports]]
 == Supporto per porte Ethernet NVIDIA CX6, CX6-DX e CX7
 
 Se si collega una porta dello switch a un controller ONTAP utilizzando le porte NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) o ConnectX-7 (CX7), è necessario codificare la velocità della porta dello switch.

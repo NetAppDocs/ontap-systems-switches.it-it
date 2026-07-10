@@ -29,6 +29,7 @@ Durante questa procedura non è necessario alcun collegamento inter-switch (ISL)
 
 
 
+[[step-1-install-the-rcf-on-the-switches]]
 == Fase 1: installare l'RCF sugli switch
 
 . Visualizza le porte del cluster su ciascun nodo connesso agli switch del cluster:
@@ -315,6 +316,7 @@ Consultare link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_co
 
 
 
+[[step-2-verify-the-switch-connections]]
 == Passaggio 2: verificare le connessioni dello switch
 
 . Verificare che le porte dello switch collegate alle porte del cluster siano *attive*.
@@ -415,6 +417,7 @@ cluster1::*>
 
 
 
+[[step-3-setup-your-ontap-cluster]]
 == Passaggio 3: configura il tuo cluster ONTAP
 
 NetApp consiglia di utilizzare System Manager per configurare nuovi cluster.

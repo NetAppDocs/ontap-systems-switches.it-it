@@ -15,6 +15,7 @@ Seguire questa procedura per installare il software NX-OS sullo switch cluster N
 
 
 
+[[review-requirements]]
 == Requisiti di revisione
 
 .Prima di iniziare
@@ -29,6 +30,7 @@ Seguire questa procedura per installare il software NX-OS sullo switch cluster N
 
 
 
+[[install-the-software]]
 == Installa il software
 
 .Informazioni su questo compito

@@ -15,6 +15,7 @@ Prima di migrare agli switch cluster Cisco Nexus 3232C, rivedere le informazioni
 
 
 
+[[cn1610-migrate-requirements]]
 == Requisiti di migrazione CN1610
 
 Gli switch del cluster supportano le seguenti connessioni di nodo:
@@ -74,6 +75,7 @@ Le versioni ONTAP e FASTPATH ​​supportate in questa procedura sono elencate 
 
 
 
+[[cn5596-requirements]]
 == Requisiti CN5596
 
 Gli switch del cluster utilizzano le seguenti porte per le connessioni ai nodi:
