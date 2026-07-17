@@ -20,7 +20,7 @@ Assicurati di avere quanto segue:
 * Un cluster completamente funzionante (nessun errore nei log o problemi simili).
 * Il file RCF corrente, disponibile da https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Switch cluster Broadcom"^] pagina.
 * Una configurazione di avvio nell'RCF che riflette le immagini di avvio desiderate, necessaria se si installa solo EFOS e si mantiene la versione RCF corrente.  Se è necessario modificare la configurazione di avvio per riflettere le immagini di avvio correnti, è necessario farlo prima di riapplicare l'RCF, in modo che ai riavvii futuri venga istanziata la versione corretta.
-* Una connessione della console allo switch, necessaria quando si installa l'RCF da uno stato predefinito di fabbrica.  Questo requisito è facoltativo se hai utilizzato l'articolo della Knowledge Base https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Broadcom mantenendo la connettività remota"^] per cancellare la configurazione in anticipo.
+* È necessaria una connessione console allo switch, richiesta durante l'installazione dell'RCF partendo dalle impostazioni di fabbrica.
 
 
 .Documentazione suggerita
@@ -47,12 +47,11 @@ La procedura richiede l'uso sia dei comandi ONTAP sia dei comandi dello switch B
 Durante questa procedura non è necessario alcun collegamento inter-switch (ISL) operativo. Ciò è voluto perché le modifiche alla versione RCF possono influire temporaneamente sulla connettività ISL. Per garantire operazioni del cluster senza interruzioni, la seguente procedura migra tutti i LIF del cluster allo switch partner operativo, eseguendo al contempo i passaggi sullo switch di destinazione.
 
 
-CAUTION: Prima di installare una nuova versione del software dello switch e degli RCF, utilizzare l'articolo della Knowledge Base https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Broadcom mantenendo la connettività remota"^] .  Se è necessario cancellare completamente le impostazioni dello switch, sarà necessario eseguire nuovamente la configurazione di base.  È necessario connettersi allo switch tramite la console seriale, poiché una cancellazione completa della configurazione reimposta la configurazione della rete di gestione.
-
-
 
 [[step-1-prepare-for-upgrade]]
 == Passaggio 1: Prepararsi all'aggiornamento
+
+Utilizzando la ONTAP CLI per i seguenti passaggi, preparati all'aggiornamento RCF sopprimendo la creazione automatica dei casi, se necessario, verificando lo stato amministrativo e operativo delle porte e disabilitando il ripristino automatico sulle LIF del cluster.
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
@@ -270,6 +269,8 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 [[step-2-configure-ports]]
 == Passaggio 2: configurare le porte
 
+Utilizzi la CLI dello switch e la CLI di ONTAP (come indicato nei passaggi successivi) per la configurazione delle porte. Configuri le porte sul primo switch (cs2) e poi ripeti questi passaggi per il secondo switch (cs1).
+
 . Sullo switch cs2, confermare l'elenco delle porte connesse ai nodi nel cluster.
 +
 [source, cli]
@@ -344,7 +345,7 @@ show running-config
 . Pulire la configurazione sullo switch cs2 ed eseguire una configurazione di base.
 +
 
-CAUTION: Quando si aggiorna o si applica un nuovo RCF, è necessario cancellare le impostazioni dello switch ed eseguire la configurazione di base.  Per cancellare le impostazioni dello switch è necessario essere connessi allo switch tramite la console seriale.  Questo requisito è facoltativo se hai utilizzato l'articolo della Knowledge Base https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Broadcom mantenendo la connettività remota"] per cancellare la configurazione in anticipo.
+CAUTION: Quando aggiorni o applichi un nuovo RCF, devi cancellare le impostazioni dello switch ed eseguire la configurazione di base. Devi essere connesso allo switch tramite la console seriale per cancellare le impostazioni dello switch.
 
 +
 
@@ -457,9 +458,6 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 .EFOS versione 3.12.x e successive
 --
-
-CAUTION: Il file deve essere denominato  `reference-config.scr` quando lo si carica e si applica il file RCF, altrimenti la fase di applicazione dello script non andrà a buon fine.
-
 . Copia il file RCF sullo switch cs2 utilizzando uno dei seguenti protocolli di trasferimento: HTTP, HTTPS, FTP, SFTP o SCP.
 +
 Questo esempio mostra come SFTP viene utilizzato per copiare un RCF nel bootflash sullo switch cs2:
@@ -468,7 +466,7 @@ Questo esempio mostra come SFTP viene utilizzato per copiare un RCF nel bootflas
 
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/BES-53248_RCF_v1.9-Cluster-HA.txt nvram:reference-config.scr*
+(cs2)# *copy sftp://172.19.2.1/BES-53248_RCF_v1.9-Cluster-HA.txt nvram:reference-config*
 Remote Password:**
 Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
@@ -528,7 +526,7 @@ Questo esempio mostra come SFTP viene utilizzato per copiare un RCF nel bootflas
 [listing, subs="+quotes"]
 ----
 (cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.9-Cluster-HA.txt
-nvram:script BES-53248_RCF_v1.9-Cluster-HA.scr*
+nvram:script BES-53248_RCF_v1.9-Cluster-HA*
 Remote Password:**
 Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
@@ -696,16 +694,6 @@ Configuration Saved!
 (cs2)# *reload*
 Are you sure you would like to reset the system? (y/n) *y*
 System will now restart!
-----
-. Sullo switch del cluster cs2, richiamare le porte connesse alle porte del cluster dei nodi.
-+
-[listing, subs="+quotes"]
-----
-(cs2)> *enable*
-(cs2)# *configure*
-(cs2)(Config)# *interface 0/1-0/16*
-(cs2)(Interface 0/1-0/16)# *no shutdown*
-(cs2)(Config)# *exit*
 ----
 . Salvare la configurazione in esecuzione nella configurazione di avvio:
 +
@@ -909,14 +897,14 @@ cluster1::*>
 ----
 --
 ====
-. [[step21]]Ripetere i passaggi da 1 a 20 sullo switch cs1.
+. [[step20]]Ripeti i passaggi da 1 a 19 sullo switch cs1.
 . Abilita il ripristino automatico sui LIF del cluster:
 +
 [source, cli]
 ----
 network interface modify -vserver Cluster -lif * -auto-revert true
 ----
-. . Verificare che i LIF del cluster siano tornati alla loro porta home:
+. Verificare che i LIF del cluster siano tornati alla loro porta home:
 +
 [source, cli]
 ----
@@ -931,6 +919,8 @@ Per ulteriori dettagli, consultare link:https://docs.netapp.com/us-en/ontap/netw
 
 [[step-3-verify-the-configuration]]
 == Passaggio 3: verificare la configurazione
+
+Dopo l'aggiornamento di RCF su entrambi gli switch, verifica la configurazione della rete del cluster e lo stato di salute del cluster.
 
 . Sullo switch cs1, verificare che le porte dello switch connesse alle porte del cluster siano *attive*:
 +
@@ -1124,7 +1114,7 @@ RPC status:
 ----
 --
 ====
-. Ripristinare il livello di privilegio su amministratore:
+. [[step6]] Cambia di nuovo il livello di privilegio su admin:
 +
 [source, cli]
 ----
@@ -1137,3 +1127,6 @@ set -privilege admin
 system node autosupport invoke -node * -type all -message MAINT=END
 ----
 
+
+.Cosa succederà ora?
+Dopo aver aggiornato il tuo RCF, puoi link:configure-ssh.html["Abilita SSH per la raccolta dei log"].

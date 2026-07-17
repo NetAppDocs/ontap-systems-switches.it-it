@@ -428,4 +428,8 @@ unit 	active 	    backup   current-active  next-active
 
 
 .Cosa c'è dopo?
-Dopo aver installato il software EFOS, puoi link:configure-licenses.html["installa le tue licenze"].
+Dopo aver installato il software EFOS, puoi:
+
+* link:configure-licenses.html["Installa le tue licenze"].
+* link:efos-install-rcf-license-file.html["Installa il file RCF e il file di licenza per EFOS 3.12.0.1 e versioni successive"], se applicabile alla tua configurazione.
+
