@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: 'L"health monitor degli switch Ethernet (CSHM) è responsabile di garantire la salute operativa degli switch di rete Cluster e Storage e di raccogliere i log degli switch per scopi di debug.' 
 ---
-= Panoramica del monitoraggio dello stato dello switch
+= health monitor switch di rete Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,3 +12,5 @@ summary: 'L"health monitor degli switch Ethernet (CSHM) è responsabile di garan
 
 [role="lead"]
 L'health monitor dello switch Ethernet (CSHM) è responsabile di garantire lo stato operativo degli switch di rete e di raccogliere i log degli switch per scopi di debug.
+
+CSHM monitora i cluster e gli switch di rete di storage per mantenere l'affidabilità dell'infrastruttura di rete. L'health monitor rileva automaticamente i problemi degli switch, raccoglie i log per la risoluzione dei problemi e fornisce avvisi quando si verificano problemi di rete. CSHM supporta diversi fornitori e modelli di switch, aiutandoti a identificare e risolvere i problemi di connettività di rete prima che influiscano sul tuo ambiente di storage.

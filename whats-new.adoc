@@ -15,97 +15,100 @@ Scopri i nuovi switch per i sistemi di storage ONTAP. Per ulteriori informazioni
 
 
 
-[[new-switch-support]]
-== Nuovo supporto per gli switch
-
-[cols="25h,~,~"]
-|===
-| Interruttori | Descrizione | Disponibile a partire da 
-
-
- a| 
-Switch Cisco a 32 porte 400GbE (X190300-CS-PI e X190300-PE)
- a| 
-Supporto per switch Intra-Cluster/HA/Storage Cisco 9332D-GX2B.
- a| 
-ONTAP 9.17.1
+[[july-2026]]
+== Luglio 2026
 
 
 
- a| 
-Switch Cisco a 64 porte 400GbE (X190310-CS-PI)
- a| 
-Supporto per switch Intra-Cluster/HA/Storage Cisco 9364D-GX2A.
- a| 
-ONTAP 9.17.1
+[[new-cisco-nexus-9808-switch-for-afx-2k]]
+=== Nuovo switch Cisco Nexus 9808 per AFX 2K
+
+I nuovi switch Cisco 9808 si connettono ai nodi controller AFX 2K con le shelf di storage. Questo nuovo switch ti permette di creare cluster ONTAP con più di due nodi. Vengono utilizzati protocolli avanzati per ottimizzare le performance. Il design si basa sul tagging VLAN con percorsi di rete multipli, oltre che su configurazioni di tech-refresh, per garantire operatività continua e facilità di upgrade.
+
+Si tratta di switch Cisco 400GbE a 36 porte con 1 modulo Supervisor, 7 moduli Fabric e 4 unità di alimentazione (PSU) (X-N9K-C9808-B1-A) che supportano ONTAP 9.19.1 e versioni successive.
 
 
 
- a| 
-Switch cluster e storage Cisco Nexus 9336C-FX2-T a 12 porte 10/25/40/100GbE (X190212-CS-PE e X190212-CS-PI)
- a| 
-Supporta configurazioni cluster 10/25/40/100GbE e configurazioni di storage 100GbE (switch-attached storage).
- a| 
-ONTAP 9.10.1
+[[2025-releases]]
+== Rilasci del 2025
+
+.Ottobre 2025
+[%collapsible]
+====
+.Cisco Nexus 9332D-GX2B e 9364D-GX2A switch per AFX 1K
+Gli switch Cisco 9364D-GX2A e Cisco 9332D-GX2B ti permettono di creare cluster ONTAP con più di due nodi. Vengono utilizzati protocolli avanzati per ottimizzare le performance. Il design si basa sul tagging VLAN con percorsi di rete multipli, oltre che su configurazioni di tech-refresh, per garantire operatività continua e facilità di upgrade.
+
+Sono switch Cisco 400GbE a 32 e 64 porte (X190300-CS-PI, X190300-PE e X190310-CS-PI) che supportano ONTAP 9.17.1 e versioni successive.
+
+Il nuovo NetApp AFX sistema storage offre una soluzione disaggregata progettata per soddisfare i rigorosi requisiti dei carichi di lavoro NAS e S3 dalle performance elevate, incluse le applicazioni di AI/ML. I sistemi AFX offrono funzionalità specializzate per i clienti che necessitano di storage file e storage a oggetti scalabili e ad alto throughput.
+
+====
+.Maggio 2025
+[%collapsible]
+====
+.Switch di storage Cisco Nexus 9336C-FX2-T
+Questi sono switch di storage Cisco a 12 porte 10/25/40/100GbE (X190212-CS-PE e X190212-CS-PI) che supportano ONTAP 9.10.1 e versioni successive. Supportano configurazioni di storage 100GbE (switch-attached storage).
+
+====
 
 
+[[2023-release]]
+== Release 2023
 
- a| 
-Switch cluster e storage Cisco Nexus 9336C-FX2-T a 12 porte 10/25/40/100GbE (X190212-CS-PE e X190212-CS-PI)
- a| 
-Supporta configurazioni cluster 10/25/40/100GbE e configurazioni di storage 100GbE (switch-attached storage).
- a| 
-ONTAP 9.10.1
+.Maggio 2023
+[%collapsible]
+====
+.Switch di rete cluster Cisco Nexus 9336C-FX2-T
+Questi sono switch di rete Cisco per cluster a 12 porte 10/25/40/100GbE (X190212-CS-PE e X190212-CS-PI) che supportano ONTAP 9.10.1 e versioni successive. Supportano configurazioni cluster 10/25/40/100GbE.
 
-
-
- a| 
-Switch NVIDIA 100GbE a 16 porte (X190006-PE e X190006-PI)
- a| 
-Supporto per switch di interconnessione cluster e switch di archiviazione NVIDIA SN2100, incluso il supporto per configurazioni IP MetroCluster .
- a| 
-ONTAP 9.10.1
+====
 
 
+[[2022-release]]
+== Release 2022
 
- a| 
-Switch Cisco 100GbE a 36 porte (X190200-CS-PE e X190200-CS-PI)
- a| 
-Supporta un'infrastruttura condivisa (cluster, HA e storage collegato allo switch) sulla stessa coppia di switch Cisco Nexus 9336C-FX2, incluso il supporto per le configurazioni IP MetroCluster .
- a| 
-ONTAP 9.9.1
+.Ottobre 2022
+[%collapsible]
+====
+.switch NVIDIA SN2100
+Il NVIDIA SN2100 è uno switch NVIDIA a 16 porte 100GbE (X190006-PE e X190006-PI) che ti permette di creare cluster ONTAP con più di due nodi, supportando ONTAP 9.10.1 e versioni successive. È uno switch di interconnessione per cluster e storage NVIDIA SN2100, incluso il supporto per configurazioni IP MetroCluster.
 
-
-
- a| 
-Switch Cisco 100GbE a 36 porte (X190200-CS-PE e X190200-CS-PI), (X190210-FE-PE e X190210-FE-PI)
- a| 
-Lo switch di interconnessione cluster e lo switch di storage Cisco Nexus 9336C-FX2 supportano i sistemi di storage AFF e ASA , nonché la connettività dati front-end.
- a| 
-ONTAP 9.8
+====
 
 
+[[2021-release]]
+== Release 2021
 
- a| 
-Switch Broadcom BES-53248 (X190005 e X190005R)
- a| 
-Supporto dello switch di interconnessione cluster Broadcom BES-53248 per controller AFF/ FAS con porte 10/25GbE e 40/100GbE.
- a| 
-ONTAP 9.8
+.Maggio 2021
+[%collapsible]
+====
+.Switch Cisco Nexus 9336C-FX2
+Il Cisco Nexus 9336C-FX2 è uno switch Cisco a 36 porte 100GbE (X190200-CS-PE e X190200-CS-PI). Supporta un'infrastruttura condivisa (cluster, HA e storage collegato allo switch) sulla stessa coppia di switch Cisco Nexus 9336C-FX2, incluso il supporto per configurazioni IP MetroCluster, supportando ONTAP 9.9.1 e versioni successive.
+
+====
 
 
+[[2019-release]]
+== Release 2019
 
- a| 
-Switch Cisco 100GbE a 36 porte (X190200) e switch Cisco 100GbE a 32 porte (X190100 e X190100R)
- a| 
-Lo switch di archiviazione Cisco Nexus 3232C supporta la connessione di unità NVMe NS224 ai sistemi di archiviazione AFF e ASA :
+.Maggio 2019
+[%collapsible]
+====
+.Switch Broadcom BES-53248
+Lo switch Broadcom BES-53248 (X190005 e X190005R) supporta i controller AFF/FAS con porte 10/25GbE e 40/100GbE, supportando ONTAP 9.8 e versioni successive.
+
+====
+.Marzo 2019
+[%collapsible]
+====
+.Switch di cluster e storage Cisco Nexus 3232C
+Lo switch Cisco Nexus 3232C è uno switch Cisco a 36 porte 100GbE (X190200) e uno switch Cisco a 32 porte 100GbE (X190100 e X190100R). Lo switch di storage Cisco Nexus 3232C supporta le connessioni ai seguenti shelf di dischi NVMe NS224 e ai sistemi storage AFF e ASA:
 
 * AFF A800/ AFF ASA A800
 * AFF A700/ AFF ASA A700
 * AFF A400/ AFF ASA A400
-* AFF A320
 
- a| 
-ONTAP 9.8
 
-|===
+Supportano ONTAP 9.8 e versioni successive.
+
+====

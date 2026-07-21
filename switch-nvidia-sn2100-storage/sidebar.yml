@@ -1,10 +1,10 @@
 ---
 section: switch-nvidia-sn2100-storage
-title: NVIDIA SN2100
+title: Storage NVIDIA SN2100
 entries:
 - title: Iniziare
   entries:
-  - title: Avvio rapido
+  - title: Installa e configura il flusso di lavoro
     url: "/switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
   - title: Requisiti di configurazione
     url: "/switch-nvidia-sn2100-storage/configure-reqs-sn2100-storage.html"
@@ -46,5 +46,4 @@ entries:
   - title: Migrazione dagli switch di archiviazione Cisco
     url: "/switch-nvidia-sn2100-storage/migrate-cisco-storage-switch-sn2100-storage.html"
 - title: Sostituire l'interruttore
-  pdf-filename: Sostituisce_switch_sn2100-storage
   url: "/switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"

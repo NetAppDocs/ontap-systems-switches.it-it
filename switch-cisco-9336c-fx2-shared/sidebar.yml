@@ -4,7 +4,7 @@ title: Cisco Nexus 9336C-FX2
 entries:
 - title: Iniziare
   entries:
-  - title: Avvio rapido
+  - title: Installa e configura il flusso di lavoro
     url: "/switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html"
   - title: Requisiti di configurazione
     url: "/switch-cisco-9336c-fx2-shared/configure-reqs-9336c-shared.html"

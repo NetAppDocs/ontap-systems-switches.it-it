@@ -2,7 +2,7 @@
 permalink: switch-cshm/monitor-overview.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: È possibile utilizzare i seguenti comandi ...... 
+summary: 'Utilizza gli avvisi dell"Ethernet switch health monitor per identificare e risolvere i problemi degli switch di rete nel tuo cluster ONTAP.' 
 ---
 = Panoramica del controllo sanitario
 :allow-uri-read: 
@@ -12,6 +12,8 @@ summary: È possibile utilizzare i seguenti comandi ......
 
 [role="lead"]
 I monitor di integrità monitorano in modo proattivo determinate condizioni critiche nel cluster e generano avvisi se rilevano un guasto o un rischio.
+
+Dopo aver configurato CSHM, gli health monitor controllano continuamente gli switch di rete per individuare potenziali problemi. Quando un health monitor rileva un guasto o un rischio, genera un avviso che include informazioni diagnostiche per aiutarti a rispondere rapidamente. Puoi visualizzare gli avvisi attivi per identificare i problemi attuali e visualizzare le definizioni degli avvisi disponibili per capire quali condizioni vengono monitorate.
 
 Per visualizzare gli avvisi di monitoraggio dello stato dello switch Ethernet attualmente generati, eseguire il comando: `system health alert show -monitor ethernet-switch`
 

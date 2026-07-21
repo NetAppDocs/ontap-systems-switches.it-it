@@ -14,13 +14,17 @@ sidebar:
   entries:
   - title: Documentazione degli switch per sistemi di storage ONTAP
     url: "/index.html"
+  - title: Note di rilascio
+    entries:
+    - title: Novità per gli switch
+      url: "/whats-new.html"
+    - title: Fine del supporto
+      url: "/eoa-switches.html"
   - title: Iniziare
     entries:
-    - title: Cosa c'è di nuovo
-      url: "/whats-new.html"
     - title: Scopri di più sugli switch dei sistemi ONTAP
       url: "/get-started/learn-switch-concept.html"
-    - title: Alzati e corri
+    - title: Avvio rapido
       url: "/get-started/get-up-and-running.html"
   - title: Interruttori di sistema AFX
     url: "/afx/index.html"
@@ -33,27 +37,26 @@ sidebar:
     entries:
     - section: switch-bes-53248
     - section: switch-cisco-9336c-fx2
-    - section: switch-nvidia-sn2100
   - title: Interruttori di archiviazione
     url: "/storage/index.html"
     entries:
     - section: switch-cisco-9336c-fx2-storage
-    - section: switch-cisco-3232c-storage
-    - section: switch-nvidia-sn2100-storage
   - title: Switch condivisi
     url: "/shared/index.html"
     entries:
     - section: switch-cisco-9336c-fx2-shared
       pdf-filename: switch-cisco-9336c-fx2-storage
-  - section: switch-cshm
-  - title: Interruttori di fine disponibilità
+  - title: Monitorare lo stato dell'interruttore
+    url: "/cshm/index.html"
     entries:
-    - title: Panoramica
-      url: "/overview-eod.html"
-    - section: switch-cisco-3232c
-    - section: switch-cisco-3132q-v
-    - section: switch-cisco-92300
-    - section: switch-netapp-cn1610
+    - section: switch-cshm-configure
+    - section: switch-cshm-monitor
+    - section: switch-cshm-log-collection
+  - title: Interruttori di fine disponibilità
+    url: "/eoa/index.html"
+    entries:
+    - section: switch-nvidia-sn2100
+    - section: switch-nvidia-sn2100-storage
   - title: Note legali
     url: "/legal-notices.html"
 product-family:

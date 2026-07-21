@@ -13,6 +13,9 @@ summary: Aggiorni NX-OS sugli switch Cisco Nexus 9364D-GX2A per supportare nuovo
 [role="lead"]
 Aggiorni NX-OS sugli switch Cisco Nexus 9364D-GX2A per supportare nuovo hardware o una nuova versione di ONTAP sul tuo sistema AFX 1K o AFX 2K.
 
+
+NOTE: NetApp ti consiglia di completare prima qualsiasi aggiornamento del software ONTAP, quindi di eseguire l'aggiornamento del software per gli switch.
+
 .Prima di iniziare
 * Assicurati di avere un backup aggiornato della configurazione dello switch.
 * Verifica che il cluster sia perfettamente funzionante, ovvero che non ci siano errori nei log o problemi simili.
@@ -455,7 +458,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 [[step-2-install-the-nx-os]]
 == Passaggio 2: Installa NX-OS
 
-Installi NX-OS sul primo switch (cs1) installando e verificando le nuove versioni di NX-OS ed EPLD, verificando l'integrità di tutte le porte del cluster, e poi ripeti questi passaggi sul secondo switch (cs2).
+Installi NX-OS sul primo switch (cs1) installando e verificando le nuove versioni di NX-OS ed EPLD, verificando lo stato di salute di tutte le porte del cluster e poi ripetendo questi passaggi sul secondo switch (cs2).
 
 . Usa l'interfaccia a riga di comando dello switch per copiare le immagini NX-OS ed EPLD su uno switch.
 +
@@ -472,7 +475,7 @@ L'esempio utilizza sftp.
 
 [listing, subs="+quotes"]
 ----
-cs2# *copy sftp: bootflash: vrf management*
+cs1# *copy sftp: bootflash: vrf management*
 Enter source filename: */code/nxos.10.4.2.bin*
 Enter hostname for the sftp server: *172.19.2.1*
 Enter username: *root*
@@ -488,7 +491,7 @@ sftp> exit
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 
-cs2# *copy sftp: bootflash: vrf management*
+cs1# *copy sftp: bootflash: vrf management*
 Enter source filename: */code/n9000-epld.10.4.2.F.img*
 Enter hostname for the sftp server: *172.19.2.1*
 Enter username: *user1*
@@ -515,7 +518,7 @@ Copy complete.
 ====
 [listing, subs="+quotes"]
 ----
-cs2# *show version*
+cs1# *show version*
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
 Copyright (C) 2002-2025, Cisco and/or its affiliates.
@@ -548,7 +551,7 @@ Software
 
 
 Hardware
-  cisco Nexus9000 C9332D-GX2B Chassis
+  cisco Nexus9000 C9364D-GX2A Chassis
   Intel(R) Xeon(R) CPU D-1633N @ 2.50GHz with 32802156 kB of memory.
   Processor Board ID FLMXXXXXXXX
   Device name: cs2
@@ -570,7 +573,7 @@ plugin
 
 Active Package(s):
 
-cs2#
+cs1#
 ----
 ====
 . Utilizzando l'interfaccia a riga di comando dello switch, installa l'immagine NX-OS.
@@ -588,7 +591,7 @@ L'esempio utilizza la versione 10.4.2 di NX-OS.
 
 [listing, subs="+quotes"]
 ----
-cs2# *install all nxos bootflash:nxos.10.4.2.bin*
+cs1# *install all nxos bootflash:nxos.10.4.2.bin*
 
 Installer will perform compatibility check first. Please wait.
 Installer is forced disruptive
@@ -659,7 +662,7 @@ Finishing the upgrade, switch will reboot in 10 seconds.
 ====
 [listing, subs="+quotes"]
 ----
-cs2# *show version*
+cs1# *show version*
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
 Copyright (C) 2002-2025, Cisco and/or its affiliates.
@@ -692,7 +695,7 @@ Software
 
 
 Hardware
-  cisco Nexus9000 C9332D-GX2B Chassis
+  cisco Nexus9000 C9364D-GX2A Chassis
   Intel(R) Xeon(R) CPU D-1633N @ 2.50GHz with 32802156 kB of memory.
   Processor Board ID FLMXXXXXXXX
   Device name: cs2
@@ -714,7 +717,7 @@ plugin
 
 Active Package(s):
 
-cs2#
+cs1#
 ----
 ====
 . Tramite l'interfaccia a riga di comando dello switch, aggiorna l'immagine EPLD utilizzando i seguenti comandi:
@@ -735,7 +738,7 @@ L'esempio utilizza la versione 10.4.2.F di EPLD
 
 [listing, subs="+quotes"]
 ----
-cs2# *show version module 1 epld*
+cs1# *show version module 1 epld*
 
 EPLD Device                     Version
 ---------------------------------------
@@ -747,7 +750,7 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 
-cs2# *install epld bootflash:n9000-epld.10.4.2.F.img module all*
+cs1# *install epld bootflash:n9000-epld.10.4.2.F.img module all*
 Compatibility check:
 Module        Type         Upgradable        Impact    Reason
 ------  ------------------ ----------------- --------- -----------

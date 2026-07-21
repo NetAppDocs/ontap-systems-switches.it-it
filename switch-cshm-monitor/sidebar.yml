@@ -1,0 +1,12 @@
+---
+section: switch-cshm-monitor
+title: Controllare lo stato dell'interruttore
+entries:
+- title: Panoramica del controllo sanitario
+  url: "/switch-cshm/monitor-overview.html"
+- title: Gestire il monitoraggio degli switch
+  url: "/switch-cshm/monitor-manage.html"
+- title: Verificare il monitoraggio dell'interruttore
+  url: "/switch-cshm/monitor-verify.html"
+- title: Risoluzione dei problemi degli avvisi
+  url: "/switch-cshm/monitor-troubleshoot.html"

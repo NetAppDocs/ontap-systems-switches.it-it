@@ -4,7 +4,7 @@ title: NVIDIA SN2100
 entries:
 - title: Iniziare
   entries:
-  - title: Avvio rapido
+  - title: Installa e configura il flusso di lavoro
     url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
   - title: Requisiti di configurazione
     url: "/switch-nvidia-sn2100/configure-reqs-sn2100-cluster.html"

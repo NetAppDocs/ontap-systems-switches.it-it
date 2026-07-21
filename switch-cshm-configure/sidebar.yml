@@ -1,0 +1,10 @@
+---
+section: switch-cshm-configure
+title: Configurare il monitoraggio dello stato dello switch
+entries:
+- title: Panoramica della configurazione
+  url: "/switch-cshm/config-overview.html"
+- title: Configurare la raccolta dei log
+  url: "/switch-cshm/config-log-collection.html"
+- title: Configurare SNMPv3 (facoltativo)
+  url: "/switch-cshm/config-snmpv3.html"

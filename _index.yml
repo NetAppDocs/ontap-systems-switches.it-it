@@ -12,7 +12,7 @@ indexpage:
     links:
     - title: Cosa c'è di nuovo
       url: whats-new.html
-    - title: Avvio rapido
+    - title: Iniziare
       url: "/get-started/get-up-and-running.html"
     - title: Note sulla versione ONTAP
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
@@ -28,14 +28,10 @@ indexpage:
       url: "/shared/index.html"
   - title: Interruttori di fine disponibilità
     links:
-    - title: Switch cluster - Cisco Nexus 3232c
-      url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
-    - title: Switch cluster - Cisco Nexus 3132Q-V
-      url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
-    - title: Switch cluster - Cisco Nexus 92300YC
-      url: "/switch-cisco-92300/install-overview-cisco-92300.html"
-    - title: Switch cluster - NetApp CN1610
-      url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
+    - title: NVIDIA SN2100
+      url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
+    - title: Storage NVIDIA SN2100
+      url: "/switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
   - title: Monitoraggio dello stato dello switch Ethernet
     links:
     - title: Configurare il monitoraggio dello stato dello switch

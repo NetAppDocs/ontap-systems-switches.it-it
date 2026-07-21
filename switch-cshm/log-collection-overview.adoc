@@ -2,7 +2,7 @@
 permalink: switch-cshm/log-collection-overview.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: È possibile utilizzare i comandi forniti .... 
+summary: Utilizza la raccolta dei log CSHM per raccogliere i log dello switch e i dati diagnostici per risolvere i problemi degli switch di rete. 
 ---
 = Panoramica della raccolta dei registri
 :allow-uri-read: 
@@ -12,5 +12,7 @@ summary: È possibile utilizzare i comandi forniti ....
 
 [role="lead"]
 Impostando la raccolta dei registri, è possibile abilitare una raccolta oraria di dati periodici raccolti da AutoSupport e richiedere registri di supporto dettagliati.
+
+La raccolta dei log ti aiuta a risolvere i problemi degli switch di rete raccogliendo automaticamente i log e i dati diagnostici. Puoi raccogliere dati periodici in base a una pianificazione tramite AutoSupport oppure attivare la raccolta su richiesta quando hai bisogno di log dettagliati per risolvere problemi specifici. I log raccolti offrono visibilità sullo stato di salute dello switch, sulle modifiche alla configurazione e sugli eventi di rete.
 
 Consultare link:config-log-collection.html["Configurare la raccolta dei log"] per ulteriori dettagli.
