@@ -1,0 +1,40 @@
+---
+permalink: switch-cisco-3132q-v/install-overview-cisco-3132qv.html 
+sidebar: sidebar 
+keywords: install, Cisco Nexus 3132Q-V 
+summary: 'Prima di configurare gli switch Cisco Nexus 3132Q-V, dai un"occhiata a una panoramica del processo e della nomenclatura.' 
+---
+= Procedura di installazione e configurazione per gli switch Cisco Nexus 3132Q-V
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Gli switch Cisco Nexus 3132Q-V possono essere utilizzati come cluster switch nel tuo cluster AFF o FAS. I cluster switch ti permettono di creare cluster ONTAP con più di due nodi.
+
+Segui questi passaggi del flusso di lavoro per installare e configurare il tuo switch Cisco Nexus 3132Q-V.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-reqs-3132q.html["Requisiti di configurazione"]
+[role="quick-margin-para"]
+Esamina i requisiti di configurazione per lo switch cluster 3132Q-V.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:required-documentation-3132q.html["Documentazione richiesta"]
+[role="quick-margin-para"]
+Consulta la documentazione specifica degli switch e dei controller per configurare gli switch 3132Q-V e il cluster ONTAP.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:smart-call-home-3132q.html["Requisiti di Smart Call Home"]
+[role="quick-margin-para"]
+Esaminare i requisiti per la funzionalità Cisco Smart Call Home, utilizzata per monitorare i componenti hardware e software della rete.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:install-hardware-workflow.html["Installare l'hardware"]
+[role="quick-margin-para"]
+Installare l'hardware dello switch.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:configure-software-overview-3132q-v-cluster.html["Configurare il software"]
+[role="quick-margin-para"]
+Configurare il software dello switch.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:../switch-cshm/config-overview.html["Configura CSHM"]
+[role="quick-margin-para"]
+Configurare il monitoraggio health monitor dello switch.

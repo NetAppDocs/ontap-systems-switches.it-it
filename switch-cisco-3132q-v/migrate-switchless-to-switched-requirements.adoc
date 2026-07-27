@@ -1,0 +1,112 @@
+---
+permalink: switch-cisco-3132q-v/migrate-switchless-to-switched-requirements.html 
+sidebar: sidebar 
+keywords: install, cisco nexus 3132q-v switch, 
+summary: 'Prima di configurare gli switch Cisco Nexus 3132q-v, dai un"occhiata a una panoramica del processo e della nomenclatura.' 
+---
+= Requisiti per la migrazione
+:allow-uri-read: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se hai un cluster senza switch a due nodi, consulta questa procedura per i requisiti applicabili alla migrazione a un cluster con switch a due nodi.
+
+[NOTE]
+====
+La procedura richiede l'utilizzo sia dei comandi ONTAP che dei comandi degli switch Cisco Nexus 3000 Series; vengono utilizzati i comandi ONTAP, salvo diversa indicazione.
+
+====
+Per ulteriori informazioni, fare riferimento a
+
+* link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 e CN1610"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
+
+
+.Connessioni di porte e nodi
+Assicurati di comprendere i requisiti relativi alle connessioni di porte e nodi e al cablaggio quando esegui la migrazione a un cluster a due nodi con switch di cluster Cisco Nexus 3132Q-V.
+
+* Gli switch del cluster utilizzano le porte Inter-Switch Link (ISL) e1/31-32.
+* Il link:https://hwu.netapp.com/["Hardware Universe"^] contiene informazioni sul cablaggio supportato per gli switch Nexus 3132Q-V:
++
+** I nodi con connessioni cluster 10 GbE richiedono moduli ottici QSFP con cavi in fibra ottica breakout o cavi breakout in rame da QSFP a SFP+.
+** I nodi con connessioni cluster 40 GbE richiedono moduli ottici QSFP/QSFP28 supportati con cavi in fibra ottica o cavi QSFP/QSFP28 in rame a collegamento diretto.
+** Gli switch del cluster utilizzano il cablaggio ISL appropriato: 2x cavi in fibra QSFP28 o cavi in rame a collegamento diretto.
+
+
+* Sul Nexus 3132Q-V, puoi utilizzare le porte QSFP sia in modalità 40 Gb Ethernet che in modalità 4x10 Gb Ethernet.
++
+Per impostazione predefinita, ci sono 32 porte in modalità Ethernet a 40 Gb. Queste porte Ethernet a 40 Gb sono numerate secondo una convenzione di naming a 2 tuple. Ad esempio, la seconda porta Ethernet a 40 Gb è numerata come 1/2. Il processo di modifica della configurazione da Ethernet a 40 Gb a Ethernet a 10 Gb si chiama _breakout_ e il processo di modifica della configurazione da Ethernet a 10 Gb a Ethernet a 40 Gb si chiama _breakin_. Quando suddividi una porta Ethernet a 40 Gb in porte Ethernet a 10 Gb, le porte risultanti sono numerate usando una convenzione di naming a 3 tuple. Ad esempio, le porte di breakout della seconda porta Ethernet a 40 Gb sono numerate come 1/2/1, 1/2/2, 1/2/3 e 1/2/4.
+
+* Sul lato sinistro del Nexus 3132Q-V si trova un gruppo di quattro porte SFP+ multiplexate sulla prima porta QSFP.
++
+Di default, l'RCF è strutturato per utilizzare la prima porta QSFP.
+
++
+Puoi attivare quattro porte SFP+ invece di una porta QSFP per Nexus 3132Q-V usando il comando  `hardware profile front portmode sfp-plus`. Allo stesso modo, puoi reimpostare Nexus 3132Q-V per usare una porta QSFP invece di quattro porte SFP+ usando il comando  `hardware profile front portmode qsfp`.
+
+* Assicurati di aver configurato alcune delle porte del Nexus 3132Q-V per funzionare a 10 GbE o 40 GbE.
++
+Puoi suddividere le prime sei porte in modalità 4x10 GbE usando il comando  `interface breakout module 1 port 1-6 map 10g-4x`. Allo stesso modo, puoi raggruppare le prime sei porte QSFP+ dalla configurazione di breakout usando il comando  `no interface breakout module 1 port 1-6 map 10g-4x`.
+
+* Il numero di porte 10 GbE e 40 GbE è definito nei file di configurazione di riferimento (RCF) disponibili su link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento per switch di rete cluster Cisco®"^].
+
+
+.Prima di iniziare
+* Configurazioni impostate correttamente e funzionanti.
+* Nodi che eseguono ONTAP 9.4 o versioni successive.
+* Tutte le porte del cluster nello stato  `up`.
+* Lo switch cluster Cisco Nexus 3132Q-V è supportato.
+* La configurazione di rete del cluster esistente è la seguente:
++
+** L'infrastruttura del cluster Nexus 3132 è ridondante e pienamente funzionante su entrambi gli switch.
+** Le versioni più recenti di RCF e NX-OS sui tuoi switch.
++
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]Contiene informazioni sulle versioni di ONTAP e NX-OS supportate in questa procedura.
+
+** Connettività di gestione su entrambi gli switch.
+** Accesso alla console di entrambi gli switch.
+** Tutte le interfacce logiche del cluster (LIF) nello stato  `up` senza essere migrate.
+** Personalizzazione iniziale dello switch.
+** Tutte le porte ISL sono abilitate e cablate.
+
+
+
+
+Inoltre, devi pianificare, migrare e leggere la documentazione richiesta sulla connettività 10 GbE e 40 GbE dai nodi agli switch di cluster Nexus 3132Q-V.
+
+.Informazioni sugli esempi utilizzati
+Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
+
+* Switch cluster Nexus 3132Q-V, C1 e C2.
+* I nodi sono n1 e n2.
+
+
+[NOTE]
+====
+Gli esempi in questa procedura utilizzano due nodi, ciascuno dei quali utilizza due porte di interconnessione cluster 40 GbE *e4a* e *e4e*. Il link:https://hwu.netapp.com/["Hardware Universe"^] contiene dettagli sulle porte cluster sulle tue piattaforme.
+
+====
+Questa procedura copre i seguenti scenari:
+
+* *n1_clus1* è la prima interfaccia logica del cluster (LIF) da connettere allo switch del cluster C1 per il nodo *n1*.
+* *n1_clus2* è la prima LIF del cluster da connettere allo switch del cluster C2 per il nodo *n1*.
+* *n2_clus1* è la prima cluster LIF da connettere allo switch del cluster C1 per il nodo *n2*.
+* *n2_clus2* è la seconda LIF del cluster da connettere allo switch del cluster C2 per il nodo *n2*.
+* Il numero di porte 10 GbE e 40 GbE è definito nei file di configurazione di riferimento (RCF) disponibili su link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download del file di configurazione di riferimento per switch di rete cluster Cisco®"^].
+
+
+[NOTE]
+====
+La procedura richiede l'utilizzo sia dei comandi ONTAP che dei comandi degli switch Cisco Nexus 3000 Series; vengono utilizzati i comandi ONTAP, salvo diversa indicazione.
+
+====
+* Il cluster inizia con due nodi connessi e funzionanti in una configurazione di cluster senza switch a due nodi.
+* La prima porta del cluster viene spostata su C1.
+* La seconda porta del cluster è stata spostata su C2.
+* L'opzione cluster senza switch a due nodi è disabilitata.
+
+
+.Cosa succederà ora?
+Dopo aver esaminato i requisiti di migrazione, puoi link:migrate-switchless-prepare-to-migrate.html["preparati a migrare i tuoi switch"].

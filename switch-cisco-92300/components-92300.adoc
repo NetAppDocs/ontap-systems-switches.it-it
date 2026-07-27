@@ -1,0 +1,71 @@
+---
+permalink: switch-cisco-92300/components-92300.html 
+sidebar: sidebar 
+keywords: cisco nexus 92300YC 
+summary: Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete cluster supportati.  È possibile utilizzare switch di gestione aggiuntivi, che sono facoltativi. 
+---
+= Componenti e codici articolo per gli switch Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per l'installazione e la manutenzione dello switch Cisco Nexus 92300YC, assicurarsi di esaminare tutti i componenti dello switch e i relativi codici articolo. Consulta la link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per i dettagli. Consultare link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per ulteriori informazioni sui requisiti di installazione dello switch.
+
+La tabella seguente elenca il codice articolo e la descrizione per lo switch 92300YC, le ventole e gli alimentatori:
+
+[cols="1,2"]
+|===
+| Numero di parte | Descrizione 
+
+
+ a| 
+190003
+ a| 
+Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PTSX (PTSX = scarico lato porte)
+
+
+
+ a| 
+190003R
+ a| 
+Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PSIN (PSIN = aspirazione lato porte)
+
+
+
+ a| 
+X-NXA-FAN-35CFM-B
+ a| 
+Ventola, flusso d'aria in ingresso dal lato porta Cisco N9K
+
+
+
+ a| 
+X-NXA-FAN-35CFM-F
+ a| 
+Ventola, flusso d'aria di scarico lato porta Cisco N9K
+
+
+
+ a| 
+X-NXA-PAC-650W-B
+ a| 
+Alimentatore Cisco 650W - presa d'aria lato porta
+
+
+
+ a| 
+X-NXA-PAC-650W-F
+ a| 
+Alimentatore, Cisco 650W - scarico lato porta
+
+|===
+Dettagli sul flusso d'aria dello switch Cisco Nexus 92300YC:
+
+* Flusso d'aria di scarico lato porta (aria standard): l'aria fredda entra nello chassis attraverso i moduli ventola e alimentatore nel corridoio freddo ed esce attraverso l'estremità porta dello chassis nel corridoio caldo. Flusso d'aria di scarico lato porta con colorazione blu.
+* Flusso d'aria in ingresso dal lato porta (aria inversa): l'aria fredda entra nello chassis attraverso l'estremità delle porte nel corridoio freddo ed esce attraverso i moduli ventola e alimentazione nel corridoio caldo. Flusso d'aria in ingresso dal lato porta con colorazione bordeaux.
+
+
+.Cosa c'è dopo?
+Dopo che hai confermato i componenti e i codici articolo, puoi rivedere il link:required-documentation-92300.html["documentazione richiesta"].

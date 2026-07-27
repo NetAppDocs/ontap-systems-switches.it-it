@@ -40,7 +40,6 @@ Gli switch cluster consentono di creare cluster ONTAP con più di due nodi. Gli 
 
 * Broadcom BES-53248
 * Cisco Nexus 9336C-FX2
-* NVIDIA SN2100
 
 
 
@@ -51,7 +50,6 @@ Gli switch cluster consentono di creare cluster ONTAP con più di due nodi. Gli 
 Gli switch di archiviazione consentono di instradare i dati tra server e array di archiviazione in una rete SAN (Storage Area Network).  Gli switch di archiviazione supportati da NetApp includono:
 
 * Cisco Nexus 9336C-FX2
-* NVIDIA SN2100
 
 
 

@@ -1,6 +1,6 @@
 ---
 section: switch-cisco-3232c
-title: Cisco Nexus 3232C
+title: Switch di rete cluster Cisco Nexus 3232C
 entries:
 - title: Iniziare
   pdf-filename: Overview_3232C
@@ -38,7 +38,7 @@ entries:
   - title: Installa il software NX-OS
     url: "/switch-cisco-3232c/install-nx-os-software-3232c.html"
   - title: Installare o aggiornare l'RCF
-    pdf-filename: installa_aggiornamento_rcf
+    pdf-filename: install_upgrade_rcf
     entries:
     - title: Panoramica sull'installazione o l'aggiornamento di RCF
       url: "/switch-cisco-3232c/install-upgrade-rcf-overview-3232c.html"
@@ -53,14 +53,14 @@ entries:
 - title: Migrare gli switch
   pdf-filename: Migrate_switches_3232C
   entries:
-  - title: Migrazione da cluster switchless a due nodi
-    pdf-filename: Migrare da cluster senza switch
+  - title: Migra da cluster senza switch a due nodi
+    pdf-filename: Migra da cluster senza switch
     entries:
-    - title: Flusso di lavoro per la migrazione da cluster switchless a due nodi
+    - title: Flusso di lavoro di migrazione da cluster senza switch a due nodi
       url: "/switch-cisco-3232c/migrate-from-switchless-workflow.html"
-    - title: Requisiti di migrazione
+    - title: Requisiti per la migrazione
       url: "/switch-cisco-3232c/migrate-from-switchless-migrate-requirements.html"
-    - title: Prepararsi alla migrazione
+    - title: Preparati per la migrazione
       url: "/switch-cisco-3232c/migrate-from-switchless-prepare-to-migrate.html"
     - title: Configura le tue porte
       url: "/switch-cisco-3232c/migrate-from-switchless-configure-ports.html"

@@ -1,0 +1,328 @@
+---
+permalink: switch-netapp-cn1610/migrate-fas22xx-systems.html 
+sidebar: sidebar 
+keywords: migrate, two-node switched cluster, fas22xx systems, single, network connection 
+summary: 'Se hai sistemi FAS22xx in un cluster senza switch a due nodi esistente in cui ogni modulo controller ha una singola connessione back-to-back da 10 GbE per la connettività del cluster, puoi usare l"opzione di rete cluster senza switch e sostituire la connettività diretta back-to-back con connessioni tramite switch.' 
+---
+= Esegui la migrazione a un cluster a due nodi con switch nei sistemi FAS22xx con una singola connessione di rete cluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se hai sistemi FAS22xx in un cluster senza switch a due nodi esistente in cui ogni modulo controller ha una singola connessione back-to-back da 10 GbE per la connettività del cluster, puoi usare l'opzione di rete cluster senza switch e sostituire la connettività diretta back-to-back con connessioni tramite switch.
+
+
+
+[[review-requirements]]
+== Requisiti di revisione
+
+.Prima di iniziare
+Assicurati di avere quanto segue:
+
+* Due connessioni cluster per la migrazione da una configurazione senza switch a una configurazione con switch.
+* Il cluster è integro ed è composto da due nodi collegati tramite connettività back-to-back.
+* I nodi eseguono ONTAP 8.2 o versioni successive.
+* La funzionalità di cluster senza switch non può essere utilizzata con più di due nodi.
+* Tutte le porte del cluster sono nello  `up` stato.
+
+
+.Informazioni correlate
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Articolo 1010449 della Knowledge Base NetApp : Come sopprimere la creazione automatica di casi durante le finestre di manutenzione programmata"^]
+
+
+
+[[migrate-the-switches]]
+== Migrare gli switch
+
+Questa procedura non è invasiva e rimuove la connettività diretta al cluster in un ambiente senza switch, sostituendo ogni connessione allo switch con una connessione al nodo partner.
+
+
+
+[[step-1-prepare-for-migration]]
+=== Fase 1: Prepararsi alla migrazione
+
+. Cambia il livello di privilegio in avanzato, inserendo `y` quando viene richiesto di continuare:
++
+`set -privilege advanced`
+
++
+Il prompt avanzato(`*>` ) appare.
+
+. Verifica lo stato del cluster dei nodi sulla console di sistema di uno dei due nodi:
++
+`cluster show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+L'esempio seguente mostra informazioni sullo stato di integrità e sull'idoneità dei nodi nel cluster:
+
+[listing]
+----
+
+cluster::*> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+
+2 entries were displayed.
+----
+====
+. Verifica lo stato della coppia HA sulla console di sistema di uno dei due nodi: `storage failover show`
++
+.Mostra esempio
+[%collapsible]
+====
+Il seguente esempio mostra lo stato di node1 e node2:
+
+[listing]
+----
+
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+node1          node2          true      Connected to node2
+node2          node1          true      Connected to node1
+
+2 entries were displayed.
+----
+====
+. Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+`x` è la durata della finestra di manutenzione in ore.
+
++
+
+NOTE: Il messaggio notifica al supporto tecnico questa attività di manutenzione, così la creazione automatica dei casi viene disabilitata durante la finestra di manutenzione.
+
++
+.Mostra esempio
+[%collapsible]
+====
+Il seguente comando sopprime la creazione automatica dei casi per due ore:
+
+[listing]
+----
+cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
+----
+====
+. Verifica che lo stato attuale del cluster senza switch sia  `true`, poi disabilita la modalità cluster senza switch:
++
+`network options switchless-cluster modify -enabled false`
+
+. Assumi il controllo del nodo di destinazione:
++
+`storage failover takeover -ofnode _target_node_name_`
+
++
+Non importa quale sia il nodo di destinazione. Quando viene effettuato il takeover, il nodo di destinazione si riavvia automaticamente e visualizza il  `Waiting for giveback...` messaggio.
+
++
+Il nodo attivo ora sta servendo i dati per il nodo partner (destinatario) che è stato sottoposto a takeover.
+
+. Attendi due minuti dopo il takeover del nodo danneggiato per confermare che il takeover sia stato completato con successo.
+. Quando il nodo di destinazione visualizza il messaggio  `Waiting for giveback...`, spegnilo.
++
+Il metodo che usi per arrestare il nodo dipende dal fatto che tu utilizzi o meno la gestione remota tramite il Service Processor (SP) del nodo.
+
++
+|===
+| Se SP | Poi... 
+
+
+ a| 
+È configurato
+ a| 
+Accedi al nodo problematico SP e poi spegni il sistema: `system power off`
+
+
+
+ a| 
+Non è configurato
+ a| 
+Al prompt del nodo danneggiato, premi  `Ctrl-C` e poi rispondi  `y` per arrestare il nodo.
+
+|===
+
+
+
+
+[[step-2-configure-cables-and-ports]]
+=== Passaggio 2: configurare cavi e porte
+
+. Su ciascun modulo controller, scollega il cavo che collega la porta cluster 10 GbE al cluster senza switch.
+. Collega la porta cluster 10 GbE allo switch su entrambi i moduli controller.
+. Verifica che le porte cluster 10 GbE collegate allo switch siano configurate per appartenere alla stessa VLAN.
++
+Se hai intenzione di collegare le porte cluster di ciascun modulo controller a switch diversi, devi verificare che le porte a cui sono collegate le porte cluster su ciascuno switch siano configurate per la stessa VLAN e che il trunking sia configurato correttamente su entrambi gli switch.
+
+. Restituisci lo storage al nodo di destinazione:
++
+`storage failover giveback -ofnode node2`
+
+. Monitora l'andamento dell'operazione di giveback:
++
+`storage failover show-giveback`
+
+. Una volta completata l'operazione di giveback, verifica che la coppia HA sia integra e che il takeover sia possibile:
++
+`storage failover show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+L'output dovrebbe essere simile al seguente:
+
+[listing]
+----
+
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+node1          node2          true      Connected to node2
+node2          node1          true      Connected to node1
+
+2 entries were displayed.
+----
+====
+. Verifica che le LIF della porta del cluster funzionino correttamente:
++
+`network interface show -role cluster`
+
++
+.Mostra esempio
+[%collapsible]
+====
+Il seguente esempio mostra che i LIF sono `up` su node1 e node2 e che i risultati della colonna "Is Home" sono `true`:
+
+[listing]
+----
+
+cluster::*> network interface show -role cluster
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+node1
+            clus1        up/up    192.168.177.121/24  node1        e1a     true
+node2
+            clus1        up/up    192.168.177.123/24  node2        e1a     true
+
+2 entries were displayed.
+----
+====
+. Verifica lo stato del cluster dei nodi sulla console di sistema di uno dei due nodi:
++
+`cluster show`
+
++
+.Mostra esempio
+[%collapsible]
+====
+L'esempio seguente mostra informazioni sullo stato di integrità e sull'idoneità dei nodi nel cluster:
+
+[listing]
+----
+
+cluster::*> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+
+2 entries were displayed.
+----
+====
+. Verificare la connettività delle interfacce del cluster remoto:
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9.1 e versioni successive
+--
+Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
+
+`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2-clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.Tutte le versioni ONTAP
+--
+Per tutte le versioni ONTAP , è anche possibile utilizzare `cluster ping-cluster -node <name>` comando per verificare la connettività:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+--
+====
+
+
+[[step-3-complete-the-procedure]]
+=== Fase 3: Completare la procedura
+
+. Se hai disattivato la creazione automatica dei casi, riattivala richiamando un messaggio AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
++
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+cluster::*> system node autosupport invoke -node * -type all -message MAINT=END
+----
+====
+. Ripristinare il livello di privilegio su amministratore:
++
+`set -privilege admin`
+
+
