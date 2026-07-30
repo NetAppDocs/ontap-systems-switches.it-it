@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html 
 keywords:  
-summary:  
+summary: Configura gli switch condivisi Cisco Nexus 9336C-FX2 per prepararli al funzionamento combinato di cluster e storage. 
 ---
 = Configurare gli switch condivisi Cisco Nexus 9336C-FX2
 :hardbreaks:
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-Seguire queste istruzioni per configurare gli switch condivisi Cisco Nexus 9336C-FX2.
+Configura gli switch condivisi Cisco Nexus 9336C-FX2 per prepararli al funzionamento combinato di cluster e rete di storage.
 
 .Prima di iniziare
 Assicurati di avere quanto segue:

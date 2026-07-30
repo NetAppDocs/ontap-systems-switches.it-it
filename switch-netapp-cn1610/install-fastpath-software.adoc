@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/install-fastpath-software.html 
 sidebar: sidebar 
 keywords: install, fastpath, software 
-summary: 'Quando installi il software FASTPATH sui tuoi switch NetApp, devi iniziare l"aggiornamento dal secondo switch, cs2.' 
+summary: 'Installa il software FASTPATH sugli switch di cluster NetApp CN1610, iniziando l"aggiornamento dal secondo switch (cs2).' 
 ---
-= Installa il software FASTPATH
+= Installa il software FASTPATH sugli switch di cluster NetApp CN1610
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Quando installi il software FASTPATH sui tuoi switch NetApp, devi iniziare l'aggiornamento dal secondo switch, _cs2_.
+Installa il software FASTPATH sugli switch di cluster NetApp CN1610, iniziando l'aggiornamento dal secondo switch, _cs2_.
 
 
 

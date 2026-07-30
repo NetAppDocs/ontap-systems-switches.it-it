@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/migrate-to-2n-switched.html 
 sidebar: sidebar 
 keywords: 2-node switched Cisco 92300YC cluster switch migration 
-summary: Se hai un ambiente cluster senza switch a due nodi già esistente, puoi migrare a un ambiente cluster con switch a due nodi utilizzando gli switch Cisco Nexus 92300YC per permetterti di scalare oltre i due nodi nel cluster. 
+summary: Migra un cluster senza switch a due nodi esistente a un ambiente cluster con switch utilizzando gli switch cluster Cisco Nexus 92300YC. 
 ---
-= Esegui la migrazione a un cluster a due nodi con uno switch Cisco Nexus 92300YC
+= Migra a un cluster a due nodi con switch di cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se hai un ambiente cluster senza switch esistente a due nodi, puoi migrare a un ambiente cluster con switch a due nodi utilizzando gli switch Cisco Nexus 92300YC per permetterti di scalare oltre i due nodi nel cluster.
+Migra un cluster senza switch a due nodi esistente a un ambiente cluster con switch utilizzando gli switch cluster Cisco Nexus 92300YC. Questa migrazione senza interruzioni ti permette di scalare il cluster oltre i due nodi.
 
 La procedura da seguire dipende dal fatto che su ciascun controller siano presenti due porte dedicate per la rete cluster o una singola porta cluster. La procedura documentata funziona per tutti i nodi che utilizzano porte ottiche o twinax, ma non è supportata su questo switch se i nodi utilizzano porte RJ45 10Gb BASE-T integrate per le porte di rete cluster.
 

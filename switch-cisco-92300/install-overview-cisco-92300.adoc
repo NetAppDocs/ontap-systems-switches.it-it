@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/install-overview-cisco-92300.html 
 sidebar: sidebar 
 keywords: install, cisco nexus 92300 switch, 
-summary: 'Prima di configurare gli switch Cisco Nexus 92300, dai un"occhiata a una panoramica del processo e della nomenclatura.' 
+summary: Segui questo flusso di lavoro per installare e configurare gli switch cluster Cisco Nexus 92300YC in un ambiente ONTAP. 
 ---
-= Procedura di installazione e configurazione degli switch Cisco Nexus 92300YC
+= Procedura di installazione e configurazione per gli switch cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Gli switch Cisco Nexus 92300YC possono essere utilizzati come cluster switch nel tuo cluster AFF o FAS. I cluster switch ti permettono di creare cluster ONTAP con più di due nodi.
+Segui questo workflow per installare e configurare gli switch cluster Cisco Nexus 92300YC in un ambiente ONTAP. Il 92300YC supporta cluster ONTAP con più di due nodi.
 
 Segui questi passaggi del flusso di lavoro per installare e configurare il tuo switch Cisco Nexus 92300YC.
 

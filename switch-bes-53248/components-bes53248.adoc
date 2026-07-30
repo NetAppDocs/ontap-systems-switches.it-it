@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/components-bes53248.html 
 sidebar: sidebar 
 keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
-summary: 'Per l"installazione e la manutenzione dell"interruttore BES-53248, assicurarsi di rivedere l"elenco dei componenti e i codici articolo.' 
+summary: 'Identifica i componenti e i codici articolo per lo switch di cluster Broadcom BES-53248 per supportare l"installazione hardware e la manutenzione continua.' 
 ---
-= Componenti e numeri di parte per gli switch cluster BES-53248
+= Scopri i componenti e i codici articolo dello switch di cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dell'interruttore BES-53248, assicurarsi di rivedere l'elenco dei componenti e i codici articolo.
+Identifica i componenti e i codici articolo per lo switch di cluster Broadcom BES-53248 per supportare l'installazione hardware e la manutenzione continua.
 
 Nella tabella seguente sono elencati il ​​codice articolo, la descrizione e le versioni minime EFOS e ONTAP per i componenti dello switch cluster BES-53248, inclusi i dettagli del kit di guide per montaggio su rack.
 

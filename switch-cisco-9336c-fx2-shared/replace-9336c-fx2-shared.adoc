@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/replace-9336c-fx2-shared.html 
 keywords:  
-summary:  
+summary: Sostituisci uno switch condiviso Cisco Nexus 9336C-FX2 difettoso. Questa è una procedura senza interruzioni. 
 ---
 = Sostituisci uno switch condiviso Cisco Nexus 9336C-FX2
 :hardbreaks:
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-È possibile sostituire uno switch condiviso Nexus 9336C-FX2 difettoso. Si tratta di una procedura non distruttiva (NDU).
+Sostituisci uno switch condiviso Cisco Nexus 9336C-FX2 difettoso senza interrompere il funzionamento del cluster o della rete di storage. Questa procedura non distruttiva (NDU) prevede la preparazione di uno switch sostitutivo e il ripristino della configurazione dello switch condiviso.
 
 .Prima di iniziare
 Prima di procedere alla sostituzione dell'interruttore, accertarsi che:

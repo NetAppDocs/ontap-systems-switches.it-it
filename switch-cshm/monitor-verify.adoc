@@ -2,9 +2,9 @@
 permalink: switch-cshm/monitor-verify.html 
 sidebar: sidebar 
 keywords: verify, monitor, cluster, management, network, switches, heath, monitor 
-summary: Scopri come verificare il funzionamento del monitoraggio di uno switch Ethernet. 
+summary: Verifica che il monitoraggio dello stato di salute degli switch Ethernet sia configurato correttamente e funzioni per i tuoi switch. 
 ---
-= Verificare il monitoraggio degli switch Ethernet
+= Verifica la configurazione dello switch di rete Ethernet health monitor
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

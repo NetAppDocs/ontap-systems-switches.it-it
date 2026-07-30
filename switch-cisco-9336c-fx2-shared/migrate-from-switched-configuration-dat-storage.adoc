@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/migrate-from-switched-configuration-dat-storage.html 
 keywords:  
-summary:  
+summary: Esegui la migrazione da una configurazione con switch e storage collegato direttamente agli switch condivisi Cisco Nexus 9336C-FX2 aggiungendo due nuovi switch condivisi. 
 ---
-= Migrazione da una configurazione commutata con storage collegato direttamente
+= Esegui la migrazione da una configurazione con switch e storage collegato direttamente agli switch condivisi Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-È possibile migrare da una configurazione commutata con storage collegato direttamente aggiungendo due nuovi switch condivisi.
+Esegui la migrazione da una configurazione con switch e storage collegato direttamente agli switch condivisi Cisco Nexus 9336C-FX2 aggiungendo due nuovi switch condivisi.
 
 .Switch supportati
 Sono supportati i seguenti switch:

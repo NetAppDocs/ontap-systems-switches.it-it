@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/setup-switch-3232c-storage.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: Se non si dispone già delle informazioni di configurazione e della documentazione necessarie, è necessario raccogliere tali informazioni prima di configurare il cluster e gli switch di rete di gestione. 
+summary: Configura lo switch di storage Cisco Nexus 3232C utilizzando i comandi di configurazione iniziale per prepararlo al funzionamento nella rete di storage. 
 ---
-= Configura lo switch di storage 3232C
+= Configura lo switch di storage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questa procedura per configurare e impostare lo switch Cisco Nexus 3232C.
+Configura lo switch di storage Cisco Nexus 3232C utilizzando i comandi di configurazione iniziale per prepararlo al funzionamento nella rete di storage.
 
 .Prima di iniziare
 * Accesso a un server HTTP, FTP o TFTP nel sito di installazione per scaricare le versioni NX-OS e RCF (Reference Configuration File) applicabili.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: 'Utilizza gli avvisi dell"Ethernet switch health monitor per identificare e risolvere i problemi degli switch di rete nel tuo cluster ONTAP.' 
 ---
-= Panoramica del controllo sanitario
+= Scopri gli avvisi per l'health monitor dello switch di rete Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

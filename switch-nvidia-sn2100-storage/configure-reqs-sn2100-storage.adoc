@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100-storage/configure-reqs-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: 'Per l"installazione e la manutenzione dello switch NVIDIA SN2100, assicurarsi di rivedere tutti i requisiti.' 
+summary: 'Verifica i requisiti di configurazione degli switch di storage NVIDIA SN2100 prima dell"installazione o dell"aggiornamento.' 
 ---
-= Requisiti di configurazione per gli switch NVIDIA SN2100
+= Esamina i requisiti di configurazione per gli switch di storage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dello switch NVIDIA SN2100, assicurarsi di rivedere tutti i requisiti.
+Verifica i requisiti di configurazione degli switch di storage NVIDIA SN2100 prima dell'installazione o dell'aggiornamento.
 
 
 

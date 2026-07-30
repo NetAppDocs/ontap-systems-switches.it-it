@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/install-complete-afx-setup-9808.html 
 sidebar: sidebar 
 keywords: switches, complete system setup, Cisco Nexus, 9808 switches, AFX 
-summary: Dopo aver completato le procedure di configurazione dello switch Cisco Nexus 9808, vai al sito della documentazione del sistema AFX per accendere gli shelf di storage e i controller del tuo sistema AFX 2K, verificare la connettività dello switch e completare la configurazione del sistema AFX. 
+summary: Completa la configurazione del sistema AFX 2K dopo aver terminato la configurazione dello switch Cisco Nexus 9808. 
 ---
-= Completa la configurazione del sistema AFX - Cisco Nexus 9808
+= Completa la configurazione del sistema AFX per lo switch Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Dopo aver completato le procedure di configurazione dello switch Cisco Nexus 9808, vai al sito della documentazione del sistema AFX per accendere gli shelf di storage e i controller del tuo sistema AFX 2K, verificare la connettività dello switch e completare la configurazione del sistema AFX.
+Dopo aver completato la configurazione dello switch Cisco Nexus 9808, accendi gli alloggiamenti di storage e i controller, verifica la connettività dello switch e completa la configurazione del sistema AFX 2K.
 
 .Prima di iniziare
 * Devi aver completato le procedure di configurazione dello switch in link:configure-switch-workflow-9808.html["configura il workflow dello switch"].

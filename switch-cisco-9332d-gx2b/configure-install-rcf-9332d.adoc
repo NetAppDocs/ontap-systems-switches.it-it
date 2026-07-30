@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/configure-install-rcf-9332d.html 
 sidebar: sidebar 
 keywords: install rcf, cisco switches 
-summary: 'Installi l"RCF sui nuovi switch Cisco Nexus 9332D-GX2B come parte dell"installazione e configurazione di un nuovo sistema AFX 1K o AFX 2K, per sostituire uno switch difettoso o per ripristinare uno switch alle impostazioni di fabbrica.' 
+summary: 'Installa l"RCF sugli switch Cisco Nexus 9332D-GX2B per nuove installazioni di sistemi AFX 1K o AFX 2K, sostituzioni di switch o ripristini alle impostazioni di fabbrica.' 
 ---
-= Installa l'RCF - Cisco Nexus 9332D-GX2B
+= Installa l'RCF sullo switch Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Installi l'RCF sui nuovi switch Cisco Nexus 9332D-GX2B come parte dell'installazione di un nuovo sistema AFX 1K o AFX 2K, quando sostituisci uno switch o quando uno switch viene ripristinato alle impostazioni di fabbrica.
+Installa il file di configurazione di riferimento (RCF) sugli switch Cisco Nexus 9332D-GX2B per le nuove installazioni di sistemi AFX 1K o AFX 2K, la sostituzione di switch o quando ripristini uno switch alle impostazioni predefinite di fabbrica.
 
 .Prima di iniziare
 * L'interruttore (o gli interruttori) deve essere acceso e devi aver completato la procedura link:configure-complete-initial-setup-9332d.html["Completa la configurazione iniziale dello switch"].

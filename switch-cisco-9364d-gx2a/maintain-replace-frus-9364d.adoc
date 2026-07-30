@@ -2,16 +2,16 @@
 permalink: switch-cisco-9364d-gx2a/maintain-replace-frus-9364d.html 
 sidebar: sidebar 
 keywords: switches, hardware installation, Cisco Nexus, 9364D-GX2A switches 
-summary: 'Lo switch Cisco Nexus 9364D-GX2A ha unità sostituibili sul campo (FRU) che puoi sostituire quando sono difettose.' 
+summary: 'Sostituisci le unità sostituibili sul campo (FRU) difettose sugli switch Cisco Nexus 9364D-GX2A.' 
 ---
-= Sostituisci FRU - Cisco Nexus 9364D-GX2A
+= Sostituisci i FRU nello switch Cisco Nexus 9364D-GX2A
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Lo switch Cisco Nexus 9364D-GX2A ha unità sostituibili sul campo (FRU) che puoi sostituire quando sono difettose.
+Sostituisci le unità sostituibili sul campo (FRU) difettose sugli switch Cisco Nexus 9364D-GX2A per ripristinare la funzionalità dello switch senza sostituire l'intero switch.
 
 .Informazioni su questo compito
 Lo switch Cisco Nexus 9364D-GX2A ha i seguenti FRU:

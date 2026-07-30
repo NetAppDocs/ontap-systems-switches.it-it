@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/setup-switch.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: Se non si dispone già delle informazioni di configurazione e della documentazione necessarie, è necessario raccogliere tali informazioni prima di configurare il cluster e gli switch di rete di gestione. 
+summary: Configura lo switch di cluster Cisco Nexus 3132Q-V usando i comandi di configurazione iniziale per prepararlo al funzionamento del cluster. 
 ---
-= Configura lo switch Cisco Nexus 3132Q-V
+= Configura lo switch di cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questa procedura per configurare lo switch Cisco Nexus 3132Q-V.
+Configura lo switch di cluster Cisco Nexus 3132Q-V usando i comandi di configurazione iniziale per prepararlo al funzionamento del cluster.
 
 .Prima di iniziare
 * Accesso a un server HTTP, FTP o TFTP nel sito di installazione per scaricare le versioni NX-OS e RCF (Reference Configuration File) applicabili.

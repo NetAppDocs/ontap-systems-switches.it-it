@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/configure-software-overview-bes53248.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
-summary: Esaminare la panoramica del software. 
+summary: 'Segui questa procedura per installare il software EFOS e l"RCF su un nuovo cluster switch Broadcom BES-53248.' 
 ---
-= Flusso di lavoro di installazione del software per gli switch BES-53248
+= Flusso di lavoro per l'installazione del software dello switch di cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per installare e configurare il software per uno switch cluster BES-53248, attenersi alla seguente procedura:
+Segui questa procedura per installare il software EFOS e il file di configurazione di riferimento (RCF) su un nuovo cluster switch Broadcom BES-53248.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-install-initial.html["Configurare l'interruttore"]
 [role="quick-margin-para"]

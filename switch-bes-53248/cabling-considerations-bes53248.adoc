@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/cabling-considerations-bes53248.html 
 sidebar: sidebar 
 keywords: BES-53248 cabling setup, BES-53248 switches configuration, efos 
-summary: Prima di configurare lo switch Broadcom BES-53248, leggere le seguenti informazioni. 
+summary: 'Comprendi i vincoli di cablaggio e configurazione dello switch cluster Broadcom BES-53248 prima dell"implementazione, inclusi l"assegnazione delle porte del cluster, i vincoli di velocità dei gruppi di porte e le impostazioni FEC.' 
 ---
-= Esaminare le considerazioni sul cablaggio e sulla configurazione
+= Esamina le considerazioni relative al cablaggio e alla configurazione per lo switch di cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Prima di configurare lo switch Broadcom BES-53248, leggere le seguenti considerazioni.
+Comprendi i vincoli di cablaggio e configurazione per lo switch cluster Broadcom BES-53248 prima della distribuzione. Le considerazioni chiave includono l'assegnazione delle porte del cluster, i vincoli di velocità dei gruppi di porte e le impostazioni di forward error correction (FEC) per le connessioni in rame e fibra a 25G.
 
 
 

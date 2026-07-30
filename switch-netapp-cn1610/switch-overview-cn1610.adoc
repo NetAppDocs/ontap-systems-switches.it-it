@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/switch-overview-cn1610.html 
 sidebar: sidebar 
 keywords: install, fastpath, software, rcfs 
-summary: 'Prima di configurare gli switch NetApp CN1610, dai un"occhiata alla panoramica della procedura.' 
+summary: Scopri lo switch di cluster CN1610 NetApp e il suo ruolo nel networking dei cluster ONTAP. 
 ---
-= Panoramica sull'installazione e la configurazione degli switch NetApp CN1610
+= Scopri i switch di cluster CN1610 NetApp
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Il CN1610 è uno switch Layer 2 gestito ad alta larghezza di banda che offre 16 porte Small Form-Factor Pluggable Plus (SFP+) da 10 Gigabit.
+Il NetApp CN1610 è uno switch cluster Layer 2 gestito a elevata larghezza di banda che offre 16 porte SFP+ da 10 Gigabit. Consulta questa pagina per scoprire le funzionalità dello switch e il suo ruolo nel networking dei cluster ONTAP.
 
 Lo switch include alimentatori ridondanti e alloggiamenti per ventole che supportano la sostituzione a caldo per un'elevata disponibilità. Questo switch 1U può essere installato in un armadio rack standard da 19 pollici 42U NetApp o in un armadio di terze parti.
 

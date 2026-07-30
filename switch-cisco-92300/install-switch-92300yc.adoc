@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/install-switch-92300yc.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 92300YC 
-summary: Segui questa procedura per installare lo switch Cisco Nexus 92300YC. 
+summary: Installa gli switch cluster Cisco Nexus 92300YC per prepararli al funzionamento in rete. 
 ---
-= Installa lo switch di cluster 92300YC
+= Installa gli switch cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questa procedura per configurare lo switch Cisco Nexus 92300YC.
+Installa e configura gli switch cluster Cisco Nexus 92300YC per prepararli al funzionamento in rete.
 
 .Prima di iniziare
 Assicurati di avere quanto segue:

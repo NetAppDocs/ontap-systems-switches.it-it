@@ -2,16 +2,16 @@
 permalink: switch-cshm/monitor-troubleshoot.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: È possibile utilizzare i seguenti comandi ..... 
+summary: Risolvi i problemi relativi agli avvisi di monitoraggio dello stato di salute dello switch Ethernet generati da CSHM nel tuo cluster ONTAP. 
 ---
-= Risoluzione dei problemi degli avvisi
+= Risolvi i problemi degli avvisi dello switch di rete Ethernet dell'health monitor
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Gli avvisi vengono generati se viene rilevato un guasto, un rischio o una condizione critica per uno switch Ethernet nel cluster.
+Risolvi i problemi relativi agli avvisi generati dall'Ethernet switch health monitor (CSHM) quando viene rilevato un guasto, un rischio o una condizione critica per uno switch di rete nel tuo cluster ONTAP.
 
 Se vengono generati avvisi, lo stato di integrità del sistema segnala uno stato degradato per il cluster.  Gli avvisi generati includono le informazioni necessarie per rispondere al degrado dello stato del sistema.
 

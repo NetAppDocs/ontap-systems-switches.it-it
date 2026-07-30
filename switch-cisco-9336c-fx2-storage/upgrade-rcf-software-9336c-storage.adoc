@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-storage/upgrade-rcf-software-9336c-storage.html 
 sidebar: sidebar 
 keywords: install rcf, cisco switches 
-summary: È possibile utilizzare questa procedura per aggiornare la versione RCF. 
+summary: 'Aggiorna il file di configurazione di riferimento (RCF) sugli switch di storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T quando è disponibile una versione più recente.' 
 ---
-= Aggiorna il tuo file di configurazione di riferimento (RCF)
+= Aggiorna l'RCF sugli switch di storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-È possibile aggiornare la versione RCF quando è installata una versione esistente del file RCF sugli switch operativi.
+Aggiorna il file di configurazione (RCF) sugli switch di storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T quando è disponibile una versione più recente dell'RCF.
 
 .Prima di iniziare
 Assicurati di avere quanto segue:

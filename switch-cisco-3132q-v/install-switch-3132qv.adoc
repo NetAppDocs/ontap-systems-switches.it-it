@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/install-switch-3132qv.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 3132q-v 
-summary: Segui questa procedura per installare lo switch Cisco Nexus 3132Q-V. 
+summary: Installa gli switch cluster Cisco Nexus 3132Q-V per prepararli al funzionamento in rete. 
 ---
-= Installa lo switch di cluster 3132Q-V
+= Installa gli switch cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questa procedura per configurare lo switch Cisco Nexus 3132Q-V.
+Installa gli switch cluster Cisco Nexus 3132Q-V per prepararli al funzionamento in rete.
 
 .Prima di iniziare
 Assicurati di avere quanto segue:

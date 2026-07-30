@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9332d-gx2b/maintain-reset-switch-9332d.html 
 keywords: reset switch factory defaults 
-summary: Puoi ripristinare le impostazioni predefinite di fabbrica di uno switch Cisco Nexus 9332D-GX2B quando lo switch viene dismesso o quando si verifica un guasto e non può essere recuperato, richiedendo di riconfigurarlo manualmente. 
+summary: Reimposta uno switch Cisco Nexus 9332D-GX2B alle impostazioni di fabbrica quando dismetti o recuperi uno switch che non può essere configurato. 
 ---
-= Reimposta uno switch alle impostazioni di fabbrica - Cisco Nexus 9332D-GX2B
+= Ripristina le impostazioni di fabbrica dello switch Cisco Nexus 9332D-GX2B
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Puoi ripristinare le impostazioni predefinite di fabbrica di uno switch
 
 
 [role="lead"]
-Puoi ripristinare le impostazioni predefinite di fabbrica di uno switch Cisco Nexus 9332D-GX2B quando lo switch viene dismesso o quando si verifica un guasto e non può essere recuperato, richiedendo di riconfigurarlo manualmente.
+Reimposta uno switch Cisco Nexus 9332D-GX2B alle impostazioni di fabbrica quando lo switch viene dismesso o quando si guasta e non può essere recuperato tramite i normali metodi di configurazione.
 
 .Prima di iniziare
 È necessario connettersi allo switch tramite la console seriale.

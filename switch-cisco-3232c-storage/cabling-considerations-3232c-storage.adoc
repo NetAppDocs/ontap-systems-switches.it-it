@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/cabling-considerations-3232c-storage.html 
 sidebar: sidebar 
 keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
-summary: Prima di configurare lo switch Cisco 3232C, leggi le seguenti informazioni. 
+summary: Esamina le considerazioni sul cablaggio e sulla configurazione degli switch di storage Cisco Nexus 3232C prima della distribuzione. 
 ---
-= Esaminare le considerazioni sul cablaggio e sulla configurazione
+= Esamina le considerazioni relative al cablaggio e alla configurazione per gli switch di storage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Prima di configurare gli switch 3232C, esaminare i requisiti di cablaggio e configurazione.
+Esamina le considerazioni sul cablaggio e sulla configurazione degli switch di storage Cisco Nexus 3232C prima della distribuzione.
 
 
 

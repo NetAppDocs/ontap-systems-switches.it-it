@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c-storage/configure-switch-overview-3232c-storage.html 
 sidebar: sidebar 
 keywords: initial installation, configure switch-cisco-3232c-storage switch 
-summary: 'Panoramica dell"installazione e della configurazione degli switch di archiviazione Cisco Nexus 3232C' 
+summary: Segui questo flusso di lavoro per installare e configurare gli switch di storage Cisco Nexus 3232C in un ambiente ONTAP. 
 ---
 = Flusso di lavoro di installazione e configurazione per gli switch di archiviazione Cisco Nexus 3232C
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Panoramica dell"installazione e della configurazione degli switch di a
 
 
 [role="lead"]
-Gli switch Cisco Nexus 3232C fanno parte della piattaforma Cisco Nexus 3000 e possono essere installati in un cabinet di sistema NetApp.
+Segui questo flusso di lavoro per installare e configurare gli switch di storage Cisco Nexus 3232C in un ambiente ONTAP. Questi switch fanno parte della piattaforma Cisco Nexus 3000.
 
 Seguire questi passaggi del flusso di lavoro per installare e configurare gli switch Cisco 3232C.
 

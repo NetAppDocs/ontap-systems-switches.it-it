@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-complete-initial-setup-9808.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9808 
-summary: Dopo aver acceso gli switch Cisco Nexus 9808 come parte di una nuova installazione di un sistema AFX 2K o di una sostituzione di switch, oppure dopo aver ripristinato uno switch alle impostazioni di fabbrica, ti verrà chiesto di completare la configurazione iniziale degli switch tramite la procedura guidata di configurazione. Puoi consultare le seguenti domande della procedura guidata di configurazione e le risposte consigliate per aiutarti a completare la configurazione iniziale degli switch. 
+summary: Completa la configurazione iniziale degli switch Cisco Nexus 9808 utilizzando la procedura guidata di configurazione per le nuove installazioni di sistemi AFX 2K, la sostituzione del modulo supervisore o il ripristino delle impostazioni di fabbrica. 
 ---
-= Completa la configurazione iniziale dello switch - Cisco Nexus 9808
+= Completa la configurazione iniziale dello switch Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Dopo che hai acceso gli switch Cisco Nexus 9808 come parte di una nuova installazione del sistema AFX 2K o della sostituzione di un modulo supervisor, oppure dopo aver ripristinato uno switch alle impostazioni di fabbrica, ti viene richiesto di completare la configurazione iniziale degli switch tramite la procedura guidata di configurazione. Puoi consultare le seguenti domande della procedura guidata di configurazione e le risposte consigliate per aiutarti a completare la configurazione iniziale degli switch.
+Completa la configurazione iniziale degli switch Cisco Nexus 9808 usando la procedura guidata di configurazione. Questa procedura si applica alle nuove installazioni di sistemi AFX 2K, alla sostituzione dei moduli supervisor e al ripristino degli switch alle impostazioni di fabbrica.
 
 .Prima di iniziare
 Assicurati di avere le informazioni di rete e di configurazione per ogni switch e le licenze applicabili.

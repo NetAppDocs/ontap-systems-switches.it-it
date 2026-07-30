@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nvidia, switch, cluster, network, nondisruptive, procedure, ndu, replace a nvidia sn2100 cluster switch - nvidia SN2100 
-summary: La sostituzione di uno switch di archiviazione NVIDIA SN2100 difettoso è una procedura non disruptiva. 
+summary: Sostituisci uno switch di archiviazione NVIDIA SN2100 difettoso. Questa è una procedura senza interruzioni. 
 ---
 = Sostituisci uno switch di archiviazione NVIDIA SN2100
 :allow-uri-read: 
@@ -11,10 +11,10 @@ summary: La sostituzione di uno switch di archiviazione NVIDIA SN2100 difettoso 
 
 
 [role="lead"]
-È possibile sostituire uno switch di archiviazione NVIDIA SN2100 difettoso. Si tratta di una procedura non distruttiva.
+Sostituisci uno switch di storage NVIDIA SN2100 difettoso senza interrompere il funzionamento della rete di storage. Questa procedura non invasiva prevede la preparazione di uno switch sostitutivo e il ripristino della configurazione della rete di storage.
 
 .Prima di iniziare
-Prima di installare il software Cumulus e gli RCF su uno switch di archiviazione NVIDIA SN2100, assicurarsi che:
+Prima di installare il software Cumulus e gli RCF su uno switch di storage NVIDIA SN2100, assicurati che:
 
 * Il tuo sistema può supportare gli switch di archiviazione NVIDIA SN2100.
 * Hai scaricato gli RCF applicabili.

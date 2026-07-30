@@ -2,14 +2,14 @@
 permalink: switch-cisco-9332d-gx2b/install-configure-switches-in-afx-workflow-9332d.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-9332d-gx2b switch 
-summary: Per installare e configurare gli switch Cisco Nexus 9332D-GX2B come parte del tuo nuovo sistema AFX 1K o AFX 2K, usi una combinazione di documentazione disponibile su questo sito dedicato agli switch e sul sito dei sistemi AFX. La documentazione fornisce collegamenti che ti guidano secondo necessità. 
+summary: Segui questo workflow per installare e configurare gli switch Cisco Nexus 9332D-GX2B come parte di un nuovo sistema AFX 1K o AFX 2K. 
 ---
-= Installa e configura gli switch in un workflow di sistema AFX - Cisco Nexus 9332D-GX2B
+= Installa e configura gli switch Cisco Nexus 9332D-GX2B in un sistema AFX
 :allow-uri-read: 
 
 
 [role="lead"]
-Per installare e configurare gli switch Cisco Nexus 9332D-GX2B come parte del tuo nuovo sistema AFX 1K o AFX 2K, usi una combinazione di documentazione disponibile su questo sito dedicato agli switch e sul sito dei sistemi AFX. La documentazione fornisce collegamenti che ti guidano secondo necessità.
+Segui questo workflow per installare e configurare gli switch Cisco Nexus 9332D-GX2B come parte di un nuovo sistema AFX 1K o AFX 2K. Il workflow include collegamenti alla documentazione sia di questo sito degli switch che del sito dei sistemi AFX.
 
 
 

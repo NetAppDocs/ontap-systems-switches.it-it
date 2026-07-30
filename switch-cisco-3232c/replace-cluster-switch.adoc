@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c/replace-cluster-switch.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus 3232c, cluster switch 
-summary: Puoi sostituire senza interruzioni uno switch Cisco Nexus 3232C difettoso in un cluster eseguendo una sequenza specifica di operazioni. 
+summary: Sostituisci uno switch di cluster Cisco Nexus 3232C difettoso. Questa è una procedura senza interruzioni. 
 ---
 = Sostituisci uno switch di rete cluster Cisco Nexus 3232C
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Puoi sostituire senza interruzioni uno switch Cisco Nexus 3232C difetto
 
 
 [role="lead"]
-Segui questi passaggi per sostituire uno switch Cisco Nexus 3232C difettoso in un cluster. Questa è una procedura non distruttiva.
+Sostituisci uno switch di cluster Cisco Nexus 3232C difettoso senza interrompere il funzionamento del cluster. Questa procedura non disruptiva prevede la preparazione di uno switch sostitutivo e la migrazione delle connessioni dallo switch guasto.
 
 
 

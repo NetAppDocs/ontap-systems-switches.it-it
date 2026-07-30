@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-9332d-gx2b/configure-install-nxos-9332d.html 
 sidebar: sidebar 
-keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9332d-gc2b 
-summary: 'Installi NX-OS sul tuo switch Cisco Nexus 9332D-GX2B come parte dell"installazione di un nuovo sistema AFX 1K o AFX 2K, della sostituzione di uno switch o del ripristino dello switch alle impostazioni di fabbrica predefinite.' 
+keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9332d-gx2b 
+summary: Installa NX-OS sugli switch Cisco Nexus 9332D-GX2B per nuove installazioni di sistemi AFX 1K o AFX 2K, sostituzioni di switch o ripristini delle impostazioni di fabbrica. 
 ---
-= Installa NX-OS - Cisco Nexus 9332D-GX2B
+= Installa NX-OS sullo switch Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Installi NX-OS sul tuo switch Cisco Nexus 9332D-GX2B come parte dell'installazione di un nuovo sistema AFX 1K o AFX 2K, della sostituzione di uno switch o del ripristino dello switch alle impostazioni di fabbrica predefinite.
+Installa NX-OS sugli switch Cisco Nexus 9332D-GX2B per nuove installazioni di sistemi AFX 1K o AFX 2K, per la sostituzione di switch o quando ripristini uno switch alle impostazioni di fabbrica.
 
 .Prima di iniziare
 * L'interruttore (o gli interruttori) deve essere acceso e devi aver completato la procedura link:configure-complete-initial-setup-9332d.html["Completa la configurazione iniziale dello switch"].

@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-review-cabling-config-requirements-9808.html 
 sidebar: sidebar 
 keywords: 9808 cabling setup, 9808 switches configuration, nx-os 
-summary: Se stai installando nuovi switch Cisco Nexus 9808 come parte di una nuova installazione del sistema AFX 2K, sostituendo un modulo supervisor o ripristinando uno switch alle impostazioni di fabbrica, devi esaminare i seguenti requisiti di cablaggio e configurazione. 
+summary: Prima di installare gli switch Cisco Nexus 9808 come parte di un sistema AFX 2K, verifica i requisiti di cablaggio e configurazione. 
 ---
-= Verifica i requisiti di cablaggio e configurazione - Cisco Nexus 9808
+= Esamina i requisiti di cablaggio e configurazione per lo switch Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se stai installando switch Cisco Nexus 9808 come parte di una nuova installazione del sistema AFX 2K, sostituendo un modulo supervisor o ripristinando uno switch alle impostazioni di fabbrica, devi esaminare i seguenti requisiti di cablaggio e configurazione.
+Verifica i requisiti di cablaggio e configurazione per gli switch Cisco Nexus 9808 prima di installarli come parte di un nuovo sistema AFX 2K, di sostituire un modulo supervisor o di ripristinare uno switch alle impostazioni di fabbrica.
 
 
 

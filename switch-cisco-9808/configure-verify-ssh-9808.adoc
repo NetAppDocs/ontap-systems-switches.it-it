@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-verify-ssh-9808.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9808 
-summary: 'Se stai configurando gli switch come parte di una nuova installazione del sistema AFX 2K, della sostituzione di un modulo supervisor o di un ripristino delle impostazioni di fabbrica, e vuoi usare le funzionalità di Cluster Switch Health Monitor (CSHM) e di raccolta dei log, devi verificare che SSH e le chiavi SSH siano abilitati sugli switch.' 
+summary: 'Verifica che SSH sia abilitato sugli switch Cisco Nexus 9808 per supportare lo switch di rete health monitor (CSHM) e la raccolta dei log.' 
 ---
-= Verifica SSH per la raccolta dei log - Cisco Nexus 9808
+= Verifica SSH per la raccolta dei log sullo switch Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se stai configurando gli switch come parte di una nuova installazione del sistema AFX 2K, della sostituzione di un modulo supervisore o del ripristino delle impostazioni di fabbrica, per utilizzare la funzionalità di raccolta dei log dell'Ethernet switch health monitor (CSHM), devi verificare che SSH sia abilitato sugli switch.
+Verifica che SSH sia abilitato sugli switch Cisco Nexus 9808 per supportare le funzionalità di health monitor dello switch Ethernet (CSHM) e di raccolta dei log.
 
 .Prima di iniziare
 È necessario connettersi allo switch tramite la console seriale.

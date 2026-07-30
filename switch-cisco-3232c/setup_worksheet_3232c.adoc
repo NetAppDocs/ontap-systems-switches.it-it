@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c/setup_worksheet_3232c.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 3232C 
-summary: Se vuoi documentare le piattaforme supportate, devi compilare il foglio di lavoro di cablaggio vuoto usando come guida il foglio di lavoro di cablaggio di esempio già compilato. Ogni switch può essere configurato come una singola porta 100GbE, una porta 40GbE o 4 porte 10GbE. 
+summary: Completa il foglio di lavoro per il cablaggio degli switch cluster Cisco Nexus 3232C per documentare i collegamenti delle porte e le configurazioni della piattaforma supportate. 
 ---
 = Completa il foglio di lavoro per il cablaggio del Cisco Nexus 3232C
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Se vuoi documentare le piattaforme supportate, devi compilare il foglio
 
 
 [role="lead"]
-Se desideri documentare le piattaforme supportate, scarica un PDF da questa pagina e compila il foglio di lavoro sul cablaggio.
+Completa il foglio di lavoro per il cablaggio degli switch cluster Cisco Nexus 3232C per documentare i collegamenti delle porte e le configurazioni della piattaforma supportate.
 
 Il foglio di lavoro di cablaggio di esempio fornisce esempi di assegnazioni di porte consigliate dagli switch ai controller.  Il foglio di lavoro vuoto fornisce un modello che puoi utilizzare per configurare il tuo cluster.
 

@@ -2,19 +2,19 @@
 permalink: switch-cisco-9364d-gx2a/configure-install-upgrade-rcf-overview-9364d.html 
 sidebar: sidebar 
 keywords: install, upgrade, cluster, switch, cisco 9364d-gx2a 
-summary: 'Puoi installare o aggiornare il file di configurazione di riferimento (RCF) sugli switch Nexus 9364D-GX2A. Installi una versione supportata dell"RCF sugli switch come parte di una nuova installazione di sistema AFX 1K o AFX 2K, di una sostituzione dello switch o di un ripristino dello switch alle impostazioni di fabbrica predefinite. Aggiorni a una versione supportata dell"RCF sugli switch per supportare nuovo hardware, una nuova versione di ONTAP o per allinearti a una nuova versione di NX-OS nella configurazione del tuo sistema AFX.' 
+summary: 'Installa o aggiorna l"RCF sugli switch Cisco Nexus 9364D-GX2A per installazioni di sistemi AFX 1K e AFX 2K, sostituzioni di switch o per supportare nuovo hardware o versioni di ONTAP.' 
 ---
-= Installa o aggiorna la panoramica RCF - Cisco Nexus 9364D-GX2A
+= Scopri come installare o aggiornare l'RCF sullo switch Cisco Nexus 9364D-GX2A
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Puoi installare o aggiornare il file di configurazione di riferimento (RCF) sugli switch Nexus 9364D-GX2A. Installi una versione supportata dell'RCF sugli switch come parte di una nuova installazione di sistema AFX 1K o AFX 2K, di una sostituzione dello switch o di un ripristino dello switch alle impostazioni di fabbrica predefinite. Aggiorni a una versione supportata dell'RCF sugli switch per supportare nuovo hardware, una nuova versione di ONTAP o per allinearti a una nuova versione di NX-OS nella configurazione del tuo sistema AFX.
+Installa o aggiorna il file di configurazione (RCF) sugli switch Cisco Nexus 9364D-GX2A. Installa un nuovo RCF per le installazioni di sistemi AFX 1K o AFX 2K o per la sostituzione degli switch, oppure aggiorna un RCF esistente per supportare nuovo hardware o versioni di ONTAP.
 
 
-NOTE: L'installazione o l'aggiornamento di RCF è indipendente dall'installazione o dall'aggiornamento di NX-OS. Se installi o aggiorni sia NX-OS che RCF, ti consiglio di installare o aggiornare prima NX-OS.
+NOTE: L'installazione o l'aggiornamento di RCF è indipendente dall'installazione o dall'aggiornamento di NX-OS. Se stai installando o aggiornando sia NX-OS che RCF, ti consigliamo di installare o aggiornare prima NX-OS.
 
 
 

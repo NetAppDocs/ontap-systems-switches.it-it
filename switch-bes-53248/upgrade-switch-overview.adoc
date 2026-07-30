@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/upgrade-switch-overview.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
-summary: Prima di configurare gli switch cluster BES-53248, rivedere una panoramica del processo e della nomenclatura. 
+summary: 'Segui questo workflow per aggiornare il software EFOS e l"RCF sul cluster switch Broadcom BES-53248.' 
 ---
-= Flusso di lavoro di aggiornamento per gli switch cluster BES-53248
+= Flusso di lavoro di upgrade per lo switch di cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Seguire questi passaggi per aggiornare il software EFOS e i file di configurazione di riferimento (RCF) sugli switch cluster Broadcom BES-54328, se applicabile.
+Segui questo workflow per aggiornare il software EFOS e il file di configurazione (RCF) sullo switch di cluster Broadcom BES-53248.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:upgrade-efos-software.html["Aggiorna la tua versione EFOS"]
 [role="quick-margin-para"]

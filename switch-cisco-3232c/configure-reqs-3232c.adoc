@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/configure-reqs-3232c.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Puoi usare gli switch Cisco Nexus 3232C come cluster switch nel tuo cluster AFF o FAS. 
+summary: Prima di installare o aggiornare gli switch cluster Cisco Nexus 3232C, verifica i requisiti di configurazione. 
 ---
-= Requisiti di configurazione per gli switch Cisco Nexus 3232C
+= Esamina i requisiti di configurazione per gli switch cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dello switch Cisco Nexus 3232C, assicurati di esaminare i requisiti di configurazione e di rete.
+Prima di installare o aggiornare gli switch cluster Cisco Nexus 3232C, verifica i requisiti di configurazione.
 
 
 

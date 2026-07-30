@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/components-92300.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete cluster supportati.  È possibile utilizzare switch di gestione aggiuntivi, che sono facoltativi. 
+summary: 'Identifica i componenti e i codici articolo degli switch di cluster Cisco Nexus 92300YC per supportare l"installazione hardware e la manutenzione continua.' 
 ---
-= Componenti e codici articolo per gli switch Cisco Nexus 92300YC
+= Consulta i componenti e i codici articolo degli switch di cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dello switch Cisco Nexus 92300YC, assicurarsi di esaminare tutti i componenti dello switch e i relativi codici articolo. Consulta la link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per i dettagli. Consultare link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per ulteriori informazioni sui requisiti di installazione dello switch.
+Identifica i componenti e i codici articolo degli switch di cluster Cisco Nexus 92300YC per supportare l'installazione hardware e la manutenzione. Consulta la link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] per i dettagli. Consulta link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Quali informazioni aggiuntive mi servono per installare la mia attrezzatura che non è presente in HWU?"^] per ulteriori informazioni sui requisiti di installazione dello switch.
 
 La tabella seguente elenca il codice articolo e la descrizione per lo switch 92300YC, le ventole e gli alimentatori:
 

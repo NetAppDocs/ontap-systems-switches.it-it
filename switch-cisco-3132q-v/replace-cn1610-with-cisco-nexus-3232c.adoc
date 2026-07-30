@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/replace-cn1610-with-cisco-nexus-3232c.html 
 sidebar: sidebar 
 keywords: replace, cn1610 cluster switches, cisco nexus 3132q-v 
-summary: Per sostituire gli switch cluster CN1610 esistenti in un cluster con gli switch cluster Cisco Nexus 3132Q-V, devi seguire una sequenza specifica di operazioni. 
+summary: Migra dagli switch di cluster NetApp CN1610 agli switch di cluster Cisco Nexus 3132Q-V senza interrompere il funzionamento del cluster. 
 ---
-= Esegui la migrazione dagli switch cluster CN1610 agli switch cluster Cisco Nexus 3132Q-V
+= Esegui la migrazione dagli switch di cluster NetApp CN1610 agli switch di cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questa procedura per sostituire gli switch cluster CN1610 esistenti con gli switch cluster Cisco Nexus 3132Q-V.
+Migra dagli switch di cluster NetApp CN1610 agli switch di cluster Cisco Nexus 3132Q-V senza interrompere il funzionamento del cluster.
 
 
 

@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100-storage/migrate-cisco-sn2100-cluster-switch-storage.html 
 sidebar: sidebar 
 keywords: migrating to a cluster with NVIDIA SN2100 cluster switches, how to migrate 
-summary: È possibile migrare i vecchi switch cluster Cisco non disruptivi per un cluster ONTAP verso switch di rete cluster NVIDIA SN2100. 
+summary: Esegui la migrazione dai vecchi switch di cluster Cisco agli switch di cluster NVIDIA SN2100 senza interrompere il funzionamento del cluster. 
 ---
-= Migrazione da uno switch cluster Cisco a uno switch cluster NVIDIA SN2100
+= Esegui la migrazione da uno switch di cluster Cisco a uno switch di cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-È possibile migrare senza interruzioni gli switch cluster Cisco per un cluster ONTAP verso gli switch cluster NVIDIA SN2100.  Quando si sostituiscono alcuni vecchi switch cluster Cisco con switch cluster NVIDIA SN2100, è necessario conoscere alcune informazioni sulla configurazione, sui collegamenti delle porte e sui requisiti di cablaggio.
+Esegui la migrazione dagli switch cluster Cisco agli switch cluster NVIDIA SN2100 senza interrompere il funzionamento del cluster. Prima di iniziare la migrazione, rivedi le informazioni di configurazione, le connessioni delle porte e i requisiti di cablaggio.
 
 Sono supportati i seguenti switch cluster Cisco :
 

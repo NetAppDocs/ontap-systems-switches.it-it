@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/install-hardware-workflow.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Prima di configurare gli switch di archiviazione Cisco Nexus 3232C, rivedere la panoramica della configurazione. 
+summary: 'Segui questo workflow per installare l"hardware degli switch di storage Cisco Nexus 3232C.' 
 ---
-= Flusso di lavoro per l'installazione hardware degli switch Cisco Nexus 3232C
+= Flusso di lavoro per l'installazione hardware degli switch di storage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per installare e configurare l'hardware per uno switch storage 3232C, seguire questi passaggi:
+Segui questa procedura per installare e configurare l'hardware degli switch di storage Cisco Nexus 3232C.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:install-switch-3232c-storage.html["Installare l'interruttore"]
 [role="quick-margin-para"]

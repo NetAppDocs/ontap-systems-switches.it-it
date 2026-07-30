@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/install-nxos-rcf.html 
 sidebar: sidebar 
 keywords: install rcf,rcf configure 
-summary: 'Puoi installare l"RCF dopo aver configurato per la prima volta lo switch Nexus 92300YC.' 
+summary: 'Installa il file di configurazione di riferimento (RCF) sugli switch cluster Cisco Nexus 92300YC dopo la configurazione iniziale.' 
 ---
-= Installare il file di configurazione di riferimento (RCF)
+= Installa l'RCF sugli switch di cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Puoi installare l'RCF dopo aver configurato per la prima volta lo switch Nexus 92300YC.
+Installa il file di configurazione di riferimento (RCF) sugli switch cluster Cisco Nexus 92300YC dopo la configurazione iniziale. L'RCF definisce le assegnazioni delle porte e le impostazioni di rete necessarie per il funzionamento del cluster.
 
 .Nomenclatura di switch e nodi
 Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:

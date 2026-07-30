@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/configure-reqs-3132q.html 
 sidebar: sidebar 
 keywords: Cisco, 3132Q-V 
-summary: 'Per l"installazione e la manutenzione dello switch Cisco Nexus 3132Q-V, assicurati di consultare i requisiti di rete e di configurazione' 
+summary: Prima di installare o aggiornare gli switch cluster Cisco Nexus 3132Q-V, verifica i requisiti di configurazione. 
 ---
-= Requisiti di configurazione per gli switch Cisco Nexus 3132Q-V
+= Esamina i requisiti di configurazione per gli switch cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dello switch Cisco Nexus 3132Q-V, assicurati di consultare i requisiti di rete e di configurazione.
+Prima di installare o aggiornare gli switch cluster Cisco Nexus 3132Q-V, verifica i requisiti di configurazione.
 
 
 

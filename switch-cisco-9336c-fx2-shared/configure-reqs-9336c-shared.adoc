@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/configure-reqs-9336c-shared.html 
 keywords: shared storage cluster switch 
-summary: A partire da ONTAP 9.9.1, è possibile utilizzare gli switch Cisco Nexus 9336C-FX2 per combinare funzionalità di storage e cluster in uno scenario di switch condiviso. 
+summary: 'Prima dell"installazione, verifica i requisiti di versione di ONTAP e NX-OS e le configurazioni supportate per gli switch condivisi Cisco Nexus 9336C-FX2.' 
 ---
-= Requisiti di configurazione per gli switch condivisi Cisco Nexus 9336C-FX2
+= Esamina i requisiti di configurazione per gli switch condivisi Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: A partire da ONTAP 9.9.1, è possibile utilizzare gli switch Cisco Nexu
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dello switch Cisco Nexus 9336C-FX2, assicurarsi di rivedere la configurazione e i requisiti di rete.
+Prima dell'installazione o dell'aggiornamento, verifica i requisiti di versione di ONTAP e NX-OS e le configurazioni supportate per gli switch condivisi Cisco Nexus 9336C-FX2.
 
 
 

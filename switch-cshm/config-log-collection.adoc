@@ -2,50 +2,41 @@
 permalink: switch-cshm/config-log-collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: 'La funzionalità di raccolta dei log CSHM dell"Ethernet switch health monitor viene utilizzata per raccogliere i log dagli switch di rete cluster o di storage in ONTAP.' 
+summary: Configura la raccolta dei log per permettere a CSHM di raccogliere i log degli switch e i dati diagnostici dagli switch di rete del cluster e di storage. 
 ---
-= Configurare la raccolta dei log
+= Configura la raccolta dei log per l'health monitor dello switch di rete Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-L'health monitor dello switch Ethernet (CSHM) è responsabile di garantire lo stato operativo degli switch di rete e di raccogliere i log degli switch per scopi di debug. Questa procedura ti guida attraverso il processo di configurazione della raccolta, richiesta di log *Support* dettagliati e abilitazione di una raccolta oraria di dati *Periodic* che vengono raccolti da AutoSupport.
+Configura la raccolta dei log sugli switch di rete Ethernet per consentire all'Ethernet switch health monitor (CSHM) di raccogliere i log degli switch per il debug e la segnalazione AutoSupport. Questa procedura configura sia la raccolta dei log di supporto su richiesta sia la raccolta periodica oraria dei dati in ONTAP.
 
-*NOTA:* se si abilita la modalità FIPS, è necessario completare quanto segue:
-
-[NOTE]
-====
-. Rigenerare le chiavi SSH sullo switch seguendo le istruzioni del fornitore.
-. Rigenera le chiavi SSH in ONTAP utilizzando `debug system regenerate-systemshell-key-pair`
-. Eseguire nuovamente la routine di configurazione della raccolta dei registri utilizzando `system switch ethernet log setup-password` comando
-
-
-====
+.Prima di iniziare
+* Se usi la modalità FIPS, completa quanto segue prima di configurare la raccolta dei log:
++
+.. Rigenerare le chiavi SSH sullo switch seguendo le istruzioni del fornitore.
+.. Rigenera le chiavi SSH in ONTAP utilizzando  `debug system regenerate-systemshell-key-pair`.
+.. Esegui di nuovo la configurazione della raccolta dei log usando il comando  `system switch ethernet log setup-password`.
 
 
-[[before-you-begin]]
-== Prima di iniziare
-
-* L'utente deve avere accesso allo switch `show` comandi.  Se non sono disponibili, crea un nuovo utente e concedigli le autorizzazioni necessarie.
-* Per lo switch deve essere abilitato il monitoraggio dello stato di integrità.  Verificare ciò assicurandosi che `Is Monitored:` il campo è impostato su *true* nell'output del `system switch ethernet show` comando.
+* Devi avere accesso ai comandi dello switch `show`. Se non ce l'hai, crea un nuovo utente dello switch e concedigli i privilegi necessari.
+* Il monitoraggio dello stato di salute dello switch deve essere abilitato per lo switch. Verifica controllando che il  `Is Monitored:` campo sia impostato su *true* nell'output di  `system switch ethernet show`.
 * Per la raccolta dei log con gli switch Broadcom e Cisco :
 +
 ** L'utente locale deve disporre dei privilegi di amministratore di rete.
-** Per ogni configurazione del cluster con la raccolta dei log abilitata, è necessario creare un nuovo utente sullo switch.  Questi switch non supportano più chiavi SSH per lo stesso utente.  Qualsiasi ulteriore configurazione di raccolta dei log eseguita sovrascrive tutte le chiavi SSH preesistenti per l'utente.
+** Crea un nuovo utente switch per ogni cluster con la raccolta dei log abilitata. Questi switch non supportano più chiavi SSH per lo stesso utente, eseguire nuovamente la configurazione sovrascrive la chiave SSH esistente.
 
 
-* Per supportare la raccolta dei registri con gli switch NVIDIA , l'_utente_ per la raccolta dei registri deve essere autorizzato a eseguire `cl-support` comando senza dover fornire una password.  Per consentire questo utilizzo, eseguire il comando:
+* Per la raccolta dei log di supporto con gli switch NVIDIA, l'utente addetto alla raccolta dei log deve poter eseguire il comando  `cl-support` senza password. Per permettere questo, esegui:
 +
 `echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
 
 
 
-
-
-[[steps]]
-== Passi
+.Passi
+Segui i passaggi relativi alla tua versione di ONTAP per configurare la raccolta dei log, abilitare la raccolta periodica di dati e, facoltativamente, richiedere i log di supporto su richiesta.
 
 [role="tabbed-block"]
 ====

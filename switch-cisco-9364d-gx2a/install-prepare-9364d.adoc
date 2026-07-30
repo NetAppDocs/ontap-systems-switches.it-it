@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9364d-gx2a/install-prepare-9364d.html 
 keywords: shared storage cluster switch 
-summary: 'Prima di installare gli switch Cisco Nexus 9364D-GX2A come parte di una nuova installazione di sistema AFX 1K o AFX 2K, dovresti comprendere gli aspetti relativi allo switch e alla sua installazione consultando la documentazione Cisco applicabile e la documentazione dei sistemi ONTAP, comprendendo le versioni RCF supportate per i sistemi AFX e valutando l"uso di Smart Call Home.' 
+summary: Preparati a installare gli switch Cisco Nexus 9364D-GX2A come parte di un nuovo sistema AFX 1K o AFX 2K, consultando la documentazione dello switch, le versioni RCF supportate e i requisiti di Smart Call Home. 
 ---
-= Preparati a installare gli switch Cisco Nexus 9364D-GX2A
+= Prepara l'installazione degli switch Cisco Nexus 9364D-GX2A in un sistema AFX
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 'Prima di installare gli switch Cisco Nexus 9364D-GX2A come parte di un
 
 
 [role="lead"]
-Prima di installare gli switch Cisco Nexus 9364D-GX2A come parte di una nuova installazione di sistema AFX 1K o AFX 2K, dovresti comprendere gli aspetti relativi allo switch e alla sua installazione consultando la documentazione Cisco applicabile e la documentazione dei sistemi ONTAP, comprendendo le versioni RCF supportate per i sistemi AFX e valutando l'uso di Smart Call Home.
+Preparati a installare gli switch Cisco Nexus 9364D-GX2A come parte di un nuovo sistema AFX 1K o AFX 2K consultando la documentazione Cisco relativa agli switch, comprendendo le versioni RCF supportate e valutando la configurazione Smart Call Home.
 
 
 

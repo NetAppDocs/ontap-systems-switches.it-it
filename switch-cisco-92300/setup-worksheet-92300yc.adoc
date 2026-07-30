@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/setup-worksheet-92300yc.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 92300YC 
-summary: Se si desidera documentare le piattaforme supportate, è necessario compilare il foglio di lavoro di cablaggio vuoto utilizzando come guida il foglio di lavoro di cablaggio di esempio completato. 
+summary: Completa il foglio di lavoro per il cablaggio degli switch cluster Cisco Nexus 92300YC per documentare i collegamenti delle porte e le configurazioni della piattaforma supportate. 
 ---
 = Completa il foglio di lavoro per il cablaggio del Cisco Nexus 92300YC
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Se si desidera documentare le piattaforme supportate, è necessario com
 
 
 [role="lead"]
-Se desideri documentare le piattaforme supportate, scarica un PDF da questa pagina e compila il foglio di lavoro sul cablaggio.
+Completa il foglio di lavoro per il cablaggio degli switch cluster Cisco Nexus 92300YC per documentare i collegamenti delle porte e le configurazioni della piattaforma supportate.
 
 Il foglio di lavoro di cablaggio di esempio fornisce esempi di assegnazioni di porte consigliate dagli switch ai controller.  Il foglio di lavoro vuoto fornisce un modello che puoi utilizzare per configurare il tuo cluster.
 

@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-storage/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: SSH è un requisito quando si utilizzano le funzionalità di Cluster Switch Health Monitor e raccolta dei log. Per abilitare SSH sugli switch di cluster Cisco 9336c-fx2, è necessario prima generare le chiavi SSH e poi abilitare SSH. 
+summary: Verifica che SSH e le relative chiavi siano abilitati sugli switch di storage Cisco Nexus 9336C-FX2 per supportare CSHM e la raccolta dei log. 
 ---
-= Verifica la tua configurazione SSH
+= Verifica la configurazione SSH per gli switch di storage Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se si utilizzano le funzionalità di monitoraggio dello stato dello switch Ethernet (CSHM) e di raccolta dei registri, verificare che SSH e le chiavi SSH siano abilitati sugli switch.
+Verifica che SSH e le chiavi SSH siano abilitati sugli switch di storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T per supportare le funzionalità di health monitor degli switch Ethernet (CSHM) e di raccolta dei log.
 
 .Passi
 . Verificare che SSH sia abilitato:

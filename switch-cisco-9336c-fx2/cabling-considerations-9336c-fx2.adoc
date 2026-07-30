@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2/cabling-considerations-9336c-fx2.html 
 sidebar: sidebar 
 keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
-summary: Prima di configurare lo switch Cisco 9336C-FX2, leggere le seguenti informazioni. 
+summary: Esamina le considerazioni relative al cablaggio e alla configurazione per gli switch cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T prima della distribuzione. 
 ---
-= Esaminare le considerazioni sul cablaggio e sulla configurazione
+= Esamina le considerazioni relative al cablaggio e alla configurazione per gli switch cluster Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Prima di configurare gli switch 9336C-FX2 e 9336C-FX2-T, leggere le seguenti considerazioni.
+Esamina le considerazioni relative al cablaggio e alla configurazione per gli switch cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T prima della distribuzione.
 
 
 

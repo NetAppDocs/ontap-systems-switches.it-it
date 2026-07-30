@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/install-nxos-software.html 
 sidebar: sidebar 
 keywords: install nx-os,nx-os configure 
-summary: Puoi usare questa procedura per installare il software NX-OS sullo switch Nexus 92300YC. 
+summary: Installa il software NX-OS sugli switch di cluster Cisco Nexus 92300YC per prepararli al funzionamento in cluster. 
 ---
-= Installa il software NX-OS
+= Installa il software NX-OS sugli switch di cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questa procedura per installare il software NX-OS sullo switch Nexus 92300YC.
+Installa il software NX-OS sugli switch di cluster Cisco Nexus 92300YC per prepararli al funzionamento in cluster. NX-OS deve essere installato prima che tu possa configurare lo switch o installare l'RCF.
 
 NX-OS è un sistema operativo di rete per gli switch Ethernet della serie Nexus e per gli switch di rete di archiviazione Fibre Channel (FC) della serie MDS forniti da Cisco Systems.
 

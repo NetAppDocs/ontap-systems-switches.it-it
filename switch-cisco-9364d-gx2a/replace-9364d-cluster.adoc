@@ -2,16 +2,16 @@
 permalink: switch-cisco-9364d-gx2a/replace-9364d-cluster.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9364d-gx2a cluster switch - cisco nexus 9364d-gx2a 
-summary: 'Per sostituire uno switch Nexus 9364D-GX2A difettoso in una rete cluster, seguire questi passaggi. Si tratta di una procedura non distruttiva (NDU).' 
+summary: Sostituisci uno switch Cisco Nexus 9364D-GX2A difettoso in un sistema AFX senza interrompere il funzionamento. Questa è una procedura senza interruzioni. 
 ---
-= Sostituisci uno switch - Cisco Nexus 9364D-GX2A
+= Sostituisci uno switch Cisco Nexus 9364D-GX2A
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per sostituire uno switch Nexus 9364D-GX2A difettoso in una rete cluster, seguire questi passaggi. Si tratta di una procedura non distruttiva (NDU).
+Sostituisci uno switch Cisco Nexus 9364D-GX2A difettoso in un sistema AFX senza interrompere il funzionamento. Questa procedura non distruttiva (NDU) prevede la preparazione di uno switch sostitutivo e il ripristino della configurazione del sistema.
 
 
 

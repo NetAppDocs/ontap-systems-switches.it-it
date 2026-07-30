@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/migrate-switched-netapp-cn1610.html 
 sidebar: sidebar 
 keywords: migrate, switchless cluster environment, switched netapp cn1610 
-summary: Se hai un ambiente cluster senza switch a due nodi già esistente, puoi migrare a un ambiente cluster con switch a due nodi usando gli switch di rete cluster CN1610, che ti permettono di scalare oltre i due nodi. 
+summary: Esegui la migrazione da un cluster senza switch a un ambiente cluster con switch utilizzando gli switch cluster NetApp CN1610. 
 ---
-= Esegui la migrazione da un ambiente cluster senza switch a un ambiente cluster NetApp CN1610 con switch
+= Esegui la migrazione da un cluster senza switch a un ambiente cluster NetApp CN1610 con switch
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se hai un ambiente cluster senza switch a due nodi già esistente, puoi migrare a un ambiente cluster con switch a due nodi usando gli switch di rete cluster CN1610, che ti permettono di scalare oltre i due nodi.
+Esegui la migrazione da un ambiente cluster senza switch a due nodi a un ambiente cluster con switch utilizzando gli switch cluster NetApp CN1610. Questa migrazione ti permette di scalare il cluster oltre i due nodi.
 
 
 

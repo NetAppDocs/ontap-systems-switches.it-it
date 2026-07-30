@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/install-nxos-overview.html 
 sidebar: sidebar 
 keywords: install nx-os rcf cisco nx 92300yc cluster switch 
-summary: Il software Cisco NX-OS e i file di configurazione di riferimento devono essere installati sugli switch cluster Cisco Nexus 92300YC. 
+summary: 'Prepara gli switch cluster Cisco Nexus 92300YC prima di installare il software NX-OS e il file di configurazione (RCF).' 
 ---
-= Preparati a installare il software NX-OS e il Reference Configuration File (RCF)
+= Preparati a installare il software NX-OS e l'RCF sugli switch di cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Prima di installare il software NX-OS e il file di configurazione di riferimento (RCF), seguire questa procedura.
+Prepara gli switch cluster Cisco Nexus 92300YC prima di installare il software NX-OS e il file di configurazione (RCF). NX-OS e l'RCF devono essere installati prima che lo switch possa operare in un cluster ONTAP.
 
 .Prima di iniziare
 Assicurati di avere quanto segue:

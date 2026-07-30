@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html 
 keywords: shared storage cluster switch cable 
-summary: Utilizzare le immagini dei cavi per completare il cablaggio tra i controller e gli switch. 
+summary: Completa il foglio di lavoro per il cablaggio degli switch condivisi Cisco Nexus 9336C-FX2 per documentare i collegamenti delle porte tra controller e switch. 
 ---
-= Completa il foglio di lavoro sul cablaggio Cisco Nexus 9336C-FX2
+= Completa il foglio di lavoro per il cablaggio dello switch condiviso Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Utilizzare le immagini dei cavi per completare il cablaggio tra i contr
 
 
 [role="lead"]
-Utilizzare le seguenti immagini di cablaggio per completare il cablaggio tra i controller e gli switch.
+Completa il foglio di lavoro per il cablaggio degli switch condivisi Cisco Nexus 9336C-FX2 utilizzando le immagini dei cavi per documentare i collegamenti delle porte tra controller e switch.
 
 
 

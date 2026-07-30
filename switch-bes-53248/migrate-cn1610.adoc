@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/migrate-cn1610.html 
 sidebar: sidebar 
 keywords: CN1610, CN1610 replacing, migrate from CN1610 
-summary: Per sostituire gli switch cluster CN1610 esistenti in un cluster con switch cluster BES-53248 supportati da Broadcom, è necessario eseguire una sequenza specifica di attività. 
+summary: Migra gli switch cluster CN1610 esistenti NetApp verso gli switch cluster Broadcom BES-53248 seguendo i requisiti e la procedura di migrazione. 
 ---
-= Migrazione degli switch cluster CN1610 agli switch cluster BES-53248
+= Migra gli switch cluster CN1610 NetApp agli switch cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per migrare gli switch cluster CN1610 in un cluster verso switch cluster BES-53248 supportati da Broadcom, rivedere i requisiti di migrazione e quindi seguire la procedura di migrazione.
+Migra gli switch cluster CN1610 NetApp esistenti agli switch cluster Broadcom BES-53248. Verifica i requisiti per la migrazione e poi segui la procedura di migrazione per sostituire gli switch senza interrompere il funzionamento del cluster.
 
 Sono supportati i seguenti switch cluster:
 

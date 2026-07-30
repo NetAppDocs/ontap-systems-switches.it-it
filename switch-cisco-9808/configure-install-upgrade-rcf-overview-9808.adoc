@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-install-upgrade-rcf-overview-9808.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9808 
-summary: 'Puoi installare o aggiornare il file di configurazione di riferimento (RCF) sugli switch Nexus 9808. Installi una versione supportata dell"RCF sugli switch come parte di una nuova installazione del sistema AFX 2K, della sostituzione del modulo supervisor o del ripristino dello switch alle impostazioni di fabbrica. Esegui l"aggiornamento a una versione supportata dell"RCF sugli switch per supportare nuovo hardware, una nuova versione di ONTAP o per allinearti a una nuova versione di NX-OS nella configurazione del sistema AFX 2K.' 
+summary: 'Installa o aggiorna l"RCF sugli switch Cisco Nexus 9808 per installazioni di sistemi AFX 2K, sostituzioni di moduli supervisor o per supportare nuovo hardware o versioni di ONTAP.' 
 ---
-= Installa o aggiorna la panoramica RCF - Cisco Nexus 9808
+= Scopri come installare o aggiornare l'RCF sullo switch Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Puoi installare o aggiornare il file di configurazione di riferimento (RCF) sugli switch Cisco Nexus 9808. Installi una versione supportata dell'RCF sugli switch come parte di una nuova installazione del sistema AFX 2K, della sostituzione di un modulo supervisor o del ripristino dello switch alle impostazioni di fabbrica. Aggiorni a una versione supportata dell'RCF sugli switch per supportare nuovo hardware, una nuova versione di ONTAP o per allinearti a una nuova versione di NX-OS nella configurazione del tuo sistema AFX.
+Installa o aggiorna il file di configurazione (RCF) sugli switch Cisco Nexus 9808. Installa un nuovo RCF per le installazioni di sistemi AFX 2K o per la sostituzione dei moduli supervisor, oppure aggiorna un RCF esistente per supportare nuovo hardware o nuove versioni di ONTAP.
 
 
 NOTE: L'installazione o l'aggiornamento di RCF è indipendente dall'installazione o dall'aggiornamento di NX-OS. Se stai installando o aggiornando sia NX-OS che RCF, ti consigliamo di installare o aggiornare prima NX-OS.

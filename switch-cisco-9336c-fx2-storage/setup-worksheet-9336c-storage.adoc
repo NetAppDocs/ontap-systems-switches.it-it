@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html 
 sidebar: sidebar 
 keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2 
-summary: Se si desidera documentare le piattaforme supportate, è necessario compilare il foglio di lavoro di cablaggio vuoto utilizzando come guida il foglio di lavoro di cablaggio di esempio completato. 
+summary: Completa il foglio di lavoro per il cablaggio degli switch di storage Cisco Nexus 9336C-FX2 o 9336C-FX2-T per documentare i collegamenti delle porte e le configurazioni della piattaforma supportate. 
 ---
 = Completare il foglio di lavoro sul cablaggio Cisco Nexus 9336C-FX2 o 9336C-FX2-T
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Se si desidera documentare le piattaforme supportate, è necessario com
 
 
 [role="lead"]
-Se desideri documentare le piattaforme supportate, scarica un PDF da questa pagina e compila il foglio di lavoro sul cablaggio.
+Completa il foglio di lavoro per il cablaggio degli switch di storage Cisco Nexus 9336C-FX2 o 9336C-FX2-T per documentare i collegamenti delle porte e le configurazioni della piattaforma supportate.
 
 Il foglio di lavoro di cablaggio di esempio fornisce esempi di assegnazioni di porte consigliate dagli switch ai controller.  Il foglio di lavoro vuoto fornisce un modello che puoi utilizzare per configurare il tuo cluster.
 

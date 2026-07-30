@@ -2,16 +2,16 @@
 permalink: switch-cisco-9364d-gx2a/configure-complete-initial-setup-9364d.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9364d-gx2a 
-summary: Dopo aver acceso gli switch Cisco Nexus 9364D-GX2A come parte di una nuova installazione di un sistema AFX 1K o AFX 2K o di una sostituzione di uno switch, oppure dopo aver ripristinato le impostazioni di fabbrica di uno switch, ti viene richiesto di completare la configurazione iniziale degli switch utilizzando la procedura guidata di configurazione. Puoi consultare le seguenti domande della procedura guidata di configurazione e le risposte consigliate per aiutarti a completare la configurazione iniziale degli switch. 
+summary: Completa la configurazione iniziale degli switch Cisco Nexus 9364D-GX2A usando la procedura guidata di configurazione per i nuovi sistemi AFX 1K o AFX 2K, la sostituzione degli switch o il ripristino delle impostazioni di fabbrica. 
 ---
-= Completa la configurazione iniziale dello switch - Cisco Nexus 9364D-GX2A
+= Completa la configurazione iniziale dello switch Cisco Nexus 9364D-GX2A
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Dopo aver acceso gli switch Cisco Nexus 9364D-GX2A come parte di una nuova installazione di un sistema AFX 1K o AFX 2K o di una sostituzione di uno switch, oppure dopo aver ripristinato le impostazioni di fabbrica di uno switch, ti viene richiesto di completare la configurazione iniziale degli switch utilizzando la procedura guidata di configurazione. Puoi consultare le seguenti domande della procedura guidata di configurazione e le risposte consigliate per aiutarti a completare la configurazione iniziale degli switch.
+Completa la configurazione iniziale degli switch Cisco Nexus 9364D-GX2A usando la procedura guidata di configurazione. Questa procedura si applica alle nuove installazioni di sistemi AFX 1K o AFX 2K, alla sostituzione degli switch e agli switch ripristinati alle impostazioni di fabbrica.
 
 .Prima di iniziare
 Assicurati di avere le informazioni di rete e di configurazione per ogni switch e le licenze applicabili.

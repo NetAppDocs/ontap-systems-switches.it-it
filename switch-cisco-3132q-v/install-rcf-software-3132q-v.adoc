@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-3132q-v/install-rcf-software-3132q-v.html 
 sidebar: sidebar 
-keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3132q-v 
-summary: SSH è un requisito quando si utilizzano le funzionalità di Cluster Switch Health Monitor e raccolta dei log. Per abilitare SSH sugli switch cluster Cisco 3132q-v, è necessario prima generare le chiavi SSH e poi abilitare SSH. 
+keywords: rcf, install, cluster switch, cisco nexus 3132q-v 
+summary: 'Installa il file di configurazione di riferimento (RCF) sugli switch cluster Cisco Nexus 3132Q-V dopo la configurazione iniziale.' 
 ---
-= Installare il file di configurazione di riferimento (RCF)
+= Installa l'RCF sugli switch di cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Installi il file di configurazione di riferimento (RCF) dopo aver configurato per la prima volta gli switch Nexus 3132Q-V.
+Installa il file di configurazione di riferimento (RCF) sugli switch cluster Cisco Nexus 3132Q-V dopo la configurazione iniziale. L'RCF definisce le assegnazioni delle porte e le impostazioni di rete necessarie per il funzionamento del cluster.
 
 .Prima di iniziare
 Verificare le seguenti installazioni e connessioni:

@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c-storage/install-cisco-nexus-3232c-storage.html 
 sidebar: sidebar 
 keywords: install, cisco nexus, 3232c storage switch, pass-through panel, netapp cabinet 
-summary: È possibile installare lo switch di archiviazione Cisco Nexus 3232C e il pannello pass-through in un NetApp cabinet con le staffe standard incluse con lo switch. 
+summary: Installa uno switch di storage Cisco Nexus 3232C e un pannello passante in un armadio NetApp usando le staffe standard incluse con lo switch. 
 ---
 = Installare uno switch di archiviazione Cisco Nexus 3232C in un NetApp cabinet
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: È possibile installare lo switch di archiviazione Cisco Nexus 3232C e 
 
 
 [role="lead"]
-A seconda della configurazione, potrebbe essere necessario installare lo switch di archiviazione Cisco Nexus 3232C e il pannello pass-through in un NetApp cabinet con le staffe standard incluse con lo switch.
+Installa uno switch di storage Cisco Nexus 3232C e un pannello passante in un armadio NetApp usando le staffe standard incluse con lo switch.
 
 .Prima di iniziare
 Verificare di disporre di quanto segue: * I requisiti di preparazione iniziale, il contenuto del kit e le precauzioni di sicurezza nel link:http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guida all'installazione hardware Cisco Nexus 3000 Series"^]. * Per ogni switch, le otto viti 10-32 o 12-24 e i dadi a clip per montare le staffe e le guide scorrevoli sui montanti anteriori e posteriori del cabinet. * Cisco standard rail kit per installare lo switch in un NetApp cabinet.

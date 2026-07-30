@@ -2,14 +2,14 @@
 permalink: switch-cisco-9336c-fx2-storage/reset-switch-9336c-storage.html 
 sidebar: sidebar 
 keywords: 9336C-FX2 reset switch to factory defaults, 9336C-FX2 switches configuration, efos 
-summary: Prima di configurare lo switch Cisco Nexus 9336C-FX2, leggere le seguenti informazioni. 
+summary: Ripristina gli switch di storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T alle impostazioni di fabbrica cancellando la configurazione corrente dello switch. 
 ---
-= Ripristinare i valori predefiniti di fabbrica degli switch di archiviazione 9336C-FX2 e 9336C-FX2-T
+= Reimposta gli switch di storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T alle impostazioni di fabbrica
 :allow-uri-read: 
 
 
 [role="lead"]
-Per ripristinare le impostazioni predefinite di fabbrica degli switch di archiviazione 9336C-FX2 e 9336C-FX2-T, è necessario cancellare le impostazioni degli switch 9336C-FX2 e 9336C-FX2-T.
+Ripristina gli switch di storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T alle impostazioni di fabbrica cancellando la configurazione corrente dello switch e riportando gli switch alle impostazioni originali.
 
 .Informazioni su questo compito
 * È necessario connettersi allo switch tramite la console seriale.

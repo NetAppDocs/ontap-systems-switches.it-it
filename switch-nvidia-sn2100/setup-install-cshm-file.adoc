@@ -2,9 +2,9 @@
 permalink: switch-nvidia-sn2100/setup-install-cshm-file.html 
 sidebar: sidebar 
 keywords: install, applicable, configuration, file, cluster, switch, health, monitor, ontap, install the cluster switch health monitor configuration file for SN2100 switches 
-summary: È possibile utilizzare questa procedura per installare il file di configurazione applicabile per il monitoraggio dello stato di salute degli switch di cluster NVIDIA SN2100. 
+summary: 'Installa il file di configurazione dell"Ethernet switch health monitor (CSHM) per gli switch cluster NVIDIA SN2100 per abilitare il monitoraggio dello stato dello switch in ONTAP.' 
 ---
-= Installare il file di configurazione di Ethernet Switch Health Monitor
+= Installa il file di configurazione dell'Ethernet switch health monitor per gli switch cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

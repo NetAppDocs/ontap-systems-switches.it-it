@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/install-switch-3232c-storage.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 3232c 
-summary: Seguire questa procedura per installare lo switch di archiviazione Cisco Nexus 3232C. 
+summary: Installa gli switch di storage Cisco Nexus 3232C per prepararli al funzionamento nella rete di storage. 
 ---
-= Installare lo switch storage 3232C
+= Installa gli switch di storage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Seguire questa procedura per configurare lo switch di archiviazione Cisco Nexus 3232C.
+Installa gli switch di storage Cisco Nexus 3232C per prepararli al funzionamento nella rete di storage.
 
 .Prima di iniziare
 Assicurati di avere quanto segue:

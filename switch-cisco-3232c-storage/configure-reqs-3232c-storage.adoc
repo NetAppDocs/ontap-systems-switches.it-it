@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-3232c-storage/configure-reqs-3232c-storage.html 
 keywords: shared storage cluster switch 
-summary: A partire da ONTAP 9.9.1, è possibile utilizzare gli switch Cisco Nexus 3232C per combinare funzionalità di storage e cluster in uno scenario di switch condiviso. 
+summary: 'Prima dell"installazione o dell"aggiornamento, verifica i requisiti di configurazione degli switch di storage Cisco Nexus 3232C.' 
 ---
-= Requisiti di configurazione per gli switch di archiviazione Cisco Nexus 3232C
+= Esamina i requisiti di configurazione per gli switch di storage Cisco Nexus 3232C
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: A partire da ONTAP 9.9.1, è possibile utilizzare gli switch Cisco Nexu
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dello switch Cisco Nexus 3232C, assicurati di esaminare i requisiti di configurazione e di rete.
+Prima dell'installazione o dell'aggiornamento, verifica i requisiti di configurazione degli switch di storage Cisco Nexus 3232C.
 
 
 

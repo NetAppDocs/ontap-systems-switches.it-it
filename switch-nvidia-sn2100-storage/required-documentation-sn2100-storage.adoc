@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100-storage/required-documentation-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: 'Per l"installazione e la manutenzione dello switch NVIDIA SN2100, assicurarsi di consultare tutta la documentazione consigliata.' 
+summary: Controlla la documentazione necessaria per installare e mantenere gli switch di archiviazione NVIDIA SN2100. 
 ---
-= Requisiti di documentazione per gli switch NVIDIA SN2100
+= Rivedi i requisiti di documentazione per gli switch di storage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per l'installazione dello switch NVIDIA SN2100, assicurarsi di consultare tutta la documentazione consigliata.
+Consulta la documentazione sugli switch e sui controller necessaria per configurare gli switch di storage NVIDIA SN2100 e configurarli in una rete di storage ONTAP.
 
 Nella tabella seguente è elencata la documentazione disponibile per gli switch NVIDIA SN2100.
 

@@ -2,7 +2,7 @@
 permalink: switch-netapp-cn1610/replace-cn1610-switch.html 
 sidebar: sidebar 
 keywords: replace, netapp cn1610, cluster switch 
-summary: Puoi sostituire senza interruzioni uno switch di cluster NetApp CN1610 difettoso eseguendo una sequenza specifica di operazioni. 
+summary: Sostituisci uno switch di cluster NetApp CN1610 difettoso. Questa è una procedura senza interruzioni. 
 ---
 = Sostituisci uno switch di cluster NetApp CN1610
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Puoi sostituire senza interruzioni uno switch di cluster NetApp CN1610 
 
 
 [role="lead"]
-Segui questi passaggi per sostituire uno switch CN1610 NetApp difettoso in una rete cluster. Questa è una procedura non distruttiva (NDU).
+Sostituisci uno switch di cluster CN1610 NetApp difettoso in una rete di cluster senza interrompere il funzionamento del cluster. Questa procedura non distruttiva (NDU) prevede la preparazione di uno switch sostitutivo e la migrazione delle connessioni dallo switch guasto.
 
 
 

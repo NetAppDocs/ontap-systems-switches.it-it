@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/install-switch-3232c.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 3232c 
-summary: Segui questa procedura per installare lo switch Cisco Nexus 3232C. 
+summary: Installa gli switch cluster Cisco Nexus 3232C per prepararli al funzionamento in rete. 
 ---
-= Installa lo switch cluster 3232C
+= Installa gli switch cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questa procedura per configurare e impostare lo switch Cisco Nexus 3232C.
+Installa gli switch cluster Cisco Nexus 3232C per prepararli al funzionamento in rete.
 
 .Prima di iniziare
 Assicurati di avere quanto segue:

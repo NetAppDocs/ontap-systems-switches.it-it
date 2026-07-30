@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/migrate-overview.html 
 sidebar: sidebar 
 keywords: migrate, two-node switched cluster, netapp cn1610 
-summary: Se hai un cluster senza switch a due nodi, puoi migrare, senza interruzioni, a un cluster a due nodi con switch che include gli switch di rete cluster NetApp CN1610. 
+summary: Esamina le opzioni di migrazione per passare da un cluster senza switch a un cluster con switch utilizzando gli switch di cluster NetApp CN1610. 
 ---
-= Opzioni di migrazione per un cluster a due nodi con switch di cluster NetApp CN1610
+= Esamina le opzioni di migrazione per gli switch cluster NetApp CN1610
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se hai un cluster senza switch a due nodi, puoi migrare, senza interruzioni, a un cluster a due nodi con switch che include gli switch di rete cluster CN1610 NetApp. La procedura che usi dipende dal fatto che su ciascun controller ci siano due porte di rete cluster dedicate oppure una singola porta cluster su ciascun controller.
+Esamina le opzioni di migrazione per il passaggio da un cluster senza switch a un cluster con switch utilizzando gli switch di cluster NetApp CN1610. La procedura dipende dal fatto che tu abbia due porte di rete cluster dedicate o una singola porta cluster su ciascun controller.
 
 La maggior parte dei sistemi richiede due porte di rete cluster dedicate su ciascun controller.
 

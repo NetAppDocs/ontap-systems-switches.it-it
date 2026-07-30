@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-storage/migrate-to-9336-storage.html 
 sidebar: sidebar 
 keywords: migrating to a cluster with Cisco Nexus 9336C-FX2 cluster switches, how to migrate 
-summary: È possibile migrare i vecchi switch cluster Cisco non disruptivi per un cluster ONTAP verso gli switch di rete cluster Cisco Nexus 9336C-FX2. 
+summary: Migra gli switch Cisco meno recenti agli switch di storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T senza interrompere il funzionamento della rete di storage. 
 ---
-= Migrazione dagli switch Cisco più vecchi agli switch Cisco Nexus 9336C-FX2 e 9336C-FX2-T
+= Esegui la migrazione dai vecchi switch Cisco agli switch di storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-È possibile migrare i vecchi switch Cisco per un cluster ONTAP sugli switch di rete di storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T. Si tratta di una procedura non distruttiva.
+Migra gli switch Cisco meno recenti agli switch di storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T senza interrompere il funzionamento della rete di storage.
 
 
 

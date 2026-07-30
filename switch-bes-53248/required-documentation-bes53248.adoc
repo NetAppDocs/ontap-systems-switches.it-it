@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/required-documentation-bes53248.html 
 sidebar: sidebar 
 keywords: documentation requirements, BES-53248 switches,cluster switches 
-summary: Per impostare la configurazione Cluster-Mode è necessaria la documentazione specifica dello switch e del controller. 
+summary: Consulta la documentazione relativa allo switch e al controller necessaria per configurare lo switch cluster Broadcom BES-53248. 
 ---
-= Requisiti di documentazione per gli switch cluster BES-53248
+= Esamina i requisiti di documentazione per configurare lo switch di cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per l'installazione dello switch BES-53248, assicurarsi di consultare la documentazione specifica dello switch e del controller.
+Consulta la documentazione relativa allo switch e al controller necessaria per configurare lo switch di cluster Broadcom BES-53248 e configurarlo in un cluster ONTAP.
 
 
 

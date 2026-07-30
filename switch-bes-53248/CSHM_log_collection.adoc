@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/CSHM_log_collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,BES-53248 Broadcom setup,BES-53248 switches configuration,EFOS 
-summary: 'La funzionalità di raccolta dei log CSHM dell"Ethernet switch health monitor viene utilizzata per raccogliere i log dagli switch di rete cluster o di storage in ONTAP.' 
+summary: Configura la raccolta dei log sullo switch di cluster Broadcom BES-53248 per permettere a CSHM di raccogliere i log dello switch per il debug e la segnalazione AutoSupport. 
 ---
-= Raccolta di log di monitoraggio dello stato dello switch Ethernet
+= Configura la raccolta dei log per lo switch di cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Il monitoraggio dello stato dello switch Ethernet (CSHM) è responsabile di garantire lo stato operativo degli switch di rete Cluster e Storage e di raccogliere i registri degli switch a scopo di debug.  Questa procedura ti guida attraverso il processo di impostazione e avvio della raccolta di registri dettagliati di *Supporto* dallo switch e avvia una raccolta oraria di dati *Periodici* raccolti da AutoSupport.
+Configura la raccolta dei log sullo switch di cluster Broadcom BES-53248 per permettere all'Ethernet switch health monitor (CSHM) di raccogliere i log dello switch per il debug e la segnalazione AutoSupport. Questa procedura configura sia la raccolta dei log di supporto su richiesta sia la raccolta periodica dei dati ogni ora.
 
 .Prima di iniziare
 * Per abilitare la funzionalità di raccolta dei log, è necessario eseguire ONTAP versione 9.10.1P15, 9.11.1P12 o 9.12.1 o successiva ed EFOS 3.8.0.2 o successiva.

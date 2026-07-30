@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/setup-worksheet-3132q.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 3132Q-V 
-summary: Se vuoi documentare le piattaforme supportate, devi compilare il foglio di lavoro di cablaggio vuoto usando come guida il foglio di lavoro di cablaggio di esempio già compilato. Ogni switch può essere configurato come una singola porta 40GbE o come 4 porte 10GbE. 
+summary: Completa il foglio di lavoro per il cablaggio degli switch cluster Cisco Nexus 3132Q-V per documentare i collegamenti delle porte e le configurazioni della piattaforma supportate. 
 ---
-= Completa il foglio di lavoro per il cablaggio del Cisco Nexus 3132Q-V
+= Completa il foglio di lavoro per il cablaggio Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se desideri documentare le piattaforme supportate, scarica un PDF da questa pagina e compila il foglio di lavoro sul cablaggio.
+Completa il foglio di lavoro per il cablaggio degli switch cluster Cisco Nexus 3132Q-V per documentare i collegamenti delle porte e le configurazioni della piattaforma supportate.
 
 Il foglio di lavoro di cablaggio di esempio fornisce esempi di assegnazioni di porte consigliate dagli switch ai controller.  Il foglio di lavoro vuoto fornisce un modello che puoi utilizzare per configurare il tuo cluster.
 

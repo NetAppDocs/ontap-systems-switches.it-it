@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/configure-reqs-92300.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete cluster supportati.  È possibile utilizzare switch di gestione aggiuntivi, che sono facoltativi. 
+summary: Prima di installare o aggiornare gli switch cluster Cisco Nexus 92300YC, verifica i requisiti di configurazione. 
 ---
-= Requisiti di configurazione per gli switch Cisco Nexus 92300YC
+= Esamina i requisiti di configurazione per gli switch cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per l'installazione e la manutenzione dello switch Cisco Nexus 92300YC, assicurati di esaminare tutti i requisiti di configurazione e di rete.
+Prima di installare o aggiornare gli switch cluster Cisco Nexus 92300YC, verifica i requisiti di configurazione.
 
 Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due switch di rete cluster supportati.  È possibile utilizzare switch di gestione aggiuntivi, che sono facoltativi.
 

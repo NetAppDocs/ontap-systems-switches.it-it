@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/configure-software-overview-92300-cluster.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-92300 switch 
-summary: Panoramica della configurazione software per gli switch cluster Cisco Nexus 92300YC 
+summary: 'Segui questo workflow per installare il software NX-OS e l"RCF sugli switch cluster Cisco Nexus 92300YC.' 
 ---
 = Procedura di installazione del software per gli switch cluster Cisco Nexus 92300YC
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Panoramica della configurazione software per gli switch cluster Cisco N
 
 
 [role="lead"]
-Per installare e configurare il software per uno switch Cisco Nexus 92300YC e per installare o aggiornare il file di configurazione di riferimento (RCF), segui questi passaggi:
+Segui questo workflow per installare il software NX-OS e il file di configurazione di riferimento (RCF) sugli switch di cluster Cisco Nexus 92300YC.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:configure-install-initial.html["Configurare l'interruttore"]
 [role="quick-margin-para"]

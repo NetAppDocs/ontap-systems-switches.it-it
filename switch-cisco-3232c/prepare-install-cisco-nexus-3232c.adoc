@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html 
 sidebar: sidebar 
 keywords: nx-os software, install, cisco nexus cluster switches, 3232c, rcfs 
-summary: Il software Cisco NX-OS e i file di configurazione di riferimento RCF devono essere installati sugli switch cluster Cisco Nexus 3232C. 
+summary: 'Prepara gli switch cluster Cisco Nexus 3232C prima di installare il software NX-OS e il file di configurazione di riferimento (RCF).' 
 ---
-= Preparati a installare il software NX-OS e il Reference Configuration File (RCF)
+= Preparati a installare il software NX-OS e l'RCF sugli switch di cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Prima di installare il software NX-OS e il file di configurazione di riferimento (RCF), seguire questa procedura.
+Prepara gli switch cluster Cisco Nexus 3232C prima di installare il software NX-OS e il file di configurazione (RCF). NX-OS e l'RCF devono essere installati prima che lo switch possa operare in un cluster ONTAP.
 
 .Informazioni sugli esempi
 Gli esempi in questa procedura utilizzano due nodi. Questi nodi utilizzano due porte di interconnessione cluster 10GbE `e0a` e `e0b`.

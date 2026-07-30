@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/maintain-replace-frus-9808.html 
 sidebar: sidebar 
 keywords: switches, hardware installation, Cisco Nexus, 9808 switches 
-summary: 'Il tuo switch Cisco Nexus 9808 ha unità sostituibili sul campo (FRU) che puoi sostituire quando sono difettose.' 
+summary: 'Sostituisci le unità sostituibili sul campo (FRU) difettose sugli switch Cisco Nexus 9808.' 
 ---
-= Sostituisci FRU - Cisco Nexus 9808
+= Sostituisci i FRU nello switch Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Il tuo switch Cisco Nexus 9808 ha unità sostituibili sul campo (FRU) che puoi sostituire quando sono difettose.
+Sostituisci le unità sostituibili sul campo (FRU) difettose sugli switch Cisco Nexus 9808 per ripristinare la funzionalità dello switch senza sostituire l'intero switch.
 
 .Informazioni su questo compito
 Lo switch Cisco Nexus 9808 dispone dei seguenti componenti sostituibili sul campo (FRU):

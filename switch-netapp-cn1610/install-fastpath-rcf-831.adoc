@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/install-fastpath-rcf-831.html 
 sidebar: sidebar 
 keywords: fastpath, software, install, netapp cluster switches, rcfs, ontap 
-summary: La procedura di installazione è la stessa sia per gli switch di gestione NetApp CN1601 che per gli switch cluster CN1610 con ONTAP 8.3.1 o versioni successive. Tuttavia, i due modelli richiedono software e RCF differenti. 
+summary: 'Installa il software FASTPATH e i file di configurazione di riferimento (RCF) sugli switch di rete NetApp CN1610 per cluster ONTAP 8.3.1 e versioni successive.' 
 ---
-= Installa il software FASTPATH e gli RCF per ONTAP 8.3.1 e versioni successive
+= Installa il software FASTPATH e gli RCF sugli switch di cluster NetApp CN1610 per ONTAP 8.3.1 e versioni successive
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questa procedura per installare il software FASTPATH e gli RCF per ONTAP 8.3.1 e versioni successive.
+Installa il software FASTPATH e i file di configurazione di riferimento (RCF) sugli switch di rete NetApp CN1610 per cluster ONTAP 8.3.1 e versioni successive.
 
 La procedura di installazione è la stessa sia per gli switch di gestione NetApp CN1601 che per gli switch cluster CN1610 con ONTAP 8.3.1 o versioni successive. Tuttavia, i due modelli richiedono software e RCF differenti.
 

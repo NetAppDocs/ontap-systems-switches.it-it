@@ -2,16 +2,16 @@
 permalink: switch-cisco-9364d-gx2a/configure-switch-workflow-9364d.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure 9364d-gx2a switch 
-summary: 'Configuri gli switch Cisco 9332D-GX2B come parte dell"installazione di un nuovo sistema AFX 1K o AFX 2K, della sostituzione di uno switch o del ripristino alle impostazioni di fabbrica.' 
+summary: Segui questo flusso di lavoro per configurare gli switch Cisco Nexus 9364D-GX2A per installazioni di sistemi AFX 1K o AFX 2K, sostituzioni di switch o ripristini delle impostazioni di fabbrica. 
 ---
-= Configura il flusso di lavoro dello switch - Cisco Nexus 9364D-GX2A
+= Flusso di lavoro di configurazione per gli switch Cisco Nexus 9364D-GX2A
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Configuri gli switch Cisco 9364D-GX2A come parte dell'installazione di un nuovo sistema AFX 1K o AFX 2K, della sostituzione di uno switch o del ripristino alle impostazioni di fabbrica.
+Segui questo workflow per configurare gli switch Cisco Nexus 9364D-GX2A per installazioni di sistemi AFX 1K o AFX 2K, sostituzioni di switch o quando ripristini uno switch alle impostazioni di fabbrica predefinite.
 
 Potresti essere indirizzato a questo flusso di lavoro o a singoli argomenti in questo flusso di lavoro, secondo le necessità della tua procedura specifica per link:install-configure-switches-in-afx-workflow-9364d.html["Installa e configura un nuovo sistema AFX 1K o AFX 2K"], link:replace-9364d-cluster.html["Sostituisci uno switch"] o link:maintain-reset-switch-9364d.html["Reimposta uno switch alle impostazioni predefinite di fabbrica"].
 

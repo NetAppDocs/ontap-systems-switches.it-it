@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/install-rcf-file.html 
 sidebar: sidebar 
 keywords: reference configuration, file ,install, cn1610, switch, install rcf 
-summary: 'Quando si installa un file di configurazione RCF, è necessario prima migrare i LIF del cluster dallo switch cs2. Dopo che l"RCF è stato installato e convalidato, i LIF possono essere migrati nuovamente.' 
+summary: 'Installa un file di configurazione di riferimento (RCF) sullo switch di rete NetApp CN1610 del cluster per configurare le assegnazioni delle porte e le impostazioni di rete.' 
 ---
-= Installa un file di configurazione di riferimento su uno switch CN1610
+= Installa un file di configurazione di riferimento sullo switch di rete NetApp CN1610 del cluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Segui questa procedura per installare un file di configurazione di riferimento (RCF).
+Installa un file di configurazione di riferimento (RCF) sullo switch di rete NetApp CN1610 del cluster.
 
 Prima di installare un RCF, devi prima migrare i cluster LIF dallo switch cs2. Dopo che l'RCF è stato installato e validato, puoi migrare di nuovo i LIF.
 

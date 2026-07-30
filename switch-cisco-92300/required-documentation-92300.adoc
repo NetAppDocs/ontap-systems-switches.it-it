@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/required-documentation-92300.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: 'Per l"installazione e la manutenzione dello switch Cisco Nexus 92300YC, assicurati di consultare tutta la documentazione consigliata.' 
+summary: Esamina la documentazione necessaria per installare e mantenere gli switch cluster Cisco Nexus 92300YC. 
 ---
-= Requisiti di documentazione per gli switch Cisco Nexus 92300YC
+= Esamina i requisiti di documentazione per gli switch cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per l'installazione dello switch Cisco Nexus 92300YC, assicurarsi di consultare tutta la documentazione consigliata.
+Controlla la documentazione sugli switch e sui controller necessaria per configurare gli switch cluster Cisco Nexus 92300YC e configurarli in un cluster ONTAP.
 
 
 
