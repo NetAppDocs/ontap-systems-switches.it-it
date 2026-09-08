@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: verify, monitor, cluster, management, network, switches, heath, monitor 
 summary: Verifica che il monitoraggio dello stato di salute degli switch Ethernet sia configurato correttamente e funzioni per i tuoi switch. 
 ---
-= Verifica la configurazione dello switch di rete Ethernet health monitor
+= Verifica la configurazione per il monitoraggio dello stato di salute dello switch Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

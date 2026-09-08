@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, cisco, nexus, switch, pass-through, panel, netapp, cabinet, bracket, switch, install a cisco nexus 9336c-fx2 switch and pass-through panel in a netapp cabinet - cisco nexus 9336c-fx2 
 summary: Installa gli switch cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T e un pannello passante in un armadio NetApp usando le staffe standard incluse con lo switch. 
 ---
-= Installa gli switch cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T in un cabinet NetApp
+= Installa uno switch di cluster Cisco Nexus 9336C-FX2 e un pannello passante in un armadio NetApp
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

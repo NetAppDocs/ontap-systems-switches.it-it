@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9332d-gx2b 
 summary: Completa la configurazione iniziale degli switch Cisco Nexus 9332D-GX2B utilizzando la procedura guidata di configurazione per i nuovi sistemi AFX 1K o AFX 2K, per la sostituzione degli switch o per il ripristino delle impostazioni di fabbrica. 
 ---
-= Completa la configurazione iniziale dello switch Cisco Nexus 9332D-GX2B
+= Completa la configurazione iniziale sullo switch Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

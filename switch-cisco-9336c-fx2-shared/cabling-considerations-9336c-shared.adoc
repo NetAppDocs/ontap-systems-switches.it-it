@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
 summary: Esamina le considerazioni relative al cablaggio e alla configurazione per lo switch condiviso Cisco Nexus 9336C-FX2 prima della distribuzione. 
 ---
-= Esamina le considerazioni relative al cablaggio e alla configurazione per lo switch condiviso Cisco Nexus 9336C-FX2
+= Rivedi i requisiti di cablaggio e configurazione per lo switch condiviso Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

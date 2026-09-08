@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2-t 
 summary: Completa il foglio di lavoro per il cablaggio degli switch cluster Cisco Nexus 9336C-FX2 o 9336C-FX2-T per documentare i collegamenti delle porte e le configurazioni della piattaforma supportate. 
 ---
-= Completare il foglio di lavoro sul cablaggio Cisco Nexus 9336C-FX2 o 9336C-FX2-T
+= Controlla la scheda di cablaggio per gli switch cluster Cisco Nexus 9336C-FX2 o 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

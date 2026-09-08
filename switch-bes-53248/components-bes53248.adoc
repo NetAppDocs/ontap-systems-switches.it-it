@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
 summary: 'Identifica i componenti e i codici articolo per lo switch di cluster Broadcom BES-53248 per supportare l"installazione hardware e la manutenzione continua.' 
 ---
-= Scopri i componenti e i codici articolo dello switch di cluster Broadcom BES-53248
+= Componenti e codici articolo per lo switch di cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

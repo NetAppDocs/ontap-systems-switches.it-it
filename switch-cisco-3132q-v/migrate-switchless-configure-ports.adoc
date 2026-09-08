@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco 3132q-v, cluster switches 
 summary: Configura le porte per la migrazione da un cluster senza switch a switch di cluster Cisco Nexus 3132Q-V. 
 ---
-= Configura le porte per la migrazione da cluster senza switch a switch di cluster Cisco Nexus 3132Q-V
+= Configura le porte per la migrazione agli switch di cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

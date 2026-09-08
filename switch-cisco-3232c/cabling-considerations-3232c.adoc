@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
 summary: Esamina le considerazioni relative al cablaggio e alla configurazione per gli switch cluster Cisco Nexus 3232C prima della distribuzione. 
 ---
-= Esamina le considerazioni relative al cablaggio e alla configurazione degli switch cluster Cisco Nexus 3232C
+= Controlla i requisiti di cablaggio per gli switch cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

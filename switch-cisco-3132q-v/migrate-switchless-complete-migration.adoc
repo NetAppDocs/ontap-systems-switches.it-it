@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco 3132q-v, cluster switches 
 summary: Completa la migrazione da un cluster senza switch a due nodi agli switch di cluster Cisco Nexus 3132Q-V. 
 ---
-= Completa la migrazione da un cluster senza switch a switch di cluster Cisco Nexus 3132Q-V
+= Completa la migrazione agli switch di cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9364d-gx2a 
 summary: Completa la configurazione iniziale degli switch Cisco Nexus 9364D-GX2A usando la procedura guidata di configurazione per i nuovi sistemi AFX 1K o AFX 2K, la sostituzione degli switch o il ripristino delle impostazioni di fabbrica. 
 ---
-= Completa la configurazione iniziale dello switch Cisco Nexus 9364D-GX2A
+= Completa la configurazione iniziale sullo switch Cisco Nexus 9364D-GX2A
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

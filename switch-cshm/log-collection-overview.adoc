@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: Utilizza la raccolta dei log CSHM per raccogliere i log dello switch e i dati diagnostici per risolvere i problemi degli switch di rete. 
 ---
-= Scopri la raccolta dei log per l'health monitor dello switch di rete Ethernet
+= Scopri la raccolta dei log per il monitoraggio dello stato di salute degli switch Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

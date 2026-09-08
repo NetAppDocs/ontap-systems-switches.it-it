@@ -19,6 +19,6 @@ I nodi FAS22xx consentono una singola porta cluster su ciascun controller.
 
 Sono disponibili due opzioni di migrazione:
 
-* link:migrate-switched-netapp-cn1610.html["Esegui la migrazione da un cluster senza switch a un ambiente cluster NetApp CN1610 con switch"]
+* link:migrate-switched-netapp-cn1610.html["Esegui la migrazione da un cluster senza switch a un cluster NetApp CN1610 con switch"]
 * link:migrate-fas22xx-systems.html["Migra da un cluster senza switch (sistemi FAS22xx con una singola connessione di rete cluster)"]
 

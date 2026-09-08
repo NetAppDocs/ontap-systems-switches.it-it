@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
 summary: Collega gli alloggiamenti per unità NS224 come storage collegato a switch utilizzando gli switch di storage NVIDIA SN2100 quando non viene utilizzato lo storage collegato direttamente. 
 ---
-= Collega gli shelf di dischi NS224 come storage collegato tramite switch agli switch di storage NVIDIA SN2100
+= Alloggiamenti per unità disco NS224 con cavi per switch di storage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

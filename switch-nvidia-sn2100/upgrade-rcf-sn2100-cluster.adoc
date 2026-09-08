@@ -140,7 +140,7 @@ admin@sw1:mgmt:~$ cat /etc/issue
 
 NOTE: Per qualsiasi problema relativo allo script python RCF che non può essere corretto, contattare https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
 
-. Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.  Fare riferimento alink:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per i dettagli di eventuali ulteriori modifiche richieste.
+. Riapplica alla configurazione dello switch tutte le personalizzazioni precedenti. Consulta link:cabling-considerations-sn2100-cluster.html["Rivedi le linee guida per il cablaggio e la configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
 . Verificare la configurazione dopo il riavvio:
 +
 [listing, subs="+quotes"]
@@ -462,7 +462,7 @@ admin@sw1:mgmt:~$ cat /etc/issue
 
 NOTE: Per qualsiasi problema relativo allo script python RCF che non può essere corretto, contattare https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
 
-. Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.  Fare riferimento alink:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per i dettagli di eventuali ulteriori modifiche richieste.
+. Riapplica alla configurazione dello switch tutte le personalizzazioni precedenti. Consulta link:cabling-considerations-sn2100-cluster.html["Rivedi le linee guida per il cablaggio e la configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
 . Verificare la configurazione dopo il riavvio:
 +
 [listing, subs="+quotes"]
@@ -756,7 +756,7 @@ NOTE: Nel passaggio 3 *Aggiornamento del file MOTD* sopra, il comando `cat /etc/
 
 NOTE: Per qualsiasi problema relativo allo script python RCF che non può essere corretto, contattare https://mysupport.netapp.com/["Supporto NetApp"^] per assistenza.
 
-. Riapplicare eventuali personalizzazioni precedenti alla configurazione dello switch.  Fare riferimento alink:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"] per i dettagli di eventuali ulteriori modifiche richieste.
+. Riapplica alla configurazione dello switch tutte le personalizzazioni precedenti. Consulta link:cabling-considerations-sn2100-cluster.html["Rivedi le linee guida per il cablaggio e la configurazione"] per i dettagli su eventuali ulteriori modifiche necessarie.
 . Verificare la configurazione dopo il riavvio:
 +
 [listing, subs="+quotes"]

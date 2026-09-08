@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, applicable, configuration, file, cluster, switch, health, monitor, ontap, install the cluster switch health monitor configuration file for sn2100 switches 
 summary: 'Installa il file di configurazione dell"Ethernet switch health monitor (CSHM) per gli switch di storage NVIDIA SN2100 per abilitare il monitoraggio dell"integrità dello switch in ONTAP.' 
 ---
-= Installa il file di configurazione dell'Ethernet switch health monitor per gli switch di storage NVIDIA SN2100
+= Installa il file di configurazione CSHM per gli switch di storage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

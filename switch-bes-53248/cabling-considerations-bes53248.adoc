@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: BES-53248 cabling setup, BES-53248 switches configuration, efos 
 summary: 'Comprendi i vincoli di cablaggio e configurazione dello switch cluster Broadcom BES-53248 prima dell"implementazione, inclusi l"assegnazione delle porte del cluster, i vincoli di velocità dei gruppi di porte e le impostazioni FEC.' 
 ---
-= Esamina le considerazioni relative al cablaggio e alla configurazione per lo switch di cluster Broadcom BES-53248
+= Esamina i requisiti di cablaggio e configurazione per lo switch di cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
 summary: Prima di implementare gli switch di storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T, rivedi le considerazioni relative al cablaggio e alla configurazione. 
 ---
-= Esamina le considerazioni relative al cablaggio e alla configurazione degli switch di storage Cisco Nexus 9336C-FX2
+= Consulta le linee guida per il cablaggio e la configurazione degli switch di storage Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

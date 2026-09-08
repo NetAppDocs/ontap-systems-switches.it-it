@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: migrate, switchless cluster environment, switched netapp cn1610 
 summary: Esegui la migrazione da un cluster senza switch a un ambiente cluster con switch utilizzando gli switch cluster NetApp CN1610. 
 ---
-= Esegui la migrazione da un cluster senza switch a un ambiente cluster NetApp CN1610 con switch
+= Esegui la migrazione da un cluster senza switch a un cluster NetApp CN1610 con switch
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

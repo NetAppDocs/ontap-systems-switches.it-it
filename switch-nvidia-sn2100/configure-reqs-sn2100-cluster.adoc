@@ -22,7 +22,7 @@ Se si desidera creare cluster ONTAP con più di due nodi, sono necessari due swi
 
 Installare lo switch NVIDIA SN2100 (X190006) nell'armadio switch doppio/singolo NVIDIA con le staffe standard incluse con lo switch.
 
-Per le linee guida sul cablaggio, fare riferimento a link:cabling-considerations-sn2100-cluster.html["Esaminare le considerazioni sul cablaggio e sulla configurazione"].
+Per le linee guida sul cablaggio, fare riferimento a link:cabling-considerations-sn2100-cluster.html["Rivedi le linee guida per il cablaggio e la configurazione"].
 
 
 

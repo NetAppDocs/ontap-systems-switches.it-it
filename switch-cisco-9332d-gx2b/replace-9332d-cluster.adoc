@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9332d-gx2b cluster switch - cisco nexus 9332d-gx2b 
 summary: Sostituisci uno switch Cisco Nexus 9332D-GX2B difettoso in un sistema AFX senza interrompere il funzionamento. Questa è una procedura senza interruzioni. 
 ---
-= Sostituisci uno switch Cisco Nexus 9332D-GX2B
+= Sostituisci uno switch Cisco Nexus 9332D-GX2B in un sistema AFX
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
