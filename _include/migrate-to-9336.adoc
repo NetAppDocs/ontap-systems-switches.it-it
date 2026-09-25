@@ -620,34 +620,33 @@ Group Port-       Type     Protocol  Member Ports
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Sullo switch cs2, arrestare e riavviare tutte le porte del cluster per attivare un ripristino automatico di tutti i LIF del cluster che non si trovano sulle rispettive porte home.
-+
-[listing, subs="+quotes"]
-----
-cs2> *enable*
-cs2# *configure*
-cs2(config)# *interface eth1/1-1/2*
-cs2(config-if-range)# *shutdown*
-
-(Wait for 5-10 seconds before re-enabling the ports)
-
-cs2(config-if-range)# *no shutdown*
-
-(After executing the no shutdown command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
-
-cs2(config-if-range)# *exit*
-cs2(config)# *exit*
-cs2#
-----
-. Verificare che i LIF del cluster siano tornati alle loro porte home (l'operazione potrebbe richiedere un minuto):
+. Verificare che i LIF del cluster siano tornati alla loro porta home:
 +
 `network interface show -vserver Cluster`
 
 +
-Se uno qualsiasi dei LIF del cluster non è tornato alla propria porta home, ripristinarlo manualmente. È necessario connettersi a ciascuna console di sistema LIF o SP/ BMC di gestione nodi del nodo locale proprietario del LIF:
+.Mostra esempio
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical            Status     Network            Current             Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
+----------- ------------------ ---------- -----------------  ------------------- ------- ----
+Cluster
+            node1_clus1        up/up      169.254.3.4/23     node1               e0b     true
+            node1_clus2        up/up      169.254.3.5/23     node1               e0b     true
+            node2_clus1        up/up      169.254.3.8/23     node2               e0b     true
+            node2_clus2        up/up      169.254.3.9/23     node2               e0b     true
+cluster1::*>
+----
+====
++
+Se i LIF del cluster non sono tornati alle loro porte di origine, ripristinali manualmente dal nodo locale:
 
 +
-`network interface revert -vserver Cluster -lif *`
+`network interface revert -vserver Cluster -lif <lif_name>`
 
 . Verificare che il cluster sia integro:
 +
@@ -662,15 +661,16 @@ Se uno qualsiasi dei LIF del cluster non è tornato alla propria porta home, rip
 --
 Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start -node **
+----
+*NOTA:* Attendi alcuni secondi prima di eseguire il  `show`comando per visualizzare i dettagli. Verifica le voci corrispondenti alla data odierna.
 
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface check cluster-connectivity start*
+cluster1::*> *network interface check cluster-connectivity show*
 ----
-
-NOTE: Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
-
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity show*

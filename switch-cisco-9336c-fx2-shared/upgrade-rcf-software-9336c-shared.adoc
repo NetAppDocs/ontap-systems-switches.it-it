@@ -36,6 +36,13 @@ CAUTION: Prima di installare una nuova versione del software dello switch e degl
 [[step-1-prepare-for-the-upgrade]]
 == Passaggio 1: Prepararsi all'aggiornamento
 
+. Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare:
++
+`set -privilege advanced`
+
++
+Il prompt avanzato(`*>` ) appare.
+
 . Visualizza le porte del cluster su ciascun nodo connesso agli switch del cluster:
 +
 `network device-discovery show`
@@ -696,7 +703,7 @@ cluster1::*>
 . Ripeti i passaggi da 1 a 21 sullo switch cs2.
 . Abilita il ripristino automatico sui LIF del cluster.
 +
-`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`
+`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*`
 
 
 
@@ -994,14 +1001,16 @@ cluster1-04          true    true          false
 --
 Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start -node **
+----
+*NOTA:* Attendi alcuni secondi prima di eseguire il  `show`comando per visualizzare i dettagli. Verifica le voci corrispondenti alla data odierna.
 
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface check cluster-connectivity start*
+cluster1::*> *network interface check cluster-connectivity show*
 ----
-*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
-
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity show*

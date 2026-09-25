@@ -39,7 +39,7 @@ Preparati a installare l'RCF sullo/sugli switch assicurandoti di avere le connes
 
 .Passi
 . Devi avere accesso a un server HTTP, FTP o TFTP. Avere accesso a uno di questi server ti permette di scaricare una versione supportata dell'RCF.
-. Scarica il file RCF compatibile con il tuo tipo di sistema AFX dal NetApp Support Site su  http://mysupport.netapp.com/["mysupport.netapp.com"^].
+. Scarica il file RCF compatibile con il tuo tipo di sistema AFX dal sito di supporto NetApp all'indirizzo link:http://mysupport.netapp.com/["mysupport.netapp.com"^].
 +
 
 NOTE: I nuovi switch non vengono forniti con l'RCF installato. Devi installare l'RCF sugli switch.
@@ -52,9 +52,9 @@ NOTE: I nuovi switch non vengono forniti con l'RCF installato. Devi installare l
 [[step-2-install-the-rcf]]
 == Passaggio 2: Installa l'RCF
 
-Installi l'RCF sul primo switch (cs1) copiando e applicando l'RCF alla bootflash, esaminando l'output del banner, verificando che la versione dell'RCF sia corretta, annotando eventuali aggiunte personalizzate, salvando i dettagli di configurazione di base, verificando che il file write_erase.cfg sia popolato, cancellando la configurazione salvata corrente, copiando la configurazione di base salvata in precedenza nella configurazione di avvio e poi riavviando lo switch. Ripeti questi passaggi sul secondo switch (cs2) se stai installando l'RCF come parte di una nuova installazione del sistema AFX.
+Installa l'RCF sul primo switch (cs1) copiando e applicando l'RCF alla bootflash, esaminando l'output del banner, verificando che la versione dell'RCF sia corretta, rendendo permanente la configurazione corrente in esecuzione e quindi riavviando lo switch. Ripeti questi passaggi sul secondo switch (cs2) se stai installando l'RCF nell'ambito di una nuova installazione di un sistema AFX.
 
-. Accedi per cambiare cs1 tramite SSH o tramite una console seriale.
+. Accedi allo switch cs1 utilizzando SSH o utilizzando una console seriale.
 . Copiare l'RCF nel bootflash dello switch cs1 utilizzando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
 +
 Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^].
@@ -137,7 +137,7 @@ L'output varia in base alla configurazione del sito.  Controllare le impostazion
 
 . Copia la configurazione attualmente in esecuzione nella configurazione di avvio per renderla persistente.
 +
-`cs1# *copy bootflash:write_erase.cfg startup-config*`
+`cs1# *copy running-config startup-config*`
 
 . Riavviare lo switch:
 +

@@ -417,6 +417,11 @@ Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida approp
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
+
+
+
+CAUTION: Se lo switch 9336C-FX2 non si avvia dopo l'aggiornamento RCF, consultare l'NetApp articolo della Knowledge Base link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cisco_9336C-FX2_Switch_Fails_to_Boot_After_RCF_Install_%E2%80%93_Boot_Variable_Cleared["Cisco 9336C-FX2 Switch non si avvia dopo l'installazione di RCF – Variabile di boot cancellata"^] per i passaggi successivi.
+
 . Verificare lo stato delle porte del cluster sul cluster.
 +
 .. Verificare che le porte del cluster siano attive e funzionanti su tutti i nodi del cluster:
@@ -492,34 +497,6 @@ cluster1-04/cdp
             e0a    cs1                       Ethernet1/1/2     N9K-C9336C
             e0b    cs2                       Ethernet1/1/2     N9K-C9336C
 
-cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
-Switch                      Type               Address          Model
---------------------------- ------------------ ---------------- -----
-cs1                         cluster-network    10.233.205.90    NX9-C9336C
-     Serial Number: FOCXXXXXXGD
-      Is Monitored: true
-            Reason: None
-  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
-    Version Source: CDP
-
-cs2                         cluster-network    10.233.205.91    NX9-C9336C
-     Serial Number: FOCXXXXXXGS
-      Is Monitored: true
-            Reason: None
-  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
-    Version Source: CDP
-
-2 entries were displayed.
-----
-A seconda della versione RCF precedentemente caricata sullo switch, è possibile che venga visualizzato il seguente output sulla console dello switch cs1:
-
-[listing]
-----
-2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
-2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Blocking port-channel1 on VLAN0001. Inconsistent peer vlan.
-2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
 ----
 ====
 
@@ -548,19 +525,9 @@ cluster1::*>
 . Ripetere i passaggi da 1 a 19 sullo switch cs2.
 . Abilita il ripristino automatico sui LIF del cluster.
 +
-`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`
-
-. Eseguire un riavvio di switch cs2.
-+
-`cs2# *reload*`
-
-+
-`This command will reboot the system. (y/n)?  [n] *y*`
+`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*`
 
 
-
-
-CAUTION: Se lo switch 9336C-FX2 non si avvia dopo l'aggiornamento RCF, consultare l'NetApp articolo della Knowledge Base link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cisco_9336C-FX2_Switch_Fails_to_Boot_After_RCF_Install_%E2%80%93_Boot_Variable_Cleared["Cisco 9336C-FX2 Switch non si avvia dopo l'installazione di RCF – Variabile di boot cancellata"^] per i passaggi successivi.
 
 
 
@@ -860,14 +827,16 @@ cluster1::*>
 --
 Puoi usare il `network interface check cluster-connectivity` comando per avviare un controllo di accessibilità per la connettività del cluster e quindi visualizzare i dettagli:
 
-`network interface check cluster-connectivity start`E `network interface check cluster-connectivity show`
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start -node **
+----
+*NOTA:* Attendi alcuni secondi prima di eseguire il  `show`comando per visualizzare i dettagli. Verifica le voci corrispondenti alla data odierna.
 
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface check cluster-connectivity start*
+cluster1::*> *network interface check cluster-connectivity show*
 ----
-*NOTA:* Attendere alcuni secondi prima di eseguire il `show` comando per visualizzare i dettagli.
-
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity show*

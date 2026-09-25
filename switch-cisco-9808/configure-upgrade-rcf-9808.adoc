@@ -29,12 +29,8 @@ Se è necessario modificare la configurazione di avvio per riflettere le immagin
 
 
 .Informazioni su questo compito
-* L'aggiornamento del RCF su entrambi gli switch è una procedura non disruptiva.
-+
-** Durante questa procedura non è necessario alcun collegamento inter-switch (ISL) operativo. Questa scelta è intenzionale, perché le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL. Per garantire la continuità operativa del cluster, questa procedura ti fa migrare tutti i LIF del cluster allo switch partner operativo mentre esegui i passaggi sullo switch di destinazione.
-** Questa procedura prevede l'aggiornamento del RCF sul primo switch (cs1) e poi la ripetizione dei passaggi per il secondo switch (cs2).
-
-
+* Per garantire operazioni del cluster senza interruzioni, questa procedura ti fa migrare tutti i cluster LIF allo switch partner operativo mentre esegui i passaggi sullo switch di destinazione.
+* Durante questa procedura non è necessario alcun collegamento inter-switch operativo (ISL). Questa scelta è voluta perché le modifiche alla versione di RCF possono influire temporaneamente sulla connettività ISL.
 * Questa procedura richiede l'utilizzo dei comandi ONTAP e dei comandi degli switch Cisco Nexus 9000 Series; i passaggi indicano quale CLI stai utilizzando per inserire i comandi.
 * Gli esempi in questa procedura utilizzano la seguente nomenclatura di switch e nodi:
 +
@@ -51,6 +47,7 @@ Se è necessario modificare la configurazione di avvio per riflettere le immagin
 ** IL `cluster1::*>` il prompt indica il nome del cluster.
 
 
+* Gli esempi mostrati in questa procedura si riferiscono a sistemi AFX 2K con switch che utilizzano RCF 10.1. L'input e l'output possono variare a seconda della versione di RCF in uso.
 
 
 
@@ -58,17 +55,14 @@ Se è necessario modificare la configurazione di avvio per riflettere le immagin
 [[step-1-prepare-for-the-upgrade]]
 == Passaggio 1: Prepararsi all'aggiornamento
 
-Inserisci i comandi per i passaggi seguenti dalla CLI di ONTAP.
+Utilizzando la ONTAP CLI per i seguenti passaggi, preparati all'aggiornamento RCF sopprimendo la creazione automatica dei casi, se necessario, verificando lo stato amministrativo e operativo delle porte e disabilitando il ripristino automatico sulle LIF del cluster.
 
 . Se AutoSupport è abilitato su questo cluster, sopprimere la creazione automatica dei casi richiamando un messaggio AutoSupport :
 +
 [source, cli]
 ----
-system node autosupport invoke -node * -type all -message MAINT=xh
+system node autosupport invoke -node * -type all -message MAINT=<number of hours down>h
 ----
-+
-dove _x_ è la durata della finestra di manutenzione in ore.
-
 . Modificare il livello di privilegio in avanzato, immettendo *y* quando richiesto per continuare:
 +
 [source, cli]
@@ -490,10 +484,16 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 
 
-[[step-2-configure-ports]]
-== Passaggio 2: configurare le porte
+[[step-2-upgrade-the-rcf]]
+== Fase 2: Aggiorna l'RCF
+
+Usi la CLI dello switch e la CLI di ONTAP (come indicato nei passaggi successivi) per l'aggiornamento dell'RCF. Aggiorni l'RCF sul primo switch (cs1) e poi ripeti questi passaggi per il secondo switch (cs2).
 
 . Tramite la CLI dello switch, sullo switch cs1, disattiva le porte collegate a tutte le porte dei nodi per ciascuna scheda di linea.
++
+
+CAUTION: Assicurati di chiudere *tutte* le porte connesse per evitare problemi di connessione di rete. Consulta l'articolo della Knowledge Base link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nodo fuori quorum durante la migrazione del cluster LIF durante l'aggiornamento del sistema operativo dello switch"^] per ulteriori dettagli.
+
 +
 L'esempio seguente mostra i comandi per disattivare tutte le porte sulla scheda di linea 1 `e1`, `e1-1/1-18`, `e1/19/1-4`, `e1/20/1-4`......... `e1/35/1-4`. Ripeti i comandi per ogni scheda di linea dello switch.
 
@@ -509,10 +509,6 @@ cs1(config-if-range)# *shutdown*
 cs1(config-if-range)# *exit*
 cs1(config)# *exit*
 ----
-+
-
-CAUTION: Assicurati di chiudere *tutte* le porte connesse per evitare problemi di connessione di rete. Consulta l'articolo della Knowledge Base link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nodo fuori quorum durante la migrazione del cluster LIF durante l'aggiornamento del sistema operativo dello switch"^] per ulteriori dettagli.
-
 . Utilizzando la ONTAP CLI, verifica che i cluster LIF siano passati alle porte ospitate sullo switch cs1. Potrebbe volerci qualche secondo.
 +
 [source, cli]
@@ -590,20 +586,20 @@ Assicurati di configurare quanto segue:
 ====
 Se il  `write_erase.cfg` file esiste già, rinominalo in  `write_erase_old.cfg`, come segue:
 
-`cs1# move bootflash:write_erase.cfg write_erase_old.cfg`
+`move bootflash:write_erase.cfg write_erase_old.cfg`
 
 ====
 +
-`cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
+`show run | i "username admin password" > bootflash:write_erase.cfg`
 
 +
-`cs1# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+`show run | section "vrf context management" >> bootflash:write_erase.cfg`
 
 +
-`cs1# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+`show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
 +
-`cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
+`show run | section "switchname" >> bootflash:write_erase.cfg`
 
 +
 Fare riferimento all'articolo della Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Cisco mantenendo la connettività remota"^] per ulteriori dettagli.
@@ -612,9 +608,9 @@ Fare riferimento all'articolo della Knowledge Base link:https://kb.netapp.com/on
 +
 `show file bootflash:write_erase.cfg`
 
-. Utilizzando la CLI dello switch, esegui il comando  `write erase` per cancellare la configurazione attualmente salvata:
+. Utilizzando la CLI dello switch, cancella la configurazione attualmente salvata:
 +
-`cs1# *write erase*`
+`write erase`
 
 +
 `Warning: This command will erase the startup-configuration.`
@@ -622,13 +618,13 @@ Fare riferimento all'articolo della Knowledge Base link:https://kb.netapp.com/on
 +
 `Do you wish to proceed anyway? (y/n)  [n] *y*`
 
-. Utilizzando l'interfaccia a riga di comando dello switch, copia la configurazione di base salvata in precedenza nella configurazione di avvio.
+. Utilizzando la CLI dello switch, copia la configurazione di base salvata in precedenza nella configurazione di avvio:
 +
-`cs1# *copy bootflash:write_erase.cfg startup-config*`
+`copy bootflash:write_erase.cfg startup-config`
 
 . Utilizzando l'interfaccia a riga di comando dello switch, riavvia lo switch:
 +
-`cs1# *reload*`
+`reload`
 
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
@@ -639,7 +635,7 @@ Potrebbe essere necessario aggiornare le voci del file host relative alle chiavi
 
 . Tramite la CLI dello switch, copia l'RCF nella bootflash dello switch cs1 usando uno dei seguenti protocolli di trasferimento: FTP, TFTP, SFTP o SCP.
 +
-Per ulteriori informazioni sui comandi Cisco, consulta la guida appropriata nelle link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^].
 
 +
 `copy <protocol>: bootflash: vrf management`
@@ -662,7 +658,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Utilizzando la CLI dello switch, applica l'RCF precedentemente scaricato alla bootflash.
 +
-Per ulteriori informazioni sui comandi Cisco, consulta la guida appropriata nelle link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^].
 
 +
 Questo esempio mostra l'RCF `RCF-v10.1-NX9808-CL1-ST1.txt` installato sullo switch cs1:
@@ -700,17 +696,17 @@ Se i tuoi switch utilizzano RCF 10.1 o versioni successive, puoi link:configure-
 
 . Utilizzando la CLI dello switch, dopo che hai verificato che le versioni RCF, le aggiunte personalizzate e le impostazioni dello switch sono corrette, copia il file  `running-config` nel file  `startup-config`.
 +
-Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nelle  https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^] guide.
+Per ulteriori informazioni sui comandi Cisco, fare riferimento alla guida appropriata nella link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Riferimento ai comandi NX-OS della serie Cisco Nexus 9000"^].
 
 +
-`cs1# *copy running-config startup-config*`
+`copy running-config startup-config`
 
 +
 `[########################################] 100% Copy complete`
 
 . Utilizzando la CLI dello switch, riavvia lo switch cs1. Puoi ignorare gli avvisi "`cluster switch health monitor`" e gli eventi "`cluster ports down`" segnalati sui nodi durante il riavvio dello switch.
 +
-`cs1# *reload*`
+`reload`
 
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
@@ -766,7 +762,7 @@ e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
 e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
 ----
 ====
-... Verificare lo stato di integrità dello switch dal cluster.
+... Verificare lo stato di integrità dello switch dal cluster:
 +
 [source, cli]
 ----
@@ -1085,7 +1081,7 @@ node1-04          true     true          false
 ----
 ====
 . Ripetere i passaggi da 4 a 18 sullo switch cs2.
-. Usando la ONTAP CLI, abilita il ripristino automatico sulle LIF del cluster.
+. Usando la ONTAP CLI, abilita il ripristino automatico sulle LIF del cluster:
 +
 [source, cli]
 ----
@@ -1098,7 +1094,9 @@ network interface modify -vserver Cluster -lif * -auto-revert true
 [[step-3-verify-the-cluster-network-configuration-and-cluster-health]]
 == Passaggio 3: verificare la configurazione della rete del cluster e lo stato del cluster
 
-. Utilizzando la CLI dello switch, verifica che le porte dello switch collegate alle porte del cluster siano *attive*.
+Dopo l'aggiornamento di RCF su entrambi gli switch, verifica la configurazione della rete del cluster e lo stato di salute del cluster.
+
+. Utilizzando la CLI dello switch, verifica che le porte dello switch connesse alle porte del cluster siano *attive*:
 +
 [source, cli]
 ----
@@ -1649,8 +1647,10 @@ Cluster
 Se alcuni LIF del cluster non sono tornati alle loro porte home, ripristinarli manualmente dal nodo locale:
 
 +
+[source, cli]
+----
 `network interface revert -vserver vserver_name -lif <lif-name>`
-
+----
 . Utilizzando la ONTAP CLI, verifica che il cluster sia integro:
 +
 [source, cli]
@@ -1672,9 +1672,9 @@ node1-03          true    true          true
 node1-04          true    true          false
 ----
 ====
-. Utilizzando la ONTAP CLI, verifica la connettività delle interfacce del cluster remoto:
+. Usando la ONTAP CLI, verifica la connettività delle interfacce del cluster remoto.
 +
-.. Puoi usare il `network interface check cluster-connectivity show` comando per visualizzare i dettagli di un controllo di accessibilità per la connettività del cluster:
+** Puoi usare il seguente comando per visualizzare i dettagli di un controllo di accessibilità per la connettività del cluster:
 +
 [source, cli]
 ----
@@ -1704,7 +1704,7 @@ node1-02
 .
 ----
 ====
-.. In alternativa, puoi usare il `cluster ping-cluster -node <node-name>` comando per verificare la connettività:
+** In alternativa, puoi usare il seguente comando per verificare la connettività:
 +
 [source, cli]
 ----
