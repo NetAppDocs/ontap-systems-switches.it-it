@@ -80,7 +80,7 @@ Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 
 Installi le immagini NX-OS ed EPLD sul primo switch (cs1) installando e verificando le versioni di NX-OS ed EPLD, poi ripeti questi passaggi sul secondo switch (cs2) se stai installando NX-OS come parte di una nuova installazione del sistema AFX.
 
-. Copia l'immagine NX-OS e EPLD sul primo switch:
+. Copia l'immagine combinata di NX-OS e EPLD sul primo switch:
 +
 `copy <protocol>: bootflash: vrf management`
 
